@@ -1,0 +1,30 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full height of the viewport */
+}
+
+.main-content {
+  background: #7ebdba;
+  padding: 100px;
+}
+
+.image-container {
+  flex: 1; /* Allow the container to grow and fill space */
+  position: relative; /* Allow absolute positioning of child elements */
+  display: flex;
+  justify-content: center; /* Center the images horizontally */
+  align-items: center; /* Center the images vertically */
+}
+
+.image-container img {
+  width: 100%; /* Make image responsive */
+  height: 100%; /* Fill the height of the container */
+  object-fit: cover; /* Maintain aspect ratio while covering the area */
+}

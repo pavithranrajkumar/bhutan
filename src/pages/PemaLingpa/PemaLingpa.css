@@ -1,0 +1,36 @@
+.overlay-image-container {
+  display: flex;
+  position: absolute;
+  bottom: 33%;
+  right: 30%;
+  animation: slideIn 1.5s ease-out forwards; /* Add this line for the animation */
+}
+
+.overlay-img {
+  position: absolute;
+  height: 150%;
+}
+
+/* Keyframes for the slide-in animation */
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%); /* Start off-screen to the left */
+    opacity: 0; /* Optional: Start with opacity 0 */
+  }
+  100% {
+    transform: translateX(0); /* End in the original position */
+    opacity: 1; /* Optional: Fade in */
+  }
+}
+
+.year-container {
+  font-size: 95px;
+  color: white;
+  font-weight: 400;
+}
+
+.card {
+  background: white;
+  display: flex;
+  align-items: center; /* Center content vertically */
+}
