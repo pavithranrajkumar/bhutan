@@ -118,26 +118,22 @@ const PemaLingpa = () => {
 
   const handleFooterIconClick = () => {
     if (showHistoricDetails) {
-      // Show details card from historic card
-      setShowHistoricDetails(false);
-      setShowDetails(true);
+      setShowHistoricDetails(false); // Hide historic details
+      setShowCards(true); // Show cards container
     } else if (showLineageCard) {
-      // Show historic card from lineage card
-      setShowLineageCard(false);
-      setShowHistoricDetails(true);
+      setShowLineageCard(false); // Hide lineage card
+      setShowCards(true); // Show cards container
     } else if (showRevelationsCard) {
-      // Show lineage card from revelations card
-      setShowRevelationsCard(false);
-      setShowLineageCard(true);
+      setShowRevelationsCard(false); // Hide revelations card
+      setShowCards(true); // Show cards container
     } else if (showLegacyCard) {
-      // Show revelations card from legacy card
-      setShowLegacyCard(false);
-      setShowRevelationsCard(true);
+      setShowLegacyCard(false); // Hide legacy card
+      setShowCards(true); // Show cards container
     } else if (showDetails) {
-      // Close details and show nothing (initial stage)
+      // If in details view, close it and do nothing else
       setShowDetails(false);
       setShowCards(false); // Ensure cards are not shown
-    } else if (showCards) {
+    } else {
       // If cards are open, just close them
       setShowCards(false);
     }
@@ -304,7 +300,7 @@ const PemaLingpa = () => {
             content="Pema Lingpa’s lineage is maintained by his three incarnation lines – Peling Sungtrul from his direct incarnation, Peling Tukse from his son and Gangteng Trulku from his grandson. Ganteng Trulku Rinpoche is the authentic representative of Peling tradition with the Gangtey monastery in Phubjikha Valley serving as his seat. Pema Lingpa’s sons also established important noble families in Bhutan, namely Tamzhing Choeji of Bumthang and Dungkhar Choeji of Kurtoe. His descendants played a major part in the unification of Bhutan in the 17th century. Jigme Namgyel, the forefather of the ruling Wangchuck dynasty was born into the family of Dungkhar Choeji founded by Pema Lingpa’s son Kunga Wangpo."
             showIntro={showIntro}
           />
-          <motion.div
+          {/* <motion.div
             className={styles.detailCardHeader}
             onClick={() => setShowLineageCard(false)}
             initial={{ opacity: 0 }}
@@ -312,7 +308,7 @@ const PemaLingpa = () => {
             transition={{ duration: 1 }}
           >
             <FontAwesomeIcon icon={faChevronRight} className={styles.icon} />
-          </motion.div>
+          </motion.div> */}
         </>
       )}
 
