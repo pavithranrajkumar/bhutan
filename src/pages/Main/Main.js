@@ -2,7 +2,7 @@ import React from "react";
 import "./main.css";
 import bottom from "../../assests/Bottom.svg";
 import top from "../../assests/Top.svg";
-import PemaLingpa from "../PemaLingpa/PemaLingpa";
+import PemaLingpa from "../../Characters/PemaLingpa/PemaLingpa";
 
 const Main = () => {
   return (
@@ -11,10 +11,10 @@ const Main = () => {
         <img src={top} alt="Top Image" />
       </div>
       <div className="main-content"></div>
-      <div className="image-container">
+      <div className="image-container bottom-image-container">
         <img src={bottom} alt="Bottom Image" />
+        <PemaLingpa />
       </div>
-      <PemaLingpa />
     </div>
   );
 };

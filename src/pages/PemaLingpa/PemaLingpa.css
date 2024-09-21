@@ -1,117 +1,99 @@
 .overlay-image-container {
   display: flex;
   position: absolute;
-  height: 8%;
-  bottom: 33%;
-  right: 15%;
-  animation: slideIn 1.5s ease-out forwards,
-    moveLeftRight 1s ease-in-out 1.5s infinite;
+  height: 10%;
+  bottom: 10%;
+  right: 5%;
+  flex-direction: column;
+  align-items: center;
 }
 
 .overlay-img {
   position: absolute;
-  height: 150%;
-}
-
-@keyframes slideIn {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes moveLeftRight {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(10px);
-  }
-  100% {
-    transform: translateX(0);
-  }
+  height: auto;
+  max-width: 100%;
 }
 
 .year-container {
-  margin-top: 5px;
-  font-size: 125px;
+  font-size: 6vw; /* Increased for larger screens */
   color: white;
   font-weight: 400;
+  text-align: center;
 }
 
 .card {
-  padding: 15px;
-  margin-top: 60px;
-  margin-left: 150px;
+  padding: 2%;
+  margin-top: 5%;
+  margin-left: 0;
   background: white;
-  display: flex;
-  height: 55% !important;
   border-radius: 35px;
   border: 3px solid black;
   cursor: pointer;
-  transition: transform 0.5s ease; /* Add transition for rotation */
+  transition: transform 0.5s ease;
+  width: 80%; /* Adjusted for better proportion on large screens */
+  max-width: 600px; /* Increased max width for larger screens */
+  align-self: center;
 }
 
 .card p {
-  font-size: 40px;
-  margin: 15px 30px 25px 60px;
+  font-size: 5vw; /* Increased for larger screens */
+  margin: 2% 5%;
+  text-align: center;
 }
 
-/* Rotate card when opened */
-.card.rotate-card {
-  transform: rotate(360deg); /* Rotate on click */
-}
-
-/* Styles for the additional card with animation */
 .additional-card {
-  margin-top: 20px; /* Adjust this to your layout */
-  margin-left: 150px;
+  margin-top: 5%;
   background: white;
   border-radius: 15px;
   border: 2px solid black;
-  padding: 15px; /* Padding on the sides */
-  opacity: 0; /* Initially hidden */
-  transform: translateY(-20px); /* Start slightly above */
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth transition */
-  height: 0; /* Collapse height initially */
+  padding: 2%;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  width: 80%;
+  max-width: 600px;
+  align-self: center;
 }
 
-/* Styles when the card is open */
-.additional-card.slide-down {
-  opacity: 1; /* Fully visible */
-  transform: translateY(0); /* Move to original position */
-  height: auto; /* Allow height to adjust */
-}
-
-/* Animation for additional text */
 .additional-text {
-  opacity: 0; /* Start hidden */
-  transform: translateY(10px) scale(0.95); /* Start slightly below and scaled down */
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth transition */
+  opacity: 0;
+  transform: translateY(10px) scale(0.95);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  text-align: center;
 }
 
-/* Fade-in effect for the text */
 .additional-text.fade-in {
-  opacity: 1; /* Fully visible */
-  transform: translateY(0) scale(1); /* Move to original position and scale up */
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
-/* Scale-up and slide-up animation for additional text */
 .additional-text.slide-up {
   animation: scaleUpSlide 0.5s ease forwards;
 }
 
-@keyframes scaleUpSlide {
-  0% {
-    opacity: 0;
-    transform: translateY(10px) scale(0.8); /* Start below and scaled down */
+@media (max-width: 768px) {
+  .year-container {
+    font-size: 5vw;
   }
-  100% {
-    opacity: 1; /* Fully visible */
-    transform: translateY(0) scale(1); /* Move to original position and scale up */
+  .card p {
+    font-size: 5vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .year-container {
+    font-size: 4vw;
+  }
+  .card p {
+    font-size: 6vw;
+  }
+}
+
+@media (min-width: 3840px) {
+  .year-container {
+    font-size: 6vw; /* Adjust for larger screens */
+  }
+  .card p {
+    font-size: 4vw; /* Scale appropriately for 4K */
   }
 }

@@ -1,0 +1,186 @@
+.pemaContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 18vw;
+}
+
+.pemaText {
+  position: fixed;
+  margin-top: 5.5vw;
+  margin-left: 18.5vw;
+  font-size: 2.8vw;
+  color: white;
+}
+
+.pemaImage {
+  position: fixed;
+  bottom: 27%; /* Set vertical position */
+  left: 62%; /* Center the image horizontally */
+  transform: translate(-50%, -60%);
+  z-index: 10;
+  margin: 0; /* Remove margin to prevent any movement */
+}
+
+.pemaImage img {
+  width: 6vw; /* Adjust as needed */
+  height: auto;
+  z-index: 10;
+}
+
+.pemaNameCard {
+  position: fixed;
+  background: white;
+  z-index: 1;
+  padding: 0.5vw;
+  border-radius: 0.5vw;
+  top: 65%;
+  left: 66%;
+  cursor: pointer;
+}
+
+.nameCard {
+  padding: 0.5vw;
+  text-align: center;
+}
+
+.nameCardSubtitle {
+  font-size: 0.8rem;
+  color: gray;
+  margin-top: 0.2rem;
+}
+
+.detailCard {
+  position: fixed;
+  font-size: 0.7vw;
+  background: white;
+  border-radius: 1vw;
+  padding: 0.4vw;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin-top: 13vw;
+  width: 30vw;
+  left: 54%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.detailCardFooter {
+  position: fixed;
+  top: 90%;
+  left: 50%;
+  z-index: 1;
+}
+
+.detailCardHeader {
+  position: fixed;
+  bottom: 25%;
+  left: 85%;
+  z-index: 1;
+}
+
+.icon {
+  padding: 1vw;
+  background: white;
+  font-size: 1vw;
+  cursor: pointer;
+  cursor: pointer;
+}
+
+.cardsContainer {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  margin-top: 13%;
+  margin-left: 30%;
+}
+
+.HistoricCard {
+  cursor: pointer;
+  pointer-events: auto;
+  position: fixed;
+  background: white;
+  color: black;
+  border-radius: 0.5vw;
+  margin-top: 1vw;
+  font-size: 1.3vw;
+  font-weight: 800;
+  padding: 0.8vw;
+  width: 10%;
+}
+
+.LineageCard {
+  font-weight: 800;
+  position: fixed;
+  background: white;
+  color: black;
+  border-radius: 0.5vw;
+  padding: 1vw;
+  font-size: 1.3vw;
+  margin-top: 2.15vw;
+  margin-left: 12.5vw;
+  cursor: pointer;
+}
+
+.RevelationsCard {
+  font-weight: 800;
+  width: 10%;
+  padding: 0.8vw;
+  position: fixed;
+  background: white;
+  color: black;
+  border-radius: 0.5vw;
+  margin-top: 6.4vw;
+  margin-left: 1.6vw;
+  font-size: 1.3vw;
+  cursor: pointer;
+}
+
+.LegacyCard {
+  font-weight: 800;
+  background: white;
+  color: black;
+  border-radius: 0.5vw;
+  padding: 1.07vw;
+  margin-top: 8.09vw;
+  font-size: 1.3vw;
+  margin-left: 14vw;
+  cursor: pointer;
+}
+
+.historyCards {
+  position: fixed;
+  display: flex;
+  gap: 5%;
+  margin-top: 30%;
+  margin-left: 5%;
+}
+
+.HistoricDetailCard {
+  position: fixed;
+  font-size: 0.7vw;
+  background: white;
+  border-radius: 1vw;
+  padding: 0.4vw;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin-top: 13vw;
+  width: 30vw;
+  left: 54%;
+  transform: translateX(-50%);
+  display: flex;
+  cursor: pointer;
+}
+
+.historicDetailHeader {
+  position: fixed;
+  bottom: 25%;
+  left: 85%;
+  z-index: 1;
+  cursor: pointer;
+}

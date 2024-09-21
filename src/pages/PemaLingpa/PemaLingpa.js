@@ -10,7 +10,7 @@ const PemaLingpa = () => {
   const handleCardClick = () => {
     setIsCardOpen(!isCardOpen);
     setShowYearContainer(!showYearContainer);
-    setCardText(isCardOpen ? "PEMA LINGPA" : "ADDITIONAL INFO");
+    setCardText(isCardOpen ? "PEMA LINGPA" : "PEMA LINGPA ");
   };
 
   return (

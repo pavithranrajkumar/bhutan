@@ -1,0 +1,6 @@
+.detailCardFooter {
+  position: fixed;
+  top: 90%;
+  left: 50%;
+  z-index: 1;
+}
