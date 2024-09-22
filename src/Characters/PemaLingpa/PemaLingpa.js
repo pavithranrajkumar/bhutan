@@ -19,6 +19,17 @@ import Tsakaling from "../../assests/Tsakaling.svg";
 import Drophu from "../../assests/Drophu.svg";
 import Drametse from "../../assests/Drametse.svg";
 import Yagang from "../../assests/Yagang.svg";
+import ComicBook from "../../assests/Burning Lake Cover Image.jpg";
+import NaringDrag from "../../assests/Naring Drag Cover Image.jpg";
+import KenchosumLhakhang from "../../assests/KenchosumLhakhang.svg";
+import MonsTemples from "../../assests/StateCollapsed.jpg";
+import MonsTemplesFrst from "../../assests/Photo Frame Main.svg";
+import MonsTemplesScnd from "../../assests/Photo Frame.svg";
+import MonsTemplesThrd from "../../assests/Photo Frame (1).svg";
+import MonsTemplesFrth from "../../assests/Photo Frame (2).svg";
+import MonsTemplesFvth from "../../assests/Photo Frame (3).svg";
+import MonsTemplesSxth from "../../assests/Photo Frame (6).svg";
+import MonsTemplesSvnth from "../../assests/Photo Frame (5).svg";
 
 const PemaLingpa = () => {
   const [showDetails, setShowDetails] = useState(false);
@@ -34,6 +45,19 @@ const PemaLingpa = () => {
   const [showLegacyCard, setShowLegacyCard] = useState(false);
   const [showFirstLevel, setShowFirstLevel] = useState(false);
   const [activeCard, setActiveCard] = useState(null);
+  const [showNaringDragCard, setShowNaringDragCard] = useState(false);
+  const [showBurningLakeCard, setShowBurningLakeCard] = useState(false);
+  const [showMonstariesAndTemples, setShowMonstariesAndTemples] =
+    useState(false);
+  const [showMonstariesAndTemplesImgs, setShowMonstariesAndTemplesImgs] =
+    useState(false);
+  const [showPelingDance, setShowPelingDance] = useState(false);
+
+  const fadeInOut = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+    exit: { opacity: 0 },
+  };
 
   const handleCardClick = () => {
     if (
@@ -42,7 +66,12 @@ const PemaLingpa = () => {
       showHistoricDetails ||
       showLineageCard ||
       showRevelationsCard ||
-      showLegacyCard
+      showLegacyCard ||
+      showBurningLakeCard ||
+      showNaringDragCard ||
+      showMonstariesAndTemples ||
+      showMonstariesAndTemplesImgs ||
+      showPelingDance
     ) {
       setShowDetails(false);
       setShowCards(false);
@@ -50,6 +79,11 @@ const PemaLingpa = () => {
       setShowLineageCard(false); // Close lineage card as well
       setShowRevelationsCard(false); // Close revelations card
       setShowLegacyCard(false); // Close legacy card
+      setShowBurningLakeCard(false);
+      setShowNaringDragCard(false);
+      setShowMonstariesAndTemples(false);
+      setShowMonstariesAndTemplesImgs(false);
+      setShowPelingDance(false);
       setNameCardText("PEMALINGPA");
       setNameCardSubtitle("");
       setShowIntro(false);
@@ -121,6 +155,18 @@ const PemaLingpa = () => {
     }, 500);
   };
 
+  const handleNaringDragCardClick = () => {
+    setShowRevelationsCard(false);
+    setShowNaringDragCard(!showNaringDragCard); // Toggle NaringDrag card
+    setShowBurningLakeCard(false); // Hide BurningLake card when NaringDrag is clicked
+  };
+
+  const handleBurningLakeCardClick = () => {
+    setShowRevelationsCard(false);
+    setShowBurningLakeCard(!showBurningLakeCard); // Toggle BurningLake card
+    setShowNaringDragCard(false); // Hide NaringDrag card when BurningLake is clicked
+  };
+
   const handleLegacyCardClick = () => {
     setIsFadingOut(true); // Start fading out
     setTimeout(() => {
@@ -132,35 +178,56 @@ const PemaLingpa = () => {
     }, 500);
   };
 
+  const PelingCardClick = () => {
+    setShowLegacyCard(false);
+    setShowMonstariesAndTemples(true);
+  };
+
+  const PelingCardImageClick = () => {
+    setShowMonstariesAndTemples(false);
+    setShowMonstariesAndTemplesImgs(true);
+  };
+
+  const PelingDanceClick = () => {
+    setShowMonstariesAndTemplesImgs(false);
+    setShowPelingDance(true);
+  };
+
   const handleFooterIconClick = () => {
     if (showHistoricDetails) {
-      setShowHistoricDetails(false); // Hide historic details
-      setShowCards(true); // Show cards container
+      setShowHistoricDetails(false);
+      setShowCards(true);
     } else if (showLineageCard) {
-      setShowLineageCard(false); // Hide lineage card
-      setShowCards(true); // Show cards container
+      setShowLineageCard(false);
+      setShowCards(true);
     } else if (showRevelationsCard) {
-      setShowRevelationsCard(false); // Hide revelations card
-      setShowCards(true); // Show cards container
+      setShowRevelationsCard(false);
+      setShowCards(true);
     } else if (showLegacyCard) {
-      setShowLegacyCard(false); // Hide legacy card
-      setShowCards(true); // Show cards container
+      setShowLegacyCard(false);
+      setShowCards(true);
     } else if (showDetails) {
-      // If in details view, close it and do nothing else
       setShowDetails(false);
-      setShowCards(false); // Ensure cards are not shown
+      setShowCards(false);
+    } else if (showBurningLakeCard) {
+      setShowBurningLakeCard(false);
+      setShowCards(false);
+      setShowRevelationsCard(true);
+    } else if (showNaringDragCard) {
+      setShowNaringDragCard(false);
+      setShowCards(false);
+      setShowRevelationsCard(true);
     } else {
-      // If cards are open, just close them
       setShowCards(false);
     }
   };
 
   const handleFamilyHeaderClick = () => {
-    setShowFirstLevel(!showFirstLevel); // Toggle visibility for the first level
+    setShowFirstLevel(!showFirstLevel);
   };
 
   const handleTreeCardClick = (cardName) => {
-    setActiveCard(activeCard === cardName ? null : cardName); // Toggle visibility for specific card container
+    setActiveCard(activeCard === cardName ? null : cardName);
   };
 
   return (
@@ -317,6 +384,7 @@ const PemaLingpa = () => {
           </motion.div>
         </>
       )}
+
       {showLineageCard && (
         <div>
           <Card
@@ -396,157 +464,211 @@ const PemaLingpa = () => {
 
                 {/* Containers for each card */}
                 {activeCard === "DrakpaGyalpos" && (
-                  <div>
-                    <div className={styles.VerticalLine}></div>
-                    <div className={styles.SonsCard}>
-                      <p>Sons</p>
-                    </div>
-                    <div className={styles.SonsHorizontalLine}></div>
-                    <div className={styles.SonsVerticalLine}></div>
-                    <div className={styles.DrakpaGyalposContainer}>
-                      <div className={styles.DrakpaGyalposVerticalLine}></div>
-                      <div className={styles.ChoejeCard}>
-                        <p>Choeje</p>
+                  <motion.div
+                    className={`${styles.SonsTree} ${
+                      activeCard === "DrakpaGyalpos" ? "" : styles.faded
+                    }`}
+                    onClick={() => handleTreeCardClick("DrakpaGyalpos")}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    variants={fadeInOut}
+                    transition={{ duration: 2, exit: { duration: 1.5 } }}
+                  >
+                    <div>
+                      <div className={styles.VerticalLine}></div>
+                      <div className={styles.SonsCard}>
+                        <p>Sons</p>
                       </div>
-                      <div className={styles.ChoejeVerticalLine}></div>
-                      <div className={styles.Tamshing}>
-                        <img src={Tamshing} alt="" />
-                        <div className={styles.TamshingCard}>
-                          <p>Tamshing</p>
+                      <div className={styles.SonsHorizontalLine}></div>
+                      <div className={styles.SonsVerticalLine}></div>
+                      <div className={styles.DrakpaGyalposContainer}>
+                        <div className={styles.DrakpaGyalposVerticalLine}></div>
+                        <div className={styles.ChoejeCard}>
+                          <p>Choeje</p>
+                        </div>
+                        <div className={styles.ChoejeVerticalLine}></div>
+                        <div className={styles.Tamshing}>
+                          <img src={Tamshing} alt="" />
+                          <div className={styles.TamshingCard}>
+                            <p>Tamshing</p>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 )}
 
                 {activeCard === "DawaGyaltshen" && (
-                  <div>
-                    <div className={styles.VerticalLine}></div>
-                    <div className={styles.SonsCard}>
-                      <p>Sons</p>
-                    </div>
-                    <div className={styles.DawaGyaltshenSonsVerticalLine}></div>
-                    <div
-                      className={styles.DawaGyaltshenSonsHorizontalLine}
-                    ></div>
-                    <div
-                      className={styles.DawaGyaltshenDownSonsVerticalLine}
-                    ></div>
-
-                    <div className={styles.DawaGyaltshenCardContainer}>
-                      <div className={styles.DawaGyaltshenVerticalLine}></div>
-                      <div className={styles.PrakharChoejeCard}>
-                        <p>Choeje</p>
+                  <motion.div
+                    className={`${styles.SonsTree} ${
+                      activeCard === "DrakpaGyalpos" ? "" : styles.faded
+                    }`}
+                    onClick={() => handleTreeCardClick("DrakpaGyalpos")}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    variants={fadeInOut}
+                    transition={{ duration: 2, exit: { duration: 1.5 } }}
+                  >
+                    <div>
+                      <div className={styles.VerticalLine}></div>
+                      <div className={styles.SonsCard}>
+                        <p>Sons</p>
                       </div>
-                      <div className={styles.PrakharVerticalLine}></div>
-                      <div className={styles.Prakhar}>
-                        <img src={Prakhar} alt="" />
-                        <div className={styles.PrakharCard}>
-                          <p>Prakhar</p>
+                      <div
+                        className={styles.DawaGyaltshenSonsVerticalLine}
+                      ></div>
+                      <div
+                        className={styles.DawaGyaltshenSonsHorizontalLine}
+                      ></div>
+                      <div
+                        className={styles.DawaGyaltshenDownSonsVerticalLine}
+                      ></div>
+
+                      <div className={styles.DawaGyaltshenCardContainer}>
+                        <div className={styles.DawaGyaltshenVerticalLine}></div>
+                        <div className={styles.PrakharChoejeCard}>
+                          <p>Choeje</p>
+                        </div>
+                        <div className={styles.PrakharVerticalLine}></div>
+                        <div className={styles.Prakhar}>
+                          <img src={Prakhar} alt="" />
+                          <div className={styles.PrakharCard}>
+                            <p>Prakhar</p>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 )}
 
                 {activeCard === "KuengaWangpo" && (
-                  <div className={styles.DawaGyaltshenCardContainer}>
-                    <div className={styles.VerticalLine}></div>
-                    <div className={styles.SonsCard}>
-                      <p>Sons</p>
-                    </div>
+                  <motion.div
+                    className={`${styles.SonsTree} ${
+                      activeCard === "DrakpaGyalpos" ? "" : styles.faded
+                    }`}
+                    onClick={() => handleTreeCardClick("DrakpaGyalpos")}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    variants={fadeInOut}
+                    transition={{ duration: 2, exit: { duration: 1.5 } }}
+                  >
+                    <div className={styles.DawaGyaltshenCardContainer}>
+                      <div className={styles.VerticalLine}></div>
+                      <div className={styles.SonsCard}>
+                        <p>Sons</p>
+                      </div>
 
-                    <div className={styles.KuengaWangpoSonsVerticalLine}></div>
-                    <div className={styles.KuengaWangpoVerticalLine}></div>
-                    <div className={styles.KochungChoejeCard}>
-                      <p>Choeje</p>
+                      <div
+                        className={styles.KuengaWangpoSonsVerticalLine}
+                      ></div>
+                      <div className={styles.KuengaWangpoVerticalLine}></div>
+                      <div className={styles.KochungChoejeCard}>
+                        <p>Choeje</p>
+                      </div>
+                      <div className={styles.KochungChoejeVerticalLine}></div>
+                      <div className={styles.KochungHorizontalLine}></div>
+                      <div className={styles.KochungVerticalLine}></div>
+                      <div className={styles.BidungVerticalLine}></div>
+                      <div className={styles.KheriVerticalLine}></div>
+                      <div className={styles.DungkarVerticalLine}></div>
+                      <div style={{ display: "flex" }}>
+                        <div className={styles.Kochung}>
+                          <img src={Kochung} alt="" />
+                          <div className={styles.KochungCard}>
+                            <p>Kochung</p>
+                          </div>
+                        </div>
+                        <div className={styles.Bidung}>
+                          <img src={Bidung} alt="" />
+                          <div className={styles.BidungCard}>
+                            <p>Bidung</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div style={{ display: "flex" }}>
+                        <div className={styles.Kheri}>
+                          <img src={Kheri} alt="" />
+                          <div className={styles.KheriCard}>
+                            <p>Kheri</p>
+                          </div>
+                        </div>
+                        <div className={styles.Dungkar}>
+                          <img src={Dungkar} alt="" />
+                          <div className={styles.DungkarCard}>
+                            <p>Dungkar</p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div className={styles.KochungChoejeVerticalLine}></div>
-                    <div className={styles.KochungHorizontalLine}></div>
-                    <div className={styles.KochungVerticalLine}></div>
-                    <div className={styles.BidungVerticalLine}></div>
-                    <div className={styles.KheriVerticalLine}></div>
-                    <div className={styles.DungkarVerticalLine}></div>
-                    <div style={{ display: "flex" }}>
-                      <div className={styles.Kochung}>
-                        <img src={Kochung} alt="" />
-                        <div className={styles.KochungCard}>
-                          <p>Kochung</p>
-                        </div>
-                      </div>
-                      <div className={styles.Bidung}>
-                        <img src={Bidung} alt="" />
-                        <div className={styles.BidungCard}>
-                          <p>Bidung</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div style={{ display: "flex" }}>
-                      <div className={styles.Kheri}>
-                        <img src={Kheri} alt="" />
-                        <div className={styles.KheriCard}>
-                          <p>Kheri</p>
-                        </div>
-                      </div>
-                      <div className={styles.Dungkar}>
-                        <img src={Dungkar} alt="" />
-                        <div className={styles.DungkarCard}>
-                          <p>Dungkar</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  </motion.div>
                 )}
 
                 {activeCard === "Sangda" && (
-                  <div className={styles.SangdaCardContainer}>
-                    <div className={styles.VerticalLine}></div>
-                    <div className={styles.SonsCard}>
-                      <p>Sons</p>
-                    </div>
-                    <div className={styles.SangdaSonsHorizontalLine}></div>
-                    <div className={styles.SangdaSonsVerticalLine}></div>
-                    <div className={styles.SangdaDownSonsVerticalLine}></div>
+                  <motion.div
+                    className={`${styles.SonsTree} ${
+                      activeCard === "DrakpaGyalpos" ? "" : styles.faded
+                    }`}
+                    onClick={() => handleTreeCardClick("DrakpaGyalpos")}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    variants={fadeInOut}
+                    transition={{ duration: 2, exit: { duration: 5 } }}
+                  >
+                    <div className={styles.SangdaCardContainer}>
+                      <div className={styles.VerticalLine}></div>
+                      <div className={styles.SonsCard}>
+                        <p>Sons</p>
+                      </div>
+                      <div className={styles.SangdaSonsHorizontalLine}></div>
+                      <div className={styles.SangdaSonsVerticalLine}></div>
+                      <div className={styles.SangdaDownSonsVerticalLine}></div>
 
-                    <div className={styles.SangdaVerticalLine}></div>
-                    <div className={styles.SangdaSonsCard}>
-                      <p>Choeje</p>
-                    </div>
-                    <div className={styles.SangdaDownVerticalLine}></div>
-                    <div className={styles.SangdaHorizontalLine}></div>
-                    <div className={styles.SangdaFrstSonsVerticalLine}></div>
-                    <div className={styles.SangdaScndSonsVerticalLine}></div>
-                    <div className={styles.SangdaThrdSonsVerticalLine}></div>
-                    <div className={styles.SangdaFrthSonsVerticalLine}></div>
-                    <div className={styles.SangdaFrthSonsHorizontalLine}></div>
+                      <div className={styles.SangdaVerticalLine}></div>
+                      <div className={styles.SangdaSonsCard}>
+                        <p>Choeje</p>
+                      </div>
+                      <div className={styles.SangdaDownVerticalLine}></div>
+                      <div className={styles.SangdaHorizontalLine}></div>
+                      <div className={styles.SangdaFrstSonsVerticalLine}></div>
+                      <div className={styles.SangdaScndSonsVerticalLine}></div>
+                      <div className={styles.SangdaThrdSonsVerticalLine}></div>
+                      <div className={styles.SangdaFrthSonsVerticalLine}></div>
+                      <div
+                        className={styles.SangdaFrthSonsHorizontalLine}
+                      ></div>
 
-                    <div className={styles.SangdaSonsContainer}>
-                      <div className={styles.Tsakaling}>
-                        <img src={Tsakaling} alt="" />
-                        <div className={styles.TsakalingCard}>
-                          <p>Tsakaling</p>
+                      <div className={styles.SangdaSonsContainer}>
+                        <div className={styles.Tsakaling}>
+                          <img src={Tsakaling} alt="" />
+                          <div className={styles.TsakalingCard}>
+                            <p>Tsakaling</p>
+                          </div>
                         </div>
-                      </div>
-                      <div className={styles.Drophu}>
-                        <img src={Drophu} alt="" />
-                        <div className={styles.DrophuCard}>
-                          <p>Drophu</p>
+                        <div className={styles.Drophu}>
+                          <img src={Drophu} alt="" />
+                          <div className={styles.DrophuCard}>
+                            <p>Drophu</p>
+                          </div>
                         </div>
-                      </div>
-                      <div className={styles.Drametse}>
-                        <img src={Drametse} alt="" />
-                        <div className={styles.DrametseCard}>
-                          <p>Drametse</p>
+                        <div className={styles.Drametse}>
+                          <img src={Drametse} alt="" />
+                          <div className={styles.DrametseCard}>
+                            <p>Drametse</p>
+                          </div>
                         </div>
-                      </div>
-                      <div className={styles.Yagang}>
-                        <img src={Yagang} alt="" />
-                        <div className={styles.YagangCard}>
-                          <p>Yagang</p>
+                        <div className={styles.Yagang}>
+                          <img src={Yagang} alt="" />
+                          <div className={styles.YagangCard}>
+                            <p>Yagang</p>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 )}
               </>
             )}
@@ -557,19 +679,64 @@ const PemaLingpa = () => {
       {showRevelationsCard && (
         <>
           <Card
-            title="REVELATIONS"
-            content="Pema Lingpa is revered for his numerous revelations, including sacred texts, rituals, and practices that continue to be vital in the Nyingma tradition. His treasures, known as 'termas,' were revealed to guide practitioners in their spiritual journeys."
+            title="Revelations by Pema Lingpa"
+            content="Pema Lingpa discovered treasures mainly around Bumthang’s valleys and regions north of its current borders with Tibet. He revealed exclusively physical terma, both texts and relics. In his lifetime, Pema Lingpa was able to reveal only 32 out of 108 termas destined for him. The collection of texts discovered by him, ‘The Precious Collection of Profound Treasure Teachings of the Great Master Pema Lingpa’ consists of 21 volumes."
             showIntro={showIntro}
           />
-          <motion.div
-            className={styles.detailCardHeader}
-            onClick={() => setShowRevelationsCard(false)}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: showIcons ? 1 : 0 }}
-            transition={{ duration: 1 }}
-          >
-            <FontAwesomeIcon icon={faChevronRight} className={styles.icon} />
-          </motion.div>
+          <div className={styles.RevelationsSideCards}>
+            <div className={styles.NaringDragCard}>
+              <div
+                className={styles.RevelationsSideCardsfrst}
+                onClick={handleNaringDragCardClick}
+              >
+                Revelations at
+              </div>
+              <div className={styles.RevelationsSideCardsScnd}>NARING DRAG</div>
+              <img src={NaringDrag} alt="NaringDrag" />
+              <div className={styles.NaringDragCardBookText}>NARING DRAG</div>
+            </div>
+            <div
+              className={styles.BurningLakeCard}
+              onClick={handleBurningLakeCardClick}
+            >
+              <div className={styles.RevelationsSideCardsfrst}>
+                Revelations at
+              </div>
+              <div className={styles.RevelationsSideCardsScnd}>
+                BURNING LAKE
+              </div>
+              <img src={ComicBook} alt="ComicBook" />
+              <div className={styles.BurningLakeCardBookText}>BURNING LAKE</div>
+            </div>
+          </div>
+        </>
+      )}
+
+      {showNaringDragCard && (
+        <>
+          <Card
+            title="Revelation at Naring Drag"
+            content="Pema Lingpa is awakened by the voice of a monk, who urges him to read a scroll thrust into his hands. The scroll instructs Pema Lingpa to gather five friends and go to Naring Drak on a full moon night to uncover his destiny. It also contained a key to decode the terma. He dives into the lake below the cliff finding a large cave with a throne and stacks of texts. The cave’s guardian hands him a scroll and asks him to leave. When Pema Lingpa surfaces above water, he is propelled up the cliff by the wind. Returning home he shares the text with his parents and two masters from Tharpaling Monastery, none could read the text. He then uses the key in the scroll to read the title of the text, ‘Crystallization of the Tantra of Luminous Space’. This text is considered the first of 32 termas revealed by Pema Lingpa."
+            showIntro={showIntro}
+          />
+          <div className={styles.NaringDragCardBook}>
+            <img src={NaringDrag} alt="NaringDrag" />
+            <div className={styles.NaringDragCardBookTextScnd}>NARING DRAG</div>
+          </div>
+        </>
+      )}
+
+      {showBurningLakeCard && (
+        <>
+          <Card
+            title="Revelation at Burning Lake"
+            content="When the local Choekhor governor hears of the popularity of Pema Lingpa, he is not convinced of his authenticity. Assembling a large group of people in Naring Drag, he asks Pema Lingpa to prove his merit. He declares that he would support Pema Lingpa if he would bring out a treasure, failing which he would be punished. Pema Lingpa proclaimed “If I am genuine, let me bring back the treasure with this lamp still burning. If I am a fraud, let me die in the waters below.” He then took a burning butter lamp and dove into the lake resurfacing with a box of skulls, a sculpture of the Buddha and the butter lamp, still alight. All those who witness the miracle became Pema Lingpa’s followers and patrons, and the lake gets its name Mebar tsho or Burning Lake."
+            showIntro={showIntro}
+          />
+          <div className={styles.NaringDragCardBook}>
+            <img src={NaringDrag} alt="NaringDrag" />
+            <div className={styles.NaringDragCardBookTextScnd}>NARING DRAG</div>
+          </div>
         </>
       )}
 
@@ -577,9 +744,20 @@ const PemaLingpa = () => {
         <>
           <Card
             title="LEGACY"
-            content="Pema Lingpa's legacy endures through his many disciples and the lineages they established. His teachings continue to inspire and shape the practices within the Nyingma tradition, ensuring the continuation of his spiritual heritage."
+            content="Pema Lingpa established an enormous corpus of literature which serves as the primary basis of religious life for Buddhist followers. The teachings and the cycle of treasures of Pema Lingpa contain several practices, rituals, and instructions that lead sentient beings to liberation. Pema Lingpa’s legacies are preserved in the form of sacred dances which were revealed to him as dreams and visions. The ritual dances, cham composed by him serve as a centrepiece for many festivals and ceremonies across Bhutan."
             showIntro={showIntro}
           />
+          <div className={styles.PelingCard} onClick={PelingCardClick}>
+            <img src={KenchosumLhakhang} alt="KenchosumLhakhang" />
+            <div className={styles.PelingSideCardsfrst}>Peling</div>
+            <div className={styles.PelingSideCardsScnd}>
+              MONASTERIES & TEMPLES
+            </div>
+          </div>
+          <div className={styles.PelingDanceCard} onClick={PelingDanceClick}>
+            <div className={styles.PelingSideCardsfrst}>Peling</div>
+            <div className={styles.PelingSideCardsScnd}>DANCE</div>
+          </div>
           <motion.div
             className={styles.detailCardHeader}
             onClick={() => setShowLegacyCard(false)}
@@ -592,11 +770,72 @@ const PemaLingpa = () => {
         </>
       )}
 
+      {showMonstariesAndTemples && (
+        <>
+          <Card
+            title="Peling monasteries & temples"
+            content="Pema Lingpa built many temples such as Tamzhing Lhundrup Choling in Bumthang; Pemaling, Dechenling, and Kunzangdrak in Chel; Kunzangling in Kurtö; Dekyiling in Bamrin; Orgyenling in Tsangchu; Kyerechung Tashi Tengye in Layak; and several others. He restored damages and reconsecrated Gyatso Lhalun. Like his previous incarnations, Pema Lingpa left magical markings of his passing in many places like Kunzangdrak monastery and Gyagar Khamphuk. These marks have a status akin to a terma, as they are reminders of his ever-living presence."
+            showIntro={showIntro}
+          />
+          <div
+            className={styles.MonsTemplesCardBook}
+            onClick={PelingCardImageClick}
+          >
+            <img src={MonsTemples} alt="NaringDrag" />
+          </div>
+        </>
+      )}
+
+      {showMonstariesAndTemplesImgs && (
+        <>
+          <div className={styles.MonstariesAndTemplesImgsContainer}>
+            <div className={styles.MonstariesAndTemplesImgsContainerfrst}>
+              <img src={MonsTemplesFrst} alt="MonsTemplesFrst" />
+            </div>
+            <div className={styles.MonstariesAndTemplesImgsContainerScnd}>
+              <div className={styles.MonstariesAndTemplesImgs}>
+                <img src={MonsTemplesScnd} alt="MonsTemplesFrst" />
+              </div>
+              <div className={styles.MonstariesAndTemplesImgs2}>
+                <img src={MonsTemplesThrd} alt="MonsTemplesFrst" />
+              </div>
+            </div>
+            <div className={styles.MonstariesAndTemplesImgsContainerThrd}>
+              <img src={MonsTemplesFrth} alt="MonsTemplesFrst" />
+              <img src={MonsTemplesFvth} alt="MonsTemplesFrst" />
+              <img src={MonsTemplesSxth} alt="MonsTemplesFrst" />
+            </div>
+            <div className={styles.MonstariesAndTemplesImgsContainerFrth}>
+              <img src={MonsTemplesSvnth} alt="MonsTemplesFrst" />
+              <div
+                className={styles.MonstariesAndTemplesImgsPelingDanceCard}
+                onClick={PelingDanceClick}
+              >
+                <div className={styles.PelingSideCardsfrst}>Peling</div>
+                <div className={styles.PelingSideCardsScnd}>DANCE</div>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+
+      {showPelingDance && (
+        <>
+          <Card
+            title="Peling Dances"
+            content="Pema Lingpa’s legacies are preserved in the form of sacred dances called peling tercham which were revealed to him as dreams and visions. The ritual dances composed by him serve as a centerpiece for many festivals and ceremonies. The most popular of the dances are the dakini dance, the three ging dances signifying the subjugation of evil and the ging and tsholing dance. It is said that dakini would visit him in his dreams to teach him the steps of different sacred dances and give him further instructions."
+            showIntro={showIntro}
+          />
+        </>
+      )}
+
       {(showDetails ||
         showCards ||
         showHistoricDetails ||
         showLineageCard ||
         showRevelationsCard ||
+        showBurningLakeCard ||
+        showNaringDragCard ||
         showLegacyCard) &&
         showIcons && (
           <motion.div
