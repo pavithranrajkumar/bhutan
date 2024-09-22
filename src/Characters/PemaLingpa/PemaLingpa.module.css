@@ -73,7 +73,7 @@
 .detailCardFooter {
   position: fixed;
   top: 90%;
-  left: 50%;
+  left: 48%;
   z-index: 1;
 }
 
@@ -183,4 +183,811 @@
   left: 85%;
   z-index: 1;
   cursor: pointer;
+}
+
+.FamilCard {
+  display: flex;
+  position: fixed;
+}
+
+.FamilyHeader {
+  position: fixed;
+  background: #c76224;
+  width: 8vw;
+  padding: 0.4vw;
+  right: 8%;
+  bottom: 52%;
+}
+
+.FamilyHeader p {
+  font-size: 0.9vw;
+  color: #380100;
+  padding: 0;
+  margin: 0;
+}
+
+.SonsCard {
+  position: fixed;
+  background: #c76224;
+  width: 1.5vw;
+  padding: 0.4vw;
+  right: 10.8%;
+  bottom: 47.5%;
+  border-radius: 1.5vw;
+  border: 0.2vw solid #8f4110;
+}
+
+.SonsCard p {
+  font-size: 0.6vw;
+  color: #380100;
+  padding: 0;
+  margin: 0;
+}
+
+.SonsList {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 32%;
+  gap: 0.5vw;
+  left: 75%;
+}
+
+.DrakpaGyalpos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.DrakpaGyalpos img {
+  width: 3.5vw;
+  height: 3.5vw;
+  object-fit: fill;
+}
+
+.DrakpaGyalposCard,
+.DawaGyaltshenCard,
+.KuengaWangpoCard,
+.SangdaCard {
+  background: #c76224;
+  width: 4vw;
+  padding: 0.4vw;
+  text-align: center;
+}
+
+.DrakpaGyalposCard p,
+.DawaGyaltshenCard p,
+.KuengaWangpoCard p,
+.SangdaCard p {
+  font-size: 0.85vw;
+  color: #380100;
+  padding: 0;
+  margin: 0;
+}
+
+.VerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 1.1vw;
+  left: 87.9%;
+  bottom: 50%;
+}
+
+.SonsHorizontalLine {
+  position: fixed;
+  width: 9.5vw;
+  height: 0.2vw;
+  bottom: 49%;
+  left: 77.3%;
+  background-color: #8f4110;
+}
+
+.SonsVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 2.5vw;
+  left: 77.29%;
+  bottom: 44.2%;
+}
+
+.DrakpaGyalposVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 2vw;
+  left: 77.4%;
+  bottom: 28.5%;
+}
+
+.SonsTree {
+  display: flex;
+  flex-direction: column;
+}
+
+.ChoejeCard {
+  position: fixed;
+  background: #c76224;
+  width: 1.5vw;
+  padding: 0.4vw;
+  right: 21.3%;
+  bottom: 25.5%;
+  border-radius: 1.5vw;
+  border: 0.2vw solid #8f4110;
+}
+
+.ChoejeCard p {
+  font-size: 0.59vw;
+  color: #380100;
+  padding: 0;
+  margin: 0;
+}
+
+.Tamshing {
+  position: fixed;
+  top: 76.5%;
+  left: 75.2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Tamshing img {
+  width: 3.5vw;
+  height: 3.5vw;
+  object-fit: fill;
+}
+
+.TamshingCard {
+  background: #c76224;
+  width: 4vw;
+  padding: 0.4vw;
+  text-align: center;
+}
+
+.TamshingCard p {
+  font-size: 0.85vw;
+  color: #380100;
+  padding: 0;
+  margin: 0;
+}
+
+.ChoejeVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 2vw;
+  left: 77.4%;
+  bottom: 22%;
+}
+
+.ChoejeCard {
+  position: fixed;
+  background: #c76224;
+  width: 1.5vw;
+  padding: 0.4vw;
+  right: 21.3%;
+  bottom: 25.5%;
+  border-radius: 1.5vw;
+  border: 0.2vw solid #8f4110;
+}
+
+.ChoejeCard p {
+  font-size: 0.59vw;
+  color: #380100;
+  padding: 0;
+  margin: 0;
+}
+
+/* kk */
+
+.Sangda {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Sangda img {
+  width: 3.5vw;
+  height: 3.5vw;
+  object-fit: fill;
+}
+
+.KuengaWangpo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.KuengaWangpo img {
+  width: 3.5vw;
+  height: 3.5vw;
+  object-fit: fill;
+}
+
+.DawaGyaltshen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.DawaGyaltshen img {
+  width: 3.5vw;
+  height: 3.5vw;
+  object-fit: fill;
+}
+.Prakhar {
+  position: fixed;
+  top: 76.5%;
+  left: 80.7%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Prakhar img {
+  width: 3.5vw;
+  height: 3.5vw;
+  object-fit: fill;
+}
+
+.PrakharCard {
+  background: #c76224;
+  width: 4vw;
+  padding: 0.4vw;
+  text-align: center;
+}
+
+.PrakharCard p {
+  font-size: 0.85vw;
+  color: #380100;
+  padding: 0;
+  margin: 0;
+}
+
+.PrakharChoejeCard {
+  position: fixed;
+  background: #c76224;
+  width: 1.5vw;
+  padding: 0.4vw;
+  right: 15.5%;
+  bottom: 25.6%;
+  border-radius: 1.5vw;
+  border: 0.2vw solid #8f4110;
+}
+
+.PrakharChoejeCard p {
+  font-size: 0.59vw;
+  color: #380100;
+  padding: 0;
+  margin: 0;
+}
+
+.PrakharVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 1.3vw;
+  left: 83%;
+  bottom: 23.4%;
+}
+
+.DawaGyaltshenVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 1.7vw;
+  left: 83%;
+  bottom: 29%;
+}
+
+/* kk */
+
+.Kochung {
+  position: fixed;
+  top: 78.5%;
+  left: 82.7%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Kochung img {
+  width: 3.5vw;
+  height: 3.5vw;
+  object-fit: fill;
+}
+
+.KochungCard {
+  background: #c76224;
+  width: 4vw;
+  padding: 0.4vw;
+  text-align: center;
+}
+
+.KochungCard p {
+  font-size: 0.85vw;
+  color: #380100;
+  padding: 0;
+  margin: 0;
+}
+
+.KochungChoejeCard {
+  position: fixed;
+  background: #c76224;
+  width: 1.5vw;
+  padding: 0.4vw;
+  right: 10.5%;
+  bottom: 25.6%;
+  border-radius: 1.5vw;
+  border: 0.2vw solid #8f4110;
+}
+
+.KochungChoejeCard p {
+  font-size: 0.59vw;
+  color: #380100;
+  padding: 0;
+  margin: 0;
+}
+
+.KochungChoejeVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 1.3vw;
+  left: 88%;
+  bottom: 23.4%;
+}
+
+.KuengaWangpoVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 1.7vw;
+  left: 88%;
+  bottom: 29%;
+}
+
+.Bidung {
+  position: fixed;
+  top: 78.5%;
+  left: 89%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Bidung img {
+  width: 3.5vw;
+  height: 3.5vw;
+  object-fit: fill;
+}
+
+.BidungCard {
+  background: #c76224;
+  width: 4vw;
+  padding: 0.4vw;
+  text-align: center;
+}
+
+.BidungCard p {
+  font-size: 0.85vw;
+  color: #380100;
+  padding: 0;
+  margin: 0;
+}
+
+.KochungHorizontalLine {
+  position: fixed;
+  width: 6.5vw;
+  height: 0.2vw;
+  bottom: 23%;
+  left: 84.9%;
+  background-color: #8f4110;
+}
+
+.KochungVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 1.7vw;
+  left: 84.9%;
+  bottom: 20%;
+}
+
+.BidungVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 1.7vw;
+  left: 91.2%;
+  bottom: 20%;
+}
+
+.KheriVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 1.7vw;
+  left: 84.9%;
+  bottom: 10%;
+}
+
+.DungkarVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 1.7vw;
+  left: 91.2%;
+  bottom: 10%;
+}
+
+.Kheri {
+  position: fixed;
+  top: 89.5%;
+  left: 82.7%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Kheri img {
+  width: 3.5vw;
+  height: 3.5vw;
+  object-fit: fill;
+}
+
+.KheriCard {
+  background: #c76224;
+  width: 4vw;
+  padding: 0.4vw;
+  text-align: center;
+}
+
+.KheriCard p {
+  font-size: 0.85vw;
+  color: #380100;
+  padding: 0;
+  margin: 0;
+}
+
+.KheriChoejeCard {
+  position: fixed;
+  background: #c76224;
+  width: 1.5vw;
+  padding: 0.4vw;
+  right: 10.5%;
+  bottom: 25.6%;
+  border-radius: 1.5vw;
+  border: 0.2vw solid #8f4110;
+}
+
+.KheriChoejeCard p {
+  font-size: 0.59vw;
+  color: #380100;
+  padding: 0;
+  margin: 0;
+}
+
+.KheriChoejeVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 1.3vw;
+  left: 88%;
+  bottom: 23.4%;
+}
+
+.KuengaWangpoVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 1.7vw;
+  left: 88%;
+  bottom: 29%;
+}
+
+.Dungkar {
+  position: fixed;
+  top: 89.5%;
+  left: 89%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Dungkar img {
+  width: 3.5vw;
+  height: 3.5vw;
+  object-fit: fill;
+}
+
+.DungkarCard {
+  background: #c76224;
+  width: 4vw;
+  padding: 0.4vw;
+  text-align: center;
+}
+
+.DungkarCard p {
+  font-size: 0.85vw;
+  color: #380100;
+  padding: 0;
+  margin: 0;
+}
+
+.Tsakaling {
+  position: fixed;
+  top: 78.5%;
+  left: 80.7%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Tsakaling img {
+  width: 3.5vw;
+  height: 3.5vw;
+  object-fit: fill;
+}
+
+.TsakalingCard {
+  background: #c76224;
+  width: 4vw;
+  padding: 0.4vw;
+  text-align: center;
+}
+
+.TsakalingCard p {
+  font-size: 0.85vw;
+  color: #380100;
+  padding: 0;
+  margin: 0;
+}
+
+.Drophu {
+  position: fixed;
+  top: 78.5%;
+  left: 74.7%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Drophu img {
+  width: 3.5vw;
+  height: 3.5vw;
+  object-fit: fill;
+}
+
+.DrophuCard {
+  background: #c76224;
+  width: 4vw;
+  padding: 0.4vw;
+  text-align: center;
+}
+
+.DrophuCard p {
+  font-size: 0.85vw;
+  color: #380100;
+  padding: 0;
+  margin: 0;
+}
+
+.Drametse {
+  position: fixed;
+  top: 78.5%;
+  left: 86%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Drametse img {
+  width: 3.5vw;
+  height: 3.5vw;
+  object-fit: fill;
+}
+
+.DrametseCard {
+  background: #c76224;
+  width: 4vw;
+  padding: 0.4vw;
+  text-align: center;
+}
+
+.DrametseCard p {
+  font-size: 0.85vw;
+  color: #380100;
+  padding: 0;
+  margin: 0;
+}
+
+.Yagang {
+  position: fixed;
+  top: 78.5%;
+  left: 92%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Yagang img {
+  width: 3.5vw;
+  height: 3.5vw;
+  object-fit: fill;
+}
+
+.YagangCard {
+  background: #c76224;
+  width: 4vw;
+  padding: 0.4vw;
+  text-align: center;
+}
+
+.YagangCard p {
+  font-size: 0.85vw;
+  color: #380100;
+  padding: 0;
+  margin: 0;
+}
+
+.SangdaVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 1.7vw;
+  left: 94%;
+  top: 67.7%;
+}
+
+.SangdaSonsCard {
+  position: fixed;
+  background: #c76224;
+  width: 1.5vw;
+  padding: 0.4vw;
+  right: 4.5%;
+  bottom: 25.5%;
+  border-radius: 1.5vw;
+  border: 0.2vw solid #8f4110;
+}
+
+.SangdaSonsCard p {
+  font-size: 0.6vw;
+  color: #380100;
+  padding: 0;
+  margin: 0;
+}
+
+.SangdaDownVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 1.7vw;
+  left: 94%;
+  top: 74.2%;
+}
+
+.SangdaHorizontalLine {
+  position: fixed;
+  width: 17vw;
+  height: 0.2vw;
+  bottom: 22.2%;
+  left: 77.2%;
+  background-color: #8f4110;
+}
+
+.DawaGyaltshenSonsVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 1vw;
+  left: 87.8%;
+  top: 52.2%;
+}
+
+.DawaGyaltshenSonsHorizontalLine {
+  position: fixed;
+  width: 5.4vw;
+  height: 0.2vw;
+  top: 54%;
+  left: 82.6%;
+  background-color: #8f4110;
+}
+
+.DawaGyaltshenDownSonsVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 1vw;
+  left: 82.5%;
+  top: 54%;
+}
+
+.faded {
+  opacity: 0.7; /* Adjust this value as needed */
+  transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.KuengaWangpoSonsVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 1.9vw;
+  left: 87.9%;
+  top: 52.2%;
+}
+
+.SangdaSonsVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 1vw;
+  left: 87.8%;
+  top: 52.2%;
+}
+
+.SangdaSonsHorizontalLine {
+  position: fixed;
+  width: 6.1vw;
+  height: 0.2vw;
+  top: 54%;
+  left: 87.8%;
+  background-color: #8f4110;
+}
+
+.SangdaDownSonsVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 1vw;
+  left: 93.8%;
+  top: 54%;
+}
+
+.SangdaThrdSonsVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 0.5vw;
+  left: 88.2%;
+  top: 77.8%;
+}
+
+.SangdaScndSonsVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 0.5vw;
+  left: 82.9%;
+  top: 77.8%;
+}
+
+.SangdaFrstSonsVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 0.65vw;
+  left: 77%;
+  top: 77.4%;
+}
+
+.SangdaFrthSonsVerticalLine {
+  position: fixed;
+  width: 0.2vw;
+  background-color: #8f4110;
+  height: 0.55vw;
+  left: 94.35%;
+  top: 77.6%;
+}
+
+.SangdaFrthSonsHorizontalLine {
+  position: fixed;
+  width: 0.35vw;
+  height: 0.2vw;
+  top: 77.45%;
+  left: 94.2%;
+  background-color: #8f4110;
 }

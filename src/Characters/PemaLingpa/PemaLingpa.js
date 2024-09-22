@@ -5,6 +5,20 @@ import { faChevronRight, faHome } from "@fortawesome/free-solid-svg-icons";
 import styles from "./PemaLingpa.module.css";
 import pemaLingpa from "../../assests/PemaLingpa.png";
 import Card from "../../components/Card/Card";
+import DrakpaGyalpos from "../../assests/DrakpaGyalpo.svg";
+import Sangda from "../../assests/Sangda.svg";
+import KuengaWangpo from "../../assests/KuengaWangpo.svg";
+import DawaGyaltshen from "../../assests/DawaGyaltshen.svg";
+import Tamshing from "../../assests/Tamshing.svg";
+import Prakhar from "../../assests/Layer.svg";
+import Kochung from "../../assests/Kochung.svg";
+import Bidung from "../../assests/Bidung.svg";
+import Kheri from "../../assests/Kheri.svg";
+import Dungkar from "../../assests/Dungkar.svg";
+import Tsakaling from "../../assests/Tsakaling.svg";
+import Drophu from "../../assests/Drophu.svg";
+import Drametse from "../../assests/Drametse.svg";
+import Yagang from "../../assests/Yagang.svg";
 
 const PemaLingpa = () => {
   const [showDetails, setShowDetails] = useState(false);
@@ -18,6 +32,8 @@ const PemaLingpa = () => {
   const [showLineageCard, setShowLineageCard] = useState(false);
   const [showRevelationsCard, setShowRevelationsCard] = useState(false);
   const [showLegacyCard, setShowLegacyCard] = useState(false);
+  const [showFirstLevel, setShowFirstLevel] = useState(false);
+  const [activeCard, setActiveCard] = useState(null);
 
   const handleCardClick = () => {
     if (
@@ -137,6 +153,14 @@ const PemaLingpa = () => {
       // If cards are open, just close them
       setShowCards(false);
     }
+  };
+
+  const handleFamilyHeaderClick = () => {
+    setShowFirstLevel(!showFirstLevel); // Toggle visibility for the first level
+  };
+
+  const handleTreeCardClick = (cardName) => {
+    setActiveCard(activeCard === cardName ? null : cardName); // Toggle visibility for specific card container
   };
 
   return (
@@ -294,22 +318,240 @@ const PemaLingpa = () => {
         </>
       )}
       {showLineageCard && (
-        <>
+        <div>
           <Card
             title="LINEAGE"
             content="Pema Lingpa’s lineage is maintained by his three incarnation lines – Peling Sungtrul from his direct incarnation, Peling Tukse from his son and Gangteng Trulku from his grandson. Ganteng Trulku Rinpoche is the authentic representative of Peling tradition with the Gangtey monastery in Phubjikha Valley serving as his seat. Pema Lingpa’s sons also established important noble families in Bhutan, namely Tamzhing Choeji of Bumthang and Dungkhar Choeji of Kurtoe. His descendants played a major part in the unification of Bhutan in the 17th century. Jigme Namgyel, the forefather of the ruling Wangchuck dynasty was born into the family of Dungkhar Choeji founded by Pema Lingpa’s son Kunga Wangpo."
             showIntro={showIntro}
           />
-          {/* <motion.div
-            className={styles.detailCardHeader}
-            onClick={() => setShowLineageCard(false)}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: showIcons ? 1 : 0 }}
-            transition={{ duration: 1 }}
-          >
-            <FontAwesomeIcon icon={faChevronRight} className={styles.icon} />
-          </motion.div> */}
-        </>
+
+          <div className={styles.FamilCard}>
+            <div
+              className={styles.FamilyHeader}
+              onClick={handleFamilyHeaderClick}
+            >
+              <p>PEMA LINGPA</p>
+            </div>
+
+            {showFirstLevel && (
+              <>
+                {/* First level cards */}
+                <div className={styles.SonsList}>
+                  <div
+                    className={`${styles.SonsTree} ${
+                      activeCard === "DrakpaGyalpos" ? "" : styles.faded
+                    }`}
+                    onClick={() => handleTreeCardClick("DrakpaGyalpos")}
+                  >
+                    <div className={styles.DrakpaGyalpos}>
+                      <img src={DrakpaGyalpos} alt="" />
+                      <div className={styles.DrakpaGyalposCard}>
+                        <p>Drakpa Gyalpo</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className={`${styles.SonsTree} ${
+                      activeCard === "DawaGyaltshen" ? "" : styles.faded
+                    }`}
+                    onClick={() => handleTreeCardClick("DawaGyaltshen")}
+                  >
+                    <div className={styles.DawaGyaltshen}>
+                      <img src={DawaGyaltshen} alt="" />
+                      <div className={styles.DawaGyaltshenCard}>
+                        <p>Dawa Gyaltshen</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className={`${styles.SonsTree} ${
+                      activeCard === "KuengaWangpo" ? "" : styles.faded
+                    }`}
+                    onClick={() => handleTreeCardClick("KuengaWangpo")}
+                  >
+                    <div className={styles.KuengaWangpo}>
+                      <img src={KuengaWangpo} alt="" />
+                      <div className={styles.KuengaWangpoCard}>
+                        <p>Kuenga Wangpo</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className={`${styles.SonsTree} ${
+                      activeCard === "Sangda" ? "" : styles.faded
+                    }`}
+                    onClick={() => handleTreeCardClick("Sangda")}
+                  >
+                    <div className={styles.Sangda}>
+                      <img src={Sangda} alt="" />
+                      <div
+                        className={styles.SangdaCard}
+                        style={{ padding: "1vw" }}
+                      >
+                        <p>Sangda</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Containers for each card */}
+                {activeCard === "DrakpaGyalpos" && (
+                  <div>
+                    <div className={styles.VerticalLine}></div>
+                    <div className={styles.SonsCard}>
+                      <p>Sons</p>
+                    </div>
+                    <div className={styles.SonsHorizontalLine}></div>
+                    <div className={styles.SonsVerticalLine}></div>
+                    <div className={styles.DrakpaGyalposContainer}>
+                      <div className={styles.DrakpaGyalposVerticalLine}></div>
+                      <div className={styles.ChoejeCard}>
+                        <p>Choeje</p>
+                      </div>
+                      <div className={styles.ChoejeVerticalLine}></div>
+                      <div className={styles.Tamshing}>
+                        <img src={Tamshing} alt="" />
+                        <div className={styles.TamshingCard}>
+                          <p>Tamshing</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {activeCard === "DawaGyaltshen" && (
+                  <div>
+                    <div className={styles.VerticalLine}></div>
+                    <div className={styles.SonsCard}>
+                      <p>Sons</p>
+                    </div>
+                    <div className={styles.DawaGyaltshenSonsVerticalLine}></div>
+                    <div
+                      className={styles.DawaGyaltshenSonsHorizontalLine}
+                    ></div>
+                    <div
+                      className={styles.DawaGyaltshenDownSonsVerticalLine}
+                    ></div>
+
+                    <div className={styles.DawaGyaltshenCardContainer}>
+                      <div className={styles.DawaGyaltshenVerticalLine}></div>
+                      <div className={styles.PrakharChoejeCard}>
+                        <p>Choeje</p>
+                      </div>
+                      <div className={styles.PrakharVerticalLine}></div>
+                      <div className={styles.Prakhar}>
+                        <img src={Prakhar} alt="" />
+                        <div className={styles.PrakharCard}>
+                          <p>Prakhar</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {activeCard === "KuengaWangpo" && (
+                  <div className={styles.DawaGyaltshenCardContainer}>
+                    <div className={styles.VerticalLine}></div>
+                    <div className={styles.SonsCard}>
+                      <p>Sons</p>
+                    </div>
+
+                    <div className={styles.KuengaWangpoSonsVerticalLine}></div>
+                    <div className={styles.KuengaWangpoVerticalLine}></div>
+                    <div className={styles.KochungChoejeCard}>
+                      <p>Choeje</p>
+                    </div>
+                    <div className={styles.KochungChoejeVerticalLine}></div>
+                    <div className={styles.KochungHorizontalLine}></div>
+                    <div className={styles.KochungVerticalLine}></div>
+                    <div className={styles.BidungVerticalLine}></div>
+                    <div className={styles.KheriVerticalLine}></div>
+                    <div className={styles.DungkarVerticalLine}></div>
+                    <div style={{ display: "flex" }}>
+                      <div className={styles.Kochung}>
+                        <img src={Kochung} alt="" />
+                        <div className={styles.KochungCard}>
+                          <p>Kochung</p>
+                        </div>
+                      </div>
+                      <div className={styles.Bidung}>
+                        <img src={Bidung} alt="" />
+                        <div className={styles.BidungCard}>
+                          <p>Bidung</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div style={{ display: "flex" }}>
+                      <div className={styles.Kheri}>
+                        <img src={Kheri} alt="" />
+                        <div className={styles.KheriCard}>
+                          <p>Kheri</p>
+                        </div>
+                      </div>
+                      <div className={styles.Dungkar}>
+                        <img src={Dungkar} alt="" />
+                        <div className={styles.DungkarCard}>
+                          <p>Dungkar</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {activeCard === "Sangda" && (
+                  <div className={styles.SangdaCardContainer}>
+                    <div className={styles.VerticalLine}></div>
+                    <div className={styles.SonsCard}>
+                      <p>Sons</p>
+                    </div>
+                    <div className={styles.SangdaSonsHorizontalLine}></div>
+                    <div className={styles.SangdaSonsVerticalLine}></div>
+                    <div className={styles.SangdaDownSonsVerticalLine}></div>
+
+                    <div className={styles.SangdaVerticalLine}></div>
+                    <div className={styles.SangdaSonsCard}>
+                      <p>Choeje</p>
+                    </div>
+                    <div className={styles.SangdaDownVerticalLine}></div>
+                    <div className={styles.SangdaHorizontalLine}></div>
+                    <div className={styles.SangdaFrstSonsVerticalLine}></div>
+                    <div className={styles.SangdaScndSonsVerticalLine}></div>
+                    <div className={styles.SangdaThrdSonsVerticalLine}></div>
+                    <div className={styles.SangdaFrthSonsVerticalLine}></div>
+                    <div className={styles.SangdaFrthSonsHorizontalLine}></div>
+
+                    <div className={styles.SangdaSonsContainer}>
+                      <div className={styles.Tsakaling}>
+                        <img src={Tsakaling} alt="" />
+                        <div className={styles.TsakalingCard}>
+                          <p>Tsakaling</p>
+                        </div>
+                      </div>
+                      <div className={styles.Drophu}>
+                        <img src={Drophu} alt="" />
+                        <div className={styles.DrophuCard}>
+                          <p>Drophu</p>
+                        </div>
+                      </div>
+                      <div className={styles.Drametse}>
+                        <img src={Drametse} alt="" />
+                        <div className={styles.DrametseCard}>
+                          <p>Drametse</p>
+                        </div>
+                      </div>
+                      <div className={styles.Yagang}>
+                        <img src={Yagang} alt="" />
+                        <div className={styles.YagangCard}>
+                          <p>Yagang</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </>
+            )}
+          </div>
+        </div>
       )}
 
       {showRevelationsCard && (

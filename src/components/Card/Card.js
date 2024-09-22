@@ -27,7 +27,7 @@ const Card = ({ title, content, showIntro }) => {
           animate={{ opacity: showIntro ? 1 : 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          {title}
+          <div className={styles.CardTitle}>{title}</div>
         </motion.h3>
         <motion.p
           initial={{ opacity: 0 }}
