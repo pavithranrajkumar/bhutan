@@ -35,24 +35,42 @@
 
 .pemaNameCard {
   position: fixed;
-  background: white;
+  background: #384e63;
   z-index: 1;
-  padding: 0.5vw;
+  padding: 1vw;
   border-radius: 0.5vw;
-  top: 65%;
-  left: 66%;
+  top: 62.5%;
+  left: 66.5%;
   cursor: pointer;
 }
 
 .nameCard {
-  padding: 0.5vw;
   text-align: center;
 }
 
+.nameCardtitle {
+  color: #380100;
+}
+
+.pemaNameCardTitle {
+  color: white;
+}
+
+.nameCardSubtitlecard {
+  position: fixed;
+  background: #ffd9bc;
+  z-index: 1;
+  padding: 0.75vw;
+  border-radius: 0.5vw;
+  top: 63.5%;
+  left: 66.63%;
+  cursor: pointer;
+}
+
 .nameCardSubtitle {
-  font-size: 0.8rem;
-  color: gray;
-  margin-top: 0.2rem;
+  font-size: 1vw;
+  font-weight: 800;
+  color: #380100;
 }
 
 .detailCard {
@@ -72,54 +90,78 @@
 
 .detailCardFooter {
   position: fixed;
-  top: 90%;
-  left: 48%;
+  top: 48vw;
+  left: 45%;
   z-index: 1;
+  cursor: pointer;
+}
+
+.LegacydetailCardHeader {
+  position: fixed;
+  bottom: 30%;
+  left: 75.5%;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.HistoricdetailCardHeader {
+  position: fixed;
+  bottom: 30%;
+  left: 75.5%;
+  z-index: 1;
+  cursor: pointer;
+  background: #380100;
+  color: #9c3d22;
+}
+
+.HistoricIcon {
+  padding: 1vw;
+  background: #380100;
+  color: #ffd9bc;
+  font-size: 1vw;
 }
 
 .detailCardHeader {
   position: fixed;
   bottom: 25%;
-  left: 75%;
+  left: 75.5%;
   z-index: 1;
+  cursor: pointer;
 }
 
 .icon {
   padding: 1vw;
-  background: white;
+  background: #193145;
+  color: white;
   font-size: 1vw;
-  cursor: pointer;
-  cursor: pointer;
 }
 
 .cardsContainer {
   position: fixed;
   display: flex;
   flex-direction: column;
-  margin-top: 13%;
-  margin-left: 30%;
+  top: 70%;
+  left: 63%;
 }
 
 .HistoricCard {
   cursor: pointer;
   pointer-events: auto;
   position: fixed;
-  background: white;
-  color: black;
-  border-radius: 0.5vw;
+  background: #cd5a33;
+  color: #ffd9bc;
   margin-top: 1vw;
   font-size: 1.3vw;
-  font-weight: 800;
+  font-weight: 700;
   padding: 0.8vw;
   width: 10%;
 }
 
 .LineageCard {
-  font-weight: 800;
+  font-weight: 700;
   position: fixed;
-  background: white;
-  color: black;
-  border-radius: 0.5vw;
+  background: #9c3d22;
+  color: #ffd9bc;
   padding: 1vw;
   font-size: 1.3vw;
   margin-top: 2.15vw;
@@ -128,13 +170,12 @@
 }
 
 .RevelationsCard {
-  font-weight: 800;
+  font-weight: 700;
   width: 10%;
   padding: 0.8vw;
   position: fixed;
-  background: white;
-  color: black;
-  border-radius: 0.5vw;
+  background: #9c3d22;
+  color: #ffd9bc;
   margin-top: 6.4vw;
   margin-left: 1.6vw;
   font-size: 1.3vw;
@@ -142,10 +183,9 @@
 }
 
 .LegacyCard {
-  font-weight: 800;
-  background: white;
-  color: black;
-  border-radius: 0.5vw;
+  font-weight: 700;
+  background: #cd5a33;
+  color: #ffd9bc;
   padding: 1.07vw;
   margin-top: 8.09vw;
   font-size: 1.3vw;
@@ -1032,6 +1072,16 @@
   width: 1vw;
 }
 
+.BurningLakeCardText {
+  position: fixed;
+  left: 76.5vw;
+  top: 38.5vw;
+  width: 2vw;
+  font-size: 1.4vw;
+  font-weight: 800;
+  color: white;
+}
+
 .BurningLakeCardBookText {
   position: fixed;
   left: 77.5vw;
@@ -1058,6 +1108,52 @@
   background: #2b455d;
 }
 
+.BurningLakeCardContainer {
+  text-align: right;
+  width: 18vw;
+  left: 73vw;
+  top: 43.3vw;
+  color: white;
+  position: fixed;
+  background: #2b455d;
+}
+
+.BurningLakeCardContainer img {
+  position: fixed;
+  width: 7.5vw;
+  height: 7.5vw;
+  object-fit: contain;
+  left: 74vw;
+  top: 44vw;
+}
+
+.NaringDragCardBookBurningLakeCardContainer {
+  text-align: right;
+  padding: 0.5vw;
+  width: 19vw;
+  left: 73vw;
+  top: 43.3vw;
+  color: white;
+  position: fixed;
+  background: #2b455d;
+}
+
+.NaringDragCardBookBurningLakeCardContainer img {
+  position: fixed;
+  width: 7.5vw;
+  height: 7.5vw;
+  object-fit: contain;
+  left: 72.5vw;
+  top: 44vw;
+}
+
+.NaringDragCardBookBurningLakeCardBookText {
+  position: fixed;
+  left: 74vw;
+  top: 44.4vw;
+  width: 1vw;
+}
+
 .RevelationsSideCardsfrst {
   font-size: 0.9vw;
 }
@@ -1065,13 +1161,31 @@
 .RevelationsSideCardsScnd {
   font-weight: 700;
   font-size: 1.3vw;
+  cursor: pointer;
+}
+
+.NaringDragCardBookContainer {
+  position: fixed;
+  left: 60vw;
+  top: 38.3vw;
+  padding: 0.1vw;
+  cursor: pointer;
+}
+
+.BookOpen {
+  position: fixed;
+  left: 57.5vw;
+  top: 38.3vw;
+  width: 15vw;
+  cursor: pointer;
 }
 
 .NaringDragCardBook {
   position: fixed;
   left: 75vw;
-  top: 38.3vw;
+  top: 37vw;
   padding: 0.1vw;
+  cursor: pointer;
 }
 
 .NaringDragCardBook img {
@@ -1082,17 +1196,7 @@
 .NaringDragCardBookTextScnd {
   position: fixed;
   left: 77.5vw;
-  top: 48vw;
-  width: 2vw;
-  font-size: 1.4vw;
-  font-weight: 800;
-  color: white;
-}
-
-.NaringDragCardBookTextScnd {
-  position: fixed;
-  left: 77.5vw;
-  top: 48vw;
+  top: 46.5vw;
   width: 2vw;
   font-size: 1.4vw;
   font-weight: 800;
@@ -1223,4 +1327,16 @@
 .PelingSideCardsScnd {
   font-weight: 700;
   font-size: 1.3vw;
+}
+
+.PelingVedio {
+  position: fixed;
+  left: 64.5%;
+  top: 71.5%;
+}
+
+.PelingVedio img {
+  width: 40%;
+  height: 40%;
+  object-fit: fill;
 }

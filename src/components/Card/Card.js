@@ -2,10 +2,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import styles from "./Card.module.css";
 
-const Card = ({ title, content, showIntro }) => {
+const Card = ({ title, content, showIntro, backgroundColor, color }) => {
   return (
     <motion.div
       className={styles.detailCard}
+      style={{ background: backgroundColor, color: color }}
       initial={{ x: -300, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 1, ease: "easeOut" }}
@@ -28,13 +29,14 @@ const Card = ({ title, content, showIntro }) => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <div className={styles.CardTitle}>{title}</div>
+          <div className={styles.CardLine}></div>
         </motion.h3>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: showIntro ? 1 : 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          {content}
+          <div className={styles.CardContent}>{content}</div>
         </motion.p>
       </motion.div>
     </motion.div>

@@ -30,6 +30,8 @@ import MonsTemplesFrth from "../../assests/Photo Frame (2).svg";
 import MonsTemplesFvth from "../../assests/Photo Frame (3).svg";
 import MonsTemplesSxth from "../../assests/Photo Frame (6).svg";
 import MonsTemplesSvnth from "../../assests/Photo Frame (5).svg";
+import BookOpen from "../../assests/Comic Book Open.jpg";
+import PelingVedio from "../../assests/Video Block.jpg";
 
 const PemaLingpa = () => {
   const [showDetails, setShowDetails] = useState(false);
@@ -52,12 +54,17 @@ const PemaLingpa = () => {
   const [showMonstariesAndTemplesImgs, setShowMonstariesAndTemplesImgs] =
     useState(false);
   const [showPelingDance, setShowPelingDance] = useState(false);
+  const [showNaringDragBook, setShowNaringDragBook] = useState(false);
+  const [showBurningLakeBook, setShowBurningLakeBook] = useState(false);
 
   const fadeInOut = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
     exit: { opacity: 0 },
   };
+  const [showNaringDragBookImage, setShowNaringDragBookImage] = useState(false);
+  const [showBurningLakeBookImage, setShowBurningLakeBookImage] =
+    useState(false);
 
   const handleCardClick = () => {
     if (
@@ -71,7 +78,8 @@ const PemaLingpa = () => {
       showNaringDragCard ||
       showMonstariesAndTemples ||
       showMonstariesAndTemplesImgs ||
-      showPelingDance
+      showPelingDance ||
+      showNaringDragBook
     ) {
       setShowDetails(false);
       setShowCards(false);
@@ -84,6 +92,7 @@ const PemaLingpa = () => {
       setShowMonstariesAndTemples(false);
       setShowMonstariesAndTemplesImgs(false);
       setShowPelingDance(false);
+      setShowNaringDragBook(false);
       setNameCardText("PEMALINGPA");
       setNameCardSubtitle("");
       setShowIntro(false);
@@ -156,15 +165,17 @@ const PemaLingpa = () => {
   };
 
   const handleNaringDragCardClick = () => {
+    setShowBurningLakeBook(false);
     setShowRevelationsCard(false);
     setShowNaringDragCard(!showNaringDragCard); // Toggle NaringDrag card
     setShowBurningLakeCard(false); // Hide BurningLake card when NaringDrag is clicked
   };
 
   const handleBurningLakeCardClick = () => {
+    setShowNaringDragBook(false);
     setShowRevelationsCard(false);
-    setShowBurningLakeCard(!showBurningLakeCard); // Toggle BurningLake card
-    setShowNaringDragCard(false); // Hide NaringDrag card when BurningLake is clicked
+    setShowBurningLakeBook(!showBurningLakeCard);
+    setShowNaringDragCard(false);
   };
 
   const handleLegacyCardClick = () => {
@@ -191,6 +202,16 @@ const PemaLingpa = () => {
   const PelingDanceClick = () => {
     setShowMonstariesAndTemplesImgs(false);
     setShowPelingDance(true);
+  };
+
+  const NaringDragBookClick = () => {
+    setShowNaringDragCard(false);
+    setShowNaringDragBook(true);
+  };
+
+  const BurningLakeBookClick = () => {
+    setShowBurningLakeCard(false);
+    setShowBurningLakeBook(true);
   };
 
   const handleFooterIconClick = () => {
@@ -230,6 +251,14 @@ const PemaLingpa = () => {
     setActiveCard(activeCard === cardName ? null : cardName);
   };
 
+  const handleNaringDragBookImageClick = () => {
+    setShowNaringDragBookImage((prevState) => !prevState); // Toggle image
+  };
+
+  const handleBUrningLakeImageClick = () => {
+    setShowNaringDragBookImage((prevState) => !prevState); // Toggle image
+  };
+
   return (
     <motion.div
       className={styles.pemaContainer}
@@ -259,7 +288,9 @@ const PemaLingpa = () => {
       </motion.div>
 
       <motion.div
-        className={styles.pemaNameCard}
+        className={
+          nameCardSubtitle ? styles.nameCardSubtitlecard : styles.pemaNameCard
+        }
         onClick={handleCardClick}
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
@@ -270,7 +301,13 @@ const PemaLingpa = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          <div>{nameCardText}</div>
+          <div
+            className={
+              nameCardSubtitle ? styles.nameCardtitle : styles.pemaNameCardTitle
+            }
+          >
+            {nameCardText}
+          </div>
           {nameCardSubtitle && (
             <div className={styles.nameCardSubtitle}>{nameCardSubtitle}</div>
           )}
@@ -302,7 +339,7 @@ const PemaLingpa = () => {
             onClick={handleHeaderIconClick}
             initial={{ opacity: 0 }}
             animate={{ opacity: showIcons ? 1 : 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 5 }}
           >
             <FontAwesomeIcon icon={faChevronRight} className={styles.icon} />
           </motion.div>
@@ -357,7 +394,6 @@ const PemaLingpa = () => {
 
       {showHistoricDetails && (
         <>
-          {" "}
           <Card
             title="HISTORIC BACKGROUND"
             content=" The tradition of hiding treasures, Terma originated with
@@ -372,15 +408,20 @@ const PemaLingpa = () => {
            Sovereign Tertöns, who rank among one hundred major and one
            thousand minor treasure revealers."
             showIntro={showIntro}
+            backgroundColor="#FFD9BC"
+            color="#380100"
           />
           <motion.div
-            className={styles.detailCardHeader}
+            className={styles.HistoricdetailCardHeader}
             onClick={handleHeaderIconClick}
             initial={{ opacity: 0 }}
             animate={{ opacity: showIcons ? 1 : 0 }}
             transition={{ duration: 1 }}
           >
-            <FontAwesomeIcon icon={faChevronRight} className={styles.icon} />
+            <FontAwesomeIcon
+              icon={faChevronRight}
+              className={styles.HistoricIcon}
+            />
           </motion.div>
         </>
       )}
@@ -391,6 +432,8 @@ const PemaLingpa = () => {
             title="LINEAGE"
             content="Pema Lingpa’s lineage is maintained by his three incarnation lines – Peling Sungtrul from his direct incarnation, Peling Tukse from his son and Gangteng Trulku from his grandson. Ganteng Trulku Rinpoche is the authentic representative of Peling tradition with the Gangtey monastery in Phubjikha Valley serving as his seat. Pema Lingpa’s sons also established important noble families in Bhutan, namely Tamzhing Choeji of Bumthang and Dungkhar Choeji of Kurtoe. His descendants played a major part in the unification of Bhutan in the 17th century. Jigme Namgyel, the forefather of the ruling Wangchuck dynasty was born into the family of Dungkhar Choeji founded by Pema Lingpa’s son Kunga Wangpo."
             showIntro={showIntro}
+            backgroundColor="#FFD9BC"
+            color="#380100"
           />
 
           <div className={styles.FamilCard}>
@@ -682,6 +725,8 @@ const PemaLingpa = () => {
             title="Revelations by Pema Lingpa"
             content="Pema Lingpa discovered treasures mainly around Bumthang’s valleys and regions north of its current borders with Tibet. He revealed exclusively physical terma, both texts and relics. In his lifetime, Pema Lingpa was able to reveal only 32 out of 108 termas destined for him. The collection of texts discovered by him, ‘The Precious Collection of Profound Treasure Teachings of the Great Master Pema Lingpa’ consists of 21 volumes."
             showIntro={showIntro}
+            backgroundColor="#FFD9BC"
+            color="#380100"
           />
           <div className={styles.RevelationsSideCards}>
             <div className={styles.NaringDragCard}>
@@ -712,6 +757,60 @@ const PemaLingpa = () => {
         </>
       )}
 
+      {showNaringDragBook && (
+        <>
+          <div
+            className={
+              showNaringDragBookImage
+                ? styles.BookOpen
+                : styles.NaringDragCardBookContainer
+            }
+          >
+            <img
+              src={showNaringDragBookImage ? BookOpen : NaringDrag}
+              alt="NaringDrag"
+              onClick={handleNaringDragBookImageClick}
+            />
+          </div>
+          <div
+            className={styles.NaringDragCardBookBurningLakeCardContainer}
+            onClick={handleBurningLakeCardClick}
+          >
+            <div className={styles.RevelationsSideCardsfrst}>
+              Revelations at
+            </div>
+            <div className={styles.RevelationsSideCardsScnd}>BURNING LAKE</div>
+          </div>
+        </>
+      )}
+
+      {showBurningLakeBook && (
+        <>
+          <div
+            className={
+              showNaringDragBookImage
+                ? styles.BookOpen
+                : styles.NaringDragCardBookContainer
+            }
+          >
+            <img
+              src={showNaringDragBookImage ? BookOpen : ComicBook}
+              alt="NaringDrag"
+              onClick={handleNaringDragBookImageClick}
+            />
+          </div>
+          <div className={styles.NaringDragCard}>
+            <div
+              className={styles.RevelationsSideCardsfrst}
+              onClick={handleNaringDragCardClick}
+            >
+              Revelations at
+            </div>
+            <div className={styles.RevelationsSideCardsScnd}>NARING DRAG</div>
+          </div>
+        </>
+      )}
+
       {showNaringDragCard && (
         <>
           <Card
@@ -720,7 +819,11 @@ const PemaLingpa = () => {
             showIntro={showIntro}
           />
           <div className={styles.NaringDragCardBook}>
-            <img src={NaringDrag} alt="NaringDrag" />
+            <img
+              src={NaringDrag}
+              alt="NaringDrag"
+              onClick={NaringDragBookClick}
+            />
             <div className={styles.NaringDragCardBookTextScnd}>NARING DRAG</div>
           </div>
         </>
@@ -733,9 +836,12 @@ const PemaLingpa = () => {
             content="When the local Choekhor governor hears of the popularity of Pema Lingpa, he is not convinced of his authenticity. Assembling a large group of people in Naring Drag, he asks Pema Lingpa to prove his merit. He declares that he would support Pema Lingpa if he would bring out a treasure, failing which he would be punished. Pema Lingpa proclaimed “If I am genuine, let me bring back the treasure with this lamp still burning. If I am a fraud, let me die in the waters below.” He then took a burning butter lamp and dove into the lake resurfacing with a box of skulls, a sculpture of the Buddha and the butter lamp, still alight. All those who witness the miracle became Pema Lingpa’s followers and patrons, and the lake gets its name Mebar tsho or Burning Lake."
             showIntro={showIntro}
           />
-          <div className={styles.NaringDragCardBook}>
-            <img src={NaringDrag} alt="NaringDrag" />
-            <div className={styles.NaringDragCardBookTextScnd}>NARING DRAG</div>
+          <div
+            className={styles.NaringDragCardBook}
+            onClick={BurningLakeBookClick}
+          >
+            <img src={ComicBook} alt="NaringDrag" />
+            <div className={styles.BurningLakeCardText}>BURNING LAKE</div>
           </div>
         </>
       )}
@@ -746,6 +852,8 @@ const PemaLingpa = () => {
             title="LEGACY"
             content="Pema Lingpa established an enormous corpus of literature which serves as the primary basis of religious life for Buddhist followers. The teachings and the cycle of treasures of Pema Lingpa contain several practices, rituals, and instructions that lead sentient beings to liberation. Pema Lingpa’s legacies are preserved in the form of sacred dances which were revealed to him as dreams and visions. The ritual dances, cham composed by him serve as a centrepiece for many festivals and ceremonies across Bhutan."
             showIntro={showIntro}
+            backgroundColor="#FFD9BC"
+            color="#380100"
           />
           <div className={styles.PelingCard} onClick={PelingCardClick}>
             <img src={KenchosumLhakhang} alt="KenchosumLhakhang" />
@@ -759,7 +867,7 @@ const PemaLingpa = () => {
             <div className={styles.PelingSideCardsScnd}>DANCE</div>
           </div>
           <motion.div
-            className={styles.detailCardHeader}
+            className={styles.LegacydetailCardHeader}
             onClick={() => setShowLegacyCard(false)}
             initial={{ opacity: 0 }}
             animate={{ opacity: showIcons ? 1 : 0 }}
@@ -826,11 +934,13 @@ const PemaLingpa = () => {
             content="Pema Lingpa’s legacies are preserved in the form of sacred dances called peling tercham which were revealed to him as dreams and visions. The ritual dances composed by him serve as a centerpiece for many festivals and ceremonies. The most popular of the dances are the dakini dance, the three ging dances signifying the subjugation of evil and the ging and tsholing dance. It is said that dakini would visit him in his dreams to teach him the steps of different sacred dances and give him further instructions."
             showIntro={showIntro}
           />
+          <div className={styles.PelingVedio}>
+            <img src={PelingVedio} alt="peling video" />
+          </div>
         </>
       )}
 
       {(showDetails ||
-        showCards ||
         showHistoricDetails ||
         showLineageCard ||
         showRevelationsCard ||
@@ -842,7 +952,7 @@ const PemaLingpa = () => {
             className={styles.detailCardFooter}
             initial={{ opacity: 0 }}
             animate={{ opacity: showIcons ? 1 : 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 5 }}
             onClick={handleFooterIconClick}
           >
             <FontAwesomeIcon icon={faHome} className={styles.icon} />
