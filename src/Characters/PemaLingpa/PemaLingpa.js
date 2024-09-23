@@ -1,7 +1,11 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight, faHome } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronRight,
+  faChevronLeft,
+  faHome,
+} from "@fortawesome/free-solid-svg-icons";
 import styles from "./PemaLingpa.module.css";
 import pemaLingpa from "../../assests/PemaLingpa.png";
 import Card from "../../components/Card/Card";
@@ -59,6 +63,8 @@ const PemaLingpa = () => {
   const [showNaringDragBookImage, setShowNaringDragBookImage] = useState(false);
   const [showBurningLakeBookImage, setShowBurningLakeBookImage] =
     useState(false);
+  const [isBookOpening, setIsBookOpening] = useState(false);
+  const [bookOpened, setBookOpened] = useState(false);
 
   const fadeInOut = {
     hidden: { opacity: 0 },
@@ -67,17 +73,24 @@ const PemaLingpa = () => {
   };
 
   const getIconColor = () => {
-    if (showHistoricDetails) return "#ffd9bc";
-    if (showLineageCard) return "#ffd9bc";
-    if (showRevelationsCard) return "#ffd9bc";
+    if (
+      showHistoricDetails ||
+      showLineageCard ||
+      showRevelationsCard ||
+      showLegacyCard
+    )
+      return "#ffd9bc";
   };
 
   const getIconBgColor = () => {
-    if (showHistoricDetails) return "#380100";
-    if (showLineageCard) return "#380100";
-    if (showRevelationsCard) return "#380100";
+    if (
+      showHistoricDetails ||
+      showLineageCard ||
+      showRevelationsCard ||
+      showLegacyCard
+    )
+      return "#380100";
   };
-
   const handleCardClick = () => {
     if (
       showDetails ||
@@ -93,114 +106,63 @@ const PemaLingpa = () => {
       showPelingDance ||
       showNaringDragBook
     ) {
-      setShowDetails(false);
-      setShowCards(false);
-      setShowHistoricDetails(false);
-      setShowLineageCard(false); // Close lineage card as well
-      setShowRevelationsCard(false); // Close revelations card
-      setShowLegacyCard(false); // Close legacy card
-      setShowBurningLakeCard(false);
-      setShowNaringDragCard(false);
-      setShowMonstariesAndTemples(false);
-      setShowMonstariesAndTemplesImgs(false);
-      setShowPelingDance(false);
-      setShowNaringDragBook(false);
-      setNameCardText("PEMALINGPA");
-      setNameCardSubtitle("");
-      setShowIntro(false);
-      setShowIcons(false);
-      setIsFadingOut(false);
+      resetCardVisibility();
     } else {
-      setIsFadingOut(true);
-      setTimeout(() => {
-        setShowDetails(true);
-        setShowIntro(true);
-        setIsFadingOut(false);
-        setShowIcons(true);
-        setNameCardText("Pema Lingpa");
-        setNameCardSubtitle("1450-1521");
-      }, 800);
+      startFadeIn();
     }
   };
 
   const handleHistoricCardClick = () => {
-    setIsFadingOut(true); // Start fading out the cards
-    setTimeout(() => {
-      setShowHistoricDetails(true); // Show historic details after fade
-      setShowCards(false); // Hide the cards
-      setShowDetails(false); // Hide other details if needed
-      setShowIntro(true);
-    }, 500); // Match the duration with fade out
-  };
-
-  const handleHeaderIconClick = () => {
-    if (showHistoricDetails) {
-      setIsFadingOut(true); // Start fading out
-      setTimeout(() => {
-        setShowHistoricDetails(false); // Hide historic details
-        setShowLineageCard(true); // Show lineage card
-        setIsFadingOut(false); // Reset fading state
-      }, 500); // Match this duration with the fade out duration
-    } else if (showDetails) {
-      setShowDetails(false);
-      setShowIntro(false);
-      setShowCards(true); // Show cards when going back
-    } else if (showCards) {
+    fadeOutThen(() => {
+      setShowHistoricDetails(true);
       setShowCards(false);
-    } else if (showLineageCard) {
-      setShowLineageCard(false); // Close lineage card when clicked again
-    } else {
-      setShowCards((prev) => !prev); // Toggle cards if no details are shown
-    }
+      setShowDetails(false);
+      setShowIntro(true);
+    });
   };
 
   const handleLineageCardClick = () => {
-    setIsFadingOut(true); // Start fading out the cards
-    setTimeout(() => {
-      setShowHistoricDetails(false); // Hide historic details if shown
-      setShowCards(false); // Hide the cards container
-      setShowLineageCard(true); // Show the lineage card
-      setIsFadingOut(false); // Reset fading state
+    fadeOutThen(() => {
+      setShowHistoricDetails(false);
+      setShowCards(false);
+      setShowLineageCard(true);
       setShowIntro(true);
-    }, 500); // Match this duration with the fade-out duration
+    });
   };
 
   const handleRevelationsCardClick = () => {
-    setIsFadingOut(true); // Start fading out
-    setTimeout(() => {
-      setShowHistoricDetails(false); // Hide other details
+    fadeOutThen(() => {
+      setShowHistoricDetails(false);
       setShowCards(false);
-      setShowRevelationsCard(true); // Show revelations card
-      setIsFadingOut(false); // Reset fading state
+      setShowRevelationsCard(true);
       setShowIntro(true);
-    }, 500);
+    });
   };
 
   const handleNaringDragCardClick = () => {
-    setShowBurningLakeBook(false);
-    setShowRevelationsCard(false);
-    setShowNaringDragCard(!showNaringDragCard); // Toggle NaringDrag card
-    setShowBurningLakeCard(false); // Hide BurningLake card when NaringDrag is clicked
+    setShowRevelationsCard(false); // Close Revelations card
+    setShowBurningLakeBook(false); // Close Burning Lake Book (if applicable)
+    setShowNaringDragCard((prev) => !prev); // Toggle Naring Drag card visibility
+    setShowBurningLakeCard(false); // Close Burning Lake card when Naring Drag is clicked
   };
 
   const handleBurningLakeCardClick = () => {
-    setShowNaringDragBook(false);
-    setShowRevelationsCard(false);
-    setShowBurningLakeBook(!showBurningLakeCard);
-    setShowNaringDragCard(false);
+    setShowRevelationsCard(false); // Close Revelations card
+    setShowNaringDragBook(false); // Close Naring Drag Book (if applicable)
+    setShowBurningLakeCard((prev) => !prev); // Toggle Burning Lake card visibility
+    setShowNaringDragCard(false); // Close Naring Drag card when Burning Lake is clicked
   };
 
   const handleLegacyCardClick = () => {
-    setIsFadingOut(true); // Start fading out
-    setTimeout(() => {
-      setShowHistoricDetails(false); // Hide other details
+    fadeOutThen(() => {
+      setShowHistoricDetails(false);
       setShowCards(false);
-      setShowLegacyCard(true); // Show legacy card
-      setIsFadingOut(false); // Reset fading state
+      setShowLegacyCard(true);
       setShowIntro(true);
-    }, 500);
+    });
   };
 
+  // Other handlers
   const PelingCardClick = () => {
     setShowLegacyCard(false);
     setShowMonstariesAndTemples(true);
@@ -213,6 +175,7 @@ const PemaLingpa = () => {
 
   const PelingDanceClick = () => {
     setShowMonstariesAndTemplesImgs(false);
+    setShowLegacyCard(false);
     setShowPelingDance(true);
   };
 
@@ -226,37 +189,80 @@ const PemaLingpa = () => {
     setShowBurningLakeBook(true);
   };
 
-  const handleFooterIconClick = () => {
+  const handleNaringDragBook = () => {
+    console.log("Book clicked");
+    setIsBookOpening(true); // Start the book opening animation
+
+    setTimeout(() => {
+      console.log("Book opened animation triggered");
+      setBookOpened(true); // Reveal the pages after the book opens
+      setIsBookOpening(false); // Reset the book opening state
+    }, 1000); // Match this duration to the animation timing
+  };
+
+  const handleHeaderIconClick = () => {
     if (showHistoricDetails) {
-      setShowHistoricDetails(false);
-      setShowCards(true);
-    } else if (showLineageCard) {
-      setShowLineageCard(false);
-      setShowCards(true);
-    } else if (showRevelationsCard) {
-      setShowRevelationsCard(false);
-      setShowCards(true);
-    } else if (showLegacyCard) {
-      setShowLegacyCard(false);
-      setShowCards(true);
+      fadeOutThen(() => {
+        setShowHistoricDetails(false);
+        setShowLineageCard(true);
+      });
     } else if (showDetails) {
       setShowDetails(false);
-      setShowCards(false);
-    } else if (showBurningLakeCard) {
-      setShowBurningLakeCard(false);
-      setShowCards(false);
-      setShowRevelationsCard(true);
-    } else if (showNaringDragCard) {
+      setShowIntro(false);
+      setShowCards(true);
+    } else {
+      toggleShowCards();
+    }
+  };
+
+  const handleFooterIconClick = () => {
+    if (
+      showHistoricDetails ||
+      showLineageCard ||
+      showRevelationsCard ||
+      showLegacyCard ||
+      showNaringDragCard ||
+      showBurningLakeCard ||
+      showNaringDragBook ||
+      showBurningLakeBook ||
+      showMonstariesAndTemples ||
+      showMonstariesAndTemplesImgs ||
+      showPelingDance
+    ) {
+      setShowHistoricDetails(false);
+      setShowLineageCard(false);
+      setShowRevelationsCard(false);
+      setShowLegacyCard(false);
       setShowNaringDragCard(false);
-      setShowCards(false);
-      setShowRevelationsCard(true);
+      setShowBurningLakeCard(false);
+      setShowBurningLakeBook(false);
+      setShowNaringDragBook(false);
+      setShowMonstariesAndTemples(false);
+      setShowMonstariesAndTemplesImgs(false);
+      setShowPelingDance(false);
+      setShowCards(true);
     } else {
       setShowCards(false);
     }
   };
 
+  const handlePreviousIconClick = () => {
+    if (showMonstariesAndTemplesImgs) {
+      setShowMonstariesAndTemplesImgs(false);
+      setShowMonstariesAndTemples(true);
+    } else if (showNaringDragBook) {
+      setShowNaringDragBookImage(false);
+      setShowNaringDragBook(false);
+      setShowNaringDragCard(true);
+    } else if (showBurningLakeBook) {
+      setShowBurningLakeBookImage(false);
+      setShowBurningLakeBook(false);
+      setShowBurningLakeCard(true);
+    }
+  };
+
   const handleFamilyHeaderClick = () => {
-    setShowFirstLevel(!showFirstLevel);
+    setShowFirstLevel((prev) => !prev);
   };
 
   const handleTreeCardClick = (cardName) => {
@@ -264,11 +270,64 @@ const PemaLingpa = () => {
   };
 
   const handleNaringDragBookImageClick = () => {
-    setShowNaringDragBookImage((prevState) => !prevState); // Toggle image
+    toggleState(setShowNaringDragBookImage);
   };
 
-  const handleBUrningLakeImageClick = () => {
-    setShowNaringDragBookImage((prevState) => !prevState); // Toggle image
+  const handleBurningLakeImageClick = () => {
+    toggleState(setShowBurningLakeBookImage);
+  };
+
+  const resetCardVisibility = () => {
+    setShowDetails(false);
+    setShowCards(false);
+    setShowHistoricDetails(false);
+    setShowLineageCard(false);
+    setShowRevelationsCard(false);
+    setShowLegacyCard(false);
+    setShowBurningLakeCard(false);
+    setShowNaringDragCard(false);
+    setShowMonstariesAndTemples(false);
+    setShowMonstariesAndTemplesImgs(false);
+    setShowPelingDance(false);
+    setShowNaringDragBook(false);
+    setNameCardText("PEMALINGPA");
+    setNameCardSubtitle("");
+    setShowIntro(false);
+    setShowIcons(false);
+    setIsFadingOut(false);
+  };
+
+  const startFadeIn = () => {
+    setIsFadingOut(true);
+    setTimeout(() => {
+      setShowDetails(true);
+      setShowIntro(true);
+      setShowIcons(true);
+      setNameCardText("Pema Lingpa");
+      setNameCardSubtitle("1450-1521");
+      setIsFadingOut(false);
+    }, 800);
+  };
+
+  const fadeOutThen = (callback) => {
+    setIsFadingOut(true);
+    setTimeout(() => {
+      callback();
+      setIsFadingOut(false);
+    }, 500);
+  };
+
+  const toggleCardVisibility = (setShowCard, setHideCard) => {
+    setHideCard(false);
+    setShowCard((prev) => !prev);
+  };
+
+  const toggleShowCards = () => {
+    setShowCards((prev) => !prev);
+  };
+
+  const toggleState = (setter) => {
+    setter((prev) => !prev);
   };
 
   return (
@@ -755,11 +814,11 @@ const PemaLingpa = () => {
             color="#380100"
           />
           <div className={styles.RevelationsSideCards}>
-            <div className={styles.NaringDragCard}>
-              <div
-                className={styles.RevelationsSideCardsfrst}
-                onClick={handleNaringDragCardClick}
-              >
+            <div
+              className={styles.NaringDragCard}
+              onClick={handleNaringDragCardClick}
+            >
+              <div className={styles.RevelationsSideCardsfrst}>
                 Revelations at
               </div>
               <div className={styles.RevelationsSideCardsScnd}>NARING DRAG</div>
@@ -785,7 +844,7 @@ const PemaLingpa = () => {
 
       {showNaringDragBook && (
         <>
-          <div
+          {/* <div
             className={
               showNaringDragBookImage
                 ? styles.BookOpen
@@ -797,6 +856,56 @@ const PemaLingpa = () => {
               alt="NaringDrag"
               onClick={handleNaringDragBookImageClick}
             />
+             <img
+              src={showNaringDragBookImage ? BookOpen : NaringDrag}
+              alt="NaringDrag"
+              onClick={handleNaringDragBookImageClick}
+            />
+             <img
+              src={showNaringDragBookImage ? BookOpen : NaringDrag}
+              alt="NaringDrag"
+              onClick={handleNaringDragBookImageClick}
+            />
+          </div> */}
+          <div className="book-container">
+            <motion.img
+              className="book-image"
+              src={bookOpened ? ComicBook : NaringDrag}
+              alt="NaringDrag"
+              initial={{ rotateY: 0 }} // Initial state of the book (closed)
+              animate={{ rotateY: isBookOpening ? 180 : 0 }} // Animate to 180 degrees on click
+              transition={{ duration: 1 }} // Control animation duration
+              onClick={handleNaringDragBook}
+              style={{ cursor: "pointer" }}
+            />
+
+            {/* AnimatePresence ensures that the left and right pages animate in and out smoothly */}
+            <AnimatePresence>
+              {bookOpened && (
+                <motion.div
+                  className="book-pages"
+                  initial={{ opacity: 0, scale: 0.8 }} // Start with no opacity and smaller size
+                  animate={{ opacity: 1, scale: 1 }} // Animate to full opacity and size
+                  transition={{ duration: 0.5, delay: 0.5 }} // Delay the page reveal slightly
+                  exit={{ opacity: 0, scale: 0.8 }} // Exit animation for pages
+                >
+                  <motion.img
+                    className="left-page"
+                    src={ComicBook} // Left page image
+                    alt="Left Page"
+                    whileHover={{ scale: 1.05 }} // Slightly enlarge on hover
+                    transition={{ duration: 0.3 }}
+                  />
+                  <motion.img
+                    className="right-page"
+                    src={ComicBook} // Right page image
+                    alt="Right Page"
+                    whileHover={{ scale: 1.05 }} // Slightly enlarge on hover
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
           <div
             className={styles.NaringDragCardBookBurningLakeCardContainer}
@@ -825,11 +934,11 @@ const PemaLingpa = () => {
               onClick={handleNaringDragBookImageClick}
             />
           </div>
-          <div className={styles.NaringDragCard}>
-            <div
-              className={styles.RevelationsSideCardsfrst}
-              onClick={handleNaringDragCardClick}
-            >
+          <div
+            className={styles.NaringDragCard}
+            onClick={handleNaringDragCardClick}
+          >
+            <div className={styles.RevelationsSideCardsfrst}>
               Revelations at
             </div>
             <div className={styles.RevelationsSideCardsScnd}>NARING DRAG</div>
@@ -972,6 +1081,11 @@ const PemaLingpa = () => {
         showRevelationsCard ||
         showBurningLakeCard ||
         showNaringDragCard ||
+        showNaringDragBook ||
+        showBurningLakeBook ||
+        showMonstariesAndTemples ||
+        showMonstariesAndTemplesImgs ||
+        showPelingDance ||
         showLegacyCard) &&
         showIcons && (
           <motion.div
@@ -984,6 +1098,25 @@ const PemaLingpa = () => {
             <FontAwesomeIcon
               icon={faHome}
               className={styles.icon}
+              style={{ color: getIconColor(), background: getIconBgColor() }}
+            />
+          </motion.div>
+        )}
+
+      {(showMonstariesAndTemplesImgs ||
+        showBurningLakeBook ||
+        showNaringDragBook) &&
+        showIcons && (
+          <motion.div
+            className={styles.PreviousIconContainer}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: showIcons ? 1 : 0 }}
+            transition={{ duration: 5 }}
+            onClick={handlePreviousIconClick}
+          >
+            <FontAwesomeIcon
+              icon={faChevronLeft}
+              className={styles.PreviousIcon}
               style={{ color: getIconColor(), background: getIconBgColor() }}
             />
           </motion.div>

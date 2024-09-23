@@ -96,6 +96,22 @@
   cursor: pointer;
 }
 
+.PreviousIconContainer {
+  position: fixed;
+  height: 10vw;
+  top: 44.5vw;
+  left: 45%;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.PreviousIcon {
+  padding: 1.2vw;
+  background: #193145;
+  color: white;
+  font-size: 1vw;
+}
+
 .LegacydetailCardHeader {
   position: fixed;
   bottom: 30%;
@@ -1040,6 +1056,7 @@
 }
 
 .NaringDragCard {
+  cursor: pointer;
   text-align: left;
   width: 18vw;
   left: 75vw;
@@ -1136,6 +1153,7 @@
   color: white;
   position: fixed;
   background: #2b455d;
+  cursor: pointer;
 }
 
 .NaringDragCardBookBurningLakeCardContainer img {
@@ -1339,4 +1357,36 @@
   width: 40%;
   height: 40%;
   object-fit: fill;
+}
+
+.book-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px; /* Adjust as needed */
+  height: 400px;
+  perspective: 1000px; /* For 3D effect */
+}
+
+.book-image {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.book-pages {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-page,
+.right-page {
+  width: 45%; /* Adjust the width */
+  height: auto;
 }
