@@ -56,15 +56,27 @@ const PemaLingpa = () => {
   const [showPelingDance, setShowPelingDance] = useState(false);
   const [showNaringDragBook, setShowNaringDragBook] = useState(false);
   const [showBurningLakeBook, setShowBurningLakeBook] = useState(false);
+  const [showNaringDragBookImage, setShowNaringDragBookImage] = useState(false);
+  const [showBurningLakeBookImage, setShowBurningLakeBookImage] =
+    useState(false);
 
   const fadeInOut = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
     exit: { opacity: 0 },
   };
-  const [showNaringDragBookImage, setShowNaringDragBookImage] = useState(false);
-  const [showBurningLakeBookImage, setShowBurningLakeBookImage] =
-    useState(false);
+
+  const getIconColor = () => {
+    if (showHistoricDetails) return "#ffd9bc";
+    if (showLineageCard) return "#ffd9bc";
+    if (showRevelationsCard) return "#ffd9bc";
+  };
+
+  const getIconBgColor = () => {
+    if (showHistoricDetails) return "#380100";
+    if (showLineageCard) return "#380100";
+    if (showRevelationsCard) return "#380100";
+  };
 
   const handleCardClick = () => {
     if (
@@ -270,7 +282,21 @@ const PemaLingpa = () => {
         className={styles.pemaText}
         initial={{ opacity: 1 }}
         animate={{
-          opacity: showDetails || showCards || showHistoricDetails ? 0 : 1,
+          opacity:
+            showDetails ||
+            showCards ||
+            showHistoricDetails ||
+            showLineageCard ||
+            showRevelationsCard ||
+            showLegacyCard ||
+            showNaringDragBook ||
+            showNaringDragBookImage ||
+            showNaringDragCard ||
+            showBurningLakeBook ||
+            showBurningLakeBookImage ||
+            showBurningLakeCard
+              ? 0
+              : 1,
         }}
         transition={{ duration: 0.8 }}
       >
@@ -955,7 +981,11 @@ const PemaLingpa = () => {
             transition={{ duration: 5 }}
             onClick={handleFooterIconClick}
           >
-            <FontAwesomeIcon icon={faHome} className={styles.icon} />
+            <FontAwesomeIcon
+              icon={faHome}
+              className={styles.icon}
+              style={{ color: getIconColor(), background: getIconBgColor() }}
+            />
           </motion.div>
         )}
     </motion.div>
