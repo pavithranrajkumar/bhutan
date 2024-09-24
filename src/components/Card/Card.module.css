@@ -30,7 +30,29 @@
   margin: 17px;
 }
 
-.CardLine {
+.CardHeader p {
+  font-size: 32px;
+  font-family: "Josefin Sans";
+  padding: 0;
+  margin: 0;
+}
+
+.CardHorizontalLine {
+  position: fixed;
+  width: 19vw;
+  height: 0.2vw;
+  bottom: 12%;
+  left: 67.5%;
+  background-color: #001829;
+}
+
+.CardHorizontalLineWhite {
+  position: fixed;
+  width: 19vw;
+  height: 0.2vw;
+  bottom: 12%;
+  left: 67.5%;
+  background-color: #6a1f11;
 }
 
 .CardTitle {
@@ -40,8 +62,15 @@
 }
 
 .CardContent {
+  padding: 0;
+  margin: 0;
   text-align: left;
   justify-content: left;
   font-size: 18px;
   font-family: "Public Sans";
+}
+
+.cardTitleContainer {
+  display: flex;
+  flex-direction: column;
 }

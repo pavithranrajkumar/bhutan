@@ -1,0 +1,15 @@
+.PreviousIconContainer {
+  position: fixed;
+  background: #2b455d;
+  width: 120px;
+  height: 180px;
+  left: 63.5%;
+  top: 80%;
+}
+
+.PreviousIcon {
+  margin-top: 50px;
+  width: 25px;
+  height: 45px;
+  color: white;
+}

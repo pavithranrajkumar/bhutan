@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronRight,
-  faChevronLeft,
-  faHome,
-} from "@fortawesome/free-solid-svg-icons";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import styles from "./PemaLingpa.module.css";
 import pemaLingpa from "../../assests/PemaLingpa.png";
 import Card from "../../components/Card/Card";
@@ -35,10 +31,15 @@ import MonsTemplesFvth from "../../assests/Photo Frame (3).svg";
 import MonsTemplesSxth from "../../assests/Photo Frame (6).svg";
 import MonsTemplesSvnth from "../../assests/Photo Frame (5).svg";
 import BookOpen from "../../assests/Comic Book Open.jpg";
-import PelingVedio from "../../assests/Video Block.jpg";
-import Introduction from "./Introduction/Introduction";
-import { width } from "@fortawesome/free-solid-svg-icons/fa0";
-import { PREMA_LINGPA_INFORMATION } from "../../constants/PremaLingpa";
+import PelingDanceVideo from "../../assests/Legacy/PelingDance.jpg";
+import NameCard from "../../components/NameCard/NameCard";
+import { PEMALINGPA, PEMALINGPAYEAR } from "../../constants/Names/Names";
+import { PREMA_LINGPA_INFORMATION } from "../../constants/Characters/PremaLingpa";
+import LanguageIcon from "../../components/Card/Icons/LanguageIcon/LanguageIcon";
+import HomeIcon from "../../components/Card/Icons/HomeIcon/HomeIcon";
+import PreviousIcon from "../../components/Card/Icons/PreviousIcon/PreviousIcon";
+import PeilingVedio1 from "../../assests/Peiling/peilingVideo1.png";
+import PeilingVedio2 from "../../assests/Peiling/peilingVideo2.png";
 
 const PemaLingpa = () => {
   const [showDetails, setShowDetails] = useState(false);
@@ -66,8 +67,7 @@ const PemaLingpa = () => {
   const [showNaringDragBookImage, setShowNaringDragBookImage] = useState(false);
   const [showBurningLakeBookImage, setShowBurningLakeBookImage] =
     useState(false);
-  const [isBookOpening, setIsBookOpening] = useState(false);
-  const [bookOpened, setBookOpened] = useState(false);
+  const [showPelingVideo, setShowPelingVideo] = useState(false);
   const [language, setLanguage] = useState("english");
 
   const fadeInOut = {
@@ -76,25 +76,12 @@ const PemaLingpa = () => {
     exit: { opacity: 0 },
   };
 
-  const getIconColor = () => {
-    if (
-      showHistoricDetails ||
-      showLineageCard ||
-      showRevelationsCard ||
-      showLegacyCard
-    )
-      return "#ffd9bc";
+  const toggleLanguage = () => {
+    setLanguage((prevLanguage) =>
+      prevLanguage === "english" ? "bhutan" : "english"
+    );
   };
 
-  const getIconBgColor = () => {
-    if (
-      showHistoricDetails ||
-      showLineageCard ||
-      showRevelationsCard ||
-      showLegacyCard
-    )
-      return "#380100";
-  };
   const handleCardClick = () => {
     if (
       showDetails ||
@@ -108,7 +95,8 @@ const PemaLingpa = () => {
       showMonstariesAndTemples ||
       showMonstariesAndTemplesImgs ||
       showPelingDance ||
-      showNaringDragBook
+      showNaringDragBook ||
+      showPelingVideo
     ) {
       resetCardVisibility();
     } else {
@@ -169,6 +157,7 @@ const PemaLingpa = () => {
   // Other handlers
   const PelingCardClick = () => {
     setShowLegacyCard(false);
+    setShowPelingVideo(false);
     setShowMonstariesAndTemples(true);
   };
 
@@ -183,6 +172,11 @@ const PemaLingpa = () => {
     setShowPelingDance(true);
   };
 
+  const PelingVideoClick = () => {
+    setShowPelingDance(false);
+    setShowPelingVideo(true);
+  };
+
   const NaringDragBookClick = () => {
     setShowNaringDragCard(false);
     setShowNaringDragBook(true);
@@ -194,14 +188,7 @@ const PemaLingpa = () => {
   };
 
   const handleNaringDragBook = () => {
-    console.log("Book clicked");
-    setIsBookOpening(true); // Start the book opening animation
-
-    setTimeout(() => {
-      console.log("Book opened animation triggered");
-      setBookOpened(true); // Reveal the pages after the book opens
-      setIsBookOpening(false); // Reset the book opening state
-    }, 1000); // Match this duration to the animation timing
+    // Match this duration to the animation timing
   };
 
   const handleHeaderIconClick = () => {
@@ -231,7 +218,8 @@ const PemaLingpa = () => {
       showBurningLakeBook ||
       showMonstariesAndTemples ||
       showMonstariesAndTemplesImgs ||
-      showPelingDance
+      showPelingDance ||
+      showPelingVideo
     ) {
       setShowHistoricDetails(false);
       setShowLineageCard(false);
@@ -244,6 +232,7 @@ const PemaLingpa = () => {
       setShowMonstariesAndTemples(false);
       setShowMonstariesAndTemplesImgs(false);
       setShowPelingDance(false);
+      setShowPelingVideo(false);
       setShowCards(true);
     } else {
       setShowCards(false);
@@ -262,6 +251,9 @@ const PemaLingpa = () => {
       setShowBurningLakeBookImage(false);
       setShowBurningLakeBook(false);
       setShowBurningLakeCard(true);
+    } else if (showPelingVideo) {
+      setShowPelingVideo(false);
+      setShowPelingDance(true);
     }
   };
 
@@ -379,31 +371,35 @@ const PemaLingpa = () => {
       </motion.div>
 
       <motion.div
-        className={
-          nameCardSubtitle ? styles.nameCardSubtitlecard : styles.pemaNameCard
-        }
         onClick={handleCardClick}
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.6 }}
+        transition={{ duration: 0.4 }}
       >
-        {/* <img src={Namecard} alt="Pema Lingpa" className={styles.OverLayImage} /> */}
-
-        <div
-          className={
-            nameCardSubtitle ? styles.nameCardtitle : styles.pemaNameCardTitle
-          }
-        >
-          <div className={styles.namedCardText}>{nameCardText}</div>
-        </div>
-        {nameCardSubtitle && (
-          <div className={styles.nameCardSubtitle}>{nameCardSubtitle}</div>
+        {nameCardSubtitle ? (
+          <>
+            <NameCard
+              cardName={PREMA_LINGPA_INFORMATION[language].title}
+              year={PEMALINGPAYEAR}
+              background="#FFD9BC"
+              color="#6A1F11"
+            />
+          </>
+        ) : (
+          <>
+            <NameCard cardName={PEMALINGPA} />
+          </>
         )}
       </motion.div>
 
       {showDetails && (
         <>
-          <Introduction />
+          <Card
+            title={PREMA_LINGPA_INFORMATION[language].introduction.title}
+            content={PREMA_LINGPA_INFORMATION[language].introduction.content}
+            showIntro={showIntro}
+            language={language}
+          />
 
           <motion.div
             className={styles.detailCardHeader}
@@ -414,55 +410,77 @@ const PemaLingpa = () => {
           >
             <FontAwesomeIcon icon={faChevronRight} className={styles.icon} />
           </motion.div>
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            whiteImage={true}
+          />
         </>
       )}
 
       {showCards && (
-        <motion.div
-          className={styles.cardsContainer}
-          initial={{ opacity: 1 }}
-          animate={{ opacity: isFadingOut ? 0 : 1 }} // Fade out effect
-          transition={{ duration: 1 }} // Match this duration with the timeout in handleHistoricCardClick
-        >
+        <>
           <motion.div
-            className={styles.HistoricCard}
-            onClick={handleHistoricCardClick}
-            initial={{ x: -100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 1 }}
+            className={styles.cardsContainer}
+            initial={{ opacity: 1 }}
+            animate={{ opacity: isFadingOut ? 0 : 1 }} // Fade out effect
+            transition={{ duration: 1 }} // Match this duration with the timeout in handleHistoricCardClick
           >
-            <div className={styles.CardsContainerText}>HISTORIC BACKGROUND</div>
+            <motion.div
+              className={styles.HistoricCard}
+              onClick={handleHistoricCardClick}
+              initial={{ x: -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1 }}
+            >
+              <div className={styles.CardsContainerText}>
+                {PREMA_LINGPA_INFORMATION[language].historicBackground.title}
+              </div>
+            </motion.div>
+            <motion.div
+              className={styles.LineageCard}
+              onClick={handleLineageCardClick}
+              initial={{ x: 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1 }}
+            >
+              <div className={styles.CardsContainerText}>
+                {PREMA_LINGPA_INFORMATION[language].lineage.title}
+              </div>
+            </motion.div>
+            <motion.div
+              className={styles.RevelationsCard}
+              onClick={handleRevelationsCardClick}
+              initial={{ x: -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1 }}
+            >
+              <div className={styles.CardsContainerText}>
+                {PREMA_LINGPA_INFORMATION[language].revelations.title}
+              </div>
+            </motion.div>
+            <motion.div
+              className={styles.LegacyCard}
+              onClick={handleLegacyCardClick}
+              initial={{ x: 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1 }}
+            >
+              <div className={styles.CardsContainerText}>
+                {PREMA_LINGPA_INFORMATION[language].legacy.title}
+              </div>
+            </motion.div>
           </motion.div>
-          <motion.div
-            className={styles.LineageCard}
-            onClick={handleLineageCardClick}
-            initial={{ x: 100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            <div className={styles.CardsContainerText}>LINEAGE</div>
-          </motion.div>
-          <motion.div
-            className={styles.RevelationsCard}
-            onClick={handleRevelationsCardClick}
-            initial={{ x: -100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            <div className={styles.CardsContainerText}>
-              REVALATIONS BY PEMA LINGPA
-            </div>
-          </motion.div>
-          <motion.div
-            className={styles.LegacyCard}
-            onClick={handleLegacyCardClick}
-            initial={{ x: 100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            <div className={styles.CardsContainerText}>LEGACY</div>
-          </motion.div>
-        </motion.div>
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            left="67.5%"
+            top="89%"
+            width="120px"
+            height="120px"
+            margin="40px"
+          />
+        </>
       )}
 
       {showHistoricDetails && (
@@ -473,6 +491,7 @@ const PemaLingpa = () => {
               PREMA_LINGPA_INFORMATION[language].historicBackground.content
             }
             showIntro={showIntro}
+            language={language}
             backgroundColor="#FFD9BC"
             color="#380100"
           />
@@ -488,26 +507,30 @@ const PemaLingpa = () => {
               className={styles.HistoricIcon}
             />
           </motion.div>
+          <LanguageIcon onClick={toggleLanguage} showIcons={showIcons} />
         </>
       )}
 
       {showLineageCard && (
         <div>
           <Card
+            title={PREMA_LINGPA_INFORMATION[language].lineage.title}
+            content={PREMA_LINGPA_INFORMATION[language].lineage.content}
             width="630px"
-            title="LINEAGE"
-            content="Pema Lingpa’s lineage is maintained by his three incarnation lines – Peling Sungtrul from his direct incarnation, Peling Tukse from his son and Gangteng Trulku from his grandson. Ganteng Trulku Rinpoche is the authentic representative of Peling tradition with the Gangtey monastery in Phubjikha Valley serving as his seat. Pema Lingpa’s sons also established important noble families in Bhutan, namely Tamzhing Choeji of Bumthang and Dungkhar Choeji of Kurtoe. His descendants played a major part in the unification of Bhutan in the 17th century. Jigme Namgyel, the forefather of the ruling Wangchuck dynasty was born into the family of Dungkhar Choeji founded by Pema Lingpa’s son Kunga Wangpo."
             showIntro={showIntro}
+            language={language}
             backgroundColor="#FFD9BC"
             color="#380100"
           />
+          <HomeIcon showIcons={showIcons} onClick={handleFooterIconClick} />
+          <LanguageIcon onClick={toggleLanguage} showIcons={showIcons} />
 
           <div className={styles.FamilCard}>
             <div
               className={styles.FamilyHeader}
               onClick={handleFamilyHeaderClick}
             >
-              <p>PEMA LINGPA</p>
+              <p>{PREMA_LINGPA_INFORMATION[language].title}</p>
             </div>
 
             {showFirstLevel && (
@@ -570,215 +593,275 @@ const PemaLingpa = () => {
 
                 {/* Containers for each card */}
                 {activeCard === "DrakpaGyalpos" && (
-                  <motion.div
-                    className={`${styles.SonsTree} ${
-                      activeCard === "DrakpaGyalpos" ? "" : styles.faded
-                    }`}
-                    onClick={() => handleTreeCardClick("DrakpaGyalpos")}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                    variants={fadeInOut}
-                    transition={{ duration: 2, exit: { duration: 1.5 } }}
-                  >
-                    <div>
-                      <div className={styles.VerticalLine}></div>
-                      <div className={styles.SonsCard}>
-                        <p>Sons</p>
-                      </div>
-                      <div className={styles.SonsHorizontalLine}></div>
-                      <div className={styles.SonsVerticalLine}></div>
-                      <div className={styles.DrakpaGyalposContainer}>
-                        <div className={styles.DrakpaGyalposVerticalLine}></div>
-                        <div className={styles.ChoejeCard}>
-                          <p>Choeje</p>
+                  <>
+                    <motion.div
+                      className={`${styles.SonsTree} ${
+                        activeCard === "DrakpaGyalpos" ? "" : styles.faded
+                      }`}
+                      onClick={() => handleTreeCardClick("DrakpaGyalpos")}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      variants={fadeInOut}
+                      transition={{ duration: 2, exit: { duration: 1.5 } }}
+                    ></motion.div>
+                    <motion.div
+                      className={`${styles.SonsTree} ${
+                        activeCard === "DrakpaGyalpos" ? "" : styles.faded
+                      }`}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      variants={fadeInOut}
+                      transition={{ duration: 2, exit: { duration: 1.5 } }}
+                    >
+                      <div>
+                        <div className={styles.VerticalLine}></div>
+                        <div className={styles.SonsCard}>
+                          <p>Sons</p>
                         </div>
-                        <div className={styles.ChoejeVerticalLine}></div>
-                        <div className={styles.Tamshing}>
-                          <img src={Tamshing} alt="" />
-                          <div className={styles.TamshingCard}>
-                            <p>Tamshing</p>
+                        <div className={styles.SonsHorizontalLine}></div>
+                        <div className={styles.SonsVerticalLine}></div>
+                        <div className={styles.DrakpaGyalposContainer}>
+                          <div
+                            className={styles.DrakpaGyalposVerticalLine}
+                          ></div>
+                          <div className={styles.ChoejeCard}>
+                            <p>Choeje</p>
+                          </div>
+                          <div className={styles.ChoejeVerticalLine}></div>
+                          <div className={styles.Tamshing}>
+                            <img src={Tamshing} alt="" />
+                            <div className={styles.TamshingCard}>
+                              <p>Tamshing</p>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </motion.div>
+                    </motion.div>
+                  </>
                 )}
 
                 {activeCard === "DawaGyaltshen" && (
-                  <motion.div
-                    className={`${styles.SonsTree} ${
-                      activeCard === "DrakpaGyalpos" ? "" : styles.faded
-                    }`}
-                    onClick={() => handleTreeCardClick("DrakpaGyalpos")}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                    variants={fadeInOut}
-                    transition={{ duration: 2, exit: { duration: 1.5 } }}
-                  >
-                    <div>
-                      <div className={styles.VerticalLine}></div>
-                      <div className={styles.SonsCard}>
-                        <p>Sons</p>
-                      </div>
-                      <div
-                        className={styles.DawaGyaltshenSonsVerticalLine}
-                      ></div>
-                      <div
-                        className={styles.DawaGyaltshenSonsHorizontalLine}
-                      ></div>
-                      <div
-                        className={styles.DawaGyaltshenDownSonsVerticalLine}
-                      ></div>
-
-                      <div className={styles.DawaGyaltshenCardContainer}>
-                        <div className={styles.DawaGyaltshenVerticalLine}></div>
-                        <div className={styles.PrakharChoejeCard}>
-                          <p>Choeje</p>
+                  <>
+                    <motion.div
+                      className={`${styles.SonsTree} ${
+                        activeCard === "DrakpaGyalpos" ? "" : styles.faded
+                      }`}
+                      onClick={() => handleTreeCardClick("DrakpaGyalpos")}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      variants={fadeInOut}
+                      transition={{ duration: 2, exit: { duration: 1.5 } }}
+                    ></motion.div>
+                    <motion.div
+                      className={`${styles.SonsTree} ${
+                        activeCard === "DrakpaGyalpos" ? "" : styles.faded
+                      }`}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      variants={fadeInOut}
+                      transition={{ duration: 2, exit: { duration: 1.5 } }}
+                    >
+                      <div>
+                        <div className={styles.VerticalLine}></div>
+                        <div className={styles.SonsCard}>
+                          <p>Sons</p>
                         </div>
-                        <div className={styles.PrakharVerticalLine}></div>
-                        <div className={styles.Prakhar}>
-                          <img src={Prakhar} alt="" />
-                          <div className={styles.PrakharCard}>
-                            <p>Prakhar</p>
+                        <div
+                          className={styles.DawaGyaltshenSonsVerticalLine}
+                        ></div>
+                        <div
+                          className={styles.DawaGyaltshenSonsHorizontalLine}
+                        ></div>
+                        <div
+                          className={styles.DawaGyaltshenDownSonsVerticalLine}
+                        ></div>
+
+                        <div className={styles.DawaGyaltshenCardContainer}>
+                          <div
+                            className={styles.DawaGyaltshenVerticalLine}
+                          ></div>
+                          <div className={styles.PrakharChoejeCard}>
+                            <p>Choeje</p>
+                          </div>
+                          <div className={styles.PrakharVerticalLine}></div>
+                          <div className={styles.Prakhar}>
+                            <img src={Prakhar} alt="" />
+                            <div className={styles.PrakharCard}>
+                              <p>Prakhar</p>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </motion.div>
+                    </motion.div>
+                  </>
                 )}
 
                 {activeCard === "KuengaWangpo" && (
-                  <motion.div
-                    className={`${styles.SonsTree} ${
-                      activeCard === "DrakpaGyalpos" ? "" : styles.faded
-                    }`}
-                    onClick={() => handleTreeCardClick("DrakpaGyalpos")}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                    variants={fadeInOut}
-                    transition={{ duration: 2, exit: { duration: 1.5 } }}
-                  >
-                    <div className={styles.DawaGyaltshenCardContainer}>
-                      <div className={styles.VerticalLine}></div>
-                      <div className={styles.SonsCard}>
-                        <p>Sons</p>
-                      </div>
+                  <>
+                    <motion.div
+                      className={`${styles.SonsTree} ${
+                        activeCard === "DrakpaGyalpos" ? "" : styles.faded
+                      }`}
+                      onClick={() => handleTreeCardClick("DrakpaGyalpos")}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      variants={fadeInOut}
+                      transition={{ duration: 2, exit: { duration: 1.5 } }}
+                    ></motion.div>
+                    <motion.div
+                      className={`${styles.SonsTree} ${
+                        activeCard === "DrakpaGyalpos" ? "" : styles.faded
+                      }`}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      variants={fadeInOut}
+                      transition={{ duration: 2, exit: { duration: 1.5 } }}
+                    >
+                      <div className={styles.DawaGyaltshenCardContainer}>
+                        <div className={styles.VerticalLine}></div>
+                        <div className={styles.SonsCard}>
+                          <p>Sons</p>
+                        </div>
 
-                      <div
-                        className={styles.KuengaWangpoSonsVerticalLine}
-                      ></div>
+                        <div
+                          className={styles.KuengaWangpoSonsVerticalLine}
+                        ></div>
 
-                      <div
-                        className={styles.KuengaWangpoSonsHorizontalLine}
-                      ></div>
-                      <div className={styles.KuengaWangpoVerticalLine}></div>
-                      <div className={styles.KochungChoejeCard}>
-                        <p>Choeje</p>
-                      </div>
-                      <div className={styles.KochungChoejeVerticalLine}></div>
-                      <div className={styles.KochungHorizontalLine}></div>
-                      <div className={styles.KochungVerticalLine}></div>
-                      <div className={styles.BidungVerticalLine}></div>
-                      <div className={styles.KheriVerticalLine}></div>
-                      <div className={styles.KheriVerticalLine2}></div>
+                        <div
+                          className={styles.KuengaWangpoSonsHorizontalLine}
+                        ></div>
+                        <div className={styles.KuengaWangpoVerticalLine}></div>
+                        <div className={styles.KochungChoejeCard}>
+                          <p>Choeje</p>
+                        </div>
+                        <div className={styles.KochungChoejeVerticalLine}></div>
+                        <div className={styles.KochungHorizontalLine}></div>
+                        <div className={styles.KochungVerticalLine}></div>
+                        <div className={styles.BidungVerticalLine}></div>
+                        <div className={styles.KheriVerticalLine}></div>
+                        <div className={styles.KheriVerticalLine2}></div>
 
-                      <div className={styles.DungkarVerticalLine}></div>
-                      <div className={styles.DungkarHorizontalLine}></div>
+                        <div className={styles.DungkarVerticalLine}></div>
+                        <div className={styles.DungkarHorizontalLine}></div>
 
-                      <div style={{ display: "flex" }}>
-                        <div className={styles.Kochung}>
-                          <img src={Kochung} alt="" />
-                          <div className={styles.KochungCard}>
-                            <p>Kochung</p>
+                        <div style={{ display: "flex" }}>
+                          <div className={styles.Kochung}>
+                            <img src={Kochung} alt="" />
+                            <div className={styles.KochungCard}>
+                              <p>Kochung</p>
+                            </div>
+                          </div>
+                          <div className={styles.Bidung}>
+                            <img src={Bidung} alt="" />
+                            <div className={styles.BidungCard}>
+                              <p>Bidung</p>
+                            </div>
                           </div>
                         </div>
-                        <div className={styles.Bidung}>
-                          <img src={Bidung} alt="" />
-                          <div className={styles.BidungCard}>
-                            <p>Bidung</p>
+                        <div style={{ display: "flex" }}>
+                          <div className={styles.Kheri}>
+                            <img src={Kheri} alt="" />
+                            <div className={styles.KheriCard}>
+                              <p>Kheri</p>
+                            </div>
+                          </div>
+                          <div className={styles.Dungkar}>
+                            <img src={Dungkar} alt="" />
+                            <div className={styles.DungkarCard}>
+                              <p>Dungkar</p>
+                            </div>
                           </div>
                         </div>
                       </div>
-                      <div style={{ display: "flex" }}>
-                        <div className={styles.Kheri}>
-                          <img src={Kheri} alt="" />
-                          <div className={styles.KheriCard}>
-                            <p>Kheri</p>
-                          </div>
-                        </div>
-                        <div className={styles.Dungkar}>
-                          <img src={Dungkar} alt="" />
-                          <div className={styles.DungkarCard}>
-                            <p>Dungkar</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
+                    </motion.div>
+                  </>
                 )}
 
                 {activeCard === "Sangda" && (
-                  <motion.div
-                    className={`${styles.SonsTree} ${
-                      activeCard === "DrakpaGyalpos" ? "" : styles.faded
-                    }`}
-                    onClick={() => handleTreeCardClick("DrakpaGyalpos")}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                    variants={fadeInOut}
-                    transition={{ duration: 2, exit: { duration: 5 } }}
-                  >
-                    <div className={styles.SangdaCardContainer}>
-                      <div className={styles.VerticalLine}></div>
-                      <div className={styles.SonsCard}>
-                        <p>Sons</p>
-                      </div>
-                      <div className={styles.SangdaSonsHorizontalLine}></div>
-                      <div className={styles.SangdaSonsVerticalLine}></div>
+                  <>
+                    <motion.div
+                      className={`${styles.SonsTree} ${
+                        activeCard === "DrakpaGyalpos" ? "" : styles.faded
+                      }`}
+                      onClick={() => handleTreeCardClick("DrakpaGyalpos")}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      variants={fadeInOut}
+                      transition={{ duration: 2, exit: { duration: 5 } }}
+                    ></motion.div>
+                    <motion.div
+                      className={`${styles.SonsTree} ${
+                        activeCard === "DrakpaGyalpos" ? "" : styles.faded
+                      }`}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      variants={fadeInOut}
+                      transition={{ duration: 2, exit: { duration: 5 } }}
+                    >
+                      <div className={styles.SangdaCardContainer}>
+                        <div className={styles.VerticalLine}></div>
+                        <div className={styles.SonsCard}>
+                          <p>Sons</p>
+                        </div>
+                        <div className={styles.SangdaSonsHorizontalLine}></div>
+                        <div className={styles.SangdaSonsVerticalLine}></div>
 
-                      <div className={styles.SangdaVerticalLine}></div>
-                      <div className={styles.SangdaSonsCard}>
-                        <p>Choeje</p>
-                      </div>
-                      <div className={styles.SangdaDownVerticalLine}></div>
-                      <div className={styles.SangdaHorizontalLine}></div>
-                      <div className={styles.SangdaFrstSonsVerticalLine}></div>
-                      <div className={styles.SangdaScndSonsVerticalLine}></div>
-                      <div className={styles.SangdaThrdSonsVerticalLine}></div>
-                      <div className={styles.SangdaFrthSonsVerticalLine}></div>
+                        <div className={styles.SangdaVerticalLine}></div>
+                        <div className={styles.SangdaSonsCard}>
+                          <p>Choeje</p>
+                        </div>
+                        <div className={styles.SangdaDownVerticalLine}></div>
+                        <div className={styles.SangdaHorizontalLine}></div>
+                        <div
+                          className={styles.SangdaFrstSonsVerticalLine}
+                        ></div>
+                        <div
+                          className={styles.SangdaScndSonsVerticalLine}
+                        ></div>
+                        <div
+                          className={styles.SangdaThrdSonsVerticalLine}
+                        ></div>
+                        <div
+                          className={styles.SangdaFrthSonsVerticalLine}
+                        ></div>
 
-                      <div className={styles.SangdaSonsContainer}>
-                        <div className={styles.Tsakaling}>
-                          <img src={Tsakaling} alt="" />
-                          <div className={styles.TsakalingCard}>
-                            <p>Tsakaling</p>
+                        <div className={styles.SangdaSonsContainer}>
+                          <div className={styles.Tsakaling}>
+                            <img src={Tsakaling} alt="" />
+                            <div className={styles.TsakalingCard}>
+                              <p>Tsakaling</p>
+                            </div>
                           </div>
-                        </div>
-                        <div className={styles.Drophu}>
-                          <img src={Drophu} alt="" />
-                          <div className={styles.DrophuCard}>
-                            <p>Drophu</p>
+                          <div className={styles.Drophu}>
+                            <img src={Drophu} alt="" />
+                            <div className={styles.DrophuCard}>
+                              <p>Drophu</p>
+                            </div>
                           </div>
-                        </div>
-                        <div className={styles.Drametse}>
-                          <img src={Drametse} alt="" />
-                          <div className={styles.DrametseCard}>
-                            <p>Drametse</p>
+                          <div className={styles.Drametse}>
+                            <img src={Drametse} alt="" />
+                            <div className={styles.DrametseCard}>
+                              <p>Drametse</p>
+                            </div>
                           </div>
-                        </div>
-                        <div className={styles.Yagang}>
-                          <img src={Yagang} alt="" />
-                          <div className={styles.YagangCard}>
-                            <p>Yagang</p>
+                          <div className={styles.Yagang}>
+                            <img src={Yagang} alt="" />
+                            <div className={styles.YagangCard}>
+                              <p>Yagang</p>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </motion.div>
+                    </motion.div>
+                  </>
                 )}
               </>
             )}
@@ -790,9 +873,10 @@ const PemaLingpa = () => {
         <>
           <Card
             width="630px"
-            title="REVALATIONS BY PREMA LINGPA"
-            content="Pema Lingpa discovered treasures mainly around Bumthang’s valleys and regions north of its current borders with Tibet. He revealed exclusively physical terma, both texts and relics. In his lifetime, Pema Lingpa was able to reveal only 32 out of 108 termas destined for him. The collection of texts discovered by him, ‘The Precious Collection of Profound Treasure Teachings of the Great Master Pema Lingpa’ consists of 21 volumes."
+            title={PREMA_LINGPA_INFORMATION[language].revelations.title}
+            content={PREMA_LINGPA_INFORMATION[language].revelations.content}
             showIntro={showIntro}
+            language={language}
             backgroundColor="#FFD9BC"
             color="#380100"
           />
@@ -806,7 +890,7 @@ const PemaLingpa = () => {
                   Revelations at
                 </div>
                 <div className={styles.RevelationsSideCardsScnd}>
-                  NARING DRAG
+                  {PREMA_LINGPA_INFORMATION[language].naringDrag.title}
                 </div>
               </div>
 
@@ -824,13 +908,17 @@ const PemaLingpa = () => {
                   Revelations at
                 </div>
                 <div className={styles.RevelationsSideCardsScnd}>
-                  BURNING LAKE
+                  {PREMA_LINGPA_INFORMATION[language].burningLake.title}
                 </div>
               </div>
               <img src={ComicBook} alt="ComicBook" />
-              <div className={styles.BurningLakeCardBookText}>BURNING LAKE</div>
+              <div className={styles.BurningLakeCardBookText}>
+                {PREMA_LINGPA_INFORMATION[language].burningLake.title}
+              </div>
             </div>
           </div>
+          <HomeIcon showIcons={showIcons} onClick={handleFooterIconClick} />
+          <LanguageIcon onClick={toggleLanguage} showIcons={showIcons} />
         </>
       )}
 
@@ -843,7 +931,7 @@ const PemaLingpa = () => {
                 : styles.NaringDragCardBookContainer
             }
           >
-            {/* <img
+            <img
               src={showNaringDragBookImage ? BookOpen : NaringDrag}
               alt="NaringDrag"
               onClick={handleNaringDragBookImageClick}
@@ -852,9 +940,9 @@ const PemaLingpa = () => {
               src={showNaringDragBookImage ? BookOpen : NaringDrag}
               alt="NaringDrag"
               onClick={handleNaringDragBookImageClick}
-            /> */}
+            />
             <img
-              src={showNaringDragBookImage ? BookOpen : NaringDrag}
+              src={BookOpen}
               alt="NaringDrag"
               onClick={handleNaringDragBookImageClick}
             />
@@ -865,10 +953,26 @@ const PemaLingpa = () => {
             onClick={handleBurningLakeCardClick}
           >
             <div className={styles.RevelationsSideCardsfrst}>
-              Revelations at
+              {PREMA_LINGPA_INFORMATION[language].naringDrag.header}
             </div>
-            <div className={styles.RevelationsSideCardsScnd}>BURNING LAKE</div>
+            <div className={styles.RevelationsSideCardsScnd}>
+              {PREMA_LINGPA_INFORMATION[language].burningLake.title}
+            </div>
           </div>
+          <HomeIcon
+            showIcons={showIcons}
+            onClick={handleFooterIconClick}
+            whiteImage={true}
+          />
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            whiteImage={true}
+          />
+          <PreviousIcon
+            showIcons={showIcons}
+            onClick={handlePreviousIconClick}
+          />
         </>
       )}
 
@@ -882,29 +986,47 @@ const PemaLingpa = () => {
             }
           >
             <img
-              src={showNaringDragBookImage ? BookOpen : ComicBook}
+              src={BookOpen}
               alt="NaringDrag"
               onClick={handleNaringDragBookImageClick}
             />
           </div>
           <div
-            className={styles.NaringDragCard}
+            className={styles.NaringDragCardBookTextContainer}
             onClick={handleNaringDragCardClick}
           >
             <div className={styles.RevelationsSideCardsfrst}>
-              Revelations at
+              {PREMA_LINGPA_INFORMATION[language].naringDrag.header}
             </div>
-            <div className={styles.RevelationsSideCardsScnd}>NARING DRAG</div>
+            <div className={styles.RevelationsSideCardsScnd}>
+              {PREMA_LINGPA_INFORMATION[language].naringDrag.title}
+            </div>
           </div>
+          <HomeIcon
+            showIcons={showIcons}
+            onClick={handleFooterIconClick}
+            whiteImage={true}
+          />
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            whiteImage={true}
+          />
+          <PreviousIcon
+            showIcons={showIcons}
+            onClick={handlePreviousIconClick}
+          />
         </>
       )}
 
       {showNaringDragCard && (
         <>
           <Card
-            title="Revelation at Naring Drag"
-            content="Pema Lingpa is awakened by the voice of a monk, who urges him to read a scroll thrust into his hands. The scroll instructs Pema Lingpa to gather five friends and go to Naring Drak on a full moon night to uncover his destiny. It also contained a key to decode the terma. He dives into the lake below the cliff finding a large cave with a throne and stacks of texts. The cave’s guardian hands him a scroll and asks him to leave. When Pema Lingpa surfaces above water, he is propelled up the cliff by the wind. Returning home he shares the text with his parents and two masters from Tharpaling Monastery, none could read the text. He then uses the key in the scroll to read the title of the text, ‘Crystallization of the Tantra of Luminous Space’. This text is considered the first of 32 termas revealed by Pema Lingpa."
+            header={PREMA_LINGPA_INFORMATION[language].naringDrag.header}
+            title={PREMA_LINGPA_INFORMATION[language].naringDrag.title}
+            content={PREMA_LINGPA_INFORMATION[language].naringDrag.content}
             showIntro={showIntro}
+            language={language}
           />
           <div className={styles.NaringDragCardBook}>
             <img
@@ -912,53 +1034,92 @@ const PemaLingpa = () => {
               alt="NaringDrag"
               onClick={NaringDragBookClick}
             />
-            <div className={styles.NaringDragCardBookTextScnd}>NARING DRAG</div>
+            <div className={styles.NaringDragCardBookTextScnd}>
+              {PREMA_LINGPA_INFORMATION[language].naringDrag.title}
+            </div>
           </div>
+          <HomeIcon
+            showIcons={showIcons}
+            onClick={handleFooterIconClick}
+            whiteImage={true}
+          />
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            whiteImage={true}
+          />
         </>
       )}
 
       {showBurningLakeCard && (
         <>
           <Card
-            title="Revelation at Burning Lake"
-            content="When the local Choekhor governor hears of the popularity of Pema Lingpa, he is not convinced of his authenticity. Assembling a large group of people in Naring Drag, he asks Pema Lingpa to prove his merit. He declares that he would support Pema Lingpa if he would bring out a treasure, failing which he would be punished. Pema Lingpa proclaimed “If I am genuine, let me bring back the treasure with this lamp still burning. If I am a fraud, let me die in the waters below.” He then took a burning butter lamp and dove into the lake resurfacing with a box of skulls, a sculpture of the Buddha and the butter lamp, still alight. All those who witness the miracle became Pema Lingpa’s followers and patrons, and the lake gets its name Mebar tsho or Burning Lake."
+            header={PREMA_LINGPA_INFORMATION[language].burningLake.header}
+            title={PREMA_LINGPA_INFORMATION[language].burningLake.title}
+            content={PREMA_LINGPA_INFORMATION[language].burningLake.content}
             showIntro={showIntro}
+            language={language}
           />
           <div
             className={styles.NaringDragCardBook}
             onClick={BurningLakeBookClick}
           >
             <img src={ComicBook} alt="NaringDrag" />
-            <div className={styles.BurningLakeCardText}>BURNING LAKE</div>
+            <div className={styles.BurningLakeCardText}>
+              {PREMA_LINGPA_INFORMATION[language].burningLake.title}
+            </div>
           </div>
+          <HomeIcon
+            showIcons={showIcons}
+            onClick={handleFooterIconClick}
+            whiteImage={true}
+          />
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            whiteImage={true}
+          />
         </>
       )}
 
       {showLegacyCard && (
         <>
           <Card
-            title="LEGACY"
-            content="Pema Lingpa established an enormous corpus of literature which serves as the primary basis of religious life for Buddhist followers. The teachings and the cycle of treasures of Pema Lingpa contain several practices, rituals, and instructions that lead sentient beings to liberation. Pema Lingpa’s legacies are preserved in the form of sacred dances which were revealed to him as dreams and visions. The ritual dances, cham composed by him serve as a centrepiece for many festivals and ceremonies across Bhutan."
+            title={PREMA_LINGPA_INFORMATION[language].legacy.title}
+            content={PREMA_LINGPA_INFORMATION[language].legacy.content}
+            width="630px"
             showIntro={showIntro}
             backgroundColor="#FFD9BC"
             color="#380100"
+            language={language}
           />
           <div className={styles.PelingCard} onClick={PelingCardClick}>
             <img src={KenchosumLhakhang} alt="KenchosumLhakhang" />
-            <div className={styles.PelingSideCardsfrst}>Peling</div>
-            <div className={styles.PelingSideCardsScnd}>
-              MONASTERIES & TEMPLES
+            <div style={{ margin: "15px" }}>
+              <div className={styles.PelingSideCardsfrst}>
+                {" "}
+                title={PREMA_LINGPA_INFORMATION[language].legacy.header}
+              </div>
+              <div className={styles.PelingSideCardsScnd}>
+                <p>
+                  {
+                    PREMA_LINGPA_INFORMATION[language].monastriesAndTemples
+                      .title
+                  }
+                </p>
+              </div>
             </div>
           </div>
           <div className={styles.PelingDanceCard} onClick={PelingDanceClick}>
             <div className={styles.PelingDanceVideo}>
-              {" "}
               <img src={PelingDanceVideo} alt="PelingDanceVideo " />
             </div>
             <div style={{ margin: "30px" }}>
-              <div className={styles.PelingSideCardsfrst}>Peling</div>
+              <div className={styles.PelingSideCardsfrst}>
+                {PREMA_LINGPA_INFORMATION[language].pelingdance.header}
+              </div>
               <div className={styles.PelingSideCardsScnd}>
-                <p>DANCE</p>
+                <p> {PREMA_LINGPA_INFORMATION[language].pelingdance.title}</p>
               </div>
             </div>
           </div>
@@ -971,15 +1132,26 @@ const PemaLingpa = () => {
           >
             <FontAwesomeIcon icon={faChevronRight} className={styles.icon} />
           </motion.div>
+          <HomeIcon showIcons={showIcons} onClick={handleFooterIconClick} />
+          <LanguageIcon onClick={toggleLanguage} showIcons={showIcons} />
         </>
       )}
 
       {showMonstariesAndTemples && (
         <>
           <Card
-            title="Peling monasteries & temples"
-            content="Pema Lingpa built many temples such as Tamzhing Lhundrup Choling in Bumthang; Pemaling, Dechenling, and Kunzangdrak in Chel; Kunzangling in Kurtö; Dekyiling in Bamrin; Orgyenling in Tsangchu; Kyerechung Tashi Tengye in Layak; and several others. He restored damages and reconsecrated Gyatso Lhalun. Like his previous incarnations, Pema Lingpa left magical markings of his passing in many places like Kunzangdrak monastery and Gyagar Khamphuk. These marks have a status akin to a terma, as they are reminders of his ever-living presence."
+            header={
+              PREMA_LINGPA_INFORMATION[language].monastriesAndTemples.header
+            }
+            title={
+              PREMA_LINGPA_INFORMATION[language].monastriesAndTemples.title
+            }
+            content={
+              PREMA_LINGPA_INFORMATION[language].monastriesAndTemples.content
+            }
+            width="630px"
             showIntro={showIntro}
+            language={language}
           />
           <div
             className={styles.MonsTemplesCardBook}
@@ -987,6 +1159,16 @@ const PemaLingpa = () => {
           >
             <img src={MonsTemples} alt="NaringDrag" />
           </div>
+          <HomeIcon
+            showIcons={showIcons}
+            onClick={handleFooterIconClick}
+            whiteImage={true}
+          />
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            whiteImage={true}
+          />
         </>
       )}
 
@@ -1015,73 +1197,99 @@ const PemaLingpa = () => {
                 className={styles.MonstariesAndTemplesImgsPelingDanceCard}
                 onClick={PelingDanceClick}
               >
-                <div className={styles.PelingSideCardsfrst}>Peling</div>
-                <div className={styles.PelingSideCardsScnd}>DANCE</div>
+                <div className={styles.PelingSideCardsfrst}>
+                  {PREMA_LINGPA_INFORMATION[language].pelingdance.header}
+                </div>
+                <div className={styles.PelingSideCardsScnd}>
+                  {PREMA_LINGPA_INFORMATION[language].pelingdance.title}
+                </div>
               </div>
             </div>
           </div>
+          <HomeIcon
+            showIcons={showIcons}
+            onClick={handleFooterIconClick}
+            whiteImage={true}
+          />
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            whiteImage={true}
+          />
+          <PreviousIcon
+            showIcons={showIcons}
+            onClick={handlePreviousIconClick}
+          />
         </>
       )}
 
       {showPelingDance && (
         <>
           <Card
-            title="Peling Dances"
-            content="Pema Lingpa’s legacies are preserved in the form of sacred dances called peling tercham which were revealed to him as dreams and visions. The ritual dances composed by him serve as a centerpiece for many festivals and ceremonies. The most popular of the dances are the dakini dance, the three ging dances signifying the subjugation of evil and the ging and tsholing dance. It is said that dakini would visit him in his dreams to teach him the steps of different sacred dances and give him further instructions."
+            header={PREMA_LINGPA_INFORMATION[language].pelingdance.header}
+            title={PREMA_LINGPA_INFORMATION[language].pelingdance.title}
+            content={PREMA_LINGPA_INFORMATION[language].pelingdance.content}
+            width="630px"
             showIntro={showIntro}
+            language={language}
           />
-          <div className={styles.PelingVedio}>
-            <img src={PelingVedio} alt="peling video" />
+          <div className={styles.PeilingVedio} onClick={PelingVideoClick}>
+            <img src={PeilingVedio1} alt="peling video" />
           </div>
+          <HomeIcon
+            showIcons={showIcons}
+            onClick={handleFooterIconClick}
+            whiteImage={true}
+          />
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            whiteImage={true}
+          />
         </>
       )}
 
-      {(showDetails ||
-        showHistoricDetails ||
-        showLineageCard ||
-        showRevelationsCard ||
-        showBurningLakeCard ||
-        showNaringDragCard ||
-        showNaringDragBook ||
-        showBurningLakeBook ||
-        showMonstariesAndTemples ||
-        showMonstariesAndTemplesImgs ||
-        showPelingDance ||
-        showLegacyCard) &&
-        showIcons && (
-          <motion.div
-            className={styles.detailCardFooter}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: showIcons ? 1 : 0 }}
-            transition={{ duration: 5 }}
+      {showPelingVideo && (
+        <>
+          <div className={styles.PelingVideoScnd}>
+            <div className={styles.PeilingVedioScnd}>
+              <img src={PeilingVedio2} alt="peling video" />
+            </div>
+            <div
+              className={styles.PelingVideoScndCard}
+              onClick={PelingCardClick}
+            >
+              <div style={{ margin: "10px" }}>
+                <div className={styles.PelingVideoScndCardFrstTitle}>
+                  <p>{PREMA_LINGPA_INFORMATION[language].pelingdance.header}</p>
+                </div>
+                <div className={styles.PelingVideoScndCardcndTitle}>
+                  <p>
+                    {
+                      PREMA_LINGPA_INFORMATION[language].monastriesAndTemples
+                        .title
+                    }
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <HomeIcon
+            showIcons={showIcons}
             onClick={handleFooterIconClick}
-          >
-            <FontAwesomeIcon
-              icon={faHome}
-              className={styles.icon}
-              style={{ color: getIconColor(), background: getIconBgColor() }}
-            />
-          </motion.div>
-        )}
-
-      {(showMonstariesAndTemplesImgs ||
-        showBurningLakeBook ||
-        showNaringDragBook) &&
-        showIcons && (
-          <motion.div
-            className={styles.PreviousIconContainer}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: showIcons ? 1 : 0 }}
-            transition={{ duration: 5 }}
+            whiteImage={true}
+          />
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            whiteImage={true}
+          />
+          <PreviousIcon
+            showIcons={showIcons}
             onClick={handlePreviousIconClick}
-          >
-            <FontAwesomeIcon
-              icon={faChevronLeft}
-              className={styles.PreviousIcon}
-              style={{ color: getIconColor(), background: getIconBgColor() }}
-            />
-          </motion.div>
-        )}
+          />
+        </>
+      )}
     </motion.div>
   );
 };

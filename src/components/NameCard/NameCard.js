@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import styles from "./NameCard.module.css";
 
 const NameCard = ({ cardName, year, background, color }) => {
+  // const cardStyles = {
+  //   fontSize: language === "bhutan" ? "13px" : "18px",
+  // };
   return (
     <motion.div
       style={{ background: background }}
@@ -15,9 +18,6 @@ const NameCard = ({ cardName, year, background, color }) => {
 
       <div className={styles.pemaNameCardTitle} style={{ color: color }}>
         <div className={styles.namedCardText}>{cardName}</div>
-      </div>
-
-      <div className={styles.nameCardSubtitle}>
         <p>{year}</p>
       </div>
     </motion.div>

@@ -2,7 +2,22 @@ import React from "react";
 import { motion } from "framer-motion";
 import styles from "./Card.module.css";
 
-const Card = ({ title, content, showIntro, backgroundColor, color, width }) => {
+const Card = ({
+  title,
+  content,
+  showIntro,
+  backgroundColor,
+  color,
+  width,
+  header,
+  language,
+}) => {
+  const cardStyles = {
+    fontSize: language === "bhutan" ? "12px" : "18px",
+  };
+  const cardTitle = {
+    fontSize: language === "bhutan" ? "25px" : "64px",
+  };
   return (
     <motion.div
       className={styles.detailCard}
@@ -18,27 +33,35 @@ const Card = ({ title, content, showIntro, backgroundColor, color, width }) => {
         transition={{ duration: 1 }}
       />
 
-      {/* Title and Content */}
       <motion.div
         className={styles.introduction}
         initial={{ opacity: 0 }}
         animate={{ opacity: showIntro ? 1 : 0 }}
-        transition={{ duration: 1 }} // Removed delay for now
+        transition={{ duration: 1 }}
       >
         <motion.h3
           initial={{ opacity: 0 }}
           animate={{ opacity: showIntro ? 1 : 0 }}
-          transition={{ duration: 0.8 }} // Removed delay
+          transition={{ duration: 0.8 }}
         >
-          <div className={styles.CardTitle}>{title}</div>
-          <div className={styles.CardLine}></div>
+          <div className={styles.cardTitleContainer}>
+            <div className={styles.CardHeader}>
+              <p className={styles.CardHeader}>{header}</p>
+            </div>
+
+            <div className={styles.CardTitle} style={cardTitle}>
+              {title}
+            </div>
+          </div>
         </motion.h3>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: showIntro ? 1 : 0 }}
-          transition={{ duration: 0.8 }} // Removed delay
+          transition={{ duration: 0.8 }}
         >
-          <div className={styles.CardContent}>{content}</div>
+          <div className={styles.CardContent} style={cardStyles}>
+            {content}
+          </div>
         </motion.p>
       </motion.div>
     </motion.div>

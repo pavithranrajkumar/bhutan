@@ -3,6 +3,7 @@ import "./main.css";
 import bottom from "../../assests/Bottom.svg";
 import top from "../../assests/Top.svg";
 import PemaLingpa from "../../Characters/PemaLingpa/PemaLingpa";
+import BookAnimation from "../Trial/Trial";
 
 const Main = () => {
   return (
@@ -14,6 +15,7 @@ const Main = () => {
       <div className="image-container bottom-image-container">
         <img src={bottom} alt="Bottom Image" />
         <PemaLingpa />
+        {/* <BookAnimation /> */}
       </div>
     </div>
   );
