@@ -2,11 +2,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import styles from "./Card.module.css";
 
-const Card = ({ title, content, showIntro, backgroundColor, color }) => {
+const Card = ({ title, content, showIntro, backgroundColor, color, width }) => {
   return (
     <motion.div
       className={styles.detailCard}
-      style={{ background: backgroundColor, color: color }}
+      style={{ background: backgroundColor, color: color, width: width }}
       initial={{ x: -300, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 1, ease: "easeOut" }}
@@ -17,16 +17,18 @@ const Card = ({ title, content, showIntro, backgroundColor, color }) => {
         animate={{ height: "100%" }}
         transition={{ duration: 1 }}
       />
+
+      {/* Title and Content */}
       <motion.div
         className={styles.introduction}
         initial={{ opacity: 0 }}
         animate={{ opacity: showIntro ? 1 : 0 }}
-        transition={{ duration: 1, delay: showIntro ? 0 : 0.5 }}
+        transition={{ duration: 1 }} // Removed delay for now
       >
         <motion.h3
           initial={{ opacity: 0 }}
           animate={{ opacity: showIntro ? 1 : 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8 }} // Removed delay
         >
           <div className={styles.CardTitle}>{title}</div>
           <div className={styles.CardLine}></div>
@@ -34,7 +36,7 @@ const Card = ({ title, content, showIntro, backgroundColor, color }) => {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: showIntro ? 1 : 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8 }} // Removed delay
         >
           <div className={styles.CardContent}>{content}</div>
         </motion.p>

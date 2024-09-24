@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "./PemaLingpa.module.css";
 import pemaLingpa from "../../assests/PemaLingpa.png";
+import Namecard from "../../assests/NameCard/NameCard.svg";
 import Card from "../../components/Card/Card";
 import DrakpaGyalpos from "../../assests/DrakpaGyalpo.svg";
 import Sangda from "../../assests/Sangda.svg";
@@ -36,6 +37,8 @@ import MonsTemplesSxth from "../../assests/Photo Frame (6).svg";
 import MonsTemplesSvnth from "../../assests/Photo Frame (5).svg";
 import BookOpen from "../../assests/Comic Book Open.jpg";
 import PelingVedio from "../../assests/Video Block.jpg";
+import Introduction from "./Introduction/Introduction";
+import { width } from "@fortawesome/free-solid-svg-icons/fa0";
 
 const PemaLingpa = () => {
   const [showDetails, setShowDetails] = useState(false);
@@ -359,8 +362,10 @@ const PemaLingpa = () => {
         }}
         transition={{ duration: 0.8 }}
       >
-        <div>1450</div>
-        <div>-1521</div>
+        <div className={styles.pemaTextContainer}>
+          <div className={styles.YearText}>1450</div>
+          <div className={styles.YearText}>-1521</div>
+        </div>
       </motion.div>
 
       <motion.div
@@ -381,44 +386,24 @@ const PemaLingpa = () => {
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.6 }}
       >
-        <motion.div
-          className={styles.nameCard}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+        {/* <img src={Namecard} alt="Pema Lingpa" className={styles.OverLayImage} /> */}
+
+        <div
+          className={
+            nameCardSubtitle ? styles.nameCardtitle : styles.pemaNameCardTitle
+          }
         >
-          <div
-            className={
-              nameCardSubtitle ? styles.nameCardtitle : styles.pemaNameCardTitle
-            }
-          >
-            {nameCardText}
-          </div>
-          {nameCardSubtitle && (
-            <div className={styles.nameCardSubtitle}>{nameCardSubtitle}</div>
-          )}
-        </motion.div>
+          <div className={styles.namedCardText}>{nameCardText}</div>
+        </div>
+        {nameCardSubtitle && (
+          <div className={styles.nameCardSubtitle}>{nameCardSubtitle}</div>
+        )}
       </motion.div>
 
       {showDetails && (
         <>
-          <Card
-            title="INTRODUCTION"
-            content="Pema Lingpa (c. 1450-1521) native to Bumthang was a prominent
-          religious figure of the Nyingma tradition who had a huge influence
-          in Bhutan. The fourth and the only Bhutanese of five most
-          important tertöns of the Himalayan world, he was considered the
-          reincarnation of the 14th century Tibetan scholar Longchen Rabjam.
-          Termas unearthed by him revealed religious teachings and
-          meditation instructions, which inform certain Buddhist practices
-          in Bhutan even today. He is renowned for his display of spiritual
-          wonders and his extraordinary religious visions are depicted in
-          dances throughout the country. Pema Lingpa’s spiritual lineage is
-          still maintained and transmitted through the many monasteries he
-          established and his three incarnation lines. His family lineage
-          established various noble religious families in Bhutan, including
-          Dungkar chöeje, forbearers of the present ruling family."
-            showIntro={showIntro}
-          />
+          <Introduction />
+
           <motion.div
             className={styles.detailCardHeader}
             onClick={handleHeaderIconClick}
@@ -445,7 +430,7 @@ const PemaLingpa = () => {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 1 }}
           >
-            <span>Historic Background</span>
+            <div className={styles.CardsContainerText}>HISTORIC BACKGROUND</div>
           </motion.div>
           <motion.div
             className={styles.LineageCard}
@@ -454,7 +439,7 @@ const PemaLingpa = () => {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 1 }}
           >
-            <span>Lineage</span>
+            <div className={styles.CardsContainerText}>LINEAGE</div>
           </motion.div>
           <motion.div
             className={styles.RevelationsCard}
@@ -463,7 +448,9 @@ const PemaLingpa = () => {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 1 }}
           >
-            <span>Revelations by Pema Lingpa</span>
+            <div className={styles.CardsContainerText}>
+              REVALATIONS BY PEMA LINGPA
+            </div>
           </motion.div>
           <motion.div
             className={styles.LegacyCard}
@@ -472,7 +459,7 @@ const PemaLingpa = () => {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 1 }}
           >
-            <span>Legacy</span>
+            <div className={styles.CardsContainerText}>LEGACY</div>
           </motion.div>
         </motion.div>
       )}
@@ -514,6 +501,7 @@ const PemaLingpa = () => {
       {showLineageCard && (
         <div>
           <Card
+            width="630px"
             title="LINEAGE"
             content="Pema Lingpa’s lineage is maintained by his three incarnation lines – Peling Sungtrul from his direct incarnation, Peling Tukse from his son and Gangteng Trulku from his grandson. Ganteng Trulku Rinpoche is the authentic representative of Peling tradition with the Gangtey monastery in Phubjikha Valley serving as his seat. Pema Lingpa’s sons also established important noble families in Bhutan, namely Tamzhing Choeji of Bumthang and Dungkhar Choeji of Kurtoe. His descendants played a major part in the unification of Bhutan in the 17th century. Jigme Namgyel, the forefather of the ruling Wangchuck dynasty was born into the family of Dungkhar Choeji founded by Pema Lingpa’s son Kunga Wangpo."
             showIntro={showIntro}
@@ -580,10 +568,7 @@ const PemaLingpa = () => {
                   >
                     <div className={styles.Sangda}>
                       <img src={Sangda} alt="" />
-                      <div
-                        className={styles.SangdaCard}
-                        style={{ padding: "1vw" }}
-                      >
+                      <div className={styles.SangdaCard}>
                         <p>Sangda</p>
                       </div>
                     </div>
@@ -692,6 +677,10 @@ const PemaLingpa = () => {
                       <div
                         className={styles.KuengaWangpoSonsVerticalLine}
                       ></div>
+
+                      <div
+                        className={styles.KuengaWangpoSonsHorizontalLine}
+                      ></div>
                       <div className={styles.KuengaWangpoVerticalLine}></div>
                       <div className={styles.KochungChoejeCard}>
                         <p>Choeje</p>
@@ -701,7 +690,11 @@ const PemaLingpa = () => {
                       <div className={styles.KochungVerticalLine}></div>
                       <div className={styles.BidungVerticalLine}></div>
                       <div className={styles.KheriVerticalLine}></div>
+                      <div className={styles.KheriVerticalLine2}></div>
+
                       <div className={styles.DungkarVerticalLine}></div>
+                      <div className={styles.DungkarHorizontalLine}></div>
+
                       <div style={{ display: "flex" }}>
                         <div className={styles.Kochung}>
                           <img src={Kochung} alt="" />
@@ -753,7 +746,6 @@ const PemaLingpa = () => {
                       </div>
                       <div className={styles.SangdaSonsHorizontalLine}></div>
                       <div className={styles.SangdaSonsVerticalLine}></div>
-                      <div className={styles.SangdaDownSonsVerticalLine}></div>
 
                       <div className={styles.SangdaVerticalLine}></div>
                       <div className={styles.SangdaSonsCard}>
@@ -765,9 +757,6 @@ const PemaLingpa = () => {
                       <div className={styles.SangdaScndSonsVerticalLine}></div>
                       <div className={styles.SangdaThrdSonsVerticalLine}></div>
                       <div className={styles.SangdaFrthSonsVerticalLine}></div>
-                      <div
-                        className={styles.SangdaFrthSonsHorizontalLine}
-                      ></div>
 
                       <div className={styles.SangdaSonsContainer}>
                         <div className={styles.Tsakaling}>
@@ -807,7 +796,8 @@ const PemaLingpa = () => {
       {showRevelationsCard && (
         <>
           <Card
-            title="Revelations by Pema Lingpa"
+            width="630px"
+            title="REVALATIONS BY PREMA LINGPA"
             content="Pema Lingpa discovered treasures mainly around Bumthang’s valleys and regions north of its current borders with Tibet. He revealed exclusively physical terma, both texts and relics. In his lifetime, Pema Lingpa was able to reveal only 32 out of 108 termas destined for him. The collection of texts discovered by him, ‘The Precious Collection of Profound Treasure Teachings of the Great Master Pema Lingpa’ consists of 21 volumes."
             showIntro={showIntro}
             backgroundColor="#FFD9BC"
@@ -818,22 +808,31 @@ const PemaLingpa = () => {
               className={styles.NaringDragCard}
               onClick={handleNaringDragCardClick}
             >
-              <div className={styles.RevelationsSideCardsfrst}>
-                Revelations at
+              <div className={styles.RevalationSideCardTextContainer}>
+                <div className={styles.RevelationsSideCardsfrst}>
+                  Revelations at
+                </div>
+                <div className={styles.RevelationsSideCardsScnd}>
+                  NARING DRAG
+                </div>
               </div>
-              <div className={styles.RevelationsSideCardsScnd}>NARING DRAG</div>
+
               <img src={NaringDrag} alt="NaringDrag" />
-              <div className={styles.NaringDragCardBookText}>NARING DRAG</div>
+              <div className={styles.NaringDragCardBookText}>
+                NARING <span>DRAG</span>
+              </div>
             </div>
             <div
               className={styles.BurningLakeCard}
               onClick={handleBurningLakeCardClick}
             >
-              <div className={styles.RevelationsSideCardsfrst}>
-                Revelations at
-              </div>
-              <div className={styles.RevelationsSideCardsScnd}>
-                BURNING LAKE
+              <div className={styles.RevalationSideCardTextContainer}>
+                <div className={styles.RevelationsSideCardsfrst}>
+                  Revelations at
+                </div>
+                <div className={styles.RevelationsSideCardsScnd}>
+                  BURNING LAKE
+                </div>
               </div>
               <img src={ComicBook} alt="ComicBook" />
               <div className={styles.BurningLakeCardBookText}>BURNING LAKE</div>
@@ -844,69 +843,30 @@ const PemaLingpa = () => {
 
       {showNaringDragBook && (
         <>
-          {/* <div
+          <div
             className={
               showNaringDragBookImage
                 ? styles.BookOpen
                 : styles.NaringDragCardBookContainer
             }
           >
+            {/* <img
+              src={showNaringDragBookImage ? BookOpen : NaringDrag}
+              alt="NaringDrag"
+              onClick={handleNaringDragBookImageClick}
+            />
+            <img
+              src={showNaringDragBookImage ? BookOpen : NaringDrag}
+              alt="NaringDrag"
+              onClick={handleNaringDragBookImageClick}
+            /> */}
             <img
               src={showNaringDragBookImage ? BookOpen : NaringDrag}
               alt="NaringDrag"
               onClick={handleNaringDragBookImageClick}
             />
-             <img
-              src={showNaringDragBookImage ? BookOpen : NaringDrag}
-              alt="NaringDrag"
-              onClick={handleNaringDragBookImageClick}
-            />
-             <img
-              src={showNaringDragBookImage ? BookOpen : NaringDrag}
-              alt="NaringDrag"
-              onClick={handleNaringDragBookImageClick}
-            />
-          </div> */}
-          <div className="book-container">
-            <motion.img
-              className="book-image"
-              src={bookOpened ? ComicBook : NaringDrag}
-              alt="NaringDrag"
-              initial={{ rotateY: 0 }} // Initial state of the book (closed)
-              animate={{ rotateY: isBookOpening ? 180 : 0 }} // Animate to 180 degrees on click
-              transition={{ duration: 1 }} // Control animation duration
-              onClick={handleNaringDragBook}
-              style={{ cursor: "pointer" }}
-            />
-
-            {/* AnimatePresence ensures that the left and right pages animate in and out smoothly */}
-            <AnimatePresence>
-              {bookOpened && (
-                <motion.div
-                  className="book-pages"
-                  initial={{ opacity: 0, scale: 0.8 }} // Start with no opacity and smaller size
-                  animate={{ opacity: 1, scale: 1 }} // Animate to full opacity and size
-                  transition={{ duration: 0.5, delay: 0.5 }} // Delay the page reveal slightly
-                  exit={{ opacity: 0, scale: 0.8 }} // Exit animation for pages
-                >
-                  <motion.img
-                    className="left-page"
-                    src={ComicBook} // Left page image
-                    alt="Left Page"
-                    whileHover={{ scale: 1.05 }} // Slightly enlarge on hover
-                    transition={{ duration: 0.3 }}
-                  />
-                  <motion.img
-                    className="right-page"
-                    src={ComicBook} // Right page image
-                    alt="Right Page"
-                    whileHover={{ scale: 1.05 }} // Slightly enlarge on hover
-                    transition={{ duration: 0.3 }}
-                  />
-                </motion.div>
-              )}
-            </AnimatePresence>
           </div>
+
           <div
             className={styles.NaringDragCardBookBurningLakeCardContainer}
             onClick={handleBurningLakeCardClick}

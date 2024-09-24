@@ -1,28 +1,47 @@
+@font-face {
+  font-family: "Josefin Sans"; /* You can name this whatever you want */
+  src: url("../../fonts/JosefinSans-ExtraLight.ttf") format("truetype"); /* Path to the font */
+}
+
+@font-face {
+  font-family: "Public Sans"; /* You can name this whatever you want */
+  src: url("../../fonts/PublicSans-Regular.ttf") format("truetype"); /* Path to the font */
+}
+
 .detailCard {
   position: fixed;
   font-size: 0.7vw;
   background: #193145;
   color: white;
-  border-radius: 1vw;
-  padding: 0.4vw;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  margin-top: 11%;
-  width: 23vw;
+  width: 787px;
+  height: 410px;
   justify-content: left;
   text-align: left;
   align-items: left;
-  left: 50%;
+  top: 80.5%;
+  left: 67%;
   transform: translateX(-50%);
   display: flex;
+}
+
+.introduction {
+  margin: 17px;
 }
 
 .CardLine {
 }
 
 .CardTitle {
-  font-size: 1vw;
+  font-size: 64px;
+  font-weight: 300;
+  font-family: "Josefin Sans";
 }
 
 .CardContent {
+  text-align: left;
+  justify-content: left;
+  font-size: 18px;
+  font-family: "Public Sans";
 }
