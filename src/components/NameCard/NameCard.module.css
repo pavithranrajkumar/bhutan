@@ -1,0 +1,42 @@
+.pemaNameCard {
+  position: fixed;
+  background: #384e63;
+  background-size: cover;
+  top: 68.5%;
+  right: 16%;
+  width: 480px;
+  height: 180px;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.pemaNameCardTitle {
+  margin: 20px;
+  color: white;
+  z-index: 1;
+  position: relative;
+  text-align: center;
+}
+
+.namedCardText {
+  text-align: right;
+  font-size: 42px;
+  font-family: "Josefin Sans";
+}
+
+.nameCardSubtitle p {
+  right: 6%;
+  padding: 0;
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+  font-family: "Josefin Sans";
+  color: #6a1f11;
+  z-index: 1;
+  position: relative;
+  text-align: right;
+}

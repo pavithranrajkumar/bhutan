@@ -107,13 +107,16 @@
 .nameCardSubtitlecard {
   position: fixed;
   background: #ffd9bc;
-  z-index: 1;
-  padding: 0.75vw;
-  border-radius: 0.5vw;
-  width: 470px;
-  top: 72%;
-  left: 70%;
+  top: 69.5%;
+  right: 16%;
+  width: 480px;
+  height: 180px;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .nameCardSubtitle {
@@ -1134,12 +1137,12 @@
 
 .BurningLakeCardText {
   position: fixed;
-  left: 76.5vw;
-  top: 38.5vw;
+  left: 89.5vw;
+  top: 45vw;
   width: 2vw;
   font-size: 1.4vw;
   font-weight: 800;
-  color: white;
+  color: #001829;
 }
 
 .BurningLakeCardBookText {
@@ -1194,7 +1197,7 @@
   justify-content: center;
   height: 98px;
   width: 357px;
-  left: 80vw;
+  left: 85vw;
   top: 53.5vw;
   color: white;
   position: fixed;
@@ -1203,6 +1206,29 @@
 }
 
 .NaringDragCardBookBurningLakeCardContainer img {
+  position: fixed;
+  width: 7.5vw;
+  height: 7.5vw;
+  object-fit: contain;
+  left: 72.5vw;
+  top: 44vw;
+}
+
+.NaringDragCardBookTextContainer {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  height: 98px;
+  width: 357px;
+  left: 85vw;
+  top: 53.5vw;
+  color: white;
+  position: fixed;
+  background: #2b455d;
+  cursor: pointer;
+}
+
+.NaringDragCardBookTextContainer img {
   position: fixed;
   width: 7.5vw;
   height: 7.5vw;
@@ -1233,8 +1259,8 @@
 
 .NaringDragCardBookContainer {
   position: fixed;
-  left: 60vw;
-  top: 38.3vw;
+  left: 67vw;
+  top: 44vw;
   width: 673px;
   height: 474px;
   cursor: pointer;
@@ -1257,8 +1283,8 @@
 }
 
 .NaringDragCardBook img {
-  width: 333px;
-  height: 430px;
+  width: 331px;
+  height: 410px;
 }
 
 .NaringDragCardBookTextScnd {
@@ -1272,69 +1298,77 @@
 }
 
 .PelingCard {
-  text-align: left;
-  width: 18vw;
-  left: 75vw;
-  top: 41.5vw;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 120px;
+  left: 84vw;
+  top: 49vw;
   color: white;
   position: fixed;
   background: #2b455d;
   position: fixed;
-  padding: 0.8vw;
   cursor: pointer;
 }
 
 .PelingCard img {
   position: fixed;
-  width: 7.5vw;
-  height: 7.5vw;
+  width: 213px;
+  height: 150px;
   object-fit: contain;
-  left: 75vw;
-  top: 35vw;
+  left: 84vw;
+  top: 45vw;
 }
 
-.PelingSideCardsfrst {
-  font-size: 0.9vw;
-}
-
-.PelingSideCardsScnd {
-  font-weight: 700;
-  font-size: 1.3vw;
+.PelingSideCardsScnd p {
+  font-size: 40px;
+  padding: 0;
+  margin: 0;
+  font-family: "Hammersmith One";
 }
 
 .PelingDanceCard {
-  text-align: left;
-  width: 4.5vw;
-  left: 88.5vw;
-  top: 46vw;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 190px;
+  height: 130px;
+  left: 94vw;
+  top: 52.5vw;
   color: white;
   position: fixed;
   background: #2b455d;
   position: fixed;
-  padding: 0.8vw;
   cursor: pointer;
 }
 
-.PelingSideCardsfrst {
-  font-size: 0.9vw;
+.PelingDanceVideo {
+  position: fixed;
+  left: 88%;
 }
 
-.PelingSideCardsScnd {
-  font-weight: 700;
-  font-size: 1.3vw;
+.PelingDanceCard img {
+  position: fixed;
+  width: 213px;
+  height: 113px;
+}
+
+.PelingSideCardsfrst {
+  font-size: 24px;
+  font-family: "Josefin Sans";
 }
 
 .MonsTemplesCardBook {
   position: fixed;
-  left: 75vw;
-  top: 38.3vw;
-  padding: 0.1vw;
+  left: 84vw;
+  top: 43.5vw;
 }
 
 .MonsTemplesCardBook img {
   position: fixed;
-  width: 15vw;
-  height: 11vw;
+  width: 581px;
+  height: 475px;
   object-fit: fill;
 }
 
@@ -1342,54 +1376,58 @@
   position: fixed;
   display: flex;
   gap: 0.5vw;
-  left: 58vw;
-  top: 38vw;
 }
 
 .MonstariesAndTemplesImgsContainerfrst {
   position: fixed;
   object-fit: fill;
-  width: 15vw;
-  top: 38vw;
-  right: 30vw;
+  width: 463.69px;
+  height: 419.61px;
+  top: 44.5vw;
+  right: 19.5vw;
 }
 
 .MonstariesAndTemplesImgsContainerScnd {
   position: fixed;
   object-fit: fill;
-  width: 7vw;
-  left: 69vw;
+  width: 219.26px;
+  height: 219.26px;
+  left: 80vw;
+  top: 78.5%;
 }
 
 .MonstariesAndTemplesImgsContainerThrd {
+  display: flex;
+  flex-direction: column;
   position: fixed;
   object-fit: fill;
-  width: 6vw;
-  left: 75.5vw;
+  width: 218.93px;
+  height: 167.27px;
+  left: 85vw;
+  top: 78.5%;
+  gap: 0vw;
 }
 
 .MonstariesAndTemplesImgsContainerFrth {
   position: fixed;
   object-fit: fill;
-  width: 8.5vw;
-  left: 81.5vw;
+  width: 250px;
+  height: 260px;
+  left: 90vw;
+  top: 78.5%;
 }
 
 .MonstariesAndTemplesImgsPelingDanceCard {
   text-align: left;
-  width: 5.5vw;
-  left: 82.3vw;
-  top: 46vw;
+  width: 180px;
+  left: 90.5vw;
+  top: 50vw;
   color: white;
   position: fixed;
   background: #2b455d;
   position: fixed;
-  padding: 0.8vw;
   cursor: pointer;
-}
-
-.PelingSideCardsfrst {
-  font-size: 0.9vw;
+  padding: 0.4vw;
 }
 
 .PelingSideCardsScnd {

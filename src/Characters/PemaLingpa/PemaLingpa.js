@@ -38,7 +38,9 @@ import MonsTemplesSvnth from "../../assests/Photo Frame (5).svg";
 import BookOpen from "../../assests/Comic Book Open.jpg";
 import PelingVedio from "../../assests/Video Block.jpg";
 import Introduction from "./Introduction/Introduction";
-import { width } from "@fortawesome/free-solid-svg-icons/fa0";
+import PelingDanceVideo from "../../assests/Legacy/PelingDance.jpg";
+import NameCard from "../../components/NameCard/NameCard";
+import { PEMALINGPA, PEMALINGPAYEAR } from "../../Constants/Names/Names";
 
 const PemaLingpa = () => {
   const [showDetails, setShowDetails] = useState(false);
@@ -386,17 +388,19 @@ const PemaLingpa = () => {
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.6 }}
       >
-        {/* <img src={Namecard} alt="Pema Lingpa" className={styles.OverLayImage} /> */}
-
-        <div
-          className={
-            nameCardSubtitle ? styles.nameCardtitle : styles.pemaNameCardTitle
-          }
-        >
-          <div className={styles.namedCardText}>{nameCardText}</div>
-        </div>
-        {nameCardSubtitle && (
-          <div className={styles.nameCardSubtitle}>{nameCardSubtitle}</div>
+        {nameCardSubtitle ? (
+          <>
+            <NameCard
+              cardName={PEMALINGPA}
+              year={PEMALINGPAYEAR}
+              background="#FFD9BC"
+              color="#6A1F11"
+            />
+          </>
+        ) : (
+          <>
+            <NameCard cardName={PEMALINGPA} />
+          </>
         )}
       </motion.div>
 
@@ -861,7 +865,7 @@ const PemaLingpa = () => {
               onClick={handleNaringDragBookImageClick}
             /> */}
             <img
-              src={showNaringDragBookImage ? BookOpen : NaringDrag}
+              src={BookOpen}
               alt="NaringDrag"
               onClick={handleNaringDragBookImageClick}
             />
@@ -889,13 +893,13 @@ const PemaLingpa = () => {
             }
           >
             <img
-              src={showNaringDragBookImage ? BookOpen : ComicBook}
+              src={BookOpen}
               alt="NaringDrag"
               onClick={handleNaringDragBookImageClick}
             />
           </div>
           <div
-            className={styles.NaringDragCard}
+            className={styles.NaringDragCardBookTextContainer}
             onClick={handleNaringDragCardClick}
           >
             <div className={styles.RevelationsSideCardsfrst}>
@@ -927,7 +931,7 @@ const PemaLingpa = () => {
       {showBurningLakeCard && (
         <>
           <Card
-            title="Revelation at Burning Lake"
+            title="REVELATION AT BURNING LAKE"
             content="When the local Choekhor governor hears of the popularity of Pema Lingpa, he is not convinced of his authenticity. Assembling a large group of people in Naring Drag, he asks Pema Lingpa to prove his merit. He declares that he would support Pema Lingpa if he would bring out a treasure, failing which he would be punished. Pema Lingpa proclaimed “If I am genuine, let me bring back the treasure with this lamp still burning. If I am a fraud, let me die in the waters below.” He then took a burning butter lamp and dove into the lake resurfacing with a box of skulls, a sculpture of the Buddha and the butter lamp, still alight. All those who witness the miracle became Pema Lingpa’s followers and patrons, and the lake gets its name Mebar tsho or Burning Lake."
             showIntro={showIntro}
           />
@@ -945,6 +949,7 @@ const PemaLingpa = () => {
         <>
           <Card
             title="LEGACY"
+            width="630px"
             content="Pema Lingpa established an enormous corpus of literature which serves as the primary basis of religious life for Buddhist followers. The teachings and the cycle of treasures of Pema Lingpa contain several practices, rituals, and instructions that lead sentient beings to liberation. Pema Lingpa’s legacies are preserved in the form of sacred dances which were revealed to him as dreams and visions. The ritual dances, cham composed by him serve as a centrepiece for many festivals and ceremonies across Bhutan."
             showIntro={showIntro}
             backgroundColor="#FFD9BC"
@@ -952,14 +957,24 @@ const PemaLingpa = () => {
           />
           <div className={styles.PelingCard} onClick={PelingCardClick}>
             <img src={KenchosumLhakhang} alt="KenchosumLhakhang" />
-            <div className={styles.PelingSideCardsfrst}>Peling</div>
-            <div className={styles.PelingSideCardsScnd}>
-              MONASTERIES & TEMPLES
+            <div style={{ margin: "15px" }}>
+              <div className={styles.PelingSideCardsfrst}>Peling</div>
+              <div className={styles.PelingSideCardsScnd}>
+                <p> MONASTERIES & TEMPLES</p>
+              </div>
             </div>
           </div>
           <div className={styles.PelingDanceCard} onClick={PelingDanceClick}>
-            <div className={styles.PelingSideCardsfrst}>Peling</div>
-            <div className={styles.PelingSideCardsScnd}>DANCE</div>
+            <div className={styles.PelingDanceVideo}>
+              {" "}
+              <img src={PelingDanceVideo} alt="PelingDanceVideo " />
+            </div>
+            <div style={{ margin: "30px" }}>
+              <div className={styles.PelingSideCardsfrst}>Peling</div>
+              <div className={styles.PelingSideCardsScnd}>
+                <p>DANCE</p>
+              </div>
+            </div>
           </div>
           <motion.div
             className={styles.LegacydetailCardHeader}
@@ -976,7 +991,8 @@ const PemaLingpa = () => {
       {showMonstariesAndTemples && (
         <>
           <Card
-            title="Peling monasteries & temples"
+            width="630px"
+            title="PELING MONASTARIES & TEMPLES"
             content="Pema Lingpa built many temples such as Tamzhing Lhundrup Choling in Bumthang; Pemaling, Dechenling, and Kunzangdrak in Chel; Kunzangling in Kurtö; Dekyiling in Bamrin; Orgyenling in Tsangchu; Kyerechung Tashi Tengye in Layak; and several others. He restored damages and reconsecrated Gyatso Lhalun. Like his previous incarnations, Pema Lingpa left magical markings of his passing in many places like Kunzangdrak monastery and Gyagar Khamphuk. These marks have a status akin to a terma, as they are reminders of his ever-living presence."
             showIntro={showIntro}
           />
@@ -1025,7 +1041,7 @@ const PemaLingpa = () => {
       {showPelingDance && (
         <>
           <Card
-            title="Peling Dances"
+            title="PELING DANCES"
             content="Pema Lingpa’s legacies are preserved in the form of sacred dances called peling tercham which were revealed to him as dreams and visions. The ritual dances composed by him serve as a centerpiece for many festivals and ceremonies. The most popular of the dances are the dakini dance, the three ging dances signifying the subjugation of evil and the ging and tsholing dance. It is said that dakini would visit him in his dreams to teach him the steps of different sacred dances and give him further instructions."
             showIntro={showIntro}
           />

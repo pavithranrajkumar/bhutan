@@ -1,0 +1,2 @@
+export const PEMALINGPA = "PEMA LINGHPA";
+export const PEMALINGPAYEAR = "1450-1451";
