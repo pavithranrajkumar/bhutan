@@ -42,6 +42,7 @@ import PeilingVedio1 from "../../assests/Peiling/peilingVideo1.png";
 import PeilingVedio2 from "../../assests/Peiling/peilingVideo2.png";
 import NaringDragBook from "./BookAnimation/NaringDragBook/NaringDragBook";
 import BurningLakeBook from "./BookAnimation/BurningLake";
+import YearText from "../../components/YearText/YearText";
 
 const PemaLingpa = () => {
   const [showDetails, setShowDetails] = useState(false);
@@ -328,6 +329,16 @@ const PemaLingpa = () => {
     setter((prev) => !prev);
   };
 
+  const blueNamedCards =
+    showNaringDragCard &&
+    showBurningLakeCard &&
+    showBurningLakeBook &&
+    showNaringDragBook &&
+    showMonstariesAndTemples &&
+    showMonstariesAndTemplesImgs &&
+    showPelingDance &&
+    showPelingVideo;
+
   return (
     <motion.div
       className={styles.pemaContainer}
@@ -357,10 +368,7 @@ const PemaLingpa = () => {
         }}
         transition={{ duration: 0.8 }}
       >
-        <div className={styles.pemaTextContainer}>
-          <div className={styles.YearText}>1450</div>
-          <div className={styles.YearText}>-1521</div>
-        </div>
+        <YearText />
       </motion.div>
 
       <motion.div
@@ -383,9 +391,11 @@ const PemaLingpa = () => {
             <>
               <NameCard
                 cardName={PREMA_LINGPA_INFORMATION[language].title}
-                year={PEMALINGPAYEAR}
-                background="#FFD9BC"
-                color="#6A1F11"
+                year={nameCardSubtitle ? PEMALINGPAYEAR : undefined}
+                background={blueNamedCards ? "#6986A9" : "#FFD9BC"}
+                color={blueNamedCards ? "#001829" : "#6A1F11"}
+                paraColor={blueNamedCards ? "#001829" : "#6A1F11"}
+                top="79%"
               />
             </>
           ) : (
@@ -398,13 +408,14 @@ const PemaLingpa = () => {
 
       {showDetails && (
         <>
-          <Card
-            title={PREMA_LINGPA_INFORMATION[language].introduction.title}
-            content={PREMA_LINGPA_INFORMATION[language].introduction.content}
-            showIntro={showIntro}
-            language={language}
-          />
-
+          <div className={styles.IntroCard}>
+            <Card
+              title={PREMA_LINGPA_INFORMATION[language].introduction.title}
+              content={PREMA_LINGPA_INFORMATION[language].introduction.content}
+              showIntro={showIntro}
+              language={language}
+            />
+          </div>
           <motion.div
             className={styles.detailCardHeader}
             onClick={handleHeaderIconClick}
@@ -418,7 +429,11 @@ const PemaLingpa = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
-            left="60.5%"
+            left="60.7%"
+            top="97%"
+            width="55px"
+            height="55px"
+            margin="12px"
           />
         </>
       )}
@@ -479,28 +494,32 @@ const PemaLingpa = () => {
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
-            left="60%"
-            top="92%"
-            width="100px"
-            height="100px"
-            margin="30px"
+            left="62.7%"
+            top="90%"
+            width="80px"
+            height="80px"
+            margin="25px"
           />
         </>
       )}
 
       {showHistoricDetails && (
         <>
-          <Card
-            title={PREMA_LINGPA_INFORMATION[language].historicBackground.title}
-            content={
-              PREMA_LINGPA_INFORMATION[language].historicBackground.content
-            }
-            showIntro={showIntro}
-            language={language}
-            backgroundColor="#FFD9BC"
-            color="#380100"
-            borderBottom="2px solid #6A1F11"
-          />
+          <div className={styles.HistoricCardContains}>
+            <Card
+              title={
+                PREMA_LINGPA_INFORMATION[language].historicBackground.title
+              }
+              content={
+                PREMA_LINGPA_INFORMATION[language].historicBackground.content
+              }
+              showIntro={showIntro}
+              language={language}
+              backgroundColor="#FFD9BC"
+              color="#380100"
+              borderBottom="2px solid #6A1F11"
+            />
+          </div>
           <motion.div
             className={styles.HistoricdetailCardHeader}
             onClick={handleHeaderIconClick}
@@ -513,16 +532,29 @@ const PemaLingpa = () => {
               className={styles.HistoricIcon}
             />
           </motion.div>
+          <HomeIcon
+            showIcons={showIcons}
+            onClick={handleFooterIconClick}
+            left="60%"
+            top="90.7%"
+            width="80px"
+            height="80px"
+            margin="30px"
+          />
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
-            left="60.5%"
+            left="60.7%"
+            top="95%"
+            width="55px"
+            height="55px"
+            margin="12px"
           />
         </>
       )}
 
       {showLineageCard && (
-        <div>
+        <div className={styles.IntroCard}>
           <Card
             title={PREMA_LINGPA_INFORMATION[language].lineage.title}
             content={PREMA_LINGPA_INFORMATION[language].lineage.content}
@@ -533,15 +565,24 @@ const PemaLingpa = () => {
             color="#380100"
             borderBottom="2px solid #6A1F11"
           />
-          <HomeIcon
-            showIcons={showIcons}
-            onClick={handleFooterIconClick}
-            left="59.5%"
-          />
+
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
-            left="60.5%"
+            left="60.7%"
+            top="97%"
+            width="55px"
+            height="55px"
+            margin="12px"
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            onClick={handleFooterIconClick}
+            left="60%"
+            top="92.5%"
+            width="80px"
+            height="80px"
+            margin="30px"
           />
 
           <div className={styles.FamilCard}>
@@ -893,16 +934,18 @@ const PemaLingpa = () => {
 
       {showRevelationsCard && (
         <>
-          <Card
-            width="470px"
-            title={PREMA_LINGPA_INFORMATION[language].revelations.title}
-            content={PREMA_LINGPA_INFORMATION[language].revelations.content}
-            showIntro={showIntro}
-            language={language}
-            backgroundColor="#FFD9BC"
-            color="#380100"
-            borderBottom="2px solid #6A1F11"
-          />
+          <div className={styles.IntroCard}>
+            <Card
+              width="470px"
+              title={PREMA_LINGPA_INFORMATION[language].revelations.title}
+              content={PREMA_LINGPA_INFORMATION[language].revelations.content}
+              showIntro={showIntro}
+              language={language}
+              backgroundColor="#FFD9BC"
+              color="#380100"
+              borderBottom="2px solid #6A1F11"
+            />
+          </div>
           <div className={styles.RevelationsSideCards}>
             <div
               className={styles.NaringDragCard}
@@ -919,7 +962,7 @@ const PemaLingpa = () => {
 
               <img src={NaringDrag} alt="NaringDrag" />
               <div className={styles.NaringDragCardBookText}>
-                NARING <span>DRAG</span>
+                NARING <span style={{ color: "black" }}>DRAG</span>
               </div>
             </div>
             <div
@@ -936,19 +979,27 @@ const PemaLingpa = () => {
               </div>
               <img src={ComicBook} alt="ComicBook" />
               <div className={styles.BurningLakeCardBookText}>
-                {PREMA_LINGPA_INFORMATION[language].burningLake.title}
+                BURNING <span style={{ color: "black" }}>LAKE</span>
               </div>
             </div>
           </div>
           <HomeIcon
             showIcons={showIcons}
             onClick={handleFooterIconClick}
-            left="59.5%"
+            left="60%"
+            top="90.7%"
+            width="80px"
+            height="80px"
+            margin="30px"
           />
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
-            left="60.5%"
+            left="60.7%"
+            top="95%"
+            width="55px"
+            height="55px"
+            margin="12px"
           />
         </>
       )}
@@ -971,22 +1022,29 @@ const PemaLingpa = () => {
           </div>
           <HomeIcon
             showIcons={showIcons}
-            onClick={handleFooterIconClick}
             whiteImage={true}
-            left="58.5%"
-            top="89%"
+            onClick={handleFooterIconClick}
+            left="60%"
+            top="92.5%"
+            width="80px"
+            height="80px"
+            margin="30px"
           />
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
-            left="59.5%"
+            left="60.7%"
+            top="96.8%"
+            width="55px"
+            height="55px"
+            margin="12px"
           />
           <PreviousIcon
             showIcons={showIcons}
             onClick={handlePreviousIconClick}
-            left="58.5%"
-            top="83.5%"
+            left="60%"
+            top="84.7%"
           />
         </>
       )}
@@ -1003,42 +1061,49 @@ const PemaLingpa = () => {
             <div className={styles.RevelationsSideCardsfrst}>
               {PREMA_LINGPA_INFORMATION[language].naringDrag.header}
             </div>
-            <div className={styles.RevelationsSideCardsScnd}>
-              {PREMA_LINGPA_INFORMATION[language].naringDrag.title}
-            </div>
+            <div className={styles.RevelationsSideCardsScnd}>NARING DRAG</div>
           </div>
           <HomeIcon
             showIcons={showIcons}
-            onClick={handleFooterIconClick}
             whiteImage={true}
-            left="58.5%"
-            top="89%"
+            onClick={handleFooterIconClick}
+            left="60%"
+            top="92.5%"
+            width="80px"
+            height="80px"
+            margin="30px"
           />
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
-            left="59.5%"
+            left="60.7%"
+            top="96.8%"
+            width="55px"
+            height="55px"
+            margin="12px"
           />
           <PreviousIcon
             showIcons={showIcons}
             onClick={handlePreviousIconClick}
-            left="58.5%"
-            top="83.5%"
+            left="60%"
+            top="84.7%"
           />
         </>
       )}
 
       {showNaringDragCard && (
         <>
-          <Card
-            width="470px"
-            header={PREMA_LINGPA_INFORMATION[language].naringDrag.header}
-            title={PREMA_LINGPA_INFORMATION[language].naringDrag.title}
-            content={PREMA_LINGPA_INFORMATION[language].naringDrag.content}
-            showIntro={showIntro}
-            language={language}
-          />
+          <div className={styles.NaringDragCardContains}>
+            <Card
+              width="454px"
+              header={PREMA_LINGPA_INFORMATION[language].naringDrag.header}
+              title={PREMA_LINGPA_INFORMATION[language].naringDrag.title}
+              content={PREMA_LINGPA_INFORMATION[language].naringDrag.content}
+              showIntro={showIntro}
+              language={language}
+            />
+          </div>
           <div className={styles.NaringDragCardBook}>
             <img
               src={NaringDrag}
@@ -1051,71 +1116,91 @@ const PemaLingpa = () => {
           </div>
           <HomeIcon
             showIcons={showIcons}
-            onClick={handleFooterIconClick}
             whiteImage={true}
-            left="59.5%"
+            onClick={handleFooterIconClick}
+            left="60%"
+            top="92.5%"
+            width="80px"
+            height="80px"
+            margin="30px"
           />
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
-            left="60.5%"
+            left="60.7%"
+            top="96.8%"
+            width="55px"
+            height="55px"
+            margin="12px"
           />
         </>
       )}
 
       {showBurningLakeCard && (
         <>
-          <Card
-            width="470px"
-            header={PREMA_LINGPA_INFORMATION[language].burningLake.header}
-            title={PREMA_LINGPA_INFORMATION[language].burningLake.title}
-            content={PREMA_LINGPA_INFORMATION[language].burningLake.content}
-            showIntro={showIntro}
-            language={language}
-          />
+          <div className={styles.NaringDragCardContains}>
+            <Card
+              width="470px"
+              header={PREMA_LINGPA_INFORMATION[language].burningLake.header}
+              title={PREMA_LINGPA_INFORMATION[language].burningLake.title}
+              content={PREMA_LINGPA_INFORMATION[language].burningLake.content}
+              showIntro={showIntro}
+              language={language}
+            />
+          </div>
           <div
             className={styles.NaringDragCardBook}
             onClick={BurningLakeBookClick}
           >
             <img src={ComicBook} alt="NaringDrag" />
             <div className={styles.BurningLakeCardText}>
-              {PREMA_LINGPA_INFORMATION[language].burningLake.title}
+              BURNING<span style={{ marginLeft: "30px" }}>LAKE</span>
             </div>
           </div>
           <HomeIcon
             showIcons={showIcons}
-            onClick={handleFooterIconClick}
             whiteImage={true}
-            left="59.5%"
+            onClick={handleFooterIconClick}
+            left="60%"
+            top="92.5%"
+            width="80px"
+            height="80px"
+            margin="30px"
           />
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
-            left="60.5%"
+            left="60.7%"
+            top="96.8%"
+            width="55px"
+            height="55px"
+            margin="12px"
           />
         </>
       )}
 
       {showLegacyCard && (
         <>
-          <Card
-            width="470px"
-            title={PREMA_LINGPA_INFORMATION[language].legacy.title}
-            content={PREMA_LINGPA_INFORMATION[language].legacy.content}
-            showIntro={showIntro}
-            backgroundColor="#FFD9BC"
-            color="#380100"
-            language={language}
-            borderBottom="2px solid #6A1F11"
-          />
+          {" "}
+          <div className={styles.NaringDragCardContains}>
+            <Card
+              width="470px"
+              title={PREMA_LINGPA_INFORMATION[language].legacy.title}
+              content={PREMA_LINGPA_INFORMATION[language].legacy.content}
+              showIntro={showIntro}
+              backgroundColor="#FFD9BC"
+              color="#380100"
+              language={language}
+              borderBottom="2px solid #6A1F11"
+            />
+          </div>
           <div className={styles.PelingCard} onClick={PelingCardClick}>
             <img src={KenchosumLhakhang} alt="KenchosumLhakhang" />
-            <div style={{ margin: "15px" }}>
+            <div style={{ margin: "10px" }}>
               <div className={styles.PelingSideCardsfrst}>
-                {" "}
-                title={PREMA_LINGPA_INFORMATION[language].legacy.header}
+                {PREMA_LINGPA_INFORMATION[language].pelingdance.header}
               </div>
               <div className={styles.PelingSideCardsScnd}>
                 <p>
@@ -1128,10 +1213,8 @@ const PemaLingpa = () => {
             </div>
           </div>
           <div className={styles.PelingDanceCard} onClick={PelingDanceClick}>
-            <div className={styles.PelingDanceVideo}>
-              <img src={PelingDanceVideo} alt="PelingDanceVideo " />
-            </div>
-            <div style={{ margin: "30px" }}>
+            <img src={PelingDanceVideo} alt="PelingDanceVideo " />
+            <div style={{ marginTop: "30px" }}>
               <div className={styles.PelingSideCardsfrst}>
                 {PREMA_LINGPA_INFORMATION[language].pelingdance.header}
               </div>
@@ -1143,32 +1226,42 @@ const PemaLingpa = () => {
           <HomeIcon
             showIcons={showIcons}
             onClick={handleFooterIconClick}
-            left="59.5%"
+            left="60%"
+            top="90.7%"
+            width="80px"
+            height="80px"
+            margin="30px"
           />
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
-            left="60.5%"
+            left="60.7%"
+            top="95%"
+            width="55px"
+            height="55px"
+            margin="12px"
           />
         </>
       )}
 
       {showMonstariesAndTemples && (
         <>
-          <Card
-            width="470px"
-            header={
-              PREMA_LINGPA_INFORMATION[language].monastriesAndTemples.header
-            }
-            title={
-              PREMA_LINGPA_INFORMATION[language].monastriesAndTemples.title
-            }
-            content={
-              PREMA_LINGPA_INFORMATION[language].monastriesAndTemples.content
-            }
-            showIntro={showIntro}
-            language={language}
-          />
+          <div className={styles.NaringDragCardContains}>
+            <Card
+              width="400px"
+              header={
+                PREMA_LINGPA_INFORMATION[language].monastriesAndTemples.header
+              }
+              title={
+                PREMA_LINGPA_INFORMATION[language].monastriesAndTemples.title
+              }
+              content={
+                PREMA_LINGPA_INFORMATION[language].monastriesAndTemples.content
+              }
+              showIntro={showIntro}
+              language={language}
+            />
+          </div>
           <div
             className={styles.MonsTemplesCardBook}
             onClick={PelingCardImageClick}
@@ -1179,13 +1272,21 @@ const PemaLingpa = () => {
             showIcons={showIcons}
             onClick={handleFooterIconClick}
             whiteImage={true}
-            left="59.5%"
+            left="60%"
+            top="93%"
+            width="80px"
+            height="80px"
+            margin="30px"
           />
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
-            left="60.5%"
+            left="60.7%"
+            top="97%"
+            width="55px"
+            height="55px"
+            margin="12px"
           />
         </>
       )}
@@ -1226,36 +1327,45 @@ const PemaLingpa = () => {
           </div>
           <HomeIcon
             showIcons={showIcons}
-            onClick={handleFooterIconClick}
             whiteImage={true}
-            left="58.5%"
-            top="89%"
+            onClick={handleFooterIconClick}
+            left="60%"
+            top="92.5%"
+            width="80px"
+            height="80px"
+            margin="30px"
           />
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
-            left="59.5%"
+            left="60.7%"
+            top="96.8%"
+            width="55px"
+            height="55px"
+            margin="12px"
           />
           <PreviousIcon
             showIcons={showIcons}
             onClick={handlePreviousIconClick}
-            left="58.5%"
-            top="83.5%"
+            left="60%"
+            top="84.7%"
           />
         </>
       )}
 
       {showPelingDance && (
         <>
-          <Card
-            header={PREMA_LINGPA_INFORMATION[language].pelingdance.header}
-            title={PREMA_LINGPA_INFORMATION[language].pelingdance.title}
-            content={PREMA_LINGPA_INFORMATION[language].pelingdance.content}
-            width="470px"
-            showIntro={showIntro}
-            language={language}
-          />
+          <div className={styles.NaringDragCardContains}>
+            <Card
+              header={PREMA_LINGPA_INFORMATION[language].pelingdance.header}
+              title={PREMA_LINGPA_INFORMATION[language].pelingdance.title}
+              content={PREMA_LINGPA_INFORMATION[language].pelingdance.content}
+              width="300px"
+              showIntro={showIntro}
+              language={language}
+            />
+          </div>
           <div className={styles.PeilingVedio} onClick={PelingVideoClick}>
             <img src={PeilingVedio1} alt="peling video" />
           </div>
@@ -1263,14 +1373,21 @@ const PemaLingpa = () => {
             showIcons={showIcons}
             onClick={handleFooterIconClick}
             whiteImage={true}
-            left="58.5%"
-            top="89%"
+            left="60%"
+            top="90.7%"
+            width="80px"
+            height="80px"
+            margin="30px"
           />
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
-            left="59.5%"
+            left="60.7%"
+            top="95%"
+            width="55px"
+            height="55px"
+            margin="12px"
           />
         </>
       )}
@@ -1302,22 +1419,29 @@ const PemaLingpa = () => {
           </div>
           <HomeIcon
             showIcons={showIcons}
-            onClick={handleFooterIconClick}
             whiteImage={true}
-            left="58.5%"
-            top="89%"
+            onClick={handleFooterIconClick}
+            left="60%"
+            top="92.5%"
+            width="80px"
+            height="80px"
+            margin="30px"
           />
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
-            left="59.5%"
+            left="60.7%"
+            top="96.8%"
+            width="55px"
+            height="55px"
+            margin="12px"
           />
           <PreviousIcon
             showIcons={showIcons}
             onClick={handlePreviousIconClick}
-            left="58.5%"
-            top="83.5%"
+            left="60%"
+            top="84.7%"
           />
         </>
       )}

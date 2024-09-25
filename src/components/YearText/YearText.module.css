@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "Josefin Sans"; /* You can name this whatever you want */
+  src: url("../../fonts/JosefinSans-ExtraLight.ttf") format("truetype"); /* Path to the font */
+}
+
+@font-face {
+  font-family: "Hammersmith One"; /* You can name this whatever you want */
+  src: url("../../fonts/HammersmithOne-Regular.ttf") format("truetype"); /* Path to the font */
+}
+
+.YearTextContainer {
+  display: flex;
+  flex-direction: column; /* Change to row */
+  font-size: 168px;
+  font-family: "Josefin Sans";
+  line-height: 0.7;
+  color: white;
+}

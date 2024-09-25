@@ -14,7 +14,7 @@ const Card = ({
   borderBottom,
 }) => {
   const cardStyles = {
-    fontSize: language === "bhutan" ? "12px" : "15px",
+    fontSize: language === "bhutan" ? "12px" : "13px",
   };
   const cardTitle = {
     fontSize: language === "bhutan" ? "25px" : "40px",

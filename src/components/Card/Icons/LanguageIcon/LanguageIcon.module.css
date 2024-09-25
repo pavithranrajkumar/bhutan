@@ -1,26 +1,22 @@
 .LanguageIcon {
   position: fixed;
   background: #380100;
-  width: 75px;
-  height: 75px;
-  left: 50%;
-  top: 95.5%;
   cursor: pointer;
 }
 
 .LanguageWhiteIcon {
   position: fixed;
   background: #2b455d;
-  width: 80px;
-  height: 80px;
+  width: 75px;
+  height: 75px;
   left: 64.5%;
   top: 95.5%;
   cursor: pointer;
 }
 
 .LanguageIconContainer img {
-  width: 43px;
-  height: 36px;
+  width: 36px;
+  height: 30px;
 }
 
 .LanguageIconContainer {

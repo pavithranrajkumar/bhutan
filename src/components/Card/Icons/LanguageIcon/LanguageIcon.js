@@ -6,7 +6,6 @@ import styles from "./LanguageIcon.module.css";
 
 const LanguageIcon = ({
   top,
-  bottom,
   showIcons,
   left,
   right,
@@ -15,6 +14,7 @@ const LanguageIcon = ({
   width,
   height,
   margin,
+  bottom,
 }) => {
   return (
     <motion.div

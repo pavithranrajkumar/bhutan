@@ -1,29 +1,30 @@
 /* Trial.module.css */
 .flipbookContainer {
   position: fixed;
-  display: flex;
-  height: 345px;
 }
 
 .flipBook {
   position: fixed;
-  width: 335px;
-  height: 345px;
-  border-radius: 10px;
+  width: 50px;
 }
 
 .page {
   position: fixed;
-  width: 335px;
-  height: 345px;
 }
 
 .page img {
   position: fixed;
-  width: 335px;
-  height: 325px;
+  width: 230px;
+  height: 310px;
   object-fit: fill;
-  border-radius: 10px;
+}
+
+.page,
+.transparentPage {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .transparentPage {

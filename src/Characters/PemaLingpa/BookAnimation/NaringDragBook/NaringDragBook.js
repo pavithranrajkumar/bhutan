@@ -10,7 +10,7 @@ const NaringDragBook = () => {
   return (
     <div className={styles.flipbookContainer}>
       <HTMLFlipBook
-        width={335}
+        width={230}
         height={330}
         className={styles.flipBook}
         startPage={7}

@@ -22,40 +22,42 @@
 
 .pemaText {
   position: fixed;
-  width: 516px;
-  height: 462px;
-  bottom: 7.5vw;
-  left: 49vw;
-  color: white;
-  margin: 0;
-}
-
-.YearText {
-  margin: 0;
-  font-weight: 300;
-  font-size: 225px;
-  font-family: "Josefin Sans";
+  left: 53.7%;
+  bottom: 15.1%;
 }
 
 .pemaImage {
   position: fixed;
-  bottom: 12.3%;
-  left: 60.5%;
+  bottom: 13%;
+  left: 61.2%;
   transform: translate(-50%, -60%);
   z-index: 10;
   margin: 0;
 }
 
 .pemaImage img {
-  width: 355px;
-  height: 422px;
+  object-fit: fill;
+  width: 280px;
+  height: 320px;
   z-index: 10;
 }
 
 .NameCardContainer {
   position: fixed;
-  top: 78%;
+  top: 76.9%;
   right: 35%;
+}
+
+.IntroCard {
+  position: fixed;
+  left: 62.3%;
+  top: 85%;
+}
+
+.NaringDragCardContains {
+  position: fixed;
+  left: 62.3%;
+  top: 85%;
 }
 
 .detailCardFooter {
@@ -94,8 +96,10 @@
 
 .HistoricdetailCardHeader {
   position: fixed;
-  bottom: 13.5%;
-  left: 78%;
+  width: 70px;
+  height: 70px;
+  bottom: 14%;
+  left: 76.5%;
   z-index: 1;
   cursor: pointer;
   background: #380100;
@@ -103,40 +107,38 @@
 }
 
 .HistoricIcon {
-  padding: 1vw;
+  padding: 0.65vw;
+  width: 20px;
   background: #380100;
   color: #ffd9bc;
-  font-size: 1vw;
 }
 
 .detailCardHeader {
   position: fixed;
-  bottom: 12.5%;
-  left: 77.5%;
-  width: 120px;
-  height: 120px;
+  bottom: 13.6%;
+  left: 76.4%;
   z-index: 1;
   cursor: pointer;
 }
 
 .icon {
-  padding: 1vw;
+  padding: 0.65vw;
+  width: 20px;
   background: #193145;
   color: white;
-  font-size: 1vw;
 }
 
 .cardsContainer {
   position: fixed;
   display: flex;
   flex-direction: column;
-  top: 83.5%;
-  left: 62.5%;
+  top: 85%;
+  left: 64.5%;
 }
 
 .CardsContainerText {
   font-family: "Hammersmith One";
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 100;
 }
 
@@ -146,9 +148,8 @@
   position: fixed;
   background: #cd5a33;
   color: #ffd9bc;
-  margin-top: 1vw;
   padding: 0.3vw;
-  width: 280px;
+  width: 200px;
 }
 
 .LineageCard {
@@ -156,21 +157,21 @@
   position: fixed;
   background: #9c3d22;
   color: #ffd9bc;
-  padding: 0.7vw;
+  padding: 0.6vw;
   top: 86%;
-  left: 71%;
+  left: 70.5%;
   cursor: pointer;
 }
 
 .RevelationsCard {
-  width: 300px;
-  padding: 0.8vw;
+  width: 250px;
+  padding: 0.3vw;
   position: fixed;
   background: #9c3d22;
   color: #ffd9bc;
-  margin-top: 4.5vw;
-  margin-left: 0.6vw;
   cursor: pointer;
+  top: 90%;
+  left: 65%;
 }
 
 .LegacyCard {
@@ -178,10 +179,16 @@
   font-weight: 700;
   background: #cd5a33;
   color: #ffd9bc;
-  padding: 0.9vw;
-  margin-top: 5.5vw;
-  margin-left: 10.5vw;
+  padding: 0.5vw;
   cursor: pointer;
+  top: 90%;
+  left: 72.3%;
+}
+
+.HistoricCardContains {
+  position: fixed;
+  left: 62.3%;
+  top: 85%;
 }
 
 .historyCards {
@@ -1028,16 +1035,16 @@
 }
 
 .RevalationSideCardTextContainer {
-  margin: 50px;
+  margin: 30px;
 }
 
 .NaringDragCard {
   cursor: pointer;
   text-align: left;
-  width: 500px;
-  height: 150px;
-  left: 75.5vw;
-  top: 47.5vw;
+  width: 360px;
+  height: 133px;
+  left: 74.7vw;
+  top: 47.8vw;
   color: white;
   position: fixed;
   background: #2b455d;
@@ -1051,53 +1058,62 @@
 
 .NaringDragCard img {
   position: fixed;
-  width: 140px;
-  height: 180px;
+  width: 100px;
+  height: 140px;
   object-fit: fill;
-  left: 84vw;
-  top: 46vw;
+  left: 80.8vw;
+  top: 47vw;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .NaringDragCardBookText {
+  display: flex;
+  flex-direction: column;
   position: fixed;
-  left: 70vw;
-  top: 40vw;
-  font-family: "Josefin Sans";
-  font-size: 24px;
+  left: 81.2vw;
+  top: 49.4vw;
+  font-size: 20px;
+  font-weight: 900;
 }
 
 .BurningLakeCardText {
+  display: flex;
+  flex-direction: column;
   position: fixed;
-  left: 76.5vw;
-  top: 47vw;
+  left: 76vw;
+  top: 48vw;
   width: 2vw;
-  font-size: 1.4vw;
+  font-size: 0.8vw;
   font-weight: 800;
   color: #001829;
 }
 
 .BurningLakeCardBookText {
   position: fixed;
-  left: 77.5vw;
-  top: 44.4vw;
+  left: 75.5vw;
+  top: 52vw;
   width: 1vw;
+  color: #2b455d;
+  font-weight: 900;
+  font-size: 18px;
 }
 
 .BurningLakeCard img {
   position: fixed;
-  width: 140px;
-  height: 170px;
+  width: 100px;
+  height: 140px;
   object-fit: fill;
-  left: 76%;
-  top: 51.7vw;
+  left: 75.3%;
+  top: 51.8vw;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .BurningLakeCard {
   text-align: right;
-  width: 500px;
-  height: 150px;
-  left: 75.5vw;
-  top: 51.5vw;
+  width: 360px;
+  height: 125px;
+  left: 74.7vw;
+  top: 51.4vw;
   color: white;
   position: fixed;
   background: #2b455d;
@@ -1126,10 +1142,10 @@
   align-items: center;
   text-align: center;
   justify-content: center;
-  height: 98px;
-  width: 357px;
-  left: 85vw;
-  top: 53.5vw;
+  height: 55px;
+  width: 220px;
+  left: 74.8vw;
+  top: 54.3vw;
   color: white;
   position: fixed;
   background: #2b455d;
@@ -1149,10 +1165,10 @@
   align-items: center;
   text-align: center;
   justify-content: center;
-  height: 98px;
-  width: 357px;
-  left: 85vw;
-  top: 53.5vw;
+  height: 55px;
+  width: 220px;
+  left: 75vw;
+  top: 54.3vw;
   color: white;
   position: fixed;
   background: #2b455d;
@@ -1177,15 +1193,15 @@
 
 .RevelationsSideCardsfrst {
   font-family: "Josefin Sans";
-  font-size: 24px;
-  margin: 5px;
+  font-size: 15px;
+  margin-top: 8px;
 }
 
 .RevelationsSideCardsScnd {
   font-family: "Hammersmith One";
-  font-size: 38px;
+  font-size: 20px;
   cursor: pointer;
-  margin: 5px;
+  color: #001829;
 }
 
 .NaringDragCardBookContainer {
@@ -1208,25 +1224,24 @@
 
 .NaringDragCardBook {
   position: fixed;
-  left: 75.5vw;
-  top: 47vw;
+  left: 74.8vw;
+  top: 47.8vw;
   cursor: pointer;
 }
 
 .NaringDragCardBook img {
-  width: 300px;
-  height: 345px;
+  width: 215px;
+  height: 310px;
   object-fit: fill;
 }
 
 .NaringDragCardBookTextScnd {
   position: fixed;
   width: 277px;
-  left: 76vw;
-  top: 53vw;
+  left: 74vw;
+  top: 53.5vw;
   font-weight: 900;
-  font-size: 49.3px;
-  font-family: "Josefin Sans";
+  font-size: 40px;
   color: white;
 }
 
@@ -1234,10 +1249,10 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  width: 500px;
-  height: 100px;
-  left: 75.5vw;
-  top: 50.3vw;
+  width: 350px;
+  height: 80px;
+  left: 74.8vw;
+  top: 50.6vw;
   color: white;
   position: fixed;
   background: #2b455d;
@@ -1250,12 +1265,12 @@
   width: 213px;
   height: 100px;
   object-fit: contain;
-  left: 75vw;
-  top: 47.5vw;
+  left: 74.1vw;
+  top: 47.8vw;
 }
 
 .PelingSideCardsScnd p {
-  font-size: 30px;
+  font-size: 25px;
   padding: 0;
   margin: 0;
   font-family: "Hammersmith One";
@@ -1265,10 +1280,10 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  width: 190px;
-  height: 100px;
-  left: 86vw;
-  top: 53.4vw;
+  width: 110px;
+  height: 110px;
+  left: 82vw;
+  top: 52.9vw;
   color: white;
   position: fixed;
   background: #2b455d;
@@ -1276,32 +1291,28 @@
   cursor: pointer;
 }
 
-.PelingDanceVideo {
-  position: fixed;
-  left: 79.9%;
-  top: 53.3vw;
-}
-
 .PelingDanceCard img {
+  left: 79%;
+  top: 94%;
   position: fixed;
-  width: 213px;
+  width: 110px;
   height: 113px;
 }
 
 .PelingSideCardsfrst {
-  font-size: 20px;
+  font-size: 15px;
   font-family: "Josefin Sans";
 }
 
 .MonsTemplesCardBook {
   position: fixed;
-  left: 75.5vw;
+  left: 73vw;
   top: 48vw;
 }
 
 .MonsTemplesCardBook img {
   position: fixed;
-  width: 500px;
+  width: 380px;
   height: 305px;
   object-fit: fill;
 }
@@ -1336,10 +1347,15 @@
   position: fixed;
   object-fit: fill;
   width: 130px;
-  height: 130px;
+  height: 300px;
   left: 73vw;
   top: 84.5%;
   gap: 0vw;
+}
+
+.MonstariesAndTemplesImgsContainerThrd img {
+  width: 130px;
+  height: 300px;
 }
 
 .MonstariesAndTemplesImgsContainerFrth {
@@ -1348,14 +1364,14 @@
   width: 200px;
   height: 200px;
   left: 76vw;
-  top: 85%;
+  top: 86.2%;
 }
 
 .MonstariesAndTemplesImgsPelingDanceCard {
   text-align: left;
   width: 130px;
   left: 76.5vw;
-  top: 52.5vw;
+  top: 53.2vw;
   color: white;
   position: fixed;
   background: #2b455d;
@@ -1366,10 +1382,10 @@
 
 .PeilingVedio {
   position: fixed;
-  left: 75.5%;
+  left: 70.3%;
   top: 85%;
-  width: 400px;
-  height: 250px;
+  width: 370px;
+  height: 230px;
 }
 
 .PelingVedio img {
@@ -1380,42 +1396,42 @@
 
 .PeilingVedioScnd {
   position: fixed;
-  left: 62%;
-  top: 83%;
+  left: 62.3%;
+  top: 85.5%;
 }
 
 .PeilingVedioScnd img {
   object-fit: fill;
   position: fixed;
   width: 500px;
-  height: 350px;
+  height: 300px;
 }
 
 .PelingVideoScndCard {
   left: 75.5%;
-  top: 92.5%;
+  top: 93.5%;
   position: fixed;
-  width: 295px;
-  height: 151px;
+  width: 230px;
+  height: 120px;
   background: #c9d7ee;
 }
 
 .PelingVideoScndCardFrstTitle p {
   margin: 0;
   padding: 0;
-  font-size: 24px;
+  font-size: 20px;
   font-family: "Josefin Sans";
 }
 
 .PelingVideoScndCardcndTitle p {
   margin: 0;
   padding: 0;
-  font-size: 42px;
+  font-size: 30px;
   font-family: "Hammersmith One";
 }
 
 .NaringDragBookAnimate {
   position: fixed;
-  left: 62%;
+  left: 59.5%;
   top: 85%;
 }

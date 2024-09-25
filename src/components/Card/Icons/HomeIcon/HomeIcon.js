@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import HomeWhite from "../../../../assests/SideIcons/HomeWhite.png";
+import Home from "../../../../assests/SideIcons/HomeIcon2.png";
+
 import styles from "./HomeIcon.module.css";
 
 const HomeIcon = ({
@@ -31,13 +33,10 @@ const HomeIcon = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: showIcons ? 1 : 0 }}
       transition={{ duration: 1 }}
+      onClick={onClick}
     >
-      <div
-        className={styles.HomeIconContainer}
-        onClick={onClick}
-        style={{ margin: margin }}
-      >
-        <img src={HomeWhite} alt="LanguageIcon" />
+      <div className={styles.HomeIconContainer} style={{ margin: margin }}>
+        <img src={whiteImage ? HomeWhite : Home} alt="LanguageIcon" />
       </div>
     </motion.div>
   );

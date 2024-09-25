@@ -2,9 +2,8 @@
   position: fixed;
   background: #384e63;
   background-size: cover;
-
-  width: 390px;
-  height: 130px;
+  width: 350px;
+  height: 120px;
   cursor: pointer;
   overflow: hidden;
   display: flex;
@@ -24,7 +23,7 @@
 .namedCardText {
   text-align: right;
   /* font-size: 42px; */
-  font-size: 35px;
+  font-size: 30px;
   font-family: "Josefin Sans";
 }
 
