@@ -1,27 +1,24 @@
-import React, { useState } from "react";
-import styles from "./Zhabrung.module.css";
-import { motion } from "framer-motion";
-import NameCard from "../../components/NameCard/NameCard";
-import { ZHABRUNG_INFORMATION } from "../../constants/Characters/ZhabrungNgawangNamgyal";
-import Zhabrung from "../../assests/Zhabrung/Shabdrung.jpg";
-import CardTwo from "../../components/BigCard/BigCard";
+import React, { useState } from 'react';
+import styles from './Zhabrung.module.css';
+import { motion } from 'framer-motion';
+import NameCard from '../../components/NameCard/NameCard';
+import { ZHABRUNG_INFORMATION } from '../../constants/Characters/ZhabrungNgawangNamgyal';
+import Zhabrung from '../../assests/Zhabrung/Zhabdrung.svg';
 
 const ZhabrungNgawangNamgyal = () => {
-  const [language, setLanguage] = useState("english");
-  const [nameCardSubtitle, setNameCardSubtitle] = useState("");
+  const [language, setLanguage] = useState('english');
+  const [nameCardSubtitle, setNameCardSubtitle] = useState('');
   const [showIntro, setShowIntro] = useState(true);
 
   const toggleLanguage = () => {
-    setLanguage((prevLanguage) =>
-      prevLanguage === "english" ? "bhutan" : "english"
-    );
+    setLanguage((prevLanguage) => (prevLanguage === 'english' ? 'bhutan' : 'english'));
   };
   return (
     <motion.div
       className={styles.ZhabrungContainer}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 1.6, ease: "easeOut" }}
+      transition={{ duration: 1.6, ease: 'easeOut' }}
     >
       <motion.div
         className={styles.pemaText}
@@ -43,22 +40,14 @@ const ZhabrungNgawangNamgyal = () => {
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.4 }}
       >
-        <img src={Zhabrung} alt="Pema Lingpa" />
+        <img src={Zhabrung} alt='Pema Lingpa' />
       </motion.div>
 
-      <motion.div
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.4 }}
-      >
+      <motion.div initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.4 }}>
         <div className={styles.NameCardContainer}>
           {nameCardSubtitle ? (
             <>
-              <NameCard
-                cardName={ZHABRUNG_INFORMATION[language].title}
-                background="#FFD9BC"
-                color="#6A1F11"
-              />
+              <NameCard cardName={ZHABRUNG_INFORMATION[language].title} background='#FFD9BC' color='#6A1F11' />
             </>
           ) : (
             <>
