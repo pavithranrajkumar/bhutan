@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import styles from "./CardTwo.module.css";
+import styles from "./BigCard.module.css";
 
-const CardTwo = ({
+const BigCard = ({
   title,
   content,
   showIntro,
@@ -64,4 +64,4 @@ const CardTwo = ({
   );
 };
 
-export default CardTwo;
+export default BigCard;

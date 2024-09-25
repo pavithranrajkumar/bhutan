@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import NameCard from "../../components/NameCard/NameCard";
 import { ZHABRUNG_INFORMATION } from "../../constants/Characters/ZhabrungNgawangNamgyal";
 import Zhabrung from "../../assests/Zhabrung/Shabdrung.jpg";
-import CardTwo from "../../components/CardTwo/CardTwo";
+import CardTwo from "../../components/BigCard/BigCard";
 
 const ZhabrungNgawangNamgyal = () => {
   const [language, setLanguage] = useState("english");
@@ -67,20 +67,7 @@ const ZhabrungNgawangNamgyal = () => {
           )}
         </div>
       </motion.div>
-      <div className={styles.IntroCard}>
-        <CardTwo
-          title={ZHABRUNG_INFORMATION[language].politicalInfluence.title}
-          content={ZHABRUNG_INFORMATION[language].politicalInfluence.content}
-          subContent={
-            ZHABRUNG_INFORMATION[language].politicalInfluence.subContent
-          }
-          showIntro={showIntro}
-          language={language}
-          backgroundColor="#FFD9BC"
-          color="#380100"
-          borderBottom="2px solid #6A1F11"
-        />
-      </div>
+      <div className={styles.IntroCard}></div>
     </motion.div>
   );
 };
