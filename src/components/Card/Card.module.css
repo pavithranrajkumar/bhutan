@@ -59,6 +59,8 @@
   font-size: 64px;
   font-weight: 300;
   font-family: "Josefin Sans";
+  border-bottom: 2px solid #001829;
+  padding: 2px;
 }
 
 .CardContent {

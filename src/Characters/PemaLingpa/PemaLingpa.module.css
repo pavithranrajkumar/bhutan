@@ -1485,3 +1485,9 @@
   font-size: 42px;
   font-family: "Hammersmith One";
 }
+
+.NaringDragBookAnimate {
+  position: fixed;
+  left: 63%;
+  top: 80%;
+}

@@ -11,12 +11,14 @@ const Card = ({
   width,
   header,
   language,
+  borderBottom,
 }) => {
   const cardStyles = {
     fontSize: language === "bhutan" ? "12px" : "18px",
   };
   const cardTitle = {
     fontSize: language === "bhutan" ? "25px" : "64px",
+    borderBottom: borderBottom,
   };
   return (
     <motion.div

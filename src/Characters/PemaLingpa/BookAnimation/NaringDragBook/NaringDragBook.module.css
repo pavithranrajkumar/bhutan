@@ -1,0 +1,35 @@
+/* Trial.module.css */
+.flipbookContainer {
+  position: fixed;
+  display: flex;
+  height: 473px;
+}
+
+.flipBook {
+  position: fixed;
+  width: 335px;
+  height: 473px;
+  border-radius: 10px;
+}
+
+.page {
+  position: fixed;
+  width: 335px;
+  height: 473px;
+}
+
+.page img {
+  position: fixed;
+  width: 335px;
+  height: 473px;
+  object-fit: fill;
+  border-radius: 10px;
+}
+
+.transparentPage {
+  background-color: transparent;
+}
+
+.transparentPage img {
+  opacity: 0;
+}

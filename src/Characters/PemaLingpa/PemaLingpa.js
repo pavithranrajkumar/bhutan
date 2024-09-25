@@ -40,6 +40,8 @@ import HomeIcon from "../../components/Card/Icons/HomeIcon/HomeIcon";
 import PreviousIcon from "../../components/Card/Icons/PreviousIcon/PreviousIcon";
 import PeilingVedio1 from "../../assests/Peiling/peilingVideo1.png";
 import PeilingVedio2 from "../../assests/Peiling/peilingVideo2.png";
+import NaringDragBook from "./BookAnimation/NaringDragBook/NaringDragBook";
+import BurningLakeBook from "./BookAnimation/BurningLake";
 
 const PemaLingpa = () => {
   const [showDetails, setShowDetails] = useState(false);
@@ -494,6 +496,7 @@ const PemaLingpa = () => {
             language={language}
             backgroundColor="#FFD9BC"
             color="#380100"
+            borderBottom="2px solid #6A1F11"
           />
           <motion.div
             className={styles.HistoricdetailCardHeader}
@@ -521,6 +524,7 @@ const PemaLingpa = () => {
             language={language}
             backgroundColor="#FFD9BC"
             color="#380100"
+            borderBottom="2px solid #6A1F11"
           />
           <HomeIcon showIcons={showIcons} onClick={handleFooterIconClick} />
           <LanguageIcon onClick={toggleLanguage} showIcons={showIcons} />
@@ -879,6 +883,7 @@ const PemaLingpa = () => {
             language={language}
             backgroundColor="#FFD9BC"
             color="#380100"
+            borderBottom="2px solid #6A1F11"
           />
           <div className={styles.RevelationsSideCards}>
             <div
@@ -924,30 +929,9 @@ const PemaLingpa = () => {
 
       {showNaringDragBook && (
         <>
-          <div
-            className={
-              showNaringDragBookImage
-                ? styles.BookOpen
-                : styles.NaringDragCardBookContainer
-            }
-          >
-            <img
-              src={showNaringDragBookImage ? BookOpen : NaringDrag}
-              alt="NaringDrag"
-              onClick={handleNaringDragBookImageClick}
-            />
-            <img
-              src={showNaringDragBookImage ? BookOpen : NaringDrag}
-              alt="NaringDrag"
-              onClick={handleNaringDragBookImageClick}
-            />
-            <img
-              src={BookOpen}
-              alt="NaringDrag"
-              onClick={handleNaringDragBookImageClick}
-            />
+          <div className={styles.NaringDragBookAnimate}>
+            <NaringDragBook />
           </div>
-
           <div
             className={styles.NaringDragCardBookBurningLakeCardContainer}
             onClick={handleBurningLakeCardClick}
@@ -978,18 +962,8 @@ const PemaLingpa = () => {
 
       {showBurningLakeBook && (
         <>
-          <div
-            className={
-              showNaringDragBookImage
-                ? styles.BookOpen
-                : styles.NaringDragCardBookContainer
-            }
-          >
-            <img
-              src={BookOpen}
-              alt="NaringDrag"
-              onClick={handleNaringDragBookImageClick}
-            />
+          <div className={styles.NaringDragBookAnimate}>
+            <BurningLakeBook />
           </div>
           <div
             className={styles.NaringDragCardBookTextContainer}
@@ -1092,6 +1066,7 @@ const PemaLingpa = () => {
             backgroundColor="#FFD9BC"
             color="#380100"
             language={language}
+            borderBottom="2px solid #6A1F11"
           />
           <div className={styles.PelingCard} onClick={PelingCardClick}>
             <img src={KenchosumLhakhang} alt="KenchosumLhakhang" />
@@ -1123,15 +1098,6 @@ const PemaLingpa = () => {
               </div>
             </div>
           </div>
-          <motion.div
-            className={styles.LegacydetailCardHeader}
-            onClick={() => setShowLegacyCard(false)}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: showIcons ? 1 : 0 }}
-            transition={{ duration: 1 }}
-          >
-            <FontAwesomeIcon icon={faChevronRight} className={styles.icon} />
-          </motion.div>
           <HomeIcon showIcons={showIcons} onClick={handleFooterIconClick} />
           <LanguageIcon onClick={toggleLanguage} showIcons={showIcons} />
         </>
