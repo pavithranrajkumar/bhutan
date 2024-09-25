@@ -378,20 +378,22 @@ const PemaLingpa = () => {
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.4 }}
       >
-        {nameCardSubtitle ? (
-          <>
-            <NameCard
-              cardName={PREMA_LINGPA_INFORMATION[language].title}
-              year={PEMALINGPAYEAR}
-              background="#FFD9BC"
-              color="#6A1F11"
-            />
-          </>
-        ) : (
-          <>
-            <NameCard cardName={PEMALINGPA} />
-          </>
-        )}
+        <div className={styles.NameCardContainer}>
+          {nameCardSubtitle ? (
+            <>
+              <NameCard
+                cardName={PREMA_LINGPA_INFORMATION[language].title}
+                year={PEMALINGPAYEAR}
+                background="#FFD9BC"
+                color="#6A1F11"
+              />
+            </>
+          ) : (
+            <>
+              <NameCard cardName={PEMALINGPA} />
+            </>
+          )}
+        </div>
       </motion.div>
 
       {showDetails && (
@@ -416,6 +418,7 @@ const PemaLingpa = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
+            left="60.5%"
           />
         </>
       )}
@@ -476,11 +479,11 @@ const PemaLingpa = () => {
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
-            left="67.5%"
-            top="89%"
-            width="120px"
-            height="120px"
-            margin="40px"
+            left="60%"
+            top="92%"
+            width="100px"
+            height="100px"
+            margin="30px"
           />
         </>
       )}
@@ -510,7 +513,11 @@ const PemaLingpa = () => {
               className={styles.HistoricIcon}
             />
           </motion.div>
-          <LanguageIcon onClick={toggleLanguage} showIcons={showIcons} />
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            left="60.5%"
+          />
         </>
       )}
 
@@ -519,15 +526,23 @@ const PemaLingpa = () => {
           <Card
             title={PREMA_LINGPA_INFORMATION[language].lineage.title}
             content={PREMA_LINGPA_INFORMATION[language].lineage.content}
-            width="630px"
+            width="470px"
             showIntro={showIntro}
             language={language}
             backgroundColor="#FFD9BC"
             color="#380100"
             borderBottom="2px solid #6A1F11"
           />
-          <HomeIcon showIcons={showIcons} onClick={handleFooterIconClick} />
-          <LanguageIcon onClick={toggleLanguage} showIcons={showIcons} />
+          <HomeIcon
+            showIcons={showIcons}
+            onClick={handleFooterIconClick}
+            left="59.5%"
+          />
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            left="60.5%"
+          />
 
           <div className={styles.FamilCard}>
             <div
@@ -588,7 +603,10 @@ const PemaLingpa = () => {
                   >
                     <div className={styles.Sangda}>
                       <img src={Sangda} alt="" />
-                      <div className={styles.SangdaCard}>
+                      <div
+                        className={styles.SangdaCard}
+                        style={{ padding: "0.2vw" }}
+                      >
                         <p>Sangda</p>
                       </div>
                     </div>
@@ -744,7 +762,7 @@ const PemaLingpa = () => {
                         <div className={styles.KochungChoejeCard}>
                           <p>Choeje</p>
                         </div>
-                        <div className={styles.KochungChoejeVerticalLine}></div>
+                        {/* <div className={styles.KochungChoejeVerticalLine}></div>
                         <div className={styles.KochungHorizontalLine}></div>
                         <div className={styles.KochungVerticalLine}></div>
                         <div className={styles.BidungVerticalLine}></div>
@@ -752,7 +770,7 @@ const PemaLingpa = () => {
                         <div className={styles.KheriVerticalLine2}></div>
 
                         <div className={styles.DungkarVerticalLine}></div>
-                        <div className={styles.DungkarHorizontalLine}></div>
+                        <div className={styles.DungkarHorizontalLine}></div> */}
 
                         <div style={{ display: "flex" }}>
                           <div className={styles.Kochung}>
@@ -815,14 +833,14 @@ const PemaLingpa = () => {
                         <div className={styles.SonsCard}>
                           <p>Sons</p>
                         </div>
-                        <div className={styles.SangdaSonsHorizontalLine}></div>
+                        {/* <div className={styles.SangdaSonsHorizontalLine}></div>
                         <div className={styles.SangdaSonsVerticalLine}></div>
 
-                        <div className={styles.SangdaVerticalLine}></div>
+                        <div className={styles.SangdaVerticalLine}></div> */}
                         <div className={styles.SangdaSonsCard}>
                           <p>Choeje</p>
                         </div>
-                        <div className={styles.SangdaDownVerticalLine}></div>
+                        {/* <div className={styles.SangdaDownVerticalLine}></div>
                         <div className={styles.SangdaHorizontalLine}></div>
                         <div
                           className={styles.SangdaFrstSonsVerticalLine}
@@ -835,7 +853,7 @@ const PemaLingpa = () => {
                         ></div>
                         <div
                           className={styles.SangdaFrthSonsVerticalLine}
-                        ></div>
+                        ></div> */}
 
                         <div className={styles.SangdaSonsContainer}>
                           <div className={styles.Tsakaling}>
@@ -876,7 +894,7 @@ const PemaLingpa = () => {
       {showRevelationsCard && (
         <>
           <Card
-            width="630px"
+            width="470px"
             title={PREMA_LINGPA_INFORMATION[language].revelations.title}
             content={PREMA_LINGPA_INFORMATION[language].revelations.content}
             showIntro={showIntro}
@@ -922,8 +940,16 @@ const PemaLingpa = () => {
               </div>
             </div>
           </div>
-          <HomeIcon showIcons={showIcons} onClick={handleFooterIconClick} />
-          <LanguageIcon onClick={toggleLanguage} showIcons={showIcons} />
+          <HomeIcon
+            showIcons={showIcons}
+            onClick={handleFooterIconClick}
+            left="59.5%"
+          />
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            left="60.5%"
+          />
         </>
       )}
 
@@ -947,15 +973,20 @@ const PemaLingpa = () => {
             showIcons={showIcons}
             onClick={handleFooterIconClick}
             whiteImage={true}
+            left="58.5%"
+            top="89%"
           />
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
+            left="59.5%"
           />
           <PreviousIcon
             showIcons={showIcons}
             onClick={handlePreviousIconClick}
+            left="58.5%"
+            top="83.5%"
           />
         </>
       )}
@@ -980,15 +1011,20 @@ const PemaLingpa = () => {
             showIcons={showIcons}
             onClick={handleFooterIconClick}
             whiteImage={true}
+            left="58.5%"
+            top="89%"
           />
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
+            left="59.5%"
           />
           <PreviousIcon
             showIcons={showIcons}
             onClick={handlePreviousIconClick}
+            left="58.5%"
+            top="83.5%"
           />
         </>
       )}
@@ -996,6 +1032,7 @@ const PemaLingpa = () => {
       {showNaringDragCard && (
         <>
           <Card
+            width="470px"
             header={PREMA_LINGPA_INFORMATION[language].naringDrag.header}
             title={PREMA_LINGPA_INFORMATION[language].naringDrag.title}
             content={PREMA_LINGPA_INFORMATION[language].naringDrag.content}
@@ -1016,11 +1053,13 @@ const PemaLingpa = () => {
             showIcons={showIcons}
             onClick={handleFooterIconClick}
             whiteImage={true}
+            left="59.5%"
           />
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
+            left="60.5%"
           />
         </>
       )}
@@ -1028,6 +1067,7 @@ const PemaLingpa = () => {
       {showBurningLakeCard && (
         <>
           <Card
+            width="470px"
             header={PREMA_LINGPA_INFORMATION[language].burningLake.header}
             title={PREMA_LINGPA_INFORMATION[language].burningLake.title}
             content={PREMA_LINGPA_INFORMATION[language].burningLake.content}
@@ -1047,11 +1087,13 @@ const PemaLingpa = () => {
             showIcons={showIcons}
             onClick={handleFooterIconClick}
             whiteImage={true}
+            left="59.5%"
           />
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
+            left="60.5%"
           />
         </>
       )}
@@ -1059,9 +1101,9 @@ const PemaLingpa = () => {
       {showLegacyCard && (
         <>
           <Card
+            width="470px"
             title={PREMA_LINGPA_INFORMATION[language].legacy.title}
             content={PREMA_LINGPA_INFORMATION[language].legacy.content}
-            width="630px"
             showIntro={showIntro}
             backgroundColor="#FFD9BC"
             color="#380100"
@@ -1098,14 +1140,23 @@ const PemaLingpa = () => {
               </div>
             </div>
           </div>
-          <HomeIcon showIcons={showIcons} onClick={handleFooterIconClick} />
-          <LanguageIcon onClick={toggleLanguage} showIcons={showIcons} />
+          <HomeIcon
+            showIcons={showIcons}
+            onClick={handleFooterIconClick}
+            left="59.5%"
+          />
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            left="60.5%"
+          />
         </>
       )}
 
       {showMonstariesAndTemples && (
         <>
           <Card
+            width="470px"
             header={
               PREMA_LINGPA_INFORMATION[language].monastriesAndTemples.header
             }
@@ -1115,7 +1166,6 @@ const PemaLingpa = () => {
             content={
               PREMA_LINGPA_INFORMATION[language].monastriesAndTemples.content
             }
-            width="630px"
             showIntro={showIntro}
             language={language}
           />
@@ -1129,11 +1179,13 @@ const PemaLingpa = () => {
             showIcons={showIcons}
             onClick={handleFooterIconClick}
             whiteImage={true}
+            left="59.5%"
           />
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
+            left="60.5%"
           />
         </>
       )}
@@ -1176,15 +1228,20 @@ const PemaLingpa = () => {
             showIcons={showIcons}
             onClick={handleFooterIconClick}
             whiteImage={true}
+            left="58.5%"
+            top="89%"
           />
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
+            left="59.5%"
           />
           <PreviousIcon
             showIcons={showIcons}
             onClick={handlePreviousIconClick}
+            left="58.5%"
+            top="83.5%"
           />
         </>
       )}
@@ -1195,7 +1252,7 @@ const PemaLingpa = () => {
             header={PREMA_LINGPA_INFORMATION[language].pelingdance.header}
             title={PREMA_LINGPA_INFORMATION[language].pelingdance.title}
             content={PREMA_LINGPA_INFORMATION[language].pelingdance.content}
-            width="630px"
+            width="470px"
             showIntro={showIntro}
             language={language}
           />
@@ -1206,11 +1263,14 @@ const PemaLingpa = () => {
             showIcons={showIcons}
             onClick={handleFooterIconClick}
             whiteImage={true}
+            left="58.5%"
+            top="89%"
           />
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
+            left="59.5%"
           />
         </>
       )}
@@ -1244,15 +1304,20 @@ const PemaLingpa = () => {
             showIcons={showIcons}
             onClick={handleFooterIconClick}
             whiteImage={true}
+            left="58.5%"
+            top="89%"
           />
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
+            left="59.5%"
           />
           <PreviousIcon
             showIcons={showIcons}
             onClick={handlePreviousIconClick}
+            left="58.5%"
+            top="83.5%"
           />
         </>
       )}

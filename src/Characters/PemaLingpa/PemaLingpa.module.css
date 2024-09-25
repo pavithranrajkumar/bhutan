@@ -10,7 +10,7 @@
 
 .pemaContainer {
   position: fixed;
-  top: 60%;
+  top: 65%;
   left: 50%;
   z-index: 10;
   box-sizing: border-box;
@@ -24,8 +24,8 @@
   position: fixed;
   width: 516px;
   height: 462px;
-  bottom: 10.5vw;
-  left: 54.5vw;
+  bottom: 7.5vw;
+  left: 49vw;
   color: white;
   margin: 0;
 }
@@ -39,8 +39,8 @@
 
 .pemaImage {
   position: fixed;
-  bottom: 17.5%;
-  left: 65.6%;
+  bottom: 12.3%;
+  left: 60.5%;
   transform: translate(-50%, -60%);
   z-index: 10;
   margin: 0;
@@ -52,77 +52,10 @@
   z-index: 10;
 }
 
-.pemaNameCard {
+.NameCardContainer {
   position: fixed;
-  background: #384e63;
-  background-size: cover;
-  top: 68.5%;
-  right: 16%;
-  width: 480px;
-  height: 180px;
-  cursor: pointer;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-.OverLayImage {
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  pointer-events: none;
-}
-
-.pemaNameCardTitle {
-  color: white; /* Text color */
-  z-index: 1; /* Ensure text is above the image */
-  position: relative; /* Ensure stacking context */
-  text-align: center; /* Center text */
-}
-
-.namedCardText {
-  font-size: 42px;
-  font-family: "Josefin Sans";
-}
-
-.nameCardSubtitle {
-  font-size: 42px;
-  font-family: "Josefin Sans";
-  color: white; /* Text color */
-  z-index: 1; /* Ensure text is above the image */
-  position: relative; /* Ensure stacking context */
-  text-align: center; /* Center text */
-}
-
-.nameCardtitle {
-  color: #380100;
-}
-
-.nameCardSubtitlecard {
-  position: fixed;
-  background: #ffd9bc;
-  top: 69.5%;
-  right: 16%;
-  width: 480px;
-  height: 180px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-.nameCardSubtitle {
-  font-size: 1vw;
-  font-weight: 800;
-  color: #380100;
+  top: 78%;
+  right: 35%;
 }
 
 .detailCardFooter {
@@ -161,8 +94,8 @@
 
 .HistoricdetailCardHeader {
   position: fixed;
-  bottom: 18.1%;
-  left: 88%;
+  bottom: 13.5%;
+  left: 78%;
   z-index: 1;
   cursor: pointer;
   background: #380100;
@@ -178,8 +111,8 @@
 
 .detailCardHeader {
   position: fixed;
-  bottom: 17.1%;
-  left: 87.5%;
+  bottom: 12.5%;
+  left: 77.5%;
   width: 120px;
   height: 120px;
   z-index: 1;
@@ -197,13 +130,13 @@
   position: fixed;
   display: flex;
   flex-direction: column;
-  top: 78%;
-  left: 69.5%;
+  top: 83.5%;
+  left: 62.5%;
 }
 
 .CardsContainerText {
   font-family: "Hammersmith One";
-  font-size: 42px;
+  font-size: 40px;
   font-weight: 100;
 }
 
@@ -214,10 +147,8 @@
   background: #cd5a33;
   color: #ffd9bc;
   margin-top: 1vw;
-  font-size: 1.3vw;
-  font-weight: 700;
-  padding: 0.8vw;
-  width: 346px;
+  padding: 0.3vw;
+  width: 280px;
 }
 
 .LineageCard {
@@ -225,32 +156,31 @@
   position: fixed;
   background: #9c3d22;
   color: #ffd9bc;
-  padding: 1vw;
-  font-size: 1.3vw;
-  margin-top: 2.15vw;
-  margin-left: 11vw;
+  padding: 0.7vw;
+  top: 86%;
+  left: 71%;
   cursor: pointer;
 }
 
 .RevelationsCard {
-  width: 389px;
-  height: 195.6;
+  width: 300px;
   padding: 0.8vw;
   position: fixed;
   background: #9c3d22;
   color: #ffd9bc;
-  margin-top: 6vw;
-  margin-left: 1.6vw;
+  margin-top: 4.5vw;
+  margin-left: 0.6vw;
   cursor: pointer;
 }
 
 .LegacyCard {
+  position: fixed;
   font-weight: 700;
   background: #cd5a33;
   color: #ffd9bc;
-  padding: 1.07vw;
-  margin-top: 6vw;
-  margin-left: 13.5vw;
+  padding: 0.9vw;
+  margin-top: 5.5vw;
+  margin-left: 10.5vw;
   cursor: pointer;
 }
 
@@ -294,15 +224,15 @@
 .FamilyHeader {
   position: fixed;
   background: #c76224;
-  width: 342px;
-  padding: 0.4vw;
-  right: 5%;
-  bottom: 34%;
+  width: 200px;
+  padding: 0.2vw;
+  right: 17.5%;
+  bottom: 25%;
   cursor: pointer;
 }
 
 .FamilyHeader p {
-  font-size: 28px;
+  font-size: 25px;
   font-family: "Josefin Sans";
   color: #380100;
   padding: 0;
@@ -312,9 +242,9 @@
 .SonsCard {
   position: fixed;
   background: #c76224;
-  width: 61px;
-  right: 8.5%;
-  bottom: 32.5%;
+  width: 45px;
+  right: 19.5%;
+  bottom: 23%;
   border-radius: 1.5vw;
   border: 0.1vw solid #8f4110;
 }
@@ -332,21 +262,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 26%;
-  gap: 0.5vw;
-  left: 84.6%;
+  bottom: 16%;
+  gap: 0.3vw;
+  left: 76.3%;
 }
 
 .DrakpaGyalpos {
-  width: 102px;
+  width: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .DrakpaGyalpos img {
-  width: 68px;
-  height: 96px;
+  width: 50px;
+  height: 70px;
   object-fit: fill;
 }
 
@@ -356,8 +286,8 @@
 .SangdaCard {
   cursor: pointer;
   background: #c76224;
-  width: 100px;
-  padding: 0.4vw;
+  width: 40px;
+  padding: 0.1vw;
   text-align: center;
 }
 
@@ -376,17 +306,17 @@
   position: fixed;
   width: 0.2vw;
   background-color: #8f4110;
-  height: 0.6vw;
-  left: 90.4%;
-  bottom: 33%;
+  height: 0.8vw;
+  left: 79.7%;
+  bottom: 23.6%;
 }
 
 .SonsHorizontalLine {
   position: fixed;
-  width: 3.9vw;
+  width: 5.8vw;
   height: 0.2vw;
-  bottom: 32.8%;
-  left: 85.9%;
+  bottom: 22%;
+  left: 77.2%;
   background-color: #8f4110;
 }
 
@@ -394,9 +324,9 @@
   position: fixed;
   width: 0.2vw;
   background-color: #8f4110;
-  height: 0.2vw;
-  left: 85.9%;
-  bottom: 32.5%;
+  height: 0.85vw;
+  left: 77.2%;
+  bottom: 20.5%;
 }
 
 .DrakpaGyalposVerticalLine {
@@ -404,8 +334,8 @@
   width: 0.2vw;
   background-color: #8f4110;
   height: 1.2vw;
-  left: 85.6%;
-  bottom: 24%;
+  left: 77.2%;
+  bottom: 14%;
 }
 
 .SonsTree {
@@ -416,10 +346,10 @@
 .ChoejeCard {
   position: fixed;
   background: #c76224;
-  width: 61px;
-  height: 26px;
-  right: 13.5%;
-  top: 76%;
+  width: 50px;
+  height: 20px;
+  right: 21.9%;
+  top: 86%;
   border-radius: 0.4vw;
   border: 0.1vw solid #8f4110;
 }
@@ -432,23 +362,23 @@
 
 .Tamshing {
   position: fixed;
-  top: 79%;
-  left: 84.3%;
+  top: 89%;
+  left: 76.2%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .Tamshing img {
-  width: 76px;
-  height: 115px;
+  width: 50px;
+  height: 70px;
   object-fit: fill;
 }
 
 .TamshingCard {
   background: #c76224;
-  width: 76px;
-  padding: 0.4vw;
+  width: 70px;
+  padding: 0.2vw;
   text-align: center;
 }
 
@@ -464,22 +394,23 @@
   position: fixed;
   width: 0.2vw;
   background-color: #8f4110;
-  height: 0.9vw;
-  left: 85.5%;
-  bottom: 21%;
+  height: 1vw;
+  left: 77.2%;
+  bottom: 11%;
 }
 
 /* kk */
 
 .Sangda {
+  margin-right: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .Sangda img {
-  width: 68px;
-  height: 96px;
+  width: 50px;
+  height: 70px;
   object-fit: fill;
 }
 
@@ -490,8 +421,8 @@
 }
 
 .KuengaWangpo img {
-  width: 68px;
-  height: 96px;
+  width: 50px;
+  height: 70px;
   object-fit: fill;
 }
 
@@ -502,29 +433,29 @@
 }
 
 .DawaGyaltshen img {
-  width: 68px;
-  height: 96px;
+  width: 50px;
+  height: 70px;
   object-fit: fill;
 }
 
 .Prakhar {
   position: fixed;
-  top: 77%;
-  left: 86.5%;
+  top: 87.5%;
+  left: 79%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .Prakhar img {
-  width: 76px;
-  height: 115px;
+  width: 50px;
+  height: 70px;
   object-fit: fill;
 }
 
 .PrakharCard {
   background: #c76224;
-  width: 4vw;
+  width: 1vw;
   padding: 0.4vw;
   text-align: center;
 }
@@ -540,10 +471,10 @@
 .PrakharChoejeCard {
   position: fixed;
   background: #c76224;
-  width: 61px;
-  height: 26px;
-  right: 10.2%;
-  bottom: 23.5%;
+  width: 50px;
+  height: 20px;
+  right: 19.4%;
+  bottom: 13.6%;
   border-radius: 0.5vw;
   border: 0.1vw solid #8f4110;
 }
@@ -561,8 +492,8 @@
   width: 0.2vw;
   background-color: #8f4110;
   height: 0.6vw;
-  left: 88.8%;
-  bottom: 22.5%;
+  left: 79.8%;
+  bottom: 12.5%;
 }
 
 .DawaGyaltshenVerticalLine {
@@ -570,31 +501,31 @@
   width: 0.2vw;
   background-color: #8f4110;
   height: 0.7vw;
-  left: 88.9%;
-  bottom: 25%;
+  left: 79.7%;
+  bottom: 14.8%;
 }
 
 /* kk */
 
 .Kochung {
   position: fixed;
-  top: 78.5%;
-  left: 91%;
+  top: 88%;
+  left: 79%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .Kochung img {
-  width: 76px;
-  height: 115px;
+  width: 50px;
+  height: 70px;
   object-fit: fill;
 }
 
 .KochungCard {
   background: #c76224;
-  width: 76px;
-  padding: 0.4vw;
+  width: 56px;
+  padding: 0.2vw;
   text-align: center;
 }
 
@@ -609,10 +540,10 @@
 .KochungChoejeCard {
   position: fixed;
   background: #c76224;
-  width: 61px;
-  height: 26px;
-  right: 5.5%;
-  bottom: 23%;
+  width: 50px;
+  height: 20px;
+  right: 17.6%;
+  bottom: 13%;
   border-radius: 1.5vw;
   border: 0.2vw solid #8f4110;
 }
@@ -639,29 +570,29 @@
   width: 0.2vw;
   background-color: #8f4110;
   height: 0.8vw;
-  left: 93.5%;
-  bottom: 24.5%;
+  left: 81.4%;
+  bottom: 14.5%;
 }
 
 .Bidung {
   position: fixed;
-  top: 78.5%;
-  left: 94%;
+  top: 88%;
+  left: 82%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .Bidung img {
-  width: 76px;
-  height: 115px;
+  width: 50px;
+  height: 70px;
   object-fit: fill;
 }
 
 .BidungCard {
   background: #c76224;
-  width: 76px;
-  padding: 0.4vw;
+  width: 56px;
+  padding: 0.2vw;
   text-align: center;
 }
 
@@ -738,23 +669,23 @@
 
 .Kheri {
   position: fixed;
-  top: 88.5%;
-  left: 87.5%;
+  top: 93%;
+  left: 79%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .Kheri img {
-  width: 47px;
-  height: 112px;
+  width: 30px;
+  height: 90px;
   object-fit: fill;
 }
 
 .KheriCard {
   background: #c76224;
-  width: 102px;
-  padding: 0.4vw;
+  width: 70px;
+  padding: 0.3vw;
   text-align: center;
 }
 
@@ -795,23 +726,23 @@
 
 .Dungkar {
   position: fixed;
-  top: 87.9%;
-  left: 91.5%;
+  top: 93.8%;
+  left: 82%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .Dungkar img {
-  width: 48px;
-  height: 122px;
+  width: 50px;
+  height: 70px;
   object-fit: fill;
 }
 
 .DungkarCard {
   background: #c76224;
-  width: 131px;
-  height: 44px;
+  width: 80px;
+  height: 40px;
   text-align: center;
 }
 
@@ -823,51 +754,51 @@
 
 .Tsakaling {
   position: fixed;
-  top: 76.8%;
-  left: 83.8%;
+  top: 88%;
+  left: 76.5%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .Tsakaling img {
-  width: 49px;
-  height: 144px;
+  width: 50px;
+  height: 70px;
   object-fit: fill;
 }
 
 .TsakalingCard {
   background: #c76224;
-  width: 140px;
-  height: 44px;
+  width: 80px;
+  height: 30px;
   text-align: center;
 }
 
 .TsakalingCard p {
-  font-size: 14px;
+  font-size: 10px;
   font-family: "Josefin Sans";
   color: #380100;
 }
 
 .Drophu {
   position: fixed;
-  top: 77.9%;
-  left: 87.8%;
+  top: 88%;
+  left: 79%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .Drophu img {
-  width: 61.8px;
-  height: 121px;
+  width: 50px;
+  height: 70px;
   object-fit: fill;
 }
 
 .DrophuCard {
   background: #c76224;
-  width: 120px;
-  height: 44px;
+  width: 80px;
+  height: 30px;
   text-align: center;
 }
 
@@ -879,23 +810,23 @@
 
 .Drametse {
   position: fixed;
-  top: 77%;
-  left: 91.3%;
+  top: 88%;
+  left: 81.5%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .Drametse img {
-  width: 48px;
-  height: 141px;
+  width: 50px;
+  height: 70px;
   object-fit: fill;
 }
 
 .DrametseCard {
   background: #c76224;
-  width: 136px;
-  height: 44px;
+  width: 80px;
+  height: 30px;
   text-align: center;
 }
 
@@ -907,23 +838,23 @@
 
 .Yagang {
   position: fixed;
-  top: 78%;
-  left: 95%;
+  top: 88%;
+  left: 84%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .Yagang img {
-  width: 49px;
-  height: 120px;
+  width: 50px;
+  height: 70px;
   object-fit: fill;
 }
 
 .YagangCard {
   background: #c76224;
-  width: 120px;
-  height: 44px;
+  width: 80px;
+  height: 30px;
   text-align: center;
 }
 
@@ -948,8 +879,8 @@
   background: #c76224;
   width: 61px;
   height: 26px;
-  right: 1.8%;
-  bottom: 24%;
+  right: 19%;
+  top: 85%;
   border-radius: 1.5vw;
   border: 0.1vw solid #8f4110;
 }
@@ -980,10 +911,10 @@
 
 .DawaGyaltshenSonsHorizontalLine {
   position: fixed;
-  width: 0.4vw;
-  height: 0.2vw;
-  top: 67%;
-  left: 89.5%;
+  width: 0.2vw;
+  height: 1.2vw;
+  top: 77%;
+  left: 79.7%;
   background-color: #8f4110;
 }
 
@@ -1003,10 +934,10 @@
 
 .KuengaWangpoSonsHorizontalLine {
   position: fixed;
-  width: 2vw;
+  width: 1vw;
   height: 0.2vw;
-  top: 67%;
-  left: 91.4%;
+  top: 76.5%;
+  left: 80.5%;
   background-color: #8f4110;
 }
 
@@ -1014,9 +945,9 @@
   position: fixed;
   width: 0.2vw;
   background-color: #8f4110;
-  height: 0.3vw;
-  left: 93.3%;
-  top: 67%;
+  height: 1.2vw;
+  left: 81.3%;
+  top: 76.9%;
 }
 
 .SangdaSonsVerticalLine {
@@ -1103,10 +1034,10 @@
 .NaringDragCard {
   cursor: pointer;
   text-align: left;
-  width: 571px;
-  height: 201px;
-  left: 83.8vw;
-  top: 45vw;
+  width: 500px;
+  height: 150px;
+  left: 75.5vw;
+  top: 47.5vw;
   color: white;
   position: fixed;
   background: #2b455d;
@@ -1120,16 +1051,16 @@
 
 .NaringDragCard img {
   position: fixed;
-  width: 162px;
-  height: 228px;
-  object-fit: contain;
-  left: 93vw;
-  top: 43.5vw;
+  width: 140px;
+  height: 180px;
+  object-fit: fill;
+  left: 84vw;
+  top: 46vw;
 }
 
 .NaringDragCardBookText {
   position: fixed;
-  left: 90vw;
+  left: 70vw;
   top: 40vw;
   font-family: "Josefin Sans";
   font-size: 24px;
@@ -1137,8 +1068,8 @@
 
 .BurningLakeCardText {
   position: fixed;
-  left: 89.5vw;
-  top: 45vw;
+  left: 76.5vw;
+  top: 47vw;
   width: 2vw;
   font-size: 1.4vw;
   font-weight: 800;
@@ -1154,19 +1085,19 @@
 
 .BurningLakeCard img {
   position: fixed;
-  width: 162px;
-  height: 228px;
-  object-fit: contain;
-  left: 85%;
-  top: 49vw;
+  width: 140px;
+  height: 170px;
+  object-fit: fill;
+  left: 76%;
+  top: 51.7vw;
 }
 
 .BurningLakeCard {
   text-align: right;
-  width: 571px;
-  height: 201px;
-  left: 83.7vw;
-  top: 50.5vw;
+  width: 500px;
+  height: 150px;
+  left: 75.5vw;
+  top: 51.5vw;
   color: white;
   position: fixed;
   background: #2b455d;
@@ -1252,7 +1183,7 @@
 
 .RevelationsSideCardsScnd {
   font-family: "Hammersmith One";
-  font-size: 42px;
+  font-size: 38px;
   cursor: pointer;
   margin: 5px;
 }
@@ -1277,21 +1208,22 @@
 
 .NaringDragCardBook {
   position: fixed;
-  left: 88vw;
-  top: 45vw;
+  left: 75.5vw;
+  top: 47vw;
   cursor: pointer;
 }
 
 .NaringDragCardBook img {
-  width: 331px;
-  height: 410px;
+  width: 300px;
+  height: 345px;
+  object-fit: fill;
 }
 
 .NaringDragCardBookTextScnd {
   position: fixed;
   width: 277px;
-  left: 88vw;
-  top: 52.5vw;
+  left: 76vw;
+  top: 53vw;
   font-weight: 900;
   font-size: 49.3px;
   font-family: "Josefin Sans";
@@ -1303,9 +1235,9 @@
   justify-content: center;
   align-items: center;
   width: 500px;
-  height: 120px;
-  left: 84vw;
-  top: 49vw;
+  height: 100px;
+  left: 75.5vw;
+  top: 50.3vw;
   color: white;
   position: fixed;
   background: #2b455d;
@@ -1316,14 +1248,14 @@
 .PelingCard img {
   position: fixed;
   width: 213px;
-  height: 150px;
+  height: 100px;
   object-fit: contain;
-  left: 84vw;
-  top: 45vw;
+  left: 75vw;
+  top: 47.5vw;
 }
 
 .PelingSideCardsScnd p {
-  font-size: 40px;
+  font-size: 30px;
   padding: 0;
   margin: 0;
   font-family: "Hammersmith One";
@@ -1334,9 +1266,9 @@
   justify-content: center;
   align-items: center;
   width: 190px;
-  height: 130px;
-  left: 94vw;
-  top: 52.5vw;
+  height: 100px;
+  left: 86vw;
+  top: 53.4vw;
   color: white;
   position: fixed;
   background: #2b455d;
@@ -1346,7 +1278,8 @@
 
 .PelingDanceVideo {
   position: fixed;
-  left: 88%;
+  left: 79.9%;
+  top: 53.3vw;
 }
 
 .PelingDanceCard img {
@@ -1356,45 +1289,45 @@
 }
 
 .PelingSideCardsfrst {
-  font-size: 24px;
+  font-size: 20px;
   font-family: "Josefin Sans";
 }
 
 .MonsTemplesCardBook {
   position: fixed;
-  left: 84vw;
-  top: 43.5vw;
+  left: 75.5vw;
+  top: 48vw;
 }
 
 .MonsTemplesCardBook img {
   position: fixed;
-  width: 581px;
-  height: 475px;
+  width: 500px;
+  height: 305px;
   object-fit: fill;
 }
 
 .MonstariesAndTemplesImgsContainer {
   position: fixed;
   display: flex;
-  gap: 0.5vw;
+  gap: 0.1vw;
 }
 
 .MonstariesAndTemplesImgsContainerfrst {
   position: fixed;
   object-fit: fill;
-  width: 463.69px;
-  height: 419.61px;
-  top: 44.5vw;
-  right: 19.5vw;
+  width: 400px;
+  height: 305px;
+  top: 47.5vw;
+  right: 29vw;
 }
 
 .MonstariesAndTemplesImgsContainerScnd {
   position: fixed;
   object-fit: fill;
-  width: 219.26px;
-  height: 219.26px;
-  left: 80vw;
-  top: 78.5%;
+  width: 150px;
+  height: 150px;
+  left: 69.5vw;
+  top: 84.5%;
 }
 
 .MonstariesAndTemplesImgsContainerThrd {
@@ -1402,27 +1335,27 @@
   flex-direction: column;
   position: fixed;
   object-fit: fill;
-  width: 218.93px;
-  height: 167.27px;
-  left: 85vw;
-  top: 78.5%;
+  width: 130px;
+  height: 130px;
+  left: 73vw;
+  top: 84.5%;
   gap: 0vw;
 }
 
 .MonstariesAndTemplesImgsContainerFrth {
   position: fixed;
   object-fit: fill;
-  width: 250px;
-  height: 260px;
-  left: 90vw;
-  top: 78.5%;
+  width: 200px;
+  height: 200px;
+  left: 76vw;
+  top: 85%;
 }
 
 .MonstariesAndTemplesImgsPelingDanceCard {
   text-align: left;
-  width: 180px;
-  left: 90.5vw;
-  top: 50vw;
+  width: 130px;
+  left: 76.5vw;
+  top: 52.5vw;
   color: white;
   position: fixed;
   background: #2b455d;
@@ -1431,17 +1364,12 @@
   padding: 0.4vw;
 }
 
-.PelingSideCardsScnd {
-  font-weight: 700;
-  font-size: 1.3vw;
-}
-
 .PeilingVedio {
   position: fixed;
-  left: 84%;
-  top: 80.5%;
-  width: 499px;
-  height: 306px;
+  left: 75.5%;
+  top: 85%;
+  width: 400px;
+  height: 250px;
 }
 
 .PelingVedio img {
@@ -1452,19 +1380,19 @@
 
 .PeilingVedioScnd {
   position: fixed;
-  left: 67.5%;
-  top: 79%;
+  left: 62%;
+  top: 83%;
 }
 
 .PeilingVedioScnd img {
   object-fit: fill;
   position: fixed;
-  width: 586px;
-  height: 471px;
+  width: 500px;
+  height: 350px;
 }
 
 .PelingVideoScndCard {
-  left: 84%;
+  left: 75.5%;
   top: 92.5%;
   position: fixed;
   width: 295px;
@@ -1488,6 +1416,6 @@
 
 .NaringDragBookAnimate {
   position: fixed;
-  left: 63%;
-  top: 80%;
+  left: 62%;
+  top: 85%;
 }

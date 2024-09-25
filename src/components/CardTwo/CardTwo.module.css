@@ -9,25 +9,21 @@
 }
 
 .detailCard {
-  position: fixed;
   font-size: 0.7vw;
   background: #193145;
   color: white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  width: 550px;
-  height: 320px;
+  width: 480px;
   justify-content: left;
   text-align: left;
   align-items: left;
-  top: 85%;
-  left: 63%;
   transform: translateX(-50%);
   display: flex;
 }
 
 .introduction {
-  margin: 17px;
+  margin: 20px;
 }
 
 .cardTitleContainer {
@@ -53,4 +49,8 @@
   text-align: left;
   justify-content: left;
   font-family: "Public Sans";
+}
+
+.CardSubContent {
+  margin-top: 20px;
 }

@@ -1,0 +1,55 @@
+@font-face {
+  font-family: "Josefin Sans"; /* You can name this whatever you want */
+  src: url("../../fonts/JosefinSans-ExtraLight.ttf") format("truetype"); /* Path to the font */
+}
+
+@font-face {
+  font-family: "Hammersmith One"; /* You can name this whatever you want */
+  src: url("../../fonts/HammersmithOne-Regular.ttf") format("truetype"); /* Path to the font */
+}
+
+.ZhabrungContainer {
+  position: fixed;
+  top: 78%;
+  left: 75%;
+  z-index: 10;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 18vw;
+}
+
+.YearText {
+  color: white;
+  margin: 0;
+  font-weight: 300;
+  font-size: 200px;
+  font-family: "Josefin Sans";
+}
+
+.ZhabrungImage {
+  position: fixed;
+  bottom: 5%;
+  left: 83%;
+  transform: translate(-50%, -60%);
+  z-index: 10;
+  margin: 0;
+}
+
+.ZhabrungImage img {
+  width: 355px;
+  height: 422px;
+  z-index: 10;
+}
+
+.NameCardContainer {
+  position: fixed;
+  left: 90%;
+}
+
+.IntroCard {
+  position: fixed;
+  left: 80%;
+  top: 60%;
+}

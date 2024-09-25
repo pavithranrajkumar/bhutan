@@ -7,19 +7,18 @@ body {
 .main-container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
   width: 100%;
   position: relative;
 }
 
 .main-content {
-  padding: 100px;
+  padding: 360px;
   background: #7ebdba;
 }
 
 .image-container {
   position: relative;
-  flex: 1; /* Make each image container grow equally */
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,7 +30,7 @@ body {
 }
 
 .image-container img {
-  width: 100%; /* Fill the container width */
-  height: 100%; /* Fill the container height */
-  object-fit: cover; /* Maintain aspect ratio while covering the area */
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }

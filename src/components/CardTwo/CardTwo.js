@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import styles from "./Card.module.css";
+import styles from "./CardTwo.module.css";
 
-const Card = ({
+const CardTwo = ({
   title,
   content,
   showIntro,
@@ -12,6 +12,7 @@ const Card = ({
   header,
   language,
   borderBottom,
+  subContent,
 }) => {
   const cardStyles = {
     fontSize: language === "bhutan" ? "12px" : "15px",
@@ -54,10 +55,13 @@ const Card = ({
           <div className={styles.CardContent} style={cardStyles}>
             {content}
           </div>
+          <div className={styles.CardSubContent} style={cardStyles}>
+            {subContent}
+          </div>
         </motion.div>
       </motion.div>
     </motion.div>
   );
 };
 
-export default Card;
+export default CardTwo;

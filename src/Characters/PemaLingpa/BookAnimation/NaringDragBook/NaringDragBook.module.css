@@ -2,26 +2,26 @@
 .flipbookContainer {
   position: fixed;
   display: flex;
-  height: 473px;
+  height: 345px;
 }
 
 .flipBook {
   position: fixed;
   width: 335px;
-  height: 473px;
+  height: 345px;
   border-radius: 10px;
 }
 
 .page {
   position: fixed;
   width: 335px;
-  height: 473px;
+  height: 345px;
 }
 
 .page img {
   position: fixed;
   width: 335px;
-  height: 473px;
+  height: 325px;
   object-fit: fill;
   border-radius: 10px;
 }
