@@ -10,13 +10,18 @@ const NameCard = ({
   top,
   bottom,
   paraColor,
+  width,
+  height,
+  language,
+  fontSize,
+  paraSize,
 }) => {
-  // const cardStyles = {
-  //   fontSize: language === "bhutan" ? "13px" : "18px",
-  // };
+  const cardStyles = {
+    fontSize: fontSize || (language === "bhutan" ? "13px" : "30px"),
+  };
   return (
     <motion.div
-      style={{ background: background, top, bottom }}
+      style={{ background: background, top, bottom, width, height }}
       className={styles.pemaNameCard}
       initial={{ x: -100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
@@ -25,8 +30,10 @@ const NameCard = ({
       {/* <img src={Namecard} alt="Pema Lingpa" className={styles.OverLayImage} /> */}
 
       <div className={styles.pemaNameCardTitle} style={{ color: color }}>
-        <div className={styles.namedCardText}>{cardName}</div>
-        <p style={{ color: paraColor }}>{year}</p>
+        <div className={styles.namedCardText} style={cardStyles}>
+          {cardName}
+        </div>
+        <p style={{ color: paraColor, fontSize: paraSize }}>{year}</p>
       </div>
     </motion.div>
   );

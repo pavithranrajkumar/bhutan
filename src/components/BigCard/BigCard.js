@@ -10,21 +10,21 @@ const BigCard = ({
   color,
   width,
   header,
-  language,
-  borderBottom,
   subContent,
+  height,
+  cardFontSize,
+  titleFontSize,
+  borderBottom,
 }) => {
-  const cardStyles = {
-    fontSize: language === "bhutan" ? "12px" : "15px",
-  };
-  const cardTitle = {
-    fontSize: language === "bhutan" ? "25px" : "40px",
-    borderBottom: borderBottom,
-  };
   return (
     <motion.div
       className={styles.detailCard}
-      style={{ background: backgroundColor, color: color, width: width }}
+      style={{
+        background: backgroundColor,
+        color: color,
+        width: width,
+        height,
+      }}
       initial={{ x: -300, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 1, ease: "easeOut" }}
@@ -42,7 +42,10 @@ const BigCard = ({
         >
           <div className={styles.cardTitleContainer}>
             <div className={styles.CardHeader}>{header}</div>
-            <div className={styles.CardTitle} style={cardTitle}>
+            <div
+              className={styles.CardTitle}
+              style={{ fontSize: titleFontSize, borderBottom }}
+            >
               {title}
             </div>
           </div>
@@ -52,10 +55,16 @@ const BigCard = ({
           animate={{ opacity: showIntro ? 1 : 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className={styles.CardContent} style={cardStyles}>
+          <div
+            className={styles.CardContent}
+            style={{ fontSize: cardFontSize }}
+          >
             {content}
           </div>
-          <div className={styles.CardSubContent} style={cardStyles}>
+          <div
+            className={styles.CardSubContent}
+            style={{ fontSize: cardFontSize }}
+          >
             {subContent}
           </div>
         </motion.div>

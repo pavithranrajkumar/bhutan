@@ -12,6 +12,10 @@ const Card = ({
   header,
   language,
   borderBottom,
+  headerFontSize,
+  titleFontSize,
+  contentFontSize,
+  height,
 }) => {
   const cardStyles = {
     fontSize: language === "bhutan" ? "12px" : "13px",
@@ -23,7 +27,12 @@ const Card = ({
   return (
     <motion.div
       className={styles.detailCard}
-      style={{ background: backgroundColor, color: color, width: width }}
+      style={{
+        background: backgroundColor,
+        color: color,
+        width: width,
+        height,
+      }}
       initial={{ x: -300, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 1, ease: "easeOut" }}
@@ -40,8 +49,16 @@ const Card = ({
           transition={{ duration: 0.8 }}
         >
           <div className={styles.cardTitleContainer}>
-            <div className={styles.CardHeader}>{header}</div>
-            <div className={styles.CardTitle} style={cardTitle}>
+            <div
+              className={styles.CardHeader}
+              style={{ fontSize: headerFontSize }}
+            >
+              {header}
+            </div>
+            <div
+              className={styles.CardTitle}
+              style={{ fontSize: titleFontSize, borderBottom }}
+            >
               {title}
             </div>
           </div>
@@ -51,7 +68,10 @@ const Card = ({
           animate={{ opacity: showIntro ? 1 : 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className={styles.CardContent} style={cardStyles}>
+          <div
+            className={styles.CardContent}
+            style={{ fontSize: contentFontSize }}
+          >
             {content}
           </div>
         </motion.div>

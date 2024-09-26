@@ -16,6 +16,9 @@ const HomeIcon = ({
   width,
   height,
   margin,
+  background,
+  iconHeight,
+  iconWidth,
 }) => {
   console.log("HomeIcon rendered, showIcons:", showIcons);
 
@@ -28,6 +31,7 @@ const HomeIcon = ({
         bottom: bottom,
         width: width,
         height: height,
+        background,
       }}
       className={whiteImage ? styles.LanguageWhiteIcon : styles.LanguageIcon}
       initial={{ opacity: 0 }}
@@ -35,7 +39,10 @@ const HomeIcon = ({
       transition={{ duration: 1 }}
       onClick={onClick}
     >
-      <div className={styles.HomeIconContainer} style={{ margin: margin }}>
+      <div
+        className={styles.HomeIconContainer}
+        style={{ height: iconHeight, width: iconWidth, margin }}
+      >
         <img src={whiteImage ? HomeWhite : Home} alt="LanguageIcon" />
       </div>
     </motion.div>

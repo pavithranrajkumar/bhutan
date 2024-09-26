@@ -15,6 +15,9 @@ const LanguageIcon = ({
   height,
   margin,
   bottom,
+  background,
+  iconWidth,
+  IconHeight,
 }) => {
   return (
     <motion.div
@@ -25,6 +28,7 @@ const LanguageIcon = ({
         bottom: bottom,
         width: width,
         height: height,
+        background,
       }}
       className={whiteImage ? styles.LanguageWhiteIcon : styles.LanguageIcon}
       initial={{ opacity: 0 }}
@@ -36,7 +40,11 @@ const LanguageIcon = ({
         onClick={onClick}
         style={{ margin: margin }}
       >
-        <img src={whiteImage ? LanguageWhite : Language} alt="LanguageIcon" />
+        <img
+          src={whiteImage ? LanguageWhite : Language}
+          style={{ height: IconHeight, width: iconWidth }}
+          alt="LanguageIcon"
+        />
       </div>
     </motion.div>
   );

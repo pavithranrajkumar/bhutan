@@ -95,6 +95,11 @@ const PemaLingpa = () => {
       showLegacyCard ||
       showBurningLakeCard ||
       showNaringDragCard ||
+      showBurningLakeBook ||
+      showNaringDragBook ||
+      showBurningLakeBookImage ||
+      showNaringDragBookImage ||
+      showMonstariesAndTemplesImgs ||
       showMonstariesAndTemples ||
       showMonstariesAndTemplesImgs ||
       showPelingDance ||
@@ -368,7 +373,7 @@ const PemaLingpa = () => {
         }}
         transition={{ duration: 0.8 }}
       >
-        <YearText />
+        <YearText BornYear="1450" Endyear="-1521" fontSize="168px" />
       </motion.div>
 
       <motion.div

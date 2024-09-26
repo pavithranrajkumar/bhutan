@@ -1,0 +1,21 @@
+.PreviousIconWhiteContainer {
+  position: fixed;
+  background: #2b455d;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+}
+
+.PreviousIconContainer {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+}
+
+.PreviousIcon {
+  margin-top: 30px;
+  width: 20px;
+  height: 20px;
+  color: white;
+}

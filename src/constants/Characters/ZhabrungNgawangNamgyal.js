@@ -3,13 +3,14 @@ export const ZHABRUNG_INFORMATION = {
     title: "ZHABDRUNG NGAWANG NAMGYAL",
     introduction: {
       title: "INTRODUCTION",
-      content: `Zhabdrung Ngawang Namgyel (1594-1651), 18th in line of prince-abbots of the Drukpa Kagyu monastery of Ralung in Southern Tibet, came to Bhutan as a refugee in 1616. A prophetic dream in which the guardian deity Mahakala appeared in its raven form is believed to have guided him on a path to Bhutan. His interactions with patrons and followers allowed him to gather support and build a strong base for the Drukpa order as he extended his political influence. Zhabdrung masterminded campaigns that repelled several Tibetan invasions while unifying regional principalities under a single administration adhering to laws based on Buddhist premises.
-He created the state of Bhutan (Drukzhung) and introduced a dual system of governance, choesi nyiden, where religious and secular institutions coexisted. He built impregnable fortresses called dzongs to house monastic and administrative communities, and codified a system of rules of etiquette, driglam namzhag that continue to be followed in modern day Bhutan.`,
+      content: `Zhabdrung Ngawang Namgyel (1594-1651), 18th in line of prince-abbots of the Drukpa Kagyu monastery of Ralung in Southern Tibet, came to Bhutan as a refugee in 1616. A prophetic dream in which the guardian deity Mahakala appeared in its raven form is believed to have guided him on a path to Bhutan. His interactions with patrons and followers allowed him to gather support and build a strong base for the Drukpa order as he extended his political influence. Zhabdrung masterminded campaigns that repelled several Tibetan invasions while unifying regional principalities under a single administration adhering to laws based on Buddhist premises.`,
+      subContent: `He created the state of Bhutan (Drukzhung) and introduced a dual system of governance, choesi nyiden, where religious and secular institutions coexisted. He built impregnable fortresses called dzongs to house monastic and administrative communities, and codified a system of rules of etiquette, driglam namzhag that continue to be followed in modern day Bhutan.`,
     },
+
     historicBackground: {
       title: "HISTORIC BACKGROUND",
-      content: `Zhabdrung Ngawang Namgyel was 18th in line of prince-abbots of Ralung monastery in Tibet. However, his claim as the incarnation of the great Drukpa scholar Pema Karpo was opposed by the Tibetan ruler of the period, Desi Tsangpo, who favoured a rival. Anticipating attack, Zhabdrung decided to travel to Mongolia and seek support. 
-However, a prophetic dream ensued and the guardian deity Mahakala appeared in his raven form and guided him on a path southward to Bhutan. He came to Bhutan as a refugee in 1616 and was welcomed by the followers of Drukpa Kagyu school in the region.`,
+      content: `Zhabdrung Ngawang Namgyel was 18th in line of prince-abbots of Ralung monastery in Tibet. However, his claim as the incarnation of the great Drukpa scholar Pema Karpo was opposed by the Tibetan ruler of the period, Desi Tsangpo, who favoured a rival. Anticipating attack, Zhabdrung decided to travel to Mongolia and seek support. `,
+      subContent: `However, a prophetic dream ensued and the guardian deity Mahakala appeared in his raven form and guided him on a path southward to Bhutan. He came to Bhutan as a refugee in 1616 and was welcomed by the followers of Drukpa Kagyu school in the region.`,
     },
     religiousInflunce: {
       title: "RELIGIOUS INFLUENCE",
@@ -22,7 +23,24 @@ with the Ngachudruma emblem declaring himself the leader of the region.`,
     },
     sealOfZhabdrungStatement: {
       title: "SEAL OF ZHABDRUNG",
-      content: `Zhabdrung composed an emblematic document called the Ngachudruma or ‘Sixteen I’ which reflect his magical power and represents his title of thuchen (master). His official seal and emblem incorporate the Ngachudruma. The poetic statement is translated as:.`,
+      content: `
+
+I turn the wheel of the dual systems (of secular and spiritual).
+I am a good refuge for all.
+I hold the teachings of the glorious Drukpa.
+I destroy those who feign to be Drukpa.
+I have become Sarasvatī in composition.
+I am the pure source of moral aphorisms.
+I am the master of views free from extremes.
+I refute those with wrong views.
+I am the master of power and strength in debates.
+Who is the rival that does not tremble before me?
+I am the hero who destroys hosts of demons.
+Who is the powerful one that can repulse my power?
+I am the lord of speech in expounding religion.
+I am learned in all sciences.
+I am the incarnation prophesied by the patriarchs.
+I am the eliminator of deviant incarnations.`,
     },
     politicalInfluence: {
       title: "POLITICAL INFLUENCE",
@@ -41,8 +59,7 @@ By the end of 1650s, the area corresponding to present day Bhutan was roughly un
     },
     driglamNamzhag: {
       title: "DRIGLAM NAMZHAG",
-      content: `Driglam is the way of maintaining order while namzhag means concept or system. The driglam namzhag is thus a code of etiquette and system of behaviour that follow set rules that are today part of Bhutanese identity. Drawing inspiration from the Buddhist Vinaya or monastic codes of discipline, it was codified and implemented as formal code of conduct by Zhabdrung Ngawang Namgyel. The rules are not written but are passed down generations by example. They dictate mannerism and conduct for people in society that are elegant and proper.
-Physical Discipline includes what to wear and how to behave while eating, walking, sitting and how to show respect to seniors and elders. Verbal Discipline includes how to maintain decorum while speaking. Mental Discipline influences the mindset one should have to love the country, King, and people besides respect for the rule of law.`,
+      content: `Driglam is the way of maintaining order while namzhag means concept or system. The driglam namzhag is thus a code of etiquette and system of behaviour that follow set rules that are today part of Bhutanese identity. Drawing inspiration from the Buddhist Vinaya or monastic codes of discipline, it was codified and implemented as formal code of conduct by Zhabdrung Ngawang Namgyel. The rules are not written but are passed down generations by example. They dictate mannerism and conduct for people in society that are elegant and proper.`,
     },
     secrecyAtDeath: {
       title: "SECRECY AT DEATH",
@@ -59,7 +76,8 @@ Physical Discipline includes what to wear and how to behave while eating, walkin
     },
     historicBackground: {
       title: "TODO",
-      content: ``,
+      content: `TODO`,
+      subContent: `TODO`,
     },
   },
 };

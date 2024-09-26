@@ -1,0 +1,12 @@
+.TravellersCard {
+  position: fixed;
+  background: #6986a9;
+  color: #001829;
+  font-family: "Hammersmith One";
+  font-size: 20px;
+  left: 89%;
+  top: 70.4%;
+  height: 80px;
+  width: 250px;
+  cursor: pointer;
+}

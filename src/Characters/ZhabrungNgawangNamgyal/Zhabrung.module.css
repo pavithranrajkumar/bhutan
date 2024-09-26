@@ -20,36 +20,83 @@
   max-width: 18vw;
 }
 
-.YearText {
-  color: white;
-  margin: 0;
-  font-weight: 300;
-  font-size: 200px;
-  font-family: "Josefin Sans";
+.pemaText {
+  position: fixed;
+  left: 81.2%;
+  top: 88.2%;
 }
 
 .ZhabrungImage {
   position: fixed;
-  bottom: 5%;
-  left: 83%;
+  top: 84.2%;
+  left: 86.3%;
   transform: translate(-50%, -60%);
   z-index: 10;
   margin: 0;
 }
 
 .ZhabrungImage img {
-  width: 355px;
-  height: 422px;
+  width: 200px;
+  height: 330px;
   z-index: 10;
 }
 
 .NameCardContainer {
   position: fixed;
   left: 90%;
+  top: 90.2%;
 }
 
 .IntroCard {
   position: fixed;
-  left: 80%;
-  top: 60%;
+  left: 82.3%;
+  top: 73.5%;
+}
+
+.ZhabrungHistoricCard {
+  position: fixed;
+  left: 89.8%;
+  top: 73.5%;
+}
+
+.ZhabrungReligousCard {
+  position: fixed;
+  left: 89.7%;
+  top: 80.8%;
+}
+
+.SealCard {
+  position: fixed;
+  left: 91.1%;
+  top: 81%;
+}
+
+.PoliticalCardContains {
+  position: fixed;
+  left: 90%;
+  top: 74.3%;
+}
+
+.TravellerCardContains {
+  position: fixed;
+  left: 90%;
+  top: 70.5%;
+}
+
+.AdministrationCardContains {
+  position: fixed;
+  left: 90%;
+  top: 74%;
+}
+
+.DriglamCardContains {
+  position: fixed;
+  left: 90%;
+  top: 79.3%;
+}
+
+.SecrecyAtDeathCardContains {
+  position: fixed;
+  left: 90%;
+  top: 72.4%;
 }
