@@ -415,6 +415,8 @@ const PemaLingpa = () => {
         <>
           <div className={styles.IntroCard}>
             <Card
+              titleFontSize="20px"
+              contentFontSize="15px"
               title={PREMA_LINGPA_INFORMATION[language].introduction.title}
               content={PREMA_LINGPA_INFORMATION[language].introduction.content}
               showIntro={showIntro}
@@ -512,6 +514,8 @@ const PemaLingpa = () => {
         <>
           <div className={styles.HistoricCardContains}>
             <Card
+              titleFontSize="20px"
+              contentFontSize="15px"
               title={
                 PREMA_LINGPA_INFORMATION[language].historicBackground.title
               }
@@ -561,6 +565,8 @@ const PemaLingpa = () => {
       {showLineageCard && (
         <div className={styles.IntroCard}>
           <Card
+            titleFontSize="20px"
+            contentFontSize="15px"
             title={PREMA_LINGPA_INFORMATION[language].lineage.title}
             content={PREMA_LINGPA_INFORMATION[language].lineage.content}
             width="470px"

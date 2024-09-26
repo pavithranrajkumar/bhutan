@@ -8,10 +8,10 @@
   src: url("../../fonts/HammersmithOne-Regular.ttf") format("truetype"); /* Path to the font */
 }
 
-.ZhabrungContainer {
+.GuruContainer {
   position: fixed;
   top: 78%;
-  left: 75%;
+  left: 10%;
   z-index: 10;
   box-sizing: border-box;
   display: flex;
@@ -20,84 +20,49 @@
   max-width: 18vw;
 }
 
-.pemaText {
+.GuruImage {
   position: fixed;
-  left: 81.2%;
-  top: 88.2%;
-}
-
-.ZhabrungImage {
-  position: fixed;
-  top: 84.2%;
-  left: 86.3%;
+  top: 71.5%;
+  left: 26.3%;
   transform: translate(-50%, -60%);
   z-index: 10;
   margin: 0;
 }
 
-.ZhabrungImage img {
+.GuruImage img {
   object-fit: fill;
   width: 200px;
-  height: 330px;
+  height: 270px;
   z-index: 10;
 }
 
-.NameCardContainer {
+.GuruText {
   position: fixed;
-  left: 90%;
-  top: 90.2%;
-}
-
-.IntroCard {
-  position: fixed;
-  left: 82.3%;
+  left: 20%;
   top: 73.5%;
 }
 
-.ZhabrungHistoricCard {
+.GuruNameCardContainer {
   position: fixed;
-  left: 89.8%;
-  top: 73.5%;
+  left: 30.5%;
+  top: 75%;
 }
 
-.ZhabrungReligousCard {
+.GuruIntroCard {
   position: fixed;
-  left: 89.7%;
-  top: 80.8%;
+  left: 29.5%;
+  top: 80%;
 }
 
-.SealCard {
+.GuruHistoricCard {
   position: fixed;
-  left: 91.1%;
-  top: 81%;
+  left: 24%;
+  top: 81.2%;
 }
 
-.PoliticalCardContains {
+.GuruKurjeLhakhangCard {
   position: fixed;
-  left: 90%;
-  top: 74.3%;
-}
-
-.TravellerCardContains {
-  position: fixed;
-  left: 90%;
-  top: 70.5%;
-}
-
-.AdministrationCardContains {
-  position: fixed;
-  left: 90%;
-  top: 74%;
-}
-
-.DriglamCardContains {
-  position: fixed;
-  left: 90%;
-  top: 79.3%;
-}
-
-.SecrecyAtDeathCardContains {
-  position: fixed;
-  left: 90%;
-  top: 72.4%;
+  left: 24%;
+  top: 85%;
+  background: pink;
 }

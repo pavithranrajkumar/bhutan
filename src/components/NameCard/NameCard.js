@@ -15,6 +15,9 @@ const NameCard = ({
   language,
   fontSize,
   paraSize,
+  subCardname,
+  subCardnameFontSize,
+  subCardnameMarginLeft,
 }) => {
   const cardStyles = {
     fontSize: fontSize || (language === "bhutan" ? "13px" : "30px"),
@@ -32,6 +35,15 @@ const NameCard = ({
       <div className={styles.pemaNameCardTitle} style={{ color: color }}>
         <div className={styles.namedCardText} style={cardStyles}>
           {cardName}
+        </div>
+        <div
+          className={styles.subCardnameContains}
+          style={{
+            fontSize: subCardnameFontSize,
+            marginLeft: subCardnameMarginLeft,
+          }}
+        >
+          {subCardname}
         </div>
         <p style={{ color: paraColor, fontSize: paraSize }}>{year}</p>
       </div>

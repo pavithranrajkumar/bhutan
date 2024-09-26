@@ -1,0 +1,20 @@
+.GuruHistoricCard {
+  position: fixed;
+  background: #7d94af;
+  color: #0c263b;
+  font-family: "Hammersmith One";
+  font-size: 15px;
+  left: 32.8%;
+  top: 79.5%;
+  height: 80px;
+  width: 190px;
+  cursor: pointer;
+}
+
+.GuruHistoricCardImg {
+  position: fixed;
+  left: 33%;
+  top: 82%;
+  height: 200px;
+  width: 180px;
+}

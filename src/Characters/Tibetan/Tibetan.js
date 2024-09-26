@@ -1,58 +1,29 @@
 import React, { useState } from "react";
-import styles from "./Zhabrung.module.css";
+import styles from "./Tibetan.module.css";
 import { motion } from "framer-motion";
-import NameCard from "../../components/NameCard/NameCard";
-import { ZHABRUNG_INFORMATION } from "../../constants/Characters/ZhabrungNgawangNamgyal";
-import Zhabrung from "../../assests/Zhabrung/Zhabdrung.svg";
+import tibetan from "../../assests/Tibetan/Migrants.png";
 import YearText from "../../components/YearText/YearText";
-import IntroductionCard from "./Cards/IntroductionCard";
+import NameCard from "../../components/NameCard/NameCard";
+import Introduction from "./Cards/Introduction/Introduction";
 import NextIcon from "../../components/Card/Icons/NextIcon/NextIcon";
 import LanguageIcon from "../../components/Card/Icons/LanguageIcon/LanguageIcon";
-import ZhabrungCards from "./Cards/ZhabrungCards/ZhabrungCards";
-import HistoricCard from "./Cards/HistoricCard/HistoricCard";
-import HomeIcon from "../../components/Card/Icons/HomeIcon/HomeIcon";
-import ReligiousCard from "./Cards/ReligiousCard/ReligiousCard";
-import SealCard from "./Cards/ReligiousCard/SealCard/SealCard";
-import PreviousIcon from "../../components/Card/Icons/PreviousIcon/PreviousIcon";
-import PoliticalCard from "./Cards/PoliticalCard/PoliticalCard";
-import TravellerCard from "./Cards/PoliticalCard/TravellerCard/TravellerCard";
-import Administration from "./Cards/Administration/Administration";
-import DriglamCard from "./Cards/DriglamCard/DriglamCard";
-import SecrecyAtDeath from "./Cards/SecrecyAtDeath/SecrecyAtDeath";
+import TibetanCards from "./Cards/TibetanCards/TibetanCards";
+import { TIBETAN_INFORMATION } from "../../constants/Characters/Tibetan";
 
-const ZhabrungNgawangNamgyal = () => {
-  const [language, setLanguage] = useState("english");
-  const [nameCardSubtitle, setNameCardSubtitle] = useState("");
-  const [showIcons, setShowIcons] = useState(false);
+const Tibetan = () => {
   const [showYearText, setShowYearText] = useState(true);
   const [showCards, setShowCards] = useState(false);
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [showIntroduction, setShowIntroduction] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
-  const [showSealOfZhabrung, setShowSealOfZhabrung] = useState(false);
-  const [showTravellers, setShoTravellers] = useState(false);
-
-  const toggleLanguage = () => {
-    setLanguage((prevLanguage) =>
-      prevLanguage === "english" ? "bhutan" : "english"
-    );
-  };
-
-  const handleHomeClick = () => {
-    setShowCards(true);
-    setSelectedCard(null);
-    setShowIntroduction(false);
-    setShowSealOfZhabrung(false);
-    setShoTravellers(false);
-  };
+  const [language, setLanguage] = useState("english");
+  const [showIcons, setShowIcons] = useState(false);
 
   const handleCardOrImageClick = () => {
     if (showCards || selectedCard) {
       setShowCards(false);
       setSelectedCard(null);
       setShowIntroduction(false);
-      setShowSealOfZhabrung(false);
-      setShoTravellers(false);
     } else {
       setShowYearText(false);
       setShowIntroduction(true);
@@ -61,94 +32,93 @@ const ZhabrungNgawangNamgyal = () => {
     }
   };
 
-  const showZhabrungCards = () => {
-    setShowCards(true);
-    setShowIntroduction(false);
-    setSelectedCard(null);
+  const toggleLanguage = () => {
+    setLanguage((prevLanguage) =>
+      prevLanguage === "english" ? "bhutan" : "english"
+    );
   };
 
-  const handleCardClick = (cardName) => {
-    setShowCards(false);
-    setSelectedCard(null);
-    setShowIntroduction(false);
-    setShowSealOfZhabrung(false);
-    setShoTravellers(false);
-    setShowYearText(false);
-    setSelectedCard(cardName);
-  };
+  //   const handleHomeClick = () => {
+  //     setShowCards(true);
+  //     setSelectedCard(null);
+  //     setShowIntroduction(false);
+  //     setShowSealOfZhabrung(false);
+  //   };
 
-  const handleHistoricNextIconClick = () => {
-    setSelectedCard("religious");
-  };
+  //   const showZhabrungCards = () => {
+  //     setShowCards(true);
+  //     setShowIntroduction(false);
+  //     setSelectedCard(null);
+  //   };
 
-  const handleSealClick = () => {
-    setShowSealOfZhabrung(!showSealOfZhabrung);
-  };
+  //   const handleCardClick = (cardName) => {
+  //     setShowCards(false);
+  //     setSelectedCard(cardName);
+  //     setShowIntroduction(false);
+  //     console.log("Selected Card:", cardName);
+  //   };
 
-  const handleTraverllerClick = () => {
-    setShoTravellers(!showTravellers);
-  };
+  //   const handleHistoricNextIconClick = () => {
+  //     setSelectedCard("religious");
+  //   };
 
-  const handleTravellerPreviousClick = () => {
-    setShoTravellers(false);
-    setSelectedCard("political");
-  };
+  //   const handleSealClick = () => {
+  //     setShowSealOfZhabrung(!showSealOfZhabrung);
+  //   };
 
-  const handleSealPreviousClick = () => {
-    setShowSealOfZhabrung(false);
-    setSelectedCard("religious");
-  };
+  //   const handleTraverllerClick = () => {
+  //     setShoTravellers(!showTravellers);
+  //   };
 
-  const isBlueCard = showIntroduction || showSealOfZhabrung;
-  const nameCardBackground = showCards
-    ? "#FFD9BC"
-    : selectedCard === "historic" || selectedCard === "religious"
-    ? "#C76224"
-    : isBlueCard
-    ? "#C9D7EE"
-    : "#384E63";
+  //   const handleTravellerPreviousClick = () => {
+  //     setShoTravellers(false);
+  //     setSelectedCard("political");
+  //   };
 
-  const nameCardColor = showCards
-    ? "#9C3D22"
-    : selectedCard === "historic" || selectedCard === "religious"
-    ? "#FCD7C2"
-    : isBlueCard
-    ? "#2B455D"
-    : "#2B455D";
+  //   const handleSealPreviousClick = () => {
+  //     setShowSealOfZhabrung(false);
+  //     setSelectedCard("religious");
+  //   };
 
-  const nameParaColor = showCards
-    ? "#9C3D22"
-    : selectedCard === "historic" || selectedCard === "religious"
-    ? "#FCD7C2"
-    : isBlueCard
-    ? "#2B455D"
-    : "#2B455D";
+  //   const nameCardBackground =
+  //     selectedCard === "historic" && selectedCard === "religious"
+  //       ? "#C76224"
+  //       : showIntroduction
+  //       ? "#C9D7EE"
+  //       : "#384E63";
+
+  //   const nameCardColor =
+  //     selectedCard === "historic" && selectedCard === "religious"
+  //       ? "#FCD7C2"
+  //       : showIntroduction
+  //       ? "#2B455D"
+  //       : "white";
 
   return (
     <motion.div
-      className={styles.ZhabrungContainer}
+      className={styles.TibetanContainer}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.6, ease: "easeOut" }}
     >
       {showYearText && (
         <motion.div
-          className={styles.pemaText}
+          className={styles.TibetanText}
           initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <YearText BornYear="1594" Endyear="-1651" fontSize="118px" />
+          <YearText BornYear="1200" Endyear="-1800" fontSize="118px" />
         </motion.div>
       )}
       <motion.div
-        className={styles.ZhabrungImage}
+        className={styles.tibetanImage}
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.4 }}
         onClick={handleCardOrImageClick}
       >
-        <img src={Zhabrung} alt="Pema Lingpa" />
+        <img src={tibetan} alt="Pema Lingpa" />
       </motion.div>
       <motion.div
         initial={{ x: -100, opacity: 0 }}
@@ -156,32 +126,32 @@ const ZhabrungNgawangNamgyal = () => {
         transition={{ duration: 0.4 }}
       >
         <div
-          className={styles.NameCardContainer}
+          className={styles.tibetanNameCardContainer}
           onClick={handleCardOrImageClick}
         >
           {!showIntroduction && !selectedCard ? (
             <>
               <NameCard
-                cardName={ZHABRUNG_INFORMATION[language].title}
+                cardName={TIBETAN_INFORMATION[language].title}
                 background="#384E63"
                 color="white"
-                width="200px"
+                width="250px"
                 height="90px"
-                fontSize="15px"
+                fontSize="20px"
               />
             </>
           ) : (
             <>
               <NameCard
-                cardName={ZHABRUNG_INFORMATION[language].title}
+                cardName={TIBETAN_INFORMATION[language].title}
                 width="200px"
                 height="90px"
                 fontSize="15px"
                 year="1594-1651"
-                paraColor={nameParaColor}
+                paraColor="white"
                 paraSize="13px"
-                background={nameCardBackground}
-                color={nameCardColor}
+                // background={nameCardBackground}
+                // color={nameCardColor}
               />
             </>
           )}
@@ -190,18 +160,15 @@ const ZhabrungNgawangNamgyal = () => {
 
       {showIntroduction && (
         <>
-          <div className={styles.IntroCard}>
-            <IntroductionCard
-              language={language}
-              showIntro={showIntroduction}
-            />
+          <div className={styles.TibetanIntroCard}>
+            <Introduction language={language} showIntro={showIntroduction} />
           </div>
           <NextIcon
             showIcons={showIcons}
             whiteImage={true}
             left="93%"
             top="86%"
-            onClick={showZhabrungCards}
+            // onClick={showZhabrungCards}
             background="#2B455D"
           />
           <LanguageIcon
@@ -216,10 +183,10 @@ const ZhabrungNgawangNamgyal = () => {
 
       {showCards && (
         <div>
-          <ZhabrungCards
+          <TibetanCards
             isFadingOut={isFadingOut}
             language={language}
-            onCardClick={handleCardClick}
+            // onCardClick={handleCardClick}
           />
           <LanguageIcon
             showIcons={showIcons}
@@ -230,7 +197,7 @@ const ZhabrungNgawangNamgyal = () => {
         </div>
       )}
 
-      {selectedCard && (
+      {/* {selectedCard && (
         <div>
           {selectedCard === "historic" && (
             <>
@@ -454,9 +421,9 @@ const ZhabrungNgawangNamgyal = () => {
             </div>
           )}
         </div>
-      )}
+      )} */}
     </motion.div>
   );
 };
 
-export default ZhabrungNgawangNamgyal;
+export default Tibetan;

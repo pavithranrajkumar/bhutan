@@ -4,6 +4,9 @@ import bottom from "../../assests/Bottom.svg";
 import top from "../../assests/Top.svg";
 import PemaLingpa from "../../Characters/PemaLingpa/PemaLingpa";
 import ZhabrungNgawangNamgyal from "../../Characters/ZhabrungNgawangNamgyal/ZhabrungNgawangNamgyal";
+import Tibetan from "../../Characters/Tibetan/Tibetan";
+import Guru from "../../Characters/Guru/Guru";
+import Supine from "../../Characters/Supine/Supine";
 
 const Main = () => {
   return (
@@ -16,6 +19,9 @@ const Main = () => {
         <img src={bottom} alt="Bottom Image" />
         <PemaLingpa />
         <ZhabrungNgawangNamgyal />
+        <Tibetan />
+        <Guru />
+        <Supine />
       </div>
     </div>
   );

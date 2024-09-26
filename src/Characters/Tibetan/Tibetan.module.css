@@ -1,0 +1,55 @@
+@font-face {
+  font-family: "Josefin Sans"; /* You can name this whatever you want */
+  src: url("../../fonts/JosefinSans-ExtraLight.ttf") format("truetype"); /* Path to the font */
+}
+
+@font-face {
+  font-family: "Hammersmith One"; /* You can name this whatever you want */
+  src: url("../../fonts/HammersmithOne-Regular.ttf") format("truetype"); /* Path to the font */
+}
+
+.TibetanContainer {
+  position: fixed;
+  top: 78%;
+  left: 40%;
+  z-index: 10;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 18vw;
+}
+
+.tibetanImage {
+  position: fixed;
+  top: 83.5%;
+  left: 42%;
+  transform: translate(-50%, -60%);
+  z-index: 10;
+  margin: 0;
+}
+
+.tibetanImage img {
+  object-fit: fill;
+  width: 500px;
+  height: 330px;
+  z-index: 10;
+}
+
+.TibetanText {
+  position: fixed;
+  left: 37.9%;
+  top: 86.9%;
+}
+
+.tibetanNameCardContainer {
+  position: fixed;
+  left: 52.8%;
+  top: 89.6%;
+}
+
+.TibetanIntroCard {
+  position: fixed;
+  left: 45%;
+  top: 72%;
+}

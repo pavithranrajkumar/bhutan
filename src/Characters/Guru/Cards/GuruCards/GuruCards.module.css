@@ -1,0 +1,54 @@
+.cardsContainer {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 85%;
+  left: 30%;
+}
+
+.CardsContainerText {
+  font-family: "Hammersmith One";
+  font-size: 14px;
+  font-weight: 100;
+  text-align: center;
+}
+
+.HistoricCard {
+  cursor: pointer;
+  pointer-events: auto;
+  position: fixed;
+  background: #c87e12;
+  color: #fadfb6;
+  padding: 0.6vw;
+  width: 100px;
+  height: 50px;
+  top: 79.5%;
+  left: 29.5%;
+}
+
+.ManifestationCard {
+  cursor: pointer;
+  pointer-events: auto;
+  position: fixed;
+  background: #a06611;
+  color: #fadfb6;
+  padding: 0.7vw;
+  width: 140px;
+  height: 42px;
+  top: 79.5%;
+  left: 33.5%;
+}
+
+.PalaceCard {
+  cursor: pointer;
+  pointer-events: auto;
+  position: fixed;
+  background: #e4931d;
+  color: #fadfb6;
+  padding: 0.5vw;
+  width: 170px;
+  height: 42px;
+
+  top: 84.3%;
+  left: 30.6%;
+}

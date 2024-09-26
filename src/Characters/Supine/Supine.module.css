@@ -1,0 +1,35 @@
+.SupineContainer {
+  position: fixed;
+}
+
+.SupineImage {
+  position: fixed;
+  left: 4.6%;
+  top: 86%;
+  width: 450px;
+  height: 260px;
+  z-index: 10;
+}
+
+.SupineImage img {
+  object-fit: fill;
+  z-index: 10;
+}
+
+.SupineText {
+  position: fixed;
+  left: 0.3%;
+  top: 88%;
+}
+
+.SupineNameCardContainer {
+  position: fixed;
+  left: 13.2%;
+  top: 90%;
+}
+
+.SupineIntroCard {
+  position: fixed;
+  left: 5%;
+  top: 72%;
+}
