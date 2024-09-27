@@ -5,7 +5,7 @@ import kyichuImg from "../../../../assests/Supine/JambayCard/KyichuCard.png";
 import { SUPINE_INFORMATION } from "../../../../constants/Characters/Supine";
 import Card from "../../../../components/Card/Card";
 
-const KyichuCard = ({ showIntro, language }) => {
+const KyichuCard = ({ showIntro, language, onKyichuCardImageClick }) => {
   return (
     <div>
       {showIntro && (
@@ -22,7 +22,10 @@ const KyichuCard = ({ showIntro, language }) => {
             language={language}
             showIntro={showIntro}
           />
-          <div className={styles.KyichuCardImg}>
+          <div
+            className={styles.KyichuCardImg}
+            onClick={onKyichuCardImageClick}
+          >
             <img src={kyichuImg} alt="jambayimg" />
           </div>
         </>

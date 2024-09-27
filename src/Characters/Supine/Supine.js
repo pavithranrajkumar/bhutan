@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import supine from "../../assests/Supine/SupineDemoness.png";
 import YearText from "../../components/YearText/YearText";
 import NameCard from "../../components/NameCard/NameCard";
-import { GURU_INFORMATION } from "../../constants/Characters/Guru";
 import { SUPINE_INFORMATION } from "../../constants/Characters/Supine";
 import Introduction from "./Cards/Introduction/Introduction";
 import NextIcon from "../../components/Card/Icons/NextIcon/NextIcon";
@@ -17,6 +16,14 @@ import BhutanCard from "./Cards/BhutanCard/BhutanCard";
 import PreviousIcon from "../../components/Card/Icons/PreviousIcon/PreviousIcon";
 import JamBayCard from "./Cards/JamBayCard/JamBayCard";
 import KyichuCard from "./Cards/KyichuCard/KyichuCard";
+import JambayImg1 from "../../assests/Supine/JambayCard/Imgs/JambayPhotoFrameMain1.png";
+import JambayImg2 from "../../assests/Supine/JambayCard/Imgs/Jambay2.png";
+import JambayImg3 from "../../assests/Supine/JambayCard/Imgs/Jambay3.png";
+import JambayImg4 from "../../assests/Supine/JambayCard/Imgs/Jambay4.png";
+import KyichuImg1 from "../../assests/Supine/KyichuImgs/Kyichu1.png";
+import KyichuImg2 from "../../assests/Supine/KyichuImgs/Kyichu2.png";
+import KyichuImg3 from "../../assests/Supine/KyichuImgs/Kyichu3.png";
+import KyichuImg4 from "../../assests/Supine/KyichuImgs/Kyichu4.png";
 
 const Supine = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -30,6 +37,7 @@ const Supine = () => {
   const [showHimalayanCard, setShowHimalayanCard] = useState(false);
   const [showBhutanCard, setShowBhutanCard] = useState(false);
   const [showJamBayImages, setShowJamBayImages] = useState(false);
+  const [showKyichuImages, setShowKyichuImages] = useState(false);
 
   const toggleLanguage = () => {
     setLanguage((prevLanguage) =>
@@ -43,13 +51,17 @@ const Supine = () => {
       selectedCard ||
       showHimalayanCard ||
       showBhutanCard ||
-      showReligiousCard
+      showReligiousCard ||
+      showJamBayImages ||
+      showKyichuImages
     ) {
       setShowCards(false);
       setShowHimalayanCard(false);
       setShowBhutanCard(false);
       setShowReligiousCard(false);
       setSelectedCard(null);
+      setShowJamBayImages(false);
+      setShowKyichuImages(false);
     } else {
       setShowYearText(false);
       setShowIntroduction(true);
@@ -88,9 +100,96 @@ const Supine = () => {
   };
 
   const handleJamBayImageClick = () => {
-    console.log("JamBay image clicked");
-    setShowJamBayImages((prev) => !prev); // Toggle the visibility of new images
+    setShowJamBayImages(true);
+    setSelectedCard(null);
   };
+
+  const handleKyichuImageClick = () => {
+    setShowKyichuImages(true);
+    setSelectedCard(null);
+  };
+
+  const handleKyichuImagesCardClick = () => {
+    setSelectedCard("jamBay");
+    setShowKyichuImages(false);
+  };
+
+  const handleJamBayImagesCardClick = () => {
+    setSelectedCard("kyichu");
+    setShowJamBayImages(false);
+  };
+
+  const handlePreviousClick = () => {
+    if (showKyichuImages) {
+      setShowKyichuImages(false);
+      setSelectedCard("kyichu");
+    } else if (showJamBayImages) {
+      setShowJamBayImages(false);
+      setSelectedCard("jamBay");
+    } else if (selectedCard === "kyichu") {
+      setSelectedCard(null);
+      setShowBhutanCard(true);
+    } else if (selectedCard === "jamBay") {
+      setSelectedCard(null);
+      setShowBhutanCard(true);
+    } else if (showBhutanCard) {
+      setShowBhutanCard(false);
+      setShowReligiousCard(true);
+    } else if (showHimalayanCard) {
+      setShowHimalayanCard(false);
+      setShowReligiousCard(true);
+    } else if (showReligiousCard) {
+      setShowReligiousCard(false);
+      setShowCards(true);
+    } else if (showCards) {
+      setShowCards(false);
+      setShowIntroduction(true);
+    }
+  };
+
+  const handleHomeClick = () => {
+    setShowYearText(true);
+    setShowIntroduction(false);
+    setShowCards(true);
+    setSelectedCard(null);
+    setShowReligiousCard(false);
+    setShowHimalayanCard(false);
+    setShowBhutanCard(false);
+    setShowJamBayImages(false);
+    setShowKyichuImages(false);
+  };
+
+  const isBlueCard = showIntroduction || showHimalayanCard || showBhutanCard;
+
+  const isGreenCard =
+    showJamBayImages ||
+    showKyichuImages ||
+    selectedCard === "jambay" ||
+    selectedCard === "kyichu";
+
+  const nameCardBackground = showCards
+    ? "#FFC571"
+    : isGreenCard
+    ? "#E4931D"
+    : isBlueCard
+    ? "#E5E7D5"
+    : "#384E63";
+
+  const nameCardColor = showCards
+    ? "#A06611"
+    : isGreenCard
+    ? "#3A3C25"
+    : isBlueCard
+    ? "#2B455D"
+    : "#2B455D";
+
+  const nameParaColor = showCards
+    ? "#A06611"
+    : isGreenCard
+    ? "#3A3C25"
+    : isBlueCard
+    ? "#2B455D"
+    : "#2B455D";
 
   return (
     <motion.div
@@ -157,12 +256,12 @@ const Supine = () => {
                 height="80px"
                 fontSize="15px"
                 year="1200-1800"
-                paraColor="white"
+                paraColor={nameParaColor}
                 paraSize="13px"
                 subCardnameFontSize="15px"
                 subCardnameMarginLeft="125px"
-                // background={nameCardBackground}
-                // color={nameCardColor}
+                background={nameCardBackground}
+                color={nameCardColor}
               />
             </>
           )}
@@ -241,7 +340,7 @@ const Supine = () => {
             height="70px"
             width="80px"
             margin="25px"
-            // onClick={handleHomeClick}
+            onClick={handleHomeClick}
           />
         </>
       )}
@@ -262,7 +361,7 @@ const Supine = () => {
             height="55px"
           />
           <PreviousIcon
-            // onClick={handlePreviousClick}
+            onClick={handlePreviousClick}
             showIcons={showIcons}
             left="4.7%"
             top="81.5%"
@@ -277,7 +376,7 @@ const Supine = () => {
             <BhutanCard
               showIntro={true}
               language={language}
-              onJamBayClick={handleJamBayClick} // Pass handler to BhutanCard
+              onJamBayClick={handleJamBayClick}
               onKyichuClick={handleKyichuClick}
             />
             <LanguageIcon
@@ -291,7 +390,7 @@ const Supine = () => {
               height="55px"
             />
             <PreviousIcon
-              // onClick={handlePreviousClick}
+              onClick={handlePreviousClick}
               showIcons={showIcons}
               left="4.7%"
               top="76.1%"
@@ -306,7 +405,7 @@ const Supine = () => {
               height="70px"
               width="80px"
               margin="25px"
-              // onClick={handleHomeClick}
+              onClick={handleHomeClick}
             />
           </div>
         </>
@@ -318,7 +417,7 @@ const Supine = () => {
             <JamBayCard
               showIntro={true}
               language={language}
-              onImageClick={handleJamBayImageClick}
+              onJamBayCardImageClick={handleJamBayImageClick}
             />
           </div>
           <LanguageIcon
@@ -333,7 +432,7 @@ const Supine = () => {
             height="55px"
           />
           <PreviousIcon
-            // onClick={handlePreviousClick}
+            onClick={handlePreviousClick}
             showIcons={showIcons}
             color="#D9D9D9"
             left="2.2%"
@@ -351,21 +450,76 @@ const Supine = () => {
             width="80px"
             margin="25px"
             background="#555835"
-            // onClick={handleHomeClick}
+            onClick={handleHomeClick}
           />
         </>
       )}
 
       {showJamBayImages && (
-        <div className={styles.JamBayImages}>
-          {/* <img src="path/to/your/newImage1.png" alt="New JamBay Image 1" />
-          <img src="path/to/your/newImage2.png" alt="New JamBay Image 2" /> */}
-        </div>
+        <>
+          <div className={styles.JamBayImages}>
+            <div className={styles.palaceImg1}>
+              <img src={JambayImg1} alt="palaceImg1" />
+            </div>
+            <div className={styles.palaceImg2}>
+              <img src={JambayImg2} alt="palaceImg2" />
+            </div>
+            <div className={styles.palaceImg3}>
+              <img src={JambayImg3} alt="palaceImg3" />
+            </div>
+            <div className={styles.palaceImg4}>
+              <img src={JambayImg4} alt="palaceImg4" />
+            </div>
+          </div>
+          <div
+            className={styles.JamBayImagesCard}
+            onClick={handleJamBayImagesCardClick}
+          >
+            <p>KYICHU LHAKHANG</p>
+          </div>
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            supine={true}
+            background="#3A3C25"
+            iconWidth="25px"
+            IconHeight="25px"
+            left="4.4%"
+            top="78.5%"
+            height="55px"
+          />
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            color="#D9D9D9"
+            left="4%"
+            top="71%"
+            height="80px"
+            background="#555835"
+            margin="25px"
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            supine={true}
+            left="4%"
+            top="75%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            background="#555835"
+            onClick={handleHomeClick}
+          />
+        </>
       )}
+
       {selectedCard === "kyichu" && (
         <>
           <div className={styles.KyichuCard}>
-            <KyichuCard showIntro={true} language={language} />
+            <KyichuCard
+              showIntro={true}
+              language={language}
+              onKyichuCardImageClick={handleKyichuImageClick}
+            />
           </div>
           <LanguageIcon
             onClick={toggleLanguage}
@@ -379,7 +533,7 @@ const Supine = () => {
             height="55px"
           />
           <PreviousIcon
-            // onClick={handlePreviousClick}
+            onClick={handlePreviousClick}
             showIcons={showIcons}
             color="#D9D9D9"
             left="2.2%"
@@ -397,7 +551,64 @@ const Supine = () => {
             width="80px"
             margin="25px"
             background="#555835"
-            // onClick={handleHomeClick}
+            onClick={handleHomeClick}
+          />
+        </>
+      )}
+
+      {showKyichuImages && (
+        <>
+          <div className={styles.JamBayImages}>
+            <div className={styles.KyichuImg1}>
+              <img src={KyichuImg1} alt="palaceImg1" />
+            </div>
+            <div className={styles.KyichuImg2}>
+              <img src={KyichuImg2} alt="palaceImg2" />
+            </div>
+            <div className={styles.KyichuImg3}>
+              <img src={KyichuImg3} alt="palaceImg3" />
+            </div>
+            <div className={styles.KyichuImg4}>
+              <img src={KyichuImg4} alt="palaceImg4" />
+            </div>
+          </div>
+          <div
+            className={styles.KyichuImagesCard}
+            onClick={handleKyichuImagesCardClick}
+          >
+            <p>JAMBAY LHAKHANG</p>
+          </div>
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            supine={true}
+            background="#3A3C25"
+            iconWidth="25px"
+            IconHeight="25px"
+            left="4.4%"
+            top="78.5%"
+            height="55px"
+          />
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            color="#D9D9D9"
+            left="4%"
+            top="71%"
+            height="80px"
+            background="#555835"
+            margin="25px"
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            supine={true}
+            left="4%"
+            top="75%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            background="#555835"
+            onClick={handleHomeClick}
           />
         </>
       )}

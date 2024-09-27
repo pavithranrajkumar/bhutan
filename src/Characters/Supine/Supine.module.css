@@ -69,3 +69,99 @@
   left: 4.4%;
   top: 72.5%;
 }
+
+.JamBayImages {
+  position: fixed;
+}
+
+.palaceImg1 {
+  position: fixed;
+  left: 6%;
+  top: 70%;
+  width: 310px;
+  height: 300px;
+}
+
+.palaceImg2 {
+  position: fixed;
+  left: 13.5%;
+  top: 78.5%;
+  width: 190px;
+  height: 150px;
+}
+
+.palaceImg3 {
+  position: fixed;
+  left: 6%;
+  top: 83%;
+  width: 170px;
+  height: 150px;
+}
+
+.palaceImg4 {
+  position: fixed;
+  left: 9.7%;
+  top: 83%;
+  width: 170px;
+  height: 150px;
+}
+
+.JamBayImagesCard {
+  position: fixed;
+  top: 85%;
+  left: 14%;
+  cursor: pointer;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  background: #e5e7d5;
+  color: #3c3e29;
+  font-family: "Hammersmith One";
+  font-size: 25px;
+}
+
+.KyichuImg1 {
+  position: fixed;
+  left: 6%;
+  top: 70%;
+  width: 310px;
+  height: 300px;
+}
+
+.KyichuImg2 {
+  position: fixed;
+  left: 13.5%;
+  top: 70.5%;
+  width: 100px;
+  height: 150px;
+}
+
+.KyichuImg3 {
+  position: fixed;
+  left: 13.5%;
+  top: 76.5%;
+  width: 130px;
+  height: 180px;
+}
+
+.KyichuImg4 {
+  position: fixed;
+  left: 9.7%;
+  top: 83%;
+  width: 170px;
+  height: 150px;
+}
+
+.KyichuImagesCard {
+  position: fixed;
+  top: 85%;
+  left: 14%;
+  cursor: pointer;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  background: #abb176;
+  color: #3c3e29;
+  font-family: "Hammersmith One";
+  font-size: 25px;
+}
