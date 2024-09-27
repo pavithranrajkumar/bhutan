@@ -21,6 +21,7 @@
 }
 
 .GuruImage {
+  cursor: pointer;
   position: fixed;
   top: 71.5%;
   left: 26.3%;
@@ -107,4 +108,82 @@
   object-fit: fill;
   width: 100px;
   height: 170px;
+}
+
+.GuruPalaceCard {
+  position: fixed;
+  left: 23.5%;
+  top: 82.7%;
+}
+
+.PalaceImgContainer {
+  position: fixed;
+}
+
+.palaceImg1 {
+  position: fixed;
+  left: 24%;
+  top: 80.6%;
+  width: 380px;
+  height: 300px;
+}
+
+.palaceImg2 {
+  position: fixed;
+  left: 33.2%;
+  top: 84%;
+  width: 160px;
+  height: 150px;
+}
+
+.palaceImg3 {
+  position: fixed;
+  left: 33.2%;
+  top: 89.7%;
+  width: 160px;
+  height: 170px;
+}
+
+.palaceImg4 {
+  position: fixed;
+  left: 29.6%;
+  top: 93.3%;
+  width: 160px;
+  height: 140px;
+}
+
+.KurjeLhakhangTemplesImgContainer {
+  position: fixed;
+}
+
+.KurjeLhakhangTemplesImg1 {
+  position: fixed;
+  left: 29.5%;
+  top: 80.6%;
+  width: 270px;
+  height: 200px;
+}
+
+.KurjeLhakhangTemplesImg2 {
+  position: fixed;
+  left: 26%;
+  top: 87.5%;
+  width: 160px;
+  height: 130px;
+}
+
+.KurjeLhakhangTemplesImg3 {
+  position: fixed;
+  left: 29.5%;
+  top: 89%;
+  width: 150px;
+  height: 150px;
+}
+
+.KurjeLhakhangTemplesImg4 {
+  position: fixed;
+  left: 25.5%;
+  top: 82%;
+  width: 180px;
+  height: 140px;
 }

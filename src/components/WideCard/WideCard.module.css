@@ -9,15 +9,12 @@
 
 .WideCardHeader {
   font-family: "Josefin Sans";
-  font-size: 6px;
+  font-size: 7px;
   display: flex;
   flex-direction: column;
 }
 
 .WideCardPara {
   font-weight: 700;
-  font-size: 6px;
-}
-
-.WideCardTextContainer {
+  font-size: 6.5px;
 }

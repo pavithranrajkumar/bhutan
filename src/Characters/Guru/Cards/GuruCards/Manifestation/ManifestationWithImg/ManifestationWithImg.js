@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import styles from "./Manifestation.module.css";
-import Card from "../../../../../components/Card/Card";
-import { GURU_INFORMATION } from "../../../../../constants/Characters/Guru";
-import ManifestationImg from "../../../../../assests/Guru/Manifestation/Manifestation.png";
-import WideCard from "../../../../../components/WideCard/WideCard";
-import { label } from "framer-motion/client";
+import styles from "./ManifestationWithImg.module.css";
+import manifestationImg from "../../../../../../assests/Guru/Manifestation/ManifestationBigImg.png";
+import { GURU_INFORMATION } from "../../../../../../constants/Characters/Guru";
+import WideCard from "../../../../../../components/WideCard/WideCard";
 
-const Manifestation = ({ showIntro, onManifestationsCardClick }) => {
+const ManifestationWithImg = () => {
   const [language, setLanguage] = useState("english");
 
   const manifestationsData = [
@@ -69,44 +67,37 @@ const Manifestation = ({ showIntro, onManifestationsCardClick }) => {
   ];
 
   return (
-    <div>
-      {showIntro && (
-        <>
-          <Card
-            width="260px"
-            height="300px"
-            titleFontSize="25px"
-            contentFontSize="11.5px"
-            borderBottom="0.5px solid #A06611"
-            color="#A06611"
-            backgroundColor="#FADFB6"
-            title={GURU_INFORMATION[language].manifestations.title}
-            content={GURU_INFORMATION[language].manifestations.content}
-            language={language}
-            showIntro={showIntro}
+    <div className={styles.manifestationGroupContainer}>
+      <div className={styles.manifestationGroupContainerImg}>
+        <img src={manifestationImg} alt="manifestationImg" />
+      </div>
+      <div className={styles.manifestationFrstGroup}>
+        {manifestationsData.slice(0, 4).map((manifestation, index) => (
+          <WideCard
+            key={index}
+            FrstHeader={manifestation.FrstHeader}
+            ScndHeader={manifestation.ScndHeader}
+            para={manifestation.para}
+            width="200px"
+            height="35px"
           />
-          <div
-            className={styles.ManifestationCardImg}
-            onClick={onManifestationsCardClick}
-          >
-            <img src={ManifestationImg} alt="temple" />
-          </div>
-          <div className={styles.WideCards}>
-            {manifestationsData.map((item, index) => (
-              <WideCard
-                width="260px"
-                height="26px"
-                key={index}
-                FrstHeader={item.FrstHeader}
-                ScndHeader={item.ScndHeader}
-                para={item.para}
-              />
-            ))}
-          </div>
-        </>
-      )}
+        ))}
+      </div>
+
+      <div className={styles.manifestationScndGroup}>
+        {manifestationsData.slice(4).map((manifestation, index) => (
+          <WideCard
+            key={index + 4}
+            FrstHeader={manifestation.FrstHeader}
+            ScndHeader={manifestation.ScndHeader}
+            para={manifestation.para}
+            width="190px"
+            height="35px"
+          />
+        ))}
+      </div>
     </div>
   );
 };
 
-export default Manifestation;
+export default ManifestationWithImg;

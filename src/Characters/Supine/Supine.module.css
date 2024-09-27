@@ -33,3 +33,39 @@
   left: 5%;
   top: 72%;
 }
+
+.SupineIntroduction {
+  position: fixed;
+  left: 7%;
+  top: 74.7%;
+}
+
+.ReligiousCard {
+  position: fixed;
+  left: 14%;
+  top: 76.8%;
+}
+
+.HimalayanCard {
+  position: fixed;
+  left: 14%;
+  top: 76.8%;
+}
+
+.BhutanCard {
+  position: fixed;
+  left: 14%;
+  top: 75%;
+}
+
+.JamBayCard {
+  position: fixed;
+  left: 4.4%;
+  top: 70%;
+}
+
+.KyichuCard {
+  position: fixed;
+  left: 4.4%;
+  top: 72.5%;
+}

@@ -1,0 +1,37 @@
+.ReligiousImg {
+  position: fixed;
+  left: 6.6%;
+  top: 76.9%;
+}
+
+.ReligiousImg img {
+  width: 290px;
+  height: 230px;
+}
+
+.ReligiousCard {
+  display: flex;
+  position: fixed;
+  top: 73.1%;
+  left: 13%;
+  gap: 10px;
+}
+
+.HimalayanCard,
+.BhutanCard {
+  background: #384e63;
+  color: white;
+  padding: 0.3vw;
+  width: 100px;
+  cursor: pointer;
+}
+
+.HimalayanCardSecondtext {
+  font-family: "Hammersmith One";
+  font-size: 15px;
+}
+
+.HimalayanCardFirstText {
+  font-family: "Josefin Sans";
+  font-size: 9px;
+}

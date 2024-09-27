@@ -13,11 +13,13 @@ const PreviousIcon = ({
   right,
   height,
   margin,
+  background,
+  color,
 }) => {
   return (
     <div>
       <motion.div
-        style={{ left, right, bottom, top, height }}
+        style={{ left, right, bottom, top, height, background }}
         className={styles.PreviousIconContainer}
         initial={{ opacity: 0 }}
         animate={{ opacity: showIcons ? 1 : 0 }}
@@ -27,7 +29,7 @@ const PreviousIcon = ({
         <FontAwesomeIcon
           icon={faChevronLeft}
           className={styles.PreviousIcon}
-          style={{ margin }}
+          style={{ margin, color }}
         />
       </motion.div>
     </div>

@@ -12,13 +12,14 @@ import GuruCards from "./Cards/GuruCards/GuruCards";
 import HomeIcon from "../../components/Card/Icons/HomeIcon/HomeIcon";
 import HistoricCard from "./Cards/GuruCards/HistoricCard/HistoricCard";
 import KurjeLhakhang from "./Cards/GuruCards/HistoricCard/KurjeLhakhang/KurjeLhakhang";
-import KurjeLhakhangTemplesImgOne from "../../assests/Guru/Historic/KurjeImgs/PhotoFrame.png";
-import KurjeLhakhangTemplesImgTwo from "../../assests/Guru/Historic/KurjeImgs/PhotoFrame(1).png";
-import KurjeLhakhangTemplesImgThree from "../../assests/Guru/Historic/KurjeImgs/PhotoFrame(2).png";
-import KurjeLhakhangTemplesImgFour from "../../assests/Guru/Historic/KurjeImgs/PhotoFrameMain(1).png";
-import Kurje from "../../assests/Guru/Historic/KurjeImgs/Frame 233.jpg";
-import KurjeLhakhangImgs from "./Cards/GuruCards/HistoricCard/KurjeLhakhangImgs/KurjeLhakhangImgs";
 import Manifestation from "./Cards/GuruCards/Manifestation/Manifestation";
+import ManifestationWithImg from "./Cards/GuruCards/Manifestation/ManifestationWithImg/ManifestationWithImg";
+import PreviousIcon from "../../components/Card/Icons/PreviousIcon/PreviousIcon";
+import Palace from "./Cards/GuruCards/Palace/Palace";
+import palaceImg1 from "../../assests/Guru/Palace/PalaceImg1.png";
+import palaceImg2 from "../../assests/Guru/Palace/PalaceImg2.png";
+import palaceImg3 from "../../assests/Guru/Palace/PalaceImg3.png";
+import palaceImg4 from "../../assests/Guru/Palace/PalaceImg4.png";
 
 const Guru = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -30,6 +31,15 @@ const Guru = () => {
   const [showIcons, setShowIcons] = useState(false);
   const [showKurjeLhakhang, setShowKurjeLhakhang] = useState(false);
   const [showKurjeLhakhangImgs, setShowKurjeLhakhangImgs] = useState(false);
+  const [showManifestationCardWithImg, setShowManifestationCardWithImg] =
+    useState(false);
+  const [showPalaceImg, setShowPalaceImg] = useState(false);
+
+  const toggleLanguage = () => {
+    setLanguage((prevLanguage) =>
+      prevLanguage === "english" ? "bhutan" : "english"
+    );
+  };
 
   const handleHomeClick = () => {
     setShowCards(true);
@@ -37,53 +47,120 @@ const Guru = () => {
     setShowIntroduction(false);
     setShowKurjeLhakhang(false);
     setShowKurjeLhakhangImgs(false);
+    setShowManifestationCardWithImg(false);
+    setShowPalaceImg(false);
   };
 
   const handleCardOrImageClick = () => {
     if (showCards || selectedCard) {
       setShowCards(false);
       setSelectedCard(null);
-      setShowIntroduction(false);
       setShowKurjeLhakhang(false);
       setShowKurjeLhakhangImgs(false);
+      setShowManifestationCardWithImg(false);
+      setShowPalaceImg(false);
     } else {
       setShowYearText(false);
       setShowIntroduction(true);
       setShowIcons(true);
       setSelectedCard(null);
+      setShowCards(false);
     }
   };
 
   const showGuruCards = () => {
-    setShowCards(true);
     setShowIntroduction(false);
     setSelectedCard(null);
     setShowKurjeLhakhang(false);
     setShowKurjeLhakhangImgs(false);
-  };
-
-  const handleCardClick = (cardName) => {
-    console.log(`Selected Card: ${cardName}`);
-    setShowCards(false);
-    setSelectedCard(cardName);
-    setShowIntroduction(false);
-    if (cardName === "historic") {
-      setShowKurjeLhakhang(false);
-      setShowKurjeLhakhangImgs(false);
-    } else {
-      setShowKurjeLhakhang(false);
-    }
+    setShowManifestationCardWithImg(false);
+    setShowPalaceImg(false);
+    setShowCards(true);
   };
 
   const handleKurjeClick = () => {
-    setShowKurjeLhakhang(!showKurjeLhakhang);
+    setShowKurjeLhakhang((prev) => !prev);
     setShowKurjeLhakhangImgs(false);
+    setSelectedCard(showKurjeLhakhang ? null : "kurjeLhakhang");
   };
 
   const handleKurjeTempleClick = () => {
-    setShowKurjeLhakhang(false);
     setShowKurjeLhakhangImgs(true);
+    setShowKurjeLhakhang(false);
   };
+
+  const handleCardClick = (cardName) => {
+    setShowKurjeLhakhang(false);
+    setShowKurjeLhakhangImgs(false);
+    setSelectedCard(cardName);
+    setShowCards(false);
+    setShowIntroduction(false);
+  };
+
+  const handleOpenManifestationWithImg = () => {
+    setShowManifestationCardWithImg(!showManifestationCardWithImg);
+    setSelectedCard(showManifestationCardWithImg ? null : "manifestation");
+  };
+
+  const handleOpenPalaceImg = () => {
+    setShowPalaceImg(!showPalaceImg);
+    setSelectedCard(showPalaceImg ? null : "palace");
+  };
+
+  const handlePreviousClick = () => {
+    if (showManifestationCardWithImg) {
+      setShowManifestationCardWithImg(false);
+      setSelectedCard("manifestation");
+    } else if (showPalaceImg) {
+      setShowPalaceImg(false);
+      setSelectedCard("palace");
+    } else if (showKurjeLhakhang) {
+      setShowKurjeLhakhang(false);
+      setSelectedCard("historic");
+    } else if (showKurjeLhakhangImgs) {
+      setShowKurjeLhakhangImgs(false);
+      setShowKurjeLhakhang(true);
+    } else if (selectedCard === "historic") {
+      setSelectedCard(null);
+      setShowCards(true);
+    } else if (showCards) {
+      handleHomeClick();
+    } else {
+      setShowIntroduction(false);
+      setShowYearText(true);
+    }
+  };
+
+  const isBlueCard =
+    showIntroduction ||
+    showKurjeLhakhang ||
+    showKurjeLhakhangImgs ||
+    showPalaceImg ||
+    selectedCard === "palace";
+
+  const nameCardBackground = showCards
+    ? "#FFC571"
+    : selectedCard === "historic" || selectedCard === "manifestation"
+    ? "#E4931D"
+    : isBlueCard
+    ? "#C9D7EE"
+    : "#384E63";
+
+  const nameCardColor = showCards
+    ? "#A06611"
+    : selectedCard === "historic" || selectedCard === "manifestation"
+    ? "#FADFB6"
+    : isBlueCard
+    ? "#2B455D"
+    : "#2B455D";
+
+  const nameParaColor = showCards
+    ? "#A06611"
+    : selectedCard === "historic" || selectedCard === "manifestation"
+    ? "#FADFB6"
+    : isBlueCard
+    ? "#2B455D"
+    : "#2B455D";
 
   return (
     <motion.div
@@ -147,15 +224,16 @@ const Guru = () => {
                 height="90px"
                 fontSize="15px"
                 year="1594-1651"
-                paraColor="white"
+                paraColor={nameParaColor}
                 paraSize="13px"
-                // background={nameCardBackground}
-                // color={nameCardColor}
+                background={nameCardBackground}
+                color={nameCardColor}
               />
             </>
           )}
         </div>
       </motion.div>
+
       {showIntroduction && (
         <>
           <div className={styles.GuruIntroCard}>
@@ -170,6 +248,7 @@ const Guru = () => {
             background="#2B455D"
           />
           <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
             left="27.4%"
@@ -178,6 +257,7 @@ const Guru = () => {
           />
         </>
       )}
+
       {showCards && (
         <div>
           <GuruCards
@@ -186,6 +266,7 @@ const Guru = () => {
             onCardClick={handleCardClick}
           />
           <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
             background="#613900"
             left="28.5%"
@@ -194,18 +275,16 @@ const Guru = () => {
         </div>
       )}
 
-      {showKurjeLhakhangImgs ? (
-        <div>
-          <KurjeLhakhangImgs />
-        </div>
-      ) : selectedCard === "historic" && !showKurjeLhakhang ? (
+      {selectedCard === "historic" && !showKurjeLhakhang && (
         <div className={styles.GuruHistoricCard}>
           <HistoricCard
+            className={styles.GuruHistoricCard}
             language={language}
             showIntro={true}
             onKurjeClick={handleKurjeClick}
           />
           <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
             iconWidth="25px"
             IconHeight="25px"
@@ -225,43 +304,96 @@ const Guru = () => {
             onClick={handleHomeClick}
           />
         </div>
-      ) : (
-        showKurjeLhakhang && (
-          <div className={styles.GuruKurjeLhakhangCard}>
-            <KurjeLhakhang
-              language={language}
-              showIntro={true}
-              onKurjeTempleClick={handleKurjeTempleClick}
-            />
-            <LanguageIcon
-              showIcons={showIcons}
-              iconWidth="25px"
-              IconHeight="25px"
-              left="20.8%"
-              top="95.3%"
-              height="55px"
-              background="#193145"
-              whiteImage={true}
-            />
-            <HomeIcon
-              showIcons={showIcons}
-              whiteImage={true}
-              background="#2B455D"
-              left="20.7%"
-              top="91.8%"
-              height="70px"
-              width="80px"
-              margin="25px"
-              onClick={handleHomeClick}
-            />
-          </div>
-        )
       )}
 
-      {selectedCard === "manifestation" && (
-        <div className={styles.GuruHistoricCard}>
-          <Manifestation language={language} showIntro={true} />
+      {showKurjeLhakhang && (
+        <div className={styles.GuruKurjeLhakhangCard}>
+          <KurjeLhakhang
+            language={language}
+            showIntro={true}
+            onKurjeTempleClick={handleKurjeTempleClick}
+          />
           <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            iconWidth="25px"
+            IconHeight="25px"
+            left="20.8%"
+            top="95.3%"
+            height="55px"
+            background="#193145"
+            whiteImage={true}
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            whiteImage={true}
+            background="#2B455D"
+            left="20.7%"
+            top="91.8%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            onClick={handleHomeClick}
+          />
+        </div>
+      )}
+
+      {showKurjeLhakhangImgs && (
+        <>
+          <div className={styles.KurjeLhakhangTemplesImgContainer}>
+            <div className={styles.KurjeLhakhangTemplesImg1}>
+              <img src={palaceImg1} alt="palaceImg1" />
+            </div>
+            <div className={styles.KurjeLhakhangTemplesImg2}>
+              <img src={palaceImg2} alt="palaceImg2" />
+            </div>
+            <div className={styles.KurjeLhakhangTemplesImg3}>
+              <img src={palaceImg3} alt="palaceImg3" />
+            </div>
+            <div className={styles.KurjeLhakhangTemplesImg4}>
+              <img src={palaceImg4} alt="palaceImg3" />
+            </div>
+          </div>
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            whiteImage={true}
+            iconWidth="25px"
+            IconHeight="25px"
+            left="24.2%"
+            top="95.5%"
+            height="55px"
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            left="24.2%"
+            top="92%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            whiteImage={true}
+            onClick={handleHomeClick}
+          />
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="24.2%"
+            top="88%"
+            height="80px"
+            margin="25px"
+          />
+        </>
+      )}
+
+      {selectedCard === "manifestation" && !showManifestationCardWithImg && (
+        <div className={styles.GuruHistoricCard}>
+          <Manifestation
+            language={language}
+            showIntro={true}
+            onManifestationsCardClick={handleOpenManifestationWithImg}
+          />
+          <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
             iconWidth="25px"
             IconHeight="25px"
@@ -281,6 +413,120 @@ const Guru = () => {
             onClick={handleHomeClick}
           />
         </div>
+      )}
+
+      {showManifestationCardWithImg && (
+        <div className={styles.ManifestationOverlay}>
+          <ManifestationWithImg language={language} />
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            margin="15px"
+            iconWidth="25px"
+            IconHeight="25px"
+            left="25.5%"
+            top="85.1%"
+            height="50px"
+            background="#613900"
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            left="24.9%"
+            top="81.7%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            background="#A06611"
+            onClick={handleHomeClick}
+          />
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="24.9%"
+            top="77.5%"
+            height="80px"
+            margin="25px"
+            background="#A06611"
+          />
+        </div>
+      )}
+
+      {selectedCard === "palace" && !showPalaceImg && (
+        <div className={styles.GuruPalaceCard}>
+          <Palace
+            language={language}
+            showIntro={true}
+            onPalaceImgClick={handleOpenPalaceImg}
+          />
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            whiteImage={true}
+            iconWidth="25px"
+            IconHeight="25px"
+            left="21.4%"
+            top="91.4%"
+            height="55px"
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            whiteImage={true}
+            left="21.3%"
+            top="88%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            onClick={handleHomeClick}
+          />
+        </div>
+      )}
+
+      {showPalaceImg && (
+        <>
+          <div className={styles.PalaceImgContainer}>
+            <div className={styles.palaceImg1}>
+              <img src={palaceImg1} alt="palaceImg1" />
+            </div>
+            <div className={styles.palaceImg2}>
+              <img src={palaceImg2} alt="palaceImg2" />
+            </div>
+            <div className={styles.palaceImg3}>
+              <img src={palaceImg3} alt="palaceImg3" />
+            </div>
+            <div className={styles.palaceImg4}>
+              <img src={palaceImg4} alt="palaceImg4" />
+            </div>
+          </div>
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            whiteImage={true}
+            margin="15px"
+            iconWidth="25px"
+            IconHeight="25px"
+            left="22.3%"
+            top="89%"
+            height="50px"
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            left="22.2%"
+            top="85.5%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            whiteImage={true}
+            onClick={handleHomeClick}
+          />
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="22.2%"
+            top="81.5%"
+            height="80px"
+            margin="25px"
+          />
+        </>
       )}
     </motion.div>
   );

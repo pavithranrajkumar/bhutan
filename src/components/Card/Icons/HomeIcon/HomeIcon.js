@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import HomeWhite from "../../../../assests/SideIcons/HomeWhite.png";
 import Home from "../../../../assests/SideIcons/HomeIcon2.png";
+import Supine from "../../../../assests/SideIcons/SupineHome.png";
 
 import styles from "./HomeIcon.module.css";
 
@@ -19,6 +20,7 @@ const HomeIcon = ({
   background,
   iconHeight,
   iconWidth,
+  supine,
 }) => {
   console.log("HomeIcon rendered, showIcons:", showIcons);
 
@@ -43,7 +45,10 @@ const HomeIcon = ({
         className={styles.HomeIconContainer}
         style={{ height: iconHeight, width: iconWidth, margin }}
       >
-        <img src={whiteImage ? HomeWhite : Home} alt="LanguageIcon" />
+        <img
+          src={whiteImage ? HomeWhite : supine ? Supine : Home}
+          alt="LanguageIcon"
+        />
       </div>
     </motion.div>
   );

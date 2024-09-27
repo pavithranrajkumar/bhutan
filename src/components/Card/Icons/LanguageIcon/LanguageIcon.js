@@ -2,6 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import Language from "../../../../assests/SideIcons/HomeIcon.png";
 import LanguageWhite from "../../../../assests/SideIcons/LanguageWhite.png";
+import Supine from "../../../../assests/SideIcons/LanguageSupine.png";
+
 import styles from "./LanguageIcon.module.css";
 
 const LanguageIcon = ({
@@ -18,6 +20,7 @@ const LanguageIcon = ({
   background,
   iconWidth,
   IconHeight,
+  supine,
 }) => {
   return (
     <motion.div
@@ -41,7 +44,7 @@ const LanguageIcon = ({
         style={{ margin: margin }}
       >
         <img
-          src={whiteImage ? LanguageWhite : Language}
+          src={whiteImage ? LanguageWhite : supine ? Supine : Language}
           style={{ height: IconHeight, width: iconWidth }}
           alt="LanguageIcon"
         />
