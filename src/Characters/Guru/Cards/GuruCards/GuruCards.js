@@ -28,7 +28,7 @@ const GuruCards = ({ isFadingOut, language, onCardClick }) => {
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          onClick={() => onCardClick("religious")}
+          onClick={() => onCardClick("manifestation")}
         >
           <div className={styles.CardsContainerText}>
             GURU TSHENGYE 8 MANIFESTATIONS
@@ -39,7 +39,7 @@ const GuruCards = ({ isFadingOut, language, onCardClick }) => {
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          onClick={() => onCardClick("political")}
+          onClick={() => onCardClick("palace")}
         >
           <div className={styles.CardsContainerText}>
             GURU IN WANGDUECHHOELING PALACE

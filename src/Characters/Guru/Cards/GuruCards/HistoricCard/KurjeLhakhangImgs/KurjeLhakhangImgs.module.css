@@ -1,0 +1,13 @@
+.KurjeLhakhangImgs {
+  position: fixed;
+}
+
+.FirstImg {
+  position: relative;
+  left: 540%;
+  width: 20%;
+  height: 20%;
+}
+
+.FirstImg img {
+}

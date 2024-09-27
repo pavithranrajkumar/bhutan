@@ -11,6 +11,14 @@ import LanguageIcon from "../../components/Card/Icons/LanguageIcon/LanguageIcon"
 import GuruCards from "./Cards/GuruCards/GuruCards";
 import HomeIcon from "../../components/Card/Icons/HomeIcon/HomeIcon";
 import HistoricCard from "./Cards/GuruCards/HistoricCard/HistoricCard";
+import KurjeLhakhang from "./Cards/GuruCards/HistoricCard/KurjeLhakhang/KurjeLhakhang";
+import KurjeLhakhangTemplesImgOne from "../../assests/Guru/Historic/KurjeImgs/PhotoFrame.png";
+import KurjeLhakhangTemplesImgTwo from "../../assests/Guru/Historic/KurjeImgs/PhotoFrame(1).png";
+import KurjeLhakhangTemplesImgThree from "../../assests/Guru/Historic/KurjeImgs/PhotoFrame(2).png";
+import KurjeLhakhangTemplesImgFour from "../../assests/Guru/Historic/KurjeImgs/PhotoFrameMain(1).png";
+import Kurje from "../../assests/Guru/Historic/KurjeImgs/Frame 233.jpg";
+import KurjeLhakhangImgs from "./Cards/GuruCards/HistoricCard/KurjeLhakhangImgs/KurjeLhakhangImgs";
+import Manifestation from "./Cards/GuruCards/Manifestation/Manifestation";
 
 const Guru = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -21,12 +29,14 @@ const Guru = () => {
   const [language, setLanguage] = useState("english");
   const [showIcons, setShowIcons] = useState(false);
   const [showKurjeLhakhang, setShowKurjeLhakhang] = useState(false);
+  const [showKurjeLhakhangImgs, setShowKurjeLhakhangImgs] = useState(false);
 
   const handleHomeClick = () => {
     setShowCards(true);
     setSelectedCard(null);
     setShowIntroduction(false);
     setShowKurjeLhakhang(false);
+    setShowKurjeLhakhangImgs(false);
   };
 
   const handleCardOrImageClick = () => {
@@ -34,6 +44,8 @@ const Guru = () => {
       setShowCards(false);
       setSelectedCard(null);
       setShowIntroduction(false);
+      setShowKurjeLhakhang(false);
+      setShowKurjeLhakhangImgs(false);
     } else {
       setShowYearText(false);
       setShowIntroduction(true);
@@ -46,20 +58,33 @@ const Guru = () => {
     setShowCards(true);
     setShowIntroduction(false);
     setSelectedCard(null);
+    setShowKurjeLhakhang(false);
+    setShowKurjeLhakhangImgs(false);
   };
 
   const handleCardClick = (cardName) => {
+    console.log(`Selected Card: ${cardName}`);
     setShowCards(false);
     setSelectedCard(cardName);
     setShowIntroduction(false);
-    if (cardName !== "historic") {
+    if (cardName === "historic") {
+      setShowKurjeLhakhang(false);
+      setShowKurjeLhakhangImgs(false);
+    } else {
       setShowKurjeLhakhang(false);
     }
   };
 
   const handleKurjeClick = () => {
     setShowKurjeLhakhang(!showKurjeLhakhang);
+    setShowKurjeLhakhangImgs(false);
   };
+
+  const handleKurjeTempleClick = () => {
+    setShowKurjeLhakhang(false);
+    setShowKurjeLhakhangImgs(true);
+  };
+
   return (
     <motion.div
       className={styles.GuruContainer}
@@ -169,66 +194,92 @@ const Guru = () => {
         </div>
       )}
 
-      {selectedCard && (
+      {showKurjeLhakhangImgs ? (
         <div>
-          {selectedCard === "historic" && !showKurjeLhakhang && (
-            <>
-              <div className={styles.GuruHistoricCard}>
-                <HistoricCard
-                  language={language}
-                  showIntro={true}
-                  onKurjeClick={handleKurjeClick}
-                />
-                <LanguageIcon
-                  showIcons={showIcons}
-                  iconWidth="25px"
-                  IconHeight="25px"
-                  left="22.1%"
-                  top="91.4%"
-                  height="55px"
-                  background="#613900"
-                />
-                <HomeIcon
-                  showIcons={showIcons}
-                  background="#C87E12"
-                  left="21.8%"
-                  top="88%"
-                  height="70px"
-                  width="80px"
-                  margin="25px"
-                  onClick={handleHomeClick}
-                />
-              </div>
-            </>
-          )}
+          <KurjeLhakhangImgs />
+        </div>
+      ) : selectedCard === "historic" && !showKurjeLhakhang ? (
+        <div className={styles.GuruHistoricCard}>
+          <HistoricCard
+            language={language}
+            showIntro={true}
+            onKurjeClick={handleKurjeClick}
+          />
+          <LanguageIcon
+            showIcons={showIcons}
+            iconWidth="25px"
+            IconHeight="25px"
+            left="22.1%"
+            top="91.4%"
+            height="55px"
+            background="#613900"
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            background="#C87E12"
+            left="21.8%"
+            top="88%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            onClick={handleHomeClick}
+          />
+        </div>
+      ) : (
+        showKurjeLhakhang && (
+          <div className={styles.GuruKurjeLhakhangCard}>
+            <KurjeLhakhang
+              language={language}
+              showIntro={true}
+              onKurjeTempleClick={handleKurjeTempleClick}
+            />
+            <LanguageIcon
+              showIcons={showIcons}
+              iconWidth="25px"
+              IconHeight="25px"
+              left="20.8%"
+              top="95.3%"
+              height="55px"
+              background="#193145"
+              whiteImage={true}
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              whiteImage={true}
+              background="#2B455D"
+              left="20.7%"
+              top="91.8%"
+              height="70px"
+              width="80px"
+              margin="25px"
+              onClick={handleHomeClick}
+            />
+          </div>
+        )
+      )}
 
-          {showKurjeLhakhang && (
-            <div className={styles.GuruKurjeLhakhangCard}>Jothika</div>
-          )}
-
-          {/* {selectedCard === "administration" && (
-            <div className={styles.AdministrationCardContains}>
-              <Administration language={language} showIntro={true} />
-              <LanguageIcon
-                showIcons={showIcons}
-                iconWidth="25px"
-                IconHeight="25px"
-                left="81%"
-                top="84%"
-                height="55px"
-              />
-              <HomeIcon
-                showIcons={showIcons}
-                background="#8F4110"
-                left="80.5%"
-                top="80.5%"
-                height="70px"
-                width="80px"
-                margin="25px"
-                onClick={handleHomeClick}
-              />
-            </div>
-          )} */}
+      {selectedCard === "manifestation" && (
+        <div className={styles.GuruHistoricCard}>
+          <Manifestation language={language} showIntro={true} />
+          <LanguageIcon
+            showIcons={showIcons}
+            iconWidth="25px"
+            IconHeight="25px"
+            left="22.1%"
+            top="91.4%"
+            height="55px"
+            background="#613900"
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            background="#C87E12"
+            left="21.8%"
+            top="88%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            onClick={handleHomeClick}
+          />
         </div>
       )}
     </motion.div>

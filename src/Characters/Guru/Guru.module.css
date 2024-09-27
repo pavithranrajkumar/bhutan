@@ -62,7 +62,49 @@
 
 .GuruKurjeLhakhangCard {
   position: fixed;
-  left: 24%;
-  top: 85%;
-  background: pink;
+  left: 23%;
+  top: 80%;
+}
+
+.KurjeLhakhangTemplesImgs {
+  position: fixed;
+  top: 78%;
+  left: 10%;
+  z-index: 10;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 8vw;
+}
+
+.FirstImg {
+  position: fixed;
+  top: 71.5%;
+  left: 26.3%;
+  transform: translate(-50%, -60%);
+  z-index: 10;
+  margin: 0;
+}
+
+.FirstImg img {
+  object-fit: fill;
+  width: 200px;
+  height: 270px;
+  z-index: 10;
+}
+
+.SecondImg {
+  position: relative;
+  top: 71.5%;
+  left: 30%;
+  margin: 0;
+  width: 100px;
+  height: 170px;
+}
+
+.SecondImg img {
+  object-fit: fill;
+  width: 100px;
+  height: 170px;
 }
