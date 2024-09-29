@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Tibetan.module.css";
 import { motion } from "framer-motion";
 import tibetan from "../../assests/Tibetan/Migrants.png";
@@ -9,6 +9,17 @@ import NextIcon from "../../components/Card/Icons/NextIcon/NextIcon";
 import LanguageIcon from "../../components/Card/Icons/LanguageIcon/LanguageIcon";
 import TibetanCards from "./Cards/TibetanCards/TibetanCards";
 import { TIBETAN_INFORMATION } from "../../constants/Characters/Tibetan";
+import Arrival from "./Cards/Arrival/Arrival";
+import HomeIcon from "../../components/Card/Icons/HomeIcon/HomeIcon";
+import SchoolsCard from "./Cards/SchoolsCard/SchoolsCard";
+import { faL } from "@fortawesome/free-solid-svg-icons";
+import PopularSchoolsCard from "./Cards/SchoolsCard/PopularSchoolsCard/PopularSchoolsCard";
+import DrukpaKagyu from "./Cards/SchoolsCard/DrukpaKagyu/DrukpaKagyu";
+import PreviousIcon from "../../components/Card/Icons/PreviousIcon/PreviousIcon";
+import popularImg1 from "../../assests/Tibetan/PopularSchools/popularSchool1.png";
+import popularImg2 from "../../assests/Tibetan/PopularSchools/popularSchool2.png";
+import popularImg3 from "../../assests/Tibetan/PopularSchools/popularSchool3.png";
+import popularImg4 from "../../assests/Tibetan/PopularSchools/popularSchool4.png";
 
 const Tibetan = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -18,12 +29,25 @@ const Tibetan = () => {
   const [selectedCard, setSelectedCard] = useState(null);
   const [language, setLanguage] = useState("english");
   const [showIcons, setShowIcons] = useState(false);
+  const [showPopularSchoolsCard, setShowPopularSchoolsCard] = useState(false);
+  const [showDrukpaKagyuCard, setShowDrukpaKagyuCard] = useState(false);
+  const [showPopularSchoolsImgCard, setShowPopularSchoolsImgCard] =
+    useState(false);
 
   const handleCardOrImageClick = () => {
-    if (showCards || selectedCard) {
+    if (
+      showCards ||
+      selectedCard ||
+      showDrukpaKagyuCard ||
+      showPopularSchoolsCard ||
+      showPopularSchoolsImgCard
+    ) {
       setShowCards(false);
       setSelectedCard(null);
       setShowIntroduction(false);
+      setShowDrukpaKagyuCard(false);
+      setShowPopularSchoolsCard(false);
+      setShowPopularSchoolsImgCard(false);
     } else {
       setShowYearText(false);
       setShowIntroduction(true);
@@ -38,61 +62,125 @@ const Tibetan = () => {
     );
   };
 
-  //   const handleHomeClick = () => {
-  //     setShowCards(true);
-  //     setSelectedCard(null);
-  //     setShowIntroduction(false);
-  //     setShowSealOfZhabrung(false);
-  //   };
+  const showTibetanCards = () => {
+    setShowIntroduction(false);
+    setShowCards(true);
+  };
 
-  //   const showZhabrungCards = () => {
-  //     setShowCards(true);
-  //     setShowIntroduction(false);
-  //     setSelectedCard(null);
-  //   };
+  const handleCardClick = (cardName) => {
+    console.log("Card clicked:", cardName); // Add this log to verify
+    setSelectedCard(cardName);
+    setShowCards(false);
+    setShowIntroduction(false);
+  };
 
-  //   const handleCardClick = (cardName) => {
-  //     setShowCards(false);
-  //     setSelectedCard(cardName);
-  //     setShowIntroduction(false);
-  //     console.log("Selected Card:", cardName);
-  //   };
+  const showSchoolsCards = () => {
+    setSelectedCard("schools");
+  };
 
-  //   const handleHistoricNextIconClick = () => {
-  //     setSelectedCard("religious");
-  //   };
+  const showPopularSchools = () => {
+    setShowPopularSchoolsCard(true);
+    setSelectedCard(null);
+  };
 
-  //   const handleSealClick = () => {
-  //     setShowSealOfZhabrung(!showSealOfZhabrung);
-  //   };
+  const showDrukpaKagyu = () => {
+    setShowDrukpaKagyuCard(true);
+    setSelectedCard(null);
+  };
 
-  //   const handleTraverllerClick = () => {
-  //     setShoTravellers(!showTravellers);
-  //   };
+  const showPopularSchoolsImg = () => {
+    setShowPopularSchoolsCard(false);
+    setShowPopularSchoolsImgCard(true);
+  };
 
-  //   const handleTravellerPreviousClick = () => {
-  //     setShoTravellers(false);
-  //     setSelectedCard("political");
-  //   };
+  const handlePreviousClick = () => {
+    if (showPopularSchoolsImgCard) {
+      setShowPopularSchoolsImgCard(false);
+      setShowPopularSchoolsCard(true);
+    } else if (showPopularSchoolsCard) {
+      setShowPopularSchoolsCard(false);
+      setSelectedCard("schools");
+    } else if (showDrukpaKagyuCard) {
+      setShowDrukpaKagyuCard(false);
+      setSelectedCard("schools");
+    } else if (selectedCard) {
+      setSelectedCard(null);
+    } else if (showCards) {
+      setShowCards(false);
+      setShowIntroduction(true);
+    }
+  };
 
-  //   const handleSealPreviousClick = () => {
-  //     setShowSealOfZhabrung(false);
-  //     setSelectedCard("religious");
-  //   };
+  const handleHomeClick = () => {
+    setShowCards(true);
+    setSelectedCard(null);
+    setShowIntroduction(false);
+    setShowPopularSchoolsCard(false);
+    setShowDrukpaKagyuCard(false);
+    setShowPopularSchoolsImgCard(false);
+  };
 
-  //   const nameCardBackground =
-  //     selectedCard === "historic" && selectedCard === "religious"
-  //       ? "#C76224"
-  //       : showIntroduction
-  //       ? "#C9D7EE"
-  //       : "#384E63";
+  const nameCardStyles = {
+    default: {
+      background: "#384E63",
+      color: "white",
+    },
+    introduction: {
+      background: "#C9D7EE",
+      color: "#2B455D",
+    },
+    arrival: {
+      background: "#BD6C36",
+      color: "#FFDFC3",
+    },
+    schools: {
+      background: "#BD6C36",
+      color: "#FFDFC3",
+    },
+    popularSchools: {
+      background: "#C9D7EE",
+      color: "#2B455D",
+    },
+    drukpaKagyu: {
+      background: "#C9D7EE",
+      color: "#2B455D",
+    },
+    showCards: {
+      background: "#E6C3A6",
+      color: "#9E501A",
+    },
+  };
 
-  //   const nameCardColor =
-  //     selectedCard === "historic" && selectedCard === "religious"
-  //       ? "#FCD7C2"
-  //       : showIntroduction
-  //       ? "#2B455D"
-  //       : "white";
+  const getNameCardStyle = () => {
+    if (showCards) {
+      return nameCardStyles.showCards;
+    }
+    switch (selectedCard) {
+      case "introduction":
+        console.log("Introduction card selected"); // Debug log
+
+        return nameCardStyles.introduction;
+      case "arrival":
+        console.log("Arrival card selected"); // Debug log
+
+        return nameCardStyles.arrival;
+      case "schools":
+        console.log("Schools card selected"); // Debug log
+
+        return nameCardStyles.schools;
+      case "popularSchools":
+        return nameCardStyles.popularSchools;
+      case "drukpaKagyu":
+        return nameCardStyles.drukpaKagyu;
+      default:
+        return nameCardStyles.default;
+    }
+  };
+  console.log("Current Card Style:", getNameCardStyle());
+
+  useEffect(() => {
+    console.log("Current Card Style: ", getNameCardStyle());
+  }, [selectedCard, showCards]);
 
   return (
     <motion.div
@@ -148,10 +236,10 @@ const Tibetan = () => {
                 height="90px"
                 fontSize="15px"
                 year="1594-1651"
-                paraColor="white"
                 paraSize="13px"
-                // background={nameCardBackground}
-                // color={nameCardColor}
+                paraColor={getNameCardStyle().color}
+                background={getNameCardStyle().background}
+                color={getNameCardStyle().color}
               />
             </>
           )}
@@ -166,15 +254,15 @@ const Tibetan = () => {
           <NextIcon
             showIcons={showIcons}
             whiteImage={true}
-            left="93%"
-            top="86%"
-            // onClick={showZhabrungCards}
+            left="55.3%"
+            top="85.7%"
+            onClick={showTibetanCards}
             background="#2B455D"
           />
           <LanguageIcon
             showIcons={showIcons}
             whiteImage={true}
-            left="80%"
+            left="43.8%"
             top="73.5%"
             height="65px"
           />
@@ -186,233 +274,74 @@ const Tibetan = () => {
           <TibetanCards
             isFadingOut={isFadingOut}
             language={language}
-            // onCardClick={handleCardClick}
+            onCardClick={handleCardClick}
           />
           <LanguageIcon
             showIcons={showIcons}
-            background="#AA5018"
-            left="85.5%"
-            top="82%"
+            background="#523019"
+            left="50.5%"
+            top="85.2%"
           />
         </div>
       )}
 
-      {/* {selectedCard && (
+      {selectedCard && (
         <div>
-          {selectedCard === "historic" && (
-            <>
-              <div className={styles.ZhabrungHistoricCard}>
-                <HistoricCard language={language} showIntro={true} />
-                <NextIcon
-                  showIcons={showIcons}
-                  background="#8F4110"
-                  color="#FCD7C2"
-                  left="96.2%"
-                  top="87.5%"
-                  onClick={handleHistoricNextIconClick}
-                />
-                <LanguageIcon
-                  showIcons={showIcons}
-                  left="81.2%"
-                  top="85%"
-                  height="65px"
-                  background="#3A1701"
-                />
-                <HomeIcon
-                  showIcons={showIcons}
-                  left="80.5%"
-                  top="80%"
-                  background="#8F4110"
-                  onClick={handleHomeClick}
-                />
-              </div>
-            </>
-          )}
-          {selectedCard === "religious" && !showSealOfZhabrung && (
-            <div className={styles.ZhabrungReligousCard}>
-              <ReligiousCard
-                language={language}
-                showIntro={true}
-                onSealClick={handleSealClick}
-              />
+          {selectedCard === "arrival" && (
+            <div className={styles.ArrivalCard}>
+              <Arrival language={language} showIntro={true} />
               <LanguageIcon
                 showIcons={showIcons}
                 iconWidth="25px"
                 IconHeight="25px"
-                left="87.9%"
-                top="84%"
+                left="46.8%"
+                top="76.5%"
                 height="55px"
-                background="#3A1701"
+                background="#7D431C"
               />
               <HomeIcon
                 showIcons={showIcons}
-                left="87.5%"
-                top="80.5%"
+                left="46.5%"
+                top="73%"
                 background="#8F4110"
                 height="70px"
                 width="80px"
                 margin="25px"
                 onClick={handleHomeClick}
+              />
+              <NextIcon
+                showIcons={showIcons}
+                left="56%"
+                top="85.8%"
+                onClick={showSchoolsCards}
+                background="#8F4110"
+                color="#FFDFC3"
               />
             </div>
           )}
 
-          {showSealOfZhabrung && (
-            <div className={styles.SealCard}>
-              <SealCard language={language} showIntro={true} />
-              <LanguageIcon
-                showIcons={showIcons}
-                whiteImage={true}
-                iconWidth="25px"
-                IconHeight="25px"
-                left="80.5%"
-                top="80%"
-                height="55px"
-              />
-              <HomeIcon
-                showIcons={showIcons}
-                whiteImage={true}
-                left="80.4%"
-                top="76.5%"
-                height="70px"
-                width="80px"
-                margin="25px"
-                onClick={handleHomeClick}
-              />
-              <PreviousIcon
-                onClick={handleSealPreviousClick}
-                showIcons={showIcons}
-                whiteImage={true}
-                left="80.4%"
-                top="71.5%"
-                height="100px"
-                margin="35px"
-              />
-            </div>
-          )}
-
-          {selectedCard === "political" && !showTravellers && (
-            <div className={styles.PoliticalCardContains}>
-              <PoliticalCard
+          {selectedCard === "schools" && (
+            <div className={styles.SchoolsCard}>
+              <SchoolsCard
                 language={language}
                 showIntro={true}
-                onTravelerClick={handleTraverllerClick}
+                onPopularSchoolsClick={showPopularSchools}
+                onDrukpaKagyuClick={showDrukpaKagyu}
               />
               <LanguageIcon
                 showIcons={showIcons}
                 iconWidth="25px"
                 IconHeight="25px"
-                left="88.2%"
-                top="78%"
-                height="55px"
-              />
-              <HomeIcon
-                showIcons={showIcons}
-                background="#8F4110"
-                left="87.8%"
-                top="74.5%"
-                height="70px"
-                width="80px"
-                margin="25px"
-                onClick={handleHomeClick}
-              />
-            </div>
-          )}
-          {showTravellers && (
-            <div className={styles.TravellerCardContains}>
-              <TravellerCard language={language} showIntro={true} />
-              <LanguageIcon
-                showIcons={showIcons}
-                whiteImage={true}
-                iconWidth="25px"
-                IconHeight="25px"
-                left="87.5%"
-                top="80%"
-                height="55px"
-              />
-              <HomeIcon
-                showIcons={showIcons}
-                whiteImage={true}
-                left="87.5%"
-                top="76.5%"
-                height="70px"
-                width="80px"
-                margin="25px"
-                onClick={handleHomeClick}
-              />
-              <PreviousIcon
-                onClick={handleTravellerPreviousClick}
-                showIcons={showIcons}
-                whiteImage={true}
-                left="87.5%"
-                top="71.5%"
-                height="100px"
-                margin="35px"
-              />
-            </div>
-          )}
-          {selectedCard === "administration" && (
-            <div className={styles.AdministrationCardContains}>
-              <Administration language={language} showIntro={true} />
-              <LanguageIcon
-                showIcons={showIcons}
-                iconWidth="25px"
-                IconHeight="25px"
-                left="81%"
-                top="84%"
-                height="55px"
-              />
-              <HomeIcon
-                showIcons={showIcons}
-                background="#8F4110"
-                left="80.5%"
-                top="80.5%"
-                height="70px"
-                width="80px"
-                margin="25px"
-                onClick={handleHomeClick}
-              />
-            </div>
-          )}
-          {selectedCard === "secrecy" && (
-            <div className={styles.SecrecyAtDeathCardContains}>
-              <SecrecyAtDeath language={language} showIntro={true} />
-              <LanguageIcon
-                showIcons={showIcons}
-                iconWidth="25px"
-                IconHeight="25px"
-                left="88.2%"
-                top="76%"
-                height="55px"
-              />
-              <HomeIcon
-                showIcons={showIcons}
-                background="#8F4110"
-                left="87.8%"
-                top="72.4%"
-                height="70px"
-                width="80px"
-                margin="25px"
-                onClick={handleHomeClick}
-              />
-            </div>
-          )}
-          {selectedCard === "driglam" && (
-            <div className={styles.DriglamCardContains}>
-              <DriglamCard language={language} showIntro={true} />
-              <LanguageIcon
-                showIcons={showIcons}
-                iconWidth="25px"
-                IconHeight="25px"
-                left="88.2%"
-                top="83%"
-                height="55px"
-              />
-              <HomeIcon
-                showIcons={showIcons}
-                background="#8F4110"
-                left="87.8%"
+                left="46.2%"
                 top="79.5%"
+                height="55px"
+                background="#7D431C"
+              />
+              <HomeIcon
+                showIcons={showIcons}
+                left="45.8%"
+                top="76%"
+                background="#8F4110"
                 height="70px"
                 width="80px"
                 margin="25px"
@@ -421,7 +350,125 @@ const Tibetan = () => {
             </div>
           )}
         </div>
-      )} */}
+      )}
+
+      {showPopularSchoolsCard && (
+        <div className={styles.PopularSchoolsCard}>
+          <PopularSchoolsCard
+            language={language}
+            showIntro={true}
+            onPopularSchoolsImgClick={showPopularSchoolsImg}
+          />
+          <LanguageIcon
+            showIcons={showIcons}
+            iconWidth="25px"
+            IconHeight="25px"
+            left="40.8%"
+            top="76.5%"
+            height="55px"
+            whiteImage={true}
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            left="40.7%"
+            top="73%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            whiteImage={true}
+            onClick={handleHomeClick}
+          />
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="40.7%"
+            top="69%"
+            height="80px"
+            margin="25px"
+          />
+        </div>
+      )}
+
+      {showPopularSchoolsImgCard && (
+        <>
+          <div className={styles.KurjeLhakhangTemplesImgContainer}>
+            <div className={styles.KurjeLhakhangTemplesImg1}>
+              <img src={popularImg1} alt="palaceImg1" />
+            </div>
+            <div className={styles.KurjeLhakhangTemplesImg2}>
+              <img src={popularImg2} alt="palaceImg2" />
+            </div>
+            <div className={styles.KurjeLhakhangTemplesImg3}>
+              <img src={popularImg3} alt="palaceImg3" />
+            </div>
+            <div className={styles.KurjeLhakhangTemplesImg4}>
+              <img src={popularImg4} alt="palaceImg3" />
+            </div>
+          </div>
+          <LanguageIcon
+            showIcons={showIcons}
+            iconWidth="25px"
+            IconHeight="25px"
+            left="44.7%"
+            top="81%"
+            height="55px"
+            whiteImage={true}
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            left="44.6%"
+            top="77.5%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            whiteImage={true}
+            onClick={handleHomeClick}
+          />
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="44.6%"
+            top="73.6%"
+            height="80px"
+            margin="25px"
+          />
+        </>
+      )}
+
+      {showDrukpaKagyuCard && (
+        <>
+          <div className={styles.DrukpaKagyuCard}>
+            <DrukpaKagyu language={language} showIntro={true} />
+          </div>
+          <LanguageIcon
+            showIcons={showIcons}
+            iconWidth="25px"
+            IconHeight="25px"
+            left="41.9%"
+            top="78.5%"
+            height="55px"
+            whiteImage={true}
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            left="41.8%"
+            top="75%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            whiteImage={true}
+            onClick={handleHomeClick}
+          />
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="41.8%"
+            top="71%"
+            height="80px"
+            margin="25px"
+          />
+        </>
+      )}
     </motion.div>
   );
 };

@@ -38,6 +38,7 @@ const Supine = () => {
   const [showBhutanCard, setShowBhutanCard] = useState(false);
   const [showJamBayImages, setShowJamBayImages] = useState(false);
   const [showKyichuImages, setShowKyichuImages] = useState(false);
+  const [showYear, setShowYear] = useState(true);
 
   const toggleLanguage = () => {
     setLanguage((prevLanguage) =>
@@ -66,57 +67,68 @@ const Supine = () => {
       setShowYearText(false);
       setShowIntroduction(true);
       setShowIcons(true);
+      setShowYearText(true);
     }
   };
 
   const showSupineCards = () => {
     setShowIntroduction(false);
     setShowCards(true);
+    setShowYear(true);
   };
 
   const handleReligiousCardClick = () => {
     setShowCards(false);
     setShowReligiousCard(true);
+    setShowYear(true);
   };
 
   const handleHimalayanClick = () => {
     setShowHimalayanCard(true);
     setShowReligiousCard(false);
+    setShowYear(true);
   };
 
   const handleBhutanClick = () => {
     setShowBhutanCard(true);
     setShowReligiousCard(false);
+    setShowYear(true);
   };
 
   const handleJamBayClick = () => {
     setSelectedCard("jamBay");
     setShowBhutanCard(false);
+    setShowYear(true);
   };
 
   const handleKyichuClick = () => {
     setSelectedCard("kyichu");
     setShowBhutanCard(false);
+    setShowYear(true);
   };
 
   const handleJamBayImageClick = () => {
     setShowJamBayImages(true);
     setSelectedCard(null);
+    setShowYear(true);
   };
 
   const handleKyichuImageClick = () => {
     setShowKyichuImages(true);
     setSelectedCard(null);
+    setShowYear(true);
   };
 
   const handleKyichuImagesCardClick = () => {
     setSelectedCard("jamBay");
     setShowKyichuImages(false);
+    setShowYear(true);
   };
 
   const handleJamBayImagesCardClick = () => {
     setSelectedCard("kyichu");
     setShowJamBayImages(false);
+    setShowYear(true);
   };
 
   const handlePreviousClick = () => {
@@ -168,28 +180,28 @@ const Supine = () => {
     selectedCard === "kyichu";
 
   const nameCardBackground = showCards
-    ? "#FFC571"
+    ? "#E5E7D5"
     : isGreenCard
-    ? "#E4931D"
+    ? "#E5E7D5"
     : isBlueCard
     ? "#E5E7D5"
     : "#384E63";
 
   const nameCardColor = showCards
-    ? "#A06611"
+    ? "#3A3C25"
     : isGreenCard
     ? "#3A3C25"
     : isBlueCard
     ? "#2B455D"
-    : "#2B455D";
+    : "white";
 
   const nameParaColor = showCards
-    ? "#A06611"
+    ? "#3A3C25"
     : isGreenCard
     ? "#3A3C25"
     : isBlueCard
     ? "#2B455D"
-    : "#2B455D";
+    : "white";
 
   return (
     <motion.div
@@ -231,40 +243,25 @@ const Supine = () => {
           className={styles.SupineNameCardContainer}
           onClick={handleCardOrImageClick}
         >
-          {!showIntroduction && !selectedCard ? (
-            <>
-              <NameCard
-                // cardName={SUPINE_INFORMATION[language].title}
-                cardName="SUPINE"
-                subCardname="DEMONESS"
-                background="#384E63"
-                color="white"
-                width="250px"
-                height="75px"
-                fontSize="15px"
-                subCardnameFontSize="15px"
-                subCardnameMarginLeft="130px"
-              />
-            </>
-          ) : (
-            <>
-              <NameCard
-                // cardName={SUPINE_INFORMATION[language].title}
-                cardName="SUPINE"
-                subCardname="DEMONESS"
-                width="250px"
-                height="80px"
-                fontSize="15px"
-                year="1200-1800"
-                paraColor={nameParaColor}
-                paraSize="13px"
-                subCardnameFontSize="15px"
-                subCardnameMarginLeft="125px"
-                background={nameCardBackground}
-                color={nameCardColor}
-              />
-            </>
-          )}
+          <motion.div
+            className={styles.SupineNameCardContainer}
+            onClick={handleCardOrImageClick}
+          >
+            <NameCard
+              cardName="SUPINE"
+              subCardname="DEMONESS"
+              width="250px"
+              height="80px"
+              fontSize="15px"
+              subCardnameFontSize="15px"
+              subCardnameMarginLeft="125px"
+              background={nameCardBackground}
+              color={nameCardColor}
+              year={!showYear ? undefined : "1200-1800"} // Show year in all states except initial
+              paraColor={nameParaColor}
+              paraSize="13px"
+            />
+          </motion.div>
         </div>
       </motion.div>
 

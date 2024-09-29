@@ -13,22 +13,22 @@ const TibetanCards = ({ isFadingOut, language, onCardClick }) => {
         transition={{ duration: 1 }}
       >
         <motion.div
-          className={styles.HistoricCard}
+          className={styles.ArrivalCard}
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          onClick={() => onCardClick("historic")}
+          onClick={() => onCardClick("arrival")}
         >
           <div className={styles.CardsContainerText}>
             {TIBETAN_INFORMATION[language].arrival.title}
           </div>
         </motion.div>
         <motion.div
-          className={styles.religiousCard}
+          className={styles.SchoolsCard}
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          onClick={() => onCardClick("religious")}
+          onClick={() => onCardClick("schools")}
         >
           <div className={styles.CardsContainerText}>
             {" "}

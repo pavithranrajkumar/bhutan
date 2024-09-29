@@ -373,7 +373,7 @@ const PemaLingpa = () => {
         }}
         transition={{ duration: 0.8 }}
       >
-        <YearText BornYear="1450" Endyear="-1521" fontSize="168px" />
+        <YearText BornYear="1450" Endyear="-1521" fontSize="120px" />
       </motion.div>
 
       <motion.div
@@ -400,12 +400,20 @@ const PemaLingpa = () => {
                 background={blueNamedCards ? "#6986A9" : "#FFD9BC"}
                 color={blueNamedCards ? "#001829" : "#6A1F11"}
                 paraColor={blueNamedCards ? "#001829" : "#6A1F11"}
-                top="79%"
+                width="210px"
+                height="80px"
+                fontSize="15px"
+                paraSize="15px"
               />
             </>
           ) : (
             <>
-              <NameCard cardName={PEMALINGPA} />
+              <NameCard
+                cardName={PEMALINGPA}
+                width="210px"
+                height="80px"
+                fontSize="20px"
+              />
             </>
           )}
         </div>
@@ -415,8 +423,10 @@ const PemaLingpa = () => {
         <>
           <div className={styles.IntroCard}>
             <Card
-              titleFontSize="20px"
-              contentFontSize="15px"
+              titleFontSize="28px"
+              contentFontSize="11.5px"
+              width="380px"
+              borderBottom="0.5px solid white"
               title={PREMA_LINGPA_INFORMATION[language].introduction.title}
               content={PREMA_LINGPA_INFORMATION[language].introduction.content}
               showIntro={showIntro}

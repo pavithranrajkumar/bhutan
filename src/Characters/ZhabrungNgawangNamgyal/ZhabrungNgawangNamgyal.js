@@ -114,7 +114,7 @@ const ZhabrungNgawangNamgyal = () => {
     ? "#FCD7C2"
     : isBlueCard
     ? "#2B455D"
-    : "#2B455D";
+    : "white";
 
   const nameParaColor = showCards
     ? "#9C3D22"
@@ -122,7 +122,7 @@ const ZhabrungNgawangNamgyal = () => {
     ? "#FCD7C2"
     : isBlueCard
     ? "#2B455D"
-    : "#2B455D";
+    : "white";
 
   return (
     <motion.div

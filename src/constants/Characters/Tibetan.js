@@ -18,14 +18,12 @@ export const TIBETAN_INFORMATION = {
     popularSchools: {
       title: "POPULAR SCHOOLS",
       content: `The pre-unification period saw the arrival of prestigious lamas from Tibet, who came as refugees or were invited by local patrons. The western part of Bhutan saw the establishment of branches of the main Tibetan monastic orders.
-
 `,
       subContent: `The་Nyingmapa School, the oldest school of Tibetan Buddhism, is widely practised in Bhutan even today. It is best represented in Bhutan by the treasure revealer Pema Lingpa, from whom most of the religious nobility of central and eastern Bhutan, including the Royal Family, descends. 
 TheKathogpa School, operating within the Nyingmapa tradition, also established a branch in Bhutan. 
 TheLhapaSchool, a subsect of Kagyupa, maintained a lineage that controlled parts of Western Bhutan. 
 TheChagzampa Tradition thrived in Bhutan until the 17th century. 
-The Sakyapa School had a few monasteries in Western Bhutan, as did the Gelukpa School.
-`,
+The Sakyapa School had a few monasteries in Western Bhutan, as did the Gelukpa School`,
     },
     drukpaKagyu: {
       title: "DRUKPA KAGYU",

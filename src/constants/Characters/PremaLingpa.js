@@ -1,4 +1,4 @@
-export const PREMA_LINGPA_INFORMATION = {
+export const PEMA_LINGPA_INFORMATION = {
   english: {
     title: "PEMA LINGPA",
     introduction: {

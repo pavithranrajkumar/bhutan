@@ -4,9 +4,7 @@ import styles from "./Administration.module.css";
 import Card from "../../../../components/Card/Card";
 import BhutanGovLogo from "../../../../assests/Zhabrung/Cards/Historic/BhutanGovtLogo.png";
 
-const Administration = ({ showIntro }) => {
-  const [language, setLanguage] = useState("english");
-
+const Administration = ({ showIntro, language }) => {
   return (
     <div>
       {showIntro && (

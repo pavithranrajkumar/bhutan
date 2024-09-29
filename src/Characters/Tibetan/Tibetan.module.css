@@ -50,6 +50,66 @@
 
 .TibetanIntroCard {
   position: fixed;
-  left: 45%;
-  top: 72%;
+  left: 46%;
+  top: 74%;
+}
+
+.ArrivalCard {
+  position: fixed;
+  left: 48.9%;
+  top: 72.5%;
+}
+
+.SchoolsCard {
+  position: fixed;
+  left: 48%;
+  top: 76%;
+}
+
+.PopularSchoolsCard {
+  position: fixed;
+  left: 43%;
+  top: 69%;
+}
+
+.DrukpaKagyuCard {
+  position: fixed;
+  left: 44%;
+  top: 71%;
+}
+
+.KurjeLhakhangTemplesImgContainer {
+  position: fixed;
+}
+
+.KurjeLhakhangTemplesImg1 {
+  position: fixed;
+  left: 50.4%;
+  top: 78.5%;
+  width: 350px;
+  height: 250px;
+}
+
+.KurjeLhakhangTemplesImg2 {
+  position: fixed;
+  left: 46.5%;
+  top: 78.6%;
+  width: 180px;
+  height: 130px;
+}
+
+.KurjeLhakhangTemplesImg3 {
+  position: fixed;
+  left: 50.5%;
+  top: 72.9%;
+  width: 150px;
+  height: 140px;
+}
+
+.KurjeLhakhangTemplesImg4 {
+  position: fixed;
+  left: 46.5%;
+  top: 73%;
+  width: 180px;
+  height: 140px;
 }
