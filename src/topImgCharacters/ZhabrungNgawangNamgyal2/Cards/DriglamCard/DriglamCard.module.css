@@ -1,0 +1,13 @@
+.DriglamNamzhagTopCard {
+  background: #aa5018;
+  position: fixed;
+  left: 86%;
+  top: 11%;
+  width: 400px;
+}
+
+.DriglamNamzhagTopCard p {
+  color: white;
+  font-family: "Public Sans";
+  font-size: 13px;
+}

@@ -1,0 +1,189 @@
+@font-face {
+  font-family: "Josefin Sans"; /* You can name this whatever you want */
+  src: url("../../fonts/JosefinSans-ExtraLight.ttf") format("truetype"); /* Path to the font */
+}
+
+@font-face {
+  font-family: "Hammersmith One"; /* You can name this whatever you want */
+  src: url("../../fonts/HammersmithOne-Regular.ttf") format("truetype"); /* Path to the font */
+}
+
+.GuruContainer {
+  position: fixed;
+  top: 78%;
+  left: 10%;
+  z-index: 10;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 18vw;
+}
+
+.GuruImage {
+  cursor: pointer;
+  position: fixed;
+  top: 15%;
+  left: 26.3%;
+  transform: translate(-50%, -60%);
+  z-index: 10;
+  margin: 0;
+}
+
+.GuruImage img {
+  object-fit: fill;
+  width: 200px;
+  height: 270px;
+  z-index: 10;
+}
+
+.GuruText {
+  position: fixed;
+  left: 20%;
+  top: 20%;
+}
+
+.GuruNameCardContainer {
+  position: fixed;
+  left: 30.5%;
+  top: 27%;
+}
+
+.GuruIntroCard {
+  position: fixed;
+  left: 29.5%;
+  top: 41%;
+}
+
+.GuruHistoricCard {
+  position: fixed;
+  left: 24%;
+  top: 45%;
+}
+
+.GuruKurjeLhakhangCard {
+  position: fixed;
+  left: 23%;
+  top: 40%;
+}
+
+.KurjeLhakhangTemplesImgs {
+  position: fixed;
+  top: 78%;
+  left: 10%;
+  z-index: 10;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 8vw;
+}
+
+.FirstImg {
+  position: fixed;
+  top: 71.5%;
+  left: 26.3%;
+  transform: translate(-50%, -60%);
+  z-index: 10;
+  margin: 0;
+}
+
+.FirstImg img {
+  object-fit: fill;
+  width: 200px;
+  height: 270px;
+  z-index: 10;
+}
+
+.SecondImg {
+  position: relative;
+  top: 71.5%;
+  left: 30%;
+  margin: 0;
+  width: 100px;
+  height: 170px;
+}
+
+.SecondImg img {
+  object-fit: fill;
+  width: 100px;
+  height: 170px;
+}
+
+.GuruPalaceCard {
+  position: fixed;
+  left: 23.5%;
+  top: 48%;
+}
+
+.PalaceImgContainer {
+  position: fixed;
+}
+
+.palaceImg1 {
+  position: fixed;
+  left: 24%;
+  top: 43%;
+  width: 380px;
+  height: 300px;
+}
+
+.palaceImg2 {
+  position: fixed;
+  left: 33.2%;
+  top: 50%;
+  width: 160px;
+  height: 150px;
+}
+
+.palaceImg3 {
+  position: fixed;
+  left: 33.2%;
+  top: 68%;
+  width: 160px;
+  height: 170px;
+}
+
+.palaceImg4 {
+  position: fixed;
+  left: 29.6%;
+  top: 81%;
+  width: 160px;
+  height: 140px;
+}
+
+.KurjeLhakhangTemplesImgContainer {
+  position: fixed;
+}
+
+.KurjeLhakhangTemplesImg1 {
+  position: fixed;
+  left: 29.5%;
+  top: 40%;
+  width: 270px;
+  height: 200px;
+}
+
+.KurjeLhakhangTemplesImg2 {
+  position: fixed;
+  left: 26%;
+  top: 62%;
+  width: 160px;
+  height: 130px;
+}
+
+.KurjeLhakhangTemplesImg3 {
+  position: fixed;
+  left: 29.5%;
+  top: 65%;
+  width: 150px;
+  height: 150px;
+}
+
+.KurjeLhakhangTemplesImg4 {
+  position: fixed;
+  left: 25.5%;
+  top: 45%;
+  width: 180px;
+  height: 140px;
+}

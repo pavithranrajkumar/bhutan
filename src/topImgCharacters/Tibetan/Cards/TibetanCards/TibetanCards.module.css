@@ -1,0 +1,40 @@
+.cardsContainer {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 85%;
+  left: 60%;
+}
+
+.CardsContainerText {
+  font-family: "Hammersmith One";
+  font-size: 14px;
+  font-weight: 100;
+  text-align: center;
+}
+
+.ArrivalCard {
+  cursor: pointer;
+  pointer-events: auto;
+  position: fixed;
+  background: #bd6c36;
+  color: #fadfb6;
+  padding: 0.6vw;
+  width: 150px;
+  height: 40px;
+  top: 48.5%;
+  left: 51%;
+}
+
+.SchoolsCard {
+  cursor: pointer;
+  pointer-events: auto;
+  position: fixed;
+  background: #7d431c;
+  color: #fadfb6;
+  padding: 0.7vw;
+  width: 160px;
+  height: 30px;
+  top: 63%;
+  left: 52.7%;
+}

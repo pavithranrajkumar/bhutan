@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Supine.module.css";
 import { motion } from "framer-motion";
 import supine from "../../assests/Supine/SupineDemoness.png";
@@ -38,7 +38,6 @@ const Supine = () => {
   const [showBhutanCard, setShowBhutanCard] = useState(false);
   const [showJamBayImages, setShowJamBayImages] = useState(false);
   const [showKyichuImages, setShowKyichuImages] = useState(false);
-  const [showYear, setShowYear] = useState(true);
 
   const toggleLanguage = () => {
     setLanguage((prevLanguage) =>
@@ -74,61 +73,51 @@ const Supine = () => {
   const showSupineCards = () => {
     setShowIntroduction(false);
     setShowCards(true);
-    setShowYear(true);
   };
 
   const handleReligiousCardClick = () => {
     setShowCards(false);
     setShowReligiousCard(true);
-    setShowYear(true);
   };
 
   const handleHimalayanClick = () => {
     setShowHimalayanCard(true);
     setShowReligiousCard(false);
-    setShowYear(true);
   };
 
   const handleBhutanClick = () => {
     setShowBhutanCard(true);
     setShowReligiousCard(false);
-    setShowYear(true);
   };
 
   const handleJamBayClick = () => {
     setSelectedCard("jamBay");
     setShowBhutanCard(false);
-    setShowYear(true);
   };
 
   const handleKyichuClick = () => {
     setSelectedCard("kyichu");
     setShowBhutanCard(false);
-    setShowYear(true);
   };
 
   const handleJamBayImageClick = () => {
     setShowJamBayImages(true);
     setSelectedCard(null);
-    setShowYear(true);
   };
 
   const handleKyichuImageClick = () => {
     setShowKyichuImages(true);
     setSelectedCard(null);
-    setShowYear(true);
   };
 
   const handleKyichuImagesCardClick = () => {
     setSelectedCard("jamBay");
     setShowKyichuImages(false);
-    setShowYear(true);
   };
 
   const handleJamBayImagesCardClick = () => {
     setSelectedCard("kyichu");
     setShowJamBayImages(false);
-    setShowYear(true);
   };
 
   const handlePreviousClick = () => {
@@ -171,33 +160,33 @@ const Supine = () => {
     setShowKyichuImages(false);
   };
 
-  const isBlueCard = showIntroduction || showHimalayanCard || showBhutanCard;
+  useEffect(() => {
+    if (selectedCard) {
+      setShowIntroduction(false);
+    }
+  }, [selectedCard]);
 
-  const isGreenCard =
-    showJamBayImages ||
-    showKyichuImages ||
-    selectedCard === "jambay" ||
-    selectedCard === "kyichu";
+  const isBlueCard = showIntroduction || showHimalayanCard || showBhutanCard;
 
   const nameCardBackground = showCards
     ? "#E5E7D5"
-    : isGreenCard
-    ? "#E5E7D5"
+    : selectedCard
+    ? "#ABB176"
     : isBlueCard
-    ? "#E5E7D5"
+    ? "#C9D7EE"
     : "#384E63";
 
   const nameCardColor = showCards
     ? "#3A3C25"
-    : isGreenCard
-    ? "#3A3C25"
+    : selectedCard
+    ? "#E5E7D5"
     : isBlueCard
     ? "#2B455D"
     : "white";
 
   const nameParaColor = showCards
     ? "#3A3C25"
-    : isGreenCard
+    : selectedCard
     ? "#3A3C25"
     : isBlueCard
     ? "#2B455D"
@@ -257,7 +246,11 @@ const Supine = () => {
               subCardnameMarginLeft="125px"
               background={nameCardBackground}
               color={nameCardColor}
-              year={!showYear ? undefined : "1200-1800"} // Show year in all states except initial
+              year={
+                showCards || selectedCard || showIntroduction
+                  ? "800-900"
+                  : undefined
+              }
               paraColor={nameParaColor}
               paraSize="13px"
             />

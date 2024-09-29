@@ -1,0 +1,22 @@
+.sealImage {
+  position: fixed;
+  object-fit: fill;
+  top: 13%;
+  left: 90.8%;
+  width: 250px;
+  height: 230px;
+}
+
+.sealOfZhabdrungStatementCard {
+  position: fixed;
+  background: #2b455d;
+  color: white;
+  width: 320px;
+  left: 82.6%;
+  top: 13%;
+}
+
+.sealOfZhabdrungStatementCard p {
+  font-family: "Hammersmith One";
+  font-size: 9px;
+}

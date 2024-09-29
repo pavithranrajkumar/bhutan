@@ -1,6 +1,5 @@
 .pemaNameCard {
   position: fixed;
-  background: #384e63;
   background-size: cover;
   width: 350px;
   height: 120px;
@@ -41,4 +40,5 @@
 
 .subCardnameContains {
   font-family: "Josefin Sans";
+  font-weight: 900;
 }

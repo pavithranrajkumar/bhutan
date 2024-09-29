@@ -1,0 +1,12 @@
+.sealOfZhabdrungCard {
+  position: fixed;
+  background: #6986a9;
+  color: #001829;
+  font-family: "Hammersmith One";
+  font-size: 25px;
+  left: 87.5%;
+  top: 27%;
+  height: 100px;
+  width: 150px;
+  cursor: pointer;
+}

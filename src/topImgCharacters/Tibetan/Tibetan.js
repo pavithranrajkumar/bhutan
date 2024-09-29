@@ -1,0 +1,432 @@
+import React, { useEffect, useState } from "react";
+import styles from "./Tibetan.module.css";
+import { motion } from "framer-motion";
+import tibetan from "../../assests/Tibetan/Migrants.png";
+import YearText from "../../components/YearText/YearText";
+import NameCard from "../../components/NameCard/NameCard";
+import Introduction from "./Cards/Introduction/Introduction";
+import NextIcon from "../../components/Card/Icons/NextIcon/NextIcon";
+import LanguageIcon from "../../components/Card/Icons/LanguageIcon/LanguageIcon";
+import TibetanCards from "./Cards/TibetanCards/TibetanCards";
+import { TIBETAN_INFORMATION } from "../../constants/Characters/Tibetan";
+import Arrival from "./Cards/Arrival/Arrival";
+import HomeIcon from "../../components/Card/Icons/HomeIcon/HomeIcon";
+import SchoolsCard from "./Cards/SchoolsCard/SchoolsCard";
+import { faL } from "@fortawesome/free-solid-svg-icons";
+import PopularSchoolsCard from "./Cards/SchoolsCard/PopularSchoolsCard/PopularSchoolsCard";
+import DrukpaKagyu from "./Cards/SchoolsCard/DrukpaKagyu/DrukpaKagyu";
+import PreviousIcon from "../../components/Card/Icons/PreviousIcon/PreviousIcon";
+import popularImg1 from "../../assests/Tibetan/PopularSchools/popularSchool1.png";
+import popularImg2 from "../../assests/Tibetan/PopularSchools/popularSchool2.png";
+import popularImg3 from "../../assests/Tibetan/PopularSchools/popularSchool3.png";
+import popularImg4 from "../../assests/Tibetan/PopularSchools/popularSchool4.png";
+
+const TibetanTwo = () => {
+  const [showYearText, setShowYearText] = useState(true);
+  const [showCards, setShowCards] = useState(false);
+  const [isFadingOut, setIsFadingOut] = useState(false);
+  const [showIntroduction, setShowIntroduction] = useState(false);
+  const [selectedCard, setSelectedCard] = useState(null);
+  const [language, setLanguage] = useState("english");
+  const [showIcons, setShowIcons] = useState(false);
+  const [showPopularSchoolsCard, setShowPopularSchoolsCard] = useState(false);
+  const [showDrukpaKagyuCard, setShowDrukpaKagyuCard] = useState(false);
+  const [showPopularSchoolsImgCard, setShowPopularSchoolsImgCard] =
+    useState(false);
+
+  const handleCardOrImageClick = () => {
+    if (
+      showCards ||
+      selectedCard ||
+      showDrukpaKagyuCard ||
+      showPopularSchoolsCard ||
+      showPopularSchoolsImgCard
+    ) {
+      resetView();
+    } else {
+      setShowYearText(false);
+      setShowIntroduction(true);
+      setShowIcons(true);
+      setSelectedCard(null);
+    }
+  };
+
+  const resetView = () => {
+    setSelectedCard(null);
+    setShowIntroduction(false);
+    setShowPopularSchoolsCard(false);
+    setShowDrukpaKagyuCard(false);
+    setShowPopularSchoolsImgCard(false);
+  };
+
+  const toggleLanguage = () => {
+    setLanguage((prevLanguage) =>
+      prevLanguage === "english" ? "bhutan" : "english"
+    );
+  };
+
+  const showTibetanCards = () => {
+    setShowIntroduction(false);
+    setShowCards(true);
+  };
+
+  const handleCardClick = (cardName) => {
+    setShowCards(false);
+    setSelectedCard(cardName);
+    setShowIntroduction(false);
+    setShowYearText(false);
+  };
+
+  const showSchoolsCards = () => {
+    setSelectedCard("schools");
+  };
+
+  const showPopularSchools = () => {
+    setShowPopularSchoolsCard(true);
+    setSelectedCard(null);
+  };
+
+  const showDrukpaKagyu = () => {
+    setShowDrukpaKagyuCard(true);
+    setSelectedCard(null);
+  };
+
+  const showPopularSchoolsImg = () => {
+    setShowPopularSchoolsCard(false);
+    setShowPopularSchoolsImgCard(true);
+  };
+
+  const handlePreviousClick = () => {
+    if (showPopularSchoolsImgCard) {
+      setShowPopularSchoolsImgCard(false);
+      setShowPopularSchoolsCard(true);
+    } else if (showPopularSchoolsCard) {
+      setShowPopularSchoolsCard(false);
+      setSelectedCard("schools");
+    } else if (showDrukpaKagyuCard) {
+      setShowDrukpaKagyuCard(false);
+      setSelectedCard("schools");
+    } else if (selectedCard) {
+      setSelectedCard(null);
+    } else if (showCards) {
+      setShowCards(false);
+      setShowIntroduction(true);
+    }
+  };
+
+  const handleHomeClick = () => {
+    setShowCards(true);
+    resetView();
+  };
+
+  const isBlueCard =
+    showIntroduction ||
+    showPopularSchoolsCard ||
+    showPopularSchoolsImgCard ||
+    showDrukpaKagyuCard;
+  const nameCardBackground = showCards
+    ? "#E6C3A6"
+    : isBlueCard
+    ? "#C9D7EE"
+    : selectedCard
+    ? "#BD6C36"
+    : "#384E63";
+  const nameCardColor = showCards
+    ? "#9E501A"
+    : isBlueCard
+    ? "#2B455D"
+    : selectedCard
+    ? "#FCD7C2"
+    : "white";
+
+  useEffect(() => {
+    if (selectedCard) {
+      setShowIntroduction(false);
+    }
+  }, [selectedCard]);
+
+  return (
+    <motion.div
+      className={styles.TibetanContainer}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.6, ease: "easeOut" }}
+    >
+      {showYearText && (
+        <motion.div
+          className={styles.TibetanText}
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <YearText BornYear="1200" Endyear="-1800" fontSize="118px" />
+        </motion.div>
+      )}
+      <motion.div
+        className={styles.tibetanImage}
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1, delay: 0.4 }}
+        onClick={handleCardOrImageClick}
+      >
+        <img src={tibetan} alt="Pema Lingpa" />
+      </motion.div>
+      <motion.div
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.4 }}
+      >
+        <div
+          className={styles.tibetanNameCardContainer}
+          onClick={handleCardOrImageClick}
+        >
+          <NameCard
+            cardName={TIBETAN_INFORMATION[language].title}
+            width="200px"
+            height="90px"
+            paraSize={
+              showCards || selectedCard || showIntroduction ? "10px" : "18px"
+            }
+            fontSize={
+              showCards || selectedCard || showIntroduction ? "15px" : "15px"
+            }
+            year={
+              showCards || selectedCard || showIntroduction
+                ? "1200-1800"
+                : undefined
+            }
+            paraColor={nameCardColor}
+            background={nameCardBackground}
+            color={nameCardColor}
+          />
+        </div>
+      </motion.div>
+
+      {showIntroduction && (
+        <>
+          <div className={styles.TibetanIntroCard}>
+            <Introduction language={language} showIntro={showIntroduction} />
+          </div>
+          <NextIcon
+            showIcons={showIcons}
+            whiteImage={true}
+            left="55.3%"
+            top="63%"
+            onClick={showTibetanCards}
+            background="#2B455D"
+          />
+          <LanguageIcon
+            showIcons={showIcons}
+            whiteImage={true}
+            left="43.8%"
+            top="28%"
+            height="65px"
+          />
+        </>
+      )}
+
+      {showCards && (
+        <div>
+          <TibetanCards
+            isFadingOut={isFadingOut}
+            language={language}
+            onCardClick={handleCardClick}
+          />
+          <LanguageIcon
+            showIcons={showIcons}
+            background="#523019"
+            left="50.5%"
+            top="61%"
+          />
+        </div>
+      )}
+
+      {selectedCard && (
+        <div>
+          {selectedCard === "arrival" && (
+            <div className={styles.ArrivalCard}>
+              <Arrival language={language} showIntro={true} />
+              <LanguageIcon
+                showIcons={showIcons}
+                iconWidth="25px"
+                IconHeight="25px"
+                left="46.8%"
+                top="33%"
+                height="55px"
+                background="#7D431C"
+              />
+              <HomeIcon
+                showIcons={showIcons}
+                left="46.5%"
+                top="23%"
+                background="#8F4110"
+                height="70px"
+                width="80px"
+                margin="25px"
+                onClick={handleHomeClick}
+              />
+              <NextIcon
+                showIcons={showIcons}
+                left="56%"
+                top="62%"
+                onClick={showSchoolsCards}
+                background="#8F4110"
+                color="#FFDFC3"
+              />
+            </div>
+          )}
+
+          {selectedCard === "schools" && (
+            <div className={styles.SchoolsCard}>
+              <SchoolsCard
+                language={language}
+                showIntro={true}
+                onPopularSchoolsClick={showPopularSchools}
+                onDrukpaKagyuClick={showDrukpaKagyu}
+              />
+              <LanguageIcon
+                showIcons={showIcons}
+                iconWidth="25px"
+                IconHeight="25px"
+                left="46.2%"
+                top="44%"
+                height="55px"
+                background="#7D431C"
+              />
+              <HomeIcon
+                showIcons={showIcons}
+                left="45.8%"
+                top="33%"
+                background="#8F4110"
+                height="70px"
+                width="80px"
+                margin="25px"
+                onClick={handleHomeClick}
+              />
+            </div>
+          )}
+        </div>
+      )}
+
+      {showPopularSchoolsCard && (
+        <div className={styles.PopularSchoolsCard}>
+          <PopularSchoolsCard
+            language={language}
+            showIntro={true}
+            onPopularSchoolsImgClick={showPopularSchoolsImg}
+          />
+          <LanguageIcon
+            showIcons={showIcons}
+            iconWidth="25px"
+            IconHeight="25px"
+            left="40.8%"
+            top="42%"
+            height="55px"
+            whiteImage={true}
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            left="40.7%"
+            top="32%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            whiteImage={true}
+            onClick={handleHomeClick}
+          />
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="40.7%"
+            top="20%"
+            height="80px"
+            margin="25px"
+          />
+        </div>
+      )}
+
+      {showPopularSchoolsImgCard && (
+        <>
+          <div className={styles.KurjeLhakhangTemplesImgContainer}>
+            <div className={styles.KurjeLhakhangTemplesImg1}>
+              <img src={popularImg1} alt="palaceImg1" />
+            </div>
+            <div className={styles.KurjeLhakhangTemplesImg2}>
+              <img src={popularImg2} alt="palaceImg2" />
+            </div>
+            <div className={styles.KurjeLhakhangTemplesImg3}>
+              <img src={popularImg3} alt="palaceImg3" />
+            </div>
+            <div className={styles.KurjeLhakhangTemplesImg4}>
+              <img src={popularImg4} alt="palaceImg3" />
+            </div>
+          </div>
+          <LanguageIcon
+            showIcons={showIcons}
+            iconWidth="25px"
+            IconHeight="25px"
+            left="44.7%"
+            top="49%"
+            height="55px"
+            whiteImage={true}
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            left="44.6%"
+            top="38%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            whiteImage={true}
+            onClick={handleHomeClick}
+          />
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="44.6%"
+            top="26%"
+            height="80px"
+            margin="25px"
+          />
+        </>
+      )}
+
+      {showDrukpaKagyuCard && (
+        <>
+          <div className={styles.DrukpaKagyuCard}>
+            <DrukpaKagyu language={language} showIntro={true} />
+          </div>
+          <LanguageIcon
+            showIcons={showIcons}
+            iconWidth="25px"
+            IconHeight="25px"
+            left="41.9%"
+            top="42%"
+            height="55px"
+            whiteImage={true}
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            left="41.8%"
+            top="31%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            whiteImage={true}
+            onClick={handleHomeClick}
+          />
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="41.8%"
+            top="19%"
+            height="80px"
+            margin="25px"
+          />
+        </>
+      )}
+    </motion.div>
+  );
+};
+
+export default TibetanTwo;

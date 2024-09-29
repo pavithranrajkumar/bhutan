@@ -1,0 +1,18 @@
+.PopularCards,
+.DrukpaCards {
+  background: #c9d7ee;
+  color: #001829;
+  font-family: "Hammersmith One";
+  font-size: 18px;
+  width: 120px;
+  height: 70px;
+  cursor: pointer;
+}
+
+.SchoolsTopCards {
+  position: fixed;
+  left: 50.6%;
+  top: 22%;
+  display: flex;
+  gap: 10px;
+}

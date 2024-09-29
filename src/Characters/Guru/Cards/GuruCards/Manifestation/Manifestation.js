@@ -95,7 +95,7 @@ const Manifestation = ({ showIntro, onManifestationsCardClick }) => {
             {manifestationsData.map((item, index) => (
               <WideCard
                 width="260px"
-                height="26px"
+                height="30px"
                 key={index}
                 FrstHeader={item.FrstHeader}
                 ScndHeader={item.ScndHeader}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Guru.module.css";
 import { motion } from "framer-motion";
 import guru from "../../assests/Guru/Guru Rinpoche.png";
@@ -41,40 +41,33 @@ const Guru = () => {
     );
   };
 
-  const handleHomeClick = () => {
-    setShowCards(true);
+  const resetStates = () => {
     setSelectedCard(null);
     setShowIntroduction(false);
     setShowKurjeLhakhang(false);
     setShowKurjeLhakhangImgs(false);
     setShowManifestationCardWithImg(false);
     setShowPalaceImg(false);
+    setShowYearText(true);
+  };
+
+  const handleHomeClick = () => {
+    setShowCards(true);
+    resetStates();
   };
 
   const handleCardOrImageClick = () => {
     if (showCards || selectedCard) {
-      setShowCards(false);
-      setSelectedCard(null);
-      setShowKurjeLhakhang(false);
-      setShowKurjeLhakhangImgs(false);
-      setShowManifestationCardWithImg(false);
-      setShowPalaceImg(false);
+      resetStates();
     } else {
       setShowYearText(false);
       setShowIntroduction(true);
       setShowIcons(true);
-      setSelectedCard(null);
-      setShowCards(false);
     }
   };
 
   const showGuruCards = () => {
-    setShowIntroduction(false);
-    setSelectedCard(null);
-    setShowKurjeLhakhang(false);
-    setShowKurjeLhakhangImgs(false);
-    setShowManifestationCardWithImg(false);
-    setShowPalaceImg(false);
+    resetStates();
     setShowCards(true);
   };
 
@@ -131,6 +124,12 @@ const Guru = () => {
     }
   };
 
+  useEffect(() => {
+    if (selectedCard) {
+      setShowIntroduction(false);
+    }
+  }, [selectedCard]);
+
   const isBlueCard =
     showIntroduction ||
     showKurjeLhakhang ||
@@ -152,15 +151,7 @@ const Guru = () => {
     ? "#FADFB6"
     : isBlueCard
     ? "#2B455D"
-    : "#2B455D";
-
-  const nameParaColor = showCards
-    ? "#A06611"
-    : selectedCard === "historic" || selectedCard === "manifestation"
-    ? "#FADFB6"
-    : isBlueCard
-    ? "#2B455D"
-    : "#2B455D";
+    : "white";
 
   return (
     <motion.div
@@ -202,35 +193,28 @@ const Guru = () => {
           className={styles.GuruNameCardContainer}
           onClick={handleCardOrImageClick}
         >
-          {!showIntroduction && !selectedCard ? (
-            <>
-              <NameCard
-                cardName={GURU_INFORMATION[language].cardName}
-                subCardname={GURU_INFORMATION[language].subCardName}
-                subCardnameMarginLeft="25px"
-                subCardnameFontSize="13px"
-                background="#384E63"
-                color="white"
-                width="200px"
-                height="90px"
-                fontSize="20px"
-              />
-            </>
-          ) : (
-            <>
-              <NameCard
-                cardName={GURU_INFORMATION[language].title}
-                width="200px"
-                height="90px"
-                fontSize="15px"
-                year="1594-1651"
-                paraColor={nameParaColor}
-                paraSize="13px"
-                background={nameCardBackground}
-                color={nameCardColor}
-              />
-            </>
-          )}
+          <NameCard
+            cardName="GURU PINPOCHE/"
+            width="200px"
+            height="90px"
+            subCardname="PADMANASAMBHAVA"
+            subCardnameFontSize="12px"
+            subCardnameMarginLeft="40px"
+            paraSize={
+              showCards || selectedCard || showIntroduction ? "15px" : "20px"
+            }
+            fontSize={
+              showCards || selectedCard || showIntroduction ? "19px" : "20px"
+            }
+            year={
+              showCards || selectedCard || showIntroduction
+                ? "900-1000"
+                : undefined
+            }
+            paraColor={nameCardColor}
+            background={nameCardBackground}
+            color={nameCardColor}
+          />
         </div>
       </motion.div>
 

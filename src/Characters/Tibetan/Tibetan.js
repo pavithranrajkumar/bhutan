@@ -42,18 +42,22 @@ const Tibetan = () => {
       showPopularSchoolsCard ||
       showPopularSchoolsImgCard
     ) {
-      setShowCards(false);
-      setSelectedCard(null);
-      setShowIntroduction(false);
-      setShowDrukpaKagyuCard(false);
-      setShowPopularSchoolsCard(false);
-      setShowPopularSchoolsImgCard(false);
+      resetView();
     } else {
       setShowYearText(false);
       setShowIntroduction(true);
       setShowIcons(true);
       setSelectedCard(null);
     }
+  };
+
+  const resetView = () => {
+    setSelectedCard(null);
+    setShowIntroduction(false);
+    setShowPopularSchoolsCard(false);
+    setShowDrukpaKagyuCard(false);
+    setShowPopularSchoolsImgCard(false);
+    setShowYearText(true);
   };
 
   const toggleLanguage = () => {
@@ -68,10 +72,10 @@ const Tibetan = () => {
   };
 
   const handleCardClick = (cardName) => {
-    console.log("Card clicked:", cardName); // Add this log to verify
-    setSelectedCard(cardName);
     setShowCards(false);
+    setSelectedCard(cardName);
     setShowIntroduction(false);
+    setShowYearText(false);
   };
 
   const showSchoolsCards = () => {
@@ -113,74 +117,34 @@ const Tibetan = () => {
 
   const handleHomeClick = () => {
     setShowCards(true);
-    setSelectedCard(null);
-    setShowIntroduction(false);
-    setShowPopularSchoolsCard(false);
-    setShowDrukpaKagyuCard(false);
-    setShowPopularSchoolsImgCard(false);
+    resetView();
   };
 
-  const nameCardStyles = {
-    default: {
-      background: "#384E63",
-      color: "white",
-    },
-    introduction: {
-      background: "#C9D7EE",
-      color: "#2B455D",
-    },
-    arrival: {
-      background: "#BD6C36",
-      color: "#FFDFC3",
-    },
-    schools: {
-      background: "#BD6C36",
-      color: "#FFDFC3",
-    },
-    popularSchools: {
-      background: "#C9D7EE",
-      color: "#2B455D",
-    },
-    drukpaKagyu: {
-      background: "#C9D7EE",
-      color: "#2B455D",
-    },
-    showCards: {
-      background: "#E6C3A6",
-      color: "#9E501A",
-    },
-  };
-
-  const getNameCardStyle = () => {
-    if (showCards) {
-      return nameCardStyles.showCards;
-    }
-    switch (selectedCard) {
-      case "introduction":
-        console.log("Introduction card selected"); // Debug log
-
-        return nameCardStyles.introduction;
-      case "arrival":
-        console.log("Arrival card selected"); // Debug log
-
-        return nameCardStyles.arrival;
-      case "schools":
-        console.log("Schools card selected"); // Debug log
-
-        return nameCardStyles.schools;
-      case "popularSchools":
-        return nameCardStyles.popularSchools;
-      case "drukpaKagyu":
-        return nameCardStyles.drukpaKagyu;
-      default:
-        return nameCardStyles.default;
-    }
-  };
-  console.log("Current Card Style:", getNameCardStyle());
+  const isBlueCard =
+    showIntroduction ||
+    showPopularSchoolsCard ||
+    showPopularSchoolsImgCard ||
+    showDrukpaKagyuCard;
+  const nameCardBackground = showCards
+    ? "#E6C3A6"
+    : isBlueCard
+    ? "#C9D7EE"
+    : selectedCard
+    ? "#BD6C36"
+    : "#384E63";
+  const nameCardColor = showCards
+    ? "#9E501A"
+    : isBlueCard
+    ? "#2B455D"
+    : selectedCard
+    ? "#FCD7C2"
+    : "white";
 
   useEffect(() => {
-    console.log("Current Card Style: ", getNameCardStyle());
-  }, [selectedCard, showCards]);
+    if (selectedCard) {
+      setShowIntroduction(false);
+    }
+  }, [selectedCard]);
 
   return (
     <motion.div
@@ -217,32 +181,25 @@ const Tibetan = () => {
           className={styles.tibetanNameCardContainer}
           onClick={handleCardOrImageClick}
         >
-          {!showIntroduction && !selectedCard ? (
-            <>
-              <NameCard
-                cardName={TIBETAN_INFORMATION[language].title}
-                background="#384E63"
-                color="white"
-                width="250px"
-                height="90px"
-                fontSize="20px"
-              />
-            </>
-          ) : (
-            <>
-              <NameCard
-                cardName={TIBETAN_INFORMATION[language].title}
-                width="200px"
-                height="90px"
-                fontSize="15px"
-                year="1594-1651"
-                paraSize="13px"
-                paraColor={getNameCardStyle().color}
-                background={getNameCardStyle().background}
-                color={getNameCardStyle().color}
-              />
-            </>
-          )}
+          <NameCard
+            cardName={TIBETAN_INFORMATION[language].title}
+            width="200px"
+            height="90px"
+            paraSize={
+              showCards || selectedCard || showIntroduction ? "10px" : "18px"
+            }
+            fontSize={
+              showCards || selectedCard || showIntroduction ? "15px" : "15px"
+            }
+            year={
+              showCards || selectedCard || showIntroduction
+                ? "1200-1800"
+                : undefined
+            }
+            paraColor={nameCardColor}
+            background={nameCardBackground}
+            color={nameCardColor}
+          />
         </div>
       </motion.div>
 

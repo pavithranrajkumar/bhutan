@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Zhabrung.module.css";
 import { motion } from "framer-motion";
 import NameCard from "../../components/NameCard/NameCard";
@@ -40,24 +40,24 @@ const ZhabrungNgawangNamgyal = () => {
 
   const handleHomeClick = () => {
     setShowCards(true);
-    setSelectedCard(null);
+    resetState();
+  };
+
+  const resetState = () => {
     setShowIntroduction(false);
+    setSelectedCard(null);
     setShowSealOfZhabrung(false);
     setShoTravellers(false);
+    setShowYearText(true);
   };
 
   const handleCardOrImageClick = () => {
     if (showCards || selectedCard) {
-      setShowCards(false);
-      setSelectedCard(null);
-      setShowIntroduction(false);
-      setShowSealOfZhabrung(false);
-      setShoTravellers(false);
+      resetState();
     } else {
-      setShowYearText(false);
       setShowIntroduction(true);
       setShowIcons(true);
-      setSelectedCard(null);
+      setShowYearText(false);
     }
   };
 
@@ -69,12 +69,9 @@ const ZhabrungNgawangNamgyal = () => {
 
   const handleCardClick = (cardName) => {
     setShowCards(false);
-    setSelectedCard(null);
-    setShowIntroduction(false);
-    setShowSealOfZhabrung(false);
-    setShoTravellers(false);
-    setShowYearText(false);
     setSelectedCard(cardName);
+    setShowIntroduction(false);
+    setShowYearText(false);
   };
 
   const handleHistoricNextIconClick = () => {
@@ -99,30 +96,27 @@ const ZhabrungNgawangNamgyal = () => {
     setSelectedCard("religious");
   };
 
-  const isBlueCard = showIntroduction || showSealOfZhabrung;
+  const isBlueCard = showIntroduction || showSealOfZhabrung || showTravellers;
   const nameCardBackground = showCards
     ? "#FFD9BC"
-    : selectedCard === "historic" || selectedCard === "religious"
-    ? "#C76224"
     : isBlueCard
     ? "#C9D7EE"
+    : selectedCard
+    ? "#C76224"
     : "#384E63";
-
   const nameCardColor = showCards
     ? "#9C3D22"
-    : selectedCard === "historic" || selectedCard === "religious"
-    ? "#FCD7C2"
     : isBlueCard
     ? "#2B455D"
+    : selectedCard
+    ? "#FCD7C2"
     : "white";
 
-  const nameParaColor = showCards
-    ? "#9C3D22"
-    : selectedCard === "historic" || selectedCard === "religious"
-    ? "#FCD7C2"
-    : isBlueCard
-    ? "#2B455D"
-    : "white";
+  useEffect(() => {
+    if (selectedCard) {
+      setShowIntroduction(false);
+    }
+  }, [selectedCard]);
 
   return (
     <motion.div
@@ -159,32 +153,25 @@ const ZhabrungNgawangNamgyal = () => {
           className={styles.NameCardContainer}
           onClick={handleCardOrImageClick}
         >
-          {!showIntroduction && !selectedCard ? (
-            <>
-              <NameCard
-                cardName={ZHABRUNG_INFORMATION[language].title}
-                background="#384E63"
-                color="white"
-                width="200px"
-                height="90px"
-                fontSize="15px"
-              />
-            </>
-          ) : (
-            <>
-              <NameCard
-                cardName={ZHABRUNG_INFORMATION[language].title}
-                width="200px"
-                height="90px"
-                fontSize="15px"
-                year="1594-1651"
-                paraColor={nameParaColor}
-                paraSize="13px"
-                background={nameCardBackground}
-                color={nameCardColor}
-              />
-            </>
-          )}
+          <NameCard
+            cardName={ZHABRUNG_INFORMATION[language].title}
+            width="200px"
+            height="90px"
+            paraSize={
+              showCards || selectedCard || showIntroduction ? "15px" : "20px"
+            }
+            fontSize={
+              showCards || selectedCard || showIntroduction ? "15px" : "20px"
+            }
+            year={
+              showCards || selectedCard || showIntroduction
+                ? "1594-1651"
+                : undefined
+            }
+            paraColor={nameCardColor}
+            background={nameCardBackground}
+            color={nameCardColor}
+          />
         </div>
       </motion.div>
 

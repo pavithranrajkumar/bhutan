@@ -8,16 +8,15 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  position: relative;
 }
 
 .main-content {
-  padding: 360px;
-  background: #7ebdba;
+  padding: 300px;
+  background: white;
 }
 
 .image-container {
-  position: relative;
+  position: sticky;
   flex: 1;
   display: flex;
   justify-content: center;
@@ -25,7 +24,7 @@ body {
 }
 
 .bottom-image-container {
-  position: relative;
+  position: sticky;
   z-index: 0;
 }
 
@@ -33,4 +32,33 @@ body {
   width: 100%;
   height: 100%;
   object-fit: fill;
+}
+
+.upside-down {
+  transform: rotate(180deg);
+}
+
+.main-content-Header {
+  color: #aa5018;
+  font-family: "Josefin Sans";
+  font-size: 100px;
+}
+
+.horizontal-line1 {
+  position: fixed;
+  margin: 0;
+
+  padding: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #aa5018;
+}
+
+.horizontal-line2 {
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #aa5018;
 }

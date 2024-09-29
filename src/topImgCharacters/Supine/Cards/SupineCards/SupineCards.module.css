@@ -1,0 +1,22 @@
+.cardsContainer {
+  position: fixed;
+  left: 13%;
+  top: 55%;
+  cursor: pointer;
+}
+
+.ReligiousCard {
+  position: fixed;
+  background: #abb176;
+  color: #cece9b;
+  padding: 0.6vw;
+  width: 180px;
+  height: 50px;
+}
+
+.CardsContainerText {
+  font-family: "Hammersmith One";
+  font-size: 21px;
+  font-weight: 100;
+  text-align: center;
+}

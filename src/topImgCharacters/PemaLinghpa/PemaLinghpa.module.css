@@ -1,0 +1,87 @@
+@font-face {
+  font-family: "Josefin Sans"; /* You can name this whatever you want */
+  src: url("../../fonts/JosefinSans-ExtraLight.ttf") format("truetype"); /* Path to the font */
+}
+
+@font-face {
+  font-family: "Hammersmith One"; /* You can name this whatever you want */
+  src: url("../../fonts/HammersmithOne-Regular.ttf") format("truetype"); /* Path to the font */
+}
+
+.pemaContainer {
+  position: fixed;
+  z-index: 10;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 18vw;
+}
+
+.pemaText {
+  position: fixed;
+  left: 59%;
+  bottom: 50.5%;
+}
+
+.pemaImage {
+  position: fixed;
+  bottom: 47%;
+  left: 65.1%;
+  transform: translate(-50%, -60%);
+  z-index: 10;
+  margin: 0;
+}
+
+.pemaImage img {
+  object-fit: fill;
+  width: 210px;
+  height: 230px;
+  z-index: 10;
+}
+
+.NameCardContainer {
+  position: fixed;
+  top: 33%;
+  left: 68%;
+}
+
+.ActiveCard {
+  position: fixed;
+  top: 77.8%;
+  left: 65%;
+}
+
+.ActiveImage {
+  position: fixed;
+  bottom: 14.5%;
+  left: 61.7%;
+  transform: translate(-50%, -60%);
+  z-index: 10;
+  margin: 0;
+}
+
+.ActiveImage img {
+  object-fit: fill;
+  width: 230px;
+  height: 270px;
+  z-index: 10;
+}
+
+.IntroCard {
+  position: fixed;
+  left: 62.5%;
+  top: 84%;
+}
+
+.HistoricCard {
+  position: fixed;
+  left: 62.5%;
+  top: 84%;
+}
+
+.LineageCard {
+  position: fixed;
+  left: 62.5%;
+  top: 84%;
+}

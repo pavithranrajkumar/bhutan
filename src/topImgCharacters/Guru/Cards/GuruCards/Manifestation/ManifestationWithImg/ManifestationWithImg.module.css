@@ -1,0 +1,27 @@
+.manifestationGroupContainer {
+  position: fixed;
+}
+
+.manifestationGroupContainerImg {
+  position: fixed;
+  left: 26.9%;
+  top: 47.5%;
+  width: 240px;
+  height: 340px;
+}
+
+.manifestationGroupContainerImg img {
+  object-fit: fill;
+}
+
+.manifestationFrstGroup {
+  position: fixed;
+  left: 21.6%;
+  top: 63%;
+}
+
+.manifestationScndGroup {
+  position: fixed;
+  left: 32.7%;
+  top: 40%;
+}

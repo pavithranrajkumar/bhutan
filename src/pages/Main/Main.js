@@ -7,15 +7,31 @@ import Tibetan from "../../Characters/Tibetan/Tibetan";
 import Guru from "../../Characters/Guru/Guru";
 import Supine from "../../Characters/Supine/Supine";
 import PemaLinghpa from "../../Characters/PemaLinghpa/PemaLinghpa";
+import ZhabrungNgawangNamgyalTwo from "../../topImgCharacters/ZhabrungNgawangNamgyal2/ZhabrungNgawangNamgyal2";
+import PemaLinghpa2 from "../../topImgCharacters/PemaLinghpa/PemaLinghpa";
+import TibetanTwo from "../../topImgCharacters/Tibetan/Tibetan";
+import Guru2 from "../../topImgCharacters/Guru/Guru";
+import SupineTwo from "../../topImgCharacters/Supine/Supine";
 
 const Main = () => {
   return (
     <div className="main-container">
-      <div className="image-container">
-        <img src={top} alt="Top Image" />
+      <div className="image-container bottom-image-container upside-down">
+        <img src={bottom} alt="Bottom Image" className="n" />
+        <PemaLinghpa2 />
+        <ZhabrungNgawangNamgyalTwo />
+        <TibetanTwo />
+        <Guru2 />
+        <SupineTwo />
       </div>
-      <div className="main-content"></div>
-      <div className="image-container bottom-image-container">
+      <div className="main-content">
+        <div className="main-content-container">
+          <hr className="horizontal-line1" />
+          <div className="main-content-Header">HISTORY OF BHUTAN</div>
+          <hr className="horizontal-line2" />
+        </div>
+      </div>
+      <div className="image-container bottom-image-container ">
         <img src={bottom} alt="Bottom Image" />
         <PemaLinghpa />
         <ZhabrungNgawangNamgyal />
