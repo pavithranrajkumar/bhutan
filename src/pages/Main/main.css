@@ -12,7 +12,15 @@ body {
 
 .main-content {
   padding: 300px;
-  background: white;
+  background: linear-gradient(
+    to bottom,
+    #7cc7be 0%,
+    #eefaf8 20%,
+    #eefaf8 40%,
+    #eefaf8 60%,
+    #eefaf8 80%,
+    #7cc7be 100%
+  );
 }
 
 .image-container {

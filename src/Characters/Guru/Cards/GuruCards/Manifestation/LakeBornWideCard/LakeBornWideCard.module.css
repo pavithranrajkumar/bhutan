@@ -4,10 +4,10 @@
 
 .manifestationGroupContainerImg {
   position: fixed;
-  left: 26.9%;
-  top: 82.2%;
-  width: 240px;
-  height: 340px;
+  left: 27.1%;
+  top: 83%;
+  width: 210px;
+  height: 300px;
   cursor: pointer;
 }
 
@@ -25,4 +25,9 @@
   position: fixed;
   left: 32.7%;
   top: 79.5%;
+}
+
+.manifestationFrstGroup > div:nth-child(1) {
+  background-color: #c87e12;
+  color: #fadfb6;
 }

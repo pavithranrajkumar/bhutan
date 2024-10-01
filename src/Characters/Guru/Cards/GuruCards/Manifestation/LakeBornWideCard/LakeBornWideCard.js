@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import styles from "./ManifestationWithImg.module.css";
-import manifestationImg from "../../../../../../assests/Guru/Manifestation/ManifestationBigImg.png";
+import React from "react";
 import { GURU_INFORMATION } from "../../../../../../constants/Characters/Guru";
 import WideCard from "../../../../../../components/WideCard/WideCard";
+import styles from "./LakeBornWideCard.module.css";
+import LakeImg from "../../../../../../assests/Guru/Manifestation/lakeBornImg.png";
 
-const ManifestationWithImg = ({ onLakeBornClick, language }) => {
+const LakeBornWideCard = ({ onLakeBornCardClick, language }) => {
   const manifestationsData = [
     {
       FrstHeader:
@@ -68,9 +68,9 @@ const ManifestationWithImg = ({ onLakeBornClick, language }) => {
     <div className={styles.manifestationGroupContainer}>
       <div className={styles.manifestationGroupContainerImg}>
         <img
-          src={manifestationImg}
+          src={LakeImg}
           alt="manifestationImg"
-          onClick={onLakeBornClick}
+          onClick={onLakeBornCardClick}
         />
       </div>
       <div className={styles.manifestationFrstGroup}>
@@ -80,6 +80,7 @@ const ManifestationWithImg = ({ onLakeBornClick, language }) => {
             FrstHeader={manifestation.FrstHeader}
             ScndHeader={manifestation.ScndHeader}
             para={manifestation.para}
+            className={styles.firstGroupWideCard}
             width="200px"
             height="35px"
           />
@@ -102,4 +103,4 @@ const ManifestationWithImg = ({ onLakeBornClick, language }) => {
   );
 };
 
-export default ManifestationWithImg;
+export default LakeBornWideCard;

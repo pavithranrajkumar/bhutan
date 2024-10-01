@@ -1,7 +1,8 @@
 .PopularSchoolsImgCard {
   position: fixed;
-  height: 290px;
-  width: 270px;
-  top: 75.3%;
-  left: 52%;
+  height: 450px;
+  width: 400px;
+  top: 72.5%;
+  left: 50.3%;
+  cursor: pointer;
 }

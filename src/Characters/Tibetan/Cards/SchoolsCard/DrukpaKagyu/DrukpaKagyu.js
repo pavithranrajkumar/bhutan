@@ -4,7 +4,7 @@ import { TIBETAN_INFORMATION } from "../../../../../constants/Characters/Tibetan
 import DrukpaImg from "../../../../../assests/Tibetan/Drukpakagyu/DrukpaKagyu.png";
 import styles from "./DrukpaKagyu.module.css";
 
-const DrukpaKagyu = ({ showIntro, language }) => {
+const DrukpaKagyu = ({ showIntro, language, onDrugpaKagyuImgClick }) => {
   return (
     <div>
       {showIntro && (
@@ -21,7 +21,10 @@ const DrukpaKagyu = ({ showIntro, language }) => {
             language={language}
             showIntro={showIntro}
           />
-          <div className={styles.DrukpaKagyuImgCard}>
+          <div
+            className={styles.DrukpaKagyuImgCard}
+            onClick={onDrugpaKagyuImgClick}
+          >
             <img src={DrukpaImg} alt="popularImg" />
           </div>
         </>

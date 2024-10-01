@@ -16,10 +16,19 @@ import { faL } from "@fortawesome/free-solid-svg-icons";
 import PopularSchoolsCard from "./Cards/SchoolsCard/PopularSchoolsCard/PopularSchoolsCard";
 import DrukpaKagyu from "./Cards/SchoolsCard/DrukpaKagyu/DrukpaKagyu";
 import PreviousIcon from "../../components/Card/Icons/PreviousIcon/PreviousIcon";
-import popularImg1 from "../../assests/Tibetan/PopularSchools/popularSchool1.png";
-import popularImg2 from "../../assests/Tibetan/PopularSchools/popularSchool2.png";
-import popularImg3 from "../../assests/Tibetan/PopularSchools/popularSchool3.png";
-import popularImg4 from "../../assests/Tibetan/PopularSchools/popularSchool4.png";
+import popularImg1 from "../../assests/Tibetan/PopularSchools/popularImg1.png";
+import popularImg2 from "../../assests/Tibetan/PopularSchools/popularImg2.png";
+import popularImg3 from "../../assests/Tibetan/PopularSchools/popularImg3.png";
+import popularImg4 from "../../assests/Tibetan/PopularSchools/popularImg4.png";
+import popularImg5 from "../../assests/Tibetan/PopularSchools/popularImg5.png";
+import popularImg6 from "../../assests/Tibetan/PopularSchools/popularImg6.png";
+import popularImg7 from "../../assests/Tibetan/PopularSchools/popularImg7.png";
+import popularImg8 from "../../assests/Tibetan/PopularSchools/popularImg8.png";
+import popularImg9 from "../../assests/Tibetan/PopularSchools/popularImg9.png";
+import popularImg10 from "../../assests/Tibetan/PopularSchools/popularImg10.png";
+import popularImg11 from "../../assests/Tibetan/PopularSchools/popularImg11.png";
+import popularImg12 from "../../assests/Tibetan/PopularSchools/popularImg12.png";
+import popularImg13 from "../../assests/Tibetan/PopularSchools/popularImg13.png";
 
 const TibetanTwo = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -351,14 +360,55 @@ const TibetanTwo = () => {
             <div className={styles.KurjeLhakhangTemplesImg1}>
               <img src={popularImg1} alt="palaceImg1" />
             </div>
-            <div className={styles.KurjeLhakhangTemplesImg2}>
-              <img src={popularImg2} alt="palaceImg2" />
+
+            <div className={styles.KurjeLhakhangTemplesImg12}>
+              <img src={popularImg13} alt="palaceImg1" />
             </div>
-            <div className={styles.KurjeLhakhangTemplesImg3}>
-              <img src={popularImg3} alt="palaceImg3" />
+
+            <div className={styles.KurjeLhakhangTemplesImg13}>
+              <img src={popularImg12} alt="palaceImg1" />
             </div>
-            <div className={styles.KurjeLhakhangTemplesImg4}>
-              <img src={popularImg4} alt="palaceImg3" />
+
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className={styles.KurjeLhakhangTemplesImg2}>
+                <img src={popularImg2} alt="palaceImg1" />
+              </div>
+              <div className={styles.KurjeLhakhangTemplesImg3}>
+                <img src={popularImg3} alt="palaceImg1" />
+              </div>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className={styles.KurjeLhakhangTemplesImg4}>
+                <img src={popularImg4} alt="palaceImg1" />
+              </div>
+              <div className={styles.KurjeLhakhangTemplesImg5}>
+                <img src={popularImg5} alt="palaceImg1" />
+              </div>
+              <div className={styles.KurjeLhakhangTemplesImg6}>
+                <img src={popularImg6} alt="palaceImg1" />
+              </div>
+              <div className={styles.KurjeLhakhangTemplesImg7}>
+                <img src={popularImg7} alt="palaceImg1" />
+              </div>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className={styles.KurjeLhakhangTemplesImg8}>
+                <img src={popularImg8} alt="palaceImg1" />
+              </div>
+              <div className={styles.KurjeLhakhangTemplesImg9}>
+                <img src={popularImg9} alt="palaceImg1" />
+              </div>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className={styles.KurjeLhakhangTemplesImg10}>
+                <img src={popularImg10} alt="palaceImg1" />
+              </div>
+              <div className={styles.KurjeLhakhangTemplesImg11}>
+                <img src={popularImg11} alt="palaceImg1" />
+              </div>
             </div>
           </div>
           <LanguageIcon

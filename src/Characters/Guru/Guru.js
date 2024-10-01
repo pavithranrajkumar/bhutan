@@ -24,6 +24,8 @@ import KurjeImg1 from "../../assests/Guru/Historic/KurjeImgs/KurjImg1.png";
 import KurjeImg2 from "../../assests/Guru/Historic/KurjeImgs/KurjImg2.png";
 import KurjeImg3 from "../../assests/Guru/Historic/KurjeImgs/KurjImg3.png";
 import KurjeImg4 from "../../assests/Guru/Historic/KurjeImgs/KurjImg4.png";
+import LakeBornWideCard from "./Cards/GuruCards/Manifestation/LakeBornWideCard/LakeBornWideCard";
+import LionOfShakyas from "./Cards/GuruCards/Manifestation/LionOfShakyas/LionOfShakyas";
 
 const Guru = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -38,6 +40,8 @@ const Guru = () => {
   const [showManifestationCardWithImg, setShowManifestationCardWithImg] =
     useState(false);
   const [showPalaceImg, setShowPalaceImg] = useState(false);
+  const [showLakeBornWideCards, setShowLakeBornWideCards] = useState(false);
+  const [showLionOfShakyas, setShowLionOfShakyas] = useState(false);
 
   const toggleLanguage = () => {
     setLanguage((prevLanguage) =>
@@ -52,6 +56,8 @@ const Guru = () => {
     setShowKurjeLhakhang(false);
     setShowKurjeLhakhangImgs(false);
     setShowManifestationCardWithImg(false);
+    setShowLakeBornWideCards(false);
+    setShowLionOfShakyas(false);
     setShowPalaceImg(false);
     setShowYearText(true);
   };
@@ -63,11 +69,18 @@ const Guru = () => {
     setShowKurjeLhakhang(false);
     setShowKurjeLhakhangImgs(false);
     setShowManifestationCardWithImg(false);
+    setShowLakeBornWideCards(false);
+    setShowLionOfShakyas(false);
     setShowPalaceImg(false);
   };
 
   const handleCardOrImageClick = () => {
-    if (showCards || selectedCard) {
+    if (
+      showCards ||
+      selectedCard ||
+      showLakeBornWideCards ||
+      showLionOfShakyas
+    ) {
       resetStates();
     } else if (showIntroduction) {
       setShowIntroduction(false);
@@ -119,6 +132,12 @@ const Guru = () => {
     if (showManifestationCardWithImg) {
       setShowManifestationCardWithImg(false);
       setSelectedCard("manifestation");
+    } else if (showLakeBornWideCards) {
+      setShowLakeBornWideCards(false);
+      setShowManifestationCardWithImg(true);
+    } else if (showLionOfShakyas) {
+      setShowLionOfShakyas(false);
+      setShowLakeBornWideCards(true);
     } else if (showPalaceImg) {
       setShowPalaceImg(false);
       setSelectedCard("palace");
@@ -142,6 +161,18 @@ const Guru = () => {
       setShowIntroduction(false);
       setShowYearText(false);
     }
+  };
+
+  const handleOpenLakeBorn = () => {
+    setShowManifestationCardWithImg(false);
+    setSelectedCard(null);
+    setShowLakeBornWideCards(true);
+  };
+
+  const handleOpenLionOfShakyas = () => {
+    setShowLakeBornWideCards(false);
+    setSelectedCard(null);
+    setShowLionOfShakyas(true);
   };
 
   useEffect(() => {
@@ -423,7 +454,10 @@ const Guru = () => {
 
       {showManifestationCardWithImg && (
         <div className={styles.ManifestationOverlay}>
-          <ManifestationWithImg language={language} />
+          <ManifestationWithImg
+            language={language}
+            onLakeBornClick={handleOpenLakeBorn}
+          />
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
@@ -455,6 +489,81 @@ const Guru = () => {
             background="#A06611"
           />
         </div>
+      )}
+
+      {showLakeBornWideCards && (
+        <>
+          <LakeBornWideCard
+            language={language}
+            onLakeBornCardClick={handleOpenLionOfShakyas}
+          />
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            margin="15px"
+            iconWidth="25px"
+            IconHeight="25px"
+            left="25.5%"
+            top="85.1%"
+            height="50px"
+            background="#613900"
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            left="24.9%"
+            top="81.7%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            background="#A06611"
+            onClick={handleHomeClick}
+          />
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="24.9%"
+            top="77.5%"
+            height="80px"
+            margin="25px"
+            background="#A06611"
+          />
+        </>
+      )}
+
+      {showLionOfShakyas && (
+        <>
+          <LionOfShakyas language={language} />
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            left="25.5%"
+            top="85.1%"
+            margin="15px"
+            iconWidth="25px"
+            IconHeight="25px"
+            height="50px"
+            background="#613900"
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            left="24.9%"
+            top="81.7%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            background="#A06611"
+            onClick={handleHomeClick}
+          />
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="24.9%"
+            top="77.5%"
+            height="80px"
+            margin="25px"
+            background="#A06611"
+          />
+        </>
       )}
 
       {selectedCard === "palace" && !showPalaceImg && (

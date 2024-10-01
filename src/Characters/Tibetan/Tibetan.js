@@ -16,10 +16,19 @@ import { faL } from "@fortawesome/free-solid-svg-icons";
 import PopularSchoolsCard from "./Cards/SchoolsCard/PopularSchoolsCard/PopularSchoolsCard";
 import DrukpaKagyu from "./Cards/SchoolsCard/DrukpaKagyu/DrukpaKagyu";
 import PreviousIcon from "../../components/Card/Icons/PreviousIcon/PreviousIcon";
-import popularImg1 from "../../assests/Tibetan/PopularSchools/popularSchool1.png";
-import popularImg2 from "../../assests/Tibetan/PopularSchools/popularSchool2.png";
-import popularImg3 from "../../assests/Tibetan/PopularSchools/popularSchool3.png";
-import popularImg4 from "../../assests/Tibetan/PopularSchools/popularSchool4.png";
+import popularImg1 from "../../assests/Tibetan/PopularSchools/popularImg1.png";
+import popularImg2 from "../../assests/Tibetan/PopularSchools/popularImg2.png";
+import popularImg3 from "../../assests/Tibetan/PopularSchools/popularImg3.png";
+import popularImg4 from "../../assests/Tibetan/PopularSchools/popularImg4.png";
+import popularImg5 from "../../assests/Tibetan/PopularSchools/popularImg5.png";
+import popularImg6 from "../../assests/Tibetan/PopularSchools/popularImg6.png";
+import popularImg7 from "../../assests/Tibetan/PopularSchools/popularImg7.png";
+import popularImg8 from "../../assests/Tibetan/PopularSchools/popularImg8.png";
+import popularImg9 from "../../assests/Tibetan/PopularSchools/popularImg9.png";
+import popularImg10 from "../../assests/Tibetan/PopularSchools/popularImg10.png";
+import popularImg11 from "../../assests/Tibetan/PopularSchools/popularImg11.png";
+import popularImg12 from "../../assests/Tibetan/PopularSchools/popularImg12.png";
+import popularImg13 from "../../assests/Tibetan/PopularSchools/popularImg13.png";
 
 const Tibetan = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -33,6 +42,7 @@ const Tibetan = () => {
   const [showDrukpaKagyuCard, setShowDrukpaKagyuCard] = useState(false);
   const [showPopularSchoolsImgCard, setShowPopularSchoolsImgCard] =
     useState(false);
+  const [showDrugpaKagyuImgCard, setShowDrugpaKagyuImgCard] = useState(false);
 
   const handleCardOrImageClick = () => {
     if (
@@ -55,7 +65,7 @@ const Tibetan = () => {
   };
 
   const resetView = () => {
-    setShowCards(false);
+    setShowCards(true);
     setSelectedCard(null);
     setShowIntroduction(false);
     setShowPopularSchoolsCard(false);
@@ -99,6 +109,11 @@ const Tibetan = () => {
   const showPopularSchoolsImg = () => {
     setShowPopularSchoolsCard(false);
     setShowPopularSchoolsImgCard(true);
+  };
+
+  const showDrugpaKagyuImg = () => {
+    setShowDrukpaKagyuCard(false);
+    setShowDrugpaKagyuImgCard(true);
   };
 
   const handlePreviousClick = () => {
@@ -322,17 +337,19 @@ const Tibetan = () => {
           />
           <LanguageIcon
             showIcons={showIcons}
+            margin="15px"
             iconWidth="25px"
             IconHeight="25px"
-            left="40.8%"
-            top="76.5%"
-            height="55px"
+            height="50px"
+            width="55px"
+            left="41.3%"
+            top="79.4%"
             whiteImage={true}
           />
           <HomeIcon
             showIcons={showIcons}
             left="40.7%"
-            top="73%"
+            top="75.9%"
             height="70px"
             width="80px"
             margin="25px"
@@ -343,7 +360,7 @@ const Tibetan = () => {
             onClick={handlePreviousClick}
             showIcons={showIcons}
             left="40.7%"
-            top="69%"
+            top="72%"
             height="80px"
             margin="25px"
           />
@@ -356,29 +373,73 @@ const Tibetan = () => {
             <div className={styles.KurjeLhakhangTemplesImg1}>
               <img src={popularImg1} alt="palaceImg1" />
             </div>
-            <div className={styles.KurjeLhakhangTemplesImg2}>
-              <img src={popularImg2} alt="palaceImg2" />
+
+            <div className={styles.KurjeLhakhangTemplesImg12}>
+              <img src={popularImg13} alt="palaceImg1" />
             </div>
-            <div className={styles.KurjeLhakhangTemplesImg3}>
-              <img src={popularImg3} alt="palaceImg3" />
+
+            <div className={styles.KurjeLhakhangTemplesImg13}>
+              <img src={popularImg12} alt="palaceImg1" />
             </div>
-            <div className={styles.KurjeLhakhangTemplesImg4}>
-              <img src={popularImg4} alt="palaceImg3" />
+
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className={styles.KurjeLhakhangTemplesImg2}>
+                <img src={popularImg2} alt="palaceImg1" />
+              </div>
+              <div className={styles.KurjeLhakhangTemplesImg3}>
+                <img src={popularImg3} alt="palaceImg1" />
+              </div>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className={styles.KurjeLhakhangTemplesImg4}>
+                <img src={popularImg4} alt="palaceImg1" />
+              </div>
+              <div className={styles.KurjeLhakhangTemplesImg5}>
+                <img src={popularImg5} alt="palaceImg1" />
+              </div>
+              <div className={styles.KurjeLhakhangTemplesImg6}>
+                <img src={popularImg6} alt="palaceImg1" />
+              </div>
+              <div className={styles.KurjeLhakhangTemplesImg7}>
+                <img src={popularImg7} alt="palaceImg1" />
+              </div>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className={styles.KurjeLhakhangTemplesImg8}>
+                <img src={popularImg8} alt="palaceImg1" />
+              </div>
+              <div className={styles.KurjeLhakhangTemplesImg9}>
+                <img src={popularImg9} alt="palaceImg1" />
+              </div>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className={styles.KurjeLhakhangTemplesImg10}>
+                <img src={popularImg10} alt="palaceImg1" />
+              </div>
+              <div className={styles.KurjeLhakhangTemplesImg11}>
+                <img src={popularImg11} alt="palaceImg1" />
+              </div>
             </div>
           </div>
+
           <LanguageIcon
             showIcons={showIcons}
+            margin="15px"
             iconWidth="25px"
             IconHeight="25px"
-            left="44.7%"
-            top="81%"
-            height="55px"
+            height="50px"
+            width="55px"
+            left="45.9%"
+            top="79.2%"
             whiteImage={true}
           />
           <HomeIcon
             showIcons={showIcons}
-            left="44.6%"
-            top="77.5%"
+            left="45.3%"
+            top="75.6%"
             height="70px"
             width="80px"
             margin="25px"
@@ -388,8 +449,8 @@ const Tibetan = () => {
           <PreviousIcon
             onClick={handlePreviousClick}
             showIcons={showIcons}
-            left="44.6%"
-            top="73.6%"
+            left="45.3%"
+            top="71.5%"
             height="80px"
             margin="25px"
           />
@@ -399,7 +460,11 @@ const Tibetan = () => {
       {showDrukpaKagyuCard && (
         <>
           <div className={styles.DrukpaKagyuCard}>
-            <DrukpaKagyu language={language} showIntro={true} />
+            <DrukpaKagyu
+              language={language}
+              showIntro={true}
+              onDrugpaKagyuImgClick={showDrugpaKagyuImg}
+            />
           </div>
           <LanguageIcon
             showIcons={showIcons}
@@ -425,6 +490,96 @@ const Tibetan = () => {
             showIcons={showIcons}
             left="41.8%"
             top="71%"
+            height="80px"
+            margin="25px"
+          />
+        </>
+      )}
+
+      {showDrugpaKagyuImgCard && (
+        <>
+          <div className={styles.KurjeLhakhangTemplesImgContainer}>
+            <div className={styles.KurjeLhakhangTemplesImg1}>
+              <img src={popularImg1} alt="palaceImg1" />
+            </div>
+
+            <div className={styles.KurjeLhakhangTemplesImg12}>
+              <img src={popularImg13} alt="palaceImg1" />
+            </div>
+
+            <div className={styles.KurjeLhakhangTemplesImg13}>
+              <img src={popularImg12} alt="palaceImg1" />
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className={styles.KurjeLhakhangTemplesImg2}>
+                <img src={popularImg2} alt="palaceImg1" />
+              </div>
+              <div className={styles.KurjeLhakhangTemplesImg3}>
+                <img src={popularImg3} alt="palaceImg1" />
+              </div>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className={styles.KurjeLhakhangTemplesImg4}>
+                <img src={popularImg4} alt="palaceImg1" />
+              </div>
+              <div className={styles.KurjeLhakhangTemplesImg5}>
+                <img src={popularImg5} alt="palaceImg1" />
+              </div>
+              <div className={styles.KurjeLhakhangTemplesImg6}>
+                <img src={popularImg6} alt="palaceImg1" />
+              </div>
+              <div className={styles.KurjeLhakhangTemplesImg7}>
+                <img src={popularImg7} alt="palaceImg1" />
+              </div>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className={styles.KurjeLhakhangTemplesImg8}>
+                <img src={popularImg8} alt="palaceImg1" />
+              </div>
+              <div className={styles.KurjeLhakhangTemplesImg9}>
+                <img src={popularImg9} alt="palaceImg1" />
+              </div>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className={styles.KurjeLhakhangTemplesImg10}>
+                <img src={popularImg10} alt="palaceImg1" />
+              </div>
+              <div className={styles.KurjeLhakhangTemplesImg11}>
+                <img src={popularImg11} alt="palaceImg1" />
+              </div>
+            </div>
+          </div>
+
+          <LanguageIcon
+            showIcons={showIcons}
+            margin="15px"
+            iconWidth="25px"
+            IconHeight="25px"
+            height="50px"
+            width="55px"
+            left="45.9%"
+            top="79.2%"
+            whiteImage={true}
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            left="45.3%"
+            top="75.6%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            whiteImage={true}
+            onClick={handleHomeClick}
+          />
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="45.3%"
+            top="71.5%"
             height="80px"
             margin="25px"
           />

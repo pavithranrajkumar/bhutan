@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import styles from "./ManifestationWithImg.module.css";
-import manifestationImg from "../../../../../../assests/Guru/Manifestation/ManifestationBigImg.png";
-import { GURU_INFORMATION } from "../../../../../../constants/Characters/Guru";
+import React from "react";
 import WideCard from "../../../../../../components/WideCard/WideCard";
+import { GURU_INFORMATION } from "../../../../../../constants/Characters/Guru";
+import LionOFShakyasImg from "../../../../../../assests/Guru/Manifestation/LionOFShakyasImg.png";
+import styles from "./LionOfShakyas.module.css";
 
-const ManifestationWithImg = ({ onLakeBornClick, language }) => {
+const LionOfShakyas = ({ language }) => {
   const manifestationsData = [
     {
       FrstHeader:
@@ -63,15 +63,10 @@ const ManifestationWithImg = ({ onLakeBornClick, language }) => {
       para: GURU_INFORMATION[language].eightManifestations.eight.para,
     },
   ];
-
   return (
     <div className={styles.manifestationGroupContainer}>
       <div className={styles.manifestationGroupContainerImg}>
-        <img
-          src={manifestationImg}
-          alt="manifestationImg"
-          onClick={onLakeBornClick}
-        />
+        <img src={LionOFShakyasImg} alt="manifestationImg" />
       </div>
       <div className={styles.manifestationFrstGroup}>
         {manifestationsData.slice(0, 4).map((manifestation, index) => (
@@ -102,4 +97,4 @@ const ManifestationWithImg = ({ onLakeBornClick, language }) => {
   );
 };
 
-export default ManifestationWithImg;
+export default LionOfShakyas;
