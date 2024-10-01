@@ -76,64 +76,47 @@
 
 .palaceImg1 {
   position: fixed;
-  left: 6%;
-  top: 15%;
-  width: 310px;
-  height: 300px;
+  left: 8.5%;
+  top: 78.5%;
+  width: 210px;
+  height: 220px;
 }
 
 .palaceImg2 {
   position: fixed;
-  left: 13.5%;
-  top: 35%;
-  width: 190px;
-  height: 150px;
-}
-
-.palaceImg3 {
-  position: fixed;
-  left: 6%;
-  top: 53%;
-  width: 170px;
-  height: 150px;
-}
-
-.palaceImg4 {
-  position: fixed;
-  left: 9.7%;
-  top: 53%;
-  width: 170px;
-  height: 150px;
+  left: 13.4%;
+  top: 77%;
+  width: 200px;
+  height: 190px;
 }
 
 .JamBayImagesCard {
   position: fixed;
-  top: 55%;
-  left: 14%;
+  top: 85.5%;
+  left: 13.7%;
   cursor: pointer;
   width: 200px;
-  height: 100px;
+  height: 90px;
   display: flex;
   background: #e5e7d5;
   color: #3c3e29;
   font-family: "Hammersmith One";
   font-size: 25px;
 }
-
 .KyichuImg1 {
   position: fixed;
-  left: 6%;
-  top: 25%;
-  width: 310px;
-  height: 180px;
+  left: 8.5%;
+  top: 78.5%;
+  width: 210px;
+  height: 220px;
 }
 
 .KyichuImg2 {
   position: fixed;
-  left: 13.5%;
-  top: 16%;
-  width: 100px;
-  height: 120px;
+  left: 13.4%;
+  top: 77%;
+  width: 200px;
+  height: 190px;
 }
 
 .KyichuImg3 {
@@ -155,10 +138,10 @@
 .KyichuImagesCard {
   position: fixed;
   top: 55%;
-  left: 14%;
+  left: 13.7%;
   cursor: pointer;
   width: 200px;
-  height: 100px;
+  height: 90px;
   display: flex;
   background: #abb176;
   color: #3c3e29;

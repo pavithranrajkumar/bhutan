@@ -16,14 +16,10 @@ import BhutanCard from "./Cards/BhutanCard/BhutanCard";
 import PreviousIcon from "../../components/Card/Icons/PreviousIcon/PreviousIcon";
 import JamBayCard from "./Cards/JamBayCard/JamBayCard";
 import KyichuCard from "./Cards/KyichuCard/KyichuCard";
-import JambayImg1 from "../../assests/Supine/JambayCard/Imgs/JambayPhotoFrameMain1.png";
-import JambayImg2 from "../../assests/Supine/JambayCard/Imgs/Jambay2.png";
-import JambayImg3 from "../../assests/Supine/JambayCard/Imgs/Jambay3.png";
-import JambayImg4 from "../../assests/Supine/JambayCard/Imgs/Jambay4.png";
-import KyichuImg1 from "../../assests/Supine/KyichuImgs/Kyichu1.png";
-import KyichuImg2 from "../../assests/Supine/KyichuImgs/Kyichu2.png";
-import KyichuImg3 from "../../assests/Supine/KyichuImgs/Kyichu3.png";
-import KyichuImg4 from "../../assests/Supine/KyichuImgs/Kyichu4.png";
+import JambayImg1 from "../../assests/Supine/JambayCard/Imgs/JamBayImgs1.png";
+import JambayImg2 from "../../assests/Supine/JambayCard/Imgs/JamBayImgs2.png";
+import KyichuImg1 from "../../assests/Supine/KyichuImgs/KyichuImg1.png";
+import KyichuImg2 from "../../assests/Supine/KyichuImgs/KyichuImg2.png";
 
 const SupineTwo = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -449,12 +445,6 @@ const SupineTwo = () => {
             <div className={styles.palaceImg2}>
               <img src={JambayImg2} alt="palaceImg2" />
             </div>
-            <div className={styles.palaceImg3}>
-              <img src={JambayImg3} alt="palaceImg3" />
-            </div>
-            <div className={styles.palaceImg4}>
-              <img src={JambayImg4} alt="palaceImg4" />
-            </div>
           </div>
           <div
             className={styles.JamBayImagesCard}
@@ -469,16 +459,16 @@ const SupineTwo = () => {
             background="#3A3C25"
             iconWidth="25px"
             IconHeight="25px"
-            left="4.4%"
-            top="39%"
+            left="7%"
+            top="83%"
             height="55px"
           />
           <PreviousIcon
             onClick={handlePreviousClick}
             showIcons={showIcons}
             color="#D9D9D9"
-            left="4%"
-            top="17%"
+            left="6.6%"
+            top="75%"
             height="80px"
             background="#555835"
             margin="25px"
@@ -486,8 +476,8 @@ const SupineTwo = () => {
           <HomeIcon
             showIcons={showIcons}
             supine={true}
-            left="4%"
-            top="29%"
+            left="6.6%"
+            top="79.1%"
             height="70px"
             width="80px"
             margin="25px"
@@ -550,18 +540,12 @@ const SupineTwo = () => {
             <div className={styles.KyichuImg2}>
               <img src={KyichuImg2} alt="palaceImg2" />
             </div>
-            <div className={styles.KyichuImg3}>
-              <img src={KyichuImg3} alt="palaceImg3" />
-            </div>
-            <div className={styles.KyichuImg4}>
-              <img src={KyichuImg4} alt="palaceImg4" />
-            </div>
           </div>
           <div
             className={styles.KyichuImagesCard}
             onClick={handleKyichuImagesCardClick}
           >
-            <p>JAMBAY LHAKHANG</p>
+            <p style={{ marginTop: "15px" }}>JAMBAY LHAKHANG</p>
           </div>
           <LanguageIcon
             onClick={toggleLanguage}
@@ -570,16 +554,16 @@ const SupineTwo = () => {
             background="#3A3C25"
             iconWidth="25px"
             IconHeight="25px"
-            left="4.4%"
-            top="49%"
+            left="7%"
+            top="83%"
             height="55px"
           />
           <PreviousIcon
             onClick={handlePreviousClick}
             showIcons={showIcons}
             color="#D9D9D9"
-            left="4%"
-            top="26%"
+            left="6.6%"
+            top="75%"
             height="80px"
             background="#555835"
             margin="25px"
@@ -587,8 +571,8 @@ const SupineTwo = () => {
           <HomeIcon
             showIcons={showIcons}
             supine={true}
-            left="4%"
-            top="38%"
+            left="6.6%"
+            top="79.1%"
             height="70px"
             width="80px"
             margin="25px"

@@ -40,11 +40,16 @@ const ZhabrungNgawangNamgyal = () => {
 
   const handleHomeClick = () => {
     setShowCards(true);
-    resetState();
+    setShowIntroduction(false);
+    setSelectedCard(null);
+    setShowSealOfZhabrung(false);
+    setShoTravellers(false);
+    setShowYearText(true);
   };
 
   const resetState = () => {
     setShowIntroduction(false);
+    setShowCards(false);
     setSelectedCard(null);
     setShowSealOfZhabrung(false);
     setShoTravellers(false);
@@ -54,6 +59,9 @@ const ZhabrungNgawangNamgyal = () => {
   const handleCardOrImageClick = () => {
     if (showCards || selectedCard) {
       resetState();
+    } else if (showIntroduction) {
+      setShowIntroduction(false);
+      setShowYearText(true);
     } else {
       setShowIntroduction(true);
       setShowIcons(true);
@@ -378,15 +386,15 @@ const ZhabrungNgawangNamgyal = () => {
                 showIcons={showIcons}
                 iconWidth="25px"
                 IconHeight="25px"
-                left="81%"
-                top="84%"
+                left="81.4%"
+                top="83.7%"
                 height="55px"
               />
               <HomeIcon
                 showIcons={showIcons}
                 background="#8F4110"
-                left="80.5%"
-                top="80.5%"
+                left="81%"
+                top="80%"
                 height="70px"
                 width="80px"
                 margin="25px"

@@ -12,6 +12,7 @@ import PemaLinghpa2 from "../../topImgCharacters/PemaLinghpa/PemaLinghpa";
 import TibetanTwo from "../../topImgCharacters/Tibetan/Tibetan";
 import Guru2 from "../../topImgCharacters/Guru/Guru";
 import SupineTwo from "../../topImgCharacters/Supine/Supine";
+import MainComponent from "../MainComponent/MainComponent";
 
 const Main = () => {
   return (
@@ -26,9 +27,7 @@ const Main = () => {
       </div>
       <div className="main-content">
         <div className="main-content-container">
-          <hr className="horizontal-line1" />
-          <div className="main-content-Header">HISTORY OF BHUTAN</div>
-          <hr className="horizontal-line2" />
+          <MainComponent />
         </div>
       </div>
       <div className="image-container bottom-image-container ">

@@ -1,0 +1,212 @@
+.Header {
+  color: #aa5018;
+  font-family: "Josefin Sans";
+  font-size: 100px;
+}
+
+.horizontalLine1 {
+  position: fixed;
+  top: 40%;
+  left: 0.1%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #aa5018;
+}
+
+.horizontalLine2 {
+  top: 60%;
+  left: 0.1%;
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #aa5018;
+}
+
+.radioBtn {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+}
+
+.supineRadioBtn {
+  background: white;
+  position: fixed;
+  left: 8.4%;
+  top: 59.4%;
+  width: 35px;
+  height: 35px;
+}
+
+.Year {
+  font-family: "Josefin Sans";
+  font-size: 45px;
+  color: #aa5018;
+}
+
+.supine {
+  position: fixed;
+  top: 56.4%;
+  left: 6.3%;
+}
+
+.guruRadioBtn {
+  background: white;
+  position: fixed;
+  left: 28.5%;
+  top: 59.4%;
+  width: 35px;
+  height: 35px;
+}
+
+.guru {
+  position: fixed;
+  top: 56.4%;
+  left: 26.3%;
+}
+
+.tibetanRadioBtn {
+  background: white;
+  position: fixed;
+  left: 49%;
+  top: 59.4%;
+  width: 35px;
+  height: 35px;
+}
+
+.tibetan {
+  position: fixed;
+  top: 56.4%;
+  left: 46.3%;
+}
+
+.pemaRadioBtn {
+  background: white;
+  position: fixed;
+  left: 67%;
+  top: 59.4%;
+  width: 35px;
+  height: 35px;
+}
+
+.pema {
+  position: fixed;
+  top: 56.4%;
+  left: 64.5%;
+}
+
+.zhabrugRadioBtn {
+  background: white;
+  position: fixed;
+  left: 87.6%;
+  top: 59.4%;
+  width: 35px;
+  height: 35px;
+}
+
+.zhabrug {
+  position: fixed;
+  top: 56.4%;
+  left: 85.3%;
+}
+
+.radioBtnFrst {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+}
+
+.radioBtnTwo {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+}
+
+.supineRadioBtnTwo {
+  background: white;
+  position: fixed;
+  left: 10.5%;
+  top: 39.3%;
+  width: 35px;
+  height: 35px;
+}
+
+.supineTwo {
+  position: fixed;
+  top: 42%;
+  left: 8.3%;
+  transform: rotate(180deg);
+}
+
+.guruRadioBtnTwo {
+  background: white;
+  position: fixed;
+  left: 31.6%;
+  top: 39.3%;
+  width: 35px;
+  height: 35px;
+}
+
+.guruTwo {
+  transform: rotate(180deg);
+  position: fixed;
+  top: 42%;
+  left: 29.5%;
+}
+
+.tibetanRadioBtnTwo {
+  background: white;
+  position: fixed;
+  left: 50%;
+  top: 39.3%;
+  width: 35px;
+  height: 35px;
+}
+
+.tibetanTwo {
+  position: fixed;
+  top: 42%;
+  left: 47.4%;
+  transform: rotate(180deg);
+}
+
+.pemaRadioBtnTwo {
+  background: white;
+  position: fixed;
+  left: 70.8%;
+  top: 39.3%;
+  width: 35px;
+  height: 35px;
+}
+
+.pemaTwo {
+  position: fixed;
+  top: 42%;
+  left: 68.9%;
+  transform: rotate(180deg);
+}
+
+.zhabrugRadioBtnTwo {
+  background: white;
+  position: fixed;
+  left: 90%;
+  top: 39.3%;
+  width: 35px;
+  height: 35px;
+}
+
+.zhabrugTwo {
+  position: fixed;
+  top: 42%;
+  left: 87.8%;
+  transform: rotate(180deg);
+}
+
+.radioBtnFrstTwo {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+}

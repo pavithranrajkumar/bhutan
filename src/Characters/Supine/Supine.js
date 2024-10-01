@@ -16,14 +16,10 @@ import BhutanCard from "./Cards/BhutanCard/BhutanCard";
 import PreviousIcon from "../../components/Card/Icons/PreviousIcon/PreviousIcon";
 import JamBayCard from "./Cards/JamBayCard/JamBayCard";
 import KyichuCard from "./Cards/KyichuCard/KyichuCard";
-import JambayImg1 from "../../assests/Supine/JambayCard/Imgs/JambayPhotoFrameMain1.png";
-import JambayImg2 from "../../assests/Supine/JambayCard/Imgs/Jambay2.png";
-import JambayImg3 from "../../assests/Supine/JambayCard/Imgs/Jambay3.png";
-import JambayImg4 from "../../assests/Supine/JambayCard/Imgs/Jambay4.png";
-import KyichuImg1 from "../../assests/Supine/KyichuImgs/Kyichu1.png";
-import KyichuImg2 from "../../assests/Supine/KyichuImgs/Kyichu2.png";
-import KyichuImg3 from "../../assests/Supine/KyichuImgs/Kyichu3.png";
-import KyichuImg4 from "../../assests/Supine/KyichuImgs/Kyichu4.png";
+import JambayImg1 from "../../assests/Supine/JambayCard/Imgs/JamBayImgs1.png";
+import JambayImg2 from "../../assests/Supine/JambayCard/Imgs/JamBayImgs2.png";
+import KyichuImg1 from "../../assests/Supine/KyichuImgs/KyichuImg1.png";
+import KyichuImg2 from "../../assests/Supine/KyichuImgs/KyichuImg2.png";
 
 const Supine = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -47,6 +43,7 @@ const Supine = () => {
 
   const handleCardOrImageClick = () => {
     if (
+      showIntroduction ||
       showCards ||
       selectedCard ||
       showHimalayanCard ||
@@ -55,6 +52,7 @@ const Supine = () => {
       showJamBayImages ||
       showKyichuImages
     ) {
+      setShowIntroduction(false);
       setShowCards(false);
       setShowHimalayanCard(false);
       setShowBhutanCard(false);
@@ -62,17 +60,17 @@ const Supine = () => {
       setSelectedCard(null);
       setShowJamBayImages(false);
       setShowKyichuImages(false);
+      setShowYearText(true);
     } else {
-      setShowYearText(false);
       setShowIntroduction(true);
       setShowIcons(true);
-      setShowYearText(true);
     }
   };
 
   const showSupineCards = () => {
     setShowIntroduction(false);
     setShowCards(true);
+    setShowYearText(false);
   };
 
   const handleReligiousCardClick = () => {
@@ -149,7 +147,7 @@ const Supine = () => {
   };
 
   const handleHomeClick = () => {
-    setShowYearText(true);
+    setShowYearText(false);
     setShowIntroduction(false);
     setShowCards(true);
     setSelectedCard(null);
@@ -199,7 +197,7 @@ const Supine = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1.6, ease: "easeOut" }}
     >
-      {showYearText && (
+      {showYearText && !showIntroduction && (
         <motion.div
           className={styles.SupineText}
           initial={{ opacity: 1 }}
@@ -360,6 +358,7 @@ const Supine = () => {
           />
         </>
       )}
+
       {showBhutanCard && (
         <>
           <div className={styles.BhutanCard}>
@@ -454,12 +453,6 @@ const Supine = () => {
             <div className={styles.palaceImg2}>
               <img src={JambayImg2} alt="palaceImg2" />
             </div>
-            <div className={styles.palaceImg3}>
-              <img src={JambayImg3} alt="palaceImg3" />
-            </div>
-            <div className={styles.palaceImg4}>
-              <img src={JambayImg4} alt="palaceImg4" />
-            </div>
           </div>
           <div
             className={styles.JamBayImagesCard}
@@ -474,16 +467,16 @@ const Supine = () => {
             background="#3A3C25"
             iconWidth="25px"
             IconHeight="25px"
-            left="4.4%"
-            top="78.5%"
+            left="7%"
+            top="83%"
             height="55px"
           />
           <PreviousIcon
             onClick={handlePreviousClick}
             showIcons={showIcons}
             color="#D9D9D9"
-            left="4%"
-            top="71%"
+            left="6.6%"
+            top="75%"
             height="80px"
             background="#555835"
             margin="25px"
@@ -491,8 +484,8 @@ const Supine = () => {
           <HomeIcon
             showIcons={showIcons}
             supine={true}
-            left="4%"
-            top="75%"
+            left="6.6%"
+            top="79.1%"
             height="70px"
             width="80px"
             margin="25px"
@@ -555,18 +548,12 @@ const Supine = () => {
             <div className={styles.KyichuImg2}>
               <img src={KyichuImg2} alt="palaceImg2" />
             </div>
-            <div className={styles.KyichuImg3}>
-              <img src={KyichuImg3} alt="palaceImg3" />
-            </div>
-            <div className={styles.KyichuImg4}>
-              <img src={KyichuImg4} alt="palaceImg4" />
-            </div>
           </div>
           <div
             className={styles.KyichuImagesCard}
             onClick={handleKyichuImagesCardClick}
           >
-            <p>JAMBAY LHAKHANG</p>
+            <p style={{ marginTop: "15px" }}>JAMBAY LHAKHANG</p>
           </div>
           <LanguageIcon
             onClick={toggleLanguage}
@@ -575,16 +562,16 @@ const Supine = () => {
             background="#3A3C25"
             iconWidth="25px"
             IconHeight="25px"
-            left="4.4%"
-            top="78.5%"
+            left="7%"
+            top="83%"
             height="55px"
           />
           <PreviousIcon
             onClick={handlePreviousClick}
             showIcons={showIcons}
             color="#D9D9D9"
-            left="4%"
-            top="71%"
+            left="6.6%"
+            top="75%"
             height="80px"
             background="#555835"
             margin="25px"
@@ -592,8 +579,8 @@ const Supine = () => {
           <HomeIcon
             showIcons={showIcons}
             supine={true}
-            left="4%"
-            top="75%"
+            left="6.6%"
+            top="79.1%"
             height="70px"
             width="80px"
             margin="25px"

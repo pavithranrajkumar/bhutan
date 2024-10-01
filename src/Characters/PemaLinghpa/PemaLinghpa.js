@@ -113,6 +113,8 @@ const PemaLinghpa = () => {
             fontSize="15px"
             subCardnameFontSize="15px"
             subCardnameMarginLeft="125px"
+            background="#384E63"
+            color="white"
             // background={nameCardBackground}
             // color={nameCardColor}
             paraColor="white"

@@ -20,6 +20,10 @@ import palaceImg1 from "../../assests/Guru/Palace/PalaceImg1.png";
 import palaceImg2 from "../../assests/Guru/Palace/PalaceImg2.png";
 import palaceImg3 from "../../assests/Guru/Palace/PalaceImg3.png";
 import palaceImg4 from "../../assests/Guru/Palace/PalaceImg4.png";
+import KurjeImg1 from "../../assests/Guru/Historic/KurjeImgs/KurjImg1.png";
+import KurjeImg2 from "../../assests/Guru/Historic/KurjeImgs/KurjImg2.png";
+import KurjeImg3 from "../../assests/Guru/Historic/KurjeImgs/KurjImg3.png";
+import KurjeImg4 from "../../assests/Guru/Historic/KurjeImgs/KurjImg4.png";
 
 const Guru = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -43,6 +47,7 @@ const Guru = () => {
 
   const resetStates = () => {
     setSelectedCard(null);
+    setShowCards(false);
     setShowIntroduction(false);
     setShowKurjeLhakhang(false);
     setShowKurjeLhakhangImgs(false);
@@ -53,12 +58,20 @@ const Guru = () => {
 
   const handleHomeClick = () => {
     setShowCards(true);
-    resetStates();
+    setSelectedCard(null);
+    setShowIntroduction(false);
+    setShowKurjeLhakhang(false);
+    setShowKurjeLhakhangImgs(false);
+    setShowManifestationCardWithImg(false);
+    setShowPalaceImg(false);
   };
 
   const handleCardOrImageClick = () => {
     if (showCards || selectedCard) {
       resetStates();
+    } else if (showIntroduction) {
+      setShowIntroduction(false);
+      setShowYearText(true);
     } else {
       setShowYearText(false);
       setShowIntroduction(true);
@@ -67,8 +80,9 @@ const Guru = () => {
   };
 
   const showGuruCards = () => {
-    resetStates();
     setShowCards(true);
+    setShowIntroduction(false);
+    setSelectedCard(null);
   };
 
   const handleKurjeClick = () => {
@@ -85,9 +99,10 @@ const Guru = () => {
   const handleCardClick = (cardName) => {
     setShowKurjeLhakhang(false);
     setShowKurjeLhakhangImgs(false);
-    setSelectedCard(cardName);
     setShowCards(false);
+    setSelectedCard(cardName);
     setShowIntroduction(false);
+    setShowYearText(false);
   };
 
   const handleOpenManifestationWithImg = () => {
@@ -117,10 +132,15 @@ const Guru = () => {
       setSelectedCard(null);
       setShowCards(true);
     } else if (showCards) {
-      handleHomeClick();
+      setSelectedCard(null);
+      setShowIntroduction(false);
+      setShowKurjeLhakhang(false);
+      setShowKurjeLhakhangImgs(false);
+      setShowManifestationCardWithImg(false);
+      setShowPalaceImg(false);
     } else {
       setShowIntroduction(false);
-      setShowYearText(true);
+      setShowYearText(false);
     }
   };
 
@@ -326,32 +346,34 @@ const Guru = () => {
         <>
           <div className={styles.KurjeLhakhangTemplesImgContainer}>
             <div className={styles.KurjeLhakhangTemplesImg1}>
-              <img src={palaceImg1} alt="palaceImg1" />
+              <img src={KurjeImg1} alt="palaceImg1" />
             </div>
             <div className={styles.KurjeLhakhangTemplesImg2}>
-              <img src={palaceImg2} alt="palaceImg2" />
+              <img src={KurjeImg4} alt="palaceImg2" />
             </div>
             <div className={styles.KurjeLhakhangTemplesImg3}>
-              <img src={palaceImg3} alt="palaceImg3" />
+              <img src={KurjeImg3} alt="palaceImg3" />
             </div>
             <div className={styles.KurjeLhakhangTemplesImg4}>
-              <img src={palaceImg4} alt="palaceImg3" />
+              <img src={KurjeImg2} alt="palaceImg3" />
             </div>
           </div>
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
-            iconWidth="25px"
+            iconWidth="30px"
             IconHeight="25px"
-            left="24.2%"
-            top="95.5%"
+            left="25.1%"
+            top="91%"
             height="55px"
+            width="60px"
+            margin="15px"
           />
           <HomeIcon
             showIcons={showIcons}
-            left="24.2%"
-            top="92%"
+            left="24.7%"
+            top="87.5%"
             height="70px"
             width="80px"
             margin="25px"
@@ -361,8 +383,8 @@ const Guru = () => {
           <PreviousIcon
             onClick={handlePreviousClick}
             showIcons={showIcons}
-            left="24.2%"
-            top="88%"
+            left="24.7%"
+            top="83.6%"
             height="80px"
             margin="25px"
           />
@@ -472,10 +494,10 @@ const Guru = () => {
               <img src={palaceImg1} alt="palaceImg1" />
             </div>
             <div className={styles.palaceImg2}>
-              <img src={palaceImg2} alt="palaceImg2" />
+              <img src={palaceImg3} alt="palaceImg2" />
             </div>
             <div className={styles.palaceImg3}>
-              <img src={palaceImg3} alt="palaceImg3" />
+              <img src={palaceImg2} alt="palaceImg3" />
             </div>
             <div className={styles.palaceImg4}>
               <img src={palaceImg4} alt="palaceImg4" />

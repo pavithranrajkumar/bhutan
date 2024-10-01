@@ -43,6 +43,9 @@ const Tibetan = () => {
       showPopularSchoolsImgCard
     ) {
       resetView();
+    } else if (showIntroduction) {
+      setShowIntroduction(false);
+      setShowYearText(true);
     } else {
       setShowYearText(false);
       setShowIntroduction(true);
@@ -52,6 +55,7 @@ const Tibetan = () => {
   };
 
   const resetView = () => {
+    setShowCards(false);
     setSelectedCard(null);
     setShowIntroduction(false);
     setShowPopularSchoolsCard(false);
