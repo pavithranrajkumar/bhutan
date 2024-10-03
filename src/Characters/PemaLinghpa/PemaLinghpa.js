@@ -13,6 +13,14 @@ import HistoricCard from "./cards/HistoricCard/HistoricCard";
 import LineageCard from "./cards/LineageCard/LineageCard";
 import RevelationsCard from "./cards/RevelationsCard/RevelationsCard";
 import LegacyCards from "./cards/LegacyCards/LegacyCards";
+import NaringDrag from "./cards/RevelationsCard/NaringDrag/NaringDrag";
+import BurningLake from "./cards/RevelationsCard/BurningLake/BurningLake";
+import NaringDragBook from "./BookAnimation/NaringDragBook/NaringDragBook";
+import BurningLakeBook from "./BookAnimation/BurningLake";
+import PreviousIcon from "../../components/Card/Icons/PreviousIcon/PreviousIcon";
+import { tr } from "framer-motion/client";
+import Monastries from "./cards/LegacyCards/Monastries/Monastries";
+import PelingDance from "./cards/LegacyCards/PelingDance/PelingDance";
 
 const PemaLinghpa = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -23,6 +31,13 @@ const PemaLinghpa = () => {
   const [language, setLanguage] = useState("english");
   const [showIcons, setShowIcons] = useState(false);
   const [isActive, setIsActive] = useState(false);
+  const [showNaringDragCard, setShowNaringDragCard] = useState(false);
+  const [showBurningLakeCard, setShowBurningLakeCard] = useState(false);
+  const [showNaringDragBookImg, setShowNaringDragBookImg] = useState(false);
+  const [showBurningLakeBookImg, setShowBurningLakeBookImg] = useState(false);
+  const [showMonasteriesCard, setShowMonasteriesCard] = useState(false);
+
+  const [showPelingDanceCard, setShowPelingDanceCard] = useState(false);
 
   const toggleLanguage = () => {
     setLanguage((prevLanguage) =>
@@ -31,20 +46,25 @@ const PemaLinghpa = () => {
   };
 
   const handleCardOrImageClick = () => {
-    if (showCards || selectedCard) {
+    if (
+      showCards ||
+      selectedCard ||
+      showBurningLakeCard ||
+      showNaringDragCard ||
+      showNaringDragBookImg ||
+      showBurningLakeBookImg
+    ) {
       setShowCards(false);
       setSelectedCard(null);
-      // setShowKurjeLhakhang(false);
-      // setShowKurjeLhakhangImgs(false);
-      // setShowManifestationCardWithImg(false);
-      // setShowPalaceImg(false);
+      setShowNaringDragCard(false);
+      setShowBurningLakeCard(false);
+      setShowBurningLakeBookImg(false);
+      setShowNaringDragBookImg(false);
     } else {
       setShowYearText(false);
       setShowIntroduction(true);
       setShowIcons(true);
       setIsActive(true);
-      // setSelectedCard(null);
-      // setShowCards(false);
     }
   };
 
@@ -55,14 +75,50 @@ const PemaLinghpa = () => {
 
   const handleCardClick = (cardName) => {
     setShowCards(false);
-    setSelectedCard(null);
     setShowIntroduction(false);
-    // setShowSealOfZhabrung(false);
-    // setShoTravellers(false);
     setShowYearText(false);
     setSelectedCard(cardName);
   };
 
+  const handleNaringDragClick = () => {
+    setSelectedCard(null);
+    setShowNaringDragCard(true);
+  };
+
+  const handleBurningLakeClick = () => {
+    setSelectedCard(null);
+    setShowBurningLakeCard(true);
+  };
+
+  const handleNaringDragBookImgClick = () => {
+    setShowNaringDragCard(false);
+    setShowNaringDragBookImg(true);
+  };
+
+  const handleBurningLakeBookImgClick = () => {
+    setShowBurningLakeCard(false);
+    setShowBurningLakeBookImg(true);
+  };
+
+  const handleBurningLakeAnimationCardClick = () => {
+    setShowNaringDragBookImg(false);
+    setShowNaringDragCard(true);
+  };
+
+  const handleNaringDragAnimationCardClick = () => {
+    setShowBurningLakeBookImg(false);
+    setShowBurningLakeCard(true);
+  };
+
+  const handleOpenMonasteriesCard = () => {
+    setSelectedCard(null);
+    setShowMonasteriesCard(true);
+  };
+
+  const handleOpenPelingDanceCard = () => {
+    setSelectedCard(null);
+    setShowPelingDanceCard(true);
+  };
   return (
     <motion.div
       className={styles.pemaContainer}
@@ -108,9 +164,9 @@ const PemaLinghpa = () => {
         >
           <NameCard
             cardName="PEMA LINGPA"
-            width="250px"
-            height="80px"
-            fontSize="15px"
+            width={isActive ? "350px" : "250px"}
+            height={isActive ? "100px" : "80px"}
+            fontSize={isActive ? "25px" : "15px"}
             subCardnameFontSize="15px"
             subCardnameMarginLeft="125px"
             background="#384E63"
@@ -137,16 +193,18 @@ const PemaLinghpa = () => {
             onClick={toggleLanguage}
             whiteImage={true}
             showIcons={showIcons}
+            left="61%"
+            top="95.5%"
             iconWidth="25px"
             IconHeight="25px"
-            left="60%"
-            top="95.5%"
-            height="55px"
+            height="50px"
+            width="50px"
+            margin="12px"
           />
           <NextIcon
             showIcons={showIcons}
             whiteImage={true}
-            left="76.5%"
+            left="74.3%"
             top="82%"
             height="70px"
             width="80px"
@@ -201,13 +259,14 @@ const PemaLinghpa = () => {
                   background="#6A1F11"
                   height="70px"
                   width="80px"
-                  margin="25px" // onClick={handleHomeClick}
+                  margin="25px"
+                  // onClick={handleHomeClick}
                 />
                 <NextIcon
                   showIcons={showIcons}
                   whiteImage={true}
-                  left="76.5%"
-                  top="82%"
+                  left="73.2%"
+                  top="84%"
                   height="70px"
                   width="80px"
                   margin="25px"
@@ -218,6 +277,7 @@ const PemaLinghpa = () => {
               </div>
             </>
           )}
+
           {selectedCard === "lineage" && (
             <>
               <div className={styles.LineageCard}>
@@ -256,10 +316,16 @@ const PemaLinghpa = () => {
               </div>
             </>
           )}
+
           {selectedCard === "revelations" && (
             <>
               <div className={styles.LineageCard}>
-                <RevelationsCard language={language} showIntro={true} />
+                <RevelationsCard
+                  language={language}
+                  showIntro={true}
+                  onNaringDragClick={handleNaringDragClick}
+                  onBurningLakeClick={handleBurningLakeClick}
+                />
 
                 <LanguageIcon
                   showIcons={showIcons}
@@ -282,10 +348,16 @@ const PemaLinghpa = () => {
               </div>
             </>
           )}
+
           {selectedCard === "legacy" && (
             <>
               <div className={styles.LineageCard}>
-                <LegacyCards language={language} showIntro={true} />
+                <LegacyCards
+                  language={language}
+                  showIntro={true}
+                  onMonasteriesCardClick={handleOpenMonasteriesCard}
+                  onPelingDanceCardClick={handleOpenPelingDanceCard}
+                />
 
                 <LanguageIcon
                   showIcons={showIcons}
@@ -309,6 +381,124 @@ const PemaLinghpa = () => {
             </>
           )}
         </div>
+      )}
+
+      {showNaringDragCard && (
+        <>
+          <div className={styles.NaringDragCard}>
+            <NaringDrag
+              language={language}
+              showIntro={true}
+              onNaringDragBookImgClick={handleNaringDragBookImgClick}
+            />
+          </div>
+        </>
+      )}
+
+      {showNaringDragBookImg && (
+        <>
+          <div className={styles.NaringDragBook}>
+            <NaringDragBook
+              language={language}
+              onBurningLakeAnimationCardClick={
+                handleBurningLakeAnimationCardClick
+              }
+            />
+          </div>
+          <PreviousIcon
+            // onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="60.5%"
+            top="84.5%"
+            height="130px"
+            marginTop="50px"
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            whiteImage={true}
+            left="60.5%"
+            top="91%"
+            height="70px"
+            width="80px"
+            margin="25px" // onClick={handleHomeClick}
+          />
+          <LanguageIcon
+            showIcons={showIcons}
+            whiteImage={true}
+            left="60.5%"
+            top="96%"
+            iconWidth="25px"
+            IconHeight="25px"
+            height="55px"
+          />
+        </>
+      )}
+
+      {showBurningLakeBookImg && (
+        <>
+          <div className={styles.NaringDragBook}>
+            <BurningLakeBook
+              language={language}
+              onNaringDragAnimationCardClick={
+                handleNaringDragAnimationCardClick
+              }
+            />
+          </div>
+          <PreviousIcon
+            // onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="60.5%"
+            top="84.5%"
+            height="130px"
+            marginTop="50px"
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            whiteImage={true}
+            left="60.5%"
+            top="91%"
+            height="70px"
+            width="80px"
+            margin="25px" // onClick={handleHomeClick}
+          />
+          <LanguageIcon
+            showIcons={showIcons}
+            whiteImage={true}
+            left="60.5%"
+            top="96%"
+            iconWidth="25px"
+            IconHeight="25px"
+            height="55px"
+          />
+        </>
+      )}
+
+      {showBurningLakeCard && (
+        <>
+          <div className={styles.BurningLakeCard}>
+            <BurningLake
+              language={language}
+              showIntro={true}
+              onBurningLakeBookImgClick={handleBurningLakeBookImgClick}
+            />
+          </div>
+        </>
+      )}
+
+      {showMonasteriesCard && (
+        <>
+          <div className={styles.MonasteriesCard}>
+            <Monastries language={language} showIntro={true} />
+          </div>
+        </>
+      )}
+
+      {showPelingDanceCard && (
+        <>
+          <div className={styles.PelingDanceCard}>
+            <PelingDance language={language} showIntro={true} />
+          </div>
+        </>
       )}
     </motion.div>
   );

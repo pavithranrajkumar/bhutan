@@ -12,7 +12,6 @@ import { TIBETAN_INFORMATION } from "../../constants/Characters/Tibetan";
 import Arrival from "./Cards/Arrival/Arrival";
 import HomeIcon from "../../components/Card/Icons/HomeIcon/HomeIcon";
 import SchoolsCard from "./Cards/SchoolsCard/SchoolsCard";
-import { faL } from "@fortawesome/free-solid-svg-icons";
 import PopularSchoolsCard from "./Cards/SchoolsCard/PopularSchoolsCard/PopularSchoolsCard";
 import DrukpaKagyu from "./Cards/SchoolsCard/DrukpaKagyu/DrukpaKagyu";
 import PreviousIcon from "../../components/Card/Icons/PreviousIcon/PreviousIcon";
@@ -29,6 +28,24 @@ import popularImg10 from "../../assests/Tibetan/PopularSchools/popularImg10.png"
 import popularImg11 from "../../assests/Tibetan/PopularSchools/popularImg11.png";
 import popularImg12 from "../../assests/Tibetan/PopularSchools/popularImg12.png";
 import popularImg13 from "../../assests/Tibetan/PopularSchools/popularImg13.png";
+import DrugpaKagyuImg1 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg1.png";
+import DrugpaKagyuImg2 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg2.png";
+import DrugpaKagyuImg3 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg3.png";
+import DrugpaKagyuImg4 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg4.png";
+import DrugpaKagyuImg5 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg5.png";
+import DrugpaKagyuImg6 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg6.png";
+import DrugpaKagyuImg7 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg7.png";
+import DrugpaKagyuImg8 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg8.png";
+import DrugpaKagyuImg9 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg9.png";
+import DrugpaKagyuImg10 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg10.png";
+import DrugpaKagyuImg11 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg11.png";
+import DrugpaKagyuImg12 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg12.png";
+import DrugpaKagyuImg13 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg13.png";
+import DrugpaKagyuImg14 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg14.png";
+import DrugpaKagyuImg15 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg15.png";
+import DrugpaKagyuImg16 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg16.png";
+import DrugpaKagyuImg17 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg17.png";
+import DrugpaKagyuImg18 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg18.png";
 
 const Tibetan = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -50,9 +67,17 @@ const Tibetan = () => {
       selectedCard ||
       showDrukpaKagyuCard ||
       showPopularSchoolsCard ||
-      showPopularSchoolsImgCard
+      showPopularSchoolsImgCard ||
+      showDrugpaKagyuImgCard
     ) {
-      resetView();
+      setShowCards(false);
+      setSelectedCard(null);
+      setShowIntroduction(false);
+      setShowPopularSchoolsCard(false);
+      setShowDrukpaKagyuCard(false);
+      setShowPopularSchoolsImgCard(false);
+      setShowDrugpaKagyuImgCard(false);
+      setShowYearText(true);
     } else if (showIntroduction) {
       setShowIntroduction(false);
       setShowYearText(true);
@@ -71,6 +96,7 @@ const Tibetan = () => {
     setShowPopularSchoolsCard(false);
     setShowDrukpaKagyuCard(false);
     setShowPopularSchoolsImgCard(false);
+    setShowDrugpaKagyuImgCard(false);
     setShowYearText(true);
   };
 
@@ -120,6 +146,9 @@ const Tibetan = () => {
     if (showPopularSchoolsImgCard) {
       setShowPopularSchoolsImgCard(false);
       setShowPopularSchoolsCard(true);
+    } else if (showDrugpaKagyuImgCard) {
+      setShowDrugpaKagyuImgCard(false);
+      setShowDrukpaKagyuCard(true);
     } else if (showPopularSchoolsCard) {
       setShowPopularSchoolsCard(false);
       setSelectedCard("schools");
@@ -499,61 +528,84 @@ const Tibetan = () => {
       {showDrugpaKagyuImgCard && (
         <>
           <div className={styles.KurjeLhakhangTemplesImgContainer}>
-            <div className={styles.KurjeLhakhangTemplesImg1}>
-              <img src={popularImg1} alt="palaceImg1" />
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className={styles.DrugpaKagyuImg1}>
+                <img src={DrugpaKagyuImg1} alt="palaceImg1" />
+              </div>
+              <div className={styles.DrugpaKagyuImg2}>
+                <img src={DrugpaKagyuImg2} alt="palaceImg1" />
+              </div>
             </div>
 
-            <div className={styles.KurjeLhakhangTemplesImg12}>
-              <img src={popularImg13} alt="palaceImg1" />
-            </div>
-
-            <div className={styles.KurjeLhakhangTemplesImg13}>
-              <img src={popularImg12} alt="palaceImg1" />
+            <div className={styles.DrugpaKagyuImg3}>
+              <img src={DrugpaKagyuImg3} alt="palaceImg1" />
             </div>
 
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <div className={styles.KurjeLhakhangTemplesImg2}>
-                <img src={popularImg2} alt="palaceImg1" />
+              <div className={styles.DrugpaKagyuImg4}>
+                <img src={DrugpaKagyuImg4} alt="palaceImg1" />
               </div>
-              <div className={styles.KurjeLhakhangTemplesImg3}>
-                <img src={popularImg3} alt="palaceImg1" />
+              <div style={{ display: "flex", flexDirection: "row" }}>
+                <div className={styles.DrugpaKagyuImg5}>
+                  <img src={DrugpaKagyuImg5} alt="palaceImg1" />
+                </div>
+                <div className={styles.DrugpaKagyuImg6}>
+                  <img src={DrugpaKagyuImg6} alt="palaceImg1" />
+                </div>
               </div>
-            </div>
-
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div className={styles.KurjeLhakhangTemplesImg4}>
-                <img src={popularImg4} alt="palaceImg1" />
+              <div className={styles.DrugpaKagyuImg7}>
+                <img src={DrugpaKagyuImg7} alt="palaceImg1" />
               </div>
-              <div className={styles.KurjeLhakhangTemplesImg5}>
-                <img src={popularImg5} alt="palaceImg1" />
-              </div>
-              <div className={styles.KurjeLhakhangTemplesImg6}>
-                <img src={popularImg6} alt="palaceImg1" />
-              </div>
-              <div className={styles.KurjeLhakhangTemplesImg7}>
-                <img src={popularImg7} alt="palaceImg1" />
-              </div>
-            </div>
-
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div className={styles.KurjeLhakhangTemplesImg8}>
-                <img src={popularImg8} alt="palaceImg1" />
-              </div>
-              <div className={styles.KurjeLhakhangTemplesImg9}>
-                <img src={popularImg9} alt="palaceImg1" />
+              <div style={{ display: "flex" }}>
+                <div className={styles.DrugpaKagyuImg8}>
+                  <img src={DrugpaKagyuImg8} alt="palaceImg1" />
+                </div>
+                <div className={styles.DrugpaKagyuImg9}>
+                  <img src={DrugpaKagyuImg9} alt="palaceImg1" />
+                </div>
               </div>
             </div>
 
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <div className={styles.KurjeLhakhangTemplesImg10}>
-                <img src={popularImg10} alt="palaceImg1" />
+              <div className={styles.DrugpaKagyuImg10}>
+                <img src={DrugpaKagyuImg10} alt="palaceImg1" />
               </div>
-              <div className={styles.KurjeLhakhangTemplesImg11}>
-                <img src={popularImg11} alt="palaceImg1" />
+              <div className={styles.DrugpaKagyuImg11}>
+                <img src={DrugpaKagyuImg11} alt="palaceImg1" />
+              </div>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className={styles.DrugpaKagyuImg12}>
+                <img src={DrugpaKagyuImg12} alt="palaceImg1" />
+              </div>
+              <div className={styles.DrugpaKagyuImg13}>
+                <img src={DrugpaKagyuImg13} alt="palaceImg1" />
+              </div>
+            </div>
+
+            <div className={styles.DrugpaKagyuImg14}>
+              <img src={DrugpaKagyuImg14} alt="palaceImg1" />
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className={styles.DrugpaKagyuImg15}>
+                <img src={DrugpaKagyuImg15} alt="palaceImg1" />
+              </div>
+              <div className={styles.DrugpaKagyuImg16}>
+                <img src={DrugpaKagyuImg16} alt="palaceImg1" />
+              </div>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className={styles.DrugpaKagyuImg17}>
+                <img src={DrugpaKagyuImg17} alt="palaceImg1" />
+              </div>
+              <div className={styles.DrugpaKagyuImg18}>
+                <img src={DrugpaKagyuImg18} alt="palaceImg1" />
               </div>
             </div>
           </div>
-
           <LanguageIcon
             showIcons={showIcons}
             margin="15px"
@@ -561,14 +613,14 @@ const Tibetan = () => {
             IconHeight="25px"
             height="50px"
             width="55px"
-            left="45.9%"
-            top="79.2%"
+            left="44.7%"
+            top="80.5%"
             whiteImage={true}
           />
           <HomeIcon
             showIcons={showIcons}
-            left="45.3%"
-            top="75.6%"
+            left="44.1%"
+            top="77%"
             height="70px"
             width="80px"
             margin="25px"
@@ -578,8 +630,8 @@ const Tibetan = () => {
           <PreviousIcon
             onClick={handlePreviousClick}
             showIcons={showIcons}
-            left="45.3%"
-            top="71.5%"
+            left="44.1%"
+            top="73%"
             height="80px"
             margin="25px"
           />

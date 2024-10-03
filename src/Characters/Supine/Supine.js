@@ -273,9 +273,13 @@ const Supine = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
-            left="5%"
-            top="75%"
-            height="65px"
+            left="5.4%"
+            top="74.8%"
+            iconWidth="25px"
+            IconHeight="25px"
+            height="50px"
+            width="55px"
+            margin="13px"
           />
         </>
       )}
@@ -292,8 +296,13 @@ const Supine = () => {
             showIcons={showIcons}
             supine={true}
             background="#3A3C25"
-            left="16.9%"
-            top="81.6%"
+            left="17.4%"
+            top="82.5%"
+            iconWidth="25px"
+            IconHeight="25px"
+            height="50px"
+            width="55px"
+            margin="13px"
           />
         </div>
       )}
@@ -342,11 +351,13 @@ const Supine = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
+            left="5.3%"
+            top="86%"
             iconWidth="25px"
             IconHeight="25px"
-            left="4.8%"
-            top="86%"
-            height="55px"
+            height="50px"
+            width="55px"
+            margin="13px"
           />
           <PreviousIcon
             onClick={handlePreviousClick}

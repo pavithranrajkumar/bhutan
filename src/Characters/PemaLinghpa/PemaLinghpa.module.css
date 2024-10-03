@@ -48,7 +48,7 @@
 
 .ActiveCard {
   position: fixed;
-  top: 77.8%;
+  top: 79%;
   left: 65%;
 }
 
@@ -83,5 +83,35 @@
 .LineageCard {
   position: fixed;
   left: 62.5%;
-  top: 84%;
+  top: 84.5%;
+}
+
+.NaringDragCard {
+  position: fixed;
+  left: 62.5%;
+  top: 84.5%;
+}
+
+.BurningLakeCard {
+  position: fixed;
+  left: 62.5%;
+  top: 84.5%;
+}
+
+.NaringDragBook {
+  position: fixed;
+  left: 60%;
+  top: 84.5%;
+}
+
+.MonasteriesCard {
+  position: fixed;
+  left: 62.5%;
+  top: 84.5%;
+}
+
+.PelingDanceCard {
+  position: fixed;
+  left: 62.5%;
+  top: 84.5%;
 }

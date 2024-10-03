@@ -12,7 +12,7 @@ const PreviousIcon = ({
   bottom,
   right,
   height,
-  margin,
+  marginTop,
   background,
   color,
 }) => {
@@ -29,7 +29,7 @@ const PreviousIcon = ({
         <FontAwesomeIcon
           icon={faChevronLeft}
           className={styles.PreviousIcon}
-          style={{ margin, color }}
+          style={{ marginTop, color }}
         />
       </motion.div>
     </div>

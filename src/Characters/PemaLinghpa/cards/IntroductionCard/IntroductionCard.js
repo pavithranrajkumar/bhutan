@@ -8,9 +8,9 @@ const IntroductionCard = ({ showIntro, language }) => {
       {showIntro && (
         <>
           <Card
-            width="520px"
+            width="445px"
             titleFontSize="30px"
-            contentFontSize="13px"
+            contentFontSize="12.5px"
             borderBottom="0.5px solid white"
             title={PEMA_LINGPA_INFORMATION[language].introduction.title}
             content={PEMA_LINGPA_INFORMATION[language].introduction.content}

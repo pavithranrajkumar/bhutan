@@ -8,8 +8,8 @@ const HistoricCard = ({ showIntro, language }) => {
       {showIntro && (
         <>
           <Card
-            width="520px"
-            titleFontSize="40px"
+            width="400px"
+            titleFontSize="30px"
             contentFontSize="13.2px"
             borderBottom="0.5px solid #6A1F11"
             backgroundColor="#FFD9BC"

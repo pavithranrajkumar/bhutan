@@ -8,9 +8,9 @@ const LineageCard = ({ showIntro, language }) => {
       {showIntro && (
         <>
           <Card
-            width="520px"
-            titleFontSize="40px"
-            contentFontSize="13.2px"
+            width="350px"
+            titleFontSize="30px"
+            contentFontSize="12px"
             borderBottom="0.5px solid #6A1F11"
             backgroundColor="#FFD9BC"
             color="#6A1F11"
