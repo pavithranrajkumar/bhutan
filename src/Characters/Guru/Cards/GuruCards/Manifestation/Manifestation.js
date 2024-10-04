@@ -5,9 +5,14 @@ import { GURU_INFORMATION } from "../../../../../constants/Characters/Guru";
 import ManifestationImg from "../../../../../assests/Guru/Manifestation/Manifestation.png";
 import WideCard from "../../../../../components/WideCard/WideCard";
 import { label } from "framer-motion/client";
+import { BHUTAN } from "../../../../../constants/languages/Language";
 
-const Manifestation = ({ showIntro, onManifestationsCardClick }) => {
-  const [language, setLanguage] = useState("english");
+const Manifestation = ({ showIntro, onManifestationsCardClick, language }) => {
+  const titleFontSize = language === BHUTAN ? "12px" : "25px";
+  const fonstSize = language === BHUTAN ? "7px" : "11.5px";
+
+  const headerFontSize = language === BHUTAN ? "3px" : "7px";
+  const paraFontSize = language === BHUTAN ? "3.5px" : "6.5px";
 
   const manifestationsData = [
     {
@@ -75,8 +80,8 @@ const Manifestation = ({ showIntro, onManifestationsCardClick }) => {
           <Card
             width="260px"
             height="300px"
-            titleFontSize="25px"
-            contentFontSize="11.5px"
+            titleFontSize={titleFontSize}
+            contentFontSize={fonstSize}
             borderBottom="0.5px solid #A06611"
             color="#A06611"
             backgroundColor="#FADFB6"
@@ -100,6 +105,8 @@ const Manifestation = ({ showIntro, onManifestationsCardClick }) => {
                 FrstHeader={item.FrstHeader}
                 ScndHeader={item.ScndHeader}
                 para={item.para}
+                headerFontSize={headerFontSize}
+                paraFontSize={paraFontSize}
               />
             ))}
           </div>

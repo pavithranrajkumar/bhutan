@@ -18,9 +18,18 @@ import BurningLake from "./cards/RevelationsCard/BurningLake/BurningLake";
 import NaringDragBook from "./BookAnimation/NaringDragBook/NaringDragBook";
 import BurningLakeBook from "./BookAnimation/BurningLake";
 import PreviousIcon from "../../components/Card/Icons/PreviousIcon/PreviousIcon";
-import { tr } from "framer-motion/client";
 import Monastries from "./cards/LegacyCards/Monastries/Monastries";
 import PelingDance from "./cards/LegacyCards/PelingDance/PelingDance";
+import MonasteriesImg1 from "../../assests/PemaLingpa/Legacy/Monastries/MonastreriesImg1.png";
+import MonasteriesImg2 from "../../assests/PemaLingpa/Legacy/Monastries/MonastreriesImg2.png";
+import MonasteriesImg3 from "../../assests/PemaLingpa/Legacy/Monastries/MonastreriesImg3.png";
+import MonasteriesImg4 from "../../assests/PemaLingpa/Legacy/Monastries/MonastreriesImg4.png";
+import MonasteriesImg5 from "../../assests/PemaLingpa/Legacy/Monastries/MonastreriesImg5.png";
+import MonasteriesImg6 from "../../assests/PemaLingpa/Legacy/Monastries/MonastreriesImg6.png";
+import MonasteriesImg7 from "../../assests/PemaLingpa/Legacy/Monastries/MonastreriesImg7.png";
+import MonasteriesImg8 from "../../assests/PemaLingpa/Legacy/Monastries/MonastreriesImg8.png";
+import { PEMA_LINGPA_INFORMATION } from "../../constants/Characters/PremaLingpa";
+import PelingDanceVideo from "../../assests/PemaLingpa/Legacy/PelingDanceCard.png";
 
 const PemaLinghpa = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -36,8 +45,9 @@ const PemaLinghpa = () => {
   const [showNaringDragBookImg, setShowNaringDragBookImg] = useState(false);
   const [showBurningLakeBookImg, setShowBurningLakeBookImg] = useState(false);
   const [showMonasteriesCard, setShowMonasteriesCard] = useState(false);
-
   const [showPelingDanceCard, setShowPelingDanceCard] = useState(false);
+  const [showMonasteriesImgCard, setShowMonasteriesImgCard] = useState(false);
+  const [showPelingdanceImgs, setShowPelingdanceImgs] = useState(false);
 
   const toggleLanguage = () => {
     setLanguage((prevLanguage) =>
@@ -52,20 +62,32 @@ const PemaLinghpa = () => {
       showBurningLakeCard ||
       showNaringDragCard ||
       showNaringDragBookImg ||
-      showBurningLakeBookImg
+      showBurningLakeBookImg ||
+      showMonasteriesCard ||
+      showPelingDanceCard ||
+      showMonasteriesImgCard ||
+      showPelingdanceImgs
     ) {
-      setShowCards(false);
-      setSelectedCard(null);
-      setShowNaringDragCard(false);
-      setShowBurningLakeCard(false);
-      setShowBurningLakeBookImg(false);
-      setShowNaringDragBookImg(false);
+      resetView();
     } else {
       setShowYearText(false);
       setShowIntroduction(true);
       setShowIcons(true);
       setIsActive(true);
     }
+  };
+
+  const resetView = () => {
+    setShowCards(false);
+    setSelectedCard(null);
+    setShowNaringDragCard(false);
+    setShowBurningLakeCard(false);
+    setShowBurningLakeBookImg(false);
+    setShowNaringDragBookImg(false);
+    setShowMonasteriesCard(false);
+    setShowPelingDanceCard(false);
+    setShowMonasteriesImgCard(false);
+    setShowPelingdanceImgs(false);
   };
 
   const handleShowCards = () => {
@@ -119,6 +141,62 @@ const PemaLinghpa = () => {
     setSelectedCard(null);
     setShowPelingDanceCard(true);
   };
+
+  const handleShowMonasteriesImgCard = () => {
+    setShowMonasteriesCard(false);
+    setShowMonasteriesImgCard(true);
+  };
+
+  const handleOpenPeleingCard = () => {
+    setShowMonasteriesImgCard(false);
+    setShowPelingDanceCard(true);
+  };
+
+  const handleOpenPelingdanceImgs = () => {
+    setShowPelingDanceCard(false);
+    setShowPelingdanceImgs(true);
+  };
+
+  const handlePreviousClick = () => {
+    if (showBurningLakeBookImg) {
+      setShowBurningLakeBookImg(false);
+      setShowBurningLakeCard(true);
+    } else if (showNaringDragBookImg) {
+      setShowNaringDragBookImg(false);
+      setShowNaringDragCard(true);
+    } else if (showPelingdanceImgs) {
+      setShowPelingdanceImgs(false);
+      setShowPelingDanceCard(true);
+    } else if (showMonasteriesImgCard) {
+      setShowMonasteriesImgCard(false);
+      setShowMonasteriesCard(true);
+    }
+  };
+
+  const handleHomeClick = () => {
+    setShowCards(true);
+    setSelectedCard(null);
+    setShowNaringDragCard(false);
+    setShowBurningLakeCard(false);
+    setShowBurningLakeBookImg(false);
+    setShowNaringDragBookImg(false);
+    setShowMonasteriesCard(false);
+    setShowPelingDanceCard(false);
+    setShowMonasteriesImgCard(false);
+    setShowPelingdanceImgs(false);
+  };
+
+  const handleNextIcon = () => {
+    if (showIntroduction) {
+      setShowIntroduction(false);
+      setShowCards(true);
+    } else if (selectedCard === "historic") {
+      setSelectedCard("lineage");
+    } else if (selectedCard === "lineage") {
+      setSelectedCard("revelations");
+    }
+  };
+
   return (
     <motion.div
       className={styles.pemaContainer}
@@ -231,7 +309,7 @@ const PemaLinghpa = () => {
             IconHeight="25px"
             left="64%"
             top="91%"
-            height="55px"
+            height="60px"
           />
         </>
       )}
@@ -245,11 +323,13 @@ const PemaLinghpa = () => {
 
                 <LanguageIcon
                   showIcons={showIcons}
-                  left="60.5%"
+                  left="61%"
                   top="96%"
                   iconWidth="25px"
                   IconHeight="25px"
-                  height="55px"
+                  height="48px"
+                  width="50px"
+                  margin="13px"
                   background="#3A1701"
                 />
                 <HomeIcon
@@ -260,7 +340,7 @@ const PemaLinghpa = () => {
                   height="70px"
                   width="80px"
                   margin="25px"
-                  // onClick={handleHomeClick}
+                  onClick={handleHomeClick}
                 />
                 <NextIcon
                   showIcons={showIcons}
@@ -272,7 +352,7 @@ const PemaLinghpa = () => {
                   margin="25px"
                   background="#3A1701"
                   color="#FFD9BC"
-                  // onClick={handleShowCards}
+                  onClick={handleNextIcon}
                 />
               </div>
             </>
@@ -281,7 +361,11 @@ const PemaLinghpa = () => {
           {selectedCard === "lineage" && (
             <>
               <div className={styles.LineageCard}>
-                <LineageCard language={language} showIntro={true} />
+                <LineageCard
+                  language={language}
+                  showIntro={true}
+                  showIcons={showIcons}
+                />
 
                 <LanguageIcon
                   showIcons={showIcons}
@@ -299,19 +383,8 @@ const PemaLinghpa = () => {
                   background="#6A1F11"
                   height="70px"
                   width="80px"
-                  margin="25px" // onClick={handleHomeClick}
-                />
-                <NextIcon
-                  showIcons={showIcons}
-                  whiteImage={true}
-                  left="76.5%"
-                  top="82%"
-                  height="70px"
-                  width="80px"
                   margin="25px"
-                  background="#3A1701"
-                  color="#FFD9BC"
-                  // onClick={handleShowCards}
+                  onClick={handleHomeClick}
                 />
               </div>
             </>
@@ -343,7 +416,8 @@ const PemaLinghpa = () => {
                   background="#6A1F11"
                   height="70px"
                   width="80px"
-                  margin="25px" // onClick={handleHomeClick}
+                  margin="25px"
+                  onClick={handleHomeClick}
                 />
               </div>
             </>
@@ -375,7 +449,8 @@ const PemaLinghpa = () => {
                   background="#6A1F11"
                   height="70px"
                   width="80px"
-                  margin="25px" // onClick={handleHomeClick}
+                  margin="25px"
+                  onClick={handleHomeClick}
                 />
               </div>
             </>
@@ -392,6 +467,27 @@ const PemaLinghpa = () => {
               onNaringDragBookImgClick={handleNaringDragBookImgClick}
             />
           </div>
+          <LanguageIcon
+            showIcons={showIcons}
+            left="61%"
+            top="96%"
+            iconWidth="25px"
+            IconHeight="25px"
+            height="48px"
+            width="50px"
+            margin="13px"
+            whiteImage={true}
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            left="60.2%"
+            top="92.5%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            onClick={handleHomeClick}
+            whiteImage={true}
+          />
         </>
       )}
 
@@ -406,7 +502,7 @@ const PemaLinghpa = () => {
             />
           </div>
           <PreviousIcon
-            // onClick={handlePreviousClick}
+            onClick={handlePreviousClick}
             showIcons={showIcons}
             left="60.5%"
             top="84.5%"
@@ -420,7 +516,8 @@ const PemaLinghpa = () => {
             top="91%"
             height="70px"
             width="80px"
-            margin="25px" // onClick={handleHomeClick}
+            margin="25px"
+            onClick={handleHomeClick}
           />
           <LanguageIcon
             showIcons={showIcons}
@@ -445,7 +542,7 @@ const PemaLinghpa = () => {
             />
           </div>
           <PreviousIcon
-            // onClick={handlePreviousClick}
+            onClick={handlePreviousClick}
             showIcons={showIcons}
             left="60.5%"
             top="84.5%"
@@ -459,7 +556,8 @@ const PemaLinghpa = () => {
             top="91%"
             height="70px"
             width="80px"
-            margin="25px" // onClick={handleHomeClick}
+            margin="25px"
+            onClick={handleHomeClick}
           />
           <LanguageIcon
             showIcons={showIcons}
@@ -482,22 +580,201 @@ const PemaLinghpa = () => {
               onBurningLakeBookImgClick={handleBurningLakeBookImgClick}
             />
           </div>
+          <LanguageIcon
+            showIcons={showIcons}
+            left="61%"
+            top="96%"
+            iconWidth="25px"
+            IconHeight="25px"
+            height="48px"
+            width="50px"
+            margin="13px"
+            whiteImage={true}
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            left="60.2%"
+            top="92.5%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            onClick={handleHomeClick}
+            whiteImage={true}
+          />
         </>
       )}
 
       {showMonasteriesCard && (
         <>
           <div className={styles.MonasteriesCard}>
-            <Monastries language={language} showIntro={true} />
+            <Monastries
+              language={language}
+              showIntro={true}
+              onMonasteriesImgClick={handleShowMonasteriesImgCard}
+            />
           </div>
+          <LanguageIcon
+            showIcons={showIcons}
+            left="61%"
+            top="96%"
+            iconWidth="25px"
+            IconHeight="25px"
+            height="48px"
+            width="50px"
+            margin="13px"
+            whiteImage={true}
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            left="60.2%"
+            top="92.5%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            onClick={handleHomeClick}
+            whiteImage={true}
+          />
+        </>
+      )}
+
+      {showMonasteriesImgCard && (
+        <>
+          <div className={styles.MonasteriesImgs}>
+            <div className={styles.MonasteriesImg1}>
+              <img src={MonasteriesImg1} alt="MonasteriesImg1" />
+            </div>
+            <div className={styles.MonasteriesImg2}>
+              <img src={MonasteriesImg2} alt="MonasteriesImg2" />
+            </div>
+            <div className={styles.MonasteriesImg3}>
+              <img src={MonasteriesImg3} alt="MonasteriesImg3" />
+            </div>
+            <div className={styles.MonasteriesImg4}>
+              <img src={MonasteriesImg4} alt="MonasteriesImg4" />
+            </div>
+            <div className={styles.MonasteriesImg5}>
+              <img src={MonasteriesImg5} alt="MonasteriesImg5" />
+            </div>
+            <div className={styles.MonasteriesImg6}>
+              <img src={MonasteriesImg6} alt="MonasteriesImg6" />
+            </div>
+            <div className={styles.MonasteriesImg7}>
+              <img src={MonasteriesImg7} alt="MonasteriesImg7" />
+            </div>
+            <div className={styles.MonasteriesImg8}>
+              <img src={MonasteriesImg8} alt="MonasteriesImg8" />
+            </div>
+            <div
+              className={styles.SmallPeilingCard}
+              onClick={handleOpenPeleingCard}
+            >
+              <div className={styles.SmallPeilingCardHeader}>
+                {PEMA_LINGPA_INFORMATION[language].pelingdance.header}
+              </div>
+              <div className={styles.SmallPeilingCardTitle}>
+                {PEMA_LINGPA_INFORMATION[language].pelingdance.title}
+              </div>
+            </div>
+          </div>
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="59.6%"
+            top="84.5%"
+            height="130px"
+            marginTop="50px"
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            whiteImage={true}
+            left="59.6%"
+            top="91%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            onClick={handleHomeClick}
+          />
+          <LanguageIcon
+            showIcons={showIcons}
+            whiteImage={true}
+            left="60.4%"
+            top="94.8%"
+            iconWidth="25px"
+            IconHeight="25px"
+            height="50px"
+            width="50px"
+            margin="12px"
+          />
         </>
       )}
 
       {showPelingDanceCard && (
         <>
           <div className={styles.PelingDanceCard}>
-            <PelingDance language={language} showIntro={true} />
+            <PelingDance
+              language={language}
+              showIntro={true}
+              onPelingdanceImgClick={handleOpenPelingdanceImgs}
+            />
           </div>
+          <HomeIcon
+            showIcons={showIcons}
+            whiteImage={true}
+            left="60.2%"
+            top="91%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            onClick={handleHomeClick}
+          />
+          <LanguageIcon
+            showIcons={showIcons}
+            whiteImage={true}
+            left="61%"
+            top="94.5%"
+            iconWidth="25px"
+            IconHeight="25px"
+            height="50px"
+            width="50px"
+            margin="12px"
+          />
+        </>
+      )}
+
+      {showPelingdanceImgs && (
+        <>
+          <div className={styles.PelingDanceVideo}>
+            <img src={PelingDanceVideo} alt="PelingDanceVideo" />
+          </div>
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="59.6%"
+            top="84.5%"
+            height="130px"
+            marginTop="50px"
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            whiteImage={true}
+            left="59.6%"
+            top="91%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            onClick={handleHomeClick}
+          />
+          <LanguageIcon
+            showIcons={showIcons}
+            whiteImage={true}
+            left="60.4%"
+            top="94.8%"
+            iconWidth="25px"
+            IconHeight="25px"
+            height="50px"
+            width="50px"
+            margin="12px"
+          />
         </>
       )}
     </motion.div>

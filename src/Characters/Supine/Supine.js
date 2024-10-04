@@ -20,6 +20,7 @@ import JambayImg1 from "../../assests/Supine/JambayCard/Imgs/JamBayImgs1.png";
 import JambayImg2 from "../../assests/Supine/JambayCard/Imgs/JamBayImgs2.png";
 import KyichuImg1 from "../../assests/Supine/KyichuImgs/KyichuImg1.png";
 import KyichuImg2 from "../../assests/Supine/KyichuImgs/KyichuImg2.png";
+import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
 
 const Supine = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -35,10 +36,17 @@ const Supine = () => {
   const [showJamBayImages, setShowJamBayImages] = useState(false);
   const [showKyichuImages, setShowKyichuImages] = useState(false);
 
+  const kyichuFontSize = language === BHUTAN ? "25px" : "25px";
+  const cardNameFontSize = language === BHUTAN ? "10px" : "15px";
+  const subCardnameFontSize = language === BHUTAN ? "10px" : "15px";
+  const subCardnameMarginLeft = language === BHUTAN ? "150px" : "125px";
+
   const toggleLanguage = () => {
-    setLanguage((prevLanguage) =>
-      prevLanguage === "english" ? "bhutan" : "english"
-    );
+    setLanguage((prevLanguage) => {
+      const newLanguage = prevLanguage === ENGLISH ? BHUTAN : ENGLISH;
+      console.log("Language changed to:", newLanguage);
+      return newLanguage;
+    });
   };
 
   const handleCardOrImageClick = () => {
@@ -235,13 +243,13 @@ const Supine = () => {
             onClick={handleCardOrImageClick}
           >
             <NameCard
-              cardName="SUPINE"
-              subCardname="DEMONESS"
+              cardName={SUPINE_INFORMATION[language].nameCardtitle}
+              subCardname={SUPINE_INFORMATION[language].nameCardtitleTwo}
               width="250px"
               height="80px"
-              fontSize="15px"
-              subCardnameFontSize="15px"
-              subCardnameMarginLeft="125px"
+              fontSize={cardNameFontSize}
+              subCardnameFontSize={subCardnameFontSize}
+              subCardnameMarginLeft={subCardnameMarginLeft}
               background={nameCardBackground}
               color={nameCardColor}
               year={
@@ -321,19 +329,21 @@ const Supine = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             supine={true}
+            background="#3A3C25"
+            left="4.8%"
+            top="84%"
             iconWidth="25px"
             IconHeight="25px"
-            left="4.8%"
-            top="86%"
-            height="55px"
-            background="#3A3C25"
+            height="50px"
+            width="55px"
+            margin="13px"
           />
           <HomeIcon
             showIcons={showIcons}
             supine={true}
             background="#555835"
             left="4.4%"
-            top="82.5%"
+            top="80%"
             height="70px"
             width="80px"
             margin="25px"
@@ -352,7 +362,7 @@ const Supine = () => {
             showIcons={showIcons}
             whiteImage={true}
             left="5.3%"
-            top="86%"
+            top="83.8%"
             iconWidth="25px"
             IconHeight="25px"
             height="50px"
@@ -363,9 +373,9 @@ const Supine = () => {
             onClick={handlePreviousClick}
             showIcons={showIcons}
             left="4.7%"
-            top="81.5%"
+            top="80%"
             height="80px"
-            margin="25px"
+            marginTop="28px"
           />
         </>
       )}
@@ -385,9 +395,11 @@ const Supine = () => {
               whiteImage={true}
               iconWidth="25px"
               IconHeight="25px"
-              left="4.8%"
+              height="48px"
+              width="50px"
+              margin="13px"
+              left="5.4%"
               top="83.5%"
-              height="55px"
             />
             <PreviousIcon
               onClick={handlePreviousClick}
@@ -395,7 +407,7 @@ const Supine = () => {
               left="4.7%"
               top="76.1%"
               height="80px"
-              margin="25px"
+              marginTop="28px"
             />
             <HomeIcon
               showIcons={showIcons}
@@ -411,7 +423,7 @@ const Supine = () => {
         </>
       )}
 
-      {selectedCard === "jamBay" && !showJamBayImages && (
+      {selectedCard === "jamBay" && (
         <>
           <div className={styles.JamBayCard}>
             <JamBayCard
@@ -439,7 +451,7 @@ const Supine = () => {
             top="70.1%"
             height="80px"
             background="#555835"
-            margin="25px"
+            marginTop="28px"
           />
           <HomeIcon
             showIcons={showIcons}
@@ -469,7 +481,9 @@ const Supine = () => {
             className={styles.JamBayImagesCard}
             onClick={handleJamBayImagesCardClick}
           >
-            <p>KYICHU LHAKHANG</p>
+            <p style={{ fontSize: kyichuFontSize, marginLeft: "40px" }}>
+              {SUPINE_INFORMATION[language].kyichu.title}
+            </p>
           </div>
           <LanguageIcon
             onClick={toggleLanguage}
@@ -490,7 +504,7 @@ const Supine = () => {
             top="75%"
             height="80px"
             background="#555835"
-            margin="25px"
+            marginTop="28px"
           />
           <HomeIcon
             showIcons={showIcons}
@@ -534,7 +548,7 @@ const Supine = () => {
             top="72.6%"
             height="80px"
             background="#555835"
-            margin="25px"
+            marginTop="28px"
           />
           <HomeIcon
             showIcons={showIcons}
@@ -564,7 +578,15 @@ const Supine = () => {
             className={styles.KyichuImagesCard}
             onClick={handleKyichuImagesCardClick}
           >
-            <p style={{ marginTop: "15px" }}>JAMBAY LHAKHANG</p>
+            <p
+              style={{
+                fontSize: kyichuFontSize,
+                marginLeft: "40px",
+                marginTop: "5px",
+              }}
+            >
+              <p>{SUPINE_INFORMATION[language].jambay.title}</p>
+            </p>
           </div>
           <LanguageIcon
             onClick={toggleLanguage}
@@ -585,7 +607,7 @@ const Supine = () => {
             top="75%"
             height="80px"
             background="#555835"
-            margin="25px"
+            marginTop="28px"
           />
           <HomeIcon
             showIcons={showIcons}

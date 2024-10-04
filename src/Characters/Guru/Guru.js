@@ -26,6 +26,7 @@ import KurjeImg3 from "../../assests/Guru/Historic/KurjeImgs/KurjImg3.png";
 import KurjeImg4 from "../../assests/Guru/Historic/KurjeImgs/KurjImg4.png";
 import LakeBornWideCard from "./Cards/GuruCards/Manifestation/LakeBornWideCard/LakeBornWideCard";
 import LionOfShakyas from "./Cards/GuruCards/Manifestation/LionOfShakyas/LionOfShakyas";
+import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
 
 const Guru = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -43,10 +44,29 @@ const Guru = () => {
   const [showLakeBornWideCards, setShowLakeBornWideCards] = useState(false);
   const [showLionOfShakyas, setShowLionOfShakyas] = useState(false);
 
+  const paraSize =
+    language === BHUTAN
+      ? showCards || selectedCard || showIntroduction
+        ? "13px"
+        : "18px"
+      : showCards || selectedCard || showIntroduction
+      ? "15px"
+      : "20px";
+  const fontSize =
+    language === BHUTAN
+      ? showCards || selectedCard || showIntroduction
+        ? "17px"
+        : "19px"
+      : showCards || selectedCard || showIntroduction
+      ? "19px"
+      : "20px";
+
   const toggleLanguage = () => {
-    setLanguage((prevLanguage) =>
-      prevLanguage === "english" ? "bhutan" : "english"
-    );
+    setLanguage((prevLanguage) => {
+      const newLanguage = prevLanguage === ENGLISH ? BHUTAN : ENGLISH;
+      console.log("Language changed to:", newLanguage);
+      return newLanguage;
+    });
   };
 
   const resetStates = () => {
@@ -245,18 +265,14 @@ const Guru = () => {
           onClick={handleCardOrImageClick}
         >
           <NameCard
-            cardName="GURU PINPOCHE/"
+            cardName={GURU_INFORMATION[language].cardName}
             width="200px"
             height="90px"
-            subCardname="PADMANASAMBHAVA"
-            subCardnameFontSize="12px"
-            subCardnameMarginLeft="40px"
-            paraSize={
-              showCards || selectedCard || showIntroduction ? "15px" : "20px"
-            }
-            fontSize={
-              showCards || selectedCard || showIntroduction ? "19px" : "20px"
-            }
+            subCardname={GURU_INFORMATION[language].subCardName}
+            subCardnameFontSize={language === BHUTAN ? "10px" : "12px"}
+            subCardnameMarginLeft={language === BHUTAN ? "90px" : "40px"}
+            paraSize={paraSize}
+            fontSize={fontSize}
             year={
               showCards || selectedCard || showIntroduction
                 ? "900-1000"
@@ -286,9 +302,13 @@ const Guru = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
-            left="27.4%"
-            top="93.9%"
-            height="65px"
+            left="27.8%"
+            top="95.5%"
+            iconWidth="25px"
+            IconHeight="25px"
+            height="48px"
+            width="50px"
+            margin="13px"
           />
         </>
       )}
@@ -417,7 +437,7 @@ const Guru = () => {
             left="24.7%"
             top="83.6%"
             height="80px"
-            margin="25px"
+            marginTop="28px"
           />
         </>
       )}
@@ -485,7 +505,7 @@ const Guru = () => {
             left="24.9%"
             top="77.5%"
             height="80px"
-            margin="25px"
+            marginTop="28px"
             background="#A06611"
           />
         </div>
@@ -524,7 +544,7 @@ const Guru = () => {
             left="24.9%"
             top="77.5%"
             height="80px"
-            margin="25px"
+            marginTop="28px"
             background="#A06611"
           />
         </>
@@ -560,7 +580,7 @@ const Guru = () => {
             left="24.9%"
             top="77.5%"
             height="80px"
-            margin="25px"
+            marginTop="28px"
             background="#A06611"
           />
         </>
@@ -639,7 +659,7 @@ const Guru = () => {
             left="22.2%"
             top="81.5%"
             height="80px"
-            margin="25px"
+            marginTop="28px"
           />
         </>
       )}

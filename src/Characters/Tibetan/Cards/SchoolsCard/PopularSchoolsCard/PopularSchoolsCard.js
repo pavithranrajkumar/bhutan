@@ -3,20 +3,23 @@ import { TIBETAN_INFORMATION } from "../../../../../constants/Characters/Tibetan
 import BigCard from "../../../../../components/BigCard/BigCard";
 import styles from "./PopularSchoolsCard.module.css";
 import popularImg from "../../../../../assests/Tibetan/PopularSchools/PopularSchools.png";
+import { BHUTAN } from "../../../../../constants/languages/Language";
 
 const PopularSchoolsCard = ({
   showIntro,
   language,
   onPopularSchoolsImgClick,
 }) => {
+  const titleFontSize = language === BHUTAN ? "12px" : "25px";
+  const fonstSize = language === BHUTAN ? "7px" : "10.5px";
   return (
     <div>
       {showIntro && (
         <>
           <BigCard
             width="350px"
-            titleFontSize="25px"
-            cardFontSize="10.5px"
+            titleFontSize={titleFontSize}
+            cardFontSize={fonstSize}
             borderBottom="1px solid #001829"
             backgroundColor="#C9D7EE"
             color="#001829"

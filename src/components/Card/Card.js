@@ -16,6 +16,7 @@ const Card = ({
   titleFontSize,
   contentFontSize,
   height,
+  fontWeight,
 }) => {
   const cardStyles = {
     fontSize: language === "bhutan" ? "12px" : "13px",
@@ -57,7 +58,7 @@ const Card = ({
             </div>
             <div
               className={styles.CardTitle}
-              style={{ fontSize: titleFontSize, borderBottom }}
+              style={{ fontSize: titleFontSize, borderBottom, fontWeight }}
             >
               {title}
             </div>

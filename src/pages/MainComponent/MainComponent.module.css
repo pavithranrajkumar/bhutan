@@ -16,6 +16,7 @@
   height: 1px;
   background-color: #aa5018;
   z-index: 1;
+  border: none;
 }
 
 .horizontalLine2 {
@@ -28,6 +29,7 @@
   height: 1px;
   background-color: #aa5018;
   z-index: 1;
+  border: none;
 }
 
 .radioBtn,

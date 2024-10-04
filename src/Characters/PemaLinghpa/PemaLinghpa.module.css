@@ -115,3 +115,94 @@
   left: 62.5%;
   top: 84.5%;
 }
+
+.MonasteriesImg1 {
+  position: fixed;
+  left: 61.5%;
+  top: 85%;
+  width: 180px;
+  height: 180px;
+}
+
+.MonasteriesImg2 {
+  position: fixed;
+  left: 65.6%;
+  top: 84.5%;
+  width: 100px;
+  height: 100px;
+}
+
+.MonasteriesImg3 {
+  position: fixed;
+  left: 67.6%;
+  top: 85.5%;
+  width: 90px;
+  height: 80px;
+}
+
+.MonasteriesImg4 {
+  position: fixed;
+  left: 69.3%;
+  top: 83.2%;
+  width: 120px;
+  height: 130px;
+}
+
+.MonasteriesImg5 {
+  position: fixed;
+  left: 71.9%;
+  top: 84.5%;
+  width: 150px;
+  height: 150px;
+}
+
+.MonasteriesImg6 {
+  position: fixed;
+  left: 65.6%;
+  top: 88.2%;
+  width: 130px;
+  height: 130px;
+}
+
+.MonasteriesImg7 {
+  position: fixed;
+  left: 68.4%;
+  top: 88.2%;
+  width: 155px;
+  height: 160px;
+}
+
+.MonasteriesImg8 {
+  position: fixed;
+  left: 71.9%;
+  top: 90.4%;
+  width: 100px;
+  height: 100px;
+}
+
+.SmallPeilingCard {
+  cursor: pointer;
+  position: fixed;
+  background: #c9d7ee;
+  left: 74.3%;
+  top: 91%;
+  padding: 0.3vw;
+  width: 120px;
+}
+
+.SmallPeilingCardHeader {
+  font-family: "Josefin Sans";
+}
+
+.SmallPeilingCardTitle {
+  font-family: "Hammersmith One";
+}
+
+.PelingDanceVideo {
+  cursor: pointer;
+  position: fixed;
+  left: 65%;
+  top: 85%;
+  width: 200px;
+  height: 200px;
+}

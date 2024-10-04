@@ -4,16 +4,19 @@ import styles from "./KyichuCard.module.css";
 import kyichuImg from "../../../../assests/Supine/JambayCard/KyichuCard.png";
 import { SUPINE_INFORMATION } from "../../../../constants/Characters/Supine";
 import Card from "../../../../components/Card/Card";
+import { BHUTAN } from "../../../../constants/languages/Language";
 
 const KyichuCard = ({ showIntro, language, onKyichuCardImageClick }) => {
+  const titleFontSize = language === BHUTAN ? "12px" : "20px";
+  const fonstSize = language === BHUTAN ? "7px" : "11.1px";
   return (
     <div>
       {showIntro && (
         <>
           <Card
             width="250px"
-            titleFontSize="20px"
-            contentFontSize="11.1px"
+            titleFontSize={titleFontSize}
+            contentFontSize={fonstSize}
             borderBottom="0.5px solid #555835"
             backgroundColor="#CECE9B"
             color="#555835"

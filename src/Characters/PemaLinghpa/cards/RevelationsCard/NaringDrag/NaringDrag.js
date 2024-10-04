@@ -13,7 +13,10 @@ const NaringDrag = ({ showIntro, language, onNaringDragBookImgClick }) => {
             width="330px"
             titleFontSize="20px"
             contentFontSize="11.3px"
-            borderBottom="0.5px solid white"
+            borderBottom="0.5px solid #001829"
+            backgroundColor="#C9D7EE"
+            color="#001829"
+            fontWeight="900"
             header={PEMA_LINGPA_INFORMATION[language].naringDrag.header}
             title={PEMA_LINGPA_INFORMATION[language].naringDrag.title}
             content={PEMA_LINGPA_INFORMATION[language].naringDrag.content}

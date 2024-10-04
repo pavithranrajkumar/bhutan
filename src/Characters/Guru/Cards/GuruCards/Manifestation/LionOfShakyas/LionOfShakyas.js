@@ -3,8 +3,12 @@ import WideCard from "../../../../../../components/WideCard/WideCard";
 import { GURU_INFORMATION } from "../../../../../../constants/Characters/Guru";
 import LionOFShakyasImg from "../../../../../../assests/Guru/Manifestation/LionOFShakyasImg.png";
 import styles from "./LionOfShakyas.module.css";
+import { BHUTAN } from "../../../../../../constants/languages/Language";
 
 const LionOfShakyas = ({ language }) => {
+  const headerFontSize = language === BHUTAN ? "3px" : "7px";
+  const paraFontSize = language === BHUTAN ? "3.5px" : "6.5px";
+
   const manifestationsData = [
     {
       FrstHeader:
@@ -77,6 +81,8 @@ const LionOfShakyas = ({ language }) => {
             para={manifestation.para}
             width="200px"
             height="35px"
+            headerFontSize={headerFontSize}
+            paraFontSize={paraFontSize}
           />
         ))}
       </div>
@@ -90,6 +96,8 @@ const LionOfShakyas = ({ language }) => {
             para={manifestation.para}
             width="190px"
             height="35px"
+            headerFontSize={headerFontSize}
+            paraFontSize={paraFontSize}
           />
         ))}
       </div>

@@ -3,8 +3,12 @@ import { GURU_INFORMATION } from "../../../../../../constants/Characters/Guru";
 import WideCard from "../../../../../../components/WideCard/WideCard";
 import styles from "./LakeBornWideCard.module.css";
 import LakeImg from "../../../../../../assests/Guru/Manifestation/lakeBornImg.png";
+import { BHUTAN } from "../../../../../../constants/languages/Language";
 
 const LakeBornWideCard = ({ onLakeBornCardClick, language }) => {
+  const headerFontSize = language === BHUTAN ? "3px" : "7px";
+  const paraFontSize = language === BHUTAN ? "3.5px" : "6.5px";
+
   const manifestationsData = [
     {
       FrstHeader:
@@ -83,6 +87,8 @@ const LakeBornWideCard = ({ onLakeBornCardClick, language }) => {
             className={styles.firstGroupWideCard}
             width="200px"
             height="35px"
+            headerFontSize={headerFontSize}
+            paraFontSize={paraFontSize}
           />
         ))}
       </div>
@@ -96,6 +102,8 @@ const LakeBornWideCard = ({ onLakeBornCardClick, language }) => {
             para={manifestation.para}
             width="190px"
             height="35px"
+            headerFontSize={headerFontSize}
+            paraFontSize={paraFontSize}
           />
         ))}
       </div>

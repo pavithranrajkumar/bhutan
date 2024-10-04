@@ -3,18 +3,19 @@ import styles from "./KurjeLhakhang.module.css";
 import temple from "../../../../../../assests/Guru/Historic/Kurjetemple.png";
 import Card from "../../../../../../components/Card/Card";
 import { GURU_INFORMATION } from "../../../../../../constants/Characters/Guru";
+import { BHUTAN } from "../../../../../../constants/languages/Language";
 
-const KurjeLhakhang = ({ showIntro, onKurjeTempleClick }) => {
-  const [language, setLanguage] = useState("english");
-
+const KurjeLhakhang = ({ showIntro, onKurjeTempleClick, language }) => {
+  const titleFontSize = language === BHUTAN ? "12px" : "25px";
+  const fonstSize = language === BHUTAN ? "7px" : "11.5px";
   return (
     <div>
       {showIntro && (
         <>
           <Card
             width="250px"
-            titleFontSize="25px"
-            contentFontSize="11.5px"
+            titleFontSize={titleFontSize}
+            contentFontSize={fonstSize}
             borderBottom="0.5px solid #2B455D"
             color="#2B455D"
             backgroundColor="#C9D7EE"

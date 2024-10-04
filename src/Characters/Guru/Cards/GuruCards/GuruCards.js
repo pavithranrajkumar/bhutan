@@ -2,8 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import styles from "./GuruCards.module.css";
 import { GURU_INFORMATION } from "../../../../constants/Characters/Guru";
+import { BHUTAN } from "../../../../constants/languages/Language";
 
 const GuruCards = ({ isFadingOut, language, onCardClick }) => {
+  const fonstSize = language === BHUTAN ? "11.5px" : "14px";
   return (
     <div>
       <motion.div
@@ -19,7 +21,10 @@ const GuruCards = ({ isFadingOut, language, onCardClick }) => {
           transition={{ duration: 1 }}
           onClick={() => onCardClick("historic")}
         >
-          <div className={styles.CardsContainerText}>
+          <div
+            className={styles.CardsContainerText}
+            style={{ fontSize: fonstSize }}
+          >
             {GURU_INFORMATION[language].historicBackground.title}
           </div>
         </motion.div>
@@ -30,8 +35,11 @@ const GuruCards = ({ isFadingOut, language, onCardClick }) => {
           transition={{ duration: 1 }}
           onClick={() => onCardClick("manifestation")}
         >
-          <div className={styles.CardsContainerText}>
-            GURU TSHENGYE 8 MANIFESTATIONS
+          <div
+            className={styles.CardsContainerText}
+            style={{ fontSize: fonstSize }}
+          >
+            {GURU_INFORMATION[language].guruCards.title}{" "}
           </div>
         </motion.div>
         <motion.div
@@ -41,8 +49,11 @@ const GuruCards = ({ isFadingOut, language, onCardClick }) => {
           transition={{ duration: 1 }}
           onClick={() => onCardClick("palace")}
         >
-          <div className={styles.CardsContainerText}>
-            GURU IN WANGDUECHHOELING PALACE
+          <div
+            className={styles.CardsContainerText}
+            style={{ fontSize: fonstSize }}
+          >
+            {GURU_INFORMATION[language].guruCards.header}
           </div>
         </motion.div>
       </motion.div>

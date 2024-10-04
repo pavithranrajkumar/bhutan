@@ -13,7 +13,9 @@ const BurningLake = ({ showIntro, language, onBurningLakeBookImgClick }) => {
             width="330px"
             titleFontSize="20px"
             contentFontSize="11.1px"
-            borderBottom="0.5px solid white"
+            borderBottom="0.5px solid #001829"
+            backgroundColor="#C9D7EE"
+            color="#001829"
             header={PEMA_LINGPA_INFORMATION[language].burningLake.header}
             title={PEMA_LINGPA_INFORMATION[language].burningLake.title}
             content={PEMA_LINGPA_INFORMATION[language].burningLake.content}

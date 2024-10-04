@@ -46,6 +46,7 @@ import DrugpaKagyuImg15 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg15
 import DrugpaKagyuImg16 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg16.png";
 import DrugpaKagyuImg17 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg17.png";
 import DrugpaKagyuImg18 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg18.png";
+import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
 
 const Tibetan = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -101,9 +102,11 @@ const Tibetan = () => {
   };
 
   const toggleLanguage = () => {
-    setLanguage((prevLanguage) =>
-      prevLanguage === "english" ? "bhutan" : "english"
-    );
+    setLanguage((prevLanguage) => {
+      const newLanguage = prevLanguage === ENGLISH ? BHUTAN : ENGLISH;
+      console.log("Language changed to:", newLanguage);
+      return newLanguage;
+    });
   };
 
   const showTibetanCards = () => {
@@ -188,6 +191,23 @@ const Tibetan = () => {
     ? "#FCD7C2"
     : "white";
 
+  const paraSize =
+    language === BHUTAN
+      ? showCards || selectedCard || showIntroduction
+        ? "13px"
+        : "18px"
+      : showCards || selectedCard || showIntroduction
+      ? "15px"
+      : "20px";
+  const fontSize =
+    language === BHUTAN
+      ? showCards || selectedCard || showIntroduction
+        ? "15px"
+        : "10px"
+      : showCards || selectedCard || showIntroduction
+      ? "15px"
+      : "18px";
+
   useEffect(() => {
     if (selectedCard) {
       setShowIntroduction(false);
@@ -231,14 +251,10 @@ const Tibetan = () => {
         >
           <NameCard
             cardName={TIBETAN_INFORMATION[language].title}
-            width="200px"
+            width="220px"
             height="90px"
-            paraSize={
-              showCards || selectedCard || showIntroduction ? "10px" : "18px"
-            }
-            fontSize={
-              showCards || selectedCard || showIntroduction ? "15px" : "15px"
-            }
+            paraSize={paraSize}
+            fontSize={fontSize}
             year={
               showCards || selectedCard || showIntroduction
                 ? "1200-1800"
@@ -265,6 +281,7 @@ const Tibetan = () => {
             background="#2B455D"
           />
           <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
             left="43.8%"
@@ -282,10 +299,16 @@ const Tibetan = () => {
             onCardClick={handleCardClick}
           />
           <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
             background="#523019"
-            left="50.5%"
-            top="85.2%"
+            left="49.5%"
+            top="81.1%"
+            iconWidth="25px"
+            IconHeight="25px"
+            height="50px"
+            width="55px"
+            margin="13px"
           />
         </div>
       )}
@@ -296,6 +319,7 @@ const Tibetan = () => {
             <div className={styles.ArrivalCard}>
               <Arrival language={language} showIntro={true} />
               <LanguageIcon
+                onClick={toggleLanguage}
                 showIcons={showIcons}
                 iconWidth="25px"
                 IconHeight="25px"
@@ -334,6 +358,7 @@ const Tibetan = () => {
                 onDrukpaKagyuClick={showDrukpaKagyu}
               />
               <LanguageIcon
+                onClick={toggleLanguage}
                 showIcons={showIcons}
                 iconWidth="25px"
                 IconHeight="25px"
@@ -365,6 +390,7 @@ const Tibetan = () => {
             onPopularSchoolsImgClick={showPopularSchoolsImg}
           />
           <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
             margin="15px"
             iconWidth="25px"
@@ -391,7 +417,7 @@ const Tibetan = () => {
             left="40.7%"
             top="72%"
             height="80px"
-            margin="25px"
+            marginTop="28px"
           />
         </div>
       )}
@@ -455,6 +481,7 @@ const Tibetan = () => {
           </div>
 
           <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
             margin="15px"
             iconWidth="25px"
@@ -481,7 +508,7 @@ const Tibetan = () => {
             left="45.3%"
             top="71.5%"
             height="80px"
-            margin="25px"
+            marginTop="28px"
           />
         </>
       )}
@@ -496,6 +523,7 @@ const Tibetan = () => {
             />
           </div>
           <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
             iconWidth="25px"
             IconHeight="25px"
@@ -520,7 +548,7 @@ const Tibetan = () => {
             left="41.8%"
             top="71%"
             height="80px"
-            margin="25px"
+            marginTop="28px"
           />
         </>
       )}
@@ -607,6 +635,7 @@ const Tibetan = () => {
             </div>
           </div>
           <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
             margin="15px"
             iconWidth="25px"
@@ -633,7 +662,7 @@ const Tibetan = () => {
             left="44.1%"
             top="73%"
             height="80px"
-            margin="25px"
+            marginTop="28px"
           />
         </>
       )}

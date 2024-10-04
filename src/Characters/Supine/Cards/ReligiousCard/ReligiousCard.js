@@ -3,6 +3,7 @@ import styles from "./ReligiousCard.module.css";
 import { SUPINE_INFORMATION } from "../../../../constants/Characters/Supine";
 import Card from "../../../../components/Card/Card";
 import Religious from "../../../../assests/Supine/Religious.png";
+import { BHUTAN } from "../../../../constants/languages/Language";
 
 const ReligiousCard = ({
   showIntro,
@@ -10,14 +11,20 @@ const ReligiousCard = ({
   onHimalayanClick,
   onBhutanClick,
 }) => {
+  const fonstSize = language === BHUTAN ? "7px" : "12px";
+  const titleFontSize = language === BHUTAN ? "12px" : "20px";
+
+  const headerFontSize = language === BHUTAN ? "8px" : "9px";
+  const subHeaderFontSize = language === BHUTAN ? "6px" : "15px";
+
   return (
     <div>
       {showIntro && (
         <>
           <Card
             width="220px"
-            titleFontSize="20px"
-            contentFontSize="12px"
+            titleFontSize={titleFontSize}
+            contentFontSize={fonstSize}
             borderBottom="0.5px solid #3A3C25"
             color="#3A3C25"
             backgroundColor="#CECE9B"
@@ -31,21 +38,32 @@ const ReligiousCard = ({
           </div>
           <div className={styles.ReligiousCard}>
             <div className={styles.HimalayanCard} onClick={onHimalayanClick}>
-              <div className={styles.HimalayanCardFirstText}>
-                TEMPLES WITHIN
+              <div
+                className={styles.HimalayanCardFirstText}
+                style={{ fontSize: headerFontSize }}
+              >
+                {SUPINE_INFORMATION[language].himalayanCard.header}
               </div>
-              <div className={styles.HimalayanCardSecondtext}>
-                HIMALAYAN LANDSCAPE
+              <div
+                className={styles.HimalayanCardSecondtext}
+                style={{ fontSize: subHeaderFontSize }}
+              >
+                {SUPINE_INFORMATION[language].himalayanCard.title}
               </div>
             </div>
             <div className={styles.BhutanCard} onClick={onBhutanClick}>
               <div
                 className={styles.HimalayanCardFirstText}
-                style={{ marginTop: "10px" }}
+                style={{ marginTop: "10px", fontSize: headerFontSize }}
               >
-                TEMPLES IN
+                {SUPINE_INFORMATION[language].bhutanCard.header}
               </div>
-              <div className={styles.HimalayanCardSecondtext}>BHUTAN</div>
+              <div
+                className={styles.HimalayanCardSecondtext}
+                style={{ fontSize: subHeaderFontSize }}
+              >
+                {SUPINE_INFORMATION[language].bhutanCard.title}
+              </div>
             </div>
           </div>
         </>
