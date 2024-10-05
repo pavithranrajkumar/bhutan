@@ -2,18 +2,20 @@ import React, { useState } from "react";
 import styles from "./DriglamCard.module.css";
 import Card from "../../../../components/Card/Card";
 import { ZHABRUNG_INFORMATION } from "../../../../constants/Characters/ZhabrungNgawangNamgyal";
+import { BHUTAN } from "../../../../constants/languages/Language";
 
-const DriglamCard = ({ showIntro }) => {
-  const [language, setLanguage] = useState("english");
-
+const DriglamCard = ({ showIntro, language }) => {
+  const titleFontSize = language === BHUTAN ? "12px" : "20px";
+  const fonstSize = language === BHUTAN ? "5px" : "11px";
+  const headerFontSize = language === BHUTAN ? "8px" : "13px";
   return (
     <div>
       {showIntro && (
         <>
           <Card
             width="330px"
-            titleFontSize="20px"
-            contentFontSize="11px"
+            titleFontSize={titleFontSize}
+            contentFontSize={fonstSize}
             borderBottom="0.5px solid #8F4110"
             backgroundColor="#FFDFC3"
             color="#6A1F11"
@@ -24,19 +26,14 @@ const DriglamCard = ({ showIntro }) => {
           />
           <div className={styles.DriglamNamzhagTopCard}>
             <div style={{ margin: "20px" }}>
-              <p>
-                Physical Discipline includes what to wear and how to behave
-                while eating, walking, sitting and how to show respect to
-                seniors and elders.
+              <p style={{ fontSize: headerFontSize }}>
+                {ZHABRUNG_INFORMATION[language].driglamNamzhagStatement.first}
               </p>
-              <p>
-                Verbal Discipline includes how to maintain decorum while
-                speaking.
+              <p style={{ fontSize: headerFontSize }}>
+                {ZHABRUNG_INFORMATION[language].driglamNamzhagStatement.second}
               </p>
-              <p>
-                Mental Discipline influences the mindset one should have to love
-                the country, King, and people besides respect for the rule of
-                law.
+              <p style={{ fontSize: headerFontSize }}>
+                {ZHABRUNG_INFORMATION[language].driglamNamzhagStatement.third}
               </p>
             </div>
           </div>

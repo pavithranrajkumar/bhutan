@@ -20,14 +20,14 @@
 
 .pemaText {
   position: fixed;
-  left: 59%;
-  bottom: 50.5%;
+  left: 59.2%;
+  bottom: 50%;
 }
 
 .pemaImage {
   position: fixed;
-  bottom: 47%;
-  left: 65.1%;
+  bottom: 45%;
+  left: 64.9%;
   transform: translate(-50%, -60%);
   z-index: 10;
   margin: 0;
@@ -35,26 +35,26 @@
 
 .pemaImage img {
   object-fit: fill;
-  width: 210px;
-  height: 230px;
+  width: 230px;
+  height: 270px;
   z-index: 10;
 }
 
 .NameCardContainer {
   position: fixed;
-  top: 33%;
-  left: 68%;
+  top: 35%;
+  left: 67.4%;
 }
 
 .ActiveCard {
   position: fixed;
-  top: 77.8%;
+  top: 35%;
   left: 65%;
 }
 
 .ActiveImage {
   position: fixed;
-  bottom: 14.5%;
+  bottom: 42%;
   left: 61.7%;
   transform: translate(-50%, -60%);
   z-index: 10;
@@ -71,17 +71,138 @@
 .IntroCard {
   position: fixed;
   left: 62.5%;
-  top: 84%;
+  top: 56%;
 }
 
 .HistoricCard {
   position: fixed;
   left: 62.5%;
-  top: 84%;
+  top: 54%;
 }
 
 .LineageCard {
   position: fixed;
   left: 62.5%;
-  top: 84%;
+  top: 54%;
+}
+
+.NaringDragCard {
+  position: fixed;
+  left: 62.5%;
+  top: 52%;
+}
+
+.BurningLakeCard {
+  position: fixed;
+  left: 62.5%;
+  top: 52%;
+}
+
+.NaringDragBook {
+  position: fixed;
+  left: 60%;
+  top: 50%;
+}
+
+.MonasteriesCard {
+  position: fixed;
+  left: 62.5%;
+  top: 53%;
+}
+
+.PelingDanceCard {
+  position: fixed;
+  left: 62.5%;
+  top: 54%;
+}
+
+.MonasteriesImg1 {
+  position: fixed;
+  left: 61.5%;
+  top: 58%;
+  width: 180px;
+  height: 180px;
+}
+
+.MonasteriesImg2 {
+  position: fixed;
+  left: 65.6%;
+  top: 55%;
+  width: 100px;
+  height: 100px;
+}
+
+.MonasteriesImg3 {
+  position: fixed;
+  left: 67.6%;
+  top: 58%;
+  width: 90px;
+  height: 80px;
+}
+
+.MonasteriesImg4 {
+  position: fixed;
+  left: 69.3%;
+  top: 51.5%;
+  width: 120px;
+  height: 130px;
+}
+
+.MonasteriesImg5 {
+  position: fixed;
+  left: 71.9%;
+  top: 55%;
+  width: 150px;
+  height: 150px;
+}
+
+.MonasteriesImg6 {
+  position: fixed;
+  left: 65.6%;
+  top: 66%;
+  width: 130px;
+  height: 130px;
+}
+
+.MonasteriesImg7 {
+  position: fixed;
+  left: 68.4%;
+  top: 66%;
+  width: 155px;
+  height: 160px;
+}
+
+.MonasteriesImg8 {
+  position: fixed;
+  left: 71.9%;
+  top: 73%;
+  width: 100px;
+  height: 100px;
+}
+
+.SmallPeilingCard {
+  cursor: pointer;
+  position: fixed;
+  background: #c9d7ee;
+  left: 74.3%;
+  top: 76%;
+  padding: 0.3vw;
+  width: 120px;
+}
+
+.SmallPeilingCardHeader {
+  font-family: "Josefin Sans";
+}
+
+.SmallPeilingCardTitle {
+  font-family: "Hammersmith One";
+}
+
+.PelingDanceVideo {
+  cursor: pointer;
+  position: fixed;
+  left: 65%;
+  top: 55%;
+  width: 200px;
+  height: 200px;
 }

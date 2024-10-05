@@ -2,18 +2,20 @@ import React, { useState } from "react";
 import { ZHABRUNG_INFORMATION } from "../../../../constants/Characters/ZhabrungNgawangNamgyal";
 import Card from "../../../../components/Card/Card";
 import styles from "./ReligiousCard.module.css";
+import { BHUTAN } from "../../../../constants/languages/Language";
 
-const ReligiousCard = ({ showIntro, onSealClick }) => {
-  const [language, setLanguage] = useState("english");
-
+const ReligiousCard = ({ showIntro, onSealClick, language }) => {
+  const titleFontSize = language === BHUTAN ? "12px" : "15px";
+  const fonstSize = language === BHUTAN ? "6.2px" : "11px";
+  const cardFonstSize = language === BHUTAN ? "11.5px" : "25px";
   return (
     <div>
       {showIntro && (
         <>
           <Card
             width="320px"
-            titleFontSize="15px"
-            contentFontSize="11px"
+            titleFontSize={titleFontSize}
+            contentFontSize={fonstSize}
             borderBottom="0.5px solid #8F4110"
             backgroundColor="#FFDFC3"
             color="#6A1F11"
@@ -23,7 +25,9 @@ const ReligiousCard = ({ showIntro, onSealClick }) => {
             showIntro={showIntro}
           />
           <div className={styles.sealOfZhabdrungCard} onClick={onSealClick}>
-            <div style={{ marginTop: "18px" }}>SEAL OF ZHABRUNG</div>
+            <div style={{ marginTop: "18px", fontSize: cardFonstSize }}>
+              {ZHABRUNG_INFORMATION[language].sealOfZhabdrung.title}
+            </div>
           </div>
         </>
       )}

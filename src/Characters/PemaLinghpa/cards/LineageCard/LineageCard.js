@@ -17,8 +17,13 @@ import Drophu from "../../../../assests/PemaLingpa/FamilyTree/Drophu.png";
 import Drametse from "../../../../assests/PemaLingpa/FamilyTree/Drametse.png";
 import Yagang from "../../../../assests/PemaLingpa/FamilyTree/Yagang.png";
 import NextIcon from "../../../../components/Card/Icons/NextIcon/NextIcon";
+import { BHUTAN } from "../../../../constants/languages/Language";
 
 const LineageCard = ({ showIntro, language, showIcons }) => {
+  const titleFontSize = language === BHUTAN ? "12px" : "30px";
+  const fonstSize = language === BHUTAN ? "7.5px" : "11px";
+  const treeFonstSize = language === BHUTAN ? "5.3px" : "13px";
+
   const [currentStep, setCurrentStep] = useState(0);
 
   const familySteps = [
@@ -38,8 +43,8 @@ const LineageCard = ({ showIntro, language, showIcons }) => {
         <>
           <Card
             width="280px"
-            titleFontSize="30px"
-            contentFontSize="11px"
+            titleFontSize={titleFontSize}
+            contentFontSize={fonstSize}
             borderBottom="0.5px solid #6A1F11"
             backgroundColor="#FFD9BC"
             color="#6A1F11"
@@ -50,7 +55,10 @@ const LineageCard = ({ showIntro, language, showIcons }) => {
           />
           <div className={styles.FamilyTree}>
             <div className={styles.FamilyHeads}>
-              <div className={styles.Header}>
+              <div
+                className={styles.Header}
+                style={{ fontSize: treeFonstSize }}
+              >
                 {PEMA_LINGPA_INFORMATION[language].title}
               </div>
               <div className={styles.Sons}>SONS</div>

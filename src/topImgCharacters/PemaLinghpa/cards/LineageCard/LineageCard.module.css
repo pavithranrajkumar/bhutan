@@ -1,0 +1,695 @@
+.Header {
+  color: #380100;
+  background: #c76224;
+  font-family: "Josefin Sans";
+  font-size: 13px;
+  padding: 0.2vw;
+  width: 150px;
+}
+
+.FamilyTree {
+  position: fixed;
+  left: 71%;
+  top: 50%;
+}
+
+.Sons {
+  position: fixed;
+  font-family: "Josefin Sans";
+  padding: 0.1vw;
+  font-size: 6px;
+  left: 72.8%;
+  top: 55.7%;
+  width: 25px;
+  background: #c76224;
+  border-radius: 25px;
+  border: 1.5px solid #8f4110;
+}
+
+.DrakpaGyalpo {
+  object-fit: fill;
+  position: fixed;
+  left: 71%;
+  top: 60%;
+  width: 30px;
+  height: 40px;
+}
+
+.DawaGyaltshen {
+  position: fixed;
+  left: 72.3%;
+  top: 60%;
+  width: 30px;
+  height: 40px;
+}
+.KuengaWangpo {
+  position: fixed;
+  left: 73.7%;
+  top: 60%;
+  width: 30px;
+  height: 40px;
+}
+.Sangda {
+  position: fixed;
+  left: 75.2%;
+  top: 60%;
+  width: 30px;
+  height: 40px;
+}
+
+.DrakpaGyalpoCard {
+  object-fit: fill;
+  position: fixed;
+  left: 70.9%;
+  top: 65.5%;
+  width: 30px;
+  height: 15px;
+  padding: 0.1vw;
+  color: #380100;
+  background: #c76224;
+  font-family: "Josefin Sans";
+  font-size: 6px;
+}
+
+.DawaGyaltshenCard {
+  object-fit: fill;
+  position: fixed;
+  left: 72.2%;
+  top: 65.5%;
+  width: 32px;
+  height: 15px;
+  padding: 0.1vw;
+  color: #380100;
+  background: #c76224;
+  font-family: "Josefin Sans";
+  font-size: 6px;
+}
+
+.KuengaWangpoCard {
+  object-fit: fill;
+  position: fixed;
+  left: 73.6%;
+  top: 65.5%;
+  width: 30px;
+  height: 15px;
+  padding: 0.1vw;
+  color: #380100;
+  background: #c76224;
+  font-family: "Josefin Sans";
+  font-size: 6px;
+}
+
+.SangdaCard {
+  object-fit: fill;
+  position: fixed;
+  left: 75.1%;
+  top: 65.5%;
+  width: 30px;
+  height: 15px;
+  padding: 0.1vw;
+  color: #380100;
+  background: #c76224;
+  font-family: "Josefin Sans";
+  font-size: 6px;
+}
+
+.SonsHorizontalLine {
+  position: fixed;
+  left: 73.7%;
+  top: 55.5%;
+  width: 73px;
+  height: 2px;
+  background: #8f4110;
+  border: none;
+}
+
+.SonsHorizontalLine2 {
+  position: fixed;
+  left: 71.4%;
+  top: 55.5%;
+  width: 54px;
+  height: 2px;
+  background: #8f4110;
+  border: none;
+}
+
+.SonsVerticalLine {
+  position: fixed;
+  left: 73.25%;
+  top: 53%;
+  width: 2px;
+  height: 12.5px;
+  background: #8f4110;
+  border: none;
+}
+
+.SonsVerticalLine1 {
+  position: fixed;
+  left: 71.37%;
+  top: 55.5%;
+  width: 1.5px;
+  height: 25px;
+  background: #8f4110;
+  border: none;
+}
+
+.SonsVerticalLine2 {
+  position: fixed;
+  left: 72.65%;
+  top: 55.5%;
+  width: 2px;
+  height: 25px;
+  background: #8f4110;
+  border: none;
+}
+
+.SonsVerticalLine3 {
+  position: fixed;
+  left: 74.08%;
+  top: 55.5%;
+  width: 2px;
+  height: 25px;
+  background: #8f4110;
+  border: none;
+}
+
+.SonsVerticalLine4 {
+  position: fixed;
+  left: 75.58%;
+  top: 55.5%;
+  width: 2px;
+  height: 25px;
+  background: #8f4110;
+  border: none;
+}
+
+.Choeje {
+  position: fixed;
+  font-family: "Josefin Sans";
+  padding: 0.05vw;
+  font-size: 5px;
+  left: 70.95%;
+  top: 72%;
+  width: 25px;
+  background: #c76224;
+  border-radius: 25px;
+  border: 1.5px solid #8f4110;
+}
+
+.Tamshing {
+  object-fit: fill;
+  position: fixed;
+  left: 71%;
+  top: 76.2%;
+  width: 30px;
+  height: 40px;
+}
+
+.TamshingVerticalLine {
+  position: fixed;
+  left: 71.35%;
+  top: 67.4%;
+  width: 2px;
+  height: 26px;
+  background: #8f4110;
+  border: none;
+}
+
+.TamshingVerticalLine1 {
+  position: fixed;
+  left: 71.34%;
+  top: 72.5%;
+  width: 2px;
+  height: 22px;
+  background: #8f4110;
+  border: none;
+}
+
+.TamshingCard {
+  object-fit: fill;
+  position: fixed;
+  left: 70.9%;
+  top: 81.5%;
+  width: 30px;
+  height: 15px;
+  padding: 0.1vw;
+  color: #380100;
+  background: #c76224;
+  font-family: "Josefin Sans";
+  font-size: 6px;
+}
+
+.Prakhar {
+  object-fit: fill;
+  position: fixed;
+  left: 72.3%;
+  top: 76.5%;
+  width: 30px;
+  height: 40px;
+}
+
+.PrakharVerticalLine {
+  position: fixed;
+  left: 72.65%;
+  top: 67.5%;
+  width: 2px;
+  height: 26px;
+  background: #8f4110;
+  border: none;
+}
+
+.PrakharVerticalLine1 {
+  position: fixed;
+  left: 72.65%;
+  top: 72.7%;
+  width: 2px;
+  height: 22px;
+  background: #8f4110;
+  border: none;
+}
+
+.PrakharCard {
+  object-fit: fill;
+  position: fixed;
+  left: 72.2%;
+  top: 82%;
+  width: 30px;
+  height: 15px;
+  padding: 0.1vw;
+  color: #380100;
+  background: #c76224;
+  font-family: "Josefin Sans";
+  font-size: 6px;
+}
+
+.PrakharChoeje {
+  position: fixed;
+  font-family: "Josefin Sans";
+  padding: 0.05vw;
+  font-size: 5px;
+  left: 72.3%;
+  top: 72.2%;
+  width: 25px;
+  background: #c76224;
+  border-radius: 25px;
+  border: 1.5px solid #8f4110;
+}
+
+.Kochung {
+  position: fixed;
+  left: 73.04%;
+  top: 76.5%;
+  width: 30px;
+  height: 40px;
+}
+
+.KochungHorizontalLine {
+  position: fixed;
+  left: 73.45%;
+  top: 71.5%;
+  width: 12px;
+  height: 2px;
+  background: #8f4110;
+  border: none;
+}
+
+.KochungHorizontalLine2 {
+  position: fixed;
+  left: 74.5%;
+  top: 71.5%;
+  width: 14px;
+  height: 2px;
+  background: #8f4110;
+  border: none;
+}
+
+.KochungVerticalLine {
+  position: fixed;
+  left: 74.85%;
+  top: 71.5%;
+  width: 2px;
+  height: 28px;
+  background: #8f4110;
+  border: none;
+}
+
+.KochungVerticalLine1 {
+  position: fixed;
+  left: 73.4%;
+  top: 71.5%;
+  width: 2px;
+  height: 28px;
+  background: #8f4110;
+  border: none;
+}
+
+.KochungCard {
+  object-fit: fill;
+  position: fixed;
+  left: 72.95%;
+  top: 82%;
+  width: 30px;
+  height: 10px;
+  padding: 0.1vw;
+  color: #380100;
+  background: #c76224;
+  font-family: "Josefin Sans";
+  font-size: 6px;
+}
+
+.KochungChoeje {
+  position: fixed;
+  font-family: "Josefin Sans";
+  padding: 0.05vw;
+  font-size: 5px;
+  left: 73.73%;
+  top: 72%;
+  width: 25px;
+  background: #c76224;
+  border-radius: 25px;
+  border: 1.5px solid #8f4110;
+}
+
+.Bidung {
+  object-fit: fill;
+  position: fixed;
+  left: 74.5%;
+  top: 76.5%;
+  width: 30px;
+  height: 40px;
+}
+
+.BidungVerticalLine {
+  position: fixed;
+  left: 74.1%;
+  top: 90.45%;
+  width: 2px;
+  height: 26px;
+  background: #8f4110;
+  border: none;
+}
+
+.BidungVerticalLine1 {
+  position: fixed;
+  left: 74.1%;
+  top: 92.15%;
+  width: 2px;
+  height: 20px;
+  background: #8f4110;
+  border: none;
+}
+
+.BidungCard {
+  object-fit: fill;
+  position: fixed;
+  left: 74.42%;
+  top: 82%;
+  width: 30px;
+  height: 10px;
+  padding: 0.1vw;
+  color: #380100;
+  background: #c76224;
+  font-family: "Josefin Sans";
+  font-size: 6px;
+}
+
+.Kheri {
+  object-fit: fill;
+  position: fixed;
+  left: 72.6%;
+  top: 87.4%;
+  width: 20px;
+  height: 40px;
+}
+
+.KheriHorizontalLine {
+  position: fixed;
+  left: 72.85%;
+  top: 84.4%;
+  width: 44.1px;
+  height: 2px;
+  background: #8f4110;
+  border: none;
+}
+
+.KheriVerticalLine {
+  position: fixed;
+  left: 73.95%;
+  top: 84.5%;
+  width: 2px;
+  height: 10px;
+  background: #8f4110;
+  border: none;
+}
+
+.KheriVerticalLine1 {
+  position: fixed;
+  left: 72.8%;
+  top: 84.5%;
+  width: 2px;
+  height: 12px;
+  background: #8f4110;
+  border: none;
+}
+
+.KheriVerticalLine2 {
+  position: fixed;
+  left: 73.4%;
+  top: 83.3%;
+  width: 2px;
+  height: 8px;
+  background: #8f4110;
+  border: none;
+}
+
+.KheriCard {
+  object-fit: fill;
+  position: fixed;
+  left: 72.35%;
+  top: 92.5%;
+  width: 30px;
+  height: 10px;
+  padding: 0.1vw;
+  color: #380100;
+  background: #c76224;
+  font-family: "Josefin Sans";
+  font-size: 6px;
+}
+
+.Dungkar {
+  object-fit: fill;
+  position: fixed;
+  left: 73.7%;
+  top: 87.4%;
+  width: 20px;
+  height: 40px;
+}
+
+.DungkarVerticalLine {
+  position: fixed;
+  left: 74.1%;
+  top: 67.5%;
+  width: 2px;
+  height: 26px;
+  background: #8f4110;
+  border: none;
+}
+
+.DungkarVerticalLine1 {
+  position: fixed;
+  left: 74.1%;
+  top: 92.15%;
+  width: 2px;
+  height: 20px;
+  background: #8f4110;
+  border: none;
+}
+
+.DungkarCard {
+  object-fit: fill;
+  position: fixed;
+  left: 73.5%;
+  top: 92.5%;
+  width: 30px;
+  height: 10px;
+  padding: 0.1vw;
+  color: #380100;
+  background: #c76224;
+  font-family: "Josefin Sans";
+  font-size: 6px;
+}
+
+.TsakalingChoeje {
+  position: fixed;
+  font-family: "Josefin Sans";
+  padding: 0.05vw;
+  font-size: 5px;
+  left: 75.19%;
+  top: 72%;
+  width: 25px;
+  background: #c76224;
+  border-radius: 25px;
+  border: 1.5px solid #8f4110;
+}
+
+.Tsakaling {
+  object-fit: fill;
+  position: fixed;
+  left: 71%;
+  top: 76.5%;
+  width: 20px;
+  height: 50px;
+}
+
+.TsakalingCard {
+  object-fit: fill;
+  position: fixed;
+  left: 70.75%;
+  top: 83%;
+  width: 30px;
+  height: 10px;
+  padding: 0.1vw;
+  color: #380100;
+  background: #c76224;
+  font-family: "Josefin Sans";
+  font-size: 6px;
+}
+
+.TsakalingVerticalLine {
+  position: fixed;
+  left: 75.55%;
+  top: 67.5%;
+  width: 2px;
+  height: 25.8px;
+  background: #8f4110;
+  border: none;
+}
+
+.TsakalingVerticalLine1 {
+  position: fixed;
+  left: 75.55%;
+  top: 72.5%;
+  width: 2px;
+  height: 22px;
+  background: #8f4110;
+  border: none;
+}
+
+.TsakalingVerticalLine2 {
+  position: fixed;
+  left: 71.24%;
+  top: 71.5%;
+  width: 2px;
+  height: 28px;
+  background: #8f4110;
+  border: none;
+}
+
+.TsakalingVerticalLine3 {
+  position: fixed;
+  left: 72.59%;
+  top: 71.5%;
+  width: 2px;
+  height: 28px;
+  background: #8f4110;
+  border: none;
+}
+
+.TsakalingVerticalLine4 {
+  position: fixed;
+  left: 74.03%;
+  top: 71.5%;
+  width: 2px;
+  height: 28px;
+  background: #8f4110;
+  border: none;
+}
+
+.TsakalingHorizontalLine {
+  position: fixed;
+  left: 71.24%;
+  top: 71.5%;
+  width: 152px;
+  height: 2px;
+  background: #8f4110;
+  border: none;
+}
+
+.Drophu {
+  object-fit: fill;
+  position: fixed;
+  left: 72.3%;
+  top: 76.5%;
+  width: 20px;
+  height: 50px;
+}
+
+.DrophuCard {
+  object-fit: fill;
+  position: fixed;
+  left: 72.1%;
+  top: 83%;
+  width: 30px;
+  height: 10px;
+  padding: 0.1vw;
+  color: #380100;
+  background: #c76224;
+  font-family: "Josefin Sans";
+  font-size: 6px;
+}
+
+.Drametse {
+  object-fit: fill;
+  position: fixed;
+  left: 73.8%;
+  top: 76.5%;
+  width: 20px;
+  height: 50px;
+}
+
+.DrametseCard {
+  object-fit: fill;
+  position: fixed;
+  left: 73.55%;
+  top: 83%;
+  width: 30px;
+  height: 10px;
+  padding: 0.1vw;
+  color: #380100;
+  background: #c76224;
+  font-family: "Josefin Sans";
+  font-size: 6px;
+}
+
+.Yagang {
+  object-fit: fill;
+  position: fixed;
+  left: 75.3%;
+  top: 76.5%;
+  width: 20px;
+  height: 50px;
+}
+
+.YagangCard {
+  object-fit: fill;
+  position: fixed;
+  left: 75.1%;
+  top: 83%;
+  width: 30px;
+  height: 10px;
+  padding: 0.1vw;
+  color: #380100;
+  background: #c76224;
+  font-family: "Josefin Sans";
+  font-size: 6px;
+}
+
+.hidden {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.visible {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}

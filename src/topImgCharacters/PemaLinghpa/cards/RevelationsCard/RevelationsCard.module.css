@@ -1,0 +1,65 @@
+.revelationsCard,
+.burningLakeCard {
+  position: fixed;
+  background: #2b455d;
+  color: white;
+  cursor: pointer;
+}
+
+.title {
+  margin: 30px 0 0 20px;
+  font-size: 12px;
+  font-family: "Josefin Sans";
+  text-align: left;
+}
+
+.header {
+  margin-left: 20px;
+  font-size: 20px;
+  font-family: "Hammersmith One";
+  text-align: left;
+}
+
+.revelationsCard {
+  left: 71.8%;
+  top: 58%;
+  width: 270px;
+  height: 100px;
+}
+
+.burningLakeCard {
+  left: 71.8%;
+  top: 75%;
+  width: 270px;
+  height: 100px;
+}
+
+.burningLakeTitle {
+  margin: 30px 20px 0 0;
+  font-size: 12px;
+  font-family: "Josefin Sans";
+  text-align: right;
+}
+
+.burningLakeHeader {
+  margin-right: 20px;
+  font-size: 20px;
+  font-family: "Hammersmith One";
+  text-align: right;
+}
+
+.NaringDragBookImg {
+  position: fixed;
+  top: 54%;
+  left: 76%;
+  width: 100px;
+  height: 130px;
+}
+
+.burningLakeBookImg {
+  position: fixed;
+  top: 76%;
+  left: 72%;
+  width: 100px;
+  height: 130px;
+}

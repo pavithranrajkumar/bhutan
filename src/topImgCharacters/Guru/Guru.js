@@ -20,6 +20,9 @@ import palaceImg1 from "../../assests/Guru/Palace/PalaceImg1.png";
 import palaceImg2 from "../../assests/Guru/Palace/PalaceImg2.png";
 import palaceImg3 from "../../assests/Guru/Palace/PalaceImg3.png";
 import palaceImg4 from "../../assests/Guru/Palace/PalaceImg4.png";
+import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
+import LakeBornWideCard from "./Cards/GuruCards/Manifestation/LakeBornWideCard/LakeBornWideCard";
+import LionOfShakyas from "./Cards/GuruCards/Manifestation/LionOfShakyas/LionOfShakyas";
 
 const Guru2 = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -34,30 +37,70 @@ const Guru2 = () => {
   const [showManifestationCardWithImg, setShowManifestationCardWithImg] =
     useState(false);
   const [showPalaceImg, setShowPalaceImg] = useState(false);
+  const [showLakeBornWideCards, setShowLakeBornWideCards] = useState(false);
+  const [showLionOfShakyas, setShowLionOfShakyas] = useState(false);
+
+  const paraSize =
+    language === BHUTAN
+      ? showCards || selectedCard || showIntroduction
+        ? "13px"
+        : "18px"
+      : showCards || selectedCard || showIntroduction
+      ? "15px"
+      : "20px";
+  const fontSize =
+    language === BHUTAN
+      ? showCards || selectedCard || showIntroduction
+        ? "17px"
+        : "19px"
+      : showCards || selectedCard || showIntroduction
+      ? "19px"
+      : "20px";
 
   const toggleLanguage = () => {
-    setLanguage((prevLanguage) =>
-      prevLanguage === "english" ? "bhutan" : "english"
-    );
+    setLanguage((prevLanguage) => {
+      const newLanguage = prevLanguage === ENGLISH ? BHUTAN : ENGLISH;
+      console.log("Language changed to:", newLanguage);
+      return newLanguage;
+    });
   };
 
   const resetStates = () => {
+    setSelectedCard(null);
+    setShowCards(false);
+    setShowIntroduction(false);
+    setShowKurjeLhakhang(false);
+    setShowKurjeLhakhangImgs(false);
+    setShowManifestationCardWithImg(false);
+    setShowLakeBornWideCards(false);
+    setShowLionOfShakyas(false);
+    setShowPalaceImg(false);
+    setShowYearText(true);
+  };
+
+  const handleHomeClick = () => {
+    setShowCards(true);
     setSelectedCard(null);
     setShowIntroduction(false);
     setShowKurjeLhakhang(false);
     setShowKurjeLhakhangImgs(false);
     setShowManifestationCardWithImg(false);
+    setShowLakeBornWideCards(false);
+    setShowLionOfShakyas(false);
     setShowPalaceImg(false);
   };
 
-  const handleHomeClick = () => {
-    setShowCards(true);
-    resetStates();
-  };
-
   const handleCardOrImageClick = () => {
-    if (showCards || selectedCard) {
+    if (
+      showCards ||
+      selectedCard ||
+      showLakeBornWideCards ||
+      showLionOfShakyas
+    ) {
       resetStates();
+    } else if (showIntroduction) {
+      setShowIntroduction(false);
+      setShowYearText(true);
     } else {
       setShowYearText(false);
       setShowIntroduction(true);
@@ -66,8 +109,9 @@ const Guru2 = () => {
   };
 
   const showGuruCards = () => {
-    resetStates();
     setShowCards(true);
+    setShowIntroduction(false);
+    setSelectedCard(null);
   };
 
   const handleKurjeClick = () => {
@@ -84,9 +128,10 @@ const Guru2 = () => {
   const handleCardClick = (cardName) => {
     setShowKurjeLhakhang(false);
     setShowKurjeLhakhangImgs(false);
-    setSelectedCard(cardName);
     setShowCards(false);
+    setSelectedCard(cardName);
     setShowIntroduction(false);
+    setShowYearText(false);
   };
 
   const handleOpenManifestationWithImg = () => {
@@ -103,6 +148,12 @@ const Guru2 = () => {
     if (showManifestationCardWithImg) {
       setShowManifestationCardWithImg(false);
       setSelectedCard("manifestation");
+    } else if (showLakeBornWideCards) {
+      setShowLakeBornWideCards(false);
+      setShowManifestationCardWithImg(true);
+    } else if (showLionOfShakyas) {
+      setShowLionOfShakyas(false);
+      setShowLakeBornWideCards(true);
     } else if (showPalaceImg) {
       setShowPalaceImg(false);
       setSelectedCard("palace");
@@ -116,11 +167,28 @@ const Guru2 = () => {
       setSelectedCard(null);
       setShowCards(true);
     } else if (showCards) {
-      handleHomeClick();
+      setSelectedCard(null);
+      setShowIntroduction(false);
+      setShowKurjeLhakhang(false);
+      setShowKurjeLhakhangImgs(false);
+      setShowManifestationCardWithImg(false);
+      setShowPalaceImg(false);
     } else {
       setShowIntroduction(false);
-      setShowYearText(true);
+      setShowYearText(false);
     }
+  };
+
+  const handleOpenLakeBorn = () => {
+    setShowManifestationCardWithImg(false);
+    setSelectedCard(null);
+    setShowLakeBornWideCards(true);
+  };
+
+  const handleOpenLionOfShakyas = () => {
+    setShowLakeBornWideCards(false);
+    setSelectedCard(null);
+    setShowLionOfShakyas(true);
   };
 
   useEffect(() => {
@@ -193,18 +261,14 @@ const Guru2 = () => {
           onClick={handleCardOrImageClick}
         >
           <NameCard
-            cardName="GURU PINPOCHE/"
+            cardName={GURU_INFORMATION[language].cardName}
             width="200px"
             height="90px"
-            subCardname="PADMANASAMBHAVA"
-            subCardnameFontSize="12px"
-            subCardnameMarginLeft="40px"
-            paraSize={
-              showCards || selectedCard || showIntroduction ? "15px" : "20px"
-            }
-            fontSize={
-              showCards || selectedCard || showIntroduction ? "19px" : "20px"
-            }
+            subCardname={GURU_INFORMATION[language].subCardName}
+            subCardnameFontSize={language === BHUTAN ? "10px" : "12px"}
+            subCardnameMarginLeft={language === BHUTAN ? "90px" : "40px"}
+            paraSize={paraSize}
+            fontSize={fontSize}
             year={
               showCards || selectedCard || showIntroduction
                 ? "900-1000"
@@ -216,6 +280,7 @@ const Guru2 = () => {
           />
         </div>
       </motion.div>
+
       {showIntroduction && (
         <>
           <div className={styles.GuruIntroCard}>
@@ -362,7 +427,7 @@ const Guru2 = () => {
             left="24.2%"
             top="63.5%"
             height="80px"
-            margin="25px"
+            marginTop="28px"
           />
         </>
       )}
@@ -399,7 +464,10 @@ const Guru2 = () => {
 
       {showManifestationCardWithImg && (
         <div className={styles.ManifestationOverlay}>
-          <ManifestationWithImg language={language} />
+          <ManifestationWithImg
+            language={language}
+            onLakeBornClick={handleOpenLakeBorn}
+          />
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
@@ -427,10 +495,85 @@ const Guru2 = () => {
             left="24.9%"
             top="33%"
             height="80px"
-            margin="25px"
+            marginTop="28px"
             background="#A06611"
           />
         </div>
+      )}
+
+      {showLakeBornWideCards && (
+        <>
+          <LakeBornWideCard
+            language={language}
+            onLakeBornCardClick={handleOpenLionOfShakyas}
+          />
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            margin="15px"
+            iconWidth="25px"
+            IconHeight="25px"
+            left="25.5%"
+            top="61%"
+            height="50px"
+            background="#613900"
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            left="24.9%"
+            top="50%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            background="#A06611"
+            onClick={handleHomeClick}
+          />
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="24.9%"
+            top="38%"
+            height="80px"
+            marginTop="35px"
+            background="#A06611"
+          />
+        </>
+      )}
+
+      {showLionOfShakyas && (
+        <>
+          <LionOfShakyas language={language} />
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            left="25.5%"
+            top="61%"
+            margin="15px"
+            iconWidth="25px"
+            IconHeight="25px"
+            height="50px"
+            background="#613900"
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            left="24.9%"
+            top="50%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            background="#A06611"
+            onClick={handleHomeClick}
+          />
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="24.9%"
+            top="38%"
+            height="80px"
+            marginTop="35px"
+            background="#A06611"
+          />
+        </>
       )}
 
       {selectedCard === "palace" && !showPalaceImg && (
@@ -506,7 +649,7 @@ const Guru2 = () => {
             left="22.2%"
             top="45%"
             height="80px"
-            margin="25px"
+            marginTop="28px"
           />
         </>
       )}

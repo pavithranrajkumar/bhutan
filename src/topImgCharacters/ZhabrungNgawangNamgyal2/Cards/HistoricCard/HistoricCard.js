@@ -3,10 +3,11 @@ import { ZHABRUNG_INFORMATION } from "../../../../constants/Characters/ZhabrungN
 import BigCard from "../../../../components/BigCard/BigCard";
 import histoiric from "../../../../assests/Zhabrung/Cards/Historic/Historic.png";
 import styles from "./HistoricCard.module.css";
+import { BHUTAN } from "../../../../constants/languages/Language";
 
-const HistoricCard = ({ showIntro }) => {
-  const [language, setLanguage] = useState("english");
-
+const HistoricCard = ({ showIntro, language }) => {
+  const titleFontSize = language === BHUTAN ? "12px" : "20px";
+  const fonstSize = language === BHUTAN ? "8px" : "11.3px";
   console.log("Show Intro:", showIntro);
   return (
     <div>
@@ -14,8 +15,8 @@ const HistoricCard = ({ showIntro }) => {
         <>
           <BigCard
             width="240px"
-            titleFontSize="20px"
-            cardFontSize="11.3px"
+            titleFontSize={titleFontSize}
+            cardFontSize={fonstSize}
             borderBottom="1px solid #6A1F11"
             backgroundColor="#FFDFC3"
             color="#6A1F11"

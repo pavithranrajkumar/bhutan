@@ -1,8 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import styles from "./SupineCards.module.css";
+import { SUPINE_INFORMATION } from "../../../../constants/Characters/Supine";
 
 const SupineCards = ({ isFadingOut, language, onCardClick }) => {
+  const titleStyle =
+    language === "bhutan" ? { fontSize: "15px" } : { fontSize: "21px" };
   return (
     <div>
       <motion.div
@@ -18,7 +21,9 @@ const SupineCards = ({ isFadingOut, language, onCardClick }) => {
           transition={{ duration: 1 }}
           onClick={() => onCardClick("religious")}
         >
-          <div className={styles.CardsContainerText}>RELIGIOUS INFLUENCE</div>
+          <div className={styles.CardsContainerText} style={titleStyle}>
+            {SUPINE_INFORMATION[language].religious.title}
+          </div>
         </motion.div>
       </motion.div>
     </div>

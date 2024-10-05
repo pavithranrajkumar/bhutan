@@ -1,16 +1,19 @@
 import React from "react";
 import { PEMA_LINGPA_INFORMATION } from "../../../../constants/Characters/PremaLingpa";
 import Card from "../../../../components/Card/Card";
+import { BHUTAN } from "../../../../constants/languages/Language";
 
 const HistoricCard = ({ showIntro, language }) => {
+  const titleFontSize = language === BHUTAN ? "12px" : "30px";
+  const fonstSize = language === BHUTAN ? "10px" : "13.2px";
   return (
     <div>
       {showIntro && (
         <>
           <Card
             width="400px"
-            titleFontSize="30px"
-            contentFontSize="13.2px"
+            titleFontSize={titleFontSize}
+            contentFontSize={fonstSize}
             borderBottom="0.5px solid #6A1F11"
             backgroundColor="#FFD9BC"
             color="#6A1F11"

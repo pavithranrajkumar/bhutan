@@ -19,6 +19,7 @@ import TravellerCard from "./Cards/PoliticalCard/TravellerCard/TravellerCard";
 import Administration from "./Cards/Administration/Administration";
 import DriglamCard from "./Cards/DriglamCard/DriglamCard";
 import SecrecyAtDeath from "./Cards/SecrecyAtDeath/SecrecyAtDeath";
+import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
 
 const ZhabrungNgawangNamgyalTwo = () => {
   const [language, setLanguage] = useState("english");
@@ -33,18 +34,25 @@ const ZhabrungNgawangNamgyalTwo = () => {
   const [showTravellers, setShoTravellers] = useState(false);
 
   const toggleLanguage = () => {
-    setLanguage((prevLanguage) =>
-      prevLanguage === "english" ? "bhutan" : "english"
-    );
+    setLanguage((prevLanguage) => {
+      const newLanguage = prevLanguage === ENGLISH ? BHUTAN : ENGLISH;
+      console.log("Language changed to:", newLanguage);
+      return newLanguage;
+    });
   };
 
   const handleHomeClick = () => {
     setShowCards(true);
-    resetState();
+    setShowIntroduction(false);
+    setSelectedCard(null);
+    setShowSealOfZhabrung(false);
+    setShoTravellers(false);
+    setShowYearText(true);
   };
 
   const resetState = () => {
     setShowIntroduction(false);
+    setShowCards(false);
     setSelectedCard(null);
     setShowSealOfZhabrung(false);
     setShoTravellers(false);
@@ -54,6 +62,9 @@ const ZhabrungNgawangNamgyalTwo = () => {
   const handleCardOrImageClick = () => {
     if (showCards || selectedCard) {
       resetState();
+    } else if (showIntroduction) {
+      setShowIntroduction(false);
+      setShowYearText(true);
     } else {
       setShowIntroduction(true);
       setShowIcons(true);
@@ -112,6 +123,23 @@ const ZhabrungNgawangNamgyalTwo = () => {
     ? "#FCD7C2"
     : "white";
 
+  const paraSize =
+    language === BHUTAN
+      ? showCards || selectedCard || showIntroduction
+        ? "10px"
+        : "15px"
+      : showCards || selectedCard || showIntroduction
+      ? "10px"
+      : "15px";
+  const fontSize =
+    language === BHUTAN
+      ? showCards || selectedCard || showIntroduction
+        ? "10px"
+        : "15px"
+      : showCards || selectedCard || showIntroduction
+      ? "15px"
+      : "15px";
+
   useEffect(() => {
     if (selectedCard) {
       setShowIntroduction(false);
@@ -157,12 +185,8 @@ const ZhabrungNgawangNamgyalTwo = () => {
             cardName={ZHABRUNG_INFORMATION[language].title}
             width="200px"
             height="90px"
-            paraSize={
-              showCards || selectedCard || showIntroduction ? "15px" : "20px"
-            }
-            fontSize={
-              showCards || selectedCard || showIntroduction ? "15px" : "20px"
-            }
+            paraSize={paraSize}
+            fontSize={fontSize}
             year={
               showCards || selectedCard || showIntroduction
                 ? "1594-1651"
@@ -192,6 +216,7 @@ const ZhabrungNgawangNamgyalTwo = () => {
             background="#2B455D"
           />
           <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
             left="80%"
@@ -209,6 +234,7 @@ const ZhabrungNgawangNamgyalTwo = () => {
             onCardClick={handleCardClick}
           />
           <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
             background="#AA5018"
             left="85.5%"
@@ -232,6 +258,7 @@ const ZhabrungNgawangNamgyalTwo = () => {
                   onClick={handleHistoricNextIconClick}
                 />
                 <LanguageIcon
+                  onClick={toggleLanguage}
                   showIcons={showIcons}
                   left="81.2%"
                   top="50%"
@@ -256,6 +283,7 @@ const ZhabrungNgawangNamgyalTwo = () => {
                 onSealClick={handleSealClick}
               />
               <LanguageIcon
+                onClick={toggleLanguage}
                 showIcons={showIcons}
                 iconWidth="25px"
                 IconHeight="25px"
@@ -281,6 +309,7 @@ const ZhabrungNgawangNamgyalTwo = () => {
             <div className={styles.SealCard}>
               <SealCard language={language} showIntro={true} />
               <LanguageIcon
+                onClick={toggleLanguage}
                 showIcons={showIcons}
                 whiteImage={true}
                 iconWidth="25px"
@@ -319,6 +348,7 @@ const ZhabrungNgawangNamgyalTwo = () => {
                 onTravelerClick={handleTraverllerClick}
               />
               <LanguageIcon
+                onClick={toggleLanguage}
                 showIcons={showIcons}
                 iconWidth="25px"
                 IconHeight="25px"
@@ -342,6 +372,7 @@ const ZhabrungNgawangNamgyalTwo = () => {
             <div className={styles.TravellerCardContains}>
               <TravellerCard language={language} showIntro={true} />
               <LanguageIcon
+                onClick={toggleLanguage}
                 showIcons={showIcons}
                 whiteImage={true}
                 iconWidth="25px"
@@ -375,6 +406,7 @@ const ZhabrungNgawangNamgyalTwo = () => {
             <div className={styles.AdministrationCardContains}>
               <Administration language={language} showIntro={true} />
               <LanguageIcon
+                onClick={toggleLanguage}
                 showIcons={showIcons}
                 iconWidth="25px"
                 IconHeight="25px"
@@ -398,6 +430,7 @@ const ZhabrungNgawangNamgyalTwo = () => {
             <div className={styles.SecrecyAtDeathCardContains}>
               <SecrecyAtDeath language={language} showIntro={true} />
               <LanguageIcon
+                onClick={toggleLanguage}
                 showIcons={showIcons}
                 iconWidth="25px"
                 IconHeight="25px"
@@ -421,6 +454,7 @@ const ZhabrungNgawangNamgyalTwo = () => {
             <div className={styles.DriglamCardContains}>
               <DriglamCard language={language} showIntro={true} />
               <LanguageIcon
+                onClick={toggleLanguage}
                 showIcons={showIcons}
                 iconWidth="25px"
                 IconHeight="25px"

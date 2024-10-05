@@ -2,8 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import styles from "./PemaCards.module.css";
 import { PEMA_LINGPA_INFORMATION } from "../../../../constants/Characters/PremaLingpa";
+import { BHUTAN } from "../../../../constants/languages/Language";
 
 const PemaCards = ({ isFadingOut, language, onCardClick }) => {
+  const fonstSize = language === BHUTAN ? "23px" : "25px";
   return (
     <div>
       <motion.div
@@ -21,7 +23,7 @@ const PemaCards = ({ isFadingOut, language, onCardClick }) => {
         >
           <div
             className={styles.CardsContainerText}
-            style={{ marginTop: "10px" }}
+            style={{ marginTop: "10px", fontSize: fonstSize }}
           >
             {PEMA_LINGPA_INFORMATION[language].historicBackground.title}
           </div>
@@ -35,7 +37,7 @@ const PemaCards = ({ isFadingOut, language, onCardClick }) => {
         >
           <div
             className={styles.CardsContainerText}
-            style={{ marginTop: "10px" }}
+            style={{ marginTop: "10px", fontSize: fonstSize }}
           >
             {PEMA_LINGPA_INFORMATION[language].lineage.title}
           </div>
@@ -49,7 +51,7 @@ const PemaCards = ({ isFadingOut, language, onCardClick }) => {
         >
           <div
             className={styles.CardsContainerText}
-            style={{ marginTop: "20px" }}
+            style={{ marginTop: "20px", fontSize: fonstSize }}
           >
             {PEMA_LINGPA_INFORMATION[language].revelations.title}
           </div>
@@ -63,7 +65,7 @@ const PemaCards = ({ isFadingOut, language, onCardClick }) => {
         >
           <div
             className={styles.CardsContainerText}
-            style={{ marginTop: "10px" }}
+            style={{ marginTop: "10px", fontSize: fonstSize }}
           >
             {PEMA_LINGPA_INFORMATION[language].legacy.title}
           </div>

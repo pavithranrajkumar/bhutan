@@ -1,16 +1,11 @@
-import React, { useState } from "react";
-import styles from "./Manifestation.module.css";
-import Card from "../../../../../components/Card/Card";
-import { GURU_INFORMATION } from "../../../../../constants/Characters/Guru";
-import ManifestationImg from "../../../../../assests/Guru/Manifestation/Manifestation.png";
-import WideCard from "../../../../../components/WideCard/WideCard";
-import { label } from "framer-motion/client";
-import { BHUTAN } from "../../../../../constants/languages/Language";
+import React from "react";
+import { GURU_INFORMATION } from "../../../../../../constants/Characters/Guru";
+import WideCard from "../../../../../../components/WideCard/WideCard";
+import styles from "./LakeBornWideCard.module.css";
+import LakeImg from "../../../../../../assests/Guru/Manifestation/lakeBornImg.png";
+import { BHUTAN } from "../../../../../../constants/languages/Language";
 
-const Manifestation = ({ showIntro, onManifestationsCardClick, language }) => {
-  const titleFontSize = language === BHUTAN ? "12px" : "25px";
-  const fonstSize = language === BHUTAN ? "7px" : "11.5px";
-
+const LakeBornWideCard = ({ onLakeBornCardClick, language }) => {
   const headerFontSize = language === BHUTAN ? "3px" : "7px";
   const paraFontSize = language === BHUTAN ? "3.5px" : "6.5px";
 
@@ -74,46 +69,46 @@ const Manifestation = ({ showIntro, onManifestationsCardClick, language }) => {
   ];
 
   return (
-    <div>
-      {showIntro && (
-        <>
-          <Card
-            width="260px"
-            height="300px"
-            titleFontSize={titleFontSize}
-            contentFontSize={fonstSize}
-            borderBottom="0.5px solid #A06611"
-            color="#A06611"
-            backgroundColor="#FADFB6"
-            title={GURU_INFORMATION[language].manifestations.title}
-            content={GURU_INFORMATION[language].manifestations.content}
-            language={language}
-            showIntro={showIntro}
+    <div className={styles.manifestationGroupContainer}>
+      <div className={styles.manifestationGroupContainerImg}>
+        <img
+          src={LakeImg}
+          alt="manifestationImg"
+          onClick={onLakeBornCardClick}
+        />
+      </div>
+      <div className={styles.manifestationFrstGroup}>
+        {manifestationsData.slice(0, 4).map((manifestation, index) => (
+          <WideCard
+            key={index}
+            FrstHeader={manifestation.FrstHeader}
+            ScndHeader={manifestation.ScndHeader}
+            para={manifestation.para}
+            className={styles.firstGroupWideCard}
+            width="200px"
+            height="35px"
+            headerFontSize={headerFontSize}
+            paraFontSize={paraFontSize}
           />
-          <div
-            className={styles.ManifestationCardImg}
-            onClick={onManifestationsCardClick}
-          >
-            <img src={ManifestationImg} alt="temple" />
-          </div>
-          <div className={styles.WideCards}>
-            {manifestationsData.map((item, index) => (
-              <WideCard
-                width="260px"
-                height="30px"
-                key={index}
-                FrstHeader={item.FrstHeader}
-                ScndHeader={item.ScndHeader}
-                para={item.para}
-                headerFontSize={headerFontSize}
-                paraFontSize={paraFontSize}
-              />
-            ))}
-          </div>
-        </>
-      )}
+        ))}
+      </div>
+
+      <div className={styles.manifestationScndGroup}>
+        {manifestationsData.slice(4).map((manifestation, index) => (
+          <WideCard
+            key={index + 4}
+            FrstHeader={manifestation.FrstHeader}
+            ScndHeader={manifestation.ScndHeader}
+            para={manifestation.para}
+            width="190px"
+            height="35px"
+            headerFontSize={headerFontSize}
+            paraFontSize={paraFontSize}
+          />
+        ))}
+      </div>
     </div>
   );
 };
 
-export default Manifestation;
+export default LakeBornWideCard;

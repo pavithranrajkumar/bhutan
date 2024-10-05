@@ -4,6 +4,7 @@ import Card from "../../../../components/Card/Card";
 import styles from "./RevelationsCard.module.css";
 import NaringDragBookImg from "../../../../assests/PemaLingpa/Revelations/NaringDrag.png";
 import burningLakeBookImg from "../../../../assests/PemaLingpa/Revelations/BurningLake.png";
+import { BHUTAN } from "../../../../constants/languages/Language";
 
 const RevelationsCard = ({
   showIntro,
@@ -11,14 +12,20 @@ const RevelationsCard = ({
   onNaringDragClick,
   onBurningLakeClick,
 }) => {
+  const titleFontSize = language === BHUTAN ? "12px" : "30px";
+  const fonstSize = language === BHUTAN ? "10px" : "13.2px";
+
+  const headerFontSize = language === BHUTAN ? "10px" : "12px";
+  const subHeaderFontSize = language === BHUTAN ? "12px" : "20px";
+
   return (
     <div>
       {showIntro && (
         <>
           <Card
             width="350px"
-            titleFontSize="30px"
-            contentFontSize="13.2px"
+            titleFontSize={titleFontSize}
+            contentFontSize={fonstSize}
             borderBottom="0.5px solid #6A1F11"
             backgroundColor="#FFD9BC"
             color="#6A1F11"
@@ -29,10 +36,16 @@ const RevelationsCard = ({
           />
           <div style={{ gap: "10px" }}>
             <div className={styles.revelationsCard} onClick={onNaringDragClick}>
-              <div className={styles.title}>
+              <div
+                className={styles.title}
+                style={{ fontSize: headerFontSize }}
+              >
                 {PEMA_LINGPA_INFORMATION[language].naringDrag.header}
               </div>
-              <div className={styles.header}>
+              <div
+                className={styles.header}
+                style={{ fontSize: subHeaderFontSize }}
+              >
                 {PEMA_LINGPA_INFORMATION[language].naringDrag.title}
               </div>
               <div className={styles.NaringDragBookImg}>
@@ -43,10 +56,16 @@ const RevelationsCard = ({
               className={styles.burningLakeCard}
               onClick={onBurningLakeClick}
             >
-              <div className={styles.burningLakeTitle}>
+              <div
+                className={styles.burningLakeTitle}
+                style={{ fontSize: headerFontSize }}
+              >
                 {PEMA_LINGPA_INFORMATION[language].burningLake.header}
               </div>
-              <div className={styles.burningLakeHeader}>
+              <div
+                className={styles.burningLakeHeader}
+                style={{ fontSize: subHeaderFontSize }}
+              >
                 {PEMA_LINGPA_INFORMATION[language].burningLake.title}
               </div>
               <div className={styles.burningLakeBookImg}>

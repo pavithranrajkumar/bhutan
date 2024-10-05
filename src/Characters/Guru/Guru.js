@@ -246,6 +246,7 @@ const Guru = () => {
           />
         </motion.div>
       )}
+
       <motion.div
         className={styles.GuruImage}
         initial={{ x: -100, opacity: 0 }}

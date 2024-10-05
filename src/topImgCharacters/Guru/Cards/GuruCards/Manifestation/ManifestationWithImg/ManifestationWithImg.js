@@ -3,9 +3,11 @@ import styles from "./ManifestationWithImg.module.css";
 import manifestationImg from "../../../../../../assests/Guru/Manifestation/ManifestationBigImg.png";
 import { GURU_INFORMATION } from "../../../../../../constants/Characters/Guru";
 import WideCard from "../../../../../../components/WideCard/WideCard";
+import { BHUTAN } from "../../../../../../constants/languages/Language";
 
-const ManifestationWithImg = () => {
-  const [language, setLanguage] = useState("english");
+const ManifestationWithImg = ({ onLakeBornClick, language }) => {
+  const headerFontSize = language === BHUTAN ? "3px" : "7px";
+  const paraFontSize = language === BHUTAN ? "3.5px" : "6.5px";
 
   const manifestationsData = [
     {
@@ -69,7 +71,11 @@ const ManifestationWithImg = () => {
   return (
     <div className={styles.manifestationGroupContainer}>
       <div className={styles.manifestationGroupContainerImg}>
-        <img src={manifestationImg} alt="manifestationImg" />
+        <img
+          src={manifestationImg}
+          alt="manifestationImg"
+          onClick={onLakeBornClick}
+        />
       </div>
       <div className={styles.manifestationFrstGroup}>
         {manifestationsData.slice(0, 4).map((manifestation, index) => (
@@ -80,6 +86,8 @@ const ManifestationWithImg = () => {
             para={manifestation.para}
             width="200px"
             height="35px"
+            headerFontSize={headerFontSize}
+            paraFontSize={paraFontSize}
           />
         ))}
       </div>
@@ -93,6 +101,8 @@ const ManifestationWithImg = () => {
             para={manifestation.para}
             width="190px"
             height="35px"
+            headerFontSize={headerFontSize}
+            paraFontSize={paraFontSize}
           />
         ))}
       </div>

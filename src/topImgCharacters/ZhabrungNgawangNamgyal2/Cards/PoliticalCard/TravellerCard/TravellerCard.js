@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import BigCard from "../../../../../components/BigCard/BigCard";
 import { ZHABRUNG_INFORMATION } from "../../../../../constants/Characters/ZhabrungNgawangNamgyal";
+import { BHUTAN } from "../../../../../constants/languages/Language";
 
-const TravellerCard = ({ showIntro }) => {
-  const [language, setLanguage] = useState("english");
-
+const TravellerCard = ({ showIntro, language }) => {
+  const titleFontSize = language === BHUTAN ? "12px" : "20px";
+  const fonstSize = language === BHUTAN ? "10px" : "11.3px";
   return (
     <div>
       {showIntro && (
         <BigCard
           width="270px"
           //   height="320px"
-          titleFontSize="20px"
-          cardFontSize="11.3px"
+          titleFontSize={titleFontSize}
+          cardFontSize={fonstSize}
           borderBottom="1px solid #193145"
           backgroundColor="#C9D7EE"
           color="#193145"

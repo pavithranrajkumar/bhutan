@@ -3,16 +3,20 @@ import { ZHABRUNG_INFORMATION } from "../../../../constants/Characters/ZhabrungN
 import styles from "./Administration.module.css";
 import Card from "../../../../components/Card/Card";
 import BhutanGovLogo from "../../../../assests/Zhabrung/Cards/Historic/BhutanGovtLogo.png";
+import { BHUTAN } from "../../../../constants/languages/Language";
 
 const Administration = ({ showIntro, language }) => {
+  const titleFontSize = language === BHUTAN ? "12px" : "20px";
+  const fonstSize = language === BHUTAN ? "7px" : "11px";
+
   return (
     <div>
       {showIntro && (
         <>
           <Card
             width="280px"
-            titleFontSize="20px"
-            contentFontSize="11px"
+            titleFontSize={titleFontSize}
+            contentFontSize={fonstSize}
             borderBottom="0.5px solid #8F4110"
             backgroundColor="#FFDFC3"
             color="#6A1F11"

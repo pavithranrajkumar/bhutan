@@ -3,18 +3,20 @@ import Card from "../../../../../components/Card/Card";
 import styles from "./SealCard.module.css";
 import { ZHABRUNG_INFORMATION } from "../../../../../constants/Characters/ZhabrungNgawangNamgyal";
 import seal from "../../../../../assests/Zhabrung/Cards/Historic/Seal.png";
+import { BHUTAN } from "../../../../../constants/languages/Language";
 
-const SealCard = ({ showIntro }) => {
-  const [language, setLanguage] = useState("english");
-
+const SealCard = ({ showIntro, language }) => {
+  const fonstSize = language === BHUTAN ? "5.5px" : "9px";
+  const titleFontSize = language === BHUTAN ? "12px" : "20px";
+  const cardFonstSize = language === BHUTAN ? "7px" : "10.5px";
   return (
     <div>
       {showIntro && (
         <>
           <Card
             width="260px"
-            titleFontSize="20px"
-            contentFontSize="10.5px"
+            titleFontSize={titleFontSize}
+            contentFontSize={cardFonstSize}
             borderBottom="0.5px solid #193145"
             backgroundColor="#C9D7EE"
             color="#193145"
@@ -27,25 +29,103 @@ const SealCard = ({ showIntro }) => {
             <img src={seal} alt="seal" />
           </div>
           <div className={styles.sealOfZhabdrungStatementCard}>
-            <div style={{ margin: "3px" }}>
-              <p>
-                I turn the wheel of the dual systems (of secular and spiritual).
+            <div style={{ margin: "3px", fontSize: fonstSize }}>
+              <p style={{ fontSize: fonstSize }}>
+                {
+                  ZHABRUNG_INFORMATION[language].sealOfZhabdrungStatement
+                    .content.first
+                }
               </p>
-              <p>I am a good refuge for all.</p>
-              <p>I hold the teachings of the glorious Drukpa.</p>
-              <p>I destroy those who feign to be Drukpa.</p>
-              <p>I have become Sarasvatī in composition.</p>
-              <p>I am the pure source of moral aphorisms.</p>
-              <p>I am the master of views free from extremes.</p>
-              <p>I refute those with wrong views.</p>
-              <p>I am the master of power and strength in debates.</p>
-              <p>Who is the rival that does not tremble before me?</p>
-              <p>I am the hero who destroys hosts of demons.</p>
-              <p>Who is the powerful one that can repulse my power?</p>
-              <p>I am the lord of speech in expounding religion.</p>
-              <p>I am learned in all sciences.</p>
-              <p>I am the incarnation prophesied by the patriarchs.</p>
-              <p>I am the eliminator of deviant incarnations.</p>
+              <p style={{ fontSize: fonstSize }}>
+                {
+                  ZHABRUNG_INFORMATION[language].sealOfZhabdrungStatement
+                    .content.second
+                }
+              </p>
+              <p style={{ fontSize: fonstSize }}>
+                {
+                  ZHABRUNG_INFORMATION[language].sealOfZhabdrungStatement
+                    .content.third
+                }
+              </p>
+              <p style={{ fontSize: fonstSize }}>
+                {
+                  ZHABRUNG_INFORMATION[language].sealOfZhabdrungStatement
+                    .content.fourth
+                }
+              </p>
+              <p style={{ fontSize: fonstSize }}>
+                {
+                  ZHABRUNG_INFORMATION[language].sealOfZhabdrungStatement
+                    .content.fifth
+                }
+              </p>
+              <p style={{ fontSize: fonstSize }}>
+                {
+                  ZHABRUNG_INFORMATION[language].sealOfZhabdrungStatement
+                    .content.sixth
+                }
+              </p>
+              <p style={{ fontSize: fonstSize }}>
+                {
+                  ZHABRUNG_INFORMATION[language].sealOfZhabdrungStatement
+                    .content.seventh
+                }
+              </p>
+              <p style={{ fontSize: fonstSize }}>
+                {
+                  ZHABRUNG_INFORMATION[language].sealOfZhabdrungStatement
+                    .content.eighth
+                }
+              </p>
+              <p style={{ fontSize: fonstSize }}>
+                {
+                  ZHABRUNG_INFORMATION[language].sealOfZhabdrungStatement
+                    .content.ninth
+                }
+              </p>
+              <p style={{ fontSize: fonstSize }}>
+                {
+                  ZHABRUNG_INFORMATION[language].sealOfZhabdrungStatement
+                    .content.tenth
+                }
+              </p>
+              <p style={{ fontSize: fonstSize }}>
+                {
+                  ZHABRUNG_INFORMATION[language].sealOfZhabdrungStatement
+                    .content.eleventh
+                }
+              </p>
+              <p style={{ fontSize: fonstSize }}>
+                {
+                  ZHABRUNG_INFORMATION[language].sealOfZhabdrungStatement
+                    .content.twelfth
+                }
+              </p>
+              <p style={{ fontSize: fonstSize }}>
+                {
+                  ZHABRUNG_INFORMATION[language].sealOfZhabdrungStatement
+                    .content.thirteenth
+                }
+              </p>
+              <p style={{ fontSize: fonstSize }}>
+                {
+                  ZHABRUNG_INFORMATION[language].sealOfZhabdrungStatement
+                    .content.fourteenth
+                }
+              </p>
+              <p style={{ fontSize: fonstSize }}>
+                {
+                  ZHABRUNG_INFORMATION[language].sealOfZhabdrungStatement
+                    .content.fifteenth
+                }
+              </p>
+              <p style={{ fontSize: fonstSize }}>
+                {
+                  ZHABRUNG_INFORMATION[language].sealOfZhabdrungStatement
+                    .content.sixteenth
+                }
+              </p>
             </div>
           </div>
         </>

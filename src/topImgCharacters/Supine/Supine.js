@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Supine.module.css";
 import { motion } from "framer-motion";
 import supine from "../../assests/Supine/SupineDemoness.png";
@@ -20,6 +20,7 @@ import JambayImg1 from "../../assests/Supine/JambayCard/Imgs/JamBayImgs1.png";
 import JambayImg2 from "../../assests/Supine/JambayCard/Imgs/JamBayImgs2.png";
 import KyichuImg1 from "../../assests/Supine/KyichuImgs/KyichuImg1.png";
 import KyichuImg2 from "../../assests/Supine/KyichuImgs/KyichuImg2.png";
+import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
 
 const SupineTwo = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -36,14 +37,22 @@ const SupineTwo = () => {
   const [showKyichuImages, setShowKyichuImages] = useState(false);
   const [showYear, setShowYear] = useState(true);
 
+  const kyichuFontSize = language === BHUTAN ? "25px" : "25px";
+  const cardNameFontSize = language === BHUTAN ? "10px" : "15px";
+  const subCardnameFontSize = language === BHUTAN ? "10px" : "15px";
+  const subCardnameMarginLeft = language === BHUTAN ? "150px" : "125px";
+
   const toggleLanguage = () => {
-    setLanguage((prevLanguage) =>
-      prevLanguage === "english" ? "bhutan" : "english"
-    );
+    setLanguage((prevLanguage) => {
+      const newLanguage = prevLanguage === ENGLISH ? BHUTAN : ENGLISH;
+      console.log("Language changed to:", newLanguage);
+      return newLanguage;
+    });
   };
 
   const handleCardOrImageClick = () => {
     if (
+      showIntroduction ||
       showCards ||
       selectedCard ||
       showHimalayanCard ||
@@ -52,6 +61,7 @@ const SupineTwo = () => {
       showJamBayImages ||
       showKyichuImages
     ) {
+      setShowIntroduction(false);
       setShowCards(false);
       setShowHimalayanCard(false);
       setShowBhutanCard(false);
@@ -59,17 +69,17 @@ const SupineTwo = () => {
       setSelectedCard(null);
       setShowJamBayImages(false);
       setShowKyichuImages(false);
+      setShowYearText(true);
     } else {
-      setShowYearText(false);
       setShowIntroduction(true);
       setShowIcons(true);
-      setShowYearText(true);
     }
   };
 
   const showSupineCards = () => {
     setShowIntroduction(false);
     setShowCards(true);
+    setShowYearText(false);
   };
 
   const handleReligiousCardClick = () => {
@@ -146,7 +156,7 @@ const SupineTwo = () => {
   };
 
   const handleHomeClick = () => {
-    setShowYearText(true);
+    setShowYearText(false);
     setShowIntroduction(false);
     setShowCards(true);
     setSelectedCard(null);
@@ -156,6 +166,12 @@ const SupineTwo = () => {
     setShowJamBayImages(false);
     setShowKyichuImages(false);
   };
+
+  useEffect(() => {
+    if (selectedCard) {
+      setShowIntroduction(false);
+    }
+  }, [selectedCard]);
 
   const isBlueCard = showIntroduction || showHimalayanCard || showBhutanCard;
 
@@ -228,13 +244,13 @@ const SupineTwo = () => {
             onClick={handleCardOrImageClick}
           >
             <NameCard
-              cardName="SUPINE"
-              subCardname="DEMONESS"
+              cardName={SUPINE_INFORMATION[language].nameCardtitle}
+              subCardname={SUPINE_INFORMATION[language].nameCardtitleTwo}
               width="250px"
               height="80px"
-              fontSize="15px"
-              subCardnameFontSize="15px"
-              subCardnameMarginLeft="125px"
+              fontSize={cardNameFontSize}
+              subCardnameFontSize={subCardnameFontSize}
+              subCardnameMarginLeft={subCardnameMarginLeft}
               background={nameCardBackground}
               color={nameCardColor}
               year={
@@ -308,7 +324,7 @@ const SupineTwo = () => {
             iconWidth="25px"
             IconHeight="25px"
             left="4.8%"
-            top="58%"
+            top="42%"
             height="55px"
             background="#3A3C25"
           />
@@ -317,7 +333,7 @@ const SupineTwo = () => {
             supine={true}
             background="#555835"
             left="4.4%"
-            top="48%"
+            top="31%"
             height="70px"
             width="80px"
             margin="25px"
@@ -338,16 +354,16 @@ const SupineTwo = () => {
             iconWidth="25px"
             IconHeight="25px"
             left="4.8%"
-            top="64%"
+            top="45%"
             height="55px"
           />
           <PreviousIcon
             onClick={handlePreviousClick}
             showIcons={showIcons}
             left="4.7%"
-            top="51%"
+            top="31%"
             height="80px"
-            margin="25px"
+            marginTop="28px"
           />
         </>
       )}
@@ -376,7 +392,7 @@ const SupineTwo = () => {
               left="4.7%"
               top="29%"
               height="80px"
-              margin="25px"
+              marginTop="28px"
             />
             <HomeIcon
               showIcons={showIcons}
@@ -420,7 +436,7 @@ const SupineTwo = () => {
             top="12%"
             height="80px"
             background="#555835"
-            margin="25px"
+            marginTop="28px"
           />
           <HomeIcon
             showIcons={showIcons}
@@ -471,7 +487,7 @@ const SupineTwo = () => {
             top="75%"
             height="80px"
             background="#555835"
-            margin="25px"
+            marginTop="28px"
           />
           <HomeIcon
             showIcons={showIcons}
@@ -515,7 +531,7 @@ const SupineTwo = () => {
             top="18%"
             height="80px"
             background="#555835"
-            margin="25px"
+            marginTop="28px"
           />
           <HomeIcon
             showIcons={showIcons}
@@ -566,7 +582,7 @@ const SupineTwo = () => {
             top="75%"
             height="80px"
             background="#555835"
-            margin="25px"
+            marginTop="28px"
           />
           <HomeIcon
             showIcons={showIcons}

@@ -2,18 +2,20 @@ import React, { useState } from "react";
 import BigCard from "../../../../components/BigCard/BigCard";
 import { ZHABRUNG_INFORMATION } from "../../../../constants/Characters/ZhabrungNgawangNamgyal";
 import styles from "./PoliticalCard.module.css";
+import { BHUTAN } from "../../../../constants/languages/Language";
 
-const PoliticalCard = ({ showIntro, onTravelerClick }) => {
-  const [language, setLanguage] = useState("english");
-
+const PoliticalCard = ({ showIntro, onTravelerClick, language }) => {
+  const titleFontSize = language === BHUTAN ? "12px" : "15px";
+  const fonstSize = language === BHUTAN ? "7.5px" : "12px";
+  const headerFontSize = language === BHUTAN ? "10px" : "20px";
   return (
     <div>
       {showIntro && (
         <>
           <BigCard
             width="325px"
-            titleFontSize="15px"
-            cardFontSize="12px"
+            titleFontSize={titleFontSize}
+            cardFontSize={fonstSize}
             borderBottom="1px solid #6A1F11"
             backgroundColor="#FFDFC3"
             color="#6A1F11"
@@ -26,8 +28,8 @@ const PoliticalCard = ({ showIntro, onTravelerClick }) => {
             showIntro={showIntro}
           />
           <div className={styles.TravellersCard} onClick={onTravelerClick}>
-            <div style={{ marginTop: "18px" }}>
-              EARLIEST FOREIGN TRAVELLERS IN BHUTAN
+            <div style={{ marginTop: "18px", fontSize: headerFontSize }}>
+              {ZHABRUNG_INFORMATION[language].foreignTravellers.title}
             </div>
           </div>
         </>

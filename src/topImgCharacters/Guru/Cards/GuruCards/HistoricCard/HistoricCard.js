@@ -3,9 +3,12 @@ import styles from "./HistoricCard.module.css";
 import Card from "../../../../../components/Card/Card";
 import { GURU_INFORMATION } from "../../../../../constants/Characters/Guru";
 import temple from "../../../../../assests/Guru/Historic/GuruHistoric.png";
+import { BHUTAN } from "../../../../../constants/languages/Language";
 
-const HistoricCard = ({ showIntro, onKurjeClick }) => {
-  const [language, setLanguage] = useState("english");
+const HistoricCard = ({ showIntro, onKurjeClick, language }) => {
+  const titleFontSize = language === BHUTAN ? "12px" : "25px";
+  const fonstSize = language === BHUTAN ? "7px" : "11px";
+  const KurjeFonstSize = language === BHUTAN ? "7px" : "15px";
 
   return (
     <div>
@@ -13,8 +16,8 @@ const HistoricCard = ({ showIntro, onKurjeClick }) => {
         <>
           <Card
             width="330px"
-            titleFontSize="25px"
-            contentFontSize="11px"
+            titleFontSize={titleFontSize}
+            contentFontSize={fonstSize}
             borderBottom="0.5px solid #A06611"
             color="#A06611"
             backgroundColor="#FADFB6"
@@ -29,9 +32,11 @@ const HistoricCard = ({ showIntro, onKurjeClick }) => {
                 marginTop: "18px",
                 display: "flex",
                 flexDirection: "column",
+                fontSize: KurjeFonstSize,
               }}
             >
-              KURJE <span>LHAKHANG</span>
+              {GURU_INFORMATION[language].kurjeCard.title}{" "}
+              <span>{GURU_INFORMATION[language].kurjeCard.subTitle}</span>
             </div>
           </div>
           <div className={styles.GuruHistoricCardImg}>

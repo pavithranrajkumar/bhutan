@@ -2,8 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import styles from "./ZhabrungCards.module.css";
 import { ZHABRUNG_INFORMATION } from "../../../../constants/Characters/ZhabrungNgawangNamgyal";
+import { BHUTAN } from "../../../../constants/languages/Language";
 
 const ZhabrungCards = ({ isFadingOut, language, onCardClick }) => {
+  const fonstSize = language === BHUTAN ? "11.5px" : "14px";
   return (
     <div>
       <motion.div
@@ -19,7 +21,10 @@ const ZhabrungCards = ({ isFadingOut, language, onCardClick }) => {
           transition={{ duration: 1 }}
           onClick={() => onCardClick("historic")}
         >
-          <div className={styles.CardsContainerText}>
+          <div
+            className={styles.CardsContainerText}
+            style={{ fontSize: fonstSize }}
+          >
             {ZHABRUNG_INFORMATION[language].historicBackground.title}
           </div>
         </motion.div>
@@ -30,7 +35,13 @@ const ZhabrungCards = ({ isFadingOut, language, onCardClick }) => {
           transition={{ duration: 1 }}
           onClick={() => onCardClick("religious")}
         >
-          <div className={styles.CardsContainerText}>RELIGIOUS INFLUENCE</div>
+          <div
+            className={styles.CardsContainerText}
+            style={{ fontSize: fonstSize }}
+          >
+            {" "}
+            {ZHABRUNG_INFORMATION[language].religiousInflunce.title}
+          </div>
         </motion.div>
         <motion.div
           className={styles.PoliticalCard}
@@ -39,7 +50,13 @@ const ZhabrungCards = ({ isFadingOut, language, onCardClick }) => {
           transition={{ duration: 1 }}
           onClick={() => onCardClick("political")}
         >
-          <div className={styles.CardsContainerText}>POLITICAL INFLUENCE</div>
+          <div
+            className={styles.CardsContainerText}
+            style={{ fontSize: fonstSize }}
+          >
+            {" "}
+            {ZHABRUNG_INFORMATION[language].politicalInfluence.title}
+          </div>
         </motion.div>
         <motion.div
           className={styles.AdministartionCard}
@@ -48,8 +65,11 @@ const ZhabrungCards = ({ isFadingOut, language, onCardClick }) => {
           transition={{ duration: 1 }}
           onClick={() => onCardClick("administration")}
         >
-          <div className={styles.CardsContainerText}>
-            ADMINISTARTION CHOESI NYIDEN
+          <div
+            className={styles.CardsContainerText}
+            style={{ fontSize: fonstSize }}
+          >
+            {ZHABRUNG_INFORMATION[language].administration.title}
           </div>
         </motion.div>
         <motion.div
@@ -59,7 +79,13 @@ const ZhabrungCards = ({ isFadingOut, language, onCardClick }) => {
           transition={{ duration: 1 }}
           onClick={() => onCardClick("secrecy")}
         >
-          <div className={styles.CardsContainerText}>SECRECY AT DEATH</div>
+          <div
+            className={styles.CardsContainerText}
+            style={{ fontSize: fonstSize }}
+          >
+            {" "}
+            {ZHABRUNG_INFORMATION[language].secrecyAtDeath.title}
+          </div>
         </motion.div>
         <motion.div
           className={styles.DriglamCard}
@@ -68,7 +94,13 @@ const ZhabrungCards = ({ isFadingOut, language, onCardClick }) => {
           transition={{ duration: 1 }}
           onClick={() => onCardClick("driglam")}
         >
-          <div className={styles.CardsContainerText}>DRIGLAM NAMZHAG </div>
+          <div
+            className={styles.CardsContainerText}
+            style={{ fontSize: fonstSize }}
+          >
+            {" "}
+            {ZHABRUNG_INFORMATION[language].driglamNamzhag.title}
+          </div>
         </motion.div>
       </motion.div>
     </div>

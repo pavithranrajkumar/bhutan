@@ -2,8 +2,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import styles from "./TibetanCards.module.css";
 import { TIBETAN_INFORMATION } from "../../../../constants/Characters/Tibetan";
+import { BHUTAN } from "../../../../constants/languages/Language";
 
 const TibetanCards = ({ isFadingOut, language, onCardClick }) => {
+  const fonstSize = language === BHUTAN ? "11px" : "14px";
+
   return (
     <div>
       <motion.div
@@ -19,7 +22,10 @@ const TibetanCards = ({ isFadingOut, language, onCardClick }) => {
           transition={{ duration: 1 }}
           onClick={() => onCardClick("arrival")}
         >
-          <div className={styles.CardsContainerText}>
+          <div
+            className={styles.CardsContainerText}
+            style={{ fontSize: fonstSize }}
+          >
             {TIBETAN_INFORMATION[language].arrival.title}
           </div>
         </motion.div>
@@ -30,7 +36,10 @@ const TibetanCards = ({ isFadingOut, language, onCardClick }) => {
           transition={{ duration: 1 }}
           onClick={() => onCardClick("schools")}
         >
-          <div className={styles.CardsContainerText}>
+          <div
+            className={styles.CardsContainerText}
+            style={{ fontSize: fonstSize }}
+          >
             {" "}
             {TIBETAN_INFORMATION[language].bhddhistSchools.title}
           </div>

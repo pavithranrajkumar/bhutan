@@ -4,6 +4,7 @@ import Card from "../../../../components/Card/Card";
 import styles from "./LegacyCard.module.css";
 import MonasteriesCardImg from "../../../../assests/PemaLingpa/Legacy/MonasteriesCard.png";
 import PelingDanceCardImg from "../../../../assests/PemaLingpa/Legacy/PelingDanceCard.png";
+import { BHUTAN } from "../../../../constants/languages/Language";
 
 const LegacyCards = ({
   showIntro,
@@ -11,14 +12,16 @@ const LegacyCards = ({
   onMonasteriesCardClick,
   onPelingDanceCardClick,
 }) => {
+  const titleFontSize = language === BHUTAN ? "12px" : "30px";
+  const fonstSize = language === BHUTAN ? "9px" : "13.2px";
   return (
     <div>
       {showIntro && (
         <>
           <Card
             width="300px"
-            titleFontSize="30px"
-            contentFontSize="13.2px"
+            titleFontSize={titleFontSize}
+            contentFontSize={fonstSize}
             borderBottom="0.5px solid #6A1F11"
             backgroundColor="#FFD9BC"
             color="#6A1F11"

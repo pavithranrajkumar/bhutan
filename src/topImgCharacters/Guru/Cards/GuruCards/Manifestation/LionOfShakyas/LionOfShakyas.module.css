@@ -1,0 +1,33 @@
+.manifestationGroupContainer {
+  position: fixed;
+}
+
+.manifestationGroupContainerImg {
+  position: fixed;
+  left: 27.1%;
+  top: 52%;
+  width: 210px;
+  height: 300px;
+  cursor: pointer;
+}
+
+.manifestationGroupContainerImg img {
+  object-fit: fill;
+}
+
+.manifestationFrstGroup {
+  position: fixed;
+  left: 21.6%;
+  top: 69%;
+}
+
+.manifestationScndGroup {
+  position: fixed;
+  left: 32.7%;
+  top: 40%;
+}
+
+.manifestationFrstGroup > div:nth-child(2) {
+  background-color: #c87e12;
+  color: #fadfb6;
+}

@@ -30,6 +30,7 @@ import MonasteriesImg7 from "../../assests/PemaLingpa/Legacy/Monastries/Monastre
 import MonasteriesImg8 from "../../assests/PemaLingpa/Legacy/Monastries/MonastreriesImg8.png";
 import { PEMA_LINGPA_INFORMATION } from "../../constants/Characters/PremaLingpa";
 import PelingDanceVideo from "../../assests/PemaLingpa/Legacy/PelingDanceCard.png";
+import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
 
 const PemaLinghpa = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -50,9 +51,11 @@ const PemaLinghpa = () => {
   const [showPelingdanceImgs, setShowPelingdanceImgs] = useState(false);
 
   const toggleLanguage = () => {
-    setLanguage((prevLanguage) =>
-      prevLanguage === "english" ? "bhutan" : "english"
-    );
+    setLanguage((prevLanguage) => {
+      const newLanguage = prevLanguage === ENGLISH ? BHUTAN : ENGLISH;
+      console.log("Language changed to:", newLanguage);
+      return newLanguage;
+    });
   };
 
   const handleCardOrImageClick = () => {
@@ -322,6 +325,7 @@ const PemaLinghpa = () => {
                 <HistoricCard language={language} showIntro={true} />
 
                 <LanguageIcon
+                  onClick={toggleLanguage}
                   showIcons={showIcons}
                   left="61%"
                   top="96%"
@@ -368,6 +372,7 @@ const PemaLinghpa = () => {
                 />
 
                 <LanguageIcon
+                  onClick={toggleLanguage}
                   showIcons={showIcons}
                   left="60.5%"
                   top="96%"
@@ -401,6 +406,7 @@ const PemaLinghpa = () => {
                 />
 
                 <LanguageIcon
+                  onClick={toggleLanguage}
                   showIcons={showIcons}
                   left="60.5%"
                   top="96%"
@@ -434,6 +440,7 @@ const PemaLinghpa = () => {
                 />
 
                 <LanguageIcon
+                  onClick={toggleLanguage}
                   showIcons={showIcons}
                   left="60.5%"
                   top="96%"
@@ -468,6 +475,7 @@ const PemaLinghpa = () => {
             />
           </div>
           <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
             left="61%"
             top="96%"
@@ -520,6 +528,7 @@ const PemaLinghpa = () => {
             onClick={handleHomeClick}
           />
           <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
             left="60.5%"
@@ -560,6 +569,7 @@ const PemaLinghpa = () => {
             onClick={handleHomeClick}
           />
           <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
             left="60.5%"
@@ -581,6 +591,7 @@ const PemaLinghpa = () => {
             />
           </div>
           <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
             left="61%"
             top="96%"
@@ -614,6 +625,7 @@ const PemaLinghpa = () => {
             />
           </div>
           <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
             left="61%"
             top="96%"
@@ -695,6 +707,7 @@ const PemaLinghpa = () => {
             onClick={handleHomeClick}
           />
           <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
             left="60.4%"
@@ -728,6 +741,7 @@ const PemaLinghpa = () => {
             onClick={handleHomeClick}
           />
           <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
             left="61%"

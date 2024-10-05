@@ -29,6 +29,25 @@ import popularImg10 from "../../assests/Tibetan/PopularSchools/popularImg10.png"
 import popularImg11 from "../../assests/Tibetan/PopularSchools/popularImg11.png";
 import popularImg12 from "../../assests/Tibetan/PopularSchools/popularImg12.png";
 import popularImg13 from "../../assests/Tibetan/PopularSchools/popularImg13.png";
+import DrugpaKagyuImg1 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg1.png";
+import DrugpaKagyuImg2 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg2.png";
+import DrugpaKagyuImg3 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg3.png";
+import DrugpaKagyuImg4 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg4.png";
+import DrugpaKagyuImg5 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg5.png";
+import DrugpaKagyuImg6 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg6.png";
+import DrugpaKagyuImg7 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg7.png";
+import DrugpaKagyuImg8 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg8.png";
+import DrugpaKagyuImg9 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg9.png";
+import DrugpaKagyuImg10 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg10.png";
+import DrugpaKagyuImg11 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg11.png";
+import DrugpaKagyuImg12 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg12.png";
+import DrugpaKagyuImg13 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg13.png";
+import DrugpaKagyuImg14 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg14.png";
+import DrugpaKagyuImg15 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg15.png";
+import DrugpaKagyuImg16 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg16.png";
+import DrugpaKagyuImg17 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg17.png";
+import DrugpaKagyuImg18 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg18.png";
+import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
 
 const TibetanTwo = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -42,6 +61,7 @@ const TibetanTwo = () => {
   const [showDrukpaKagyuCard, setShowDrukpaKagyuCard] = useState(false);
   const [showPopularSchoolsImgCard, setShowPopularSchoolsImgCard] =
     useState(false);
+  const [showDrugpaKagyuImgCard, setShowDrugpaKagyuImgCard] = useState(false);
 
   const handleCardOrImageClick = () => {
     if (
@@ -49,9 +69,20 @@ const TibetanTwo = () => {
       selectedCard ||
       showDrukpaKagyuCard ||
       showPopularSchoolsCard ||
-      showPopularSchoolsImgCard
+      showPopularSchoolsImgCard ||
+      showDrugpaKagyuImgCard
     ) {
-      resetView();
+      setShowCards(false);
+      setSelectedCard(null);
+      setShowIntroduction(false);
+      setShowPopularSchoolsCard(false);
+      setShowDrukpaKagyuCard(false);
+      setShowPopularSchoolsImgCard(false);
+      setShowDrugpaKagyuImgCard(false);
+      setShowYearText(true);
+    } else if (showIntroduction) {
+      setShowIntroduction(false);
+      setShowYearText(true);
     } else {
       setShowYearText(false);
       setShowIntroduction(true);
@@ -61,17 +92,22 @@ const TibetanTwo = () => {
   };
 
   const resetView = () => {
+    setShowCards(true);
     setSelectedCard(null);
     setShowIntroduction(false);
     setShowPopularSchoolsCard(false);
     setShowDrukpaKagyuCard(false);
     setShowPopularSchoolsImgCard(false);
+    setShowDrugpaKagyuImgCard(false);
+    setShowYearText(true);
   };
 
   const toggleLanguage = () => {
-    setLanguage((prevLanguage) =>
-      prevLanguage === "english" ? "bhutan" : "english"
-    );
+    setLanguage((prevLanguage) => {
+      const newLanguage = prevLanguage === ENGLISH ? BHUTAN : ENGLISH;
+      console.log("Language changed to:", newLanguage);
+      return newLanguage;
+    });
   };
 
   const showTibetanCards = () => {
@@ -105,10 +141,18 @@ const TibetanTwo = () => {
     setShowPopularSchoolsImgCard(true);
   };
 
+  const showDrugpaKagyuImg = () => {
+    setShowDrukpaKagyuCard(false);
+    setShowDrugpaKagyuImgCard(true);
+  };
+
   const handlePreviousClick = () => {
     if (showPopularSchoolsImgCard) {
       setShowPopularSchoolsImgCard(false);
       setShowPopularSchoolsCard(true);
+    } else if (showDrugpaKagyuImgCard) {
+      setShowDrugpaKagyuImgCard(false);
+      setShowDrukpaKagyuCard(true);
     } else if (showPopularSchoolsCard) {
       setShowPopularSchoolsCard(false);
       setSelectedCard("schools");
@@ -147,6 +191,23 @@ const TibetanTwo = () => {
     : selectedCard
     ? "#FCD7C2"
     : "white";
+
+  const paraSize =
+    language === BHUTAN
+      ? showCards || selectedCard || showIntroduction
+        ? "13px"
+        : "18px"
+      : showCards || selectedCard || showIntroduction
+      ? "15px"
+      : "20px";
+  const fontSize =
+    language === BHUTAN
+      ? showCards || selectedCard || showIntroduction
+        ? "15px"
+        : "10px"
+      : showCards || selectedCard || showIntroduction
+      ? "15px"
+      : "18px";
 
   useEffect(() => {
     if (selectedCard) {
@@ -191,14 +252,10 @@ const TibetanTwo = () => {
         >
           <NameCard
             cardName={TIBETAN_INFORMATION[language].title}
-            width="200px"
+            width="220px"
             height="90px"
-            paraSize={
-              showCards || selectedCard || showIntroduction ? "10px" : "18px"
-            }
-            fontSize={
-              showCards || selectedCard || showIntroduction ? "15px" : "15px"
-            }
+            paraSize={paraSize}
+            fontSize={fontSize}
             year={
               showCards || selectedCard || showIntroduction
                 ? "1200-1800"
@@ -225,6 +282,7 @@ const TibetanTwo = () => {
             background="#2B455D"
           />
           <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
             left="43.8%"
@@ -242,6 +300,7 @@ const TibetanTwo = () => {
             onCardClick={handleCardClick}
           />
           <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
             background="#523019"
             left="50.5%"
@@ -256,6 +315,7 @@ const TibetanTwo = () => {
             <div className={styles.ArrivalCard}>
               <Arrival language={language} showIntro={true} />
               <LanguageIcon
+                onClick={toggleLanguage}
                 showIcons={showIcons}
                 iconWidth="25px"
                 IconHeight="25px"
@@ -294,6 +354,7 @@ const TibetanTwo = () => {
                 onDrukpaKagyuClick={showDrukpaKagyu}
               />
               <LanguageIcon
+                onClick={toggleLanguage}
                 showIcons={showIcons}
                 iconWidth="25px"
                 IconHeight="25px"
@@ -325,6 +386,7 @@ const TibetanTwo = () => {
             onPopularSchoolsImgClick={showPopularSchoolsImg}
           />
           <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
             iconWidth="25px"
             IconHeight="25px"
@@ -349,7 +411,7 @@ const TibetanTwo = () => {
             left="40.7%"
             top="20%"
             height="80px"
-            margin="25px"
+            marginTop="28px"
           />
         </div>
       )}
@@ -411,19 +473,23 @@ const TibetanTwo = () => {
               </div>
             </div>
           </div>
+
           <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
+            margin="15px"
             iconWidth="25px"
             IconHeight="25px"
-            left="44.7%"
-            top="49%"
-            height="55px"
+            height="50px"
+            width="55px"
+            left="45.9%"
+            top="39%"
             whiteImage={true}
           />
           <HomeIcon
             showIcons={showIcons}
-            left="44.6%"
-            top="38%"
+            left="45.3%"
+            top="28%"
             height="70px"
             width="80px"
             margin="25px"
@@ -433,10 +499,10 @@ const TibetanTwo = () => {
           <PreviousIcon
             onClick={handlePreviousClick}
             showIcons={showIcons}
-            left="44.6%"
-            top="26%"
+            left="45.3%"
+            top="15%"
             height="80px"
-            margin="25px"
+            marginTop="28px"
           />
         </>
       )}
@@ -444,9 +510,14 @@ const TibetanTwo = () => {
       {showDrukpaKagyuCard && (
         <>
           <div className={styles.DrukpaKagyuCard}>
-            <DrukpaKagyu language={language} showIntro={true} />
+            <DrukpaKagyu
+              language={language}
+              showIntro={true}
+              onDrugpaKagyuImgClick={showDrugpaKagyuImg}
+            />
           </div>
           <LanguageIcon
+            onClick={toggleLanguage}
             showIcons={showIcons}
             iconWidth="25px"
             IconHeight="25px"
@@ -471,7 +542,121 @@ const TibetanTwo = () => {
             left="41.8%"
             top="19%"
             height="80px"
+            marginTop="28px"
+          />
+        </>
+      )}
+
+      {showDrugpaKagyuImgCard && (
+        <>
+          <div className={styles.KurjeLhakhangTemplesImgContainer}>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className={styles.DrugpaKagyuImg1}>
+                <img src={DrugpaKagyuImg1} alt="palaceImg1" />
+              </div>
+              <div className={styles.DrugpaKagyuImg2}>
+                <img src={DrugpaKagyuImg2} alt="palaceImg1" />
+              </div>
+            </div>
+
+            <div className={styles.DrugpaKagyuImg3}>
+              <img src={DrugpaKagyuImg3} alt="palaceImg1" />
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className={styles.DrugpaKagyuImg4}>
+                <img src={DrugpaKagyuImg4} alt="palaceImg1" />
+              </div>
+              <div style={{ display: "flex", flexDirection: "row" }}>
+                <div className={styles.DrugpaKagyuImg5}>
+                  <img src={DrugpaKagyuImg5} alt="palaceImg1" />
+                </div>
+                <div className={styles.DrugpaKagyuImg6}>
+                  <img src={DrugpaKagyuImg6} alt="palaceImg1" />
+                </div>
+              </div>
+              <div className={styles.DrugpaKagyuImg7}>
+                <img src={DrugpaKagyuImg7} alt="palaceImg1" />
+              </div>
+              <div style={{ display: "flex" }}>
+                <div className={styles.DrugpaKagyuImg8}>
+                  <img src={DrugpaKagyuImg8} alt="palaceImg1" />
+                </div>
+                <div className={styles.DrugpaKagyuImg9}>
+                  <img src={DrugpaKagyuImg9} alt="palaceImg1" />
+                </div>
+              </div>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className={styles.DrugpaKagyuImg10}>
+                <img src={DrugpaKagyuImg10} alt="palaceImg1" />
+              </div>
+              <div className={styles.DrugpaKagyuImg11}>
+                <img src={DrugpaKagyuImg11} alt="palaceImg1" />
+              </div>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className={styles.DrugpaKagyuImg12}>
+                <img src={DrugpaKagyuImg12} alt="palaceImg1" />
+              </div>
+              <div className={styles.DrugpaKagyuImg13}>
+                <img src={DrugpaKagyuImg13} alt="palaceImg1" />
+              </div>
+            </div>
+
+            <div className={styles.DrugpaKagyuImg14}>
+              <img src={DrugpaKagyuImg14} alt="palaceImg1" />
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className={styles.DrugpaKagyuImg15}>
+                <img src={DrugpaKagyuImg15} alt="palaceImg1" />
+              </div>
+              <div className={styles.DrugpaKagyuImg16}>
+                <img src={DrugpaKagyuImg16} alt="palaceImg1" />
+              </div>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className={styles.DrugpaKagyuImg17}>
+                <img src={DrugpaKagyuImg17} alt="palaceImg1" />
+              </div>
+              <div className={styles.DrugpaKagyuImg18}>
+                <img src={DrugpaKagyuImg18} alt="palaceImg1" />
+              </div>
+            </div>
+          </div>
+          <LanguageIcon
+            onClick={toggleLanguage}
+            showIcons={showIcons}
+            margin="15px"
+            iconWidth="25px"
+            IconHeight="25px"
+            height="50px"
+            width="55px"
+            left="44.7%"
+            top="42%"
+            whiteImage={true}
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            left="44.1%"
+            top="31%"
+            height="70px"
+            width="80px"
             margin="25px"
+            whiteImage={true}
+            onClick={handleHomeClick}
+          />
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="44.1%"
+            top="19%"
+            height="80px"
+            marginTop="28px"
           />
         </>
       )}
