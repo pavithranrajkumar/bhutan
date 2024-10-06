@@ -21,6 +21,7 @@ import JambayImg2 from "../../assests/Supine/JambayCard/Imgs/JamBayImgs2.png";
 import KyichuImg1 from "../../assests/Supine/KyichuImgs/KyichuImg1.png";
 import KyichuImg2 from "../../assests/Supine/KyichuImgs/KyichuImg2.png";
 import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
+import base from "../../assests/Supine/Base.png";
 
 const SupineTwo = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -35,7 +36,6 @@ const SupineTwo = () => {
   const [showBhutanCard, setShowBhutanCard] = useState(false);
   const [showJamBayImages, setShowJamBayImages] = useState(false);
   const [showKyichuImages, setShowKyichuImages] = useState(false);
-  const [showYear, setShowYear] = useState(true);
 
   const kyichuFontSize = language === BHUTAN ? "25px" : "25px";
   const cardNameFontSize = language === BHUTAN ? "10px" : "15px";
@@ -73,6 +73,7 @@ const SupineTwo = () => {
     } else {
       setShowIntroduction(true);
       setShowIcons(true);
+      setShowYearText(false);
     }
   };
 
@@ -228,7 +229,11 @@ const SupineTwo = () => {
         transition={{ duration: 1, delay: 0.4 }}
         onClick={handleCardOrImageClick}
       >
-        <img src={supine} alt="Pema Lingpa" />
+        {showHimalayanCard ? (
+          <img src={base} alt="Pema Lingpa" />
+        ) : (
+          <img src={supine} alt="Pema Lingpa" />
+        )}
       </motion.div>
       <motion.div
         initial={{ x: -100, opacity: 0 }}
@@ -476,7 +481,7 @@ const SupineTwo = () => {
             iconWidth="25px"
             IconHeight="25px"
             left="7%"
-            top="83%"
+            top="49%"
             height="55px"
           />
           <PreviousIcon
@@ -484,7 +489,7 @@ const SupineTwo = () => {
             showIcons={showIcons}
             color="#D9D9D9"
             left="6.6%"
-            top="75%"
+            top="25%"
             height="80px"
             background="#555835"
             marginTop="28px"
@@ -493,7 +498,7 @@ const SupineTwo = () => {
             showIcons={showIcons}
             supine={true}
             left="6.6%"
-            top="79.1%"
+            top="38%"
             height="70px"
             width="80px"
             margin="25px"
@@ -520,7 +525,7 @@ const SupineTwo = () => {
             iconWidth="25px"
             IconHeight="25px"
             left="2.5%"
-            top="40%"
+            top="46%"
             height="55px"
           />
           <PreviousIcon
@@ -571,7 +576,7 @@ const SupineTwo = () => {
             iconWidth="25px"
             IconHeight="25px"
             left="7%"
-            top="83%"
+            top="49%"
             height="55px"
           />
           <PreviousIcon
@@ -579,7 +584,7 @@ const SupineTwo = () => {
             showIcons={showIcons}
             color="#D9D9D9"
             left="6.6%"
-            top="75%"
+            top="25%"
             height="80px"
             background="#555835"
             marginTop="28px"
@@ -588,7 +593,7 @@ const SupineTwo = () => {
             showIcons={showIcons}
             supine={true}
             left="6.6%"
-            top="79.1%"
+            top="38%"
             height="70px"
             width="80px"
             margin="25px"

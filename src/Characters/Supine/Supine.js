@@ -21,6 +21,8 @@ import JambayImg2 from "../../assests/Supine/JambayCard/Imgs/JamBayImgs2.png";
 import KyichuImg1 from "../../assests/Supine/KyichuImgs/KyichuImg1.png";
 import KyichuImg2 from "../../assests/Supine/KyichuImgs/KyichuImg2.png";
 import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
+import base from "../../assests/Supine/Base.png";
+import Puzzle from "../../pages/Puzzle/Puzzle";
 
 const Supine = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -227,7 +229,12 @@ const Supine = () => {
         transition={{ duration: 1, delay: 0.4 }}
         onClick={handleCardOrImageClick}
       >
-        <img src={supine} alt="Pema Lingpa" />
+        {showHimalayanCard ? (
+          // <img src={base} alt="Pema Lingpa" />
+          ""
+        ) : (
+          <img src={supine} alt="Pema Lingpa" />
+        )}{" "}
       </motion.div>
       <motion.div
         initial={{ x: -100, opacity: 0 }}
@@ -354,10 +361,13 @@ const Supine = () => {
 
       {showHimalayanCard && (
         <>
+          <div className={styles.Puzzle}>
+            <Puzzle />
+          </div>
           <div className={styles.HimalayanCard}>
             <HimalayanCard language={language} showIntro={true} />
           </div>
-          <LanguageIcon
+          {/* <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
@@ -376,7 +386,7 @@ const Supine = () => {
             top="80%"
             height="80px"
             marginTop="28px"
-          />
+          /> */}
         </>
       )}
 
