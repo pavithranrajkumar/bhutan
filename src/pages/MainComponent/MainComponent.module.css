@@ -29,7 +29,7 @@
   height: 1px;
   background-color: #aa5018;
   z-index: 1;
-  border: none;
+  border-color: transparent;
 }
 
 .radioBtn,

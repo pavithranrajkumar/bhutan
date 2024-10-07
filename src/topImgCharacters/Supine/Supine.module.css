@@ -148,3 +148,12 @@
   font-family: "Hammersmith One";
   font-size: 25px;
 }
+
+.Puzzle {
+  position: fixed;
+  left: 4.6%;
+  top: 58%;
+  width: 450px;
+  height: 260px;
+  z-index: 10;
+}

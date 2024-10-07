@@ -1,3 +1,5 @@
+import { title } from "framer-motion/client";
+
 export const SUPINE_INFORMATION = {
   english: {
     title: "SUPINE DEMONESS",
@@ -44,6 +46,68 @@ export const SUPINE_INFORMATION = {
     kyichuName: {
       header: "KYICHU",
       title: "LHAKHANG",
+    },
+    puzzles: {
+      rightKnee: {
+        header: "JANG",
+        subHeader: "PRADUMTSE",
+        title: "on the right knee",
+      },
+      leftHand: {
+        header: "TSHANGPA",
+        subHeader: "LUNGNON",
+        title: "on the left hand",
+      },
+      leftFoot: {
+        header: "KYICHU",
+        title: "on the left foot",
+      },
+      rightHand: {
+        header: "LONGTHANG",
+        subHeader: "DRONMA",
+        title: "on the right hand",
+      },
+      leftElbow: {
+        header: "LHODRAK",
+        subHeader: "KHOTHING",
+        title: "on the left elbow",
+      },
+      rightHip: {
+        header: "TSANGDRAM",
+        title: "on the right hip",
+      },
+      heart: {
+        header: "JOKHANG",
+        title: "on the heart",
+      },
+      rightShoulder: {
+        header: "ORU",
+        subHeader: "KATSHAL",
+        title: "on the right shoulder",
+      },
+      rightElbow: {
+        header: "KONGPO",
+        subHeader: "BUCHU",
+        title: "on the right elbow",
+      },
+      leftShoulder: {
+        header: "THRADRUK",
+        title: "on the left shoulder",
+      },
+      leftKnee: {
+        header: "JAMPA",
+        title: "on the left knee",
+      },
+      leftHip: {
+        header: "DROMPA",
+        subHeader: "GYANG",
+        title: "on the left hip",
+      },
+      rightFoot: {
+        header: "MANGYUL",
+        subHeader: "JAMTRIN",
+        title: "on the right foot",
+      },
     },
   },
   bhutan: {
@@ -97,6 +161,68 @@ export const SUPINE_INFORMATION = {
     kyichuName: {
       header: "སྐྱིད་ཆུ་ལྷ་ཁང་།",
       title: "སྐྱིད་ཆུ་ལྷ་ཁང་།",
+    },
+    puzzles: {
+      rightKnee: {
+        header: "JANG",
+        subHeader: "PRADUMTSE",
+        title: "on the right knee",
+      },
+      leftHand: {
+        header: "TSHANGPA",
+        subHeader: "LUNGNON",
+        title: "on the left hand",
+      },
+      leftFoot: {
+        header: "KYICHU",
+        title: "on the left foot",
+      },
+      rightHand: {
+        header: "LONGTHANG",
+        subHeader: "DRONMA",
+        title: "on the right hand",
+      },
+      leftElbow: {
+        header: "LHODRAK",
+        subHeader: "KHOTHING",
+        title: "on the left elbow",
+      },
+      rightHip: {
+        header: "TSANGDRAM",
+        title: "on the right hip",
+      },
+      heart: {
+        header: "JOKHANG",
+        title: "on the heart",
+      },
+      rightShoulder: {
+        header: "ORU",
+        subHeader: "KATSHAL",
+        title: "on the right shoulder",
+      },
+      rightElbow: {
+        header: "KONGPO",
+        subHeader: "BUCHU",
+        title: "on the right elbow",
+      },
+      leftShoulder: {
+        header: "THRADRUK",
+        title: "on the left shoulder",
+      },
+      leftKnee: {
+        header: "JAMPA",
+        title: "on the left knee",
+      },
+      leftHip: {
+        header: "DROMPA",
+        subHeader: "GYANG",
+        title: "on the left hip",
+      },
+      rightFoot: {
+        header: "MANGYUL",
+        subHeader: "JAMTRIN",
+        title: "on the right foot",
+      },
     },
   },
 };

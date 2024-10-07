@@ -22,6 +22,7 @@ import KyichuImg1 from "../../assests/Supine/KyichuImgs/KyichuImg1.png";
 import KyichuImg2 from "../../assests/Supine/KyichuImgs/KyichuImg2.png";
 import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
 import base from "../../assests/Supine/Base.png";
+import Puzzle from "./Puzzle/Puzzle";
 
 const SupineTwo = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -36,6 +37,7 @@ const SupineTwo = () => {
   const [showBhutanCard, setShowBhutanCard] = useState(false);
   const [showJamBayImages, setShowJamBayImages] = useState(false);
   const [showKyichuImages, setShowKyichuImages] = useState(false);
+  const [puzzleCompleted, setPuzzleCompleted] = useState(false);
 
   const kyichuFontSize = language === BHUTAN ? "25px" : "25px";
   const cardNameFontSize = language === BHUTAN ? "10px" : "15px";
@@ -48,6 +50,14 @@ const SupineTwo = () => {
       console.log("Language changed to:", newLanguage);
       return newLanguage;
     });
+  };
+
+  const handlePuzzleComplete = () => {
+    setPuzzleCompleted(true);
+  };
+
+  const resetPuzzle = () => {
+    setPuzzleCompleted(false);
   };
 
   const handleCardOrImageClick = () => {
@@ -78,8 +88,8 @@ const SupineTwo = () => {
   };
 
   const showSupineCards = () => {
-    setShowIntroduction(false);
     setShowCards(true);
+    setShowIntroduction(false);
     setShowYearText(false);
   };
 
@@ -229,11 +239,7 @@ const SupineTwo = () => {
         transition={{ duration: 1, delay: 0.4 }}
         onClick={handleCardOrImageClick}
       >
-        {showHimalayanCard ? (
-          <img src={base} alt="Pema Lingpa" />
-        ) : (
-          <img src={supine} alt="Pema Lingpa" />
-        )}
+        {showHimalayanCard ? "" : <img src={supine} alt="Pema Lingpa" />}
       </motion.div>
       <motion.div
         initial={{ x: -100, opacity: 0 }}
@@ -349,8 +355,19 @@ const SupineTwo = () => {
 
       {showHimalayanCard && (
         <>
+          <div className={styles.Puzzle}>
+            <Puzzle
+              onComplete={handlePuzzleComplete}
+              resetPuzzleCard={resetPuzzle}
+            />
+          </div>
           <div className={styles.HimalayanCard}>
-            <HimalayanCard language={language} showIntro={true} />
+            <HimalayanCard
+              language={language}
+              showIntro={true}
+              puzzleCompleted={puzzleCompleted}
+              resetPuzzleCard={resetPuzzle}
+            />
           </div>
           <LanguageIcon
             onClick={toggleLanguage}
@@ -358,15 +375,17 @@ const SupineTwo = () => {
             whiteImage={true}
             iconWidth="25px"
             IconHeight="25px"
-            left="4.8%"
-            top="45%"
-            height="55px"
+            height="50px"
+            width="55px"
+            margin="13px"
+            left="3%"
+            top="61.5%"
           />
           <PreviousIcon
             onClick={handlePreviousClick}
             showIcons={showIcons}
-            left="4.7%"
-            top="31%"
+            left="3%"
+            top="50%"
             height="80px"
             marginTop="28px"
           />

@@ -5,21 +5,21 @@ import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { motion } from "framer-motion";
 import "./Puzzle.module.css";
-import supineImg from "../../assests/Supine/SupineDemoness.png";
-import base from "../../assests/Supine/Base.png";
-import base1 from "../../assests/Supine/PUzzleImgs/Foot L.png";
-import elbowL from "../../assests/Supine/PUzzleImgs/Elbow L.png";
-import handR from "../../assests/Supine/PUzzleImgs/Hand R.png";
-import footR from "../../assests/Supine/PUzzleImgs/Foot R.png";
-import shoulderL from "../../assests/Supine/PUzzleImgs/Shoulder L.png";
-import elbowR from "../../assests/Supine/PUzzleImgs/Elbow R.png";
-import shoulderR from "../../assests/Supine/PUzzleImgs/Shoulder R.png";
-import heart from "../../assests/Supine/PUzzleImgs/Heart.png";
-import handL from "../../assests/Supine/PUzzleImgs/Hand L.png";
-import hipL from "../../assests/Supine/PUzzleImgs/Hip L.png";
-import hipR from "../../assests/Supine/PUzzleImgs/Hip R.png";
-import kneeL from "../../assests/Supine/PUzzleImgs/Knee L.png";
-import kneeR from "../../assests/Supine/PUzzleImgs/Knee R.png";
+import supineImg from "../../../assests/Supine/SupineDemoness.png";
+import base from "../../../assests/Supine/Base.png";
+import base1 from "../../../assests/Supine/PUzzleImgs/Foot L.png";
+import elbowL from "../../../assests/Supine/PUzzleImgs/Elbow L.png";
+import handR from "../../../assests/Supine/PUzzleImgs/Hand R.png";
+import footR from "../../../assests/Supine/PUzzleImgs/Foot R.png";
+import shoulderL from "../../../assests/Supine/PUzzleImgs/Shoulder L.png";
+import elbowR from "../../../assests/Supine/PUzzleImgs/Elbow R.png";
+import shoulderR from "../../../assests/Supine/PUzzleImgs/Shoulder R.png";
+import heart from "../../../assests/Supine/PUzzleImgs/Heart.png";
+import handL from "../../../assests/Supine/PUzzleImgs/Hand L.png";
+import hipL from "../../../assests/Supine/PUzzleImgs/Hip L.png";
+import hipR from "../../../assests/Supine/PUzzleImgs/Hip R.png";
+import kneeL from "../../../assests/Supine/PUzzleImgs/Knee L.png";
+import kneeR from "../../../assests/Supine/PUzzleImgs/Knee R.png";
 
 const DraggablePiece = ({ piece }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
@@ -103,7 +103,7 @@ const Puzzle = ({ onComplete, resetPuzzleCard }) => {
       id: 1,
       src: shoulderR,
       correctPosition: { top: 80, left: 250 },
-      initialPosition: { top: "-70%", left: 70 },
+      initialPosition: { top: "-68%", left: 70 },
       width: 57,
       height: 30,
     },
@@ -111,7 +111,7 @@ const Puzzle = ({ onComplete, resetPuzzleCard }) => {
       id: 2,
       src: elbowR,
       correctPosition: { top: 120, left: 630 },
-      initialPosition: { top: "-53%", left: 148 },
+      initialPosition: { top: "-50%", left: 148 },
       width: 59,
       height: 42,
     },
@@ -127,7 +127,7 @@ const Puzzle = ({ onComplete, resetPuzzleCard }) => {
       id: 4,
       src: heart,
       correctPosition: { top: 80, left: 350 },
-      initialPosition: { top: "-98%", left: 90 },
+      initialPosition: { top: "-95%", left: 90 },
       width: 61,
       height: 60,
     },
@@ -151,7 +151,7 @@ const Puzzle = ({ onComplete, resetPuzzleCard }) => {
       id: 7,
       src: footR,
       correctPosition: { top: 400, left: 100 },
-      initialPosition: { top: "-110%", left: 250 },
+      initialPosition: { top: "-98%", left: 220 },
       width: 92,
       height: 54,
     },
@@ -159,7 +159,7 @@ const Puzzle = ({ onComplete, resetPuzzleCard }) => {
       id: 8,
       src: elbowL,
       correctPosition: { top: 200, left: 150 },
-      initialPosition: { top: "-61%", left: 215 },
+      initialPosition: { top: "-65%", left: 215 },
       width: 50,
       height: 53,
     },
@@ -167,7 +167,7 @@ const Puzzle = ({ onComplete, resetPuzzleCard }) => {
       id: 9,
       src: handL,
       correctPosition: { top: 240, left: 50 },
-      initialPosition: { top: "-118%", left: 160 },
+      initialPosition: { top: "-120%", left: 160 },
       width: 56,
       height: 64,
     },
@@ -175,7 +175,7 @@ const Puzzle = ({ onComplete, resetPuzzleCard }) => {
       id: 10,
       src: shoulderL,
       correctPosition: { top: 120, left: 80 },
-      initialPosition: { top: "-32%", left: 128 },
+      initialPosition: { top: "-25%", left: 128 },
       width: 56,
       height: 59,
     },
@@ -183,7 +183,7 @@ const Puzzle = ({ onComplete, resetPuzzleCard }) => {
       id: 11,
       src: hipL,
       correctPosition: { top: 340, left: 370 },
-      initialPosition: { top: "-38%", left: 262 },
+      initialPosition: { top: "-35%", left: 262 },
       width: 80,
       height: 48,
     },
@@ -191,7 +191,7 @@ const Puzzle = ({ onComplete, resetPuzzleCard }) => {
       id: 12,
       src: kneeR,
       correctPosition: { top: 440, left: 460 },
-      initialPosition: { top: "-123%", left: -40 },
+      initialPosition: { top: "-110%", left: -40 },
       width: 90,
       height: 60,
     },
@@ -199,26 +199,26 @@ const Puzzle = ({ onComplete, resetPuzzleCard }) => {
       id: 13,
       src: base1,
       correctPosition: { top: 550, left: 520 },
-      initialPosition: { top: "-50%", left: -90 },
+      initialPosition: { top: "-45%", left: -90 },
       width: 90,
       height: 70,
     },
   ];
 
   const dropZoneSpecifications = [
-    { id: 1, top: "89%", left: 473, width: 57, height: 30 }, // Shoulder R
-    { id: 2, top: "86.5%", left: 502, width: 59, height: 42 }, // Elbow R
-    { id: 3, top: "86%", left: 424, width: 61, height: 40 }, // Hand R
-    { id: 4, top: "89.5%", left: 428.5, width: 61, height: 60 }, // Heart
-    { id: 5, top: "89.3%", left: 355, width: 66, height: 50 }, // Hip L
-    { id: 6, top: "88.5%", left: 251, width: 115, height: 80 }, // Knee L
-    { id: 7, top: "90.1%", left: 173, width: 92, height: 54 }, // Foot R
-    { id: 8, top: "92.8%", left: 541, width: 50, height: 53 }, // Elbow L
-    { id: 9, top: "90.15%", left: 576, width: 56, height: 64 }, // Hand L
-    { id: 10, top: "90.6%", left: 481, width: 56, height: 59 }, // Shoulder L
-    { id: 11, top: "90.8%", left: 350, width: 80, height: 48 }, // Hip R
-    { id: 12, top: "87%", left: 246, width: 90, height: 60 }, // Knee R
-    { id: 13, top: "92.6%", left: 177, width: 90, height: 70 }, // Base1 or Foot L
+    { id: 1, top: "67.1%", left: 470, width: 57, height: 30 }, // Shoulder R
+    { id: 2, top: "59%", left: 500.5, width: 59, height: 42 }, // Elbow R
+    { id: 3, top: "57.6%", left: 424, width: 61, height: 40 }, // Hand R
+    { id: 4, top: "68.5%", left: 428.5, width: 61, height: 60 }, // Heart
+    { id: 5, top: "68%", left: 355, width: 66, height: 50 }, // Hip L
+    { id: 6, top: "65.5%", left: 251, width: 115, height: 80 }, // Knee L
+    { id: 7, top: "70.4%", left: 173, width: 92, height: 54 }, // Foot R
+    { id: 8, top: "79.4%", left: 541, width: 50, height: 53 }, // Elbow L
+    { id: 9, top: "70.6%", left: 573, width: 56, height: 64 }, // Hand L
+    { id: 10, top: "72%", left: 481, width: 56, height: 59 }, // Shoulder L
+    { id: 11, top: "72.5%", left: 348, width: 80, height: 48 }, // Hip R
+    { id: 12, top: "61%", left: 246, width: 90, height: 60 }, // Knee R
+    { id: 13, top: "78%", left: 177, width: 90, height: 70 }, // Base1 or Foot L
   ];
 
   const [pieces, setPieces] = useState(initialPieces);
@@ -235,7 +235,7 @@ const Puzzle = ({ onComplete, resetPuzzleCard }) => {
       }));
 
       // Check if all pieces have been placed correctly
-      if (remainingPieces.length === 1) {
+      if (remainingPieces.length === 0) {
         // Ensure this checks for the last piece
         setIsCompleted(true);
         onComplete(); // Trigger the completion callback
@@ -269,9 +269,10 @@ const Puzzle = ({ onComplete, resetPuzzleCard }) => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0 }}
                   transition={{ duration: 1.5 }}
-                  className="completed-image"
                 >
-                  <img src={supineImg} alt="Main" />
+                  <div className="supin-image">
+                    <img src={supineImg} alt="Main" />
+                  </div>
                 </motion.div>
               </div>
             </>

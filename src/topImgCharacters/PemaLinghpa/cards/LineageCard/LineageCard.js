@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import Card from "../../../../components/Card/Card";
 import { PEMA_LINGPA_INFORMATION } from "../../../../constants/Characters/PremaLingpa";
 import styles from "./LineageCard.module.css";
@@ -121,24 +122,31 @@ const LineageCard = ({ showIntro, language, showIcons }) => {
             </div>
 
             {/* Show only the active secondary container */}
-            <div
-              className={styles.TamshingContainer}
-              style={{
-                display: currentStep === 0 ? "block" : "none",
-              }}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0 }}
+              transition={{ duration: 1.5 }}
             >
-              <div className={styles.SonsTree}>
-                <div className={styles.Choeje}>CHOEJE</div>
+              <div
+                className={styles.TamshingContainer}
+                style={{
+                  display: currentStep === 0 ? "block" : "none",
+                }}
+              >
+                <div className={styles.SonsTree}>
+                  <div className={styles.Choeje}>CHOEJE</div>
+                </div>
+                <div className={styles.Tamshing}>
+                  <img src={Tamshing} alt="" />
+                </div>
+                <hr className={styles.TamshingVerticalLine} />
+                <hr className={styles.TamshingVerticalLine1} />
+                <div className={styles.TamshingCard}>
+                  <div style={{ marginTop: "3px" }}>TAMSHING</div>
+                </div>
               </div>
-              <div className={styles.Tamshing}>
-                <img src={Tamshing} alt="" />
-              </div>
-              <hr className={styles.TamshingVerticalLine} />
-              <hr className={styles.TamshingVerticalLine1} />
-              <div className={styles.TamshingCard}>
-                <div style={{ marginTop: "3px" }}>TAMSHING</div>
-              </div>
-            </div>
+            </motion.div>
 
             <div
               className={styles.PrakharContainer}

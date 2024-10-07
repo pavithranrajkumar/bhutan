@@ -9,13 +9,27 @@
 .main-image {
   position: fixed;
   left: 4.6%;
-  top: 86%;
+  top: 80%;
   width: 450px;
   height: 260px;
   z-index: 10;
 }
 
+.supin-image {
+  position: fixed;
+  left: 4.6%;
+  top: 60%;
+  width: 450px;
+  height: 260px;
+  z-index: 10;
+}
+
+.supin-image img {
+  position: fixed;
+}
+
 .main-image img {
+  position: fixed;
   object-fit: fill;
   z-index: 10;
 }
