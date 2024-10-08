@@ -28,6 +28,7 @@ const BhutanCard = ({ showIntro, language, onJamBayClick, onKyichuClick }) => {
             language={language}
             showIntro={showIntro}
           />
+
           <div className={styles.ButanCardsContainer}>
             <div className={styles.JamBayCard} onClick={onJamBayClick}>
               <div

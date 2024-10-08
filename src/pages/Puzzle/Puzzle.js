@@ -235,7 +235,7 @@ const Puzzle = ({ onComplete, resetPuzzleCard }) => {
       }));
 
       // Check if all pieces have been placed correctly
-      if (remainingPieces.length === 1) {
+      if (remainingPieces.length === 0) {
         // Ensure this checks for the last piece
         setIsCompleted(true);
         onComplete(); // Trigger the completion callback

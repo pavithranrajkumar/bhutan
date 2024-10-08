@@ -216,6 +216,7 @@ const ZhabrungNgawangNamgyal = () => {
             background="#2B455D"
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
@@ -234,6 +235,7 @@ const ZhabrungNgawangNamgyal = () => {
             onCardClick={handleCardClick}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             background="#AA5018"
@@ -258,6 +260,7 @@ const ZhabrungNgawangNamgyal = () => {
                   onClick={handleHistoricNextIconClick}
                 />
                 <LanguageIcon
+                  language={language}
                   onClick={toggleLanguage}
                   showIcons={showIcons}
                   left="81.2%"
@@ -283,6 +286,7 @@ const ZhabrungNgawangNamgyal = () => {
                 onSealClick={handleSealClick}
               />
               <LanguageIcon
+                language={language}
                 onClick={toggleLanguage}
                 showIcons={showIcons}
                 iconWidth="20px"
@@ -311,6 +315,7 @@ const ZhabrungNgawangNamgyal = () => {
             <div className={styles.SealCard}>
               <SealCard language={language} showIntro={true} />
               <LanguageIcon
+                language={language}
                 onClick={toggleLanguage}
                 showIcons={showIcons}
                 whiteImage={true}
@@ -350,6 +355,7 @@ const ZhabrungNgawangNamgyal = () => {
                 onTravelerClick={handleTraverllerClick}
               />
               <LanguageIcon
+                language={language}
                 onClick={toggleLanguage}
                 showIcons={showIcons}
                 iconWidth="25px"
@@ -374,6 +380,7 @@ const ZhabrungNgawangNamgyal = () => {
             <div className={styles.TravellerCardContains}>
               <TravellerCard language={language} showIntro={true} />
               <LanguageIcon
+                language={language}
                 onClick={toggleLanguage}
                 showIcons={showIcons}
                 whiteImage={true}
@@ -408,6 +415,7 @@ const ZhabrungNgawangNamgyal = () => {
             <div className={styles.AdministrationCardContains}>
               <Administration language={language} showIntro={true} />
               <LanguageIcon
+                language={language}
                 onClick={toggleLanguage}
                 showIcons={showIcons}
                 iconWidth="25px"
@@ -432,6 +440,7 @@ const ZhabrungNgawangNamgyal = () => {
             <div className={styles.SecrecyAtDeathCardContains}>
               <SecrecyAtDeath language={language} showIntro={true} />
               <LanguageIcon
+                language={language}
                 onClick={toggleLanguage}
                 showIcons={showIcons}
                 iconWidth="25px"
@@ -456,6 +465,7 @@ const ZhabrungNgawangNamgyal = () => {
             <div className={styles.DriglamCardContains}>
               <DriglamCard language={language} showIntro={true} />
               <LanguageIcon
+                language={language}
                 onClick={toggleLanguage}
                 showIcons={showIcons}
                 iconWidth="20px"

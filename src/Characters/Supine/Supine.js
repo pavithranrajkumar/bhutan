@@ -32,7 +32,7 @@ const Supine = () => {
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [showIntroduction, setShowIntroduction] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
-  const [language, setLanguage] = useState("english");
+  const [language, setLanguage] = useState(ENGLISH);
   const [showIcons, setShowIcons] = useState(false);
   const [showReligiousCard, setShowReligiousCard] = useState(false);
   const [showHimalayanCard, setShowHimalayanCard] = useState(false);
@@ -52,6 +52,7 @@ const Supine = () => {
       console.log("Language changed to:", newLanguage);
       return newLanguage;
     });
+    console.log("Current language:", language);
   };
 
   const handlePuzzleComplete = () => {
@@ -311,6 +312,7 @@ const Supine = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
+            language={language}
             left="5.4%"
             top="74.8%"
             iconWidth="25px"
@@ -332,7 +334,8 @@ const Supine = () => {
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
-            supine={true}
+            language={language}
+            // supine={true}
             background="#3A3C25"
             left="17.4%"
             top="82.5%"
@@ -359,6 +362,7 @@ const Supine = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             supine={true}
+            language={language}
             background="#3A3C25"
             left="4.8%"
             top="84%"
@@ -402,6 +406,7 @@ const Supine = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
+            language={language}
             left="2.5%"
             top="87.5%"
             iconWidth="25px"
@@ -434,6 +439,7 @@ const Supine = () => {
               onClick={toggleLanguage}
               showIcons={showIcons}
               whiteImage={true}
+              language={language}
               iconWidth="25px"
               IconHeight="25px"
               height="48px"
@@ -477,6 +483,7 @@ const Supine = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             supine={true}
+            language={language}
             background="#3A3C25"
             iconWidth="25px"
             IconHeight="25px"
@@ -530,6 +537,7 @@ const Supine = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             supine={true}
+            language={language}
             background="#3A3C25"
             iconWidth="25px"
             IconHeight="25px"
@@ -574,6 +582,7 @@ const Supine = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             supine={true}
+            language={language}
             background="#3A3C25"
             iconWidth="25px"
             IconHeight="25px"
@@ -633,6 +642,7 @@ const Supine = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             supine={true}
+            language={language}
             background="#3A3C25"
             iconWidth="25px"
             IconHeight="25px"

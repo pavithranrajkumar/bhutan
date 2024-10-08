@@ -281,6 +281,7 @@ const Tibetan = () => {
             background="#2B455D"
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
@@ -299,6 +300,7 @@ const Tibetan = () => {
             onCardClick={handleCardClick}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             background="#523019"
@@ -319,6 +321,7 @@ const Tibetan = () => {
             <div className={styles.ArrivalCard}>
               <Arrival language={language} showIntro={true} />
               <LanguageIcon
+                language={language}
                 onClick={toggleLanguage}
                 showIcons={showIcons}
                 iconWidth="25px"
@@ -358,6 +361,7 @@ const Tibetan = () => {
                 onDrukpaKagyuClick={showDrukpaKagyu}
               />
               <LanguageIcon
+                language={language}
                 onClick={toggleLanguage}
                 showIcons={showIcons}
                 iconWidth="25px"
@@ -390,6 +394,7 @@ const Tibetan = () => {
             onPopularSchoolsImgClick={showPopularSchoolsImg}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             margin="15px"
@@ -481,6 +486,7 @@ const Tibetan = () => {
           </div>
 
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             margin="15px"
@@ -523,6 +529,7 @@ const Tibetan = () => {
             />
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             iconWidth="25px"
@@ -635,6 +642,7 @@ const Tibetan = () => {
             </div>
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             margin="15px"

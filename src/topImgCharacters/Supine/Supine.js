@@ -30,7 +30,7 @@ const SupineTwo = () => {
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [showIntroduction, setShowIntroduction] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
-  const [language, setLanguage] = useState("english");
+  const [language, setLanguage] = useState(ENGLISH);
   const [showIcons, setShowIcons] = useState(false);
   const [showReligiousCard, setShowReligiousCard] = useState(false);
   const [showHimalayanCard, setShowHimalayanCard] = useState(false);
@@ -293,6 +293,7 @@ const SupineTwo = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
+            language={language}
             left="5%"
             top="23%"
             height="65px"
@@ -308,6 +309,7 @@ const SupineTwo = () => {
             onCardClick={handleReligiousCardClick}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             supine={true}
@@ -329,6 +331,7 @@ const SupineTwo = () => {
             />
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             supine={true}
@@ -370,6 +373,7 @@ const SupineTwo = () => {
             />
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
@@ -401,6 +405,7 @@ const SupineTwo = () => {
               onKyichuClick={handleKyichuClick}
             />
             <LanguageIcon
+              language={language}
               onClick={toggleLanguage}
               showIcons={showIcons}
               whiteImage={true}
@@ -442,6 +447,7 @@ const SupineTwo = () => {
             />
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             supine={true}
@@ -493,6 +499,7 @@ const SupineTwo = () => {
             <p>KYICHU LHAKHANG</p>
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             supine={true}
@@ -537,6 +544,7 @@ const SupineTwo = () => {
             />
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             supine={true}
@@ -588,6 +596,7 @@ const SupineTwo = () => {
             <p style={{ marginTop: "15px" }}>JAMBAY LHAKHANG</p>
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             supine={true}

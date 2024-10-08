@@ -271,6 +271,7 @@ const PemaLinghpaTwo = () => {
             />
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             whiteImage={true}
             showIcons={showIcons}
@@ -306,6 +307,7 @@ const PemaLinghpaTwo = () => {
             />
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             iconWidth="25px"
@@ -325,6 +327,7 @@ const PemaLinghpaTwo = () => {
                 <HistoricCard language={language} showIntro={true} />
 
                 <LanguageIcon
+                  language={language}
                   onClick={toggleLanguage}
                   showIcons={showIcons}
                   left="61%"
@@ -372,6 +375,7 @@ const PemaLinghpaTwo = () => {
                 />
 
                 <LanguageIcon
+                  language={language}
                   onClick={toggleLanguage}
                   showIcons={showIcons}
                   left="60.5%"
@@ -406,6 +410,7 @@ const PemaLinghpaTwo = () => {
                 />
 
                 <LanguageIcon
+                  language={language}
                   onClick={toggleLanguage}
                   showIcons={showIcons}
                   left="60.5%"
@@ -440,6 +445,7 @@ const PemaLinghpaTwo = () => {
                 />
 
                 <LanguageIcon
+                  language={language}
                   onClick={toggleLanguage}
                   showIcons={showIcons}
                   left="60.5%"
@@ -475,6 +481,7 @@ const PemaLinghpaTwo = () => {
             />
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             left="61%"
@@ -528,6 +535,7 @@ const PemaLinghpaTwo = () => {
             onClick={handleHomeClick}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
@@ -569,6 +577,7 @@ const PemaLinghpaTwo = () => {
             onClick={handleHomeClick}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
@@ -591,6 +600,7 @@ const PemaLinghpaTwo = () => {
             />
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             left="61%"
@@ -625,6 +635,7 @@ const PemaLinghpaTwo = () => {
             />
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             left="61%"
@@ -707,6 +718,7 @@ const PemaLinghpaTwo = () => {
             onClick={handleHomeClick}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
@@ -741,6 +753,7 @@ const PemaLinghpaTwo = () => {
             onClick={handleHomeClick}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
@@ -779,6 +792,7 @@ const PemaLinghpaTwo = () => {
             onClick={handleHomeClick}
           />
           <LanguageIcon
+            language={language}
             showIcons={showIcons}
             whiteImage={true}
             left="60.4%"

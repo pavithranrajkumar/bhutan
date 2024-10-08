@@ -4,32 +4,6 @@ import styles from "./MainComponent.module.css";
 import { motion } from "framer-motion";
 
 const MainComponent = () => {
-  const radioButtonAnimation = {
-    initial: { scale: 1 },
-    animate: {
-      scale: [1, 1.1, 1], // Scale up and down
-      transition: {
-        duration: 1.5,
-        ease: "easeInOut",
-        repeat: Infinity,
-      },
-    },
-  };
-
-  // Slower fade in and out effect
-  const textAnimation = {
-    initial: { opacity: 0 },
-    animate: {
-      opacity: [0, 1, 0], // Fade in and fade out
-      transition: {
-        duration: 2, // Increase duration for slower fade
-        ease: "easeInOut",
-        repeat: Infinity,
-        repeatType: "loop",
-      },
-    },
-  };
-
   return (
     <div>
       <hr className={styles.horizontalLine1} />

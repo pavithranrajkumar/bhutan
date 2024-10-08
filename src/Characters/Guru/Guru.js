@@ -303,6 +303,7 @@ const Guru = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
+            language={language}
             left="27.8%"
             top="95.5%"
             iconWidth="25px"
@@ -322,6 +323,7 @@ const Guru = () => {
             onCardClick={handleCardClick}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             background="#613900"
@@ -340,6 +342,7 @@ const Guru = () => {
             onKurjeClick={handleKurjeClick}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             iconWidth="25px"
@@ -370,6 +373,7 @@ const Guru = () => {
             onKurjeTempleClick={handleKurjeTempleClick}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             iconWidth="25px"
@@ -414,6 +418,7 @@ const Guru = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
+            language={language}
             iconWidth="30px"
             IconHeight="25px"
             left="25.1%"
@@ -451,6 +456,7 @@ const Guru = () => {
             onManifestationsCardClick={handleOpenManifestationWithImg}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             iconWidth="25px"
@@ -480,6 +486,7 @@ const Guru = () => {
             onLakeBornClick={handleOpenLakeBorn}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             margin="15px"
@@ -519,6 +526,7 @@ const Guru = () => {
             onLakeBornCardClick={handleOpenLionOfShakyas}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             margin="15px"
@@ -555,6 +563,7 @@ const Guru = () => {
         <>
           <LionOfShakyas language={language} />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             left="25.5%"
@@ -595,6 +604,7 @@ const Guru = () => {
             onPalaceImgClick={handleOpenPalaceImg}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
@@ -634,6 +644,7 @@ const Guru = () => {
             </div>
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
