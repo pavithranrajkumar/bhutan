@@ -69,7 +69,9 @@ const LionOfShakyas = ({ language }) => {
   ];
   return (
     <div className={styles.manifestationGroupContainer}>
-      <div className={styles.manifestationGroupContainerImg}>
+      <div
+        className={`${styles.manifestationGroupContainerImg} ${styles.fadeIn}`}
+      >
         <img src={LionOFShakyasImg} alt="manifestationImg" />
       </div>
       <div className={styles.manifestationFrstGroup}>

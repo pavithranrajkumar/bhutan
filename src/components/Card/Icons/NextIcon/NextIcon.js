@@ -32,7 +32,7 @@ const NextIcon = ({
         }
         initial={{ opacity: 0 }}
         animate={{ opacity: showIcons ? 1 : 0 }}
-        transition={{ duration: 5 }}
+        transition={{ duration: 0.5 }}
         onClick={onClick}
       >
         <FontAwesomeIcon

@@ -255,8 +255,19 @@ const PemaLinghpaTwo = () => {
             // background={nameCardBackground}
             // color={nameCardColor}
             paraColor="white"
-            year={"1450-1521"}
-            // paraColor={nameParaColor}
+            year={
+              showCards ||
+              selectedCard ||
+              showIntroduction ||
+              showNaringDragBookImg ||
+              showNaringDragCard ||
+              showBurningLakeBookImg ||
+              showBurningLakeCard ||
+              showMonasteriesImgCard ||
+              showPelingdanceImgs
+                ? "1450-1521"
+                : undefined
+            } // paraColor={nameParaColor}
             paraSize="13px"
           />
         </div>

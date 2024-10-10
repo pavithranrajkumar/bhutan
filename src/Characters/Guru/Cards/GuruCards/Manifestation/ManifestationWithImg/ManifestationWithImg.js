@@ -70,7 +70,9 @@ const ManifestationWithImg = ({ onLakeBornClick, language }) => {
 
   return (
     <div className={styles.manifestationGroupContainer}>
-      <div className={styles.manifestationGroupContainerImg}>
+      <div
+        className={`${styles.manifestationGroupContainerImg} ${styles.fadeIn}`}
+      >
         <img
           src={manifestationImg}
           alt="manifestationImg"

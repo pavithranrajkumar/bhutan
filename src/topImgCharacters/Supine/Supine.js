@@ -39,10 +39,10 @@ const SupineTwo = () => {
   const [showKyichuImages, setShowKyichuImages] = useState(false);
   const [puzzleCompleted, setPuzzleCompleted] = useState(false);
 
-  const kyichuFontSize = language === BHUTAN ? "25px" : "25px";
-  const cardNameFontSize = language === BHUTAN ? "10px" : "15px";
-  const subCardnameFontSize = language === BHUTAN ? "10px" : "15px";
-  const subCardnameMarginLeft = language === BHUTAN ? "150px" : "125px";
+  const kyichuFontSize = language === BHUTAN ? "20px" : "25px";
+  const cardNameFontSize = language === BHUTAN ? "10px" : "17.5px";
+  const subCardnameFontSize = language === BHUTAN ? "10px" : "17.5px";
+  const subCardnameMarginLeft = language === BHUTAN ? "150px" : "105px";
 
   const toggleLanguage = () => {
     setLanguage((prevLanguage) => {
@@ -492,12 +492,9 @@ const SupineTwo = () => {
               <img src={JambayImg2} alt="palaceImg2" />
             </div>
           </div>
-          <div
-            className={styles.JamBayImagesCard}
-            onClick={handleJamBayImagesCardClick}
-          >
-            <p>KYICHU LHAKHANG</p>
-          </div>
+          <p style={{ fontSize: kyichuFontSize }}>
+            {SUPINE_INFORMATION[language].kyichu.title}
+          </p>
           <LanguageIcon
             language={language}
             onClick={toggleLanguage}
@@ -593,7 +590,13 @@ const SupineTwo = () => {
             className={styles.KyichuImagesCard}
             onClick={handleKyichuImagesCardClick}
           >
-            <p style={{ marginTop: "15px" }}>JAMBAY LHAKHANG</p>
+            <p
+              style={{
+                fontSize: kyichuFontSize,
+              }}
+            >
+              <p>{SUPINE_INFORMATION[language].jambay.title}</p>
+            </p>{" "}
           </div>
           <LanguageIcon
             language={language}

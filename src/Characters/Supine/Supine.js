@@ -23,8 +23,6 @@ import KyichuImg2 from "../../assests/Supine/KyichuImgs/KyichuImg2.png";
 import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
 import base from "../../assests/Supine/Base.png";
 import Puzzle from "../../pages/Puzzle/Puzzle";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
 
 const Supine = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -41,10 +39,10 @@ const Supine = () => {
   const [showKyichuImages, setShowKyichuImages] = useState(false);
   const [puzzleCompleted, setPuzzleCompleted] = useState(false);
 
-  const kyichuFontSize = language === BHUTAN ? "25px" : "25px";
-  const cardNameFontSize = language === BHUTAN ? "10px" : "15px";
-  const subCardnameFontSize = language === BHUTAN ? "10px" : "15px";
-  const subCardnameMarginLeft = language === BHUTAN ? "150px" : "125px";
+  const kyichuFontSize = language === BHUTAN ? "20px" : "25px";
+  const cardNameFontSize = language === BHUTAN ? "10px" : "17.5px";
+  const subCardnameFontSize = language === BHUTAN ? "10px" : "17.5px";
+  const subCardnameMarginLeft = language === BHUTAN ? "150px" : "105px";
 
   const toggleLanguage = () => {
     setLanguage((prevLanguage) => {
@@ -284,7 +282,12 @@ const Supine = () => {
               background={nameCardBackground}
               color={nameCardColor}
               year={
-                showCards || selectedCard || showIntroduction
+                showCards ||
+                selectedCard ||
+                showIntroduction ||
+                showReligiousCard ||
+                showHimalayanCard ||
+                showBhutanCard
                   ? "800-900"
                   : undefined
               }
@@ -364,8 +367,8 @@ const Supine = () => {
             supine={true}
             language={language}
             background="#3A3C25"
-            left="4.8%"
-            top="84%"
+            left="5%"
+            top="83.7%"
             iconWidth="25px"
             IconHeight="25px"
             height="50px"
@@ -407,7 +410,7 @@ const Supine = () => {
             showIcons={showIcons}
             whiteImage={true}
             language={language}
-            left="2.5%"
+            left="3.1%"
             top="87.5%"
             iconWidth="25px"
             IconHeight="25px"
@@ -518,18 +521,18 @@ const Supine = () => {
       {showJamBayImages && (
         <>
           <div className={styles.JamBayImages}>
-            <div className={styles.palaceImg1}>
+            <div className={`${styles.palaceImg1} ${styles.animatedImg}`}>
               <img src={JambayImg1} alt="palaceImg1" />
             </div>
-            <div className={styles.palaceImg2}>
+            <div className={`${styles.palaceImg2} ${styles.animatedImg}`}>
               <img src={JambayImg2} alt="palaceImg2" />
             </div>
           </div>
           <div
-            className={styles.JamBayImagesCard}
+            className={`${styles.JamBayImagesCard} ${styles.animatedCard}`}
             onClick={handleJamBayImagesCardClick}
           >
-            <p style={{ fontSize: kyichuFontSize, marginLeft: "40px" }}>
+            <p style={{ fontSize: kyichuFontSize }}>
               {SUPINE_INFORMATION[language].kyichu.title}
             </p>
           </div>
@@ -544,6 +547,7 @@ const Supine = () => {
             left="7%"
             top="83%"
             height="55px"
+            className={styles.animatedIcon}
           />
           <PreviousIcon
             onClick={handlePreviousClick}
@@ -554,6 +558,7 @@ const Supine = () => {
             height="80px"
             background="#555835"
             marginTop="28px"
+            className={styles.animatedIcon}
           />
           <HomeIcon
             showIcons={showIcons}
@@ -565,6 +570,7 @@ const Supine = () => {
             margin="25px"
             background="#555835"
             onClick={handleHomeClick}
+            className={styles.animatedIcon}
           />
         </>
       )}
@@ -617,22 +623,20 @@ const Supine = () => {
       {showKyichuImages && (
         <>
           <div className={styles.JamBayImages}>
-            <div className={styles.KyichuImg1}>
+            <div className={`${styles.KyichuImg1} ${styles.animatedImg}`}>
               <img src={KyichuImg1} alt="palaceImg1" />
             </div>
-            <div className={styles.KyichuImg2}>
+            <div className={`${styles.KyichuImg2} ${styles.animatedImg}`}>
               <img src={KyichuImg2} alt="palaceImg2" />
             </div>
           </div>
           <div
-            className={styles.KyichuImagesCard}
+            className={`${styles.KyichuImagesCard} ${styles.animatedCard}`}
             onClick={handleKyichuImagesCardClick}
           >
             <p
               style={{
                 fontSize: kyichuFontSize,
-                marginLeft: "40px",
-                marginTop: "5px",
               }}
             >
               <p>{SUPINE_INFORMATION[language].jambay.title}</p>
@@ -649,6 +653,7 @@ const Supine = () => {
             left="7%"
             top="83%"
             height="55px"
+            className={styles.animatedIcon}
           />
           <PreviousIcon
             onClick={handlePreviousClick}
@@ -659,6 +664,7 @@ const Supine = () => {
             height="80px"
             background="#555835"
             marginTop="28px"
+            className={styles.animatedIcon}
           />
           <HomeIcon
             showIcons={showIcons}
@@ -670,6 +676,7 @@ const Supine = () => {
             margin="25px"
             background="#555835"
             onClick={handleHomeClick}
+            className={styles.animatedIcon}
           />
         </>
       )}

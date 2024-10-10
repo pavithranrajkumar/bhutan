@@ -38,7 +38,7 @@ const HomeIcon = ({
       className={whiteImage ? styles.LanguageWhiteIcon : styles.LanguageIcon}
       initial={{ opacity: 0 }}
       animate={{ opacity: showIcons ? 1 : 0 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.5 }}
       onClick={onClick}
     >
       <div

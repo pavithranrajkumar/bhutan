@@ -91,7 +91,7 @@ const Manifestation = ({ showIntro, onManifestationsCardClick, language }) => {
             showIntro={showIntro}
           />
           <div
-            className={styles.ManifestationCardImg}
+            className={`${styles.ManifestationCardImg} ${styles.fadeIn}`}
             onClick={onManifestationsCardClick}
           >
             <img src={ManifestationImg} alt="temple" />

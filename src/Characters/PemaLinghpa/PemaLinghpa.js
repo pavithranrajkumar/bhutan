@@ -72,6 +72,10 @@ const PemaLinghpa = () => {
       showPelingdanceImgs
     ) {
       resetView();
+      setShowYearText(true);
+    } else if (showIntroduction) {
+      setShowIntroduction(false);
+      setShowYearText(true);
     } else {
       setShowYearText(false);
       setShowIntroduction(true);
@@ -91,6 +95,7 @@ const PemaLinghpa = () => {
     setShowPelingDanceCard(false);
     setShowMonasteriesImgCard(false);
     setShowPelingdanceImgs(false);
+    setShowYearText(true);
   };
 
   const handleShowCards = () => {
@@ -255,7 +260,19 @@ const PemaLinghpa = () => {
             // background={nameCardBackground}
             // color={nameCardColor}
             paraColor="white"
-            year={"1450-1521"}
+            year={
+              showCards ||
+              selectedCard ||
+              showIntroduction ||
+              showNaringDragBookImg ||
+              showNaringDragCard ||
+              showBurningLakeBookImg ||
+              showBurningLakeCard ||
+              showMonasteriesImgCard ||
+              showPelingdanceImgs
+                ? "1450-1521"
+                : undefined
+            }
             // paraColor={nameParaColor}
             paraSize="13px"
           />

@@ -8,19 +8,17 @@ const MainComponent = () => {
     <div>
       <hr className={styles.horizontalLine1} />
       <div className={styles.radioBtnTwo}>
-        <motion.img
+        <img
           src={grpImg}
           alt="radiobtn"
           className={styles.supineRadioBtnTwo}
           initial="initial"
           animate="animate"
         />
-        <motion.div initial="initial" animate="animate">
-          <div className={styles.Year}>
-            <div className={styles.supineTwo}>1594 - 1651</div>
-          </div>
-        </motion.div>
-        <motion.img
+        <div className={styles.YearTwo}>
+          <div className={styles.supineTwo}>1594 - 1651</div>
+        </div>
+        <img
           src={grpImg}
           alt="radiobtn"
           className={styles.guruRadioBtnTwo}
@@ -28,12 +26,10 @@ const MainComponent = () => {
           initial="initial"
           animate="animate"
         />
-        <motion.div initial="initial" animate="animate">
-          <div className={styles.Year}>
-            <div className={styles.guruTwo}>1450 - 1521</div>
-          </div>
-        </motion.div>
-        <motion.img
+        <div className={styles.YearTwo}>
+          <div className={styles.guruTwo}>1450 - 1521</div>
+        </div>
+        <img
           src={grpImg}
           alt="radiobtn"
           className={styles.tibetanRadioBtnTwo}
@@ -41,12 +37,10 @@ const MainComponent = () => {
           initial="initial"
           animate="animate"
         />
-        <motion.div initial="initial" animate="animate">
-          <div className={styles.Year}>
-            <div className={styles.tibetanTwo}>1200 - 1800</div>
-          </div>
-        </motion.div>
-        <motion.img
+        <div className={styles.YearTwo}>
+          <div className={styles.tibetanTwo}>1200 - 1800</div>
+        </div>
+        <img
           src={grpImg}
           alt="radiobtn"
           className={styles.pemaRadioBtnTwo}
@@ -54,12 +48,10 @@ const MainComponent = () => {
           initial="initial"
           animate="animate"
         />
-        <motion.div initial="initial" animate="animate">
-          <div className={styles.Year}>
-            <div className={styles.pemaTwo}>900 - 100</div>
-          </div>
-        </motion.div>
-        <motion.img
+        <div className={styles.YearTwo}>
+          <div className={styles.pemaTwo}>900 - 100</div>
+        </div>
+        <img
           src={grpImg}
           alt="radiobtn"
           className={styles.zhabrugRadioBtnTwo}
@@ -67,18 +59,16 @@ const MainComponent = () => {
           initial="initial"
           animate="animate"
         />
-        <motion.div initial="initial" animate="animate">
-          <div className={styles.Year}>
-            <div className={styles.zhabrugTwo}>
-              <span>800 </span> - <span> 900</span>
-            </div>
+        <div className={styles.YearTwo}>
+          <div className={styles.zhabrugTwo}>
+            <span>800 </span> - <span> 900</span>
           </div>
-        </motion.div>
+        </div>
       </div>
       <div className={styles.Header}>HISTORY OF BHUTAN</div>
       <hr className={styles.horizontalLine2} />
       <div className={styles.radioBtn}>
-        <motion.img
+        <img
           src={grpImg}
           alt="radiobtn"
           className={styles.supineRadioBtn}
@@ -86,12 +76,10 @@ const MainComponent = () => {
           initial="initial"
           animate="animate"
         />
-        <motion.div initial="initial" animate="animate">
-          <div className={styles.Year}>
-            <div className={styles.supine}>800 - 900</div>
-          </div>
-        </motion.div>
-        <motion.img
+        <div className={styles.YearTwo}>
+          <div className={styles.supine}>800 - 900</div>
+        </div>
+        <img
           src={grpImg}
           alt="radiobtn"
           className={styles.guruRadioBtn}
@@ -99,12 +87,10 @@ const MainComponent = () => {
           initial="initial"
           animate="animate"
         />
-        <motion.div initial="initial" animate="animate">
-          <div className={styles.Year}>
-            <div className={styles.guru}>900 - 1000</div>
-          </div>
-        </motion.div>
-        <motion.img
+        <div className={styles.YearTwo}>
+          <div className={styles.guru}>900 - 1000</div>
+        </div>
+        <img
           src={grpImg}
           alt="radiobtn"
           className={styles.tibetanRadioBtn}
@@ -112,12 +98,10 @@ const MainComponent = () => {
           initial="initial"
           animate="animate"
         />
-        <motion.div initial="initial" animate="animate">
-          <div className={styles.Year}>
-            <div className={styles.tibetan}>1200 - 1800</div>
-          </div>
-        </motion.div>
-        <motion.img
+        <div className={styles.YearTwo}>
+          <div className={styles.tibetan}>1200 - 1800</div>
+        </div>
+        <img
           src={grpImg}
           alt="radiobtn"
           className={styles.pemaRadioBtn}
@@ -125,12 +109,10 @@ const MainComponent = () => {
           initial="initial"
           animate="animate"
         />
-        <motion.div initial="initial" animate="animate">
-          <div className={styles.Year}>
-            <div className={styles.pema}>1450 - 1521</div>
-          </div>
-        </motion.div>
-        <motion.img
+        <div className={styles.YearTwo}>
+          <div className={styles.pema}>1450 - 1521</div>
+        </div>
+        <img
           src={grpImg}
           alt="radiobtn"
           className={styles.zhabrugRadioBtn}
@@ -138,11 +120,9 @@ const MainComponent = () => {
           initial="initial"
           animate="animate"
         />
-        <motion.div initial="initial" animate="animate">
-          <div className={styles.Year}>
-            <div className={styles.zhabrug}>1594 - 1651</div>
-          </div>
-        </motion.div>
+        <div className={styles.YearTwo}>
+          <div className={styles.zhabrug}>1594 - 1651</div>
+        </div>
       </div>
     </div>
   );

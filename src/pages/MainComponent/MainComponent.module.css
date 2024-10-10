@@ -76,6 +76,12 @@
   color: #aa5018;
 }
 
+.YearTwo {
+  font-family: "Josefin Sans";
+  font-size: 45px;
+  color: #aa5018;
+}
+
 .supine {
   position: fixed;
   top: 56.4%;
@@ -236,7 +242,7 @@
   animation: pulse 3s infinite;
 }
 
-.Year div,
+.YearTwo div,
 .Header {
   animation: textWave 5s infinite;
 }

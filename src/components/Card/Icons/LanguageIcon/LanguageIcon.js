@@ -61,7 +61,7 @@ const LanguageIcon = ({
       className={whiteImage ? styles.LanguageWhiteIcon : styles.LanguageIcon}
       initial={{ opacity: 0 }}
       animate={{ opacity: showIcons ? 1 : 0 }}
-      transition={{ duration: 5 }}
+      transition={{ duration: 0.5 }}
     >
       <div
         className={styles.LanguageIconContainer}

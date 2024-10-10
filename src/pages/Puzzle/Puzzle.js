@@ -263,17 +263,15 @@ const Puzzle = ({ onComplete, resetPuzzleCard }) => {
         <div className="main-image-grid">
           {isCompleted ? (
             <>
-              <div className="main-image">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0 }}
-                  transition={{ duration: 1.5 }}
-                  className="completed-image"
-                >
-                  <img src={supineImg} alt="Main" />
-                </motion.div>
-              </div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0 }}
+                transition={{ duration: 1.5 }}
+                className="completed-image"
+              >
+                <img src={supineImg} alt="Main" />
+              </motion.div>
             </>
           ) : (
             <>
@@ -295,7 +293,7 @@ const Puzzle = ({ onComplete, resetPuzzleCard }) => {
               </div>
               <div className="main-image">
                 <img src={base} alt="Main" />
-              </div>{" "}
+              </div>
               <div className="pieces-container">
                 {pieces.map(
                   (piece) =>

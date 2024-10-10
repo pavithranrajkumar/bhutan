@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { TIBETAN_INFORMATION } from "../../../../../constants/Characters/Tibetan";
 import BigCard from "../../../../../components/BigCard/BigCard";
 import styles from "./PopularSchoolsCard.module.css";
@@ -10,6 +10,14 @@ const PopularSchoolsCard = ({
   language,
   onPopularSchoolsImgClick,
 }) => {
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    if (showIntro) {
+      setAnimate(true);
+    }
+  }, [showIntro]);
+
   const titleFontSize = language === BHUTAN ? "12px" : "25px";
   const fonstSize = language === BHUTAN ? "7px" : "10.5px";
   return (
@@ -30,7 +38,9 @@ const PopularSchoolsCard = ({
             showIntro={showIntro}
           />
           <div
-            className={styles.PopularSchoolsImgCard}
+            className={`${styles.PopularSchoolsImgCard} ${
+              animate ? styles.fadeIn : ""
+            }`}
             onClick={onPopularSchoolsImgClick}
           >
             <img src={popularImg} alt="popularImg" />

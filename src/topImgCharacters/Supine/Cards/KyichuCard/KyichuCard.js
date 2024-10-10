@@ -29,7 +29,11 @@ const KyichuCard = ({ showIntro, language, onKyichuCardImageClick }) => {
             className={styles.KyichuCardImg}
             onClick={onKyichuCardImageClick}
           >
-            <img src={kyichuImg} alt="jambayimg" />
+            <img
+              src={kyichuImg}
+              alt="jambayimg"
+              className={styles.animatedImg}
+            />
           </div>
         </>
       )}

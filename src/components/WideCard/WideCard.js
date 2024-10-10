@@ -11,7 +11,10 @@ const WideCard = ({
   paraFontSize,
 }) => {
   return (
-    <div className={styles.WideCard} style={{ width, height }}>
+    <div
+      className={`${styles.WideCard} ${styles.slideIn}`}
+      style={{ width, height }}
+    >
       <div className={styles.WideCardTextContainer}>
         <div
           className={styles.WideCardHeader}

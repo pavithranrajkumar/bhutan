@@ -28,7 +28,11 @@ const JamBayCard = ({ showIntro, language, onJamBayCardImageClick }) => {
             className={styles.JamBayCardImg}
             onClick={onJamBayCardImageClick}
           >
-            <img src={jambayImg} alt="jambayimg" />
+            <img
+              src={jambayImg}
+              alt="jambayimg"
+              className={styles.animatedImg}
+            />
           </div>
         </>
       )}
