@@ -327,8 +327,13 @@ const Guru = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             background="#613900"
-            left="28.5%"
+            left="28.9%"
             top="84.3%"
+            iconWidth="25px"
+            IconHeight="25px"
+            height="50px"
+            width="55px"
+            margin="13px"
           />
         </div>
       )}
@@ -378,9 +383,11 @@ const Guru = () => {
             showIcons={showIcons}
             iconWidth="25px"
             IconHeight="25px"
-            left="20.8%"
+            height="50px"
+            width="55px"
+            margin="13px"
+            left="21.3%"
             top="95.3%"
-            height="55px"
             background="#193145"
             whiteImage={true}
           />

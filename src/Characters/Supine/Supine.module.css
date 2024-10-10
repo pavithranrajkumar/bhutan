@@ -7,7 +7,7 @@
   left: 4.8%;
   top: 85.5%;
   width: 450px;
-  height: 280px;
+  height: 290px;
   z-index: 10;
 }
 
@@ -31,13 +31,13 @@
 .SupineIntroCard {
   position: fixed;
   left: 5%;
-  top: 72%;
+  top: 71%;
 }
 
 .SupineIntroduction {
   position: fixed;
   left: 7%;
-  top: 74.7%;
+  top: 74.1%;
 }
 
 .ReligiousCard {

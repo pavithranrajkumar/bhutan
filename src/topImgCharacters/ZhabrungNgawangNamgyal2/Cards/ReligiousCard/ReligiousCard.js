@@ -25,7 +25,7 @@ const ReligiousCard = ({ showIntro, onSealClick, language }) => {
             showIntro={showIntro}
           />
           <div className={styles.sealOfZhabdrungCard} onClick={onSealClick}>
-            <div style={{ marginTop: "18px", fontSize: cardFonstSize }}>
+            <div style={{ fontSize: cardFonstSize }}>
               {ZHABRUNG_INFORMATION[language].sealOfZhabdrung.title}
             </div>
           </div>

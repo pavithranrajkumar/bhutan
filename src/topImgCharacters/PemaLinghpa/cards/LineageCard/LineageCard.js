@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import Card from "../../../../components/Card/Card";
 import { PEMA_LINGPA_INFORMATION } from "../../../../constants/Characters/PremaLingpa";
 import styles from "./LineageCard.module.css";
@@ -34,8 +33,8 @@ const LineageCard = ({ showIntro, language, showIcons }) => {
     { primary: "SangdaContainer", secondary: "SangaFamilyContainer" },
   ];
 
-  const handleNextClick = () => {
-    setCurrentStep((prevStep) => (prevStep + 1) % familySteps.length);
+  const handleContainerClick = (index) => {
+    setCurrentStep(index);
   };
 
   return (
@@ -68,6 +67,7 @@ const LineageCard = ({ showIntro, language, showIcons }) => {
               <hr className={styles.SonsHorizontalLine2} />
               <div
                 className={styles.DrakpaGyalpoContainer}
+                onClick={() => handleContainerClick(0)}
                 style={{
                   opacity: currentStep === 0 ? 1 : 0.5,
                 }}
@@ -81,6 +81,7 @@ const LineageCard = ({ showIntro, language, showIcons }) => {
 
               <div
                 className={styles.DawaGyaltshenContainer}
+                onClick={() => handleContainerClick(1)}
                 style={{
                   opacity: currentStep === 1 ? 1 : 0.5,
                 }}
@@ -94,6 +95,7 @@ const LineageCard = ({ showIntro, language, showIcons }) => {
 
               <div
                 className={styles.KuengaWangpoContainer}
+                onClick={() => handleContainerClick(2)}
                 style={{
                   opacity: currentStep === 2 ? 1 : 0.5,
                 }}
@@ -107,6 +109,7 @@ const LineageCard = ({ showIntro, language, showIcons }) => {
 
               <div
                 className={styles.SangdaContainer}
+                onClick={() => handleContainerClick(3)}
                 style={{
                   opacity: currentStep === 3 ? 1 : 0.5,
                 }}
@@ -122,31 +125,24 @@ const LineageCard = ({ showIntro, language, showIcons }) => {
             </div>
 
             {/* Show only the active secondary container */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0 }}
-              transition={{ duration: 1.5 }}
+            <div
+              className={styles.TamshingContainer}
+              style={{
+                display: currentStep === 0 ? "block" : "none",
+              }}
             >
-              <div
-                className={styles.TamshingContainer}
-                style={{
-                  display: currentStep === 0 ? "block" : "none",
-                }}
-              >
-                <div className={styles.SonsTree}>
-                  <div className={styles.Choeje}>CHOEJE</div>
-                </div>
-                <div className={styles.Tamshing}>
-                  <img src={Tamshing} alt="" />
-                </div>
-                <hr className={styles.TamshingVerticalLine} />
-                <hr className={styles.TamshingVerticalLine1} />
-                <div className={styles.TamshingCard}>
-                  <div style={{ marginTop: "3px" }}>TAMSHING</div>
-                </div>
+              <div className={styles.SonsTree}>
+                <div className={styles.Choeje}>CHOEJE</div>
               </div>
-            </motion.div>
+              <div className={styles.Tamshing}>
+                <img src={Tamshing} alt="" />
+              </div>
+              <hr className={styles.TamshingVerticalLine} />
+              <hr className={styles.TamshingVerticalLine1} />
+              <div className={styles.TamshingCard}>
+                <div style={{ marginTop: "3px" }}>TAMSHING</div>
+              </div>
+            </div>
 
             <div
               className={styles.PrakharContainer}
@@ -199,7 +195,6 @@ const LineageCard = ({ showIntro, language, showIcons }) => {
                   <div style={{ marginTop: "2px" }}>BIDUNG</div>
                 </div>
               </div>
-
               <hr className={styles.KheriHorizontalLine} />
               <hr className={styles.KheriVerticalLine} />
               <hr className={styles.KheriVerticalLine1} />
@@ -281,18 +276,6 @@ const LineageCard = ({ showIntro, language, showIcons }) => {
               </div>
             </div>
           </div>
-
-          <NextIcon
-            showIcons={showIcons}
-            left="76%"
-            top="48%"
-            height="70px"
-            width="80px"
-            margin="25px"
-            background="#3A1701"
-            color="#FFD9BC"
-            onClick={handleNextClick}
-          />
         </>
       )}
     </div>

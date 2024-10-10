@@ -18,6 +18,7 @@ const NameCard = ({
   subCardname,
   subCardnameFontSize,
   subCardnameMarginLeft,
+  cardNameTwo,
 }) => {
   return (
     <motion.div
@@ -32,6 +33,9 @@ const NameCard = ({
       <div className={styles.pemaNameCardTitle} style={{ color: color }}>
         <div className={styles.namedCardText} style={{ fontSize }}>
           {cardName}
+        </div>
+        <div className={styles.namedCardText} style={{ fontSize }}>
+          {cardNameTwo}
         </div>
         <div
           className={styles.subCardnameContains}

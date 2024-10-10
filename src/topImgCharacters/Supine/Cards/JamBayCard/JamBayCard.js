@@ -7,7 +7,7 @@ import { BHUTAN } from "../../../../constants/languages/Language";
 
 const JamBayCard = ({ showIntro, language, onJamBayCardImageClick }) => {
   const titleFontSize = language === BHUTAN ? "10px" : "20px";
-  const fonstSize = language === BHUTAN ? "7px" : "11.1px";
+  const fonstSize = language === BHUTAN ? "7.5px" : "11.1px";
   return (
     <div>
       {showIntro && (

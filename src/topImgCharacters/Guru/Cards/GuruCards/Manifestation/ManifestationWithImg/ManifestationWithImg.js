@@ -6,7 +6,7 @@ import WideCard from "../../../../../../components/WideCard/WideCard";
 import { BHUTAN } from "../../../../../../constants/languages/Language";
 
 const ManifestationWithImg = ({ onLakeBornClick, language }) => {
-  const headerFontSize = language === BHUTAN ? "3px" : "7px";
+  const headerFontSize = language === BHUTAN ? "3px" : "8.5px";
   const paraFontSize = language === BHUTAN ? "3.5px" : "6.5px";
 
   const manifestationsData = [

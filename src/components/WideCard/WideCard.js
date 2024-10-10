@@ -9,11 +9,16 @@ const WideCard = ({
   height,
   headerFontSize,
   paraFontSize,
+  onClick,
+  isActive,
 }) => {
   return (
     <div
-      className={`${styles.WideCard} ${styles.slideIn}`}
+      className={`${styles.WideCard} ${styles.slideIn}  ${
+        isActive ? styles.activeCard : ""
+      }`}
       style={{ width, height }}
+      onClick={onClick}
     >
       <div className={styles.WideCardTextContainer}>
         <div

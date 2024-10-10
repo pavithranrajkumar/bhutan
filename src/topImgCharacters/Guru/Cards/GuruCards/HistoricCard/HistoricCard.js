@@ -7,8 +7,8 @@ import { BHUTAN } from "../../../../../constants/languages/Language";
 
 const HistoricCard = ({ showIntro, onKurjeClick, language }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "25px";
-  const fonstSize = language === BHUTAN ? "7px" : "11px";
-  const KurjeFonstSize = language === BHUTAN ? "7px" : "15px";
+  const fonstSize = language === BHUTAN ? "8px" : "11px";
+  const KurjeFonstSize = language === BHUTAN ? "8.5px" : "15px";
 
   return (
     <div>

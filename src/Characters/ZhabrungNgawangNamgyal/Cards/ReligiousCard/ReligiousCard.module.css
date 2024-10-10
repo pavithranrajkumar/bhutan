@@ -3,9 +3,13 @@
   background: #6986a9;
   color: #001829;
   font-family: "Hammersmith One";
-  font-size: 25px;
-  left: 87.5%;
-  top: 75%;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  left: 90%;
+  top: 75.5%;
   height: 100px;
   width: 150px;
 }

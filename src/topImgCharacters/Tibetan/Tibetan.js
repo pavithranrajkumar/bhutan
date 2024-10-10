@@ -196,18 +196,18 @@ const TibetanTwo = () => {
     language === BHUTAN
       ? showCards || selectedCard || showIntroduction
         ? "13px"
-        : "18px"
+        : "13px"
       : showCards || selectedCard || showIntroduction
-      ? "15px"
-      : "20px";
+      ? "13px"
+      : "18px";
   const fontSize =
     language === BHUTAN
       ? showCards || selectedCard || showIntroduction
-        ? "15px"
+        ? "10px"
         : "10px"
       : showCards || selectedCard || showIntroduction
       ? "15px"
-      : "18px";
+      : "16px";
 
   useEffect(() => {
     if (selectedCard) {
@@ -251,7 +251,8 @@ const TibetanTwo = () => {
           onClick={handleCardOrImageClick}
         >
           <NameCard
-            cardName={TIBETAN_INFORMATION[language].title}
+            cardName={TIBETAN_INFORMATION[language].nameCardTitleFirst}
+            cardNameTwo={TIBETAN_INFORMATION[language].nameCardTitleSecond}
             width="220px"
             height="90px"
             paraSize={paraSize}

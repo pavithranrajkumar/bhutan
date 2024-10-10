@@ -26,7 +26,15 @@
   border: 1.5px solid #8f4110;
 }
 
+.DrakpaGyalpoContainer,
+.DawaGyaltshenContainer,
+.KuengaWangpoContainer,
+.SangdaContainer {
+  cursor: pointer;
+}
+
 .DrakpaGyalpo {
+  cursor: pointer;
   object-fit: fill;
   position: fixed;
   left: 71%;
@@ -36,6 +44,7 @@
 }
 
 .DawaGyaltshen {
+  cursor: pointer;
   position: fixed;
   left: 72.3%;
   top: 88%;
@@ -44,12 +53,14 @@
 }
 .KuengaWangpo {
   position: fixed;
+  cursor: pointer;
   left: 73.7%;
   top: 88%;
   width: 30px;
   height: 40px;
 }
 .Sangda {
+  cursor: pointer;
   position: fixed;
   left: 75.2%;
   top: 88%;

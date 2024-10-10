@@ -73,9 +73,11 @@ const PemaLinghpa = () => {
     ) {
       resetView();
       setShowYearText(true);
+      setIsActive(false);
     } else if (showIntroduction) {
       setShowIntroduction(false);
       setShowYearText(true);
+      setIsActive(false);
     } else {
       setShowYearText(false);
       setShowIntroduction(true);
@@ -250,9 +252,9 @@ const PemaLinghpa = () => {
         >
           <NameCard
             cardName="PEMA LINGPA"
-            width={isActive ? "350px" : "250px"}
+            width={isActive ? "300px" : "250px"}
             height={isActive ? "100px" : "80px"}
-            fontSize={isActive ? "25px" : "15px"}
+            fontSize={isActive ? "20px" : "15px"}
             subCardnameFontSize="15px"
             subCardnameMarginLeft="125px"
             background="#384E63"
@@ -330,7 +332,7 @@ const PemaLinghpa = () => {
             iconWidth="25px"
             IconHeight="25px"
             left="64%"
-            top="91%"
+            top="89%"
             height="60px"
           />
         </>
@@ -411,6 +413,17 @@ const PemaLinghpa = () => {
                   width="80px"
                   margin="25px"
                   onClick={handleHomeClick}
+                />
+                <NextIcon
+                  showIcons={showIcons}
+                  left="75.5%"
+                  top="82%"
+                  height="70px"
+                  width="80px"
+                  margin="25px"
+                  background="#3A1701"
+                  color="#FFD9BC"
+                  onClick={handleNextIcon}
                 />
               </div>
             </>
@@ -556,11 +569,13 @@ const PemaLinghpa = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
-            left="60.5%"
-            top="96%"
+            left="61.2%"
+            top="95%"
             iconWidth="25px"
             IconHeight="25px"
-            height="55px"
+            height="50px"
+            width="50px"
+            margin="12px"
           />
         </>
       )}
@@ -598,11 +613,13 @@ const PemaLinghpa = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
-            left="60.5%"
-            top="96%"
+            left="61.2%"
+            top="95%"
             iconWidth="25px"
             IconHeight="25px"
-            height="55px"
+            height="50px"
+            width="50px"
+            margin="12px"
           />
         </>
       )}

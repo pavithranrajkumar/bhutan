@@ -317,7 +317,7 @@ const Supine = () => {
             whiteImage={true}
             language={language}
             left="5.4%"
-            top="74.8%"
+            top="74.1%"
             iconWidth="25px"
             IconHeight="25px"
             height="50px"
@@ -340,7 +340,7 @@ const Supine = () => {
             language={language}
             // supine={true}
             background="#3A3C25"
-            left="17.4%"
+            left="17.9%"
             top="82.5%"
             iconWidth="25px"
             IconHeight="25px"

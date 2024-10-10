@@ -7,7 +7,7 @@ import { BHUTAN } from "../../../../../../constants/languages/Language";
 
 const KurjeLhakhang = ({ showIntro, onKurjeTempleClick, language }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "25px";
-  const fonstSize = language === BHUTAN ? "7px" : "11.5px";
+  const fonstSize = language === BHUTAN ? "8.2px" : "11.5px";
   return (
     <div>
       {showIntro && (

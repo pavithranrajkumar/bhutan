@@ -11,6 +11,21 @@
   font-size: 14px;
   font-weight: 100;
   text-align: center;
+  display: flex; /* Enable flexbox for cards */
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+}
+
+.HistoricCard,
+.ManifestationCard,
+.PalaceCard {
+  display: flex; /* Enable flexbox for cards */
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+  cursor: pointer;
+  pointer-events: auto;
+  position: fixed;
+  color: #fadfb6;
 }
 
 .HistoricCard {

@@ -245,9 +245,9 @@ const PemaLinghpaTwo = () => {
         >
           <NameCard
             cardName="PEMA LINGPA"
-            width={isActive ? "350px" : "250px"}
+            width={isActive ? "300px" : "250px"}
             height={isActive ? "100px" : "80px"}
-            fontSize={isActive ? "25px" : "15px"}
+            fontSize={isActive ? "20px" : "15px"}
             subCardnameFontSize="15px"
             subCardnameMarginLeft="125px"
             background="#384E63"
@@ -405,6 +405,17 @@ const PemaLinghpaTwo = () => {
                   width="80px"
                   margin="25px"
                   onClick={handleHomeClick}
+                />
+                <NextIcon
+                  showIcons={showIcons}
+                  left="76%"
+                  top="48%"
+                  height="70px"
+                  width="80px"
+                  margin="25px"
+                  background="#3A1701"
+                  color="#FFD9BC"
+                  onClick={handleNextIcon}
                 />
               </div>
             </>

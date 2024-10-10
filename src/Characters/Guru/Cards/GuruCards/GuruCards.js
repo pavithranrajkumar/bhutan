@@ -5,7 +5,7 @@ import { GURU_INFORMATION } from "../../../../constants/Characters/Guru";
 import { BHUTAN } from "../../../../constants/languages/Language";
 
 const GuruCards = ({ isFadingOut, language, onCardClick }) => {
-  const fonstSize = language === BHUTAN ? "11.5px" : "14px";
+  const fonstSize = language === BHUTAN ? "11.5px" : "15px";
   return (
     <div>
       <motion.div

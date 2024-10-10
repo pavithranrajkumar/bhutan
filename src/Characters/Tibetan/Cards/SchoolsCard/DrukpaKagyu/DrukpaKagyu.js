@@ -14,7 +14,7 @@ const DrukpaKagyu = ({ showIntro, language, onDrugpaKagyuImgClick }) => {
     }
   }, [showIntro]);
   const titleFontSize = language === BHUTAN ? "12px" : "20px";
-  const fonstSize = language === BHUTAN ? "7px" : "11.5px";
+  const fonstSize = language === BHUTAN ? "8px" : "11.5px";
   return (
     <div>
       {showIntro && (

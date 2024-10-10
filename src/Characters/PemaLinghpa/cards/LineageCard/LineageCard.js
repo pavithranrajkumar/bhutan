@@ -33,8 +33,8 @@ const LineageCard = ({ showIntro, language, showIcons }) => {
     { primary: "SangdaContainer", secondary: "SangaFamilyContainer" },
   ];
 
-  const handleNextClick = () => {
-    setCurrentStep((prevStep) => (prevStep + 1) % familySteps.length);
+  const handleContainerClick = (index) => {
+    setCurrentStep(index);
   };
 
   return (
@@ -67,6 +67,7 @@ const LineageCard = ({ showIntro, language, showIcons }) => {
               <hr className={styles.SonsHorizontalLine2} />
               <div
                 className={styles.DrakpaGyalpoContainer}
+                onClick={() => handleContainerClick(0)}
                 style={{
                   opacity: currentStep === 0 ? 1 : 0.5,
                 }}
@@ -80,6 +81,7 @@ const LineageCard = ({ showIntro, language, showIcons }) => {
 
               <div
                 className={styles.DawaGyaltshenContainer}
+                onClick={() => handleContainerClick(1)}
                 style={{
                   opacity: currentStep === 1 ? 1 : 0.5,
                 }}
@@ -93,6 +95,7 @@ const LineageCard = ({ showIntro, language, showIcons }) => {
 
               <div
                 className={styles.KuengaWangpoContainer}
+                onClick={() => handleContainerClick(2)}
                 style={{
                   opacity: currentStep === 2 ? 1 : 0.5,
                 }}
@@ -106,6 +109,7 @@ const LineageCard = ({ showIntro, language, showIcons }) => {
 
               <div
                 className={styles.SangdaContainer}
+                onClick={() => handleContainerClick(3)}
                 style={{
                   opacity: currentStep === 3 ? 1 : 0.5,
                 }}
@@ -272,18 +276,6 @@ const LineageCard = ({ showIntro, language, showIcons }) => {
               </div>
             </div>
           </div>
-
-          <NextIcon
-            showIcons={showIcons}
-            left="75.5%"
-            top="82%"
-            height="70px"
-            width="80px"
-            margin="25px"
-            background="#3A1701"
-            color="#FFD9BC"
-            onClick={handleNextClick}
-          />
         </>
       )}
     </div>

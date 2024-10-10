@@ -320,6 +320,11 @@ const Guru2 = () => {
             background="#613900"
             left="28.5%"
             top="54%"
+            iconWidth="25px"
+            IconHeight="25px"
+            height="48px"
+            width="50px"
+            margin="13px"
           />
         </div>
       )}

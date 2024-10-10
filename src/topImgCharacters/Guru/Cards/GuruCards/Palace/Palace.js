@@ -7,7 +7,7 @@ import { BHUTAN } from "../../../../../constants/languages/Language";
 
 const Palace = ({ showIntro, onPalaceImgClick, language }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "20px";
-  const fonstSize = language === BHUTAN ? "7px" : "11.5px";
+  const fonstSize = language === BHUTAN ? "8.5px" : "11.5px";
   return (
     <div>
       {showIntro && (

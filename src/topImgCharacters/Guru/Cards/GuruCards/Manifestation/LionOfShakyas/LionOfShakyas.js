@@ -6,7 +6,7 @@ import styles from "./LionOfShakyas.module.css";
 import { BHUTAN } from "../../../../../../constants/languages/Language";
 
 const LionOfShakyas = ({ language }) => {
-  const headerFontSize = language === BHUTAN ? "3px" : "7px";
+  const headerFontSize = language === BHUTAN ? "3px" : "8.5px";
   const paraFontSize = language === BHUTAN ? "3.5px" : "6.5px";
 
   const manifestationsData = [
