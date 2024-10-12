@@ -15,14 +15,8 @@ const LanguageIcon = ({
   right,
   onClick,
   whiteImage,
-  width,
-  height,
-  margin,
   bottom,
   background,
-  iconWidth,
-  IconHeight,
-  supine,
   language,
 }) => {
   console.log("Current language in LanguageIcon:", language); // Check the value here
@@ -54,8 +48,7 @@ const LanguageIcon = ({
         right: right,
         top: top,
         bottom: bottom,
-        width: width,
-        height: height,
+
         background,
       }}
       className={whiteImage ? styles.LanguageWhiteIcon : styles.LanguageIcon}
@@ -67,12 +60,12 @@ const LanguageIcon = ({
       <div
         className={styles.LanguageIconContainer}
         // onClick={onClick}
-        style={{ margin: margin }}
+        // style={{ margin: margin }}
       >
         <img
           // src={whiteImage ? LanguageWhite : supine ? Supine : LanguageColor}
           src={iconSrc}
-          style={{ height: IconHeight, width: iconWidth }}
+          // style={{ height: IconHeight, width: iconWidth }}
           alt="LanguageIcon"
         />
       </div>

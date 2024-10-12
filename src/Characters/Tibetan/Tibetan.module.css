@@ -83,16 +83,37 @@
   z-index: 10;
 }
 
+@keyframes zoomBounce {
+  0% {
+    transform: scale(0.8);
+  }
+  60% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .KurjeLhakhangTemplesEnlargeImg {
   position: fixed;
-  left: 47.7%;
-  top: 72.5%;
-  width: 155px;
-  height: 155px;
-  border: 10px solid white; /* This adds a white border */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for a Polaroid effect */
+  left: 48.5%;
+  top: 72%;
+  width: 350px;
+  height: 350px;
+  border: 10px solid white;
   object-fit: fill;
   cursor: pointer;
+  z-index: 20;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 1s ease, border 0.5s ease;
+}
+
+.fadeIn {
+  opacity: 1;
+  animation: zoomBounce 0.8s ease;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .KurjeLhakhangTemplesEnlargeImg img {
@@ -108,11 +129,6 @@
   top: 72%;
   width: 205px;
   height: 200px;
-  object-fit: fill;
-}
-.KurjeLhakhangTemplesImg1 img,
-.KurjeLhakhangTemplesImg13 img,
-.KurjeLhakhangTemplesImg12 img {
   object-fit: fill;
 }
 

@@ -118,13 +118,34 @@
 
 .MonasteriesEnlargedImage {
   position: fixed;
-  left: 61.8%;
+  left: 68%;
   top: 85%;
   width: 135px;
   height: 175px;
   border: 10px solid white; /* This adds a white border */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for a Polaroid effect */
   object-fit: fill;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 1s ease, border 0.5s ease;
+}
+
+.fadeIn {
+  opacity: 1;
+  animation: zoomBounce 0.8s ease;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes zoomBounce {
+  0% {
+    transform: scale(0.8);
+  }
+  60% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .MonasteriesImg1 {

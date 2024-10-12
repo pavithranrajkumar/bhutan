@@ -50,9 +50,14 @@ const Guru = () => {
     useState(false);
   const [showPalaceImg, setShowPalaceImg] = useState(false);
   const [enlargedImage, setEnlargedImage] = useState(null);
+  const [KurjeEnlargedImage, setKurjeEnlargedImage] = useState(null);
 
   const handleImageClick = (imageSrc) => {
     setEnlargedImage(imageSrc);
+  };
+
+  const handleKurjeImageClick = (imageSrc) => {
+    setKurjeEnlargedImage(imageSrc);
   };
 
   const paraSize =
@@ -88,6 +93,8 @@ const Guru = () => {
     setShowKurjeLhakhangImgs(false);
     setShowManifestationCardWithImg(false);
     setShowPalaceImg(false);
+    setEnlargedImage(false);
+    setKurjeEnlargedImage(false);
     setShowYearText(true);
   };
 
@@ -99,6 +106,8 @@ const Guru = () => {
     setShowKurjeLhakhangImgs(false);
     setShowManifestationCardWithImg(false);
     setShowPalaceImg(false);
+    setEnlargedImage(false);
+    setKurjeEnlargedImage(false);
   };
 
   const handleCardOrImageClick = () => {
@@ -336,7 +345,7 @@ const Guru = () => {
             showIcons={showIcons}
             iconWidth="25px"
             IconHeight="25px"
-            left="22.1%"
+            left="22.4%"
             top="91.4%"
             height="55px"
             background="#613900"
@@ -345,7 +354,7 @@ const Guru = () => {
             showIcons={showIcons}
             background="#C87E12"
             left="21.8%"
-            top="88%"
+            top="87.5%"
             height="70px"
             width="80px"
             margin="25px"
@@ -380,7 +389,7 @@ const Guru = () => {
             whiteImage={true}
             background="#2B455D"
             left="20.7%"
-            top="91.8%"
+            top="91.4%"
             height="70px"
             width="80px"
             margin="25px"
@@ -391,51 +400,43 @@ const Guru = () => {
 
       {showKurjeLhakhangImgs && (
         <>
-          <div className={styles.KurjeLhakhangTemplesImgContainer}>
-            {enlargedImage ? (
-              <div
-                className={styles.enlargedImage}
-                onClick={() => setEnlargedImage(null)}
-              >
-                <img
-                  src={enlargedImage}
-                  alt="Enlarged"
-                  className={styles.enlargedImages}
-                  onClick={() => handleImageClick(enlargedImage)}
-                  style={{ cursor: "pointer" }} // Optional: change cursor to pointer
-                />
-              </div>
-            ) : (
-              <>
-                <div className={styles.KurjeLhakhangTemplesImg1}>
-                  <img
-                    src={KurjeImg1}
-                    alt="palaceImg1"
-                    onClick={() => handleImageClick(KurjeEnlargeImg1)}
-                  />
-                </div>
-              </>
-            )}
-
+          <div
+            className={styles.KurjeLhakhangTemplesImgContainer}
+            style={{
+              position: "relative",
+              transition: "opacity 0.3s ease",
+              backgroundColor: KurjeEnlargedImage
+                ? "rgba(0, 0, 0, 0.7)" // Add black opacity when enlarged
+                : "transparent",
+              opacity: KurjeEnlargedImage ? 0.4 : 1, // Adjust opacity effect
+            }}
+          >
+            <div className={styles.KurjeLhakhangTemplesImg1}>
+              <img
+                src={KurjeImg1}
+                alt="palaceImg1"
+                onClick={() => handleKurjeImageClick(KurjeEnlargeImg1)}
+              />
+            </div>
             <div className={styles.KurjeLhakhangTemplesImg2}>
               <img
                 src={KurjeImg2}
                 alt="palaceImg2"
-                onClick={() => handleImageClick(KurjeEnlargeImg2)}
+                onClick={() => handleKurjeImageClick(KurjeEnlargeImg2)}
               />
             </div>
             <div className={styles.KurjeLhakhangTemplesImg3}>
               <img
                 src={KurjeImg3}
                 alt="palaceImg3"
-                onClick={() => handleImageClick(KurjeEnlargeImg3)}
+                onClick={() => handleKurjeImageClick(KurjeEnlargeImg3)}
               />
             </div>
             <div className={styles.KurjeLhakhangTemplesImg4}>
               <img
                 src={KurjeImg4}
                 alt="palaceImg3"
-                onClick={() => handleImageClick(KurjeEnlargeImg4)}
+                onClick={() => handleKurjeImageClick(KurjeEnlargeImg4)}
               />
             </div>
           </div>
@@ -446,8 +447,8 @@ const Guru = () => {
             language={language}
             iconWidth="30px"
             IconHeight="25px"
-            left="25.1%"
-            top="91%"
+            left="25.3%"
+            top="91.5%"
             height="55px"
             width="60px"
             margin="15px"
@@ -473,6 +474,23 @@ const Guru = () => {
         </>
       )}
 
+      {KurjeEnlargedImage ? (
+        <div
+          className={`${styles.enlargedKurjeLhakhangImage} ${styles.fadeIn}`}
+          onClick={() => setKurjeEnlargedImage(null)}
+        >
+          <img
+            src={KurjeEnlargedImage}
+            alt="Enlarged"
+            className={styles.enlargedImages}
+            onClick={() => handleKurjeImageClick(KurjeEnlargedImage)}
+            style={{ cursor: "pointer" }} // Optional: change cursor to pointer
+          />
+        </div>
+      ) : (
+        <></>
+      )}
+
       {selectedCard === "manifestation" && !showManifestationCardWithImg && (
         <div className={styles.GuruHistoricCard}>
           <Manifestation
@@ -486,7 +504,7 @@ const Guru = () => {
             showIcons={showIcons}
             iconWidth="25px"
             IconHeight="25px"
-            left="22.1%"
+            left="22.4%"
             top="91.4%"
             height="55px"
             background="#613900"
@@ -495,7 +513,7 @@ const Guru = () => {
             showIcons={showIcons}
             background="#C87E12"
             left="21.8%"
-            top="88%"
+            top="87.5%"
             height="70px"
             width="80px"
             margin="25px"
@@ -515,7 +533,7 @@ const Guru = () => {
             iconWidth="25px"
             IconHeight="25px"
             left="25.5%"
-            top="85.1%"
+            top="85.6%"
             height="50px"
             background="#613900"
           />
@@ -555,7 +573,7 @@ const Guru = () => {
             whiteImage={true}
             iconWidth="25px"
             IconHeight="25px"
-            left="21.4%"
+            left="21.9%"
             top="91.4%"
             height="55px"
           />
@@ -563,7 +581,7 @@ const Guru = () => {
             showIcons={showIcons}
             whiteImage={true}
             left="21.3%"
-            top="88%"
+            top="87.5%"
             height="70px"
             width="80px"
             margin="25px"
@@ -574,32 +592,24 @@ const Guru = () => {
 
       {showPalaceImg && (
         <>
-          <div className={styles.PalaceImgContainer}>
-            {enlargedImage ? (
-              <div
-                className={styles.palaceenlargedImg1}
-                onClick={() => setEnlargedImage(null)}
-              >
-                <img
-                  src={enlargedImage}
-                  alt="Enlarged"
-                  className={styles.enlargedImages}
-                  onClick={() => handleImageClick(palaceEnlargeImg1)}
-                  style={{ cursor: "pointer" }} // Optional: change cursor to pointer
-                />
-              </div>
-            ) : (
-              <>
-                <div className={styles.palaceImg1}>
-                  <img
-                    src={palaceImg1}
-                    alt="palaceImg1"
-                    onClick={() => handleImageClick(palaceEnlargeImg1)}
-                  />
-                </div>
-              </>
-            )}
-
+          <div
+            className={styles.PalaceImgContainer}
+            style={{
+              position: "relative",
+              transition: "opacity 0.3s ease",
+              backgroundColor: enlargedImage
+                ? "rgba(0, 0, 0, 0.7)" // Add black opacity when enlarged
+                : "transparent",
+              opacity: enlargedImage ? 0.4 : 1, // Adjust opacity effect
+            }}
+          >
+            <div className={styles.palaceImg1}>
+              <img
+                src={palaceImg1}
+                alt="palaceImg1"
+                onClick={() => handleImageClick(palaceEnlargeImg1)}
+              />
+            </div>
             <div className={styles.palaceImg2}>
               <img
                 src={palaceImg3}
@@ -630,8 +640,8 @@ const Guru = () => {
             margin="15px"
             iconWidth="25px"
             IconHeight="25px"
-            left="22.3%"
-            top="89%"
+            left="22.9%"
+            top="89.5%"
             height="50px"
           />
           <HomeIcon
@@ -653,6 +663,23 @@ const Guru = () => {
             marginTop="28px"
           />
         </>
+      )}
+
+      {enlargedImage ? (
+        <div
+          className={`${styles.palaceenlargedImg1} ${styles.fadeIn}`}
+          onClick={() => setEnlargedImage(null)}
+        >
+          <img
+            src={enlargedImage}
+            alt="Enlarged"
+            className={styles.enlargedImages}
+            onClick={() => handleImageClick(palaceEnlargeImg1)}
+            style={{ cursor: "pointer" }} // Optional: change cursor to pointer
+          />
+        </div>
+      ) : (
+        <></>
       )}
     </motion.div>
   );

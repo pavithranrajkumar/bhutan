@@ -20,6 +20,18 @@ import palaceImg1 from "../../assests/Guru/Palace/PalaceImg1.png";
 import palaceImg2 from "../../assests/Guru/Palace/PalaceImg2.png";
 import palaceImg3 from "../../assests/Guru/Palace/PalaceImg3.png";
 import palaceImg4 from "../../assests/Guru/Palace/PalaceImg4.png";
+import palaceEnlargeImg1 from "../../assests/Guru/Palace/EnlargeImg/palceEnlargeImg1.png";
+import palaceEnlargeImg2 from "../../assests/Guru/Palace/EnlargeImg/palceEnlargeImg3.png";
+import palaceEnlargeImg3 from "../../assests/Guru/Palace/EnlargeImg/palceEnlargeImg2.png";
+import palaceEnlargeImg4 from "../../assests/Guru/Palace/EnlargeImg/palceEnlargeImg4.png";
+import KurjeEnlargeImg1 from "../../assests/Guru/Historic/KurjeImgs/EnlargeImgs/KurjeLhakhangTemplesImg1.png";
+import KurjeEnlargeImg3 from "../../assests/Guru/Historic/KurjeImgs/EnlargeImgs/KurjeLhakhangTemplesIm2.png";
+import KurjeEnlargeImg4 from "../../assests/Guru/Historic/KurjeImgs/EnlargeImgs/KurjeLhakhangTemplesIm3.png";
+import KurjeEnlargeImg2 from "../../assests/Guru/Historic/KurjeImgs/EnlargeImgs/KurjeLhakhangTemplesImg4.png";
+import KurjeImg1 from "../../assests/Guru/Historic/KurjeImgs/KurjImg1.png";
+import KurjeImg2 from "../../assests/Guru/Historic/KurjeImgs/KurjImg2.png";
+import KurjeImg3 from "../../assests/Guru/Historic/KurjeImgs/KurjImg3.png";
+import KurjeImg4 from "../../assests/Guru/Historic/KurjeImgs/KurjImg4.png";
 import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
 import LakeBornWideCard from "./Cards/GuruCards/Manifestation/LakeBornWideCard/LakeBornWideCard";
 import LionOfShakyas from "./Cards/GuruCards/Manifestation/LionOfShakyas/LionOfShakyas";
@@ -40,9 +52,14 @@ const Guru2 = () => {
   const [showLakeBornWideCards, setShowLakeBornWideCards] = useState(false);
   const [showLionOfShakyas, setShowLionOfShakyas] = useState(false);
   const [enlargedImage, setEnlargedImage] = useState(null);
+  const [KurjeEnlargedImage, setKurjeEnlargedImage] = useState(null);
 
   const handleImageClick = (imageSrc) => {
     setEnlargedImage(imageSrc);
+  };
+
+  const handleKurjeImageClick = (imageSrc) => {
+    setKurjeEnlargedImage(imageSrc);
   };
 
   const paraSize =
@@ -80,6 +97,8 @@ const Guru2 = () => {
     setShowLakeBornWideCards(false);
     setShowLionOfShakyas(false);
     setShowPalaceImg(false);
+    setEnlargedImage(false);
+    setKurjeEnlargedImage(false);
     setShowYearText(true);
   };
 
@@ -92,6 +111,8 @@ const Guru2 = () => {
     setShowManifestationCardWithImg(false);
     setShowLakeBornWideCards(false);
     setShowLionOfShakyas(false);
+    setEnlargedImage(false);
+    setKurjeEnlargedImage(false);
     setShowPalaceImg(false);
   };
 
@@ -100,7 +121,9 @@ const Guru2 = () => {
       showCards ||
       selectedCard ||
       showLakeBornWideCards ||
-      showLionOfShakyas
+      showLionOfShakyas ||
+      enlargedImage ||
+      KurjeEnlargedImage
     ) {
       resetStates();
     } else if (showIntroduction) {
@@ -401,51 +424,43 @@ const Guru2 = () => {
 
       {showKurjeLhakhangImgs && (
         <>
-          <div className={styles.KurjeLhakhangTemplesImgContainer}>
-            {enlargedImage ? (
-              <div
-                className={styles.KurjeLhakhangTemplesImg1}
-                onClick={() => setEnlargedImage(null)}
-              >
-                <img
-                  src={enlargedImage}
-                  alt="Enlarged"
-                  className={styles.enlargedImage}
-                  onClick={() => handleImageClick(enlargedImage)}
-                  style={{ cursor: "pointer" }} // Optional: change cursor to pointer
-                />
-              </div>
-            ) : (
-              <>
-                <div className={styles.KurjeLhakhangTemplesImg1}>
-                  <img
-                    src={palaceImg1}
-                    alt="palaceImg1"
-                    onClick={() => handleImageClick(palaceImg1)}
-                  />
-                </div>
-              </>
-            )}
-
+          <div
+            className={styles.KurjeLhakhangTemplesImgContainer}
+            style={{
+              position: "relative",
+              transition: "opacity 0.3s ease",
+              backgroundColor: KurjeEnlargedImage
+                ? "rgba(0, 0, 0, 0.7)" // Add black opacity when enlarged
+                : "transparent",
+              opacity: KurjeEnlargedImage ? 0.4 : 1, // Adjust opacity effect
+            }}
+          >
+            <div className={styles.KurjeLhakhangTemplesImg1}>
+              <img
+                src={KurjeImg1}
+                alt="palaceImg1"
+                onClick={() => handleKurjeImageClick(KurjeEnlargeImg1)}
+              />
+            </div>
             <div className={styles.KurjeLhakhangTemplesImg2}>
               <img
-                src={palaceImg2}
+                src={KurjeImg2}
                 alt="palaceImg2"
-                onClick={() => handleImageClick(palaceImg2)}
+                onClick={() => handleKurjeImageClick(KurjeEnlargeImg2)}
               />
             </div>
             <div className={styles.KurjeLhakhangTemplesImg3}>
               <img
-                src={palaceImg3}
+                src={KurjeImg3}
                 alt="palaceImg3"
-                onClick={() => handleImageClick(palaceImg3)}
+                onClick={() => handleKurjeImageClick(KurjeEnlargeImg3)}
               />
             </div>
             <div className={styles.KurjeLhakhangTemplesImg4}>
               <img
-                src={palaceImg4}
+                src={KurjeImg4}
                 alt="palaceImg3"
-                onClick={() => handleImageClick(palaceImg4)}
+                onClick={() => handleKurjeImageClick(KurjeEnlargeImg4)}
               />
             </div>
           </div>
@@ -479,6 +494,23 @@ const Guru2 = () => {
             marginTop="28px"
           />
         </>
+      )}
+
+      {KurjeEnlargedImage ? (
+        <div
+          className={`${styles.enlargedKurjeLhakhangImage} ${styles.fadeIn}`}
+          onClick={() => setKurjeEnlargedImage(null)}
+        >
+          <img
+            src={KurjeEnlargedImage}
+            alt="Enlarged"
+            className={styles.enlargedImages}
+            onClick={() => handleKurjeImageClick(KurjeEnlargedImage)}
+            style={{ cursor: "pointer" }} // Optional: change cursor to pointer
+          />
+        </div>
+      ) : (
+        <></>
       )}
 
       {selectedCard === "manifestation" && !showManifestationCardWithImg && (
@@ -663,31 +695,13 @@ const Guru2 = () => {
       {showPalaceImg && (
         <>
           <div className={styles.PalaceImgContainer}>
-            {enlargedImage ? (
-              <div
-                className={styles.palaceImg1}
-                onClick={() => setEnlargedImage(null)}
-              >
-                <img
-                  src={enlargedImage}
-                  alt="Enlarged"
-                  className={styles.enlargedImage}
-                  onClick={() => handleImageClick(enlargedImage)}
-                  style={{ cursor: "pointer" }} // Optional: change cursor to pointer
-                />
-              </div>
-            ) : (
-              <>
-                <div className={styles.palaceImg1}>
-                  <img
-                    src={palaceImg1}
-                    alt="palaceImg1"
-                    onClick={() => handleImageClick(palaceImg1)}
-                  />
-                </div>
-              </>
-            )}
-
+            <div className={styles.palaceImg1}>
+              <img
+                src={palaceImg1}
+                alt="palaceImg1"
+                onClick={() => handleImageClick(palaceImg1)}
+              />
+            </div>
             <div className={styles.palaceImg2}>
               <img
                 src={palaceImg3}
@@ -741,6 +755,23 @@ const Guru2 = () => {
             marginTop="28px"
           />
         </>
+      )}
+
+      {enlargedImage ? (
+        <div
+          className={`${styles.palaceenlargedImg1} ${styles.fadeIn}`}
+          onClick={() => setEnlargedImage(null)}
+        >
+          <img
+            src={enlargedImage}
+            alt="Enlarged"
+            className={styles.enlargedImages}
+            onClick={() => handleImageClick(palaceEnlargeImg1)}
+            style={{ cursor: "pointer" }} // Optional: change cursor to pointer
+          />
+        </div>
+      ) : (
+        <></>
       )}
     </motion.div>
   );

@@ -83,7 +83,8 @@ const PemaLinghpaTwo = () => {
       showMonasteriesCard ||
       showPelingDanceCard ||
       showMonasteriesImgCard ||
-      showPelingdanceImgs
+      showPelingdanceImgs ||
+      enlargedImage
     ) {
       resetView();
       setShowYearText(true);
@@ -111,6 +112,7 @@ const PemaLinghpaTwo = () => {
     setShowPelingDanceCard(false);
     setShowMonasteriesImgCard(false);
     setShowPelingdanceImgs(false);
+    setEnlargedImage(false);
     setShowYearText(true);
   };
 
@@ -124,6 +126,7 @@ const PemaLinghpaTwo = () => {
     setShowIntroduction(false);
     setShowYearText(false);
     setSelectedCard(cardName);
+    setEnlargedImage(false);
   };
 
   const handleNaringDragClick = () => {
@@ -705,32 +708,24 @@ const PemaLinghpaTwo = () => {
 
       {showMonasteriesImgCard && (
         <>
-          <div className={styles.MonasteriesImgs}>
-            {enlargedImage ? (
-              <div
-                className={styles.MonasteriesEnlargedImage}
-                onClick={() => setEnlargedImage(null)}
-              >
-                <img
-                  src={enlargedImage}
-                  alt="Enlarged"
-                  className={styles.enlargedImage}
-                  onClick={() => handleImageClick(MonasteriesEnlargeImg1)}
-                  style={{ cursor: "pointer" }} // Optional: change cursor to pointer
-                />
-              </div>
-            ) : (
-              <>
-                <div className={styles.MonasteriesImg1}>
-                  <img
-                    src={MonasteriesImg1}
-                    alt="palaceImg1"
-                    onClick={() => handleImageClick(MonasteriesImg1)}
-                  />
-                </div>
-              </>
-            )}
-
+          <div
+            className={styles.MonasteriesImgs}
+            style={{
+              position: "relative",
+              transition: "opacity 0.3s ease",
+              backgroundColor: enlargedImage
+                ? "rgba(0, 0, 0, 0.7)" // Add black opacity when enlarged
+                : "transparent",
+              opacity: enlargedImage ? 0.4 : 1, // Adjust opacity effect
+            }}
+          >
+            <div className={styles.MonasteriesImg1}>
+              <img
+                src={MonasteriesImg1}
+                alt="palaceImg1"
+                onClick={() => handleImageClick(MonasteriesEnlargeImg1)}
+              />
+            </div>
             <div className={styles.MonasteriesImg2}>
               <img
                 src={MonasteriesImg2}
@@ -824,6 +819,22 @@ const PemaLinghpaTwo = () => {
             margin="12px"
           />
         </>
+      )}
+      {enlargedImage ? (
+        <div
+          className={`${styles.MonasteriesEnlargedImage} ${styles.fadeIn}`}
+          onClick={() => setEnlargedImage(null)}
+        >
+          <img
+            src={enlargedImage}
+            alt="Enlarged"
+            className={styles.enlargedImage}
+            onClick={() => handleImageClick(MonasteriesEnlargeImg1)}
+            style={{ cursor: "pointer" }} // Optional: change cursor to pointer
+          />
+        </div>
+      ) : (
+        <></>
       )}
 
       {showPelingDanceCard && (

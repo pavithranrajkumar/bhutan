@@ -380,7 +380,7 @@ const Supine = () => {
             supine={true}
             background="#555835"
             left="4.4%"
-            top="80%"
+            top="79.5%"
             height="70px"
             width="80px"
             margin="25px"
@@ -449,7 +449,7 @@ const Supine = () => {
               width="50px"
               margin="13px"
               left="5.4%"
-              top="83.5%"
+              top="84%"
             />
             <PreviousIcon
               onClick={handlePreviousClick}
@@ -490,8 +490,8 @@ const Supine = () => {
             background="#3A3C25"
             iconWidth="25px"
             IconHeight="25px"
-            left="2.5%"
-            top="77.5%"
+            left="2.8%"
+            top="78%"
             height="55px"
           />
           <PreviousIcon
@@ -544,7 +544,7 @@ const Supine = () => {
             background="#3A3C25"
             iconWidth="25px"
             IconHeight="25px"
-            left="7%"
+            left="7.2%"
             top="83%"
             height="55px"
             className={styles.animatedIcon}
@@ -592,8 +592,8 @@ const Supine = () => {
             background="#3A3C25"
             iconWidth="25px"
             IconHeight="25px"
-            left="2.5%"
-            top="80%"
+            left="2.8%"
+            top="80.5%"
             height="55px"
           />
           <PreviousIcon
@@ -650,7 +650,7 @@ const Supine = () => {
             background="#3A3C25"
             iconWidth="25px"
             IconHeight="25px"
-            left="7%"
+            left="7.2%"
             top="83%"
             height="55px"
             className={styles.animatedIcon}

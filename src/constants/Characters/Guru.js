@@ -1,7 +1,7 @@
 export const GURU_INFORMATION = {
   english: {
-    title: "GURU PINPOCHE/PADMANASAMBHAVA",
-    cardName: "GURU PINPOCHE/",
+    title: "GURU RINPOCHE/PADMANASAMBHAVA",
+    cardName: "GURU RINPOCHE/",
     subCardName: "PADMANASAMBHAVA",
     introduction: {
       title: "INTRODUCTION",

@@ -14,12 +14,7 @@ const HomeIcon = ({
   right,
   onClick,
   whiteImage,
-  width,
-  height,
-  margin,
   background,
-  iconHeight,
-  iconWidth,
   supine,
 }) => {
   console.log("HomeIcon rendered, showIcons:", showIcons);
@@ -31,8 +26,8 @@ const HomeIcon = ({
         right: right,
         top: top,
         bottom: bottom,
-        width: width,
-        height: height,
+        // width: width,
+        // height: height,
         background,
       }}
       className={whiteImage ? styles.LanguageWhiteIcon : styles.LanguageIcon}
@@ -43,7 +38,7 @@ const HomeIcon = ({
     >
       <div
         className={styles.HomeIconContainer}
-        style={{ height: iconHeight, width: iconWidth, margin }}
+        // style={{ height: iconHeight, width: iconWidth, margin }}
       >
         <img
           src={whiteImage ? HomeWhite : supine ? Supine : Home}

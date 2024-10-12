@@ -21,7 +21,7 @@ import hipR from "../../assests/Supine/PUzzleImgs/Hip R.png";
 import kneeL from "../../assests/Supine/PUzzleImgs/Knee L.png";
 import kneeR from "../../assests/Supine/PUzzleImgs/Knee R.png";
 
-const DraggablePiece = ({ piece }) => {
+const DraggablePiece = ({ piece, dropZonePosition }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "piece",
     item: { id: piece.id },
@@ -31,19 +31,33 @@ const DraggablePiece = ({ piece }) => {
   }));
 
   return (
-    <img
+    <motion.img
       ref={drag}
       src={piece.src}
       alt={`Piece ${piece.id}`}
       className="draggable-piece"
+      initial={{
+        top: dropZonePosition.top, // Start at the drop zone's top position
+        left: dropZonePosition.left, // Start at the drop zone's left position
+        opacity: 0, // Start invisible
+        scale: 0.5, // Start small for effect
+      }}
+      animate={{
+        top: piece.initialPosition.top, // Animate to draggable initial position
+        left: piece.initialPosition.left, // Animate to draggable initial position
+        opacity: 1, // Fade in
+        scale: 1, // Scale back to full size
+      }}
+      transition={{
+        duration: 1, // Animation duration
+        ease: "easeInOut", // Smoothing
+      }}
       style={{
         position: "absolute",
-        top: piece.initialPosition.top, // Apply the top position dynamically
-        left: piece.initialPosition.left, // Apply the left position dynamically
-        opacity: isDragging ? 0.5 : 1,
         cursor: "move",
         width: `${piece.width}px`,
         height: `${piece.height}px`,
+        opacity: isDragging ? 0.5 : 1, // Slight fade during drag
       }}
     />
   );
@@ -303,16 +317,30 @@ const Puzzle = ({ onComplete, resetPuzzleCard }) => {
                 </div>
               </motion.div>
               <div className="pieces-container">
-                {pieces.map(
-                  (piece) =>
+                {pieces.map((piece) => {
+                  // Find the corresponding drop zone position for this piece
+                  const dropZonePosition = dropZoneSpecifications.find(
+                    (zone) => zone.id === piece.id
+                  );
+
+                  // Check if dropZonePosition is defined
+                  if (!dropZonePosition) {
+                    return null; // Avoid rendering if no position is found
+                  }
+
+                  return (
                     !completed[piece.id] && (
                       <DraggablePiece
                         key={piece.id}
                         piece={piece}
-                        className="pieces-container"
+                        dropZonePosition={{
+                          top: dropZonePosition.top, // Correct starting position
+                          left: dropZonePosition.left,
+                        }}
                       />
                     )
-                )}
+                  );
+                })}
               </div>
             </>
           )}

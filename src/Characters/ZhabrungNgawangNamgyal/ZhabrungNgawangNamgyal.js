@@ -220,7 +220,7 @@ const ZhabrungNgawangNamgyal = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
-            left="80%"
+            left="80.5%"
             top="73.5%"
             height="65px"
           />
@@ -239,7 +239,7 @@ const ZhabrungNgawangNamgyal = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             background="#AA5018"
-            left="85.5%"
+            left="86%"
             top="82%"
           />
         </div>
@@ -263,14 +263,14 @@ const ZhabrungNgawangNamgyal = () => {
                   language={language}
                   onClick={toggleLanguage}
                   showIcons={showIcons}
-                  left="81.2%"
-                  top="85%"
+                  left="81.6%"
+                  top="84%"
                   height="65px"
                   background="#3A1701"
                 />
                 <HomeIcon
                   showIcons={showIcons}
-                  left="80.5%"
+                  left="81%"
                   top="80%"
                   background="#8F4110"
                   onClick={handleHomeClick}
@@ -325,7 +325,7 @@ const ZhabrungNgawangNamgyal = () => {
                 width="55px"
                 margin="13px"
                 left="81%"
-                top="79%"
+                top="79.5%"
               />
               <HomeIcon
                 showIcons={showIcons}
@@ -362,8 +362,8 @@ const ZhabrungNgawangNamgyal = () => {
                 showIcons={showIcons}
                 iconWidth="25px"
                 IconHeight="25px"
-                left="88.2%"
-                top="78%"
+                left="88.4%"
+                top="78.5%"
                 height="55px"
               />
               <HomeIcon
@@ -392,7 +392,7 @@ const ZhabrungNgawangNamgyal = () => {
                 width="55px"
                 margin="13px"
                 left="88.1%"
-                top="80%"
+                top="80.5%"
               />
               <HomeIcon
                 showIcons={showIcons}
@@ -424,8 +424,8 @@ const ZhabrungNgawangNamgyal = () => {
                 showIcons={showIcons}
                 iconWidth="25px"
                 IconHeight="25px"
-                left="81.4%"
-                top="83.7%"
+                left="81.7%"
+                top="84%"
                 height="55px"
               />
               <HomeIcon
@@ -449,8 +449,8 @@ const ZhabrungNgawangNamgyal = () => {
                 showIcons={showIcons}
                 iconWidth="25px"
                 IconHeight="25px"
-                left="88.2%"
-                top="76%"
+                left="88.5%"
+                top="76.5%"
                 height="55px"
               />
               <HomeIcon
@@ -477,13 +477,13 @@ const ZhabrungNgawangNamgyal = () => {
                 height="40px"
                 width="40px"
                 margin="12px"
-                left="88.8%"
-                top="82%"
+                left="88.5%"
+                top="80.8%"
               />
               <HomeIcon
                 showIcons={showIcons}
                 background="#8F4110"
-                left="88%"
+                left="86.3%"
                 top="79.5%"
                 height="50px"
                 width="70px"

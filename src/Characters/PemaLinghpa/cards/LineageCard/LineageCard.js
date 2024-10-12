@@ -17,6 +17,7 @@ import Drophu from "../../../../assests/PemaLingpa/FamilyTree/Drophu.png";
 import Drametse from "../../../../assests/PemaLingpa/FamilyTree/Drametse.png";
 import Yagang from "../../../../assests/PemaLingpa/FamilyTree/Yagang.png";
 import { BHUTAN } from "../../../../constants/languages/Language";
+import { motion } from "framer-motion"; // Import motion
 
 const LineageCard = ({ showIntro, language }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "30px";
@@ -116,9 +117,15 @@ const LineageCard = ({ showIntro, language }) => {
               </div>
             </div>
 
-            {/* Conditional Rendering of Secondary Containers */}
+            {/* Conditional Rendering of Secondary Containers with Fade Animation */}
             {currentStep === 0 && (
-              <div className={styles.TamshingContainer} style={{ opacity: 1 }}>
+              <motion.div
+                className={styles.TamshingContainer}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+              >
                 <hr className={styles.TamshingVerticalLine} />
                 <hr className={styles.TamshingVerticalLine1} />
                 <div className={styles.SonsTree}>
@@ -128,11 +135,17 @@ const LineageCard = ({ showIntro, language }) => {
                   <img src={Tamshing} alt="Tamshing" />
                 </div>
                 <div className={styles.TamshingCard}>TAMSHING</div>
-              </div>
+              </motion.div>
             )}
 
             {currentStep === 1 && (
-              <div className={styles.PrakharContainer} style={{ opacity: 1 }}>
+              <motion.div
+                className={styles.PrakharContainer}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+              >
                 <hr className={styles.PrakharVerticalLine} />
                 <hr className={styles.PrakharVerticalLine1} />
                 <div className={styles.SonsTree}>
@@ -142,13 +155,16 @@ const LineageCard = ({ showIntro, language }) => {
                   <img src={Prakhar} alt="Prakhar" />
                 </div>
                 <div className={styles.PrakharCard}>PRAKHAR</div>
-              </div>
+              </motion.div>
             )}
 
             {currentStep === 2 && (
-              <div
+              <motion.div
                 className={styles.KuengaFamilyContainer}
-                style={{ opacity: 1 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }}
               >
                 <hr className={styles.KochungHorizontalLine} />
                 <hr className={styles.KochungHorizontalLine2} />
@@ -190,13 +206,16 @@ const LineageCard = ({ showIntro, language }) => {
                   </div>
                   <div className={styles.DungkarCard}>DUNGKAR</div>
                 </div>
-              </div>
+              </motion.div>
             )}
 
             {currentStep === 3 && (
-              <div
+              <motion.div
                 className={styles.SangaFamilyContainer}
-                style={{ opacity: 1 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }}
               >
                 <hr className={styles.TsakalingVerticalLine} />
                 <hr className={styles.TsakalingVerticalLine1} />
@@ -235,7 +254,7 @@ const LineageCard = ({ showIntro, language }) => {
                   </div>
                   <div className={styles.YagangCard}>YAGANG</div>
                 </div>
-              </div>
+              </motion.div>
             )}
           </div>
         </>

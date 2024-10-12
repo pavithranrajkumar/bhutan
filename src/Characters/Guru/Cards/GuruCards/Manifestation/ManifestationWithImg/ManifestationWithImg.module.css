@@ -5,15 +5,16 @@
 .manifestationGroupContainerImg {
   object-fit: fill;
   position: fixed;
-  left: 27.15%;
+  left: 27%;
   top: 82.2%;
-  width: 210px;
+  width: 200px;
   height: 340px;
   cursor: pointer;
 }
 
 .manifestationImg {
   object-fit: fill;
+  border: 10px solid white; /* This adds a white border */
 }
 
 .manifestationFrstGroup {
@@ -26,10 +27,6 @@
   position: fixed;
   left: 32.8%;
   top: 79.5%;
-}
-
-.manifestationImg:hover {
-  transform: scale(1.05); /* Slightly enlarges the image on hover */
 }
 
 .fadeIn {

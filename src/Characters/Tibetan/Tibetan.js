@@ -99,6 +99,10 @@ const Tibetan = () => {
     setEnlargedImage(imageSrc);
   };
 
+  const closeEnlargedImage = () => {
+    setEnlargedImage(null);
+  };
+
   const handleCardOrImageClick = () => {
     if (
       showCards ||
@@ -115,6 +119,7 @@ const Tibetan = () => {
       setShowDrukpaKagyuCard(false);
       setShowPopularSchoolsImgCard(false);
       setShowDrugpaKagyuImgCard(false);
+      setEnlargedImage(false);
       setShowYearText(true);
     } else if (showIntroduction) {
       setShowIntroduction(false);
@@ -135,6 +140,7 @@ const Tibetan = () => {
     setShowDrukpaKagyuCard(false);
     setShowPopularSchoolsImgCard(false);
     setShowDrugpaKagyuImgCard(false);
+    setEnlargedImage(false);
     setShowYearText(true);
   };
 
@@ -155,6 +161,7 @@ const Tibetan = () => {
     setShowCards(false);
     setSelectedCard(cardName);
     setShowIntroduction(false);
+    setEnlargedImage(false);
     setShowYearText(false);
   };
 
@@ -364,8 +371,8 @@ const Tibetan = () => {
                 showIcons={showIcons}
                 iconWidth="25px"
                 IconHeight="25px"
-                left="46.8%"
-                top="76.5%"
+                left="47.2%"
+                top="77%"
                 height="55px"
                 background="#7D431C"
               />
@@ -404,8 +411,8 @@ const Tibetan = () => {
                 showIcons={showIcons}
                 iconWidth="25px"
                 IconHeight="25px"
-                left="46.2%"
-                top="79.5%"
+                left="46.4%"
+                top="79.9%"
                 height="55px"
                 background="#7D431C"
               />
@@ -441,7 +448,7 @@ const Tibetan = () => {
             height="50px"
             width="55px"
             left="41.3%"
-            top="79.4%"
+            top="79.8%"
             whiteImage={true}
           />
           <HomeIcon
@@ -467,31 +474,24 @@ const Tibetan = () => {
 
       {showPopularSchoolsImgCard && (
         <>
-          <div className={styles.KurjeLhakhangTemplesImgContainer}>
-            {enlargedImage ? (
-              <div
-                className={styles.KurjeLhakhangTemplesEnlargeImg}
-                onClick={() => setEnlargedImage(null)}
-              >
-                <img
-                  src={enlargedImage}
-                  alt=""
-                  className={styles.enlargedImage}
-                  style={{ cursor: "pointer" }} // Optional: change cursor to pointer
-                />
-              </div>
-            ) : (
-              <>
-                <div className={styles.KurjeLhakhangTemplesImg1}>
-                  <img
-                    src={popularImg1}
-                    alt=""
-                    onClick={() => handleImageClick(EnlargepopularImg1)}
-                  />
-                </div>
-              </>
-            )}
-
+          <div
+            className={styles.KurjeLhakhangTemplesImgContainer}
+            style={{
+              position: "relative",
+              transition: "opacity 0.3s ease",
+              backgroundColor: enlargedImage
+                ? "rgba(0, 0, 0, 0.7)" // Add black opacity when enlarged
+                : "transparent",
+              opacity: enlargedImage ? 0.4 : 1, // Adjust opacity effect
+            }}
+          >
+            <div className={styles.KurjeLhakhangTemplesImg1}>
+              <img
+                src={popularImg1}
+                alt=""
+                onClick={() => handleImageClick(EnlargepopularImg1)}
+              />
+            </div>
             <div className={styles.KurjeLhakhangTemplesImg12}>
               <img
                 src={popularImg13}
@@ -601,7 +601,7 @@ const Tibetan = () => {
             height="50px"
             width="55px"
             left="45.9%"
-            top="79.2%"
+            top="79.8%"
             whiteImage={true}
           />
           <HomeIcon
@@ -625,6 +625,22 @@ const Tibetan = () => {
         </>
       )}
 
+      {enlargedImage ? (
+        <div
+          className={`${styles.KurjeLhakhangTemplesEnlargeImg} ${styles.fadeIn}`}
+          onClick={() => setEnlargedImage(null)}
+        >
+          <img
+            src={enlargedImage}
+            alt=""
+            className={styles.enlargedImage}
+            style={{ cursor: "pointer" }} // Optional: change cursor to pointer
+          />
+        </div>
+      ) : (
+        <></>
+      )}
+
       {showDrukpaKagyuCard && (
         <>
           <div className={styles.DrukpaKagyuCard}>
@@ -640,8 +656,8 @@ const Tibetan = () => {
             showIcons={showIcons}
             iconWidth="25px"
             IconHeight="25px"
-            left="41.9%"
-            top="78.5%"
+            left="42.5%"
+            top="78.9%"
             height="55px"
             whiteImage={true}
           />
@@ -668,7 +684,17 @@ const Tibetan = () => {
 
       {showDrugpaKagyuImgCard && (
         <>
-          <div className={styles.KurjeLhakhangTemplesImgContainer}>
+          <div
+            className={styles.KurjeLhakhangTemplesImgContainer}
+            style={{
+              position: "relative",
+              transition: "opacity 0.3s ease",
+              backgroundColor: enlargedImage
+                ? "rgba(0, 0, 0, 0.7)" // Add black opacity when enlarged
+                : "transparent",
+              opacity: enlargedImage ? 0.4 : 1, // Adjust opacity effect
+            }}
+          >
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div className={styles.DrugpaKagyuImg1}>
                 <img
@@ -685,32 +711,15 @@ const Tibetan = () => {
                 />
               </div>
             </div>
-            {enlargedImage ? (
-              <div
-                className={styles.DrugpaTemplesEnlargeImg}
-                onClick={() => setEnlargedImage(null)}
-              >
-                <img
-                  src={enlargedImage}
-                  alt=""
-                  className={styles.enlargedImage}
-                  onClick={() => handleImageClick(enlargedImage)}
-                  style={{ cursor: "pointer" }} // Optional: change cursor to pointer
-                />
-              </div>
-            ) : (
-              <>
-                <div className={styles.DrugpaKagyuImg3}>
-                  <img
-                    src={DrugpaKagyuImg3}
-                    alt=""
-                    onClick={() => handleImageClick(EnlargeDrukpaImg3)}
-                  />
-                </div>
-              </>
-            )}
 
             <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className={styles.DrugpaKagyuImg3}>
+                <img
+                  src={DrugpaKagyuImg3}
+                  alt=""
+                  onClick={() => handleImageClick(EnlargeDrukpaImg3)}
+                />
+              </div>
               <div className={styles.DrugpaKagyuImg4}>
                 <img
                   src={DrugpaKagyuImg4}
@@ -845,7 +854,7 @@ const Tibetan = () => {
             height="50px"
             width="55px"
             left="44.7%"
-            top="80.5%"
+            top="80.9%"
             whiteImage={true}
           />
           <HomeIcon
@@ -867,6 +876,22 @@ const Tibetan = () => {
             marginTop="28px"
           />
         </>
+      )}
+      {enlargedImage ? (
+        <div
+          className={styles.DrugpaTemplesEnlargeImg}
+          onClick={() => setEnlargedImage(null)}
+        >
+          <img
+            src={enlargedImage}
+            alt=""
+            className={styles.enlargedImage}
+            onClick={() => handleImageClick(enlargedImage)}
+            style={{ cursor: "pointer" }} // Optional: change cursor to pointer
+          />
+        </div>
+      ) : (
+        <></>
       )}
     </motion.div>
   );

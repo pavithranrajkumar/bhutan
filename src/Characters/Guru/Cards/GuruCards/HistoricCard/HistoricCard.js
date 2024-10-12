@@ -42,7 +42,10 @@ const HistoricCard = ({ showIntro, onKurjeClick, language }) => {
               <span>{GURU_INFORMATION[language].kurjeCard.subTitle}</span>
             </div>
           </div>
-          <div className={`${styles.GuruHistoricCardImg} ${styles.zoomIn}`}>
+          <div
+            className={`${styles.GuruHistoricCardImg} ${styles.zoomIn}`}
+            onClick={onKurjeClick}
+          >
             <img src={temple} alt="temple" />
           </div>
         </>

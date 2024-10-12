@@ -1,25 +1,30 @@
-.LanguageWhiteIcon {
+.LanguageIcon {
   position: fixed;
   background: #2b455d;
-  width: 120px;
-  height: 120px;
-  left: 63.5%;
-  top: 89%;
+  width: 80px;
+  height: 80px;
+  /* left: 64.5%;
+  top: 95.5%; */
   cursor: pointer;
 }
 
-.LanguageIcon {
+.LanguageWhiteIcon {
   position: fixed;
-  background: #380100;
+  background: #2b455d;
+  width: 80px;
+  height: 80px;
+  /* left: 64.5%;
+  top: 95.5%; */
   cursor: pointer;
 }
 
 .HomeIconContainer img {
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 
 .HomeIconContainer {
-  margin: 40px;
+  margin: 30px;
   cursor: pointer;
 }
