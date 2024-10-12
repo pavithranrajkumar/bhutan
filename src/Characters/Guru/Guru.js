@@ -583,7 +583,7 @@ const Guru = () => {
                 <img
                   src={enlargedImage}
                   alt="Enlarged"
-                  className={styles.enlargedImage}
+                  className={styles.enlargedImages}
                   onClick={() => handleImageClick(palaceEnlargeImg1)}
                   style={{ cursor: "pointer" }} // Optional: change cursor to pointer
                 />
