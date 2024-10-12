@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../../../../../components/Card/Card";
 import { TIBETAN_INFORMATION } from "../../../../../constants/Characters/Tibetan";
 import DrukpaImg from "../../../../../assests/Tibetan/Drukpakagyu/DrukpaKagyu.png";
@@ -6,8 +6,15 @@ import styles from "./DrukpaKagyu.module.css";
 import { BHUTAN } from "../../../../../constants/languages/Language";
 
 const DrukpaKagyu = ({ showIntro, language, onDrugpaKagyuImgClick }) => {
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    if (showIntro) {
+      setAnimate(true);
+    }
+  }, [showIntro]);
   const titleFontSize = language === BHUTAN ? "12px" : "20px";
-  const fonstSize = language === BHUTAN ? "7px" : "11.5px";
+  const fonstSize = language === BHUTAN ? "8px" : "11.5px";
   return (
     <div>
       {showIntro && (
@@ -25,7 +32,9 @@ const DrukpaKagyu = ({ showIntro, language, onDrugpaKagyuImgClick }) => {
             showIntro={showIntro}
           />
           <div
-            className={styles.DrukpaKagyuImgCard}
+            className={`${styles.DrukpaKagyuImgCard} ${
+              animate ? styles.fadeIn : ""
+            }`}
             onClick={onDrugpaKagyuImgClick}
           >
             <img src={DrukpaImg} alt="popularImg" />

@@ -22,6 +22,7 @@ import KyichuImg1 from "../../assests/Supine/KyichuImgs/KyichuImg1.png";
 import KyichuImg2 from "../../assests/Supine/KyichuImgs/KyichuImg2.png";
 import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
 import base from "../../assests/Supine/Base.png";
+import Puzzle from "./Puzzle/Puzzle";
 
 const SupineTwo = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -29,18 +30,19 @@ const SupineTwo = () => {
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [showIntroduction, setShowIntroduction] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
-  const [language, setLanguage] = useState("english");
+  const [language, setLanguage] = useState(ENGLISH);
   const [showIcons, setShowIcons] = useState(false);
   const [showReligiousCard, setShowReligiousCard] = useState(false);
   const [showHimalayanCard, setShowHimalayanCard] = useState(false);
   const [showBhutanCard, setShowBhutanCard] = useState(false);
   const [showJamBayImages, setShowJamBayImages] = useState(false);
   const [showKyichuImages, setShowKyichuImages] = useState(false);
+  const [puzzleCompleted, setPuzzleCompleted] = useState(false);
 
-  const kyichuFontSize = language === BHUTAN ? "25px" : "25px";
-  const cardNameFontSize = language === BHUTAN ? "10px" : "15px";
-  const subCardnameFontSize = language === BHUTAN ? "10px" : "15px";
-  const subCardnameMarginLeft = language === BHUTAN ? "150px" : "125px";
+  const kyichuFontSize = language === BHUTAN ? "20px" : "25px";
+  const cardNameFontSize = language === BHUTAN ? "10px" : "17.5px";
+  const subCardnameFontSize = language === BHUTAN ? "10px" : "17.5px";
+  const subCardnameMarginLeft = language === BHUTAN ? "150px" : "105px";
 
   const toggleLanguage = () => {
     setLanguage((prevLanguage) => {
@@ -48,6 +50,14 @@ const SupineTwo = () => {
       console.log("Language changed to:", newLanguage);
       return newLanguage;
     });
+  };
+
+  const handlePuzzleComplete = () => {
+    setPuzzleCompleted(true);
+  };
+
+  const resetPuzzle = () => {
+    setPuzzleCompleted(false);
   };
 
   const handleCardOrImageClick = () => {
@@ -78,8 +88,8 @@ const SupineTwo = () => {
   };
 
   const showSupineCards = () => {
-    setShowIntroduction(false);
     setShowCards(true);
+    setShowIntroduction(false);
     setShowYearText(false);
   };
 
@@ -229,11 +239,7 @@ const SupineTwo = () => {
         transition={{ duration: 1, delay: 0.4 }}
         onClick={handleCardOrImageClick}
       >
-        {showHimalayanCard ? (
-          <img src={base} alt="Pema Lingpa" />
-        ) : (
-          <img src={supine} alt="Pema Lingpa" />
-        )}
+        {showHimalayanCard ? "" : <img src={supine} alt="Pema Lingpa" />}
       </motion.div>
       <motion.div
         initial={{ x: -100, opacity: 0 }}
@@ -287,6 +293,7 @@ const SupineTwo = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
+            language={language}
             left="5%"
             top="23%"
             height="65px"
@@ -302,6 +309,7 @@ const SupineTwo = () => {
             onCardClick={handleReligiousCardClick}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             supine={true}
@@ -323,6 +331,7 @@ const SupineTwo = () => {
             />
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             supine={true}
@@ -349,24 +358,38 @@ const SupineTwo = () => {
 
       {showHimalayanCard && (
         <>
+          <div className={styles.Puzzle}>
+            <Puzzle
+              onComplete={handlePuzzleComplete}
+              resetPuzzleCard={resetPuzzle}
+            />
+          </div>
           <div className={styles.HimalayanCard}>
-            <HimalayanCard language={language} showIntro={true} />
+            <HimalayanCard
+              language={language}
+              showIntro={true}
+              puzzleCompleted={puzzleCompleted}
+              resetPuzzleCard={resetPuzzle}
+            />
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
             iconWidth="25px"
             IconHeight="25px"
-            left="4.8%"
-            top="45%"
-            height="55px"
+            height="50px"
+            width="55px"
+            margin="13px"
+            left="3%"
+            top="61.5%"
           />
           <PreviousIcon
             onClick={handlePreviousClick}
             showIcons={showIcons}
-            left="4.7%"
-            top="31%"
+            left="3%"
+            top="50%"
             height="80px"
             marginTop="28px"
           />
@@ -382,6 +405,7 @@ const SupineTwo = () => {
               onKyichuClick={handleKyichuClick}
             />
             <LanguageIcon
+              language={language}
               onClick={toggleLanguage}
               showIcons={showIcons}
               whiteImage={true}
@@ -423,6 +447,7 @@ const SupineTwo = () => {
             />
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             supine={true}
@@ -468,12 +493,15 @@ const SupineTwo = () => {
             </div>
           </div>
           <div
-            className={styles.JamBayImagesCard}
+            className={`${styles.JamBayImagesCard} ${styles.animatedCard}`}
             onClick={handleJamBayImagesCardClick}
           >
-            <p>KYICHU LHAKHANG</p>
+            <p style={{ fontSize: kyichuFontSize }}>
+              {SUPINE_INFORMATION[language].kyichu.title}
+            </p>
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             supine={true}
@@ -518,6 +546,7 @@ const SupineTwo = () => {
             />
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             supine={true}
@@ -566,9 +595,16 @@ const SupineTwo = () => {
             className={styles.KyichuImagesCard}
             onClick={handleKyichuImagesCardClick}
           >
-            <p style={{ marginTop: "15px" }}>JAMBAY LHAKHANG</p>
+            <p
+              style={{
+                fontSize: kyichuFontSize,
+              }}
+            >
+              <p>{SUPINE_INFORMATION[language].jambay.title}</p>
+            </p>{" "}
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             supine={true}

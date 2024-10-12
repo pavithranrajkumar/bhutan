@@ -8,12 +8,29 @@
 
 .CardsContainerText {
   font-family: "Hammersmith One";
-  font-size: 14px;
   font-weight: 100;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.HistoricCard,
+.ManifestationCard,
+.PalaceCard {
+  display: flex; /* Enable flexbox for cards */
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+  cursor: pointer;
+  pointer-events: auto;
+  position: fixed;
+  color: #fadfb6;
 }
 
 .HistoricCard {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   cursor: pointer;
   pointer-events: auto;
   position: fixed;
@@ -27,6 +44,9 @@
 }
 
 .ManifestationCard {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   cursor: pointer;
   pointer-events: auto;
   position: fixed;
@@ -40,6 +60,9 @@
 }
 
 .PalaceCard {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   cursor: pointer;
   pointer-events: auto;
   position: fixed;
@@ -48,7 +71,6 @@
   padding: 0.5vw;
   width: 170px;
   height: 42px;
-
   top: 84.3%;
   left: 30.6%;
 }

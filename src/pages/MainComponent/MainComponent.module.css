@@ -16,7 +16,7 @@
   height: 1px;
   background-color: #aa5018;
   z-index: 1;
-  border: none;
+  border-color: transparent;
 }
 
 .horizontalLine2 {
@@ -29,7 +29,7 @@
   height: 1px;
   background-color: #aa5018;
   z-index: 1;
-  border: none;
+  border-color: transparent;
 }
 
 .radioBtn,
@@ -71,6 +71,12 @@
 }
 
 .Year {
+  font-family: "Josefin Sans";
+  font-size: 45px;
+  color: #aa5018;
+}
+
+.YearTwo {
   font-family: "Josefin Sans";
   font-size: 45px;
   color: #aa5018;
@@ -229,4 +235,38 @@
   margin: 0;
   padding: 0;
   position: fixed;
+}
+
+.horizontalLine1,
+.horizontalLine2 {
+  animation: pulse 3s infinite;
+}
+
+.YearTwo div,
+.Header {
+  animation: textWave 5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes textWave {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }

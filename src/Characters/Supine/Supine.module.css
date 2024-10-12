@@ -4,10 +4,10 @@
 
 .SupineImage {
   position: fixed;
-  left: 4.6%;
-  top: 86%;
-  width: 450px;
-  height: 260px;
+  left: 4%;
+  top: 85.5%;
+  width: 480px;
+  height: 290px;
   z-index: 10;
 }
 
@@ -31,13 +31,13 @@
 .SupineIntroCard {
   position: fixed;
   left: 5%;
-  top: 72%;
+  top: 71%;
 }
 
 .SupineIntroduction {
   position: fixed;
   left: 7%;
-  top: 74.7%;
+  top: 74.1%;
 }
 
 .ReligiousCard {
@@ -92,8 +92,11 @@
 
 .JamBayImagesCard {
   position: fixed;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
   top: 85.5%;
-  left: 13.7%;
+  left: 13.8%;
   cursor: pointer;
   width: 200px;
   height: 90px;
@@ -102,6 +105,9 @@
   color: #3c3e29;
   font-family: "Hammersmith One";
   font-size: 25px;
+}
+
+.JamBayImagesCard p {
 }
 
 .KyichuImg1 {
@@ -137,9 +143,12 @@
 }
 
 .KyichuImagesCard {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   top: 85.5%;
-  left: 13.7%;
+  left: 13.8%;
   cursor: pointer;
   width: 200px;
   height: 90px;
@@ -158,3 +167,88 @@
   height: 260px;
   z-index: 10;
 }
+
+/* 
+.animatedImg {
+  animation: scaleUp 2s infinite alternate ease-in-out;
+}
+
+.animatedCard {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.animatedIcon {
+  animation: pulse 3s infinite ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animatedImg {
+  animation: scaleUp 2s infinite alternate ease-in-out;
+}
+
+.animatedCard {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.animatedIcon {
+  animation: pulse 3s infinite ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+} */

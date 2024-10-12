@@ -11,7 +11,7 @@ const Manifestation = ({ showIntro, onManifestationsCardClick, language }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "25px";
   const fonstSize = language === BHUTAN ? "7px" : "11.5px";
 
-  const headerFontSize = language === BHUTAN ? "3px" : "7px";
+  const headerFontSize = language === BHUTAN ? "3px" : "8.5px";
   const paraFontSize = language === BHUTAN ? "3.5px" : "6.5px";
 
   const manifestationsData = [
@@ -91,7 +91,7 @@ const Manifestation = ({ showIntro, onManifestationsCardClick, language }) => {
             showIntro={showIntro}
           />
           <div
-            className={styles.ManifestationCardImg}
+            className={`${styles.ManifestationCardImg} ${styles.fadeIn}`}
             onClick={onManifestationsCardClick}
           >
             <img src={ManifestationImg} alt="temple" />

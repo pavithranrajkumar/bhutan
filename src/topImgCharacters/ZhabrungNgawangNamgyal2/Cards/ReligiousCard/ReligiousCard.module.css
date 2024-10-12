@@ -4,9 +4,13 @@
   color: #001829;
   font-family: "Hammersmith One";
   font-size: 25px;
-  left: 87.5%;
+  left: 89.5%;
   top: 27%;
   height: 100px;
   width: 150px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }

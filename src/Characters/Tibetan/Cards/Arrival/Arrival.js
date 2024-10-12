@@ -5,7 +5,7 @@ import { BHUTAN } from "../../../../constants/languages/Language";
 
 const Arrival = ({ showIntro, language }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "20px";
-  const fonstSize = language === BHUTAN ? "7px" : "10.5px";
+  const fonstSize = language === BHUTAN ? "8px" : "10.5px";
   return (
     <div>
       {showIntro && (

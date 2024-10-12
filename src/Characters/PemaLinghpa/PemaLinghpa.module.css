@@ -20,7 +20,7 @@
 
 .pemaText {
   position: fixed;
-  left: 59.2%;
+  left: 59%;
   bottom: 17%;
 }
 
@@ -114,6 +114,17 @@
   position: fixed;
   left: 62.5%;
   top: 84.5%;
+}
+
+.MonasteriesEnlargedImage {
+  position: fixed;
+  left: 61.8%;
+  top: 85%;
+  width: 135px;
+  height: 175px;
+  border: 10px solid white; /* This adds a white border */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for a Polaroid effect */
+  object-fit: fill;
 }
 
 .MonasteriesImg1 {

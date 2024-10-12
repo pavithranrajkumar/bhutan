@@ -4,9 +4,9 @@
 
 .manifestationGroupContainerImg {
   position: fixed;
-  left: 26.9%;
+  left: 27.1%;
   top: 47.5%;
-  width: 240px;
+  width: 215px;
   height: 340px;
 }
 
@@ -24,4 +24,19 @@
   position: fixed;
   left: 32.7%;
   top: 40%;
+}
+
+.fadeIn {
+  animation: fadeIn 1.2s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -7,7 +7,7 @@ import { BHUTAN } from "../../../../constants/languages/Language";
 const ReligiousCard = ({ showIntro, onSealClick, language }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "15px";
   const fonstSize = language === BHUTAN ? "6.2px" : "11px";
-  const cardFonstSize = language === BHUTAN ? "11.5px" : "25px";
+  const cardFonstSize = language === BHUTAN ? "11.5px" : "22px";
   return (
     <div>
       {showIntro && (
@@ -25,7 +25,7 @@ const ReligiousCard = ({ showIntro, onSealClick, language }) => {
             showIntro={showIntro}
           />
           <div className={styles.sealOfZhabdrungCard} onClick={onSealClick}>
-            <div style={{ marginTop: "18px", fontSize: cardFonstSize }}>
+            <div style={{ fontSize: cardFonstSize }}>
               {ZHABRUNG_INFORMATION[language].sealOfZhabdrung.title}
             </div>
           </div>

@@ -6,8 +6,8 @@ import { BHUTAN } from "../../../../constants/languages/Language";
 
 const DriglamCard = ({ showIntro, language }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "20px";
-  const fonstSize = language === BHUTAN ? "5px" : "11px";
-  const headerFontSize = language === BHUTAN ? "8px" : "13px";
+  const fonstSize = language === BHUTAN ? "5.16px" : "11px";
+  const headerFontSize = language === BHUTAN ? "8.5px" : "13px";
   return (
     <div>
       {showIntro && (

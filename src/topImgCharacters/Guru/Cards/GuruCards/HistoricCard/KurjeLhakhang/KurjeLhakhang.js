@@ -24,7 +24,10 @@ const KurjeLhakhang = ({ showIntro, onKurjeTempleClick, language }) => {
             language={language}
             showIntro={showIntro}
           />
-          <div className={styles.KurjeTempleImg} onClick={onKurjeTempleClick}>
+          <div
+            className={`${styles.KurjeTempleImg} ${styles.zoomIn}`}
+            onClick={onKurjeTempleClick}
+          >
             <img src={temple} alt="temple" />
           </div>
         </>

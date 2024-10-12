@@ -18,10 +18,8 @@ const NameCard = ({
   subCardname,
   subCardnameFontSize,
   subCardnameMarginLeft,
+  cardNameTwo,
 }) => {
-  const cardStyles = {
-    fontSize: fontSize || (language === "bhutan" ? "13px" : "30px"),
-  };
   return (
     <motion.div
       style={{ background: background, top, bottom, width, height }}
@@ -33,8 +31,11 @@ const NameCard = ({
       {/* <img src={Namecard} alt="Pema Lingpa" className={styles.OverLayImage} /> */}
 
       <div className={styles.pemaNameCardTitle} style={{ color: color }}>
-        <div className={styles.namedCardText} style={cardStyles}>
+        <div className={styles.namedCardText} style={{ fontSize }}>
           {cardName}
+        </div>
+        <div className={styles.namedCardText} style={{ fontSize }}>
+          {cardNameTwo}
         </div>
         <div
           className={styles.subCardnameContains}

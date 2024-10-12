@@ -8,7 +8,7 @@ import { BHUTAN } from "../../../../constants/languages/Language";
 
 const KyichuCard = ({ showIntro, language, onKyichuCardImageClick }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "20px";
-  const fonstSize = language === BHUTAN ? "7px" : "11.1px";
+  const fonstSize = language === BHUTAN ? "6.8px" : "11.1px";
   return (
     <div>
       {showIntro && (
@@ -29,7 +29,11 @@ const KyichuCard = ({ showIntro, language, onKyichuCardImageClick }) => {
             className={styles.KyichuCardImg}
             onClick={onKyichuCardImageClick}
           >
-            <img src={kyichuImg} alt="jambayimg" />
+            <img
+              src={kyichuImg}
+              alt="jambayimg"
+              className={styles.animatedImg}
+            />
           </div>
         </>
       )}

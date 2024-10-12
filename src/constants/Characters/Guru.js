@@ -17,7 +17,7 @@ export const GURU_INFORMATION = {
       content: `To cure King Sindhu’s illness, Guru Padmasambhava meditated in Drakmar Dorji Tsegpa, a cave on the red cliff. While meditating he left behind his imprint on the cave’s rock face. Kurje Lhakhang, derived from ku (body) and je (print), was built around this cave in 1652 by the third temporal ruler of Bhutan, Mingyur Tenpa (1613–1680). The KurjeTsechu (festival) is popular for its dramatised performance of the Guru’s defeat of Shelging Karpo. Two other temples within the complex were built by His Majesty Ugyen Wangchuck in 1900, and Ashi Kesang Choden Wangchuck in 1984. Kurje Lhakhang is also the final resting place of the first three kings of Bhutan. `,
     },
     manifestations: {
-      title: "8 MANIFESTATIONS",
+      title: "EIGHT MANIFESTATIONS",
       content: `Guru Tsengye, the eight manifestations of Guru Padmasambhava, represent various stages of his life and the forms he assumed to bring different beings into the Buddhist fold, guiding them towards enlightenment.  
 `,
     },

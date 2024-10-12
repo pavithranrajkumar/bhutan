@@ -24,6 +24,7 @@
   /* font-size: 42px; */
   font-size: 30px;
   font-family: "Josefin Sans";
+  font-weight: 900;
 }
 
 .pemaNameCardTitle p {
@@ -41,4 +42,5 @@
 .subCardnameContains {
   font-family: "Josefin Sans";
   font-weight: 900;
+  margin-top: -1px;
 }

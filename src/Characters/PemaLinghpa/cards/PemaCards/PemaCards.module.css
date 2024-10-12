@@ -6,9 +6,20 @@
 
 .CardsContainerText {
   font-family: "Hammersmith One";
-  font-size: 25px;
-  font-weight: 100;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.HistoricCard,
+.LineageCard,
+.LegacyCard,
+.RevelationsCard {
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .HistoricCard {
@@ -17,49 +28,46 @@
   position: fixed;
   background: #cd5a33;
   color: #ffd9bc;
-  padding: 0.4vw;
   width: 180px;
-  height: 100px;
+  height: 80px;
   left: 64.5%;
   top: 84.5%;
+  padding: 0.15vw;
 }
 
 .LineageCard {
-  font-weight: 700;
   position: fixed;
   background: #9c3d22;
   color: #ffd9bc;
-  padding: 0.6vw;
-  top: 86.3%;
-  left: 70.1%;
+  padding: 0.2vw;
+  top: 86%;
+  left: 69.7%;
   height: 50px;
-  width: 125px;
+  width: 90px;
   cursor: pointer;
 }
 
 .RevelationsCard {
   width: 250px;
-  padding: 0.3vw;
   position: fixed;
   background: #9c3d22;
   color: #ffd9bc;
   cursor: pointer;
   left: 65.8%;
-  height: 115px;
-  width: 230px;
-
-  top: 91%;
+  height: 80px;
+  width: 150px;
+  padding: 0.2vw;
+  top: 89.2%;
 }
 
 .LegacyCard {
   position: fixed;
-  font-weight: 700;
   background: #cd5a33;
   color: #ffd9bc;
-  padding: 0.5vw;
+  padding: 0.1vw;
   cursor: pointer;
-  top: 91%;
-  left: 72.5%;
-  width: 120px;
+  top: 89.2%;
+  left: 70.3%;
+  width: 100px;
   height: 60px;
 }

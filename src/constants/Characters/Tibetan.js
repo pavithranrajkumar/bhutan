@@ -1,6 +1,9 @@
 export const TIBETAN_INFORMATION = {
   english: {
     title: "TIBETAN INFLUX INTO BHUTAN",
+    nameCardTitleFirst: "TIBETAN INFLUX",
+    nameCardTitleSecond: "INTO BHUTAN",
+
     introduction: {
       title: "INTRODUCTION",
       content: `Historically, Bhutan was a favoured destination for Tibetans seeking refuge from tensions arising out of religio-political differences. Familial clans emerged from their alliances with leaders across Bhutan, ruling the local populations. This period (11th–17th centuries) witnessed the inflow of religious missions from Tibet, leading to a proliferation of different Buddhist schools in Bhutan. The power structure shifted from secular chieftains to religious elites who built their political bases at religious establishments and acquired titles for their family lineages called chöje, giving them religious, political and economic control. Consequently, central and eastern Bhutan saw the introduction of a social structure where the nobility owned large landholdings and extracted tributes and taxes from the people. 
@@ -33,6 +36,8 @@ The Sakyapa School had a few monasteries in Western Bhutan, as did the Gelukpa S
   },
   bhutan: {
     title: "འབྲུག་ལུ་བོད་པའི་མི་རིགས་ལྷོད་པའི་སྐོར།",
+    nameCardTitleFirst: "འབྲུག་ལུ་བོད་པའི་མི་རིགས",
+    nameCardTitleSecond: "ལྷོད་པའི་སྐོར།",
     introduction: {
       title: "འབྲུག་རྒྱལ་ཁབ་ནང་བོད་པའི་མི་རིགས་ལྷོད་ཚུལ།",
       content: `འབྲུག་ཡུལ་འདི་ སྔོན་དང་ཕུའི་དུས་ལས་རང་ ཆོས་དང་སྲིད་ཀྱི་བྲེལ་ཟིང་ལུ་བརྟེན་ཏེ་ སྐྱབས་བཅོལ་པ་སྦེ་འོང་མི་བོདཔ་ཚུ་གི་ས་གནས་དགའ་ཤོས་ཅིག་ཨིན་མས། སྐྱབས་བཅོལ་པ་འདི་ཚུ་དང་ འབྲུག་གི་ལུང་ཕྱོགས་སོ་སོའི་དཔོན་ཁག་ཚུ་མཉམ་གཅིག་སླ་བསྲེས་འབད་མི་ལས་ཐོན་པའི་རིགས་བརྒྱུད་ཀྱིས་ རྒྱལ་ཕྲན་བཟུང་སྟེ་ ས་གནས་ཀྱི་མི་སེར་སྐྱོང་སྟེ་ སྡོད་ནུག དུས་རབས་ ༡༡ པ་ལས་༡༧ པ་ཚུན་གྱི་བར་ན་བོད་ལས་མར་ ཆོས་ལུགས་སོ་སོའི་བླམ་ཆོསཔ་ལེ་ཤ་ཅིག་ར་ རང་རང་སོ་སོའི་ཆོས་ལུགས་སྤེལ་ནིའི་དོན་ལུ་འོང་ཡོདཔ་ད་ དེ་གིས་སྦེ་ འབྲུག་ལུ་ ནང་པ་ཆོས་ལུགས་ཁག་མ་འདྲཝ་ཚུ་ དར་ཞིང་རྒྱས་ནུག དུས་དེ་ལས་ཚུར་འགོ་བཙུགས་ཏེ་ དབང་ཚད་ཀྱི་རིམ་པ་འདི་ མི་སྡེའི་དཔོན་ཁག་གི་ལག་པ་ལས་ བླམ་སྐུ་ཆེནམོ་ཚུ་གི་ལག་པར་ཚུད་ཡོདཔ་ད་ ཁོང་ཆ་ཁྱབ་ཀྱིས་ ཆོས་ཕྱོགས་ཀྱི་ཤུགས་རྐྱེན་ལག་ལེན་འཐབ་ཐོག་ལས་ ཆབ་སྲིད་ཀྱི་གཞི་འགྱམ་བཙུགས་མི་ལུ་བརྟེན་ཏེ་ ཁོང་གི་རིགས་བརྒྱུད་ལུ་ཡང་ཆོས་རྗེ་ཟེར་བའི་མིང་གནས་ཐོབ་ནུག དེ་མ་ཚད་ ཆོས་དང་ སྲིད་ དེ་ལས་དཔལ་འབྱོར་གྱི་དབང་ཚད་ག་ར་ ཁོང་གིས་བཟུང་སྟེ་སྡོད་ནུག དེ་འབདཝ་ལས་ འབྲུག་ཤར་ཕྱོགས་དང་དབུས་ཕྱོགས་ལུ་ ཆོས་རྗེ་དང་གདུང་བརྒྱུད་ཚུ་གིས་ ས་གཞི་རྒྱ་ཆེ་དྲགས་སྦེ་དབང་ནི་དང་ མི་སེར་ལས་ཁྲལ་དང་འབུལ་བ་ལེན་སྦེ་འབད་ནི་གི་ མི་སྡེའི་གནས་རིམ་བྱུང་ནུག

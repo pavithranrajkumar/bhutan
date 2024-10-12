@@ -7,8 +7,8 @@ import { BHUTAN } from "../../../../../constants/languages/Language";
 
 const HistoricCard = ({ showIntro, onKurjeClick, language }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "25px";
-  const fonstSize = language === BHUTAN ? "7px" : "11px";
-  const KurjeFonstSize = language === BHUTAN ? "7px" : "15px";
+  const fonstSize = language === BHUTAN ? "8px" : "11px";
+  const KurjeFonstSize = language === BHUTAN ? "8.5px" : "15px";
 
   return (
     <div>
@@ -26,7 +26,10 @@ const HistoricCard = ({ showIntro, onKurjeClick, language }) => {
             language={language}
             showIntro={showIntro}
           />
-          <div className={styles.GuruHistoricCard} onClick={onKurjeClick}>
+          <div
+            className={`${styles.GuruHistoricCard} ${styles.slideIn}`}
+            onClick={onKurjeClick}
+          >
             <div
               style={{
                 marginTop: "18px",
@@ -39,7 +42,7 @@ const HistoricCard = ({ showIntro, onKurjeClick, language }) => {
               <span>{GURU_INFORMATION[language].kurjeCard.subTitle}</span>
             </div>
           </div>
-          <div className={styles.GuruHistoricCardImg}>
+          <div className={`${styles.GuruHistoricCardImg} ${styles.fadeIn}`}>
             <img src={temple} alt="temple" />
           </div>
         </>

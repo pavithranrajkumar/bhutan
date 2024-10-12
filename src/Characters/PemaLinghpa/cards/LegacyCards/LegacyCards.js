@@ -14,6 +14,10 @@ const LegacyCards = ({
 }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "30px";
   const fonstSize = language === BHUTAN ? "9px" : "13.2px";
+
+  const headerFontSize = language === BHUTAN ? "10px" : "12px";
+  const subHeaderFontSize = language === BHUTAN ? "12px" : "20px";
+
   return (
     <div>
       {showIntro && (
@@ -38,10 +42,16 @@ const LegacyCards = ({
               <div className={styles.MonasteriesCardImg}>
                 <img src={MonasteriesCardImg} alt="MonasteriesCardImg" />
               </div>
-              <div className={styles.MonasteriesCardTitle}>
+              <div
+                className={styles.MonasteriesCardTitle}
+                style={{ fontSize: headerFontSize }}
+              >
                 {PEMA_LINGPA_INFORMATION[language].monastriesAndTemples.header}
               </div>
-              <div className={styles.MonasteriesCardContent}>
+              <div
+                className={styles.MonasteriesCardContent}
+                style={{ fontSize: subHeaderFontSize }}
+              >
                 {PEMA_LINGPA_INFORMATION[language].monastriesAndTemples.title}
               </div>
             </div>
@@ -53,10 +63,16 @@ const LegacyCards = ({
                 <img src={PelingDanceCardImg} alt="PelingDanceCardImg" />
               </div>
 
-              <div className={styles.PelingDanceCardTitle}>
+              <div
+                className={styles.PelingDanceCardTitle}
+                style={{ fontSize: headerFontSize }}
+              >
                 {PEMA_LINGPA_INFORMATION[language].pelingdance.header}
               </div>
-              <div className={styles.PelingDanceCardContent}>
+              <div
+                className={styles.PelingDanceCardContent}
+                style={{ fontSize: subHeaderFontSize }}
+              >
                 {PEMA_LINGPA_INFORMATION[language].pelingdance.title}
               </div>
             </div>

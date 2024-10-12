@@ -15,6 +15,20 @@
   z-index: 10;
 }
 
+.completed-image {
+  position: fixed;
+  left: 4.8%;
+  top: 85.5%;
+  width: 450px;
+  height: 280px;
+  z-index: 10;
+}
+
+.completed-image img {
+  object-fit: fill;
+  z-index: 10;
+}
+
 .main-image img {
   object-fit: fill;
   z-index: 10;
@@ -37,6 +51,7 @@
 }
 
 .draggable-piece {
+  z-index: 50;
   position: fixed;
   cursor: pointer;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);

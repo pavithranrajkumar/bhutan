@@ -8,7 +8,7 @@ import { BHUTAN } from "../../../../constants/languages/Language";
 
 const BhutanCard = ({ showIntro, language, onJamBayClick, onKyichuClick }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "20px";
-  const fonstSize = language === BHUTAN ? "7px" : "12px";
+  const fonstSize = language === BHUTAN ? "8.74px" : "12px";
 
   const headerFontSize = language === BHUTAN ? "15px" : "25px";
   const subHeaderFontSize = language === BHUTAN ? "15px" : "25px";

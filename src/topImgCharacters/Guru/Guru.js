@@ -39,6 +39,11 @@ const Guru2 = () => {
   const [showPalaceImg, setShowPalaceImg] = useState(false);
   const [showLakeBornWideCards, setShowLakeBornWideCards] = useState(false);
   const [showLionOfShakyas, setShowLionOfShakyas] = useState(false);
+  const [enlargedImage, setEnlargedImage] = useState(null);
+
+  const handleImageClick = (imageSrc) => {
+    setEnlargedImage(imageSrc);
+  };
 
   const paraSize =
     language === BHUTAN
@@ -295,6 +300,7 @@ const Guru2 = () => {
             background="#2B455D"
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
@@ -313,11 +319,17 @@ const Guru2 = () => {
             onCardClick={handleCardClick}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             background="#613900"
             left="28.5%"
             top="54%"
+            iconWidth="25px"
+            IconHeight="25px"
+            height="48px"
+            width="50px"
+            margin="13px"
           />
         </div>
       )}
@@ -331,6 +343,7 @@ const Guru2 = () => {
             onKurjeClick={handleKurjeClick}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             iconWidth="25px"
@@ -361,6 +374,7 @@ const Guru2 = () => {
             onKurjeTempleClick={handleKurjeTempleClick}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             iconWidth="25px"
@@ -388,20 +402,55 @@ const Guru2 = () => {
       {showKurjeLhakhangImgs && (
         <>
           <div className={styles.KurjeLhakhangTemplesImgContainer}>
-            <div className={styles.KurjeLhakhangTemplesImg1}>
-              <img src={palaceImg1} alt="palaceImg1" />
-            </div>
+            {enlargedImage ? (
+              <div
+                className={styles.KurjeLhakhangTemplesImg1}
+                onClick={() => setEnlargedImage(null)}
+              >
+                <img
+                  src={enlargedImage}
+                  alt="Enlarged"
+                  className={styles.enlargedImage}
+                  onClick={() => handleImageClick(enlargedImage)}
+                  style={{ cursor: "pointer" }} // Optional: change cursor to pointer
+                />
+              </div>
+            ) : (
+              <>
+                <div className={styles.KurjeLhakhangTemplesImg1}>
+                  <img
+                    src={palaceImg1}
+                    alt="palaceImg1"
+                    onClick={() => handleImageClick(palaceImg1)}
+                  />
+                </div>
+              </>
+            )}
+
             <div className={styles.KurjeLhakhangTemplesImg2}>
-              <img src={palaceImg2} alt="palaceImg2" />
+              <img
+                src={palaceImg2}
+                alt="palaceImg2"
+                onClick={() => handleImageClick(palaceImg2)}
+              />
             </div>
             <div className={styles.KurjeLhakhangTemplesImg3}>
-              <img src={palaceImg3} alt="palaceImg3" />
+              <img
+                src={palaceImg3}
+                alt="palaceImg3"
+                onClick={() => handleImageClick(palaceImg3)}
+              />
             </div>
             <div className={styles.KurjeLhakhangTemplesImg4}>
-              <img src={palaceImg4} alt="palaceImg3" />
+              <img
+                src={palaceImg4}
+                alt="palaceImg3"
+                onClick={() => handleImageClick(palaceImg4)}
+              />
             </div>
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
@@ -440,6 +489,7 @@ const Guru2 = () => {
             onManifestationsCardClick={handleOpenManifestationWithImg}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             iconWidth="25px"
@@ -469,6 +519,7 @@ const Guru2 = () => {
             onLakeBornClick={handleOpenLakeBorn}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             margin="15px"
@@ -508,6 +559,7 @@ const Guru2 = () => {
             onLakeBornCardClick={handleOpenLionOfShakyas}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             margin="15px"
@@ -544,6 +596,7 @@ const Guru2 = () => {
         <>
           <LionOfShakyas language={language} />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             left="25.5%"
@@ -584,6 +637,7 @@ const Guru2 = () => {
             onPalaceImgClick={handleOpenPalaceImg}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
@@ -609,20 +663,55 @@ const Guru2 = () => {
       {showPalaceImg && (
         <>
           <div className={styles.PalaceImgContainer}>
-            <div className={styles.palaceImg1}>
-              <img src={palaceImg1} alt="palaceImg1" />
-            </div>
+            {enlargedImage ? (
+              <div
+                className={styles.palaceImg1}
+                onClick={() => setEnlargedImage(null)}
+              >
+                <img
+                  src={enlargedImage}
+                  alt="Enlarged"
+                  className={styles.enlargedImage}
+                  onClick={() => handleImageClick(enlargedImage)}
+                  style={{ cursor: "pointer" }} // Optional: change cursor to pointer
+                />
+              </div>
+            ) : (
+              <>
+                <div className={styles.palaceImg1}>
+                  <img
+                    src={palaceImg1}
+                    alt="palaceImg1"
+                    onClick={() => handleImageClick(palaceImg1)}
+                  />
+                </div>
+              </>
+            )}
+
             <div className={styles.palaceImg2}>
-              <img src={palaceImg2} alt="palaceImg2" />
+              <img
+                src={palaceImg3}
+                alt="palaceImg2"
+                onClick={() => handleImageClick(palaceImg3)}
+              />
             </div>
             <div className={styles.palaceImg3}>
-              <img src={palaceImg3} alt="palaceImg3" />
+              <img
+                src={palaceImg2}
+                alt="palaceImg3"
+                onClick={() => handleImageClick(palaceImg2)}
+              />
             </div>
             <div className={styles.palaceImg4}>
-              <img src={palaceImg4} alt="palaceImg4" />
+              <img
+                src={palaceImg4}
+                alt="palaceImg4"
+                onClick={() => handleImageClick(palaceImg4)}
+              />
             </div>
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}

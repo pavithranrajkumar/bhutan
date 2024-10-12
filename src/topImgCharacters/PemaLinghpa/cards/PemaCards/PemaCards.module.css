@@ -6,9 +6,19 @@
 
 .CardsContainerText {
   font-family: "Hammersmith One";
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 100;
   text-align: center;
+}
+
+.HistoricCard,
+.LineageCard,
+.LegacyCard,
+.RevelationsCard {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .HistoricCard {

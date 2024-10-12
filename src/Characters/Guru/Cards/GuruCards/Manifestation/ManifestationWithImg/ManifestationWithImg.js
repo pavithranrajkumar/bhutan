@@ -4,9 +4,20 @@ import manifestationImg from "../../../../../../assests/Guru/Manifestation/Manif
 import { GURU_INFORMATION } from "../../../../../../constants/Characters/Guru";
 import WideCard from "../../../../../../components/WideCard/WideCard";
 import { BHUTAN } from "../../../../../../constants/languages/Language";
+import Dorje from "../../../../../../assests/Guru/Manifestation/EightManifestations/Manifestation=8M - Dorje.png";
+import Sakya from "../../../../../../assests/Guru/Manifestation/EightManifestations/Manifestation=8M - Sakya.png";
+import Nima from "../../../../../../assests/Guru/Manifestation/EightManifestations/Manifestation=8M - Nima.png";
+import Jungney from "../../../../../../assests/Guru/Manifestation/EightManifestations/Manifestation=8M - Jungney.png";
+import Tshokey from "../../../../../../assests/Guru/Manifestation/EightManifestations/Manifestation=8M - Tshokey.png";
+import Gyalpo from "../../../../../../assests/Guru/Manifestation/EightManifestations/Manifestation=8M - Gyalpo.png";
+import Singye from "../../../../../../assests/Guru/Manifestation/EightManifestations/Manifestation=8M - Singye.png";
+import Loden from "../../../../../../assests/Guru/Manifestation/EightManifestations/Manifestation=8M - Loden.png";
 
 const ManifestationWithImg = ({ onLakeBornClick, language }) => {
-  const headerFontSize = language === BHUTAN ? "3px" : "7px";
+  const [selectedManifestation, setSelectedManifestation] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const headerFontSize = language === BHUTAN ? "3px" : "8.5px";
   const paraFontSize = language === BHUTAN ? "3.5px" : "6.5px";
 
   const manifestationsData = [
@@ -16,6 +27,7 @@ const ManifestationWithImg = ({ onLakeBornClick, language }) => {
       ScndHeader:
         GURU_INFORMATION[language].eightManifestations.first.scndHeader,
       para: GURU_INFORMATION[language].eightManifestations.first.para,
+      img: Dorje,
     },
     {
       FrstHeader:
@@ -23,6 +35,7 @@ const ManifestationWithImg = ({ onLakeBornClick, language }) => {
       ScndHeader:
         GURU_INFORMATION[language].eightManifestations.second.scndHeader,
       para: GURU_INFORMATION[language].eightManifestations.second.para,
+      img: Sakya,
     },
     {
       FrstHeader:
@@ -30,6 +43,7 @@ const ManifestationWithImg = ({ onLakeBornClick, language }) => {
       ScndHeader:
         GURU_INFORMATION[language].eightManifestations.third.scndHeader,
       para: GURU_INFORMATION[language].eightManifestations.third.para,
+      img: Nima,
     },
     {
       FrstHeader:
@@ -37,6 +51,7 @@ const ManifestationWithImg = ({ onLakeBornClick, language }) => {
       ScndHeader:
         GURU_INFORMATION[language].eightManifestations.fourth.scndHeader,
       para: GURU_INFORMATION[language].eightManifestations.fourth.para,
+      img: Jungney,
     },
     {
       FrstHeader:
@@ -44,6 +59,7 @@ const ManifestationWithImg = ({ onLakeBornClick, language }) => {
       ScndHeader:
         GURU_INFORMATION[language].eightManifestations.fivth.scndHeader,
       para: GURU_INFORMATION[language].eightManifestations.fivth.para,
+      img: Tshokey,
     },
     {
       FrstHeader:
@@ -51,6 +67,7 @@ const ManifestationWithImg = ({ onLakeBornClick, language }) => {
       ScndHeader:
         GURU_INFORMATION[language].eightManifestations.sixth.scndHeader,
       para: GURU_INFORMATION[language].eightManifestations.sixth.para,
+      img: Gyalpo,
     },
     {
       FrstHeader:
@@ -58,6 +75,7 @@ const ManifestationWithImg = ({ onLakeBornClick, language }) => {
       ScndHeader:
         GURU_INFORMATION[language].eightManifestations.seventh.scndHeader,
       para: GURU_INFORMATION[language].eightManifestations.seventh.para,
+      img: Singye,
     },
     {
       FrstHeader:
@@ -65,16 +83,34 @@ const ManifestationWithImg = ({ onLakeBornClick, language }) => {
       ScndHeader:
         GURU_INFORMATION[language].eightManifestations.eight.scndHeader,
       para: GURU_INFORMATION[language].eightManifestations.eight.para,
+      img: Loden,
     },
   ];
 
+  const handleImageClick = () => {
+    const nextIndex = (activeIndex + 1) % manifestationsData.length; // Cycle to the next index
+    setSelectedManifestation(manifestationsData[nextIndex]);
+    setActiveIndex(nextIndex);
+  };
+
+  // Function to handle card click
+  const handleCardClick = (index) => {
+    setSelectedManifestation(manifestationsData[index]);
+    setActiveIndex(index);
+  };
+
   return (
     <div className={styles.manifestationGroupContainer}>
-      <div className={styles.manifestationGroupContainerImg}>
+      <div
+        className={`${styles.manifestationGroupContainerImg} ${styles.fadeIn}`}
+      >
         <img
-          src={manifestationImg}
-          alt="manifestationImg"
-          onClick={onLakeBornClick}
+          src={
+            selectedManifestation ? selectedManifestation.img : manifestationImg
+          }
+          alt=""
+          onClick={handleImageClick}
+          className={styles.manifestationImg}
         />
       </div>
       <div className={styles.manifestationFrstGroup}>
@@ -88,6 +124,8 @@ const ManifestationWithImg = ({ onLakeBornClick, language }) => {
             height="35px"
             headerFontSize={headerFontSize}
             paraFontSize={paraFontSize}
+            isActive={activeIndex === index} // Pass isActive prop
+            onClick={() => handleCardClick(index)}
           />
         ))}
       </div>
@@ -103,6 +141,8 @@ const ManifestationWithImg = ({ onLakeBornClick, language }) => {
             height="35px"
             headerFontSize={headerFontSize}
             paraFontSize={paraFontSize}
+            isActive={activeIndex === index + 4} // Pass isActive prop
+            onClick={() => handleCardClick(index + 4)}
           />
         ))}
       </div>

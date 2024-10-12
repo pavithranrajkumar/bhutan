@@ -5,7 +5,7 @@ import { PEMA_LINGPA_INFORMATION } from "../../../../constants/Characters/PremaL
 import { BHUTAN } from "../../../../constants/languages/Language";
 
 const PemaCards = ({ isFadingOut, language, onCardClick }) => {
-  const fonstSize = language === BHUTAN ? "23px" : "25px";
+  const fonstSize = language === BHUTAN ? "23px" : "20px";
   return (
     <div>
       <motion.div

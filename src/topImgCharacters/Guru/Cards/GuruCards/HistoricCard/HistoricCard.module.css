@@ -18,3 +18,31 @@
   height: 200px;
   width: 190px;
 }
+
+.slideIn {
+  animation: slideIn 0.8s ease-out forwards;
+}
+
+.fadeIn {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

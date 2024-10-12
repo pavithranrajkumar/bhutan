@@ -3,26 +3,46 @@
 }
 
 .manifestationGroupContainerImg {
+  object-fit: fill;
   position: fixed;
-  left: 26.9%;
+  left: 27.15%;
   top: 82.2%;
-  width: 240px;
+  width: 210px;
   height: 340px;
   cursor: pointer;
 }
 
-.manifestationGroupContainerImg img {
+.manifestationImg {
   object-fit: fill;
 }
 
 .manifestationFrstGroup {
   position: fixed;
-  left: 21.6%;
+  left: 21.5%;
   top: 89.5%;
 }
 
 .manifestationScndGroup {
   position: fixed;
-  left: 32.7%;
+  left: 32.8%;
   top: 79.5%;
+}
+
+.manifestationImg:hover {
+  transform: scale(1.05); /* Slightly enlarges the image on hover */
+}
+
+.fadeIn {
+  animation: fadeIn 1.2s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -1,20 +1,43 @@
 .WideCard {
+  cursor: pointer;
   background: #ffc571;
   color: #613900;
   width: 260px;
   height: 25px;
   padding: 0.1vw;
   margin-bottom: 5px;
+  display: flex; /* Enable flexbox for cards */
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
 }
 
 .WideCardHeader {
   font-family: "Josefin Sans";
-  font-size: 7px;
+  font-size: 8px;
   display: flex;
   flex-direction: column;
 }
 
 .WideCardPara {
-  font-weight: 700;
   font-size: 6.5px;
+}
+
+.slideIn {
+  animation: slideIn 1.2s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.activeCard {
+  background-color: #c87e12;
+  color: #fadfb6;
 }

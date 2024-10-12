@@ -10,7 +10,7 @@ const FooterIcon = ({ onClick, showIcons }) => {
       className={styles.detailCardFooter}
       initial={{ opacity: 0 }}
       animate={{ opacity: showIcons ? 1 : 0 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.5 }}
       onClick={onClick}
     >
       <FontAwesomeIcon icon={faHome} className={styles.icon} />

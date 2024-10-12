@@ -1,9 +1,11 @@
 // App.js
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { motion } from "framer-motion";
 import "./Puzzle.module.css";
+import supineImg from "../../assests/Supine/SupineDemoness.png";
 import base from "../../assests/Supine/Base.png";
 import base1 from "../../assests/Supine/PUzzleImgs/Foot L.png";
 import elbowL from "../../assests/Supine/PUzzleImgs/Elbow L.png";
@@ -62,7 +64,6 @@ const DropZone = ({ onDrop, image, id, position }) => {
       canDrop: !!monitor.canDrop(),
     }),
   }));
-  console.log("DropZone Position:", position);
 
   return (
     <div
@@ -96,8 +97,8 @@ const DropZone = ({ onDrop, image, id, position }) => {
 };
 
 // Main component
-const Puzzle = () => {
-  const [pieces, setPieces] = useState([
+const Puzzle = ({ onComplete, resetPuzzleCard }) => {
+  const initialPieces = [
     {
       id: 1,
       src: shoulderR,
@@ -110,7 +111,7 @@ const Puzzle = () => {
       id: 2,
       src: elbowR,
       correctPosition: { top: 120, left: 630 },
-      initialPosition: { top: "-45%", left: 150 },
+      initialPosition: { top: "-53%", left: 148 },
       width: 59,
       height: 42,
     },
@@ -118,7 +119,7 @@ const Puzzle = () => {
       id: 3,
       src: handR,
       correctPosition: { top: 180, left: 700 },
-      initialPosition: { top: "-70%", left: 290 },
+      initialPosition: { top: "-80%", left: 280 },
       width: 61,
       height: 40,
     },
@@ -126,7 +127,7 @@ const Puzzle = () => {
       id: 4,
       src: heart,
       correctPosition: { top: 80, left: 350 },
-      initialPosition: { top: "-95%", left: 90 },
+      initialPosition: { top: "-98%", left: 90 },
       width: 61,
       height: 60,
     },
@@ -134,7 +135,7 @@ const Puzzle = () => {
       id: 5,
       src: hipR,
       correctPosition: { top: 220, left: 270 },
-      initialPosition: { top: "-20%", left: 90 },
+      initialPosition: { top: "-65%", left: -13 },
       width: 66,
       height: 50,
     },
@@ -142,7 +143,7 @@ const Puzzle = () => {
       id: 6,
       src: kneeL,
       correctPosition: { top: 300, left: 180 },
-      initialPosition: { top: "-90%", left: -10 },
+      initialPosition: { top: "-95%", left: -22 },
       width: 115,
       height: 80,
     },
@@ -158,15 +159,15 @@ const Puzzle = () => {
       id: 8,
       src: elbowL,
       correctPosition: { top: 200, left: 150 },
-      initialPosition: { top: "-70%", left: 250 },
+      initialPosition: { top: "-61%", left: 215 },
       width: 50,
       height: 53,
     },
     {
       id: 9,
       src: handL,
-      correctPosition: { top: 240, left: 50 }, //top: "-80%", left: 290
-      initialPosition: { top: "-110%", left: 150 },
+      correctPosition: { top: 240, left: 50 },
+      initialPosition: { top: "-118%", left: 160 },
       width: 56,
       height: 64,
     },
@@ -174,7 +175,7 @@ const Puzzle = () => {
       id: 10,
       src: shoulderL,
       correctPosition: { top: 120, left: 80 },
-      initialPosition: { top: "-20%", left: 90 },
+      initialPosition: { top: "-32%", left: 128 },
       width: 56,
       height: 59,
     },
@@ -182,7 +183,7 @@ const Puzzle = () => {
       id: 11,
       src: hipL,
       correctPosition: { top: 340, left: 370 },
-      initialPosition: { top: "-80%", left: 290 },
+      initialPosition: { top: "-38%", left: 262 },
       width: 80,
       height: 48,
     },
@@ -190,7 +191,7 @@ const Puzzle = () => {
       id: 12,
       src: kneeR,
       correctPosition: { top: 440, left: 460 },
-      initialPosition: { top: "-120%", left: -40 },
+      initialPosition: { top: "-123%", left: -40 },
       width: 90,
       height: 60,
     },
@@ -198,131 +199,119 @@ const Puzzle = () => {
       id: 13,
       src: base1,
       correctPosition: { top: 550, left: 520 },
-      initialPosition: { top: "-30%", left: -40 },
+      initialPosition: { top: "-50%", left: -90 },
       width: 90,
       height: 70,
     },
-  ]);
+  ];
 
-  const [completed, setCompleted] = useState({
-    1: null,
-    2: null,
-    3: null,
-  });
+  const dropZoneSpecifications = [
+    { id: 1, top: "89%", left: 473, width: 57, height: 30 }, // Shoulder R
+    { id: 2, top: "86.5%", left: 502, width: 59, height: 42 }, // Elbow R
+    { id: 3, top: "86%", left: 424, width: 61, height: 40 }, // Hand R
+    { id: 4, top: "89.5%", left: 428.5, width: 61, height: 60 }, // Heart
+    { id: 5, top: "89.3%", left: 355, width: 66, height: 50 }, // Hip L
+    { id: 6, top: "88.5%", left: 251, width: 115, height: 80 }, // Knee L
+    { id: 7, top: "90.1%", left: 173, width: 92, height: 54 }, // Foot R
+    { id: 8, top: "92.8%", left: 541, width: 50, height: 53 }, // Elbow L
+    { id: 9, top: "90.15%", left: 576, width: 56, height: 64 }, // Hand L
+    { id: 10, top: "90.6%", left: 481, width: 56, height: 59 }, // Shoulder L
+    { id: 11, top: "90.8%", left: 350, width: 80, height: 48 }, // Hip R
+    { id: 12, top: "87%", left: 246, width: 90, height: 60 }, // Knee R
+    { id: 13, top: "92.6%", left: 177, width: 90, height: 70 }, // Base1 or Foot L
+  ];
+
+  const [pieces, setPieces] = useState(initialPieces);
+  const [completed, setCompleted] = useState({});
+  const [isCompleted, setIsCompleted] = useState(false);
 
   const handleDrop = (item, id) => {
-    const piece = pieces.find((p) => p.id === item.id);
-    if (piece) {
-      // Set the piece in the completed state
-      setCompleted((prev) => ({ ...prev, [id]: piece }));
+    setPieces((prevPieces) => {
+      const remainingPieces = prevPieces.filter((p) => p.id !== item.id);
 
-      // Remove the piece from the draggable pieces list
-      setPieces((prevPieces) => prevPieces.filter((p) => p.id !== item.id));
-    }
+      setCompleted((prevCompleted) => ({
+        ...prevCompleted,
+        [id]: prevPieces.find((p) => p.id === item.id),
+      }));
+
+      // Check if all pieces have been placed correctly
+      if (remainingPieces.length === 0) {
+        // Ensure this checks for the last piece
+        setIsCompleted(true);
+        onComplete(); // Trigger the completion callback
+      }
+
+      return remainingPieces;
+    });
   };
 
-  return (
-    <DndProvider backend={HTML5Backend}>
-      <div className="app">
-        <div className="puzzle-container">
-          <div className="main-image-grid">
-            <div className="dropzones">
-              <DropZone
-                id={1}
-                onDrop={handleDrop}
-                image={completed[1]}
-                position={{ top: "89%", left: 473, width: 57, height: 30 }} // Shoulder R (adjust as necessary)
-              />
-              <DropZone
-                id={2}
-                onDrop={handleDrop}
-                image={completed[2]}
-                position={{ top: "86.5%", left: 502, width: 59, height: 42 }} // Elbow R (adjust as necessary)
-              />
-              <DropZone
-                id={3}
-                onDrop={handleDrop}
-                image={completed[3]}
-                position={{ top: "86%", left: 424, width: 61, height: 40 }} // Hand R (adjust as necessary)
-              />
-              <DropZone
-                id={4}
-                onDrop={handleDrop}
-                image={completed[4]}
-                position={{ top: "89.5%", left: 428.5, width: 61, height: 60 }} // Heart (adjust as necessary)
-              />
-              <DropZone
-                id={5}
-                onDrop={handleDrop}
-                image={completed[5]}
-                position={{ top: "89.3%", left: 355, width: 66, height: 50 }} // Hip L (adjust as necessary) l hand
-              />
-              <DropZone
-                id={6}
-                onDrop={handleDrop}
-                image={completed[6]}
-                position={{ top: "88.5%", left: 251, width: 115, height: 80 }} // Knee L (adjust as necessary)
-              />
-              <DropZone
-                id={7}
-                onDrop={handleDrop}
-                image={completed[7]}
-                position={{ top: "90.1%", left: 173, width: 92, height: 54 }} // Foot R (adjust as necessary)
-              />
-              <DropZone
-                id={8}
-                onDrop={handleDrop}
-                image={completed[8]}
-                position={{ top: "92.8%", left: 541, width: 50, height: 53 }} // Elbow L (adjust as necessary)
-              />
-              <DropZone
-                id={9}
-                onDrop={handleDrop}
-                image={completed[9]}
-                position={{ top: "90.15%", left: 576, width: 56, height: 64 }} // Hand L (adjust as necessary)
-              />
-              <DropZone
-                id={10}
-                onDrop={handleDrop}
-                image={completed[10]}
-                position={{ top: "90.6%", left: 481, width: 56, height: 59 }} // Shoulder L (adjust as necessary)
-              />
-              <DropZone
-                id={11}
-                onDrop={handleDrop}
-                image={completed[11]}
-                position={{ top: "90.8%", left: 350, width: 80, height: 48 }} // Hip R (adjust as necessary)
-              />
-              <DropZone
-                id={12}
-                onDrop={handleDrop}
-                image={completed[12]}
-                position={{ top: "87%", left: 246, width: 90, height: 60 }} // Knee R (adjust as necessary)
-              />
-              <DropZone
-                id={13}
-                onDrop={handleDrop}
-                image={completed[13]}
-                position={{ top: "92.6%", left: 177, width: 90, height: 70 }} // Base1 or Foot L (adjust as necessary)
-              />
-            </div>
-            <div className="main-image">
-              <img src={base} alt="Main" />
-            </div>
-          </div>
+  const resetPuzzle = () => {
+    setPieces(initialPieces);
+    setCompleted({});
+    setIsCompleted(false);
+    resetPuzzleCard();
+  };
 
-          <div className="pieces-container">
-            {pieces.map((piece) => (
-              <DraggablePiece
-                key={piece.id}
-                piece={piece}
-                className="pieces-container"
-              />
-            ))}
-          </div>
+  useEffect(() => {
+    resetPuzzleCard(() => resetPuzzle); // Ensure resetPuzzleCard is called when resetting puzzle
+  }, [resetPuzzleCard]);
+
+  return (
+    // <DndProvider backend={HTML5Backend}>
+    <div className="app">
+      <div className="puzzle-container">
+        <div className="main-image-grid">
+          {isCompleted ? (
+            <>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0 }}
+                transition={{ duration: 1.5 }}
+                className="completed-image"
+              >
+                <img src={supineImg} alt="Main" />
+              </motion.div>
+            </>
+          ) : (
+            <>
+              <div className="dropzones">
+                {dropZoneSpecifications.map((dropZone) => (
+                  <DropZone
+                    key={dropZone.id}
+                    id={dropZone.id}
+                    onDrop={handleDrop}
+                    image={completed[dropZone.id]}
+                    position={{
+                      top: dropZone.top,
+                      left: dropZone.left,
+                      width: dropZone.width,
+                      height: dropZone.height,
+                    }}
+                  />
+                ))}
+              </div>
+              <div className="main-image">
+                <img src={base} alt="Main" />
+              </div>
+              <div className="pieces-container">
+                {pieces.map(
+                  (piece) =>
+                    !completed[piece.id] && (
+                      <DraggablePiece
+                        key={piece.id}
+                        piece={piece}
+                        className="pieces-container"
+                      />
+                    )
+                )}
+              </div>
+            </>
+          )}
         </div>
       </div>
-    </DndProvider>
+    </div>
+    // </DndProvider>
   );
 };
 

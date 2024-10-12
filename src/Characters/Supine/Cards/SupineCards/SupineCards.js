@@ -12,7 +12,7 @@ const SupineCards = ({ isFadingOut, language, onCardClick }) => {
         className={styles.cardsContainer}
         initial={{ opacity: 1 }}
         animate={{ opacity: isFadingOut ? 0 : 1 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0 }}
       >
         <motion.div
           className={styles.ReligiousCard}

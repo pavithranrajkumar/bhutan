@@ -7,7 +7,7 @@ import { BHUTAN } from "../../../../constants/languages/Language";
 
 const JamBayCard = ({ showIntro, language, onJamBayCardImageClick }) => {
   const titleFontSize = language === BHUTAN ? "10px" : "20px";
-  const fonstSize = language === BHUTAN ? "7px" : "11.1px";
+  const fonstSize = language === BHUTAN ? "7.5px" : "11.1px";
   return (
     <div>
       {showIntro && (
@@ -28,7 +28,11 @@ const JamBayCard = ({ showIntro, language, onJamBayCardImageClick }) => {
             className={styles.JamBayCardImg}
             onClick={onJamBayCardImageClick}
           >
-            <img src={jambayImg} alt="jambayimg" />
+            <img
+              src={jambayImg}
+              alt="jambayimg"
+              className={styles.animatedImg}
+            />
           </div>
         </>
       )}

@@ -17,8 +17,10 @@
 .LanguageIconContainer img {
   width: 36px;
   height: 30px;
+  cursor: pointer;
 }
 
 .LanguageIconContainer {
   margin: 20px;
+  cursor: pointer;
 }

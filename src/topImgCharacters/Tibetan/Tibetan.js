@@ -47,6 +47,37 @@ import DrugpaKagyuImg15 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg15
 import DrugpaKagyuImg16 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg16.png";
 import DrugpaKagyuImg17 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg17.png";
 import DrugpaKagyuImg18 from "../../assests/Tibetan/Drukpakagyu/DrugpaKagyuImg18.png";
+import EnlargepopularImg1 from "../../assests/Tibetan/PopularSchools/EnlargeImg/Yagang Lhakhang, Mongar1.png";
+import EnlargepopularImg2 from "../../assests/Tibetan/PopularSchools/EnlargeImg/Yagang Lhakhang, Mongar2.png";
+import EnlargepopularImg3 from "../../assests/Tibetan/PopularSchools/EnlargeImg/Yagang Lhakhang, Mongar3.png";
+import EnlargepopularImg4 from "../../assests/Tibetan/PopularSchools/EnlargeImg/Yagang Lhakhang, Mongar4.png";
+import EnlargepopularImg5 from "../../assests/Tibetan/PopularSchools/EnlargeImg/Yagang Lhakhang, Mongar5.png";
+import EnlargepopularImg6 from "../../assests/Tibetan/PopularSchools/EnlargeImg/Yagang Lhakhang, Mongar6.png";
+import EnlargepopularImg7 from "../../assests/Tibetan/PopularSchools/EnlargeImg/Yagang Lhakhang, Mongar7.png";
+import EnlargepopularImg8 from "../../assests/Tibetan/PopularSchools/EnlargeImg/Yagang Lhakhang, Mongar8.png";
+import EnlargepopularImg9 from "../../assests/Tibetan/PopularSchools/EnlargeImg/Yagang Lhakhang, Mongar9.png";
+import EnlargepopularImg10 from "../../assests/Tibetan/PopularSchools/EnlargeImg/Yagang Lhakhang, Mongar10.png";
+import EnlargepopularImg11 from "../../assests/Tibetan/PopularSchools/EnlargeImg/Yagang Lhakhang, Mongar11.png";
+import EnlargepopularImg12 from "../../assests/Tibetan/PopularSchools/EnlargeImg/Yagang Lhakhang, Mongar12.png";
+import EnlargepopularImg13 from "../../assests/Tibetan/PopularSchools/EnlargeImg/Yagang Lhakhang, Mongar13.png";
+import EnlargeDrukpaImg8 from "../../assests/Tibetan/Drukpakagyu/EnlargeImg/DrugpaImg8.png";
+import EnlargeDrukpaImg1 from "../../assests/Tibetan/Drukpakagyu/EnlargeImg/DrugpaImg1.png";
+import EnlargeDrukpaImg2 from "../../assests/Tibetan/Drukpakagyu/EnlargeImg/DrugpaImg2.png";
+import EnlargeDrukpaImg3 from "../../assests/Tibetan/Drukpakagyu/EnlargeImg/DrugpaImg3.png";
+import EnlargeDrukpaImg4 from "../../assests/Tibetan/Drukpakagyu/EnlargeImg/DrugpaImg4.png";
+import EnlargeDrukpaImg5 from "../../assests/Tibetan/Drukpakagyu/EnlargeImg/DrugpaImg5.png";
+import EnlargeDrukpaImg6 from "../../assests/Tibetan/Drukpakagyu/EnlargeImg/DrugpaImg6.png";
+import EnlargeDrukpaImg7 from "../../assests/Tibetan/Drukpakagyu/EnlargeImg/DrugpaImg7.png";
+import EnlargeDrukpaImg9 from "../../assests/Tibetan/Drukpakagyu/EnlargeImg/DrugpaImg9.png";
+import EnlargeDrukpaImg10 from "../../assests/Tibetan/Drukpakagyu/EnlargeImg/DrugpaImg10.png";
+import EnlargeDrukpaImg11 from "../../assests/Tibetan/Drukpakagyu/EnlargeImg/DrugpaImg11.png";
+import EnlargeDrukpaImg12 from "../../assests/Tibetan/Drukpakagyu/EnlargeImg/DrugpaImg12.png";
+import EnlargeDrukpaImg13 from "../../assests/Tibetan/Drukpakagyu/EnlargeImg/DrugpaImg13.png";
+import EnlargeDrukpaImg14 from "../../assests/Tibetan/Drukpakagyu/EnlargeImg/DrugpaImg14.png";
+import EnlargeDrukpaImg15 from "../../assests/Tibetan/Drukpakagyu/EnlargeImg/DrugpaImg15.png";
+import EnlargeDrukpaImg16 from "../../assests/Tibetan/Drukpakagyu/EnlargeImg/DrugpaImg16.png";
+import EnlargeDrukpaImg17 from "../../assests/Tibetan/Drukpakagyu/EnlargeImg/DrugpaImg17.png";
+import EnlargeDrukpaImg18 from "../../assests/Tibetan/Drukpakagyu/EnlargeImg/DrugpaImg18.png";
 import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
 
 const TibetanTwo = () => {
@@ -62,7 +93,11 @@ const TibetanTwo = () => {
   const [showPopularSchoolsImgCard, setShowPopularSchoolsImgCard] =
     useState(false);
   const [showDrugpaKagyuImgCard, setShowDrugpaKagyuImgCard] = useState(false);
+  const [enlargedImage, setEnlargedImage] = useState(null);
 
+  const handleImageClick = (imageSrc) => {
+    setEnlargedImage(imageSrc);
+  };
   const handleCardOrImageClick = () => {
     if (
       showCards ||
@@ -196,18 +231,18 @@ const TibetanTwo = () => {
     language === BHUTAN
       ? showCards || selectedCard || showIntroduction
         ? "13px"
-        : "18px"
+        : "13px"
       : showCards || selectedCard || showIntroduction
-      ? "15px"
-      : "20px";
+      ? "13px"
+      : "18px";
   const fontSize =
     language === BHUTAN
       ? showCards || selectedCard || showIntroduction
-        ? "15px"
+        ? "10px"
         : "10px"
       : showCards || selectedCard || showIntroduction
       ? "15px"
-      : "18px";
+      : "16px";
 
   useEffect(() => {
     if (selectedCard) {
@@ -251,7 +286,8 @@ const TibetanTwo = () => {
           onClick={handleCardOrImageClick}
         >
           <NameCard
-            cardName={TIBETAN_INFORMATION[language].title}
+            cardName={TIBETAN_INFORMATION[language].nameCardTitleFirst}
+            cardNameTwo={TIBETAN_INFORMATION[language].nameCardTitleSecond}
             width="220px"
             height="90px"
             paraSize={paraSize}
@@ -282,6 +318,7 @@ const TibetanTwo = () => {
             background="#2B455D"
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
@@ -300,11 +337,17 @@ const TibetanTwo = () => {
             onCardClick={handleCardClick}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             background="#523019"
-            left="50.5%"
-            top="61%"
+            left="49.3%"
+            top="48.9%"
+            iconWidth="25px"
+            IconHeight="25px"
+            height="50px"
+            width="55px"
+            margin="13px"
           />
         </div>
       )}
@@ -315,6 +358,7 @@ const TibetanTwo = () => {
             <div className={styles.ArrivalCard}>
               <Arrival language={language} showIntro={true} />
               <LanguageIcon
+                language={language}
                 onClick={toggleLanguage}
                 showIcons={showIcons}
                 iconWidth="25px"
@@ -354,6 +398,7 @@ const TibetanTwo = () => {
                 onDrukpaKagyuClick={showDrukpaKagyu}
               />
               <LanguageIcon
+                language={language}
                 onClick={toggleLanguage}
                 showIcons={showIcons}
                 iconWidth="25px"
@@ -386,6 +431,7 @@ const TibetanTwo = () => {
             onPopularSchoolsImgClick={showPopularSchoolsImg}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             iconWidth="25px"
@@ -419,62 +465,131 @@ const TibetanTwo = () => {
       {showPopularSchoolsImgCard && (
         <>
           <div className={styles.KurjeLhakhangTemplesImgContainer}>
-            <div className={styles.KurjeLhakhangTemplesImg1}>
-              <img src={popularImg1} alt="palaceImg1" />
-            </div>
+            {enlargedImage ? (
+              <div
+                className={styles.KurjeLhakhangTemplesEnlargeImg}
+                onClick={() => setEnlargedImage(null)}
+              >
+                <img
+                  src={enlargedImage}
+                  alt=""
+                  className={styles.enlargedImage}
+                  style={{ cursor: "pointer" }} // Optional: change cursor to pointer
+                />
+              </div>
+            ) : (
+              <>
+                <div className={styles.KurjeLhakhangTemplesImg1}>
+                  <img
+                    src={popularImg1}
+                    alt=""
+                    onClick={() => handleImageClick(EnlargepopularImg1)}
+                  />
+                </div>
+              </>
+            )}
 
             <div className={styles.KurjeLhakhangTemplesImg12}>
-              <img src={popularImg13} alt="palaceImg1" />
+              <img
+                src={popularImg13}
+                alt=""
+                onClick={() => handleImageClick(EnlargepopularImg13)}
+              />
             </div>
 
             <div className={styles.KurjeLhakhangTemplesImg13}>
-              <img src={popularImg12} alt="palaceImg1" />
+              <img
+                src={popularImg12}
+                alt=""
+                onClick={() => handleImageClick(EnlargepopularImg12)}
+              />
             </div>
 
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div className={styles.KurjeLhakhangTemplesImg2}>
-                <img src={popularImg2} alt="palaceImg1" />
+                <img
+                  src={popularImg2}
+                  alt=""
+                  onClick={() => handleImageClick(EnlargepopularImg2)}
+                />
               </div>
               <div className={styles.KurjeLhakhangTemplesImg3}>
-                <img src={popularImg3} alt="palaceImg1" />
+                <img
+                  src={popularImg3}
+                  alt=""
+                  onClick={() => handleImageClick(EnlargepopularImg3)}
+                />
               </div>
             </div>
 
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div className={styles.KurjeLhakhangTemplesImg4}>
-                <img src={popularImg4} alt="palaceImg1" />
+                <img
+                  src={popularImg4}
+                  alt=""
+                  onClick={() => handleImageClick(EnlargepopularImg4)}
+                />
               </div>
               <div className={styles.KurjeLhakhangTemplesImg5}>
-                <img src={popularImg5} alt="palaceImg1" />
+                <img
+                  src={popularImg5}
+                  alt=""
+                  onClick={() => handleImageClick(EnlargepopularImg5)}
+                />
               </div>
               <div className={styles.KurjeLhakhangTemplesImg6}>
-                <img src={popularImg6} alt="palaceImg1" />
+                <img
+                  src={popularImg6}
+                  alt=""
+                  onClick={() => handleImageClick(EnlargepopularImg6)}
+                />
               </div>
               <div className={styles.KurjeLhakhangTemplesImg7}>
-                <img src={popularImg7} alt="palaceImg1" />
+                <img
+                  src={popularImg7}
+                  alt=""
+                  onClick={() => handleImageClick(EnlargepopularImg7)}
+                />
               </div>
             </div>
 
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div className={styles.KurjeLhakhangTemplesImg8}>
-                <img src={popularImg8} alt="palaceImg1" />
+                <img
+                  src={popularImg8}
+                  alt=""
+                  onClick={() => handleImageClick(EnlargepopularImg8)}
+                />
               </div>
               <div className={styles.KurjeLhakhangTemplesImg9}>
-                <img src={popularImg9} alt="palaceImg1" />
+                <img
+                  src={popularImg9}
+                  alt=""
+                  onClick={() => handleImageClick(EnlargepopularImg9)}
+                />
               </div>
             </div>
 
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div className={styles.KurjeLhakhangTemplesImg10}>
-                <img src={popularImg10} alt="palaceImg1" />
+                <img
+                  src={popularImg10}
+                  alt=""
+                  onClick={() => handleImageClick(EnlargepopularImg10)}
+                />
               </div>
               <div className={styles.KurjeLhakhangTemplesImg11}>
-                <img src={popularImg11} alt="palaceImg1" />
+                <img
+                  src={popularImg11}
+                  alt=""
+                  onClick={() => handleImageClick(EnlargepopularImg11)}
+                />
               </div>
             </div>
           </div>
 
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             margin="15px"
@@ -517,6 +632,7 @@ const TibetanTwo = () => {
             />
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             iconWidth="25px"
@@ -552,83 +668,172 @@ const TibetanTwo = () => {
           <div className={styles.KurjeLhakhangTemplesImgContainer}>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div className={styles.DrugpaKagyuImg1}>
-                <img src={DrugpaKagyuImg1} alt="palaceImg1" />
+                <img
+                  src={DrugpaKagyuImg1}
+                  alt=""
+                  onClick={() => handleImageClick(EnlargeDrukpaImg1)}
+                />
               </div>
               <div className={styles.DrugpaKagyuImg2}>
-                <img src={DrugpaKagyuImg2} alt="palaceImg1" />
+                <img
+                  src={DrugpaKagyuImg2}
+                  alt=""
+                  onClick={() => handleImageClick(EnlargeDrukpaImg2)}
+                />
               </div>
             </div>
-
-            <div className={styles.DrugpaKagyuImg3}>
-              <img src={DrugpaKagyuImg3} alt="palaceImg1" />
-            </div>
+            {enlargedImage ? (
+              <div
+                className={styles.DrugpaTemplesEnlargeImg}
+                onClick={() => setEnlargedImage(null)}
+              >
+                <img
+                  src={enlargedImage}
+                  alt=""
+                  className={styles.enlargedImage}
+                  onClick={() => handleImageClick(enlargedImage)}
+                  style={{ cursor: "pointer" }} // Optional: change cursor to pointer
+                />
+              </div>
+            ) : (
+              <>
+                <div className={styles.DrugpaKagyuImg3}>
+                  <img
+                    src={DrugpaKagyuImg3}
+                    alt=""
+                    onClick={() => handleImageClick(EnlargeDrukpaImg3)}
+                  />
+                </div>
+              </>
+            )}
 
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div className={styles.DrugpaKagyuImg4}>
-                <img src={DrugpaKagyuImg4} alt="palaceImg1" />
+                <img
+                  src={DrugpaKagyuImg4}
+                  alt=""
+                  onClick={() => handleImageClick(EnlargeDrukpaImg4)}
+                />
               </div>
               <div style={{ display: "flex", flexDirection: "row" }}>
                 <div className={styles.DrugpaKagyuImg5}>
-                  <img src={DrugpaKagyuImg5} alt="palaceImg1" />
+                  <img
+                    src={DrugpaKagyuImg5}
+                    alt=""
+                    onClick={() => handleImageClick(EnlargeDrukpaImg5)}
+                  />
                 </div>
                 <div className={styles.DrugpaKagyuImg6}>
-                  <img src={DrugpaKagyuImg6} alt="palaceImg1" />
+                  <img
+                    src={DrugpaKagyuImg6}
+                    alt=""
+                    onClick={() => handleImageClick(EnlargeDrukpaImg6)}
+                  />
                 </div>
               </div>
               <div className={styles.DrugpaKagyuImg7}>
-                <img src={DrugpaKagyuImg7} alt="palaceImg1" />
+                <img
+                  src={DrugpaKagyuImg7}
+                  alt=""
+                  onClick={() => handleImageClick(EnlargeDrukpaImg7)}
+                />
               </div>
               <div style={{ display: "flex" }}>
                 <div className={styles.DrugpaKagyuImg8}>
-                  <img src={DrugpaKagyuImg8} alt="palaceImg1" />
+                  <img
+                    src={DrugpaKagyuImg8}
+                    alt=""
+                    onClick={() => handleImageClick(EnlargeDrukpaImg8)}
+                  />
                 </div>
                 <div className={styles.DrugpaKagyuImg9}>
-                  <img src={DrugpaKagyuImg9} alt="palaceImg1" />
+                  <img
+                    src={DrugpaKagyuImg9}
+                    alt=""
+                    onClick={() => handleImageClick(EnlargeDrukpaImg9)}
+                  />
                 </div>
               </div>
             </div>
 
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div className={styles.DrugpaKagyuImg10}>
-                <img src={DrugpaKagyuImg10} alt="palaceImg1" />
+                <img
+                  src={DrugpaKagyuImg10}
+                  alt=""
+                  onClick={() => handleImageClick(EnlargeDrukpaImg10)}
+                />
               </div>
               <div className={styles.DrugpaKagyuImg11}>
-                <img src={DrugpaKagyuImg11} alt="palaceImg1" />
+                <img
+                  src={DrugpaKagyuImg11}
+                  alt=""
+                  onClick={() => handleImageClick(EnlargeDrukpaImg11)}
+                />
               </div>
             </div>
 
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div className={styles.DrugpaKagyuImg12}>
-                <img src={DrugpaKagyuImg12} alt="palaceImg1" />
+                <img
+                  src={DrugpaKagyuImg12}
+                  alt=""
+                  onClick={() => handleImageClick(EnlargeDrukpaImg12)}
+                />
               </div>
               <div className={styles.DrugpaKagyuImg13}>
-                <img src={DrugpaKagyuImg13} alt="palaceImg1" />
+                <img
+                  src={DrugpaKagyuImg13}
+                  alt=""
+                  onClick={() => handleImageClick(EnlargeDrukpaImg13)}
+                />
               </div>
             </div>
 
             <div className={styles.DrugpaKagyuImg14}>
-              <img src={DrugpaKagyuImg14} alt="palaceImg1" />
+              <img
+                src={DrugpaKagyuImg14}
+                alt=""
+                onClick={() => handleImageClick(EnlargeDrukpaImg14)}
+              />
             </div>
 
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div className={styles.DrugpaKagyuImg15}>
-                <img src={DrugpaKagyuImg15} alt="palaceImg1" />
+                <img
+                  src={DrugpaKagyuImg15}
+                  alt=""
+                  onClick={() => handleImageClick(EnlargeDrukpaImg15)}
+                />
               </div>
               <div className={styles.DrugpaKagyuImg16}>
-                <img src={DrugpaKagyuImg16} alt="palaceImg1" />
+                <img
+                  src={DrugpaKagyuImg16}
+                  alt=""
+                  onClick={() => handleImageClick(EnlargeDrukpaImg16)}
+                />
               </div>
             </div>
 
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div className={styles.DrugpaKagyuImg17}>
-                <img src={DrugpaKagyuImg17} alt="palaceImg1" />
+                <img
+                  src={DrugpaKagyuImg17}
+                  alt="palaceImg1"
+                  onClick={() => handleImageClick(EnlargeDrukpaImg17)}
+                />
               </div>
               <div className={styles.DrugpaKagyuImg18}>
-                <img src={DrugpaKagyuImg18} alt="palaceImg1" />
+                <img
+                  src={DrugpaKagyuImg18}
+                  alt="palaceImg1"
+                  onClick={() => handleImageClick(EnlargeDrukpaImg18)}
+                />
               </div>
             </div>
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             margin="15px"

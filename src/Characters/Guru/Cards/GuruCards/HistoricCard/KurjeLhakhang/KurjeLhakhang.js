@@ -7,7 +7,7 @@ import { BHUTAN } from "../../../../../../constants/languages/Language";
 
 const KurjeLhakhang = ({ showIntro, onKurjeTempleClick, language }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "25px";
-  const fonstSize = language === BHUTAN ? "7px" : "11.5px";
+  const fonstSize = language === BHUTAN ? "8.2px" : "11.5px";
   return (
     <div>
       {showIntro && (
@@ -24,7 +24,11 @@ const KurjeLhakhang = ({ showIntro, onKurjeTempleClick, language }) => {
             language={language}
             showIntro={showIntro}
           />
-          <div className={styles.KurjeTempleImg} onClick={onKurjeTempleClick}>
+
+          <div
+            className={`${styles.KurjeTempleImg} ${styles.zoomIn}`}
+            onClick={onKurjeTempleClick}
+          >
             <img src={temple} alt="temple" />
           </div>
         </>

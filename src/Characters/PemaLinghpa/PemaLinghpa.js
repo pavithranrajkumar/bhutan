@@ -28,6 +28,15 @@ import MonasteriesImg5 from "../../assests/PemaLingpa/Legacy/Monastries/Monastre
 import MonasteriesImg6 from "../../assests/PemaLingpa/Legacy/Monastries/MonastreriesImg6.png";
 import MonasteriesImg7 from "../../assests/PemaLingpa/Legacy/Monastries/MonastreriesImg7.png";
 import MonasteriesImg8 from "../../assests/PemaLingpa/Legacy/Monastries/MonastreriesImg8.png";
+import MonasteriesEnlargeImg1 from "../../assests/PemaLingpa/Legacy/Monastries/EnlargeImg/MonasterisImg1.png";
+import MonasteriesEnlargeImg2 from "../../assests/PemaLingpa/Legacy/Monastries/EnlargeImg/MonasterisImg2.png";
+import MonasteriesEnlargeImg3 from "../../assests/PemaLingpa/Legacy/Monastries/EnlargeImg/MonasterisImg3.png";
+import MonasteriesEnlargeImg4 from "../../assests/PemaLingpa/Legacy/Monastries/EnlargeImg/MonasterisImg4.png";
+import MonasteriesEnlargeImg5 from "../../assests/PemaLingpa/Legacy/Monastries/EnlargeImg/MonasterisImg5.png";
+import MonasteriesEnlargeImg6 from "../../assests/PemaLingpa/Legacy/Monastries/EnlargeImg/MonasterisImg6.png";
+import MonasteriesEnlargeImg7 from "../../assests/PemaLingpa/Legacy/Monastries/EnlargeImg/MonasterisImg7.png";
+import MonasteriesEnlargeImg8 from "../../assests/PemaLingpa/Legacy/Monastries/EnlargeImg/MonasterisImg8.png";
+
 import { PEMA_LINGPA_INFORMATION } from "../../constants/Characters/PremaLingpa";
 import PelingDanceVideo from "../../assests/PemaLingpa/Legacy/PelingDanceCard.png";
 import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
@@ -49,7 +58,11 @@ const PemaLinghpa = () => {
   const [showPelingDanceCard, setShowPelingDanceCard] = useState(false);
   const [showMonasteriesImgCard, setShowMonasteriesImgCard] = useState(false);
   const [showPelingdanceImgs, setShowPelingdanceImgs] = useState(false);
+  const [enlargedImage, setEnlargedImage] = useState(null);
 
+  const handleImageClick = (imageSrc) => {
+    setEnlargedImage(imageSrc);
+  };
   const toggleLanguage = () => {
     setLanguage((prevLanguage) => {
       const newLanguage = prevLanguage === ENGLISH ? BHUTAN : ENGLISH;
@@ -72,6 +85,12 @@ const PemaLinghpa = () => {
       showPelingdanceImgs
     ) {
       resetView();
+      setShowYearText(true);
+      setIsActive(false);
+    } else if (showIntroduction) {
+      setShowIntroduction(false);
+      setShowYearText(true);
+      setIsActive(false);
     } else {
       setShowYearText(false);
       setShowIntroduction(true);
@@ -91,6 +110,7 @@ const PemaLinghpa = () => {
     setShowPelingDanceCard(false);
     setShowMonasteriesImgCard(false);
     setShowPelingdanceImgs(false);
+    setShowYearText(true);
   };
 
   const handleShowCards = () => {
@@ -245,9 +265,9 @@ const PemaLinghpa = () => {
         >
           <NameCard
             cardName="PEMA LINGPA"
-            width={isActive ? "350px" : "250px"}
+            width={isActive ? "300px" : "250px"}
             height={isActive ? "100px" : "80px"}
-            fontSize={isActive ? "25px" : "15px"}
+            fontSize={isActive ? "20px" : "15px"}
             subCardnameFontSize="15px"
             subCardnameMarginLeft="125px"
             background="#384E63"
@@ -255,7 +275,19 @@ const PemaLinghpa = () => {
             // background={nameCardBackground}
             // color={nameCardColor}
             paraColor="white"
-            year={"1450-1521"}
+            year={
+              showCards ||
+              selectedCard ||
+              showIntroduction ||
+              showNaringDragBookImg ||
+              showNaringDragCard ||
+              showBurningLakeBookImg ||
+              showBurningLakeCard ||
+              showMonasteriesImgCard ||
+              showPelingdanceImgs
+                ? "1450-1521"
+                : undefined
+            }
             // paraColor={nameParaColor}
             paraSize="13px"
           />
@@ -274,6 +306,7 @@ const PemaLinghpa = () => {
             onClick={toggleLanguage}
             whiteImage={true}
             showIcons={showIcons}
+            language={language}
             left="61%"
             top="95.5%"
             iconWidth="25px"
@@ -308,10 +341,11 @@ const PemaLinghpa = () => {
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
+            language={language}
             iconWidth="25px"
             IconHeight="25px"
             left="64%"
-            top="91%"
+            top="89%"
             height="60px"
           />
         </>
@@ -327,6 +361,7 @@ const PemaLinghpa = () => {
                 <LanguageIcon
                   onClick={toggleLanguage}
                   showIcons={showIcons}
+                  language={language}
                   left="61%"
                   top="96%"
                   iconWidth="25px"
@@ -374,6 +409,7 @@ const PemaLinghpa = () => {
                 <LanguageIcon
                   onClick={toggleLanguage}
                   showIcons={showIcons}
+                  language={language}
                   left="60.5%"
                   top="96%"
                   iconWidth="25px"
@@ -391,6 +427,17 @@ const PemaLinghpa = () => {
                   margin="25px"
                   onClick={handleHomeClick}
                 />
+                <NextIcon
+                  showIcons={showIcons}
+                  left="75.5%"
+                  top="82%"
+                  height="70px"
+                  width="80px"
+                  margin="25px"
+                  background="#3A1701"
+                  color="#FFD9BC"
+                  onClick={handleNextIcon}
+                />
               </div>
             </>
           )}
@@ -406,6 +453,7 @@ const PemaLinghpa = () => {
                 />
 
                 <LanguageIcon
+                  language={language}
                   onClick={toggleLanguage}
                   showIcons={showIcons}
                   left="60.5%"
@@ -440,6 +488,7 @@ const PemaLinghpa = () => {
                 />
 
                 <LanguageIcon
+                  language={language}
                   onClick={toggleLanguage}
                   showIcons={showIcons}
                   left="60.5%"
@@ -475,6 +524,7 @@ const PemaLinghpa = () => {
             />
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             left="61%"
@@ -528,14 +578,17 @@ const PemaLinghpa = () => {
             onClick={handleHomeClick}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
-            left="60.5%"
-            top="96%"
+            left="61.2%"
+            top="95%"
             iconWidth="25px"
             IconHeight="25px"
-            height="55px"
+            height="50px"
+            width="50px"
+            margin="12px"
           />
         </>
       )}
@@ -569,14 +622,17 @@ const PemaLinghpa = () => {
             onClick={handleHomeClick}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
-            left="60.5%"
-            top="96%"
+            left="61.2%"
+            top="95%"
             iconWidth="25px"
             IconHeight="25px"
-            height="55px"
+            height="50px"
+            width="50px"
+            margin="12px"
           />
         </>
       )}
@@ -591,6 +647,7 @@ const PemaLinghpa = () => {
             />
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             left="61%"
@@ -625,6 +682,7 @@ const PemaLinghpa = () => {
             />
           </div>
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             left="61%"
@@ -652,29 +710,79 @@ const PemaLinghpa = () => {
       {showMonasteriesImgCard && (
         <>
           <div className={styles.MonasteriesImgs}>
-            <div className={styles.MonasteriesImg1}>
-              <img src={MonasteriesImg1} alt="MonasteriesImg1" />
-            </div>
+            {enlargedImage ? (
+              <div
+                className={styles.MonasteriesEnlargedImage}
+                onClick={() => setEnlargedImage(null)}
+              >
+                <img
+                  src={enlargedImage}
+                  alt="Enlarged"
+                  className={styles.enlargedImage}
+                  onClick={() => handleImageClick(MonasteriesEnlargeImg1)}
+                  style={{ cursor: "pointer" }} // Optional: change cursor to pointer
+                />
+              </div>
+            ) : (
+              <>
+                <div className={styles.MonasteriesImg1}>
+                  <img
+                    src={MonasteriesImg1}
+                    alt="palaceImg1"
+                    onClick={() => handleImageClick(MonasteriesImg1)}
+                  />
+                </div>
+              </>
+            )}
+
             <div className={styles.MonasteriesImg2}>
-              <img src={MonasteriesImg2} alt="MonasteriesImg2" />
+              <img
+                src={MonasteriesImg2}
+                alt="MonasteriesImg2"
+                onClick={() => handleImageClick(MonasteriesEnlargeImg2)}
+              />
             </div>
             <div className={styles.MonasteriesImg3}>
-              <img src={MonasteriesImg3} alt="MonasteriesImg3" />
+              <img
+                src={MonasteriesImg3}
+                alt="MonasteriesImg3"
+                onClick={() => handleImageClick(MonasteriesEnlargeImg3)}
+              />
             </div>
             <div className={styles.MonasteriesImg4}>
-              <img src={MonasteriesImg4} alt="MonasteriesImg4" />
+              <img
+                src={MonasteriesImg4}
+                alt="MonasteriesImg4"
+                onClick={() => handleImageClick(MonasteriesEnlargeImg4)}
+              />
             </div>
             <div className={styles.MonasteriesImg5}>
-              <img src={MonasteriesImg5} alt="MonasteriesImg5" />
+              <img
+                src={MonasteriesImg5}
+                alt="MonasteriesImg5"
+                onClick={() => handleImageClick(MonasteriesEnlargeImg5)}
+              />
             </div>
             <div className={styles.MonasteriesImg6}>
-              <img src={MonasteriesImg6} alt="MonasteriesImg6" />
+              <img
+                src={MonasteriesImg6}
+                alt="MonasteriesImg6"
+                onClick={() => handleImageClick(MonasteriesEnlargeImg6)}
+              />
             </div>
             <div className={styles.MonasteriesImg7}>
-              <img src={MonasteriesImg7} alt="MonasteriesImg7" />
+              <img
+                src={MonasteriesImg7}
+                alt="MonasteriesImg7"
+                onClick={() => handleImageClick(MonasteriesEnlargeImg7)}
+              />
             </div>
             <div className={styles.MonasteriesImg8}>
-              <img src={MonasteriesImg8} alt="MonasteriesImg8" />
+              <img
+                src={MonasteriesImg8}
+                alt="MonasteriesImg8"
+                onClick={() => handleImageClick(MonasteriesEnlargeImg8)}
+              />
             </div>
             <div
               className={styles.SmallPeilingCard}
@@ -707,6 +815,7 @@ const PemaLinghpa = () => {
             onClick={handleHomeClick}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
@@ -741,6 +850,7 @@ const PemaLinghpa = () => {
             onClick={handleHomeClick}
           />
           <LanguageIcon
+            language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
@@ -779,6 +889,7 @@ const PemaLinghpa = () => {
             onClick={handleHomeClick}
           />
           <LanguageIcon
+            language={language}
             showIcons={showIcons}
             whiteImage={true}
             left="60.4%"

@@ -30,18 +30,19 @@ const Supine = () => {
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [showIntroduction, setShowIntroduction] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
-  const [language, setLanguage] = useState("english");
+  const [language, setLanguage] = useState(ENGLISH);
   const [showIcons, setShowIcons] = useState(false);
   const [showReligiousCard, setShowReligiousCard] = useState(false);
   const [showHimalayanCard, setShowHimalayanCard] = useState(false);
   const [showBhutanCard, setShowBhutanCard] = useState(false);
   const [showJamBayImages, setShowJamBayImages] = useState(false);
   const [showKyichuImages, setShowKyichuImages] = useState(false);
+  const [puzzleCompleted, setPuzzleCompleted] = useState(false);
 
-  const kyichuFontSize = language === BHUTAN ? "25px" : "25px";
-  const cardNameFontSize = language === BHUTAN ? "10px" : "15px";
-  const subCardnameFontSize = language === BHUTAN ? "10px" : "15px";
-  const subCardnameMarginLeft = language === BHUTAN ? "150px" : "125px";
+  const kyichuFontSize = language === BHUTAN ? "20px" : "25px";
+  const cardNameFontSize = language === BHUTAN ? "10px" : "17.5px";
+  const subCardnameFontSize = language === BHUTAN ? "10px" : "17.5px";
+  const subCardnameMarginLeft = language === BHUTAN ? "150px" : "105px";
 
   const toggleLanguage = () => {
     setLanguage((prevLanguage) => {
@@ -49,6 +50,15 @@ const Supine = () => {
       console.log("Language changed to:", newLanguage);
       return newLanguage;
     });
+    console.log("Current language:", language);
+  };
+
+  const handlePuzzleComplete = () => {
+    setPuzzleCompleted(true);
+  };
+
+  const resetPuzzle = () => {
+    setPuzzleCompleted(false);
   };
 
   const handleCardOrImageClick = () => {
@@ -78,6 +88,7 @@ const Supine = () => {
   };
 
   const showSupineCards = () => {
+    console.log("Showing supine cards");
     setShowIntroduction(false);
     setShowCards(true);
     setShowYearText(false);
@@ -169,6 +180,22 @@ const Supine = () => {
   };
 
   useEffect(() => {
+    if (showCards) {
+      setShowIntroduction(false);
+      setShowHimalayanCard(false);
+      setShowBhutanCard(false);
+      setShowReligiousCard(false);
+      setSelectedCard(null);
+      setShowCards(true);
+      setShowYearText(false);
+    }
+  });
+
+  useEffect(() => {
+    console.log("showCards state changed:", showCards);
+  }, [showCards]);
+
+  useEffect(() => {
     if (selectedCard) {
       setShowIntroduction(false);
     }
@@ -229,12 +256,7 @@ const Supine = () => {
         transition={{ duration: 1, delay: 0.4 }}
         onClick={handleCardOrImageClick}
       >
-        {showHimalayanCard ? (
-          // <img src={base} alt="Pema Lingpa" />
-          ""
-        ) : (
-          <img src={supine} alt="Pema Lingpa" />
-        )}{" "}
+        {showHimalayanCard ? "" : <img src={supine} alt="Pema Lingpa" />}{" "}
       </motion.div>
       <motion.div
         initial={{ x: -100, opacity: 0 }}
@@ -260,7 +282,12 @@ const Supine = () => {
               background={nameCardBackground}
               color={nameCardColor}
               year={
-                showCards || selectedCard || showIntroduction
+                showCards ||
+                selectedCard ||
+                showIntroduction ||
+                showReligiousCard ||
+                showHimalayanCard ||
+                showBhutanCard
                   ? "800-900"
                   : undefined
               }
@@ -288,8 +315,9 @@ const Supine = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
+            language={language}
             left="5.4%"
-            top="74.8%"
+            top="74.1%"
             iconWidth="25px"
             IconHeight="25px"
             height="50px"
@@ -309,9 +337,10 @@ const Supine = () => {
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
-            supine={true}
+            language={language}
+            // supine={true}
             background="#3A3C25"
-            left="17.4%"
+            left="17.9%"
             top="82.5%"
             iconWidth="25px"
             IconHeight="25px"
@@ -336,9 +365,10 @@ const Supine = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             supine={true}
+            language={language}
             background="#3A3C25"
-            left="4.8%"
-            top="84%"
+            left="5%"
+            top="83.7%"
             iconWidth="25px"
             IconHeight="25px"
             height="50px"
@@ -362,17 +392,26 @@ const Supine = () => {
       {showHimalayanCard && (
         <>
           <div className={styles.Puzzle}>
-            <Puzzle />
+            <Puzzle
+              onComplete={handlePuzzleComplete}
+              resetPuzzleCard={resetPuzzle}
+            />
           </div>
           <div className={styles.HimalayanCard}>
-            <HimalayanCard language={language} showIntro={true} />
+            <HimalayanCard
+              language={language}
+              showIntro={true}
+              puzzleCompleted={puzzleCompleted}
+              resetPuzzleCard={resetPuzzle}
+            />
           </div>
-          {/* <LanguageIcon
+          <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
-            left="5.3%"
-            top="83.8%"
+            language={language}
+            left="3.1%"
+            top="87.5%"
             iconWidth="25px"
             IconHeight="25px"
             height="50px"
@@ -382,11 +421,11 @@ const Supine = () => {
           <PreviousIcon
             onClick={handlePreviousClick}
             showIcons={showIcons}
-            left="4.7%"
-            top="80%"
+            left="2.5%"
+            top="83.5%"
             height="80px"
             marginTop="28px"
-          /> */}
+          />
         </>
       )}
 
@@ -403,6 +442,7 @@ const Supine = () => {
               onClick={toggleLanguage}
               showIcons={showIcons}
               whiteImage={true}
+              language={language}
               iconWidth="25px"
               IconHeight="25px"
               height="48px"
@@ -446,6 +486,7 @@ const Supine = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             supine={true}
+            language={language}
             background="#3A3C25"
             iconWidth="25px"
             IconHeight="25px"
@@ -480,18 +521,18 @@ const Supine = () => {
       {showJamBayImages && (
         <>
           <div className={styles.JamBayImages}>
-            <div className={styles.palaceImg1}>
+            <div className={`${styles.palaceImg1} ${styles.animatedImg}`}>
               <img src={JambayImg1} alt="palaceImg1" />
             </div>
-            <div className={styles.palaceImg2}>
+            <div className={`${styles.palaceImg2} ${styles.animatedImg}`}>
               <img src={JambayImg2} alt="palaceImg2" />
             </div>
           </div>
           <div
-            className={styles.JamBayImagesCard}
+            className={`${styles.JamBayImagesCard} ${styles.animatedCard}`}
             onClick={handleJamBayImagesCardClick}
           >
-            <p style={{ fontSize: kyichuFontSize, marginLeft: "40px" }}>
+            <p style={{ fontSize: kyichuFontSize }}>
               {SUPINE_INFORMATION[language].kyichu.title}
             </p>
           </div>
@@ -499,12 +540,14 @@ const Supine = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             supine={true}
+            language={language}
             background="#3A3C25"
             iconWidth="25px"
             IconHeight="25px"
             left="7%"
             top="83%"
             height="55px"
+            className={styles.animatedIcon}
           />
           <PreviousIcon
             onClick={handlePreviousClick}
@@ -515,6 +558,7 @@ const Supine = () => {
             height="80px"
             background="#555835"
             marginTop="28px"
+            className={styles.animatedIcon}
           />
           <HomeIcon
             showIcons={showIcons}
@@ -526,6 +570,7 @@ const Supine = () => {
             margin="25px"
             background="#555835"
             onClick={handleHomeClick}
+            className={styles.animatedIcon}
           />
         </>
       )}
@@ -543,6 +588,7 @@ const Supine = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             supine={true}
+            language={language}
             background="#3A3C25"
             iconWidth="25px"
             IconHeight="25px"
@@ -577,22 +623,20 @@ const Supine = () => {
       {showKyichuImages && (
         <>
           <div className={styles.JamBayImages}>
-            <div className={styles.KyichuImg1}>
+            <div className={`${styles.KyichuImg1} ${styles.animatedImg}`}>
               <img src={KyichuImg1} alt="palaceImg1" />
             </div>
-            <div className={styles.KyichuImg2}>
+            <div className={`${styles.KyichuImg2} ${styles.animatedImg}`}>
               <img src={KyichuImg2} alt="palaceImg2" />
             </div>
           </div>
           <div
-            className={styles.KyichuImagesCard}
+            className={`${styles.KyichuImagesCard} ${styles.animatedCard}`}
             onClick={handleKyichuImagesCardClick}
           >
             <p
               style={{
                 fontSize: kyichuFontSize,
-                marginLeft: "40px",
-                marginTop: "5px",
               }}
             >
               <p>{SUPINE_INFORMATION[language].jambay.title}</p>
@@ -602,12 +646,14 @@ const Supine = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             supine={true}
+            language={language}
             background="#3A3C25"
             iconWidth="25px"
             IconHeight="25px"
             left="7%"
             top="83%"
             height="55px"
+            className={styles.animatedIcon}
           />
           <PreviousIcon
             onClick={handlePreviousClick}
@@ -618,6 +664,7 @@ const Supine = () => {
             height="80px"
             background="#555835"
             marginTop="28px"
+            className={styles.animatedIcon}
           />
           <HomeIcon
             showIcons={showIcons}
@@ -629,6 +676,7 @@ const Supine = () => {
             margin="25px"
             background="#555835"
             onClick={handleHomeClick}
+            className={styles.animatedIcon}
           />
         </>
       )}
