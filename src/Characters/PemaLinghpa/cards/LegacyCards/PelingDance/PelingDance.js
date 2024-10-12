@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Card from "../../../../../components/Card/Card";
 import { PEMA_LINGPA_INFORMATION } from "../../../../../constants/Characters/PremaLingpa";
 import styles from "./PelingDance.module.css";
-import video1 from "../../../../../assests/PemaLingpa/Legacy/PelingVideos/ModelVidoe.mp4";
-import video2 from "../../../../../assests/PemaLingpa/Legacy/PelingVideos/ModelVidoe.mp4";
-import video3 from "../../../../../assests/PemaLingpa/Legacy/PelingVideos/ModelVidoe.mp4";
+import video1 from "../../../../../assests/PemaLingpa/Legacy/PelingVideos/PelingMaskDance.mp4";
+import video2 from "../../../../../assests/PemaLingpa/Legacy/PelingVideos/VTS_01_1.mp4";
+import video3 from "../../../../../assests/PemaLingpa/Legacy/PelingVideos/VTS_01_2.mp4";
 import { BHUTAN } from "../../../../../constants/languages/Language";
 
 const PelingDance = ({ showIntro, language }) => {
