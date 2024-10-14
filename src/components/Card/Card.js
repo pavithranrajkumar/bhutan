@@ -15,10 +15,10 @@ const Card = ({
   borderBottom,
   height,
 }) => {
-  const headerFontSize = language === BHUTAN ? "1.125rem" : "1.25rem";
-  const titleFontSize = language === BHUTAN ? "0.9375rem" : "1.25rem";
-  const contentFontSize = language === BHUTAN ? "0.625rem" : "0.6875rem";
-  const contentLineHeight = language === BHUTAN ? "1.5" : "";
+  const headerFontSize = language === BHUTAN ? "0.46875vw" : "0.52083vw"; // 1.125rem and 1.25rem converted
+  const titleFontSize = language === BHUTAN ? "0.390625vw" : "0.52083vw"; // 0.9375rem and 1.25rem converted
+  const contentFontSize = language === BHUTAN ? "0.26041667vw" : "0.29166667vw"; // 0.625rem and 0.6875rem converted
+  const contentLineHeight = language === BHUTAN ? "1.5" : ""; // You can keep this as is or adjust as needed
 
   return (
     <motion.div
