@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import styles from "./Card.module.css";
+import { BHUTAN } from "../../constants/languages/Language";
 
 const Card = ({
   title,
@@ -12,19 +13,13 @@ const Card = ({
   header,
   language,
   borderBottom,
-  headerFontSize,
-  titleFontSize,
-  contentFontSize,
   height,
-  fontWeight,
 }) => {
-  const cardStyles = {
-    fontSize: language === "bhutan" ? "12px" : "13px",
-  };
-  const cardTitle = {
-    fontSize: language === "bhutan" ? "25px" : "40px",
-    borderBottom: borderBottom,
-  };
+  const headerFontSize = language === BHUTAN ? "1.125rem" : "1.25rem";
+  const titleFontSize = language === BHUTAN ? "0.9375rem" : "1.25rem";
+  const contentFontSize = language === BHUTAN ? "0.625rem" : "0.6875rem";
+  const contentLineHeight = language === BHUTAN ? "1.5" : "";
+
   return (
     <motion.div
       className={styles.detailCard}
@@ -52,13 +47,20 @@ const Card = ({
           <div className={styles.cardTitleContainer}>
             <div
               className={styles.CardHeader}
-              style={{ fontSize: headerFontSize }}
+              style={{
+                fontSize: headerFontSize,
+                lineHeight: contentLineHeight,
+              }}
             >
               {header}
             </div>
             <div
               className={styles.CardTitle}
-              style={{ fontSize: titleFontSize, borderBottom, fontWeight }}
+              style={{
+                borderBottom,
+                fontSize: titleFontSize,
+                lineHeight: contentLineHeight,
+              }}
             >
               {title}
             </div>
@@ -71,7 +73,7 @@ const Card = ({
         >
           <div
             className={styles.CardContent}
-            style={{ fontSize: contentFontSize }}
+            style={{ fontSize: contentFontSize, lineHeight: contentLineHeight }}
           >
             {content}
           </div>

@@ -15,6 +15,7 @@ const KyichuCard = ({ showIntro, language, onKyichuCardImageClick }) => {
         <>
           <Card
             width="250px"
+            height="335px"
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="0.5px solid #555835"

@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import styles from "./NameCard.module.css";
+import { BHUTAN } from "../../constants/languages/Language";
 
 const NameCard = ({
   cardName,
@@ -20,6 +21,8 @@ const NameCard = ({
   subCardnameMarginLeft,
   cardNameTwo,
 }) => {
+  const contentLineHeight = language === BHUTAN ? "1.5" : "normal";
+
   return (
     <motion.div
       style={{ background: background, top, bottom, width, height }}
@@ -31,10 +34,16 @@ const NameCard = ({
       {/* <img src={Namecard} alt="Pema Lingpa" className={styles.OverLayImage} /> */}
 
       <div className={styles.pemaNameCardTitle} style={{ color: color }}>
-        <div className={styles.namedCardText} style={{ fontSize }}>
+        <div
+          className={styles.namedCardText}
+          style={{ fontSize, lineHeight: contentLineHeight }}
+        >
           {cardName}
         </div>
-        <div className={styles.namedCardText} style={{ fontSize }}>
+        <div
+          className={styles.namedCardText}
+          style={{ fontSize, lineHeight: contentLineHeight }}
+        >
           {cardNameTwo}
         </div>
         <div
@@ -42,6 +51,7 @@ const NameCard = ({
           style={{
             fontSize: subCardnameFontSize,
             marginLeft: subCardnameMarginLeft,
+            lineHeight: contentLineHeight,
           }}
         >
           {subCardname}

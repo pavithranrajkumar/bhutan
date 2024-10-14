@@ -39,10 +39,10 @@ const Supine = () => {
   const [showKyichuImages, setShowKyichuImages] = useState(false);
   const [puzzleCompleted, setPuzzleCompleted] = useState(false);
 
-  const kyichuFontSize = language === BHUTAN ? "20px" : "25px";
-  const cardNameFontSize = language === BHUTAN ? "10px" : "17.5px";
-  const subCardnameFontSize = language === BHUTAN ? "10px" : "17.5px";
-  const subCardnameMarginLeft = language === BHUTAN ? "150px" : "105px";
+  const kyichuFontSize = language === BHUTAN ? "1.25rem" : "1.5625rem";
+  const cardNameFontSize = language === BHUTAN ? "1rem" : "1.09375rem";
+  const subCardnameFontSize = language === BHUTAN ? "1rem" : "1.09375rem";
+  const subCardnameMarginLeft = language === BHUTAN ? "8.375rem" : "6.5625rem";
 
   const toggleLanguage = () => {
     setLanguage((prevLanguage) => {
@@ -293,6 +293,7 @@ const Supine = () => {
               }
               paraColor={nameParaColor}
               paraSize="13px"
+              language={language}
             />
           </motion.div>
         </div>

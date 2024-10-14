@@ -12,8 +12,6 @@ const BigCard = ({
   header,
   subContent,
   height,
-  cardFontSize,
-  titleFontSize,
   borderBottom,
 }) => {
   return (
@@ -42,10 +40,7 @@ const BigCard = ({
         >
           <div className={styles.cardTitleContainer}>
             <div className={styles.CardHeader}>{header}</div>
-            <div
-              className={styles.CardTitle}
-              style={{ fontSize: titleFontSize, borderBottom }}
-            >
+            <div className={styles.CardTitle} style={{ borderBottom }}>
               {title}
             </div>
           </div>
@@ -57,13 +52,13 @@ const BigCard = ({
         >
           <div
             className={styles.CardContent}
-            style={{ fontSize: cardFontSize }}
+            // style={{ fontSize: cardFontSize }}
           >
             {content}
           </div>
           <div
             className={styles.CardSubContent}
-            style={{ fontSize: cardFontSize }}
+            // style={{ fontSize: cardFontSize }}
           >
             {subContent}
           </div>

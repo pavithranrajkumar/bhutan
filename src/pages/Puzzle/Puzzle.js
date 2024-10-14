@@ -49,7 +49,7 @@ const DraggablePiece = ({ piece, dropZonePosition }) => {
         scale: 1, // Scale back to full size
       }}
       transition={{
-        duration: 1, // Animation duration
+        duration: 1.5, // Animation duration
         ease: "easeInOut", // Smoothing
       }}
       style={{

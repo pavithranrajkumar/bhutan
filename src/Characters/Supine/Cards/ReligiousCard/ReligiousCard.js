@@ -12,11 +12,9 @@ const ReligiousCard = ({
   onHimalayanClick,
   onBhutanClick,
 }) => {
-  const fonstSize = language === BHUTAN ? "8px" : "12px";
-  const titleFontSize = language === BHUTAN ? "18px" : "20px";
-
-  const headerFontSize = language === BHUTAN ? "8px" : "9px";
-  const subHeaderFontSize = language === BHUTAN ? "6px" : "15px";
+  const headerFontSize = language === BHUTAN ? "0.875rem" : "0.5625rem";
+  const subHeaderFontSize = language === BHUTAN ? "0.625rem" : "0.9375rem";
+  const contentLineHeight = language === BHUTAN ? "1.5" : "";
 
   return (
     <div>
@@ -24,8 +22,7 @@ const ReligiousCard = ({
         <>
           <Card
             width="220px"
-            titleFontSize={titleFontSize}
-            contentFontSize={fonstSize}
+            height="240px"
             borderBottom="0.5px solid #3A3C25"
             color="#3A3C25"
             backgroundColor="#CECE9B"
@@ -55,13 +52,19 @@ const ReligiousCard = ({
               <div className={styles.HimalayanCard} onClick={onHimalayanClick}>
                 <div
                   className={styles.HimalayanCardFirstText}
-                  style={{ fontSize: headerFontSize }}
+                  style={{
+                    fontSize: headerFontSize,
+                    lineHeight: contentLineHeight,
+                  }}
                 >
                   {SUPINE_INFORMATION[language].himalayanCard.header}
                 </div>
                 <div
                   className={styles.HimalayanCardSecondtext}
-                  style={{ fontSize: subHeaderFontSize }}
+                  style={{
+                    fontSize: subHeaderFontSize,
+                    lineHeight: contentLineHeight,
+                  }}
                 >
                   {SUPINE_INFORMATION[language].himalayanCard.title}
                 </div>
@@ -69,13 +72,19 @@ const ReligiousCard = ({
               <div className={styles.BhutanCard} onClick={onBhutanClick}>
                 <div
                   className={styles.HimalayanCardFirstText}
-                  style={{ marginTop: "10px", fontSize: headerFontSize }}
+                  style={{
+                    fontSize: headerFontSize,
+                    lineHeight: contentLineHeight,
+                  }}
                 >
                   {SUPINE_INFORMATION[language].bhutanCard.header}
                 </div>
                 <div
                   className={styles.HimalayanCardSecondtext}
-                  style={{ fontSize: subHeaderFontSize }}
+                  style={{
+                    fontSize: subHeaderFontSize,
+                    lineHeight: contentLineHeight,
+                  }}
                 >
                   {SUPINE_INFORMATION[language].bhutanCard.title}
                 </div>

@@ -848,7 +848,7 @@ const PemaLinghpa = () => {
             <PelingDance
               language={language}
               showIntro={true}
-              onPelingdanceImgClick={handleOpenPelingdanceImgs}
+              onPelingVideoClick={handleOpenPelingdanceImgs}
             />
           </div>
           <HomeIcon

@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../../../../../components/Card/Card";
 import { PEMA_LINGPA_INFORMATION } from "../../../../../constants/Characters/PremaLingpa";
 import NaringDragImg from "../../../../../assests/PemaLingpa/Revelations/NaringDrag.png";
 import styles from "./NaringDrag.module.css";
 import { BHUTAN } from "../../../../../constants/languages/Language";
+import { motion } from "framer-motion";
 
 const NaringDrag = ({ showIntro, language, onNaringDragBookImgClick }) => {
   const titleFontSize = language === BHUTAN ? "11px" : "20px";
   const fonstSize = language === BHUTAN ? "6.5px" : "11.3px";
+  const [isVisible, setIsVisible] = useState(showIntro);
+
+  useEffect(() => {
+    if (showIntro) {
+      setIsVisible(true);
+    } else {
+      // Start fade-out animation
+      const timer = setTimeout(() => setIsVisible(false), 500); // Match the duration with CSS transition
+      return () => clearTimeout(timer); // Cleanup timer on unmount
+    }
+  }, [showIntro]);
+
   return (
     <div>
       {showIntro && (
@@ -26,12 +39,14 @@ const NaringDrag = ({ showIntro, language, onNaringDragBookImgClick }) => {
             language={language}
             showIntro={showIntro}
           />
-          <div
+          <motion.div
             className={styles.NaringDragBookImg}
             onClick={onNaringDragBookImgClick}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
             <img src={NaringDragImg} alt="NaringDragBookImg" />
-          </div>
+          </motion.div>
         </>
       )}
     </div>

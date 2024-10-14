@@ -11,9 +11,6 @@ const HimalayanCard = ({
   puzzleCompleted,
   resetPuzzleCard,
 }) => {
-  const fonstSize = language === BHUTAN ? "8.17px" : "13px";
-  const titleFontSize = language === BHUTAN ? "17.2px" : "30px";
-
   const [showPuzzlePiecesCard, setShowPuzzlePiecesCard] = useState(true);
 
   const resetPuzzleState = () => {
@@ -36,8 +33,7 @@ const HimalayanCard = ({
         <>
           <Card
             width="220px"
-            titleFontSize={titleFontSize}
-            contentFontSize={fonstSize}
+            height="190px"
             borderBottom="0.5px solid white"
             title={SUPINE_INFORMATION[language].himalayan.title}
             content={SUPINE_INFORMATION[language].himalayan.content}

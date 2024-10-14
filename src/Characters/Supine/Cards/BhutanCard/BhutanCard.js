@@ -10,14 +10,17 @@ const BhutanCard = ({ showIntro, language, onJamBayClick, onKyichuClick }) => {
   const titleFontSize = language === BHUTAN ? "16px" : "20px";
   const fonstSize = language === BHUTAN ? "8.74px" : "12px";
 
-  const headerFontSize = language === BHUTAN ? "15px" : "25px";
-  const subHeaderFontSize = language === BHUTAN ? "15px" : "25px";
+  const headerFontSize = language === BHUTAN ? "0.875rem" : "1.5625rem";
+  const subHeaderFontSize = language === BHUTAN ? "0.875rem" : "1.5625rem";
+  const contentLineHeight = language === BHUTAN ? "1.5" : "";
+
   return (
     <div>
       {showIntro && (
         <>
           <Card
             width="220px"
+            height="276px"
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="0.5px solid #193145"
@@ -40,7 +43,12 @@ const BhutanCard = ({ showIntro, language, onJamBayClick, onKyichuClick }) => {
                 }}
               >
                 {SUPINE_INFORMATION[language].jambayName.header}{" "}
-                <span style={{ fontSize: subHeaderFontSize }}>
+                <span
+                  style={{
+                    fontSize: subHeaderFontSize,
+                    lineHeight: contentLineHeight,
+                  }}
+                >
                   {SUPINE_INFORMATION[language].jambayName.title}
                 </span>
               </div>
@@ -58,7 +66,12 @@ const BhutanCard = ({ showIntro, language, onJamBayClick, onKyichuClick }) => {
                 }}
               >
                 {SUPINE_INFORMATION[language].kyichuName.header}{" "}
-                <span style={{ fontSize: subHeaderFontSize }}>
+                <span
+                  style={{
+                    fontSize: subHeaderFontSize,
+                    lineHeight: contentLineHeight,
+                  }}
+                >
                   {SUPINE_INFORMATION[language].kyichuName.title}
                 </span>
               </div>

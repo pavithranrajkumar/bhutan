@@ -3,3 +3,8 @@
   left: 71.5%;
   top: 84.5%;
 }
+
+.fadeOut {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}

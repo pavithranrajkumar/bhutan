@@ -14,6 +14,7 @@ const JamBayCard = ({ showIntro, language, onJamBayCardImageClick }) => {
         <>
           <Card
             width="300px"
+            height="380px"
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="0.5px solid #555835"

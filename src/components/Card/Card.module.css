@@ -36,7 +36,6 @@
 .CardHeader {
   font-family: "Josefin Sans";
   margin: 0;
-  font-size: 14px;
 }
 
 .CardTitle {
@@ -51,4 +50,5 @@
   text-align: left;
   justify-content: left;
   font-family: "Public Sans";
+  font-size: 11px;
 }
