@@ -287,7 +287,7 @@ const Guru = () => {
           <NextIcon
             showIcons={showIcons}
             whiteImage={true}
-            left="37%"
+            left="37.8%"
             top="80%"
             onClick={showGuruCards}
             background="#2B455D"
@@ -297,8 +297,8 @@ const Guru = () => {
             showIcons={showIcons}
             whiteImage={true}
             language={language}
-            left="27.8%"
-            top="95.5%"
+            left="28.2%"
+            top="95.8%"
             iconWidth="25px"
             IconHeight="25px"
             height="48px"

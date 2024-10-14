@@ -319,7 +319,7 @@ const PemaLinghpa = () => {
           <NextIcon
             showIcons={showIcons}
             whiteImage={true}
-            left="74.3%"
+            left="74.8%"
             top="82%"
             height="70px"
             width="80px"
@@ -385,7 +385,7 @@ const PemaLinghpa = () => {
                 <NextIcon
                   showIcons={showIcons}
                   whiteImage={true}
-                  left="73.2%"
+                  left="73.5%"
                   top="84%"
                   height="70px"
                   width="80px"

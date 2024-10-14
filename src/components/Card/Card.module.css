@@ -22,10 +22,11 @@
   left: 63%;
   transform: translateX(-50%);
   display: flex;
+  padding: 10px;
 }
 
 .introduction {
-  margin: 25px;
+  margin: 15px;
 }
 
 .cardTitleContainer {
@@ -39,7 +40,7 @@
 .CardTitle {
   font-family: "Josefin Sans";
   border-bottom: 2px solid #001829;
-
+  padding-bottom: 5px;
 }
 
 .CardContent {

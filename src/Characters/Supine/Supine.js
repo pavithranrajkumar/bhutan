@@ -307,7 +307,7 @@ const Supine = () => {
           <NextIcon
             showIcons={showIcons}
             whiteImage={true}
-            left="17%"
+            left="17.5%"
             top="86%"
             onClick={showSupineCards}
             background="#2B455D"
@@ -318,7 +318,7 @@ const Supine = () => {
             whiteImage={true}
             language={language}
             left="5.4%"
-            top="74.1%"
+            top="73.8%"
             iconWidth="25px"
             IconHeight="25px"
             height="50px"

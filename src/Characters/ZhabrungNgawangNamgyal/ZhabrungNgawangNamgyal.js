@@ -179,7 +179,7 @@ const ZhabrungNgawangNamgyal = () => {
             width="200px"
             height="90px"
             paraSize="13px"
-            fontSize={language === BHUTAN ? "1.5rem" : "15px"}
+            fontSize={language === BHUTAN ? "1.1rem" : "15px"}
             year={
               showCards || selectedCard || showIntroduction
                 ? "1594-1651"

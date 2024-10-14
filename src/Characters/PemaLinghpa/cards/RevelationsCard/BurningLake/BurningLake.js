@@ -14,7 +14,7 @@ const BurningLake = ({ showIntro, language, onBurningLakeBookImgClick }) => {
         <>
           <Card
             width="330px"
-            height="320px"
+            height="305px"
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="0.5px solid #001829"

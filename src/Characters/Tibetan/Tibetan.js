@@ -284,7 +284,7 @@ const Tibetan = () => {
             width="220px"
             height="90px"
             paraSize="13px"
-            fontSize={language === BHUTAN ? "1.5rem" : "1.09375rem"}
+            fontSize={language === BHUTAN ? "1.35rem" : "1rem"}
             year={
               showCards || selectedCard || showIntroduction
                 ? "1200-1800"
@@ -305,7 +305,7 @@ const Tibetan = () => {
           <NextIcon
             showIcons={showIcons}
             whiteImage={true}
-            left="55.3%"
+            left="55.8%"
             top="85.7%"
             onClick={showTibetanCards}
             background="#2B455D"
@@ -334,7 +334,7 @@ const Tibetan = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             background="#523019"
-            left="49.5%"
+            left="49.8%"
             top="81.1%"
             iconWidth="25px"
             IconHeight="25px"
@@ -357,14 +357,14 @@ const Tibetan = () => {
                 iconWidth="25px"
                 IconHeight="25px"
                 left="47.2%"
-                top="77%"
+                top="75.5%"
                 height="55px"
                 background="#7D431C"
               />
               <HomeIcon
                 showIcons={showIcons}
                 left="46.5%"
-                top="73%"
+                top="71.5%"
                 background="#8F4110"
                 height="70px"
                 width="80px"
@@ -373,8 +373,8 @@ const Tibetan = () => {
               />
               <NextIcon
                 showIcons={showIcons}
-                left="56%"
-                top="85.8%"
+                left="56.7%"
+                top="85.7%"
                 onClick={showSchoolsCards}
                 background="#8F4110"
                 color="#FFDFC3"
