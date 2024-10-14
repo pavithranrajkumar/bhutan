@@ -15,7 +15,6 @@ const Card = ({
   borderBottom,
   height,
   fontWeight
-
 }) => {
   const headerFontSize = language === BHUTAN ? "0.5vw" : "0.52083vw"; // 1.125rem and 1.25rem converted
   const titleFontSize = language === BHUTAN ? "0.5vw" : "0.52083vw"; // 0.9375rem and 1.25rem converted

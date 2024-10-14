@@ -235,22 +235,7 @@ const Tibetan = () => {
     ? "#FCD7C2"
     : "white";
 
-  const paraSize =
-    language === BHUTAN
-      ? showCards || selectedCard || showIntroduction
-        ? "13px"
-        : "13px"
-      : showCards || selectedCard || showIntroduction
-      ? "13px"
-      : "18px";
-  const fontSize =
-    language === BHUTAN
-      ? showCards || selectedCard || showIntroduction
-        ? "1.5rem"
-        : "20px"
-      : showCards || selectedCard || showIntroduction
-      ? "15px"
-      : "16px";
+
 
   useEffect(() => {
     if (selectedCard) {
@@ -298,8 +283,8 @@ const Tibetan = () => {
             cardNameTwo={TIBETAN_INFORMATION[language].nameCardTitleSecond}
             width="220px"
             height="90px"
-            paraSize={paraSize}
-            fontSize={fontSize}
+            paraSize="13px"
+            fontSize={language === BHUTAN ? "1.5rem" : "1.09375rem"}
             year={
               showCards || selectedCard || showIntroduction
                 ? "1200-1800"
