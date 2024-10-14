@@ -17,8 +17,9 @@ const ManifestationWithImg = ({ onLakeBornClick, language }) => {
   const [selectedManifestation, setSelectedManifestation] = useState(null);
   const [activeIndex, setActiveIndex] = useState(null);
 
-  const headerFontSize = language === BHUTAN ? "3px" : "8.5px";
-  const paraFontSize = language === BHUTAN ? "3.5px" : "6.5px";
+  const headerFontSize = language === BHUTAN ? "1.2rem" : "8.5px";
+  const paraFontSize = language === BHUTAN ? "0.7rem" : "6.5px";
+  const contentLineHeight = language === BHUTAN ? "1" : "";
 
   const manifestationsData = [
     {
@@ -116,12 +117,13 @@ const ManifestationWithImg = ({ onLakeBornClick, language }) => {
       <div className={styles.manifestationFrstGroup}>
         {manifestationsData.slice(0, 4).map((manifestation, index) => (
           <WideCard
+          language={language}
             key={index}
             FrstHeader={manifestation.FrstHeader}
             ScndHeader={manifestation.ScndHeader}
             para={manifestation.para}
             width="200px"
-            height="35px"
+            height="50px"
             headerFontSize={headerFontSize}
             paraFontSize={paraFontSize}
             isActive={activeIndex === index} // Pass isActive prop
@@ -133,12 +135,13 @@ const ManifestationWithImg = ({ onLakeBornClick, language }) => {
       <div className={styles.manifestationScndGroup}>
         {manifestationsData.slice(4).map((manifestation, index) => (
           <WideCard
+          language={language}
             key={index + 4}
             FrstHeader={manifestation.FrstHeader}
             ScndHeader={manifestation.ScndHeader}
             para={manifestation.para}
             width="190px"
-            height="35px"
+            height="50px"
             headerFontSize={headerFontSize}
             paraFontSize={paraFontSize}
             isActive={activeIndex === index + 4} // Pass isActive prop

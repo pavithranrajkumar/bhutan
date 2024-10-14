@@ -6,15 +6,21 @@ import seal from "../../../../../assests/Zhabrung/Cards/Historic/Seal.png";
 import { BHUTAN } from "../../../../../constants/languages/Language";
 
 const SealCard = ({ showIntro, language }) => {
-  const fonstSize = language === BHUTAN ? "5.5px" : "9px";
+  const fonstSize = language === BHUTAN ? "0.8rem" : "9px";
   const titleFontSize = language === BHUTAN ? "12px" : "20px";
   const cardFonstSize = language === BHUTAN ? "7px" : "10.5px";
+  const contentLineHeight = language === BHUTAN ? "1" : "";
+  const paraLineHeight = language === BHUTAN ? "0.5" : "";
+
+
   return (
     <div>
       {showIntro && (
         <>
           <Card
             width="260px"
+            height="190px"
+
             titleFontSize={titleFontSize}
             contentFontSize={cardFonstSize}
             borderBottom="0.5px solid #193145"
@@ -29,8 +35,8 @@ const SealCard = ({ showIntro, language }) => {
             <img src={seal} alt="seal" />
           </div>
           <div className={styles.sealOfZhabdrungStatementCard}>
-            <div style={{ margin: "3px", fontSize: fonstSize }}>
-              <p style={{ fontSize: fonstSize }}>
+            <div style={{ fontSize: fonstSize, lineHeight: paraLineHeight }}>
+              <p style={{ fontSize: fonstSize}}>
                 {
                   ZHABRUNG_INFORMATION[language].sealOfZhabdrungStatement
                     .content.first

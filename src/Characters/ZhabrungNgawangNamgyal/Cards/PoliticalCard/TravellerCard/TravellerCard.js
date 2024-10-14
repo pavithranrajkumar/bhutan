@@ -11,7 +11,7 @@ const TravellerCard = ({ showIntro, language }) => {
       {showIntro && (
         <BigCard
           width="270px"
-          //   height="320px"
+             height="383px"
           titleFontSize={titleFontSize}
           cardFontSize={fonstSize}
           borderBottom="1px solid #193145"

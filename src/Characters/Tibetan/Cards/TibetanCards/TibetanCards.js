@@ -5,7 +5,8 @@ import { TIBETAN_INFORMATION } from "../../../../constants/Characters/Tibetan";
 import { BHUTAN } from "../../../../constants/languages/Language";
 
 const TibetanCards = ({ isFadingOut, language, onCardClick }) => {
-  const fonstSize = language === BHUTAN ? "11px" : "14px";
+  const fonstSize = language === BHUTAN ? "1.2rem" : "14px";
+  const contentLineHeight = language === BHUTAN ? "1" : "";
 
   return (
     <div>
@@ -24,7 +25,7 @@ const TibetanCards = ({ isFadingOut, language, onCardClick }) => {
         >
           <div
             className={styles.CardsContainerText}
-            style={{ fontSize: fonstSize }}
+            style={{ fontSize: fonstSize, lineHeight: contentLineHeight, }}
           >
             {TIBETAN_INFORMATION[language].arrival.title}
           </div>
@@ -38,7 +39,7 @@ const TibetanCards = ({ isFadingOut, language, onCardClick }) => {
         >
           <div
             className={styles.CardsContainerText}
-            style={{ fontSize: fonstSize }}
+            style={{ fontSize: fonstSize, lineHeight: contentLineHeight, }}
           >
             {" "}
             {TIBETAN_INFORMATION[language].bhddhistSchools.title}

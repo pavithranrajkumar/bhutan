@@ -123,18 +123,11 @@ const ZhabrungNgawangNamgyal = () => {
     ? "#FCD7C2"
     : "white";
 
-  const paraSize =
-    language === BHUTAN
-      ? showCards || selectedCard || showIntroduction
-        ? "10px"
-        : "15px"
-      : showCards || selectedCard || showIntroduction
-      ? "10px"
-      : "15px";
+
   const fontSize =
     language === BHUTAN
       ? showCards || selectedCard || showIntroduction
-        ? "10px"
+        ? "1.5rem"
         : "15px"
       : showCards || selectedCard || showIntroduction
       ? "15px"
@@ -185,8 +178,8 @@ const ZhabrungNgawangNamgyal = () => {
             cardName={ZHABRUNG_INFORMATION[language].title}
             width="200px"
             height="90px"
-            paraSize={paraSize}
-            fontSize={fontSize}
+            paraSize="13px"
+            fontSize={language === BHUTAN ? "1.5rem" : "15px"}
             year={
               showCards || selectedCard || showIntroduction
                 ? "1594-1651"
@@ -477,14 +470,14 @@ const ZhabrungNgawangNamgyal = () => {
                 height="40px"
                 width="40px"
                 margin="12px"
-                left="88.5%"
-                top="80.8%"
+                left="84.4%"
+                top="74.5%"
               />
               <HomeIcon
                 showIcons={showIcons}
                 background="#8F4110"
-                left="86.3%"
-                top="79.5%"
+                left="83.8%"
+                top="70.5%"
                 height="50px"
                 width="70px"
                 margin="15px"

@@ -26,6 +26,8 @@ const PopularSchoolsCard = ({
         <>
           <BigCard
             width="350px"
+            height="290px"
+
             titleFontSize={titleFontSize}
             cardFontSize={fonstSize}
             borderBottom="1px solid #001829"

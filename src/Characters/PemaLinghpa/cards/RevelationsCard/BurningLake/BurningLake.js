@@ -14,11 +14,13 @@ const BurningLake = ({ showIntro, language, onBurningLakeBookImgClick }) => {
         <>
           <Card
             width="330px"
+            height="320px"
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="0.5px solid #001829"
             backgroundColor="#C9D7EE"
             color="#001829"
+            fontWeight="800"
             header={PEMA_LINGPA_INFORMATION[language].burningLake.header}
             title={PEMA_LINGPA_INFORMATION[language].burningLake.title}
             content={PEMA_LINGPA_INFORMATION[language].burningLake.content}

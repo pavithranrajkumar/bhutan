@@ -12,9 +12,9 @@ const ReligiousCard = ({
   onHimalayanClick,
   onBhutanClick,
 }) => {
-  const headerFontSize = language === BHUTAN ? "0.875rem" : "0.5625rem";
-  const subHeaderFontSize = language === BHUTAN ? "0.625rem" : "0.9375rem";
-  const contentLineHeight = language === BHUTAN ? "1.5" : "";
+  const headerFontSize = language === BHUTAN ? "1.3rem" : "0.5625rem";
+  const subHeaderFontSize = language === BHUTAN ? "1rem" : "0.9375rem";
+  const contentLineHeight = language === BHUTAN ? "1" : "";
 
   return (
     <div>

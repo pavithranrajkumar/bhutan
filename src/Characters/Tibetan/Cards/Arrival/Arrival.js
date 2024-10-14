@@ -12,6 +12,8 @@ const Arrival = ({ showIntro, language }) => {
         <>
           <Card
             width="270px"
+            height="335px"
+
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="0.5px solid #8F4110"

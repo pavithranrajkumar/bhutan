@@ -29,20 +29,17 @@
 }
 
 .cardTitleContainer {
-  padding: 0;
-  margin: 0;
+ 
 }
 
 .CardHeader {
   font-family: "Josefin Sans";
-  margin: 0;
 }
 
 .CardTitle {
   font-family: "Josefin Sans";
   border-bottom: 2px solid #001829;
-  padding: 2px 0;
-  margin: 0;
+
 }
 
 .CardContent {

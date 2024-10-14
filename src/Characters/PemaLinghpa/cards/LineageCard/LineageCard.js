@@ -36,6 +36,7 @@ const LineageCard = ({ showIntro, language }) => {
         <>
           <Card
             width="280px"
+            height="300px"
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="0.5px solid #6A1F11"

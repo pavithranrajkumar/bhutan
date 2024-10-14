@@ -7,13 +7,14 @@ import { BHUTAN } from "../../../../constants/languages/Language";
 const PoliticalCard = ({ showIntro, onTravelerClick, language }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "15px";
   const fonstSize = language === BHUTAN ? "7.5px" : "12px";
-  const headerFontSize = language === BHUTAN ? "10px" : "20px";
+  const headerFontSize = language === BHUTAN ? "1.2rem" : "20px";
   return (
     <div>
       {showIntro && (
         <>
           <BigCard
             width="325px"
+            height="293px"
             titleFontSize={titleFontSize}
             cardFontSize={fonstSize}
             borderBottom="1px solid #6A1F11"
@@ -28,7 +29,7 @@ const PoliticalCard = ({ showIntro, onTravelerClick, language }) => {
             showIntro={showIntro}
           />
           <div className={styles.TravellersCard} onClick={onTravelerClick}>
-            <div style={{ marginTop: "18px", fontSize: headerFontSize }}>
+            <div style={{  fontSize: headerFontSize }} className={styles.text}>
               {ZHABRUNG_INFORMATION[language].foreignTravellers.title}
             </div>
           </div>

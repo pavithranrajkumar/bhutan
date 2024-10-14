@@ -8,7 +8,9 @@ import { BHUTAN } from "../../../../../constants/languages/Language";
 const HistoricCard = ({ showIntro, onKurjeClick, language }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "25px";
   const fonstSize = language === BHUTAN ? "8px" : "11px";
-  const KurjeFonstSize = language === BHUTAN ? "8.5px" : "15px";
+  const KurjeFonstSize = language === BHUTAN ? "1.3rem" : "15px";
+  const contentLineHeight = language === BHUTAN ? "1" : "";
+
 
   return (
     <div>
@@ -36,10 +38,11 @@ const HistoricCard = ({ showIntro, onKurjeClick, language }) => {
                 display: "flex",
                 flexDirection: "column",
                 fontSize: KurjeFonstSize,
+                lineHeight: contentLineHeight,
               }}
             >
               {GURU_INFORMATION[language].kurjeCard.title}{" "}
-              <span>{GURU_INFORMATION[language].kurjeCard.subTitle}</span>
+              <span >{GURU_INFORMATION[language].kurjeCard.subTitle}</span>
             </div>
           </div>
           <div

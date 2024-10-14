@@ -5,7 +5,9 @@ import { GURU_INFORMATION } from "../../../../constants/Characters/Guru";
 import { BHUTAN } from "../../../../constants/languages/Language";
 
 const GuruCards = ({ isFadingOut, language, onCardClick }) => {
-  const fonstSize = language === BHUTAN ? "11.5px" : "15px";
+  const fonstSize = language === BHUTAN ? "1.3rem" : "15px";
+  const contentLineHeight = language === BHUTAN ? "1" : "";
+
   return (
     <div>
       <motion.div
@@ -23,7 +25,8 @@ const GuruCards = ({ isFadingOut, language, onCardClick }) => {
         >
           <div
             className={styles.CardsContainerText}
-            style={{ fontSize: fonstSize }}
+            style={{ fontSize: fonstSize,                    lineHeight: contentLineHeight,
+            }}
           >
             {GURU_INFORMATION[language].historicBackground.title}
           </div>
@@ -37,7 +40,8 @@ const GuruCards = ({ isFadingOut, language, onCardClick }) => {
         >
           <div
             className={styles.CardsContainerText}
-            style={{ fontSize: fonstSize }}
+            style={{ fontSize: fonstSize,                    lineHeight: contentLineHeight,
+            }}
           >
             {GURU_INFORMATION[language].guruCards.title}{" "}
           </div>
@@ -51,7 +55,8 @@ const GuruCards = ({ isFadingOut, language, onCardClick }) => {
         >
           <div
             className={styles.CardsContainerText}
-            style={{ fontSize: fonstSize }}
+            style={{ fontSize: fonstSize,                    lineHeight: contentLineHeight,
+            }}
           >
             {GURU_INFORMATION[language].guruCards.header}
           </div>

@@ -7,13 +7,17 @@ import { BHUTAN } from "../../../../constants/languages/Language";
 const DriglamCard = ({ showIntro, language }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "20px";
   const fonstSize = language === BHUTAN ? "5.19px" : "11px";
-  const headerFontSize = language === BHUTAN ? "8.89px" : "13px";
+  const headerFontSize = language === BHUTAN ? "0.95rem" : "13px";
+  const contentLineHeight = language === BHUTAN ? "1" : "";
+
   return (
     <div>
       {showIntro && (
         <>
           <Card
             width="330px"
+            height="230px"
+
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="0.5px solid #8F4110"
@@ -25,14 +29,14 @@ const DriglamCard = ({ showIntro, language }) => {
             showIntro={showIntro}
           />
           <div className={styles.DriglamNamzhagTopCard}>
-            <div style={{ margin: "20px" }}>
-              <p style={{ fontSize: headerFontSize }}>
+            <div className={styles.DriglamNamzhagTopCard}>
+              <p style={{ fontSize: headerFontSize,lineHeight: contentLineHeight,  }}>
                 {ZHABRUNG_INFORMATION[language].driglamNamzhagStatement.first}
               </p>
-              <p style={{ fontSize: headerFontSize }}>
+              <p style={{ fontSize: headerFontSize,lineHeight: contentLineHeight,  }}>
                 {ZHABRUNG_INFORMATION[language].driglamNamzhagStatement.second}
               </p>
-              <p style={{ fontSize: headerFontSize }}>
+              <p style={{ fontSize: headerFontSize,lineHeight: contentLineHeight,  }}>
                 {ZHABRUNG_INFORMATION[language].driglamNamzhagStatement.third}
               </p>
             </div>

@@ -14,6 +14,7 @@ const Monastries = ({ showIntro, language, onMonasteriesImgClick }) => {
         <>
           <Card
             width="280px"
+            height="280px"
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="0.5px solid #001829"

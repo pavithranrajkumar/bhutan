@@ -14,6 +14,7 @@ const Palace = ({ showIntro, onPalaceImgClick, language }) => {
         <>
           <Card
             width="300px"
+            height="223px"
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="0.5px solid #2B455D"

@@ -7,13 +7,14 @@ import { BHUTAN } from "../../../../constants/languages/Language";
 const ReligiousCard = ({ showIntro, onSealClick, language }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "15px";
   const fonstSize = language === BHUTAN ? "6.2px" : "11px";
-  const cardFonstSize = language === BHUTAN ? "11.5px" : "22px";
+  const cardFonstSize = language === BHUTAN ? "1.2rem" : "22px";
   return (
     <div>
       {showIntro && (
         <>
           <Card
             width="320px"
+            height="200px"
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="0.5px solid #8F4110"

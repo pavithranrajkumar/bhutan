@@ -19,13 +19,16 @@ const SchoolsCard = ({
   }, [showIntro]);
   const titleFontSize = language === BHUTAN ? "12px" : "25px";
   const fonstSize = language === BHUTAN ? "7px" : "10.5px";
-  const headerFontSize = language === BHUTAN ? "11.2px" : "18px";
+  const headerFontSize = language === BHUTAN ? "1.2rem" : "18px";
+  const contentLineHeight = language === BHUTAN ? "1" : "";
+
   return (
     <div>
       {showIntro && (
         <>
           <Card
             width="350px"
+            height="230px"
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="0.5px solid #8F4110"
@@ -43,7 +46,7 @@ const SchoolsCard = ({
               }`}
               onClick={onPopularSchoolsClick}
             >
-              <div style={{ marginTop: "15px", fontSize: headerFontSize }}>
+              <div style={{ marginTop: "15px", fontSize: headerFontSize, lineHeight: contentLineHeight, }}>
                 {TIBETAN_INFORMATION[language].popularSchools.title}
               </div>
             </div>
@@ -53,7 +56,7 @@ const SchoolsCard = ({
               }`}
               onClick={onDrukpaKagyuClick}
             >
-              <div style={{ marginTop: "15px", fontSize: headerFontSize }}>
+              <div style={{ marginTop: "15px", fontSize: headerFontSize, lineHeight: contentLineHeight, }}>
                 {TIBETAN_INFORMATION[language].drukpaKagyu.title}
               </div>
             </div>

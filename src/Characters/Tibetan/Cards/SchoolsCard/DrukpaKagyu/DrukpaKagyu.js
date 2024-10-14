@@ -21,6 +21,7 @@ const DrukpaKagyu = ({ showIntro, language, onDrugpaKagyuImgClick }) => {
         <>
           <Card
             width="300px"
+            height="290px"
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="1px solid #001829"

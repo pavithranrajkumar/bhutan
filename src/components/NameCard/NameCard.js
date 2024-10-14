@@ -21,7 +21,7 @@ const NameCard = ({
   subCardnameMarginLeft,
   cardNameTwo,
 }) => {
-  const contentLineHeight = language === BHUTAN ? "1.5" : "normal";
+  const contentLineHeight = language === BHUTAN ? "1.1" : "normal";
 
   return (
     <motion.div
@@ -51,7 +51,6 @@ const NameCard = ({
           style={{
             fontSize: subCardnameFontSize,
             marginLeft: subCardnameMarginLeft,
-            lineHeight: contentLineHeight,
           }}
         >
           {subCardname}

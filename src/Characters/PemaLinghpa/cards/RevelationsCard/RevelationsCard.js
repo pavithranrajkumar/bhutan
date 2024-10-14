@@ -15,8 +15,9 @@ const RevelationsCard = ({
   const titleFontSize = language === BHUTAN ? "12px" : "30px";
   const fonstSize = language === BHUTAN ? "10px" : "13.2px";
 
-  const headerFontSize = language === BHUTAN ? "10px" : "12px";
-  const subHeaderFontSize = language === BHUTAN ? "12px" : "20px";
+  const headerFontSize = language === BHUTAN ? "1.2rem" : "12px";
+  const subHeaderFontSize = language === BHUTAN ? "1rem" : "20px";
+  const contentLineHeight = language === BHUTAN ? "1" : "";
 
   return (
     <div>
@@ -24,6 +25,8 @@ const RevelationsCard = ({
         <>
           <Card
             width="350px"
+            height="200px"
+
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="0.5px solid #6A1F11"
@@ -38,13 +41,13 @@ const RevelationsCard = ({
             <div className={styles.revelationsCard} onClick={onNaringDragClick}>
               <div
                 className={styles.title}
-                style={{ fontSize: headerFontSize }}
+                style={{ fontSize: headerFontSize, lineHeight: contentLineHeight, }}
               >
                 {PEMA_LINGPA_INFORMATION[language].naringDrag.header}
               </div>
               <div
                 className={styles.header}
-                style={{ fontSize: subHeaderFontSize }}
+                style={{ fontSize: subHeaderFontSize, lineHeight: contentLineHeight, }}
               >
                 {PEMA_LINGPA_INFORMATION[language].naringDrag.title}
               </div>
@@ -58,13 +61,13 @@ const RevelationsCard = ({
             >
               <div
                 className={styles.burningLakeTitle}
-                style={{ fontSize: headerFontSize }}
+                style={{ fontSize: headerFontSize, lineHeight: contentLineHeight, }}
               >
                 {PEMA_LINGPA_INFORMATION[language].burningLake.header}
               </div>
               <div
                 className={styles.burningLakeHeader}
-                style={{ fontSize: subHeaderFontSize }}
+                style={{ fontSize: subHeaderFontSize, lineHeight: contentLineHeight, }}
               >
                 {PEMA_LINGPA_INFORMATION[language].burningLake.title}
               </div>

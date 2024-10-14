@@ -15,8 +15,8 @@ const LegacyCards = ({
   const titleFontSize = language === BHUTAN ? "12px" : "30px";
   const fonstSize = language === BHUTAN ? "9px" : "13.2px";
 
-  const headerFontSize = language === BHUTAN ? "10px" : "12px";
-  const subHeaderFontSize = language === BHUTAN ? "12px" : "20px";
+  const headerFontSize = language === BHUTAN ? "1.2rem" : "12px";
+  const subHeaderFontSize = language === BHUTAN ? "1.2rem" : "20px";
 
   return (
     <div>

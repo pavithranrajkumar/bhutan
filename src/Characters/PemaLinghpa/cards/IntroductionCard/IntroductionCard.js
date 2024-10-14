@@ -12,6 +12,7 @@ const IntroductionCard = ({ showIntro, language }) => {
         <>
           <Card
             width="445px"
+            height="250px"
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="0.5px solid white"

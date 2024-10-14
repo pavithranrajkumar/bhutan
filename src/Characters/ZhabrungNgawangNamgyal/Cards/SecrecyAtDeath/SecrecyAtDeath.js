@@ -12,6 +12,7 @@ const SecrecyAtDeath = ({ showIntro, language }) => {
         <>
           <BigCard
             width="320px"
+            height="330px"
             titleFontSize={titleFontSize}
             cardFontSize={fonstSize}
             borderBottom="1px solid #FCD7C2"

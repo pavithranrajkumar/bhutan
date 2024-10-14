@@ -5,7 +5,9 @@ import { ZHABRUNG_INFORMATION } from "../../../../constants/Characters/ZhabrungN
 import { BHUTAN } from "../../../../constants/languages/Language";
 
 const ZhabrungCards = ({ isFadingOut, language, onCardClick }) => {
-  const fonstSize = language === BHUTAN ? "11.5px" : "14px";
+  const fonstSize = language === BHUTAN ? "1.2rem" : "14px";
+  const contentLineHeight = language === BHUTAN ? "1" : "";
+
   return (
     <div>
       <motion.div
@@ -23,7 +25,7 @@ const ZhabrungCards = ({ isFadingOut, language, onCardClick }) => {
         >
           <div
             className={styles.CardsContainerText}
-            style={{ fontSize: fonstSize }}
+            style={{ fontSize: fonstSize ,lineHeight: contentLineHeight}}
           >
             {ZHABRUNG_INFORMATION[language].historicBackground.title}
           </div>
@@ -37,7 +39,7 @@ const ZhabrungCards = ({ isFadingOut, language, onCardClick }) => {
         >
           <div
             className={styles.CardsContainerText}
-            style={{ fontSize: fonstSize }}
+            style={{ fontSize: fonstSize ,lineHeight: contentLineHeight}}
           >
             {" "}
             {ZHABRUNG_INFORMATION[language].religiousInflunce.title}
@@ -52,7 +54,7 @@ const ZhabrungCards = ({ isFadingOut, language, onCardClick }) => {
         >
           <div
             className={styles.CardsContainerText}
-            style={{ fontSize: fonstSize }}
+            style={{ fontSize: fonstSize,lineHeight: contentLineHeight }}
           >
             {" "}
             {ZHABRUNG_INFORMATION[language].politicalInfluence.title}
@@ -67,7 +69,7 @@ const ZhabrungCards = ({ isFadingOut, language, onCardClick }) => {
         >
           <div
             className={styles.CardsContainerText}
-            style={{ fontSize: fonstSize }}
+            style={{ fontSize: fonstSize,lineHeight: contentLineHeight }}
           >
             {ZHABRUNG_INFORMATION[language].administration.title}
           </div>
@@ -81,7 +83,7 @@ const ZhabrungCards = ({ isFadingOut, language, onCardClick }) => {
         >
           <div
             className={styles.CardsContainerText}
-            style={{ fontSize: fonstSize }}
+            style={{ fontSize: fonstSize,lineHeight: contentLineHeight }}
           >
             {" "}
             {ZHABRUNG_INFORMATION[language].secrecyAtDeath.title}
@@ -96,7 +98,7 @@ const ZhabrungCards = ({ isFadingOut, language, onCardClick }) => {
         >
           <div
             className={styles.CardsContainerText}
-            style={{ fontSize: fonstSize }}
+            style={{ fontSize: fonstSize,lineHeight: contentLineHeight }}
           >
             {" "}
             {ZHABRUNG_INFORMATION[language].driglamNamzhag.title}

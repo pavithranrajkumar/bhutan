@@ -9,4 +9,15 @@
   height: 80px;
   width: 250px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.text{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }

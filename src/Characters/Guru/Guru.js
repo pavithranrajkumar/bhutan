@@ -71,7 +71,7 @@ const Guru = () => {
   const fontSize =
     language === BHUTAN
       ? showCards || selectedCard || showIntroduction
-        ? "17px"
+        ? "1.5rem"
         : "19px"
       : showCards || selectedCard || showIntroduction
       ? "19px"
@@ -263,7 +263,7 @@ const Guru = () => {
             width="200px"
             height="90px"
             subCardname={GURU_INFORMATION[language].subCardName}
-            subCardnameFontSize={language === BHUTAN ? "10px" : "12px"}
+            subCardnameFontSize={language === BHUTAN ? "1rem" : "12px"}
             subCardnameMarginLeft={language === BHUTAN ? "90px" : "40px"}
             paraSize={paraSize}
             fontSize={fontSize}

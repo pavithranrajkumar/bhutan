@@ -22,6 +22,7 @@ const PelingDance = ({ showIntro, language, onPelingVideoClick }) => {
         <>
           <Card
             width="280px"
+            height="250px"
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="0.5px solid #001829"

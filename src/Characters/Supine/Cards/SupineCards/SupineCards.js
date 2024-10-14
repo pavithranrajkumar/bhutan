@@ -2,10 +2,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import styles from "./SupineCards.module.css";
 import { SUPINE_INFORMATION } from "../../../../constants/Characters/Supine";
+import { BHUTAN } from "../../../../constants/languages/Language";
 
 const SupineCards = ({ isFadingOut, language, onCardClick }) => {
   const titleStyle =
-    language === "bhutan" ? { fontSize: "15px" } : { fontSize: "21px" };
+    language === BHUTAN ? { fontSize: "1.6rem" } : { fontSize: "21px" };
   return (
     <div>
       <motion.div

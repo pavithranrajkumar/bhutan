@@ -10,9 +10,9 @@ const BhutanCard = ({ showIntro, language, onJamBayClick, onKyichuClick }) => {
   const titleFontSize = language === BHUTAN ? "16px" : "20px";
   const fonstSize = language === BHUTAN ? "8.74px" : "12px";
 
-  const headerFontSize = language === BHUTAN ? "0.875rem" : "1.5625rem";
-  const subHeaderFontSize = language === BHUTAN ? "0.875rem" : "1.5625rem";
-  const contentLineHeight = language === BHUTAN ? "1.5" : "";
+  const headerFontSize = language === BHUTAN ? "1.3rem" : "1.5625rem";
+  const subHeaderFontSize = language === BHUTAN ? "1.3rem" : "1.5625rem";
+  const contentLineHeight = language === BHUTAN ? "1" : "";
 
   return (
     <div>

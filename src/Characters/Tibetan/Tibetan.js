@@ -246,8 +246,8 @@ const Tibetan = () => {
   const fontSize =
     language === BHUTAN
       ? showCards || selectedCard || showIntroduction
-        ? "10px"
-        : "10px"
+        ? "1.5rem"
+        : "20px"
       : showCards || selectedCard || showIntroduction
       ? "15px"
       : "16px";
@@ -330,7 +330,7 @@ const Tibetan = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
-            left="43.8%"
+            left="44.2%"
             top="73.5%"
             height="65px"
           />

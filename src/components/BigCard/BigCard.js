@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import styles from "./BigCard.module.css";
+import { BHUTAN } from "../../constants/languages/Language";
 
 const BigCard = ({
   title,
@@ -13,7 +14,13 @@ const BigCard = ({
   subContent,
   height,
   borderBottom,
+  language
 }) => {
+  const headerFontSize = language === BHUTAN ? "0.5vw" : "0.52083vw"; // 1.125rem and 1.25rem converted
+  const titleFontSize = language === BHUTAN ? "0.5vw" : "0.52083vw"; // 0.9375rem and 1.25rem converted
+  const contentFontSize = language === BHUTAN ? "0.32vw" : "0.29166667vw"; // 0.625rem and 0.6875rem converted
+  const contentLineHeight = language === BHUTAN ? "1.5" : ""; // You can keep this as is or adjust as needed
+
   return (
     <motion.div
       className={styles.detailCard}
@@ -39,8 +46,15 @@ const BigCard = ({
           transition={{ duration: 0.8 }}
         >
           <div className={styles.cardTitleContainer}>
-            <div className={styles.CardHeader}>{header}</div>
-            <div className={styles.CardTitle} style={{ borderBottom }}>
+            <div className={styles.CardHeader}style={{
+                fontSize: headerFontSize,
+                lineHeight: contentLineHeight,
+              }}>{header}</div>
+            <div className={styles.CardTitle}  style={{
+                borderBottom,
+                fontSize: titleFontSize,
+                lineHeight: contentLineHeight,
+              }}>
               {title}
             </div>
           </div>
@@ -52,13 +66,13 @@ const BigCard = ({
         >
           <div
             className={styles.CardContent}
-            // style={{ fontSize: cardFontSize }}
+            style={{ fontSize: contentFontSize, lineHeight: contentLineHeight }}
           >
             {content}
           </div>
           <div
             className={styles.CardSubContent}
-            // style={{ fontSize: cardFontSize }}
+            style={{ fontSize: contentFontSize, lineHeight: contentLineHeight }}
           >
             {subContent}
           </div>
