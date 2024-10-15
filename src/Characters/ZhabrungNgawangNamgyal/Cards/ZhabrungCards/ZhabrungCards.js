@@ -22,7 +22,6 @@ const ZhabrungCards = ({ isFadingOut, language, onCardClick }) => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
           onClick={() => onCardClick("driglam")}
-
         >
           <div
             className={styles.CardsContainerText}
