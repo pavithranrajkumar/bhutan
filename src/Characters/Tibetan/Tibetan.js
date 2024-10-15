@@ -192,7 +192,7 @@ const Tibetan = () => {
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.4 }}
-        onClick={handleCardOrImageClick}
+        // onClick={handleCardOrImageClick}
       >
         <img src={tibetan} alt="Pema Lingpa" />
       </motion.div>
@@ -336,14 +336,14 @@ const Tibetan = () => {
                 iconWidth="25px"
                 IconHeight="25px"
                 left="46.4%"
-                top="80%"
+                top="84%"
                 height="55px"
                 background="#7D431C"
               />
               <HomeIcon
                 showIcons={showIcons}
                 left="45.8%"
-                top="76%"
+                top="80%"
                 background="#8F4110"
                 height="70px"
                 width="80px"
@@ -353,7 +353,7 @@ const Tibetan = () => {
               <CloseIcon
                 showIcons={showIcons}
                 left="45.8%"
-                top="72%"
+                top="76%"
                 background="#8F4110"
                 onClick={handleCardOrImageClick}
               />

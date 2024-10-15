@@ -42,6 +42,11 @@
   top: 96.2%;
   height: 70px;
   width: 200px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .revelationsCard::before{
@@ -60,19 +65,21 @@
 }
 
 .title {
-  margin: 20px 0 0 48px;
   font-size: 12px;
   font-family: "Josefin Sans";
-  text-align: left;
   color: #001829;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .header {
-  margin-left: 35px;
   font-size: 20px;
   font-family: "Hammersmith One";
-  text-align: left;
   color: #001829;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 @media (max-width: 480px) {

@@ -391,8 +391,17 @@ const Supine = () => {
             showIcons={showIcons}
             background="#555835"
             left="4.4%"
-            top="75.4%"
+            top="71.5%"
             onClick={handleCardOrImageClick}
+          />
+             <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            background="#555835"
+            left="4.4%"
+            top="75.5%"
+            height="80px"
+            marginTop="28px"
           />
         </>
       )}

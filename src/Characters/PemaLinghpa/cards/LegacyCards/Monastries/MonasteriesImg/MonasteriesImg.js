@@ -75,9 +75,9 @@ const MonasteriesImg = () => {
 
       {selectedImageIndex !== null && (
         <div className={styles.palaceenlargedImg1}>
-          <button onClick={handleClose} className={styles.closeButton}>
-            &times; {/* Close button symbol */}
-          </button>
+          {/* <button onClick={handleClose} className={styles.closeButton}>
+            &times; 
+          </button> */}
           <Swiper
             initialSlide={selectedImageIndex}
             spaceBetween={10}

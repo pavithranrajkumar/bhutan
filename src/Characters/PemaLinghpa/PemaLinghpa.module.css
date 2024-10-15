@@ -89,7 +89,7 @@
 .NaringDragCard {
   position: fixed;
   left: 66%;
-  top: 83.5%;
+  top: 83%;
 }
 
 .BurningLakeCard {
@@ -100,7 +100,7 @@
 
 .NaringDragBook {
   position: fixed;
-  left: 60.5%;
+  left: 61.5%;
   top: 84.5%;
 }
 
@@ -288,7 +288,7 @@
   cursor: pointer;
   position: fixed;
   background: #c9d7ee;
-  left: 71.6%;
+  left: 71.5%;
   top: 95.8%;
   padding: 0.3vw;
   width: 120px;  

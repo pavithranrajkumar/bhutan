@@ -38,7 +38,7 @@
   position: fixed;
   left: 27%;
   top: 84%;
-  width: 310px;
+  width: 315px;
   height: 245px;
   border: 10px solid white; /* This adds a white border */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for a Polaroid effect */
@@ -47,7 +47,7 @@
 }
 
 .palaceenlargedImg1 img {
-  width: 310px;
+  width: 320px;
   height: 245px;
 }
 

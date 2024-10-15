@@ -495,7 +495,7 @@ const PemaLinghpa = () => {
                   language={language}
                   onClick={toggleLanguage}
                   showIcons={showIcons}
-                  left="60.8%"
+                  left="61.8%"
                   top="96%"
                   iconWidth="25px"
                   IconHeight="25px"
@@ -504,7 +504,7 @@ const PemaLinghpa = () => {
                 />
                 <HomeIcon
                   showIcons={showIcons}
-                  left="60.2%"
+                  left="61.2%"
                   top="92%"
                   background="#6A1F11"
                   height="70px"
@@ -514,7 +514,7 @@ const PemaLinghpa = () => {
                 />
                 <CloseIcon
                   showIcons={showIcons}
-                  left="60.2%"
+                  left="61.2%"
                   top="88%"
                   background="#6A1F11"
                   onClick={handleCardOrImageClick}
@@ -537,8 +537,8 @@ const PemaLinghpa = () => {
                   language={language}
                   onClick={toggleLanguage}
                   showIcons={showIcons}
-                  left="60.8%"
-                  top="96%"
+                  left="61.8%"
+                  top="91.5%"
                   iconWidth="25px"
                   IconHeight="25px"
                   height="55px"
@@ -546,8 +546,8 @@ const PemaLinghpa = () => {
                 />
                 <HomeIcon
                   showIcons={showIcons}
-                  left="60.2%"
-                  top="92%"
+                  left="61.2%"
+                  top="87.5%"
                   background="#6A1F11"
                   height="70px"
                   width="80px"
@@ -556,8 +556,8 @@ const PemaLinghpa = () => {
                 />
                 <CloseIcon
                   showIcons={showIcons}
-                  left="60.2%"
-                  top="88%"
+                  left="61.2%"
+                  top="83.5%"
                   background="#6A1F11"
                   onClick={handleCardOrImageClick}
                 />
@@ -704,33 +704,36 @@ const PemaLinghpa = () => {
               onBurningLakeBookImgClick={handleBurningLakeBookImgClick}
             />
           </div>
-          <PreviousIcon
-            onClick={handlePreviousClick}
-            showIcons={showIcons}
-            left="63%"
-            top="86.8%"
-            height="130px"
-            marginTop="50px"
-          />
-          <HomeIcon
-            showIcons={showIcons}
-            whiteImage={true}
-            left="63%"
-            top="93%"
-            onClick={handleHomeClick}
-          />
           <LanguageIcon
             language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
-            whiteImage={true}
-            left="63.6%"
+            left="64.25%"
             top="97%"
+            whiteImage={true}
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            left="63.6%"
+            top="93%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            onClick={handleHomeClick}
+            whiteImage={true}
+          />
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="63.6%"
+            top="88.2%"
+            height="100px"
+            marginTop="40px"
           />
           <CloseIcon
             showIcons={showIcons}
-            left="63%"
-            top="83%"
+            left="63.6%"
+            top="84.3%"
             onClick={handleCardOrImageClick}
           />
         </>
@@ -890,33 +893,36 @@ const PemaLinghpa = () => {
               {PEMA_LINGPA_INFORMATION[language].monastriesAndTemples.header}
             </div>
           </div>
-          <HomeIcon
-            showIcons={showIcons}
-            whiteImage={true}
-            left="61.8%"
-            top="91.3%"
-            onClick={handleHomeClick}
-          />
           <LanguageIcon
             language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
+            left="63.4%"
+            top="97%"
             whiteImage={true}
-            left="62.4%"
-            top="95.2%"
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            left="62.8%"
+            top="93%"
+            height="70px"
+            width="80px"
+            margin="25px"
+            onClick={handleHomeClick}
+            whiteImage={true}
           />
           <PreviousIcon
             onClick={handlePreviousClick}
             showIcons={showIcons}
-            left="61.8%"
-            top="85%"
-            height="130px"
-            marginTop="50px"
+            left="62.8%"
+            top="88.2%"
+            height="100px"
+            marginTop="40px"
           />
           <CloseIcon
             showIcons={showIcons}
-            left="61.8%"
-            top="81%"
+            left="62.8%"
+            top="84.3%"
             onClick={handleCardOrImageClick}
           />
         </>

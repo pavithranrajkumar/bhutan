@@ -21,13 +21,15 @@ const ZhabrungCards = ({ isFadingOut, language, onCardClick }) => {
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          onClick={() => onCardClick("historic")}
+          onClick={() => onCardClick("driglam")}
+
         >
           <div
             className={styles.CardsContainerText}
-            style={{ fontSize: fonstSize ,lineHeight: contentLineHeight}}
+            style={{ fontSize: fonstSize, lineHeight: contentLineHeight }}
           >
-            {ZHABRUNG_INFORMATION[language].historicBackground.title}
+            {" "}
+            {ZHABRUNG_INFORMATION[language].driglamNamzhag.title}
           </div>
         </motion.div>
         <motion.div
@@ -35,14 +37,14 @@ const ZhabrungCards = ({ isFadingOut, language, onCardClick }) => {
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          onClick={() => onCardClick("religious")}
+          onClick={() => onCardClick("secrecy")}
         >
           <div
             className={styles.CardsContainerText}
-            style={{ fontSize: fonstSize ,lineHeight: contentLineHeight}}
+            style={{ fontSize: fonstSize, lineHeight: contentLineHeight }}
           >
             {" "}
-            {ZHABRUNG_INFORMATION[language].religiousInflunce.title}
+            {ZHABRUNG_INFORMATION[language].secrecyAtDeath.title}
           </div>
         </motion.div>
         <motion.div
@@ -54,7 +56,7 @@ const ZhabrungCards = ({ isFadingOut, language, onCardClick }) => {
         >
           <div
             className={styles.CardsContainerText}
-            style={{ fontSize: fonstSize,lineHeight: contentLineHeight }}
+            style={{ fontSize: fonstSize, lineHeight: contentLineHeight }}
           >
             {" "}
             {ZHABRUNG_INFORMATION[language].politicalInfluence.title}
@@ -69,7 +71,7 @@ const ZhabrungCards = ({ isFadingOut, language, onCardClick }) => {
         >
           <div
             className={styles.CardsContainerText}
-            style={{ fontSize: fonstSize,lineHeight: contentLineHeight }}
+            style={{ fontSize: fonstSize, lineHeight: contentLineHeight }}
           >
             {ZHABRUNG_INFORMATION[language].administration.title}
           </div>
@@ -79,14 +81,14 @@ const ZhabrungCards = ({ isFadingOut, language, onCardClick }) => {
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          onClick={() => onCardClick("secrecy")}
+          onClick={() => onCardClick("religious")}
         >
           <div
             className={styles.CardsContainerText}
-            style={{ fontSize: fonstSize,lineHeight: contentLineHeight }}
+            style={{ fontSize: fonstSize, lineHeight: contentLineHeight }}
           >
             {" "}
-            {ZHABRUNG_INFORMATION[language].secrecyAtDeath.title}
+            {ZHABRUNG_INFORMATION[language].religiousInflunce.title}
           </div>
         </motion.div>
         <motion.div
@@ -94,14 +96,13 @@ const ZhabrungCards = ({ isFadingOut, language, onCardClick }) => {
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          onClick={() => onCardClick("driglam")}
+          onClick={() => onCardClick("historic")}
         >
           <div
             className={styles.CardsContainerText}
-            style={{ fontSize: fonstSize,lineHeight: contentLineHeight }}
+            style={{ fontSize: fonstSize, lineHeight: contentLineHeight }}
           >
-            {" "}
-            {ZHABRUNG_INFORMATION[language].driglamNamzhag.title}
+            {ZHABRUNG_INFORMATION[language].historicBackground.title}
           </div>
         </motion.div>
       </motion.div>

@@ -101,9 +101,9 @@ const DrukpaKagyuImgs = () => {
 
       {selectedImageIndex !== null && (
         <div className={styles.DrugpaTemplesEnlargeImg}>
-          <button onClick={handleClose} className={styles.closeButton}>
+          {/* <button onClick={handleClose} className={styles.closeButton}>
             &times;
-          </button>
+          </button> */}
           <Swiper
             initialSlide={selectedImageIndex}
             spaceBetween={10}

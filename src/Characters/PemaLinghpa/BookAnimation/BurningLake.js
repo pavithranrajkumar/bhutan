@@ -11,8 +11,8 @@ import { BHUTAN } from "../../../constants/languages/Language";
 
 const BurningLakeBook = ({ language, onNaringDragAnimationCardClick }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const fonstSize = language === BHUTAN ? "10px" : "12px";
-  const headerFontSize = language === BHUTAN ? "10px" : "20px";
+  const fonstSize = language === BHUTAN ? "18px" : "12px";
+  const headerFontSize = language === BHUTAN ? "22px" : "20px";
 
   useEffect(() => {
     // Start fade-in effect on mount
@@ -62,10 +62,10 @@ const BurningLakeBook = ({ language, onNaringDragAnimationCardClick }) => {
         onClick={onNaringDragAnimationCardClick}
       >
         <div className={styles.title} style={{ fontSize: fonstSize }}>
-          {PEMA_LINGPA_INFORMATION[language].naringDrag.header}
+          {PEMA_LINGPA_INFORMATION[language].naringDrag.title}
         </div>
         <div className={styles.header} style={{ fontSize: headerFontSize }}>
-          {PEMA_LINGPA_INFORMATION[language].naringDrag.title}
+          {PEMA_LINGPA_INFORMATION[language].naringDrag.header}
         </div>
       </div>
     </div>

@@ -34,7 +34,7 @@ const HistoricCard = ({ showIntro, onKurjeClick, language }) => {
           >
             <div
               style={{
-                marginTop: "18px",
+                marginTop: "11px",
                 display: "flex",
                 flexDirection: "column",
                 fontSize: KurjeFonstSize,
