@@ -9,6 +9,32 @@
   height: 80px;
   width: 190px;
   cursor: pointer;
+  overflow: hidden; /* Prevents overflow from background image */
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+
+/* Add background image to the card */
+.GuruHistoricCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/src/assests/BgImgs/CardBgImg.png"); /* Background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.25; /* Slight opacity for background */
+  z-index: 0; /* Ensure background is behind content */
+  pointer-events: none; /* Prevent interaction with background */
+}
+
+/* Ensure text content stays on top */
+.GuruHistoricCard > * {
+  z-index: 1; /* Text content on top */
 }
 
 .GuruHistoricCardImg {
@@ -17,8 +43,10 @@
   top: 82%;
   height: 190px;
   width: 180px;
+  z-index: 2; /* Ensure the image appears on top */
 }
 
+/* Animation classes */
 .slideIn {
   animation: slideIn 0.8s ease-out forwards;
 }
@@ -27,6 +55,7 @@
   animation: zoomIn 1.2s ease-out forwards;
 }
 
+/* Slide-in animation */
 @keyframes slideIn {
   from {
     transform: translateX(-100%);
@@ -38,6 +67,7 @@
   }
 }
 
+/* Zoom-in animation */
 @keyframes zoomIn {
   from {
     transform: scale(0.8);

@@ -24,8 +24,8 @@ const RevelationsCard = ({
       {showIntro && (
         <>
           <Card
-            width="350px"
-            height="200px"
+            width="250px"
+            height="300px"
 
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}

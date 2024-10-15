@@ -21,7 +21,7 @@ const ReligiousCard = ({
       {showIntro && (
         <>
           <Card
-            width="220px"
+            width="210px"
             height="240px"
             borderBottom="0.5px solid #3A3C25"
             color="#3A3C25"

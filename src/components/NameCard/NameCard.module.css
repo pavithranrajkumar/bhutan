@@ -11,6 +11,22 @@
   box-sizing: border-box;
 }
 
+.pemaNameCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/src/assests/BgImgs/CardBgImg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+  opacity: 0.18; 
+  pointer-events: none; 
+}
+
 .pemaNameCardTitle {
   margin: 20px;
   color: white;

@@ -31,7 +31,7 @@ const NaringDragBook = ({ language, onBurningLakeAnimationCardClick }) => {
       }`}
     >
       <HTMLFlipBook
-        width={200}
+        width={180}
         height={250}
         className={styles.flipBook}
         maxShadowOpacity={0}

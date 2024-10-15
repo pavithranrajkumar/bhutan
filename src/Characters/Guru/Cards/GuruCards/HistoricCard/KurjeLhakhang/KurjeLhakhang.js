@@ -14,6 +14,7 @@ const KurjeLhakhang = ({ showIntro, onKurjeTempleClick, language }) => {
         <>
           <Card
             width="250px"
+            height="280px"
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="0.5px solid #2B455D"

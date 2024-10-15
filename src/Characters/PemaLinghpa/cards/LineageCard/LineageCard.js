@@ -35,7 +35,7 @@ const LineageCard = ({ showIntro, language }) => {
       {showIntro && (
         <>
           <Card
-            width="280px"
+            width="250px"
             height="300px"
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}

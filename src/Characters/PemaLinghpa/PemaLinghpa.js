@@ -21,26 +21,12 @@ import BurningLakeBook from "./BookAnimation/BurningLake";
 import PreviousIcon from "../../components/Card/Icons/PreviousIcon/PreviousIcon";
 import Monastries from "./cards/LegacyCards/Monastries/Monastries";
 import PelingDance from "./cards/LegacyCards/PelingDance/PelingDance";
-import MonasteriesImg1 from "../../assests/PemaLingpa/Legacy/Monastries/MonastreriesImg1.png";
-import MonasteriesImg2 from "../../assests/PemaLingpa/Legacy/Monastries/MonastreriesImg2.png";
-import MonasteriesImg3 from "../../assests/PemaLingpa/Legacy/Monastries/MonastreriesImg3.png";
-import MonasteriesImg4 from "../../assests/PemaLingpa/Legacy/Monastries/MonastreriesImg4.png";
-import MonasteriesImg5 from "../../assests/PemaLingpa/Legacy/Monastries/MonastreriesImg5.png";
-import MonasteriesImg6 from "../../assests/PemaLingpa/Legacy/Monastries/MonastreriesImg6.png";
-import MonasteriesImg7 from "../../assests/PemaLingpa/Legacy/Monastries/MonastreriesImg7.png";
-import MonasteriesImg8 from "../../assests/PemaLingpa/Legacy/Monastries/MonastreriesImg8.png";
-import MonasteriesEnlargeImg1 from "../../assests/PemaLingpa/Legacy/Monastries/EnlargeImg/MonasterisImg1.png";
-import MonasteriesEnlargeImg2 from "../../assests/PemaLingpa/Legacy/Monastries/EnlargeImg/MonasterisImg2.png";
-import MonasteriesEnlargeImg3 from "../../assests/PemaLingpa/Legacy/Monastries/EnlargeImg/MonasterisImg3.png";
-import MonasteriesEnlargeImg4 from "../../assests/PemaLingpa/Legacy/Monastries/EnlargeImg/MonasterisImg4.png";
-import MonasteriesEnlargeImg5 from "../../assests/PemaLingpa/Legacy/Monastries/EnlargeImg/MonasterisImg5.png";
-import MonasteriesEnlargeImg6 from "../../assests/PemaLingpa/Legacy/Monastries/EnlargeImg/MonasterisImg6.png";
-import MonasteriesEnlargeImg7 from "../../assests/PemaLingpa/Legacy/Monastries/EnlargeImg/MonasterisImg7.png";
-import MonasteriesEnlargeImg8 from "../../assests/PemaLingpa/Legacy/Monastries/EnlargeImg/MonasterisImg8.png";
+import video1 from "../../assests/PemaLingpa/Legacy/PelingVideos/PelingMaskDance.mp4";
 
 import { PEMA_LINGPA_INFORMATION } from "../../constants/Characters/PremaLingpa";
 import PelingDanceVideo from "../../assests/PemaLingpa/Legacy/PelingDanceCard.png";
 import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
+import MonasteriesImg from "./cards/LegacyCards/Monastries/MonasteriesImg/MonasteriesImg";
 
 const PemaLinghpa = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -176,6 +162,7 @@ const PemaLinghpa = () => {
 
   const handleOpenPeleingCard = () => {
     setShowMonasteriesImgCard(false);
+    setShowPelingdanceImgs(false);
     setShowPelingDanceCard(true);
   };
 
@@ -191,6 +178,14 @@ const PemaLinghpa = () => {
     } else if (showNaringDragBookImg) {
       setShowNaringDragBookImg(false);
       setShowNaringDragCard(true);
+    } else if (showNaringDragCard || showBurningLakeCard) {
+      setShowNaringDragCard(false);
+      setShowBurningLakeCard(false);
+      setSelectedCard("revelations");
+    } else if (showMonasteriesCard || showPelingDanceCard) {
+      setShowMonasteriesCard(false);
+      setShowPelingDanceCard(false);
+      setSelectedCard("legacy");
     } else if (showPelingdanceImgs) {
       setShowPelingdanceImgs(false);
       setShowPelingDanceCard(true);
@@ -224,6 +219,35 @@ const PemaLinghpa = () => {
     }
   };
 
+  const isBlueCard =
+    showIntroduction ||
+    showNaringDragCard ||
+    showBurningLakeCard ||
+    showMonasteriesCard ||
+    showPelingDanceCard;
+
+  const nameCardBackground = showCards
+    ? "#FFD9BC"
+    : selectedCard === "historic" ||
+      selectedCard === "lineage" ||
+      selectedCard === "revelations" ||
+      selectedCard === "legacy"
+    ? "#F38C64"
+    : isBlueCard
+    ? "#C9D7EE"
+    : "#384E63";
+
+  const nameCardColor = showCards
+    ? "#6A1F11"
+    : selectedCard === "historic" ||
+      selectedCard === "lineage" ||
+      selectedCard === "revelations" ||
+      selectedCard === "legacy"
+    ? "#6A1F11"
+    : isBlueCard
+    ? "#2B455D"
+    : "white";
+
   return (
     <motion.div
       className={styles.pemaContainer}
@@ -248,7 +272,7 @@ const PemaLinghpa = () => {
       )}
 
       <motion.div
-        className={`${styles.pemaImage} ${isActive ? styles.ActiveImage : ""}`}
+        className={styles.pemaImage}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.4 }}
         onClick={handleCardOrImageClick}
@@ -262,29 +286,14 @@ const PemaLinghpa = () => {
         transition={{ duration: 0.4 }}
       >
         <div
-          className={`${styles.NameCardContainer} ${
-            isActive ? styles.ActiveCard : ""
-          }`}
+          className={styles.NameCardContainer}
           onClick={handleCardOrImageClick}
         >
           <NameCard
             cardName={PEMA_LINGPA_INFORMATION[language].title}
-            width={isActive ? "300px" : "300px"}
-            height={isActive ? "100px" : "80px"}
-            fontSize={
-              isActive
-                ? language === BHUTAN
-                  ? "1.5rem"
-                  : "20px"
-                : language === BHUTAN
-                ? "1.5rem"
-                : "20px"
-            }
-            background="#384E63"
-            color="white"
-            // background={nameCardBackground}
-            // color={nameCardColor}
-            paraColor="white"
+            width="310px"
+            height="100px"
+            fontSize={language === BHUTAN ? "1.5rem" : "20px"}
             year={
               showCards ||
               selectedCard ||
@@ -295,11 +304,13 @@ const PemaLinghpa = () => {
               showBurningLakeCard ||
               showMonasteriesImgCard ||
               showPelingdanceImgs
-                ? "1450-1521"
+                ? "1450 - 1521"
                 : undefined
             }
-            // paraColor={nameParaColor}
             paraSize="15px"
+            paraColor={nameCardColor}
+            background={nameCardBackground}
+            color={nameCardColor}
           />
         </div>
       </motion.div>
@@ -317,7 +328,7 @@ const PemaLinghpa = () => {
             whiteImage={true}
             showIcons={showIcons}
             language={language}
-            left="61%"
+            left="64.4%"
             top="95.5%"
             iconWidth="25px"
             IconHeight="25px"
@@ -328,13 +339,19 @@ const PemaLinghpa = () => {
           <NextIcon
             showIcons={showIcons}
             whiteImage={true}
-            left="74.8%"
+            left="75.8%"
             top="82%"
             height="70px"
             width="80px"
             margin="25px"
             background="#2B455D"
             onClick={handleShowCards}
+          />
+          <CloseIcon
+            showIcons={showIcons}
+            left="63.8%"
+            top="91.5%"
+            onClick={handleCardOrImageClick}
           />
         </>
       )}
@@ -352,11 +369,15 @@ const PemaLinghpa = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             language={language}
-            iconWidth="25px"
-            IconHeight="25px"
-            left="64%"
-            top="89%"
-            height="60px"
+            left="66.4%"
+            top="92.2%"
+          />
+          <CloseIcon
+            showIcons={showIcons}
+            left="65.7%"
+            top="88.2%"
+            background="#6A1F11"
+            onClick={handleCardOrImageClick}
           />
         </>
       )}
@@ -372,8 +393,8 @@ const PemaLinghpa = () => {
                   onClick={toggleLanguage}
                   showIcons={showIcons}
                   language={language}
-                  left="60.8%"
-                  top="96%"
+                  left="64.45%"
+                  top="92.5%"
                   iconWidth="25px"
                   IconHeight="25px"
                   height="48px"
@@ -383,16 +404,16 @@ const PemaLinghpa = () => {
                 />
                 <HomeIcon
                   showIcons={showIcons}
-                  left="60.2%"
-                  top="92%"
+                  left="63.8%"
+                  top="88.5%"
                   background="#6A1F11"
                   onClick={handleHomeClick}
                 />
                 <NextIcon
                   showIcons={showIcons}
                   whiteImage={true}
-                  left="73.5%"
-                  top="84%"
+                  left="74.5%"
+                  top="82%"
                   height="70px"
                   width="80px"
                   margin="25px"
@@ -402,8 +423,8 @@ const PemaLinghpa = () => {
                 />
                 <CloseIcon
                   showIcons={showIcons}
-                   left="60.2%"
-                  top="88%"
+                  left="63.8%"
+                  top="84.5%"
                   background="#6A1F11"
                   onClick={handleCardOrImageClick}
                 />
@@ -424,16 +445,13 @@ const PemaLinghpa = () => {
                   onClick={toggleLanguage}
                   showIcons={showIcons}
                   language={language}
-                  left="60.8%"
+                  left="61.9%"
                   top="96%"
-                  iconWidth="25px"
-                  IconHeight="25px"
-                  height="55px"
                   background="#3A1701"
                 />
                 <HomeIcon
                   showIcons={showIcons}
-                  left="60.2%"
+                  left="61.3%"
                   top="92%"
                   background="#6A1F11"
                   height="70px"
@@ -451,6 +469,13 @@ const PemaLinghpa = () => {
                   background="#3A1701"
                   color="#FFD9BC"
                   onClick={handleNextIcon}
+                />
+                <CloseIcon
+                  showIcons={showIcons}
+                  left="61.3%"
+                  top="88%"
+                  background="#6A1F11"
+                  onClick={handleCardOrImageClick}
                 />
               </div>
             </>
@@ -487,6 +512,13 @@ const PemaLinghpa = () => {
                   margin="25px"
                   onClick={handleHomeClick}
                 />
+                <CloseIcon
+                  showIcons={showIcons}
+                  left="60.2%"
+                  top="88%"
+                  background="#6A1F11"
+                  onClick={handleCardOrImageClick}
+                />
               </div>
             </>
           )}
@@ -522,6 +554,13 @@ const PemaLinghpa = () => {
                   margin="25px"
                   onClick={handleHomeClick}
                 />
+                <CloseIcon
+                  showIcons={showIcons}
+                  left="60.2%"
+                  top="88%"
+                  background="#6A1F11"
+                  onClick={handleCardOrImageClick}
+                />
               </div>
             </>
           )}
@@ -541,24 +580,33 @@ const PemaLinghpa = () => {
             language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
-            left="60.8%"
-            top="96%"
-            iconWidth="25px"
-            IconHeight="25px"
-            height="48px"
-            width="50px"
-            margin="13px"
+            left="64.25%"
+            top="97%"
             whiteImage={true}
           />
           <HomeIcon
             showIcons={showIcons}
-            left="60.2%"
-            top="92%"
+            left="63.6%"
+            top="93%"
             height="70px"
             width="80px"
             margin="25px"
             onClick={handleHomeClick}
             whiteImage={true}
+          />
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="63.6%"
+            top="88.2%"
+            height="100px"
+            marginTop="40px"
+          />
+          <CloseIcon
+            showIcons={showIcons}
+            left="63.6%"
+            top="84.3%"
+            onClick={handleCardOrImageClick}
           />
         </>
       )}
@@ -577,7 +625,7 @@ const PemaLinghpa = () => {
             onClick={handlePreviousClick}
             showIcons={showIcons}
             left="60.8%"
-            top="84.5%"
+            top="86.8%"
             height="130px"
             marginTop="50px"
           />
@@ -585,10 +633,7 @@ const PemaLinghpa = () => {
             showIcons={showIcons}
             whiteImage={true}
             left="60.8%"
-            top="91%"
-            height="70px"
-            width="80px"
-            margin="25px"
+            top="93%"
             onClick={handleHomeClick}
           />
           <LanguageIcon
@@ -597,12 +642,13 @@ const PemaLinghpa = () => {
             showIcons={showIcons}
             whiteImage={true}
             left="61.4%"
-            top="95%"
-            iconWidth="25px"
-            IconHeight="25px"
-            height="50px"
-            width="50px"
-            margin="12px"
+            top="97%"
+          />
+          <CloseIcon
+            showIcons={showIcons}
+            left="60.8%"
+            top="83%"
+            onClick={handleCardOrImageClick}
           />
         </>
       )}
@@ -621,7 +667,7 @@ const PemaLinghpa = () => {
             onClick={handlePreviousClick}
             showIcons={showIcons}
             left="60.8%"
-            top="84.5%"
+            top="86.8%"
             height="130px"
             marginTop="50px"
           />
@@ -629,10 +675,7 @@ const PemaLinghpa = () => {
             showIcons={showIcons}
             whiteImage={true}
             left="60.8%"
-            top="91%"
-            height="70px"
-            width="80px"
-            margin="25px"
+            top="93%"
             onClick={handleHomeClick}
           />
           <LanguageIcon
@@ -641,12 +684,13 @@ const PemaLinghpa = () => {
             showIcons={showIcons}
             whiteImage={true}
             left="61.4%"
-            top="95%"
-            iconWidth="25px"
-            IconHeight="25px"
-            height="50px"
-            width="50px"
-            margin="12px"
+            top="97%"
+          />
+          <CloseIcon
+            showIcons={showIcons}
+            left="60.8%"
+            top="83%"
+            onClick={handleCardOrImageClick}
           />
         </>
       )}
@@ -660,28 +704,34 @@ const PemaLinghpa = () => {
               onBurningLakeBookImgClick={handleBurningLakeBookImgClick}
             />
           </div>
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="63%"
+            top="86.8%"
+            height="130px"
+            marginTop="50px"
+          />
+          <HomeIcon
+            showIcons={showIcons}
+            whiteImage={true}
+            left="63%"
+            top="93%"
+            onClick={handleHomeClick}
+          />
           <LanguageIcon
             language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
-            left="60.8%"
-            top="96%"
-            iconWidth="25px"
-            IconHeight="25px"
-            height="48px"
-            width="50px"
-            margin="13px"
             whiteImage={true}
+            left="63.6%"
+            top="97%"
           />
-          <HomeIcon
+          <CloseIcon
             showIcons={showIcons}
-            left="60.2%"
-            top="92%"
-            height="70px"
-            width="80px"
-            margin="25px"
-            onClick={handleHomeClick}
-            whiteImage={true}
+            left="63%"
+            top="83%"
+            onClick={handleCardOrImageClick}
           />
         </>
       )}
@@ -699,125 +749,53 @@ const PemaLinghpa = () => {
             language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
-            left="60.8%"
-            top="96%"
-            iconWidth="25px"
-            IconHeight="25px"
-            height="48px"
-            width="50px"
-            margin="13px"
+            left="62.35%"
+            top="97%"
             whiteImage={true}
           />
           <HomeIcon
             showIcons={showIcons}
-            left="60.2%"
-            top="92%"
+            left="61.7%"
+            top="93%"
             height="70px"
             width="80px"
             margin="25px"
             onClick={handleHomeClick}
             whiteImage={true}
           />
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="61.7%"
+            top="88%"
+            height="100px"
+            marginTop="35px"
+          />
+          <CloseIcon
+            showIcons={showIcons}
+            left="61.7%"
+            top="84%"
+            onClick={handleCardOrImageClick}
+          />
         </>
       )}
 
       {showMonasteriesImgCard && (
         <>
-          <div
-            className={styles.MonasteriesImgs}
-            style={{
-              position: "relative",
-              transition: "opacity 0.3s ease",
-              backgroundColor: enlargedImage
-                ? "rgba(0, 0, 0, 0.7)" // Add black opacity when enlarged
-                : "transparent",
-              opacity: enlargedImage ? 0.4 : 1, // Adjust opacity effect
-            }}
-          >
-            <div className={styles.MonasteriesImg1}>
-              <img
-                src={MonasteriesImg1}
-                alt="palaceImg1"
-                onClick={() => handleImageClick(MonasteriesEnlargeImg1)}
-              />
-            </div>
-            <div className={styles.MonasteriesImg2}>
-              <img
-                src={MonasteriesImg2}
-                alt="MonasteriesImg2"
-                onClick={() => handleImageClick(MonasteriesEnlargeImg2)}
-              />
-            </div>
-            <div className={styles.MonasteriesImg3}>
-              <img
-                src={MonasteriesImg3}
-                alt="MonasteriesImg3"
-                onClick={() => handleImageClick(MonasteriesEnlargeImg3)}
-              />
-            </div>
-            <div className={styles.MonasteriesImg4}>
-              <img
-                src={MonasteriesImg4}
-                alt="MonasteriesImg4"
-                onClick={() => handleImageClick(MonasteriesEnlargeImg4)}
-              />
-            </div>
-            <div className={styles.MonasteriesImg5}>
-              <img
-                src={MonasteriesImg5}
-                alt="MonasteriesImg5"
-                onClick={() => handleImageClick(MonasteriesEnlargeImg5)}
-              />
-            </div>
-            <div className={styles.MonasteriesImg6}>
-              <img
-                src={MonasteriesImg6}
-                alt="MonasteriesImg6"
-                onClick={() => handleImageClick(MonasteriesEnlargeImg6)}
-              />
-            </div>
-            <div className={styles.MonasteriesImg7}>
-              <img
-                src={MonasteriesImg7}
-                alt="MonasteriesImg7"
-                onClick={() => handleImageClick(MonasteriesEnlargeImg7)}
-              />
-            </div>
-            <div className={styles.MonasteriesImg8}>
-              <img
-                src={MonasteriesImg8}
-                alt="MonasteriesImg8"
-                onClick={() => handleImageClick(MonasteriesEnlargeImg8)}
-              />
-            </div>
-            <div
-              className={styles.SmallPeilingCard}
-              onClick={handleOpenPeleingCard}
-            >
-              <div className={styles.SmallPeilingCardHeader}>
-                {PEMA_LINGPA_INFORMATION[language].pelingdance.header}
-              </div>
-              <div className={styles.SmallPeilingCardTitle}>
-                {PEMA_LINGPA_INFORMATION[language].pelingdance.title}
-              </div>
-            </div>
-          </div>
+          <MonasteriesImg />
           <PreviousIcon
             onClick={handlePreviousClick}
             showIcons={showIcons}
-            left="59.5%"
-            top="84.5%"
+            left="60.5%"
+            top="86.8%"
             height="130px"
             marginTop="50px"
           />
           <HomeIcon
             showIcons={showIcons}
             whiteImage={true}
-            left="59.6%"
-            top="91%"
-            height="70px"
-            width="80px"
-            margin="25px"
+            left="60.5%"
+            top="93%"
             onClick={handleHomeClick}
           />
           <LanguageIcon
@@ -825,32 +803,16 @@ const PemaLinghpa = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
-            left="60.2%"
-            top="95.1%"
-            iconWidth="25px"
-            IconHeight="25px"
-            height="50px"
-            width="50px"
-            margin="12px"
+            left="61.2%"
+            top="97%"
+          />
+          <CloseIcon
+            showIcons={showIcons}
+            left="60.5%"
+            top="83%"
+            onClick={handleCardOrImageClick}
           />
         </>
-      )}
-
-      {enlargedImage ? (
-        <div
-          className={`${styles.MonasteriesEnlargedImage} ${styles.fadeIn}`}
-          onClick={() => setEnlargedImage(null)}
-        >
-          <img
-            src={enlargedImage}
-            alt="Enlarged"
-            className={styles.enlargedImage}
-            onClick={() => handleImageClick(MonasteriesEnlargeImg1)}
-            style={{ cursor: "pointer" }} // Optional: change cursor to pointer
-          />
-        </div>
-      ) : (
-        <></>
       )}
 
       {showPelingDanceCard && (
@@ -865,11 +827,8 @@ const PemaLinghpa = () => {
           <HomeIcon
             showIcons={showIcons}
             whiteImage={true}
-            left="60%"
-            top="91%"
-            height="70px"
-            width="80px"
-            margin="25px"
+            left="61.8%"
+            top="91.3%"
             onClick={handleHomeClick}
           />
           <LanguageIcon
@@ -877,13 +836,22 @@ const PemaLinghpa = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
-            left="60.6%"
-            top="95%"
-            iconWidth="25px"
-            IconHeight="25px"
-            height="50px"
-            width="50px"
-            margin="12px"
+            left="62.4%"
+            top="95.2%"
+          />
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="61.8%"
+            top="85%"
+            height="130px"
+            marginTop="50px"
+          />
+          <CloseIcon
+            showIcons={showIcons}
+            left="61.8%"
+            top="81%"
+            onClick={handleCardOrImageClick}
           />
         </>
       )}
@@ -891,37 +859,65 @@ const PemaLinghpa = () => {
       {showPelingdanceImgs && (
         <>
           <div className={styles.PelingDanceVideo}>
-            <img src={PelingDanceVideo} alt="PelingDanceVideo" />
+            <video className={styles.videoFrame} autoPlay muted loop>
+              <source src={video1} type="video/mp4" className={styles.videoF} />
+              Your browser does not support the video tag.
+            </video>
+            <div style={{ display: "flex"}}>
+              <div className={styles.PelingDanceVideo1}>
+                <video className={styles.videoFrame2} autoPlay muted loop>
+                  <source src={video1} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                </div>
+                <div className={styles.PelingDanceVideo2}>
+                  {" "}
+                  <video className={styles.videoFrame3} autoPlay muted loop>
+                    <source src={video1} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+            </div>
           </div>
-          <PreviousIcon
-            onClick={handlePreviousClick}
-            showIcons={showIcons}
-            left="59.6%"
-            top="84.5%"
-            height="130px"
-            marginTop="50px"
-          />
+          <div
+            className={styles.SmallMonstriesCard}
+            onClick={handleOpenPeleingCard}
+          >
+            <div className={styles.SmallPeilingCardHeader}>
+              {PEMA_LINGPA_INFORMATION[language].monastriesAndTemples.title}
+            </div>
+            <div className={styles.SmallPeilingCardTitle}>
+              {PEMA_LINGPA_INFORMATION[language].monastriesAndTemples.header}
+            </div>
+          </div>
           <HomeIcon
             showIcons={showIcons}
             whiteImage={true}
-            left="59.6%"
-            top="91%"
-            height="70px"
-            width="80px"
-            margin="25px"
+            left="61.8%"
+            top="91.3%"
             onClick={handleHomeClick}
           />
           <LanguageIcon
             language={language}
+            onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
-            left="60.4%"
-            top="94.8%"
-            iconWidth="25px"
-            IconHeight="25px"
-            height="50px"
-            width="50px"
-            margin="12px"
+            left="62.4%"
+            top="95.2%"
+          />
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="61.8%"
+            top="85%"
+            height="130px"
+            marginTop="50px"
+          />
+          <CloseIcon
+            showIcons={showIcons}
+            left="61.8%"
+            top="81%"
+            onClick={handleCardOrImageClick}
           />
         </>
       )}

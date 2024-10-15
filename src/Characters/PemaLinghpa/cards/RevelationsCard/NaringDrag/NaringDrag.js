@@ -26,16 +26,16 @@ const NaringDrag = ({ showIntro, language, onNaringDragBookImgClick }) => {
       {showIntro && (
         <>
           <Card
-            width="330px"
-            height="305px"
+            width="250px"
+            height="330px"
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="0.5px solid #001829"
             backgroundColor="#C9D7EE"
             color="#001829"
             fontWeight="900"
-            header={PEMA_LINGPA_INFORMATION[language].naringDrag.header}
-            title={PEMA_LINGPA_INFORMATION[language].naringDrag.title}
+            header={PEMA_LINGPA_INFORMATION[language].naringDrag.title}
+            title={PEMA_LINGPA_INFORMATION[language].naringDrag.header}
             content={PEMA_LINGPA_INFORMATION[language].naringDrag.content}
             language={language}
             showIntro={showIntro}

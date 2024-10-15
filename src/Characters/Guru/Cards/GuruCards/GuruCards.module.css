@@ -25,17 +25,38 @@
   pointer-events: auto;
   position: fixed;
   color: #fadfb6;
+  overflow: hidden; /* Prevents overflow from background image */
 }
 
+/* Same background image for all three cards */
+.HistoricCard::before,
+.ManifestationCard::before,
+.PalaceCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/src/assests/BgImgs/CardBgImg.png"); /* Background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.15; /* Slight opacity for the background */
+  z-index: 0; /* Ensure background stays behind the content */
+  pointer-events: none; /* Prevent interaction with the background */
+}
+
+/* Text content remains on top */
+.HistoricCard,
+.ManifestationCard,
+.PalaceCard > * {
+  z-index: 1; /* Ensure text stays on top of the background */
+}
+
+/* Individual card styles */
 .HistoricCard {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  cursor: pointer;
-  pointer-events: auto;
-  position: fixed;
   background: #c87e12;
-  color: #fadfb6;
   padding: 0.6vw;
   width: 100px;
   height: 50px;
@@ -44,14 +65,7 @@
 }
 
 .ManifestationCard {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  cursor: pointer;
-  pointer-events: auto;
-  position: fixed;
   background: #a06611;
-  color: #fadfb6;
   padding: 0.7vw;
   width: 140px;
   height: 42px;
@@ -60,14 +74,7 @@
 }
 
 .PalaceCard {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  cursor: pointer;
-  pointer-events: auto;
-  position: fixed;
   background: #e4931d;
-  color: #fadfb6;
   padding: 0.5vw;
   width: 170px;
   height: 42px;

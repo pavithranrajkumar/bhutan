@@ -50,6 +50,21 @@
   width: 200px;
 }
 
+.revelationsCard::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/src/assests/BgImgs/CardBgImg.png"); /* Fixed the path */
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  opacity: 0.15; /* Adjust opacity as needed */
+  z-index: 0; /* Ensure the background stays behind the content */
+}
+
 .title {
   margin: 20px 0 0 48px;
   font-size: 12px;

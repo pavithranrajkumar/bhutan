@@ -26,8 +26,8 @@
 
 .pemaImage {
   position: fixed;
-  bottom: 14.5%;
-  left: 64.9%;
+  bottom: 15.5%;
+  left: 65.2%;
   transform: translate(-50%, -60%);
   z-index: 10;
   margin: 0;
@@ -35,14 +35,14 @@
 
 .pemaImage img {
   object-fit: fill;
-  width: 230px;
-  height: 270px;
+  width: 200px;
+  height: 230px;
   z-index: 10;
 }
 
 .NameCardContainer {
   position: fixed;
-  top: 77.8%;
+  top: 77%;
   left: 67.4%;
 }
 
@@ -70,50 +70,50 @@
 
 .IntroCard {
   position: fixed;
-  left: 62.5%;
-  top: 84.5%;
+  left: 66%;
+  top: 83.5%;
 }
 
 .HistoricCard {
   position: fixed;
-  left: 62.5%;
-  top: 84.5%;
+  left: 66%;
+  top: 83.6%;
 }
 
 .LineageCard {
   position: fixed;
-  left: 62.5%;
-  top: 84.5%;
+  left: 63.5%;
+  top: 83.5%;
 }
 
 .NaringDragCard {
   position: fixed;
-  left: 62.5%;
-  top: 84%;
+  left: 66%;
+  top: 83.5%;
 }
 
 .BurningLakeCard {
   position: fixed;
-  left: 62.5%;
-  top: 84%;
+  left: 66%;
+  top: 83.4%;
 }
 
 .NaringDragBook {
   position: fixed;
-  left: 60%;
+  left: 60.5%;
   top: 84.5%;
 }
 
 .MonasteriesCard {
   position: fixed;
-  left: 62.5%;
-  top: 84.5%;
+  left: 64%;
+  top: 83.5%;
 }
 
 .PelingDanceCard {
   position: fixed;
-  left: 62.5%;
-  top: 84.5%;
+  left: 64%;
+  top: 83.2%;
 }
 
 .MonasteriesEnlargedImage {
@@ -150,7 +150,7 @@
 
 .MonasteriesImg1 {
   position: fixed;
-  left: 61.5%;
+  left: 62.3%;
   top: 85%;
   width: 180px;
   height: 180px;
@@ -158,7 +158,7 @@
 
 .MonasteriesImg2 {
   position: fixed;
-  left: 65.6%;
+  left: 66.3%;
   top: 84.5%;
   width: 100px;
   height: 100px;
@@ -166,7 +166,7 @@
 
 .MonasteriesImg3 {
   position: fixed;
-  left: 67.6%;
+  left: 68.3%;
   top: 85.5%;
   width: 90px;
   height: 80px;
@@ -174,7 +174,7 @@
 
 .MonasteriesImg4 {
   position: fixed;
-  left: 69.3%;
+  left: 70.1%;
   top: 83.2%;
   width: 120px;
   height: 130px;
@@ -182,7 +182,7 @@
 
 .MonasteriesImg5 {
   position: fixed;
-  left: 71.9%;
+  left: 72.65%;
   top: 84.5%;
   width: 150px;
   height: 150px;
@@ -190,7 +190,7 @@
 
 .MonasteriesImg6 {
   position: fixed;
-  left: 65.6%;
+  left: 66.4%;
   top: 88.2%;
   width: 130px;
   height: 130px;
@@ -198,7 +198,7 @@
 
 .MonasteriesImg7 {
   position: fixed;
-  left: 68.4%;
+  left: 69.2%;
   top: 88.2%;
   width: 155px;
   height: 160px;
@@ -206,7 +206,7 @@
 
 .MonasteriesImg8 {
   position: fixed;
-  left: 71.9%;
+  left: 72.6%;
   top: 90.4%;
   width: 100px;
   height: 100px;
@@ -216,7 +216,7 @@
   cursor: pointer;
   position: fixed;
   background: #c9d7ee;
-  left: 74.3%;
+  left: 75%;
   top: 91%;
   padding: 0.3vw;
   width: 120px;
@@ -234,7 +234,68 @@
   cursor: pointer;
   position: fixed;
   left: 65%;
-  top: 85%;
-  width: 200px;
+  top: 84%;
+  width: 230px;
   height: 200px;
+}
+
+
+
+.SmallMonstriesCard::before,
+.SmallPeilingCard::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/src/assests/BgImgs/CardBgImg.png"); /* Fixed the path */
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  opacity: 0.15; /* Adjust opacity as needed */
+  z-index: 0; /* Ensure the background stays behind the content */
+}
+
+.PelingDanceVideo {
+  cursor: pointer;
+  position: fixed;
+  left: 65%;
+  top: 84%;
+  width: 400px; /* Container width */
+  height: 250px; /* Container height */
+}
+
+.PelingDanceVideo1 {
+  cursor: pointer;
+  position: fixed;
+  left: 65%;
+  top: 95.8%;
+  width: 120px; /* Adjust width for the first video */
+  height: 83px; /* Adjust height for the first video */
+}
+
+.PelingDanceVideo2 {
+  cursor: pointer;
+  position: fixed;
+  left: 68.3%;
+  top: 95.8%;
+  width: 120px; /* Adjust width for the second video */
+  height: 83px; /* Adjust height for the second video */
+}
+
+.SmallMonstriesCard {
+  cursor: pointer;
+  position: fixed;
+  background: #c9d7ee;
+  left: 71.6%;
+  top: 95.8%;
+  padding: 0.3vw;
+  width: 120px;  
+}
+
+.videoFrame, .videoFrame1, .videoFrame2, .videoFrame3 {
+  width: 100%; /* Fill the container */
+  height: 100%; /* Fill the container */
+  object-fit: cover; /* Ensure the video scales properly inside the container */
 }

@@ -11,9 +11,6 @@ const PelingDance = ({ showIntro, language, onPelingVideoClick }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "20px";
   const fonstSize = language === BHUTAN ? "8.5px" : "11.1px";
 
-  const [isVideoEnlarged, setIsVideoEnlarged] = useState(false);
-  const [currentVideo, setCurrentVideo] = useState(null);
-
   const videos = [video1, video2, video3];
 
   return (
@@ -28,7 +25,8 @@ const PelingDance = ({ showIntro, language, onPelingVideoClick }) => {
             borderBottom="0.5px solid #001829"
             backgroundColor="#C9D7EE"
             color="#001829"
-            title={PEMA_LINGPA_INFORMATION[language].pelingdance.title}
+            title={PEMA_LINGPA_INFORMATION[language].pelingdance.header}
+            header={PEMA_LINGPA_INFORMATION[language].pelingdance.title}
             content={PEMA_LINGPA_INFORMATION[language].pelingdance.content}
             language={language}
             showIntro={showIntro}
@@ -39,9 +37,7 @@ const PelingDance = ({ showIntro, language, onPelingVideoClick }) => {
               <div
                 key={index}
                 className={styles[`pelingdanceImg${index + 1}`]}
-                // onClick={() => {
-                //   onPelingVideoClick;
-                // }}
+                onClick={onPelingVideoClick}
               >
                 <video className={styles.videoFrame} autoPlay muted loop>
                   <source src={videoSrc} type="video/mp4" />

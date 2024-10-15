@@ -4,14 +4,13 @@ import Card from "../../../../../components/Card/Card";
 import { GURU_INFORMATION } from "../../../../../constants/Characters/Guru";
 import ManifestationImg from "../../../../../assests/Guru/Manifestation/Manifestation.png";
 import WideCard from "../../../../../components/WideCard/WideCard";
-import { label } from "framer-motion/client";
 import { BHUTAN } from "../../../../../constants/languages/Language";
 
 const Manifestation = ({ showIntro, onManifestationsCardClick, language }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "25px";
   const fonstSize = language === BHUTAN ? "7px" : "11.5px";
 
-  const headerFontSize = language === BHUTAN ? "1.2rem" : "8.5px";
+  const headerFontSize = language === BHUTAN ? "1.2rem" : "10px";
   const paraFontSize = language === BHUTAN ? "3.5px" : "6.5px";
 
   const manifestationsData = [

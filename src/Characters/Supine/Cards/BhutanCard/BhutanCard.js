@@ -19,7 +19,7 @@ const BhutanCard = ({ showIntro, language, onJamBayClick, onKyichuClick }) => {
       {showIntro && (
         <>
           <Card
-            width="220px"
+            width="210px"
             height="276px"
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}

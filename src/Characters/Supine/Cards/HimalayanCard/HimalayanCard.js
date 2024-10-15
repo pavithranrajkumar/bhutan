@@ -32,7 +32,7 @@ const HimalayanCard = ({
       {showIntro && (
         <>
           <Card
-            width="220px"
+            width="210px"
             height="190px"
             borderBottom="0.5px solid white"
             title={SUPINE_INFORMATION[language].himalayan.title}

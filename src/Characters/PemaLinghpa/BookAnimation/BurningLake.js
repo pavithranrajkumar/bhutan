@@ -28,9 +28,8 @@ const BurningLakeBook = ({ language, onNaringDragAnimationCardClick }) => {
         isVisible ? styles.fadeIn : styles.fadeInHidden
       }`}
     >
-      {" "}
       <HTMLFlipBook
-        width={230}
+        width={180}
         height={330}
         className={styles.flipBook}
         startPage={7}

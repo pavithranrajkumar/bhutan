@@ -319,12 +319,18 @@ const Supine = () => {
             whiteImage={true}
             language={language}
             left="5.4%"
-            top="73.8%"
+            top="77.8%"
             iconWidth="25px"
             IconHeight="25px"
             height="50px"
             width="55px"
             margin="13px"
+          />
+          <CloseIcon
+            showIcons={showIcons}
+            left="4.8%"
+            top="73.8%"
+            onClick={handleCardOrImageClick}
           />
         </>
       )}
@@ -340,15 +346,16 @@ const Supine = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             language={language}
-            // supine={true}
             background="#3A3C25"
-            left="17.9%"
-            top="82.5%"
-            iconWidth="25px"
-            IconHeight="25px"
-            height="50px"
-            width="55px"
-            margin="13px"
+            left="15.7%"
+            top="82.7%"
+          />
+          <CloseIcon
+            showIcons={showIcons}
+            left="17.3%"
+            top="81.4%"
+            background="#3A3C25"
+            onClick={handleCardOrImageClick}
           />
         </div>
       )}
@@ -411,21 +418,22 @@ const Supine = () => {
             showIcons={showIcons}
             whiteImage={true}
             language={language}
-            left="3.1%"
-            top="87.5%"
-            iconWidth="25px"
-            IconHeight="25px"
-            height="50px"
-            width="55px"
-            margin="13px"
+            left="1.2%"
+            top="91.5%"
           />
           <PreviousIcon
             onClick={handlePreviousClick}
             showIcons={showIcons}
-            left="2.5%"
-            top="83.5%"
+            left="0.5%"
+            top="87.5%"
             height="80px"
             marginTop="28px"
+          />
+          <CloseIcon
+            showIcons={showIcons}
+            left="0.5%"
+            top="83.5%"
+            onClick={handleCardOrImageClick}
           />
         </>
       )}
@@ -470,6 +478,12 @@ const Supine = () => {
               margin="25px"
               onClick={handleHomeClick}
             />
+            <CloseIcon
+              showIcons={showIcons}
+              left="4.7%"
+              top="72%"
+              onClick={handleCardOrImageClick}
+            />
           </div>
         </>
       )}
@@ -492,7 +506,7 @@ const Supine = () => {
             iconWidth="25px"
             IconHeight="25px"
             left="2.8%"
-            top="78%"
+            top="82%"
             height="55px"
           />
           <PreviousIcon
@@ -500,7 +514,7 @@ const Supine = () => {
             showIcons={showIcons}
             color="#D9D9D9"
             left="2.2%"
-            top="70.1%"
+            top="74%"
             height="80px"
             background="#555835"
             marginTop="28px"
@@ -509,12 +523,19 @@ const Supine = () => {
             showIcons={showIcons}
             supine={true}
             left="2.2%"
-            top="74%"
+            top="78%"
             height="70px"
             width="80px"
             margin="25px"
             background="#555835"
             onClick={handleHomeClick}
+          />
+          <CloseIcon
+            showIcons={showIcons}
+            left="2.2%"
+            top="70%"
+            background="#555835"
+            onClick={handleCardOrImageClick}
           />
         </>
       )}
@@ -573,6 +594,13 @@ const Supine = () => {
             onClick={handleHomeClick}
             className={styles.animatedIcon}
           />
+          <CloseIcon
+            showIcons={showIcons}
+            left="6.6%"
+            top="71%"
+            background="#555835"
+            onClick={handleCardOrImageClick}
+          />
         </>
       )}
 
@@ -594,7 +622,7 @@ const Supine = () => {
             iconWidth="25px"
             IconHeight="25px"
             left="2.8%"
-            top="80.5%"
+            top="84.5%"
             height="55px"
           />
           <PreviousIcon
@@ -602,7 +630,7 @@ const Supine = () => {
             showIcons={showIcons}
             color="#D9D9D9"
             left="2.2%"
-            top="72.6%"
+            top="76.5%"
             height="80px"
             background="#555835"
             marginTop="28px"
@@ -611,12 +639,19 @@ const Supine = () => {
             showIcons={showIcons}
             supine={true}
             left="2.2%"
-            top="76.5%"
+            top="80.5%"
             height="70px"
             width="80px"
             margin="25px"
             background="#555835"
             onClick={handleHomeClick}
+          />
+          <CloseIcon
+            showIcons={showIcons}
+            left="2.2%"
+            top="72.6%"
+            background="#555835"
+            onClick={handleCardOrImageClick}
           />
         </>
       )}
@@ -678,6 +713,13 @@ const Supine = () => {
             background="#555835"
             onClick={handleHomeClick}
             className={styles.animatedIcon}
+          />
+          <CloseIcon
+            showIcons={showIcons}
+            left="6.6%"
+            top="71%"
+            background="#555835"
+            onClick={handleCardOrImageClick}
           />
         </>
       )}

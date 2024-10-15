@@ -38,3 +38,36 @@
   top: 85.5%;
   left: 52.7%;
 }
+
+
+.cardsContainer {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 85%;
+  left: 60%;
+}
+
+
+/* Add background image to ArrivalCard and SchoolsCard */
+.ArrivalCard::before,
+.SchoolsCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/src/assests/BgImgs/CardBgImg.png"); /* Background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.15; /* Background image opacity */
+  z-index: 0; /* Ensure background stays behind content */
+}
+
+/* Ensure text content stays on top */
+.ArrivalCard > *,
+.SchoolsCard > * {
+  z-index: 1; /* Content on top of the background */
+}

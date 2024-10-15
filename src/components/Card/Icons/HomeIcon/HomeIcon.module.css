@@ -8,6 +8,23 @@
   cursor: pointer;
 }
 
+.LanguageIcon::before ,
+.LanguageWhiteIcon::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/src/assests/BgImgs/IconsBgImg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+  opacity: 0.3; 
+  pointer-events: none; 
+}
+
 .LanguageWhiteIcon {
   position: fixed;
   background: #2b455d;

@@ -17,26 +17,11 @@ import Manifestation from "./Cards/GuruCards/Manifestation/Manifestation";
 import ManifestationWithImg from "./Cards/GuruCards/Manifestation/ManifestationWithImg/ManifestationWithImg";
 import PreviousIcon from "../../components/Card/Icons/PreviousIcon/PreviousIcon";
 import Palace from "./Cards/GuruCards/Palace/Palace";
-import palaceImg1 from "../../assests/Guru/Palace/PalaceImg1.png";
-import palaceImg2 from "../../assests/Guru/Palace/PalaceImg2.png";
-import palaceImg3 from "../../assests/Guru/Palace/PalaceImg3.png";
-import palaceImg4 from "../../assests/Guru/Palace/PalaceImg4.png";
-import palaceEnlargeImg1 from "../../assests/Guru/Palace/EnlargeImg/palceEnlargeImg1.png";
-import palaceEnlargeImg2 from "../../assests/Guru/Palace/EnlargeImg/palceEnlargeImg3.png";
-import palaceEnlargeImg3 from "../../assests/Guru/Palace/EnlargeImg/palceEnlargeImg2.png";
-import palaceEnlargeImg4 from "../../assests/Guru/Palace/EnlargeImg/palceEnlargeImg4.png";
-
-import KurjeImg1 from "../../assests/Guru/Historic/KurjeImgs/KurjImg1.png";
-import KurjeImg2 from "../../assests/Guru/Historic/KurjeImgs/KurjImg2.png";
-import KurjeImg3 from "../../assests/Guru/Historic/KurjeImgs/KurjImg3.png";
-import KurjeImg4 from "../../assests/Guru/Historic/KurjeImgs/KurjImg4.png";
-import KurjeEnlargeImg1 from "../../assests/Guru/Historic/KurjeImgs/EnlargeImgs/KurjeLhakhangTemplesImg1.png";
-import KurjeEnlargeImg3 from "../../assests/Guru/Historic/KurjeImgs/EnlargeImgs/KurjeLhakhangTemplesIm2.png";
-import KurjeEnlargeImg4 from "../../assests/Guru/Historic/KurjeImgs/EnlargeImgs/KurjeLhakhangTemplesIm3.png";
-import KurjeEnlargeImg2 from "../../assests/Guru/Historic/KurjeImgs/EnlargeImgs/KurjeLhakhangTemplesImg4.png";
 
 import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
 import CloseIcon from "../../components/Card/Icons/CloseIcon/CloseIcon";
+import KurjeLhakhangImgs from "./Cards/GuruCards/HistoricCard/KurjeLhakhangImgs/KurjeLhakhangImgs";
+import PalaceImg from "./Cards/GuruCards/HistoricCard/PalaceImg/PalaceImg";
 
 const Guru = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -56,88 +41,6 @@ const Guru = () => {
     index: 0,
     isPopular: true,
   });
-
-  const images = [
-    {
-      src: palaceImg1,
-      enlargeSrc: palaceEnlargeImg1,
-      alt: "Image 1",
-      className: styles.palaceImg1,
-    },
-    {
-      src: palaceImg2,
-      enlargeSrc: palaceEnlargeImg2,
-      alt: "Image 2",
-      className: styles.palaceImg2,
-    },
-    {
-      src: palaceImg3,
-      enlargeSrc: palaceEnlargeImg3,
-      alt: "Image 3",
-      className: styles.palaceImg3,
-    },
-    {
-      src: palaceImg4,
-      enlargeSrc: palaceEnlargeImg4,
-      alt: "Image 4",
-      className: styles.palaceImg4,
-    },
-  ];
-
-  const drukpaKagyuImages = [
-    {
-      src: KurjeImg1,
-      enlargeSrc: KurjeEnlargeImg1,
-      alt: "Image 1",
-      className: styles.KurjeLhakhangTemplesImg1,
-    },
-    {
-      src: KurjeImg2,
-      enlargeSrc: KurjeEnlargeImg2,
-      alt: "Image 2",
-      className: styles.KurjeLhakhangTemplesImg2,
-    },
-    {
-      src: KurjeImg3,
-      enlargeSrc: KurjeEnlargeImg3,
-      alt: "Image 3",
-      className: styles.KurjeLhakhangTemplesImg3,
-    },
-    {
-      src: KurjeImg4,
-      enlargeSrc: KurjeEnlargeImg4,
-      alt: "Image 4",
-      className: styles.KurjeLhakhangTemplesImg4,
-    },
-  ];
-
-  const handleImageClick = (img, index, isPopular) => {
-    setEnlargedImage({ src: img, index, isPopular });
-  };
-
-  const nextImage = () => {
-    const { index, isPopular } = enlargedImage;
-    const nextIndex = isPopular
-      ? (index + 1) % images.length
-      : (index + 1) % drukpaKagyuImages.length;
-
-    const nextImgSrc = isPopular
-      ? images[nextIndex].enlargeSrc
-      : drukpaKagyuImages[nextIndex].enlargeSrc;
-    setEnlargedImage({ src: nextImgSrc, index: nextIndex, isPopular });
-  };
-
-  const previousImage = () => {
-    const { index, isPopular } = enlargedImage;
-    const prevIndex = isPopular
-      ? (index - 1 + images.length) % images.length
-      : (index - 1 + drukpaKagyuImages.length) % drukpaKagyuImages.length;
-
-    const prevImgSrc = isPopular
-      ? images[prevIndex].enlargeSrc
-      : drukpaKagyuImages[prevIndex].enlargeSrc;
-    setEnlargedImage({ src: prevImgSrc, index: prevIndex, isPopular });
-  };
 
   const fontSize =
     language === BHUTAN
@@ -356,7 +259,7 @@ const Guru = () => {
           <NextIcon
             showIcons={showIcons}
             whiteImage={true}
-            left="37.8%"
+            left="37.1%"
             top="80%"
             onClick={showGuruCards}
             background="#2B455D"
@@ -368,11 +271,12 @@ const Guru = () => {
             language={language}
             left="28.2%"
             top="95.8%"
-            iconWidth="25px"
-            IconHeight="25px"
-            height="48px"
-            width="50px"
-            margin="13px"
+          />
+          <CloseIcon
+            showIcons={showIcons}
+            left="27.6%"
+            top="91.9%"
+            onClick={handleCardOrImageClick}
           />
         </>
       )}
@@ -390,12 +294,14 @@ const Guru = () => {
             showIcons={showIcons}
             background="#613900"
             left="28.9%"
+            top="88.4%"
+          />
+          <CloseIcon
+            showIcons={showIcons}
+            left="28.3%"
             top="84.3%"
-            iconWidth="25px"
-            IconHeight="25px"
-            height="50px"
-            width="55px"
-            margin="13px"
+            background="#613900"
+            onClick={handleCardOrImageClick}
           />
         </div>
       )}
@@ -451,7 +357,7 @@ const Guru = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             left="21.3%"
-            top="91.1%"
+            top="94.5%"
             background="#193145"
             whiteImage={true}
           />
@@ -460,47 +366,29 @@ const Guru = () => {
             whiteImage={true}
             background="#2B455D"
             left="20.7%"
-            top="86.9%"
-            height="70px"
-            width="80px"
-            margin="25px"
+            top="90.6%"
             onClick={handleHomeClick}
           />
           <PreviousIcon
             onClick={handlePreviousClick}
             showIcons={showIcons}
             left="20.7%"
-            top="82.7%"
+            top="86.6%"
             height="80px"
             marginTop="28px"
+          />
+          <CloseIcon
+            left="20.7%"
+            top="82.7%"
+            showIcons={showIcons}
+            onClick={handleCardOrImageClick}
           />
         </div>
       )}
 
       {showKurjeLhakhangImgs && (
         <>
-          <div
-            className={styles.KurjeLhakhangTemplesImgContainer}
-            style={{
-              position: "relative",
-              transition: "opacity 0.3s ease",
-              backgroundColor: enlargedImage.src
-                ? "rgba(0, 0, 0, 0.7)"
-                : "transparent", // Only apply black opacity when enlarged
-              opacity: enlargedImage.src ? 0.4 : 1, // Adjust opacity effect only when enlarged
-            }}
-          >
-            {drukpaKagyuImages.map((img, index) => (
-              <div className={img.className} key={index}>
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  onClick={() => handleImageClick(img.enlargeSrc, index, false)}
-                  style={{ cursor: "pointer" }}
-                />
-              </div>
-            ))}
-          </div>
+        <KurjeLhakhangImgs/>
           <LanguageIcon
             onClick={toggleLanguage}
             showIcons={showIcons}
@@ -509,7 +397,7 @@ const Guru = () => {
             iconWidth="30px"
             IconHeight="25px"
             left="25.3%"
-            top="91.5%"
+            top="95.5%"
             height="55px"
             width="60px"
             margin="15px"
@@ -517,7 +405,7 @@ const Guru = () => {
           <HomeIcon
             showIcons={showIcons}
             left="24.7%"
-            top="87.5%"
+            top="91.5%"
             height="70px"
             width="80px"
             margin="25px"
@@ -528,9 +416,15 @@ const Guru = () => {
             onClick={handlePreviousClick}
             showIcons={showIcons}
             left="24.7%"
-            top="83.6%"
+            top="87.5%"
             height="80px"
             marginTop="28px"
+          />
+           <CloseIcon
+            left="24.7%"
+            top="83.6%"
+            showIcons={showIcons}
+            onClick={handleCardOrImageClick}
           />
         </>
       )}
@@ -563,7 +457,7 @@ const Guru = () => {
             margin="25px"
             onClick={handleHomeClick}
           />
-           <CloseIcon
+          <CloseIcon
             showIcons={showIcons}
             background="#C87E12"
             left="21.8%"
@@ -638,7 +532,7 @@ const Guru = () => {
             margin="25px"
             onClick={handleHomeClick}
           />
-           <CloseIcon
+          <CloseIcon
             showIcons={showIcons}
             left="21.3%"
             top="82.8%"
@@ -649,44 +543,19 @@ const Guru = () => {
 
       {showPalaceImg && (
         <>
-          <div
-            className={styles.KurjeLhakhangTemplesImgContainer}
-            style={{
-              position: "relative",
-              transition: "opacity 0.3s ease",
-              backgroundColor: enlargedImage.src
-                ? "rgba(0, 0, 0, 0.7)"
-                : "transparent", // Only apply black opacity when enlarged
-              opacity: enlargedImage.src ? 0.4 : 1, // Adjust opacity effect only when enlarged
-            }}
-          >
-            {images.map((img, index) => (
-              <div className={img.className} key={index}>
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  onClick={() => handleImageClick(img.enlargeSrc, index, true)}
-                  style={{ cursor: "pointer" }}
-                />
-              </div>
-            ))}
-          </div>
+          <PalaceImg />
           <LanguageIcon
             language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             whiteImage={true}
-            margin="15px"
-            iconWidth="25px"
-            IconHeight="25px"
             left="22.9%"
-            top="89.5%"
-            height="50px"
+            top="93.5%"
           />
           <HomeIcon
             showIcons={showIcons}
             left="22.2%"
-            top="85.5%"
+            top="89.5%"
             height="70px"
             width="80px"
             margin="25px"
@@ -697,80 +566,19 @@ const Guru = () => {
             onClick={handlePreviousClick}
             showIcons={showIcons}
             left="22.2%"
-            top="81.5%"
+            top="85.5%"
             height="80px"
             marginTop="28px"
+          />
+           <CloseIcon
+            left="22.2%"
+            top="81.5%"
+            showIcons={showIcons}
+            onClick={handleCardOrImageClick}
           />
         </>
       )}
 
-      {enlargedImage.src && (
-        <div className={styles.overlay}>
-          <div
-            className={`${styles.enlargedKurjeLhakhangImage} ${styles.fadeIn}`}
-          >
-            <button
-              onClick={() => setEnlargedImage({ ...enlargedImage, src: null })}
-              style={{
-                position: "absolute",
-                top: -20,
-                right: -30,
-                cursor: "pointer",
-              }}
-            >
-              <FaTimes size={30} className={styles.CloseIcon} />
-            </button>
-            <button
-              onClick={previousImage}
-              className={styles.leftArrow}
-              style={{
-                position: "absolute",
-                left: -60,
-                top: "50%",
-                transform: "translateY(-50%)",
-                cursor: "pointer",
-              }}
-            >
-              <FaAngleLeft size={30} />
-            </button>
-            <img
-              src={enlargedImage.src}
-              alt=""
-              className={styles.enlargedImage}
-              style={{ cursor: "pointer" }}
-              onError={() => console.error("Image failed to load.")}
-              onClick={() => setEnlargedImage({ ...enlargedImage, src: null })}
-            />
-            <button
-              onClick={nextImage}
-              className={styles.rightArrow}
-              style={{
-                position: "absolute",
-                right: -60,
-                top: "50%",
-                transform: "translateY(-50%)",
-                cursor: "pointer",
-              }}
-            >
-              <FaAngleRight size={30} />
-            </button>
-            <div
-              style={{
-                position: "absolute",
-                bottom: 20,
-                left: "50%",
-                transform: "translateX(-50%)",
-                color: "white",
-              }}
-            >
-              {enlargedImage.index + 1} /{" "}
-              {enlargedImage.isPopular
-                ? images.length
-                : drukpaKagyuImages.length}
-            </div>
-          </div>
-        </div>
-      )}
     </motion.div>
   );
 };

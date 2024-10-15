@@ -17,8 +17,8 @@ const ManifestationWithImg = ({ onLakeBornClick, language }) => {
   const [selectedManifestation, setSelectedManifestation] = useState(null);
   const [activeIndex, setActiveIndex] = useState(null);
 
-  const headerFontSize = language === BHUTAN ? "1rem" : "8.5px";
-  const paraFontSize = language === BHUTAN ? "0.6rem" : "6.5px";
+  const headerFontSize = language === BHUTAN ? "1rem" : "8.8px";
+  const paraFontSize = language === BHUTAN ? "0.6rem" : "6.8px";
   const contentLineHeight = language === BHUTAN ? "1" : "";
 
   const manifestationsData = [

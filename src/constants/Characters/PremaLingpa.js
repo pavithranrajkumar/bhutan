@@ -41,13 +41,13 @@ export const PEMA_LINGPA_INFORMATION = {
       content: ` Pema Lingpa discovered treasures mainly around Bumthang’s valleys and regions north of its current borders with Tibet. He revealed exclusively physical terma, both texts and relics. In his lifetime, Pema Lingpa was able to reveal only 32 out of 108 termas destined for him. The collection of texts discovered by him, ‘The Precious Collection of Profound Treasure Teachings of the Great Master Pema Lingpa’ consists of 21 volumes.`,
     },
     naringDrag: {
-      header: "REVELATIONS AT",
-      title: "NARING DRAG",
+      title: "REVELATIONS AT",
+      header: "NARING DRAG",
       content: ` Pema Lingpa is awakened by the voice of a monk, who urges him to read a scroll thrust into his hands. The scroll instructs Pema Lingpa to gather five friends and go to Naring Drak on a full moon night to uncover his destiny. It also contained a key to decode the terma. He dives into the lake below the cliff finding a large cave with a throne and stacks of texts. The cave’s guardian hands him a scroll and asks him to leave. When Pema Lingpa surfaces above water, he is propelled up the cliff by the wind. Returning home he shares the text with his parents and two masters from Tharpaling Monastery, none could read the text. He then uses the key in the scroll to read the title of the text, ‘Crystallization of the Tantra of Luminous Space’. This text is considered the first of 32 termas revealed by Pema Lingpa.`,
     },
     burningLake: {
-      header: "REVELATIONS AT",
-      title: "BURNING LAKE",
+      title: "REVELATIONS AT",
+      header: "BURNING LAKE",
       content: ` When the local Choekhor governor hears of the popularity of Pema Lingpa, he is not convinced of his authenticity. Assembling a large group of people in Naring Drag, he asks Pema Lingpa to prove his merit. He declares that he would support Pema Lingpa if he would bring out a treasure, failing which he would be punished. Pema Lingpa proclaimed “If I am genuine, let me bring back the treasure with this lamp still burning. If I am a fraud, let me die in the waters below.” He then took a burning butter lamp and dove into the lake resurfacing with a box of skulls, a sculpture of the Buddha and the butter lamp, still alight. All those who witness the miracle became Pema Lingpa’s followers and patrons, and the lake gets its name Mebar tsho or Burning Lake.`,
     },
     legacy: {
@@ -55,13 +55,13 @@ export const PEMA_LINGPA_INFORMATION = {
       content: ` Pema Lingpa established an enormous corpus of literature which serves as the primary basis of religious life for Buddhist followers. The teachings and the cycle of treasures of Pema Lingpa contain several practices, rituals, and instructions that lead sentient beings to liberation. Pema Lingpa’s legacies are preserved in the form of sacred dances which were revealed to him as dreams and visions. The ritual dances, cham composed by him serve as a centrepiece for many festivals and ceremonies across Bhutan.`,
     },
     monastriesAndTemples: {
-      header: "PELING",
-      title: "MONASTARIES & TEMPLES",
+      title: "PELING",
+      header: "MONASTARIES & TEMPLES",
       content: ` Pema Lingpa built many temples such as Tamzhing Lhundrup Choling in Bumthang; Pemaling, Dechenling, and Kunzangdrak in Chel; Kunzangling in Kurtö; Dekyiling in Bamrin; Orgyenling in Tsangchu; Kyerechung Tashi Tengye in Layak; and several others. He restored damages and reconsecrated Gyatso Lhalun. Like his previous incarnations, Pema Lingpa left magical markings of his passing in many places like Kunzangdrak monastery and Gyagar Khamphuk. These marks have a status akin to a terma, as they are reminders of his ever-living presence.`,
     },
     pelingdance: {
-      header: "PELING",
-      title: "DANCE",
+      title: "PELING",
+      header: "DANCE",
       content: ` Pema Lingpa’s legacies are preserved in the form of sacred dances called peling tercham which were revealed to him as dreams and visions. The ritual dances composed by him serve as a centerpiece for many festivals and ceremonies. The most popular of the dances are the dakini dance, the three ging dances signifying the subjugation of evil and the ging and tsholing dance. It is said that dakini would visit him in his dreams to teach him the steps of different sacred dances and give him further instructions.`,
     },
   },

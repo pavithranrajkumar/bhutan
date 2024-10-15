@@ -38,7 +38,7 @@ const NextIcon = ({
         <FontAwesomeIcon
           style={{ color }}
           icon={faChevronRight}
-          className={whiteImge ? styles.PreviousIcon : styles.PreviousIcon}
+          className={ styles.PreviousIcon}
         />
       </motion.div>
     </div>

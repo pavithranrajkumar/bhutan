@@ -12,7 +12,6 @@
   font-size: 0.7vw;
   background: #193145;
   color: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   z-index: 1;
   width: 530px;
   justify-content: left;
@@ -22,7 +21,23 @@
   left: 63%;
   transform: translateX(-50%);
   display: flex;
+  position: absolute;
   padding: 10px;
+}
+
+.detailCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/src/assests/BgImgs/CardBgImg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.15; /* Adjust the opacity of the background here */
+  z-index: 1; /* Make sure it is behind the card content */
 }
 
 .introduction {
@@ -41,6 +56,7 @@
   font-family: "Josefin Sans";
   border-bottom: 2px solid #001829;
   padding-bottom: 5px;
+  font-weight: bolder;
 }
 
 .CardContent {

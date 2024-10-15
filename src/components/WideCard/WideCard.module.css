@@ -9,11 +9,36 @@
   display: flex; /* Enable flexbox for cards */
   align-items: center; /* Center text vertically */
   justify-content: center; /* Center text horizontally */
+  position: relative; /* For positioning the background image */
+  overflow: hidden; /* Prevent overflow */
+}
+
+/* Background image for WideCard */
+.WideCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/src/assests/BgImgs/CardBgImg.png"); /* Background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.15; /* Background image opacity */
+  z-index: 0; /* Ensure background stays behind content */
+  pointer-events: none; /* Prevent interaction with the background */
+}
+
+/* Ensure the text content stays on top */
+.WideCard > * {
+  z-index: 1; /* Content on top of the background */
 }
 
 .WideCardHeader {
   font-family: "Josefin Sans";
   font-size: 8px;
+  font-weight: 500;
   display: flex;
   flex-direction: column;
 }
@@ -37,6 +62,7 @@
   }
 }
 
+/* Active card style */
 .activeCard {
   background-color: #c87e12;
   color: #fadfb6;

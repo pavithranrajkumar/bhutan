@@ -1,5 +1,6 @@
 .PopularCards,
 .DrukpaCards {
+  position: relative; /* For positioning the background image */
   background: #c9d7ee;
   color: #001829;
   font-family: "Hammersmith One";
@@ -9,8 +10,34 @@
   cursor: pointer;
   transition: transform 0.5s ease, opacity 0.5s ease;
   transform: translateY(20px);
+  overflow: hidden; /* Prevent overflow of the background image */
 }
 
+/* Add background image to both PopularCards and DrukpaCards */
+.PopularCards::before,
+.DrukpaCards::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/src/assests/BgImgs/CardBgImg.png"); /* Background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.15; /* Background image opacity */
+  z-index: 0; /* Ensure background stays behind content */
+  pointer-events: none; /* Prevent interaction with the background */
+}
+
+/* Ensure the text content stays on top */
+.PopularCards > * ,
+.DrukpaCards > * {
+  z-index: 1; /* Content on top of the background */
+}
+
+/* SchoolsTopCards container for both cards */
 .SchoolsTopCards {
   position: fixed;
   left: 50.6%;
@@ -19,11 +46,13 @@
   gap: 10px;
 }
 
+/* Hover effect for scaling */
 .PopularCards:hover,
 .DrukpaCards:hover {
   transform: scale(1.05);
 }
 
+/* Fade in animation */
 @keyframes fadeInUp {
   0% {
     opacity: 0;

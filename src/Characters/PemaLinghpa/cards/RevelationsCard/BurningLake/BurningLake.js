@@ -13,16 +13,16 @@ const BurningLake = ({ showIntro, language, onBurningLakeBookImgClick }) => {
       {showIntro && (
         <>
           <Card
-            width="330px"
-            height="305px"
+            width="250px"
+            height="320px"
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="0.5px solid #001829"
             backgroundColor="#C9D7EE"
             color="#001829"
             fontWeight="800"
-            header={PEMA_LINGPA_INFORMATION[language].burningLake.header}
-            title={PEMA_LINGPA_INFORMATION[language].burningLake.title}
+            header={PEMA_LINGPA_INFORMATION[language].burningLake.title}
+            title={PEMA_LINGPA_INFORMATION[language].burningLake.header}
             content={PEMA_LINGPA_INFORMATION[language].burningLake.content}
             language={language}
             showIntro={showIntro}

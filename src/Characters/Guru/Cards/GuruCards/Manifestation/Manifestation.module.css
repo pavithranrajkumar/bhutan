@@ -5,6 +5,7 @@
   height: 210px;
   width: 150px;
   cursor: pointer;
+  z-index: 20;
 }
 
 .WideCards {
