@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Guru.module.css";
 import { motion } from "framer-motion";
+import { FaTimes, FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import guru from "../../assests/Guru/Guru Rinpoche.png";
 import YearText from "../../components/YearText/YearText";
 import NameCard from "../../components/NameCard/NameCard";
@@ -49,25 +50,95 @@ const Guru = () => {
   const [showManifestationCardWithImg, setShowManifestationCardWithImg] =
     useState(false);
   const [showPalaceImg, setShowPalaceImg] = useState(false);
-  const [enlargedImage, setEnlargedImage] = useState(null);
-  const [KurjeEnlargedImage, setKurjeEnlargedImage] = useState(null);
+  const [enlargedImage, setEnlargedImage] = useState({
+    src: null,
+    index: 0,
+    isPopular: true,
+  });
 
-  const handleImageClick = (imageSrc) => {
-    setEnlargedImage(imageSrc);
+  const images = [
+    {
+      src: palaceImg1,
+      enlargeSrc: palaceEnlargeImg1,
+      alt: "Image 1",
+      className: styles.palaceImg1,
+    },
+    {
+      src: palaceImg2,
+      enlargeSrc: palaceEnlargeImg2,
+      alt: "Image 2",
+      className: styles.palaceImg2,
+    },
+    {
+      src: palaceImg3,
+      enlargeSrc: palaceEnlargeImg3,
+      alt: "Image 3",
+      className: styles.palaceImg3,
+    },
+    {
+      src: palaceImg4,
+      enlargeSrc: palaceEnlargeImg4,
+      alt: "Image 4",
+      className: styles.palaceImg4,
+    },
+  ];
+
+  const drukpaKagyuImages = [
+    {
+      src: KurjeImg1,
+      enlargeSrc: KurjeEnlargeImg1,
+      alt: "Image 1",
+      className: styles.KurjeLhakhangTemplesImg1,
+    },
+    {
+      src: KurjeImg2,
+      enlargeSrc: KurjeEnlargeImg2,
+      alt: "Image 2",
+      className: styles.KurjeLhakhangTemplesImg2,
+    },
+    {
+      src: KurjeImg3,
+      enlargeSrc: KurjeEnlargeImg3,
+      alt: "Image 3",
+      className: styles.KurjeLhakhangTemplesImg3,
+    },
+    {
+      src: KurjeImg4,
+      enlargeSrc: KurjeEnlargeImg4,
+      alt: "Image 4",
+      className: styles.KurjeLhakhangTemplesImg4,
+    },
+  ];
+
+  const handleImageClick = (img, index, isPopular) => {
+    setEnlargedImage({ src: img, index, isPopular });
   };
 
-  const handleKurjeImageClick = (imageSrc) => {
-    setKurjeEnlargedImage(imageSrc);
+  const nextImage = () => {
+    const { index, isPopular } = enlargedImage;
+    const nextIndex = isPopular
+      ? (index + 1) % images.length
+      : (index + 1) % drukpaKagyuImages.length;
+
+    const nextImgSrc = isPopular
+      ? images[nextIndex].enlargeSrc
+      : drukpaKagyuImages[nextIndex].enlargeSrc;
+    setEnlargedImage({ src: nextImgSrc, index: nextIndex, isPopular });
   };
 
-  const paraSize =
-    language === BHUTAN
-      ? showCards || selectedCard || showIntroduction
-        ? "13px"
-        : "18px"
-      : showCards || selectedCard || showIntroduction
-      ? "15px"
-      : "20px";
+  const previousImage = () => {
+    const { index, isPopular } = enlargedImage;
+    const prevIndex = isPopular
+      ? (index - 1 + images.length) % images.length
+      : (index - 1 + drukpaKagyuImages.length) % drukpaKagyuImages.length;
+
+    const prevImgSrc = isPopular
+      ? images[prevIndex].enlargeSrc
+      : drukpaKagyuImages[prevIndex].enlargeSrc;
+    setEnlargedImage({ src: prevImgSrc, index: prevIndex, isPopular });
+  };
+
+
   const fontSize =
     language === BHUTAN
       ? showCards || selectedCard || showIntroduction
@@ -75,7 +146,7 @@ const Guru = () => {
         : "19px"
       : showCards || selectedCard || showIntroduction
       ? "19px"
-      : "20px";
+      : "1.25rem";
 
   const toggleLanguage = () => {
     setLanguage((prevLanguage) => {
@@ -94,7 +165,6 @@ const Guru = () => {
     setShowManifestationCardWithImg(false);
     setShowPalaceImg(false);
     setEnlargedImage(false);
-    setKurjeEnlargedImage(false);
     setShowYearText(true);
   };
 
@@ -107,7 +177,6 @@ const Guru = () => {
     setShowManifestationCardWithImg(false);
     setShowPalaceImg(false);
     setEnlargedImage(false);
-    setKurjeEnlargedImage(false);
   };
 
   const handleCardOrImageClick = () => {
@@ -261,11 +330,11 @@ const Guru = () => {
           <NameCard
             cardName={GURU_INFORMATION[language].cardName}
             width="200px"
-            height="90px"
+            height="110px"
             subCardname={GURU_INFORMATION[language].subCardName}
-            subCardnameFontSize={language === BHUTAN ? "1rem" : "12px"}
-            subCardnameMarginLeft={language === BHUTAN ? "90px" : "40px"}
-            paraSize={paraSize}
+            subCardnameFontSize={language === BHUTAN ? "1.5rem" : "12px"}
+            subCardnameMarginLeft={language === BHUTAN ? "90px" : "35px"}
+            paraSize="15px"
             fontSize={fontSize}
             year={
               showCards || selectedCard || showIntroduction
@@ -405,40 +474,22 @@ const Guru = () => {
             style={{
               position: "relative",
               transition: "opacity 0.3s ease",
-              backgroundColor: KurjeEnlargedImage
-                ? "rgba(0, 0, 0, 0.7)" // Add black opacity when enlarged
-                : "transparent",
-              opacity: KurjeEnlargedImage ? 0.4 : 1, // Adjust opacity effect
+              backgroundColor: enlargedImage.src
+                ? "rgba(0, 0, 0, 0.7)"
+                : "transparent", // Only apply black opacity when enlarged
+              opacity: enlargedImage.src ? 0.4 : 1, // Adjust opacity effect only when enlarged
             }}
           >
-            <div className={styles.KurjeLhakhangTemplesImg1}>
-              <img
-                src={KurjeImg1}
-                alt="palaceImg1"
-                onClick={() => handleKurjeImageClick(KurjeEnlargeImg1)}
-              />
-            </div>
-            <div className={styles.KurjeLhakhangTemplesImg2}>
-              <img
-                src={KurjeImg2}
-                alt="palaceImg2"
-                onClick={() => handleKurjeImageClick(KurjeEnlargeImg2)}
-              />
-            </div>
-            <div className={styles.KurjeLhakhangTemplesImg3}>
-              <img
-                src={KurjeImg3}
-                alt="palaceImg3"
-                onClick={() => handleKurjeImageClick(KurjeEnlargeImg3)}
-              />
-            </div>
-            <div className={styles.KurjeLhakhangTemplesImg4}>
-              <img
-                src={KurjeImg4}
-                alt="palaceImg3"
-                onClick={() => handleKurjeImageClick(KurjeEnlargeImg4)}
-              />
-            </div>
+            {drukpaKagyuImages.map((img, index) => (
+              <div className={img.className} key={index}>
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  onClick={() => handleImageClick(img.enlargeSrc, index, false)}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
+            ))}
           </div>
           <LanguageIcon
             onClick={toggleLanguage}
@@ -472,23 +523,6 @@ const Guru = () => {
             marginTop="28px"
           />
         </>
-      )}
-
-      {KurjeEnlargedImage ? (
-        <div
-          className={`${styles.enlargedKurjeLhakhangImage} ${styles.fadeIn}`}
-          onClick={() => setKurjeEnlargedImage(null)}
-        >
-          <img
-            src={KurjeEnlargedImage}
-            alt="Enlarged"
-            className={styles.enlargedImages}
-            onClick={() => handleKurjeImageClick(KurjeEnlargedImage)}
-            style={{ cursor: "pointer" }} // Optional: change cursor to pointer
-          />
-        </div>
-      ) : (
-        <></>
       )}
 
       {selectedCard === "manifestation" && !showManifestationCardWithImg && (
@@ -593,44 +627,26 @@ const Guru = () => {
       {showPalaceImg && (
         <>
           <div
-            className={styles.PalaceImgContainer}
+            className={styles.KurjeLhakhangTemplesImgContainer}
             style={{
               position: "relative",
               transition: "opacity 0.3s ease",
-              backgroundColor: enlargedImage
-                ? "rgba(0, 0, 0, 0.7)" // Add black opacity when enlarged
-                : "transparent",
-              opacity: enlargedImage ? 0.4 : 1, // Adjust opacity effect
+              backgroundColor: enlargedImage.src
+                ? "rgba(0, 0, 0, 0.7)"
+                : "transparent", // Only apply black opacity when enlarged
+              opacity: enlargedImage.src ? 0.4 : 1, // Adjust opacity effect only when enlarged
             }}
           >
-            <div className={styles.palaceImg1}>
-              <img
-                src={palaceImg1}
-                alt="palaceImg1"
-                onClick={() => handleImageClick(palaceEnlargeImg1)}
-              />
-            </div>
-            <div className={styles.palaceImg2}>
-              <img
-                src={palaceImg3}
-                alt="palaceImg2"
-                onClick={() => handleImageClick(palaceEnlargeImg2)}
-              />
-            </div>
-            <div className={styles.palaceImg3}>
-              <img
-                src={palaceImg2}
-                alt="palaceImg3"
-                onClick={() => handleImageClick(palaceEnlargeImg3)}
-              />
-            </div>
-            <div className={styles.palaceImg4}>
-              <img
-                src={palaceImg4}
-                alt="palaceImg4"
-                onClick={() => handleImageClick(palaceEnlargeImg4)}
-              />
-            </div>
+            {images.map((img, index) => (
+              <div className={img.className} key={index}>
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  onClick={() => handleImageClick(img.enlargeSrc, index, true)}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
+            ))}
           </div>
           <LanguageIcon
             language={language}
@@ -665,21 +681,72 @@ const Guru = () => {
         </>
       )}
 
-      {enlargedImage ? (
-        <div
-          className={`${styles.palaceenlargedImg1} ${styles.fadeIn}`}
-          onClick={() => setEnlargedImage(null)}
-        >
-          <img
-            src={enlargedImage}
-            alt="Enlarged"
-            className={styles.enlargedImages}
-            onClick={() => handleImageClick(palaceEnlargeImg1)}
-            style={{ cursor: "pointer" }} // Optional: change cursor to pointer
-          />
+      {enlargedImage.src && (
+        <div className={styles.overlay}>
+          <div
+            className={`${styles.enlargedKurjeLhakhangImage} ${styles.fadeIn}`}
+          >
+            <button
+              onClick={() => setEnlargedImage({ ...enlargedImage, src: null })}
+              style={{
+                position: "absolute",
+                top: -20,
+                right: -30,
+                cursor: "pointer",
+              }}
+            >
+              <FaTimes size={30} className={styles.CloseIcon} />
+            </button>
+            <button
+              onClick={previousImage}
+              className={styles.leftArrow}
+              style={{
+                position: "absolute",
+                left: -60,
+                top: "50%",
+                transform: "translateY(-50%)",
+                cursor: "pointer",
+              }}
+            >
+              <FaAngleLeft size={30} />
+            </button>
+            <img
+              src={enlargedImage.src}
+              alt=""
+              className={styles.enlargedImage}
+              style={{ cursor: "pointer" }}
+              onError={() => console.error("Image failed to load.")}
+              onClick={() => setEnlargedImage({ ...enlargedImage, src: null })}
+            />
+            <button
+              onClick={nextImage}
+              className={styles.rightArrow}
+              style={{
+                position: "absolute",
+                right: -60,
+                top: "50%",
+                transform: "translateY(-50%)",
+                cursor: "pointer",
+              }}
+            >
+              <FaAngleRight size={30} />
+            </button>
+            <div
+              style={{
+                position: "absolute",
+                bottom: 20,
+                left: "50%",
+                transform: "translateX(-50%)",
+                color: "white",
+              }}
+            >
+              {enlargedImage.index + 1} /{" "}
+              {enlargedImage.isPopular
+                ? images.length
+                : drukpaKagyuImages.length}
+            </div>
+          </div>
         </div>
-      ) : (
-        <></>
       )}
     </motion.div>
   );

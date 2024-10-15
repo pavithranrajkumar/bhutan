@@ -176,10 +176,10 @@ const ZhabrungNgawangNamgyal = () => {
         >
           <NameCard
             cardName={ZHABRUNG_INFORMATION[language].title}
-            width="200px"
-            height="90px"
-            paraSize="13px"
-            fontSize={language === BHUTAN ? "1.1rem" : "15px"}
+            width="250px"
+            height="110px"
+            paraSize="15px"
+            fontSize={language === BHUTAN ? "1.5rem" : "20px"}
             year={
               showCards || selectedCard || showIntroduction
                 ? "1594-1651"
@@ -203,7 +203,7 @@ const ZhabrungNgawangNamgyal = () => {
           <NextIcon
             showIcons={showIcons}
             whiteImage={true}
-            left="93%"
+            left="93.6%"
             top="86%"
             onClick={showZhabrungCards}
             background="#2B455D"

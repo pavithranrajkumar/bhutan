@@ -268,9 +268,9 @@ const PemaLinghpa = () => {
         >
           <NameCard
             cardName={PEMA_LINGPA_INFORMATION[language].title}
-            width={isActive ? "300px" : "250px"}
+            width={isActive ? "300px" : "300px"}
             height={isActive ? "100px" : "80px"}
-            fontSize={isActive ? (language === BHUTAN ? "1.5rem" : "20px") : (language === BHUTAN ? "1.5rem" : "15px")}
+            fontSize={isActive ? (language === BHUTAN ? "1.5rem" : "20px") : (language === BHUTAN ? "1.5rem" : "20px")}
             background="#384E63"
             color="white"
             // background={nameCardBackground}
@@ -290,7 +290,7 @@ const PemaLinghpa = () => {
                 : undefined
             }
             // paraColor={nameParaColor}
-            paraSize="13px"
+            paraSize="15px"
           />
         </div>
       </motion.div>

@@ -17,9 +17,9 @@ const BigCard = ({
   language
 }) => {
   const headerFontSize = language === BHUTAN ? "0.5vw" : "0.52083vw"; // 1.125rem and 1.25rem converted
-  const titleFontSize = language === BHUTAN ? "0.5vw" : "0.52083vw"; // 0.9375rem and 1.25rem converted
-  const contentFontSize = language === BHUTAN ? "0.32vw" : "0.29166667vw"; // 0.625rem and 0.6875rem converted
-  const contentLineHeight = language === BHUTAN ? "1.5" : ""; // You can keep this as is or adjust as needed
+  const titleFontSize = language === BHUTAN ? "0.7vw" : "0.52083vw"; // 0.9375rem and 1.25rem converted
+  const contentFontSize = language === BHUTAN ? "0.36vw" : "0.29166667vw"; // 0.625rem and 0.6875rem converted
+  const contentLineHeight = language === BHUTAN ? "1.2" : "";
 
   return (
     <motion.div

@@ -40,9 +40,9 @@ const Supine = () => {
   const [puzzleCompleted, setPuzzleCompleted] = useState(false);
 
   const kyichuFontSize = language === BHUTAN ? "1.25rem" : "1.5625rem";
-  const cardNameFontSize = language === BHUTAN ? "1.5rem" : "1.09375rem";
-  const subCardnameFontSize = language === BHUTAN ? "1.5rem" : "1.09375rem";
-  const subCardnameMarginLeft = language === BHUTAN ? "9rem" : "6.5625rem";
+  const cardNameFontSize = language === BHUTAN ? "1.5rem" : "1.25rem";
+  const subCardnameFontSize = language === BHUTAN ? "1.5rem" : "1.25rem";
+  const subCardnameMarginLeft = language === BHUTAN ? "10.1rem" : "7rem";
 
   const toggleLanguage = () => {
     setLanguage((prevLanguage) => {
@@ -274,8 +274,8 @@ const Supine = () => {
             <NameCard
               cardName={SUPINE_INFORMATION[language].nameCardtitle}
               subCardname={SUPINE_INFORMATION[language].nameCardtitleTwo}
-              width="250px"
-              height="80px"
+              width="270px"
+              height="100px"
               fontSize={cardNameFontSize}
               subCardnameFontSize={subCardnameFontSize}
               subCardnameMarginLeft={subCardnameMarginLeft}
@@ -292,7 +292,7 @@ const Supine = () => {
                   : undefined
               }
               paraColor={nameParaColor}
-              paraSize="13px"
+              paraSize="15px"
               language={language}
             />
           </motion.div>

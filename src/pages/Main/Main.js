@@ -1,6 +1,6 @@
 import React from "react";
 import "./main.css";
-import bottom from "../../assests/Bottom.svg";
+import bottom from "../../assests/Bottom.png";
 import ZhabrungNgawangNamgyal from "../../Characters/ZhabrungNgawangNamgyal/ZhabrungNgawangNamgyal";
 import Tibetan from "../../Characters/Tibetan/Tibetan";
 import Guru from "../../Characters/Guru/Guru";

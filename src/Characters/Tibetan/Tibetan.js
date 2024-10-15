@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Tibetan.module.css";
+import { useSwipeable } from "react-swipeable";
 import { motion } from "framer-motion";
 import tibetan from "../../assests/Tibetan/Migrants.png";
 import YearText from "../../components/YearText/YearText";
@@ -7,6 +8,7 @@ import NameCard from "../../components/NameCard/NameCard";
 import Introduction from "./Cards/Introduction/Introduction";
 import NextIcon from "../../components/Card/Icons/NextIcon/NextIcon";
 import LanguageIcon from "../../components/Card/Icons/LanguageIcon/LanguageIcon";
+import { FaTimes, FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import TibetanCards from "./Cards/TibetanCards/TibetanCards";
 import { TIBETAN_INFORMATION } from "../../constants/Characters/Tibetan";
 import Arrival from "./Cards/Arrival/Arrival";
@@ -93,14 +95,251 @@ const Tibetan = () => {
   const [showPopularSchoolsImgCard, setShowPopularSchoolsImgCard] =
     useState(false);
   const [showDrugpaKagyuImgCard, setShowDrugpaKagyuImgCard] = useState(false);
-  const [enlargedImage, setEnlargedImage] = useState(null);
+  const [enlargedImage, setEnlargedImage] = useState({
+    src: null,
+    index: 0,
+    isPopular: true,
+  });
 
-  const handleImageClick = (imageSrc) => {
-    setEnlargedImage(imageSrc);
+  const handleSwipe = (direction) => {
+    const { index, isPopular } = enlargedImage;
+    const nextIndex =
+      direction === "left"
+        ? (index + 1) % (isPopular ? images.length : drukpaKagyuImages.length)
+        : (index - 1 + (isPopular ? images.length : drukpaKagyuImages.length)) %
+          (isPopular ? images.length : drukpaKagyuImages.length);
+
+    const nextImgSrc = isPopular
+      ? images[nextIndex].enlargeSrc
+      : drukpaKagyuImages[nextIndex].enlargeSrc;
+    setEnlargedImage({ src: nextImgSrc, index: nextIndex, isPopular });
   };
 
-  const closeEnlargedImage = () => {
-    setEnlargedImage(null);
+  const handlers = useSwipeable({
+    onSwipedLeft: () => handleSwipe("left"),
+    onSwipedRight: () => handleSwipe("right"),
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
+  });
+
+  const images = [
+    {
+      src: popularImg1,
+      enlargeSrc: EnlargepopularImg1,
+      alt: "Image 1",
+      className: styles.KurjeLhakhangTemplesImg1,
+    },
+    {
+      src: popularImg2,
+      enlargeSrc: EnlargepopularImg2,
+      alt: "Image 2",
+      className: styles.KurjeLhakhangTemplesImg2,
+    },
+    {
+      src: popularImg3,
+      enlargeSrc: EnlargepopularImg3,
+      alt: "Image 3",
+      className: styles.KurjeLhakhangTemplesImg3,
+    },
+    {
+      src: popularImg4,
+      enlargeSrc: EnlargepopularImg4,
+      alt: "Image 4",
+      className: styles.KurjeLhakhangTemplesImg4,
+    },
+    {
+      src: popularImg5,
+      enlargeSrc: EnlargepopularImg5,
+      alt: "Image 5",
+      className: styles.KurjeLhakhangTemplesImg5,
+    },
+    {
+      src: popularImg6,
+      enlargeSrc: EnlargepopularImg6,
+      alt: "Image 6",
+      className: styles.KurjeLhakhangTemplesImg6,
+    },
+    {
+      src: popularImg7,
+      enlargeSrc: EnlargepopularImg7,
+      alt: "Image 7",
+      className: styles.KurjeLhakhangTemplesImg7,
+    },
+    {
+      src: popularImg8,
+      enlargeSrc: EnlargepopularImg8,
+      alt: "Image 8",
+      className: styles.KurjeLhakhangTemplesImg8,
+    },
+    {
+      src: popularImg9,
+      enlargeSrc: EnlargepopularImg9,
+      alt: "Image 9",
+      className: styles.KurjeLhakhangTemplesImg9,
+    },
+    {
+      src: popularImg10,
+      enlargeSrc: EnlargepopularImg10,
+      alt: "Image 10",
+      className: styles.KurjeLhakhangTemplesImg10,
+    },
+    {
+      src: popularImg11,
+      enlargeSrc: EnlargepopularImg11,
+      alt: "Image 11",
+      className: styles.KurjeLhakhangTemplesImg11,
+    },
+    {
+      src: popularImg12,
+      enlargeSrc: EnlargepopularImg12,
+      alt: "Image 12",
+      className: styles.KurjeLhakhangTemplesImg12,
+    },
+    {
+      src: popularImg13,
+      enlargeSrc: EnlargepopularImg13,
+      alt: "Image 13",
+      className: styles.KurjeLhakhangTemplesImg13,
+    },
+  ];
+
+  const drukpaKagyuImages = [
+    {
+      src: DrugpaKagyuImg1,
+      enlargeSrc: EnlargeDrukpaImg1,
+      alt: "Image 1",
+      className: styles.DrugpaKagyuImg1,
+    },
+    {
+      src: DrugpaKagyuImg2,
+      enlargeSrc: EnlargeDrukpaImg2,
+      alt: "Image 2",
+      className: styles.DrugpaKagyuImg2,
+    },
+    {
+      src: DrugpaKagyuImg3,
+      enlargeSrc: EnlargeDrukpaImg3,
+      alt: "Image 3",
+      className: styles.DrugpaKagyuImg3,
+    },
+    {
+      src: DrugpaKagyuImg4,
+      enlargeSrc: EnlargeDrukpaImg4,
+      alt: "Image 4",
+      className: styles.DrugpaKagyuImg4,
+    },
+    {
+      src: DrugpaKagyuImg5,
+      enlargeSrc: EnlargeDrukpaImg5,
+      alt: "Image 5",
+      className: styles.DrugpaKagyuImg5,
+    },
+    {
+      src: DrugpaKagyuImg6,
+      enlargeSrc: EnlargeDrukpaImg6,
+      alt: "Image 6",
+      className: styles.DrugpaKagyuImg6,
+    },
+    {
+      src: DrugpaKagyuImg7,
+      enlargeSrc: EnlargeDrukpaImg7,
+      alt: "Image 7",
+      className: styles.DrugpaKagyuImg7,
+    },
+    {
+      src: DrugpaKagyuImg8,
+      enlargeSrc: EnlargeDrukpaImg8,
+      alt: "Image 8",
+      className: styles.DrugpaKagyuImg8,
+    },
+    {
+      src: DrugpaKagyuImg9,
+      enlargeSrc: EnlargeDrukpaImg9,
+      alt: "Image 9",
+      className: styles.DrugpaKagyuImg9,
+    },
+    {
+      src: DrugpaKagyuImg10,
+      enlargeSrc: EnlargeDrukpaImg10,
+      alt: "Image 10",
+      className: styles.DrugpaKagyuImg10,
+    },
+    {
+      src: DrugpaKagyuImg11,
+      enlargeSrc: EnlargeDrukpaImg11,
+      alt: "Image 11",
+      className: styles.DrugpaKagyuImg11,
+    },
+    {
+      src: DrugpaKagyuImg12,
+      enlargeSrc: EnlargeDrukpaImg12,
+      alt: "Image 12",
+      className: styles.DrugpaKagyuImg12,
+    },
+    {
+      src: DrugpaKagyuImg13,
+      enlargeSrc: EnlargeDrukpaImg13,
+      alt: "Image 13",
+      className: styles.DrugpaKagyuImg13,
+    },
+    {
+      src: DrugpaKagyuImg14,
+      enlargeSrc: EnlargeDrukpaImg14,
+      alt: "Image 14",
+      className: styles.DrugpaKagyuImg14,
+    },
+    {
+      src: DrugpaKagyuImg15,
+      enlargeSrc: EnlargeDrukpaImg15,
+      alt: "Image 15",
+      className: styles.DrugpaKagyuImg15,
+    },
+    {
+      src: DrugpaKagyuImg16,
+      enlargeSrc: EnlargeDrukpaImg16,
+      alt: "Image 16",
+      className: styles.DrugpaKagyuImg16,
+    },
+    {
+      src: DrugpaKagyuImg17,
+      enlargeSrc: EnlargeDrukpaImg17,
+      alt: "Image 17",
+      className: styles.DrugpaKagyuImg17,
+    },
+    {
+      src: DrugpaKagyuImg18,
+      enlargeSrc: EnlargeDrukpaImg18,
+      alt: "Image 18",
+      className: styles.DrugpaKagyuImg18,
+    },
+  ];
+
+  const handleImageClick = (img, index, isPopular) => {
+    setEnlargedImage({ src: img, index, isPopular });
+  };
+
+  const nextImage = () => {
+    const { index, isPopular } = enlargedImage;
+    const nextIndex = isPopular
+      ? (index + 1) % images.length
+      : (index + 1) % drukpaKagyuImages.length;
+
+    const nextImgSrc = isPopular
+      ? images[nextIndex].enlargeSrc
+      : drukpaKagyuImages[nextIndex].enlargeSrc;
+    setEnlargedImage({ src: nextImgSrc, index: nextIndex, isPopular });
+  };
+
+  const previousImage = () => {
+    const { index, isPopular } = enlargedImage;
+    const prevIndex = isPopular
+      ? (index - 1 + images.length) % images.length
+      : (index - 1 + drukpaKagyuImages.length) % drukpaKagyuImages.length;
+
+    const prevImgSrc = isPopular
+      ? images[prevIndex].enlargeSrc
+      : drukpaKagyuImages[prevIndex].enlargeSrc;
+    setEnlargedImage({ src: prevImgSrc, index: prevIndex, isPopular });
   };
 
   const handleCardOrImageClick = () => {
@@ -192,9 +431,11 @@ const Tibetan = () => {
   const handlePreviousClick = () => {
     if (showPopularSchoolsImgCard) {
       setShowPopularSchoolsImgCard(false);
+      setEnlargedImage(false);
       setShowPopularSchoolsCard(true);
     } else if (showDrugpaKagyuImgCard) {
       setShowDrugpaKagyuImgCard(false);
+      setEnlargedImage(false);
       setShowDrukpaKagyuCard(true);
     } else if (showPopularSchoolsCard) {
       setShowPopularSchoolsCard(false);
@@ -234,8 +475,6 @@ const Tibetan = () => {
     : selectedCard
     ? "#FCD7C2"
     : "white";
-
-
 
   useEffect(() => {
     if (selectedCard) {
@@ -281,10 +520,10 @@ const Tibetan = () => {
           <NameCard
             cardName={TIBETAN_INFORMATION[language].nameCardTitleFirst}
             cardNameTwo={TIBETAN_INFORMATION[language].nameCardTitleSecond}
-            width="220px"
+            width="255px"
             height="90px"
-            paraSize="13px"
-            fontSize={language === BHUTAN ? "1.35rem" : "1rem"}
+            paraSize="15px"
+            fontSize={language === BHUTAN ? "1.5rem" : "1.25rem"}
             year={
               showCards || selectedCard || showIntroduction
                 ? "1200-1800"
@@ -334,7 +573,7 @@ const Tibetan = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             background="#523019"
-            left="49.8%"
+            left="49.5%"
             top="81.1%"
             iconWidth="25px"
             IconHeight="25px"
@@ -464,116 +703,22 @@ const Tibetan = () => {
             style={{
               position: "relative",
               transition: "opacity 0.3s ease",
-              backgroundColor: enlargedImage
-                ? "rgba(0, 0, 0, 0.7)" // Add black opacity when enlarged
-                : "transparent",
-              opacity: enlargedImage ? 0.4 : 1, // Adjust opacity effect
+              backgroundColor: enlargedImage.src
+                ? "rgba(0, 0, 0, 0.7)"
+                : "transparent", // Only apply black opacity when enlarged
+              opacity: enlargedImage.src ? 0.4 : 1, // Adjust opacity effect only when enlarged
             }}
           >
-            <div className={styles.KurjeLhakhangTemplesImg1}>
-              <img
-                src={popularImg1}
-                alt=""
-                onClick={() => handleImageClick(EnlargepopularImg1)}
-              />
-            </div>
-            <div className={styles.KurjeLhakhangTemplesImg12}>
-              <img
-                src={popularImg13}
-                alt=""
-                onClick={() => handleImageClick(EnlargepopularImg13)}
-              />
-            </div>
-
-            <div className={styles.KurjeLhakhangTemplesImg13}>
-              <img
-                src={popularImg12}
-                alt=""
-                onClick={() => handleImageClick(EnlargepopularImg12)}
-              />
-            </div>
-
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div className={styles.KurjeLhakhangTemplesImg2}>
+            {images.map((img, index) => (
+              <div className={img.className} key={index}>
                 <img
-                  src={popularImg2}
-                  alt=""
-                  onClick={() => handleImageClick(EnlargepopularImg2)}
+                  src={img.src}
+                  alt={img.alt}
+                  onClick={() => handleImageClick(img.enlargeSrc, index, true)}
+                  style={{ cursor: "pointer" }}
                 />
               </div>
-              <div className={styles.KurjeLhakhangTemplesImg3}>
-                <img
-                  src={popularImg3}
-                  alt=""
-                  onClick={() => handleImageClick(EnlargepopularImg3)}
-                />
-              </div>
-            </div>
-
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div className={styles.KurjeLhakhangTemplesImg4}>
-                <img
-                  src={popularImg4}
-                  alt=""
-                  onClick={() => handleImageClick(EnlargepopularImg4)}
-                />
-              </div>
-              <div className={styles.KurjeLhakhangTemplesImg5}>
-                <img
-                  src={popularImg5}
-                  alt=""
-                  onClick={() => handleImageClick(EnlargepopularImg5)}
-                />
-              </div>
-              <div className={styles.KurjeLhakhangTemplesImg6}>
-                <img
-                  src={popularImg6}
-                  alt=""
-                  onClick={() => handleImageClick(EnlargepopularImg6)}
-                />
-              </div>
-              <div className={styles.KurjeLhakhangTemplesImg7}>
-                <img
-                  src={popularImg7}
-                  alt=""
-                  onClick={() => handleImageClick(EnlargepopularImg7)}
-                />
-              </div>
-            </div>
-
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div className={styles.KurjeLhakhangTemplesImg8}>
-                <img
-                  src={popularImg8}
-                  alt=""
-                  onClick={() => handleImageClick(EnlargepopularImg8)}
-                />
-              </div>
-              <div className={styles.KurjeLhakhangTemplesImg9}>
-                <img
-                  src={popularImg9}
-                  alt=""
-                  onClick={() => handleImageClick(EnlargepopularImg9)}
-                />
-              </div>
-            </div>
-
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div className={styles.KurjeLhakhangTemplesImg10}>
-                <img
-                  src={popularImg10}
-                  alt=""
-                  onClick={() => handleImageClick(EnlargepopularImg10)}
-                />
-              </div>
-              <div className={styles.KurjeLhakhangTemplesImg11}>
-                <img
-                  src={popularImg11}
-                  alt=""
-                  onClick={() => handleImageClick(EnlargepopularImg11)}
-                />
-              </div>
-            </div>
+            ))}
           </div>
 
           <LanguageIcon
@@ -608,22 +753,6 @@ const Tibetan = () => {
             marginTop="28px"
           />
         </>
-      )}
-
-      {enlargedImage ? (
-        <div
-          className={`${styles.KurjeLhakhangTemplesEnlargeImg} ${styles.fadeIn}`}
-          onClick={() => setEnlargedImage(null)}
-        >
-          <img
-            src={enlargedImage}
-            alt=""
-            className={styles.enlargedImage}
-            style={{ cursor: "pointer" }} // Optional: change cursor to pointer
-          />
-        </div>
-      ) : (
-        <></>
       )}
 
       {showDrukpaKagyuCard && (
@@ -674,160 +803,22 @@ const Tibetan = () => {
             style={{
               position: "relative",
               transition: "opacity 0.3s ease",
-              backgroundColor: enlargedImage
-                ? "rgba(0, 0, 0, 0.7)" // Add black opacity when enlarged
-                : "transparent",
-              opacity: enlargedImage ? 0.4 : 1, // Adjust opacity effect
+              backgroundColor: enlargedImage.src
+                ? "rgba(0, 0, 0, 0.7)"
+                : "transparent", // Only apply black opacity when enlarged
+              opacity: enlargedImage.src ? 0.4 : 1, // Adjust opacity effect only when enlarged
             }}
           >
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div className={styles.DrugpaKagyuImg1}>
+            {drukpaKagyuImages.map((img, index) => (
+              <div className={img.className} key={index}>
                 <img
-                  src={DrugpaKagyuImg1}
-                  alt=""
-                  onClick={() => handleImageClick(EnlargeDrukpaImg1)}
+                  src={img.src}
+                  alt={img.alt}
+                  onClick={() => handleImageClick(img.enlargeSrc, index, false)}
+                  style={{ cursor: "pointer" }}
                 />
               </div>
-              <div className={styles.DrugpaKagyuImg2}>
-                <img
-                  src={DrugpaKagyuImg2}
-                  alt=""
-                  onClick={() => handleImageClick(EnlargeDrukpaImg2)}
-                />
-              </div>
-            </div>
-
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div className={styles.DrugpaKagyuImg3}>
-                <img
-                  src={DrugpaKagyuImg3}
-                  alt=""
-                  onClick={() => handleImageClick(EnlargeDrukpaImg3)}
-                />
-              </div>
-              <div className={styles.DrugpaKagyuImg4}>
-                <img
-                  src={DrugpaKagyuImg4}
-                  alt=""
-                  onClick={() => handleImageClick(EnlargeDrukpaImg4)}
-                />
-              </div>
-              <div style={{ display: "flex", flexDirection: "row" }}>
-                <div className={styles.DrugpaKagyuImg5}>
-                  <img
-                    src={DrugpaKagyuImg5}
-                    alt=""
-                    onClick={() => handleImageClick(EnlargeDrukpaImg5)}
-                  />
-                </div>
-                <div className={styles.DrugpaKagyuImg6}>
-                  <img
-                    src={DrugpaKagyuImg6}
-                    alt=""
-                    onClick={() => handleImageClick(EnlargeDrukpaImg6)}
-                  />
-                </div>
-              </div>
-              <div className={styles.DrugpaKagyuImg7}>
-                <img
-                  src={DrugpaKagyuImg7}
-                  alt=""
-                  onClick={() => handleImageClick(EnlargeDrukpaImg7)}
-                />
-              </div>
-              <div style={{ display: "flex" }}>
-                <div className={styles.DrugpaKagyuImg8}>
-                  <img
-                    src={DrugpaKagyuImg8}
-                    alt=""
-                    onClick={() => handleImageClick(EnlargeDrukpaImg8)}
-                  />
-                </div>
-                <div className={styles.DrugpaKagyuImg9}>
-                  <img
-                    src={DrugpaKagyuImg9}
-                    alt=""
-                    onClick={() => handleImageClick(EnlargeDrukpaImg9)}
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div className={styles.DrugpaKagyuImg10}>
-                <img
-                  src={DrugpaKagyuImg10}
-                  alt=""
-                  onClick={() => handleImageClick(EnlargeDrukpaImg10)}
-                />
-              </div>
-              <div className={styles.DrugpaKagyuImg11}>
-                <img
-                  src={DrugpaKagyuImg11}
-                  alt=""
-                  onClick={() => handleImageClick(EnlargeDrukpaImg11)}
-                />
-              </div>
-            </div>
-
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div className={styles.DrugpaKagyuImg12}>
-                <img
-                  src={DrugpaKagyuImg12}
-                  alt=""
-                  onClick={() => handleImageClick(EnlargeDrukpaImg12)}
-                />
-              </div>
-              <div className={styles.DrugpaKagyuImg13}>
-                <img
-                  src={DrugpaKagyuImg13}
-                  alt=""
-                  onClick={() => handleImageClick(EnlargeDrukpaImg13)}
-                />
-              </div>
-            </div>
-
-            <div className={styles.DrugpaKagyuImg14}>
-              <img
-                src={DrugpaKagyuImg14}
-                alt=""
-                onClick={() => handleImageClick(EnlargeDrukpaImg14)}
-              />
-            </div>
-
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div className={styles.DrugpaKagyuImg15}>
-                <img
-                  src={DrugpaKagyuImg15}
-                  alt=""
-                  onClick={() => handleImageClick(EnlargeDrukpaImg15)}
-                />
-              </div>
-              <div className={styles.DrugpaKagyuImg16}>
-                <img
-                  src={DrugpaKagyuImg16}
-                  alt=""
-                  onClick={() => handleImageClick(EnlargeDrukpaImg16)}
-                />
-              </div>
-            </div>
-
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div className={styles.DrugpaKagyuImg17}>
-                <img
-                  src={DrugpaKagyuImg17}
-                  alt="palaceImg1"
-                  onClick={() => handleImageClick(EnlargeDrukpaImg17)}
-                />
-              </div>
-              <div className={styles.DrugpaKagyuImg18}>
-                <img
-                  src={DrugpaKagyuImg18}
-                  alt="palaceImg1"
-                  onClick={() => handleImageClick(EnlargeDrukpaImg18)}
-                />
-              </div>
-            </div>
+            ))}
           </div>
           <LanguageIcon
             language={language}
@@ -862,21 +853,45 @@ const Tibetan = () => {
           />
         </>
       )}
-      {enlargedImage ? (
-        <div
-          className={styles.DrugpaTemplesEnlargeImg}
-          onClick={() => setEnlargedImage(null)}
-        >
-          <img
-            src={enlargedImage}
-            alt=""
-            className={styles.enlargedImage}
-            onClick={() => handleImageClick(enlargedImage)}
-            style={{ cursor: "pointer" }} // Optional: change cursor to pointer
-          />
+
+      {enlargedImage.src && (
+        <div className={styles.overlay} {...handlers}>
+          <div
+            className={`${styles.KurjeLhakhangTemplesEnlargeImg} ${styles.fadeIn}`}
+          >
+            <button
+              onClick={() => setEnlargedImage({ ...enlargedImage, src: null })}
+              style={{
+                position: "absolute",
+                top: -20,
+                right: -30,
+                cursor: "pointer",
+              }}
+            >
+              <FaTimes size={30} className={styles.CloseIcon} />
+            </button>
+            <img
+              src={enlargedImage.src}
+              alt=""
+              className={styles.enlargedImage}
+              onError={() => console.error("Image failed to load.")}
+            />
+            <div
+              style={{
+                position: "absolute",
+                bottom: 20,
+                left: "50%",
+                transform: "translateX(-50%)",
+                color: "white",
+              }}
+            >
+              {enlargedImage.index + 1} /{" "}
+              {enlargedImage.isPopular
+                ? images.length
+                : drukpaKagyuImages.length}
+            </div>
+          </div>
         </div>
-      ) : (
-        <></>
       )}
     </motion.div>
   );

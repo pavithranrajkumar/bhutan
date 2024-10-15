@@ -51,11 +51,12 @@ const NameCard = ({
           style={{
             fontSize: subCardnameFontSize,
             marginLeft: subCardnameMarginLeft,
+            lineHeight: contentLineHeight
           }}
         >
           {subCardname}
         </div>
-        <p style={{ color: paraColor, fontSize: paraSize }}>{year}</p>
+        <p style={{ color: paraColor, fontSize: paraSize, marginTop:"3px" }}>{year}</p>
       </div>
     </motion.div>
   );

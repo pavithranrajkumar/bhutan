@@ -11,16 +11,7 @@ body {
 }
 
 .main-content {
-  padding: 300px;
-  background: linear-gradient(
-    to bottom,
-    #7cc7be 0%,
-    #eefaf8 20%,
-    #eefaf8 40%,
-    #eefaf8 60%,
-    #eefaf8 80%,
-    #7cc7be 100%
-  );
+  padding: 58px;
 }
 
 .image-container {
@@ -47,7 +38,7 @@ body {
 }
 
 .main-content-Header {
-  color: #aa5018;
+  color: white;
   font-family: "Josefin Sans";
   font-size: 100px;
 }
@@ -60,7 +51,7 @@ body {
   padding: 0;
   width: 100%;
   height: 5px;
-  background-color: #aa5018;
+  background-color: white;
 }
 
 .horizontal-line2 {
@@ -71,5 +62,5 @@ body {
   padding: 0;
   width: 100%;
   height: 5px;
-  background-color: #aa5018;
+  background-color: white;
 }
