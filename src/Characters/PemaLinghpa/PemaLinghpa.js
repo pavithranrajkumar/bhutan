@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import styles from "./PemaLinghpa.module.css";
+import CloseIcon from "../../components/Card/Icons/CloseIcon/CloseIcon";
 import NameCard from "../../components/NameCard/NameCard";
 import YearText from "../../components/YearText/YearText";
 import Pema from "../../assests/PemaLingpa/PemaLingpa.png";
@@ -270,7 +271,15 @@ const PemaLinghpa = () => {
             cardName={PEMA_LINGPA_INFORMATION[language].title}
             width={isActive ? "300px" : "300px"}
             height={isActive ? "100px" : "80px"}
-            fontSize={isActive ? (language === BHUTAN ? "1.5rem" : "20px") : (language === BHUTAN ? "1.5rem" : "20px")}
+            fontSize={
+              isActive
+                ? language === BHUTAN
+                  ? "1.5rem"
+                  : "20px"
+                : language === BHUTAN
+                ? "1.5rem"
+                : "20px"
+            }
             background="#384E63"
             color="white"
             // background={nameCardBackground}
@@ -377,9 +386,6 @@ const PemaLinghpa = () => {
                   left="60.2%"
                   top="92%"
                   background="#6A1F11"
-                  height="70px"
-                  width="80px"
-                  margin="25px"
                   onClick={handleHomeClick}
                 />
                 <NextIcon
@@ -393,6 +399,13 @@ const PemaLinghpa = () => {
                   background="#3A1701"
                   color="#FFD9BC"
                   onClick={handleNextIcon}
+                />
+                <CloseIcon
+                  showIcons={showIcons}
+                   left="60.2%"
+                  top="88%"
+                  background="#6A1F11"
+                  onClick={handleCardOrImageClick}
                 />
               </div>
             </>

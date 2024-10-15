@@ -22,7 +22,7 @@ import { motion } from "framer-motion"; // Import motion
 const LineageCard = ({ showIntro, language }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "30px";
   const fonstSize = language === BHUTAN ? "7.5px" : "11px";
-  const treeFonstSize = language === BHUTAN ? "5.3px" : "13px";
+  const treeFonstSize = language === BHUTAN ? "14px" : "13px";
 
   const [currentStep, setCurrentStep] = useState(null); // No step is active initially
 

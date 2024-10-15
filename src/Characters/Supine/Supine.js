@@ -23,6 +23,7 @@ import KyichuImg2 from "../../assests/Supine/KyichuImgs/KyichuImg2.png";
 import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
 import base from "../../assests/Supine/Base.png";
 import Puzzle from "../../pages/Puzzle/Puzzle";
+import CloseIcon from "../../components/Card/Icons/CloseIcon/CloseIcon";
 
 const Supine = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -370,11 +371,6 @@ const Supine = () => {
             background="#3A3C25"
             left="5%"
             top="83.7%"
-            iconWidth="25px"
-            IconHeight="25px"
-            height="50px"
-            width="55px"
-            margin="13px"
           />
           <HomeIcon
             showIcons={showIcons}
@@ -382,10 +378,14 @@ const Supine = () => {
             background="#555835"
             left="4.4%"
             top="79.5%"
-            height="70px"
-            width="80px"
-            margin="25px"
             onClick={handleHomeClick}
+          />
+          <CloseIcon
+            showIcons={showIcons}
+            background="#555835"
+            left="4.4%"
+            top="75.4%"
+            onClick={handleCardOrImageClick}
           />
         </>
       )}

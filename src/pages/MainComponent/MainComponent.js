@@ -76,7 +76,7 @@ const MainComponent = () => {
           initial="initial"
           animate="animate"
         />
-        <div className={styles.YearTwo}>
+        <div className={styles.Year}>
           <div className={styles.supine}>800 - 900</div>
         </div>
         <img
@@ -87,7 +87,7 @@ const MainComponent = () => {
           initial="initial"
           animate="animate"
         />
-        <div className={styles.YearTwo}>
+        <div className={styles.Year}>
           <div className={styles.guru}>900 - 1000</div>
         </div>
         <img
@@ -98,7 +98,7 @@ const MainComponent = () => {
           initial="initial"
           animate="animate"
         />
-        <div className={styles.YearTwo}>
+        <div className={styles.Year}>
           <div className={styles.tibetan}>1200 - 1800</div>
         </div>
         <img
@@ -109,7 +109,7 @@ const MainComponent = () => {
           initial="initial"
           animate="animate"
         />
-        <div className={styles.YearTwo}>
+        <div className={styles.Year}>
           <div className={styles.pema}>1450 - 1521</div>
         </div>
         <img
@@ -120,7 +120,7 @@ const MainComponent = () => {
           initial="initial"
           animate="animate"
         />
-        <div className={styles.YearTwo}>
+        <div className={styles.Year}>
           <div className={styles.zhabrug}>1594 - 1651</div>
         </div>
       </div>

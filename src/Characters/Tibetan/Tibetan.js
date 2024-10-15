@@ -79,7 +79,7 @@ import EnlargeDrukpaImg15 from "../../assests/Tibetan/Drukpakagyu/EnlargeImg/Dru
 import EnlargeDrukpaImg16 from "../../assests/Tibetan/Drukpakagyu/EnlargeImg/DrugpaImg16.png";
 import EnlargeDrukpaImg17 from "../../assests/Tibetan/Drukpakagyu/EnlargeImg/DrugpaImg17.png";
 import EnlargeDrukpaImg18 from "../../assests/Tibetan/Drukpakagyu/EnlargeImg/DrugpaImg18.png";
-
+import CloseIcon from "../../components/Card/Icons/CloseIcon/CloseIcon";
 import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
 
 const Tibetan = () => {
@@ -521,7 +521,7 @@ const Tibetan = () => {
             cardName={TIBETAN_INFORMATION[language].nameCardTitleFirst}
             cardNameTwo={TIBETAN_INFORMATION[language].nameCardTitleSecond}
             width="255px"
-            height="90px"
+            height="95px"
             paraSize="15px"
             fontSize={language === BHUTAN ? "1.5rem" : "1.25rem"}
             year={
@@ -596,27 +596,31 @@ const Tibetan = () => {
                 iconWidth="25px"
                 IconHeight="25px"
                 left="47.2%"
-                top="75.5%"
+                top="79.7%"
                 height="55px"
                 background="#7D431C"
               />
               <HomeIcon
                 showIcons={showIcons}
                 left="46.5%"
-                top="71.5%"
+                top="75.6%"
                 background="#8F4110"
-                height="70px"
-                width="80px"
-                margin="25px"
                 onClick={handleHomeClick}
               />
               <NextIcon
                 showIcons={showIcons}
                 left="56.7%"
-                top="85.7%"
+                top="85.5%"
                 onClick={showSchoolsCards}
                 background="#8F4110"
                 color="#FFDFC3"
+              />
+              <CloseIcon
+                showIcons={showIcons}
+                left="46.5%"
+                top="71.5%"
+                background="#8F4110"
+                onClick={handleCardOrImageClick}
               />
             </div>
           )}
@@ -636,7 +640,7 @@ const Tibetan = () => {
                 iconWidth="25px"
                 IconHeight="25px"
                 left="46.4%"
-                top="79.9%"
+                top="80%"
                 height="55px"
                 background="#7D431C"
               />
@@ -649,6 +653,13 @@ const Tibetan = () => {
                 width="80px"
                 margin="25px"
                 onClick={handleHomeClick}
+              />
+              <CloseIcon
+                showIcons={showIcons}
+                left="45.8%"
+                top="72%"
+                background="#8F4110"
+                onClick={handleCardOrImageClick}
               />
             </div>
           )}
@@ -672,13 +683,13 @@ const Tibetan = () => {
             height="50px"
             width="55px"
             left="41.3%"
-            top="79.8%"
+            top="78%"
             whiteImage={true}
           />
           <HomeIcon
             showIcons={showIcons}
             left="40.7%"
-            top="75.9%"
+            top="74%"
             height="70px"
             width="80px"
             margin="25px"
@@ -689,7 +700,7 @@ const Tibetan = () => {
             onClick={handlePreviousClick}
             showIcons={showIcons}
             left="40.7%"
-            top="72%"
+            top="70%"
             height="80px"
             marginTop="28px"
           />

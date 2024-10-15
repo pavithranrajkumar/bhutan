@@ -36,6 +36,7 @@ import KurjeEnlargeImg4 from "../../assests/Guru/Historic/KurjeImgs/EnlargeImgs/
 import KurjeEnlargeImg2 from "../../assests/Guru/Historic/KurjeImgs/EnlargeImgs/KurjeLhakhangTemplesImg4.png";
 
 import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
+import CloseIcon from "../../components/Card/Icons/CloseIcon/CloseIcon";
 
 const Guru = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -137,7 +138,6 @@ const Guru = () => {
       : drukpaKagyuImages[prevIndex].enlargeSrc;
     setEnlargedImage({ src: prevImgSrc, index: prevIndex, isPopular });
   };
-
 
   const fontSize =
     language === BHUTAN
@@ -333,7 +333,7 @@ const Guru = () => {
             height="110px"
             subCardname={GURU_INFORMATION[language].subCardName}
             subCardnameFontSize={language === BHUTAN ? "1.5rem" : "12px"}
-            subCardnameMarginLeft={language === BHUTAN ? "90px" : "35px"}
+            subCardnameMarginLeft={language === BHUTAN ? "94px" : "30px"}
             paraSize="15px"
             fontSize={fontSize}
             year={
@@ -415,7 +415,7 @@ const Guru = () => {
             iconWidth="25px"
             IconHeight="25px"
             left="22.4%"
-            top="91.4%"
+            top="91.5%"
             height="55px"
             background="#613900"
           />
@@ -428,6 +428,13 @@ const Guru = () => {
             width="80px"
             margin="25px"
             onClick={handleHomeClick}
+          />
+          <CloseIcon
+            showIcons={showIcons}
+            background="#C87E12"
+            left="21.8%"
+            top="83.5%"
+            onClick={handleCardOrImageClick}
           />
         </div>
       )}
@@ -443,13 +450,8 @@ const Guru = () => {
             language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
-            iconWidth="25px"
-            IconHeight="25px"
-            height="50px"
-            width="55px"
-            margin="13px"
             left="21.3%"
-            top="95.3%"
+            top="91.1%"
             background="#193145"
             whiteImage={true}
           />
@@ -458,11 +460,19 @@ const Guru = () => {
             whiteImage={true}
             background="#2B455D"
             left="20.7%"
-            top="91.4%"
+            top="86.9%"
             height="70px"
             width="80px"
             margin="25px"
             onClick={handleHomeClick}
+          />
+          <PreviousIcon
+            onClick={handlePreviousClick}
+            showIcons={showIcons}
+            left="20.7%"
+            top="82.7%"
+            height="80px"
+            marginTop="28px"
           />
         </div>
       )}
@@ -553,6 +563,13 @@ const Guru = () => {
             margin="25px"
             onClick={handleHomeClick}
           />
+           <CloseIcon
+            showIcons={showIcons}
+            background="#C87E12"
+            left="21.8%"
+            top="83.5%"
+            onClick={handleCardOrImageClick}
+          />
         </div>
       )}
 
@@ -566,15 +583,15 @@ const Guru = () => {
             margin="15px"
             iconWidth="25px"
             IconHeight="25px"
-            left="25.5%"
-            top="85.6%"
+            left="25.4%"
+            top="85.2%"
             height="50px"
             background="#613900"
           />
           <HomeIcon
             showIcons={showIcons}
-            left="24.9%"
-            top="81.7%"
+            left="24.8%"
+            top="81.1%"
             height="70px"
             width="80px"
             margin="25px"
@@ -584,8 +601,8 @@ const Guru = () => {
           <PreviousIcon
             onClick={handlePreviousClick}
             showIcons={showIcons}
-            left="24.9%"
-            top="77.5%"
+            left="24.8%"
+            top="77%"
             height="80px"
             marginTop="28px"
             background="#A06611"
@@ -608,18 +625,24 @@ const Guru = () => {
             iconWidth="25px"
             IconHeight="25px"
             left="21.9%"
-            top="91.4%"
+            top="91.2%"
             height="55px"
           />
           <HomeIcon
             showIcons={showIcons}
             whiteImage={true}
             left="21.3%"
-            top="87.5%"
+            top="87%"
             height="70px"
             width="80px"
             margin="25px"
             onClick={handleHomeClick}
+          />
+           <CloseIcon
+            showIcons={showIcons}
+            left="21.3%"
+            top="82.8%"
+            onClick={handleCardOrImageClick}
           />
         </div>
       )}

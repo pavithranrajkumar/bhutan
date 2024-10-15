@@ -2,13 +2,18 @@
   background: #aa5018;
   position: fixed;
   left: 86%;
-  top: 69.8%;
+  top: 68.5%;
   width: 400px;
   height: 180px;
+  padding: 8px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
 }
 
 .DriglamNamzhagTopCard p {
-  margin: 20px;
+  /* margin: 20px; */
   color: white;
   font-family: "Public Sans";
   font-size: 13px;

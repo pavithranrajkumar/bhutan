@@ -1,14 +1,20 @@
 .Header {
   color: white;
   font-family: "Josefin Sans";
-  font-size: 100px;
-  position: relative;
+  font-size: 45px;
+  position: fixed;
   z-index: 3;
+  left: 43.5%;
+  top: 48.9%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
+
 
 .horizontalLine1 {
   position: fixed;
-  top: 45%;
+  bottom: 56.5%;
   left: 0.1%;
   margin: 0;
   padding: 0;
@@ -20,7 +26,7 @@
 }
 
 .horizontalLine2 {
-  top: 55%;
+  bottom: 43.5%;
   left: 0.1%;
   position: fixed;
   margin: 0;
@@ -38,6 +44,7 @@
   padding: 0;
   position: fixed;
   z-index: 10; /* Higher z-index to ensure the buttons appear on top of the lines */
+
 }
 
 .supineRadioBtn,
@@ -51,8 +58,10 @@
 .pemaRadioBtnTwo,
 .zhabrugRadioBtnTwo {
   position: fixed;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
+  background-color: #82C5C4;
+
 }
 
 .radioBtn {
@@ -64,83 +73,76 @@
 .supineRadioBtn {
   position: fixed;
   left: 8.4%;
-  top: 59.4%;
-  width: 35px;
-  height: 35px;
+  top: 55.8%;
 }
 
 .Year {
+  position: fixed;
   font-family: "Josefin Sans";
-  font-size: 45px;
+  font-size: 33px;
   color: white;
 }
 
 .YearTwo {
   font-family: "Josefin Sans";
-  font-size: 45px;
+  font-size: 33px;
   color: white;
+  /* transform: rotate(180deg); */
+
 }
 
 .supine {
   position: fixed;
-  top: 56.4%;
-  left: 6.3%;
+  bottom: 45%;
+  left: 6.8%;
 }
 
 .guruRadioBtn {
   position: fixed;
   left: 28.5%;
-  top: 59.4%;
-  width: 35px;
-  height: 35px;
+  top: 55.8%;
 }
 
 .guru {
   position: fixed;
-  top: 56.4%;
-  left: 26.3%;
+  bottom: 45%;
+  left: 26.8%;
 }
 
 .tibetanRadioBtn {
   position: fixed;
   left: 49%;
-  top: 59.4%;
-  width: 35px;
-  height: 35px;
+  top: 55.8%;
 }
 
 .tibetan {
   position: fixed;
-  top: 56.4%;
-  left: 46.3%;
+  bottom: 45%;
+  left: 47%;
 }
 
 .pemaRadioBtn {
   position: fixed;
   left: 67%;
-  top: 59.4%;
-  width: 35px;
-  height: 35px;
+  top: 55.8%;
 }
 
 .pema {
   position: fixed;
-  top: 56.4%;
-  left: 64.5%;
+  bottom: 45%;
+  left: 65.1%;
 }
 
 .zhabrugRadioBtn {
   position: fixed;
   left: 87.6%;
-  top: 59.4%;
-  width: 35px;
-  height: 35px;
+  top: 55.8%;
 }
 
 .zhabrug {
   position: fixed;
-  top: 56.4%;
-  left: 85.3%;
+  bottom: 45%;
+  left: 85.8%;
 }
 
 .radioBtnFrst {
@@ -158,75 +160,65 @@
 .supineRadioBtnTwo {
   position: fixed;
   left: 10.5%;
-  top: 39.3%;
-  width: 35px;
-  height: 35px;
+  top: 42.7%;
 }
 
 .supineTwo {
   position: fixed;
-  top: 42%;
-  left: 8.3%;
+  top: 45%;
+  left: 8.8%;
   transform: rotate(180deg);
 }
 
 .guruRadioBtnTwo {
   position: fixed;
   left: 31.6%;
-  top: 39.3%;
-  width: 35px;
-  height: 35px;
+  top: 42.7%;
 }
 
 .guruTwo {
-  transform: rotate(180deg);
+  /* transform: rotate(180deg); */
   position: fixed;
-  top: 42%;
-  left: 29.5%;
+  top: 45%;
+  left: 30%;
 }
 
 .tibetanRadioBtnTwo {
   position: fixed;
   left: 50%;
-  top: 39.3%;
-  width: 35px;
-  height: 35px;
+  top: 42.7%;
 }
 
 .tibetanTwo {
   position: fixed;
-  top: 42%;
-  left: 47.4%;
+  top: 45%;
+  left: 48%;
   transform: rotate(180deg);
 }
 
 .pemaRadioBtnTwo {
   position: fixed;
   left: 70.8%;
-  top: 39.3%;
-  width: 35px;
-  height: 35px;
+  top: 42.7%;
 }
 
 .pemaTwo {
   position: fixed;
-  top: 42%;
-  left: 68.9%;
+  top: 45%;
+  left: 69.3%;
   transform: rotate(180deg);
 }
 
 .zhabrugRadioBtnTwo {
   position: fixed;
   left: 90%;
-  top: 39.3%;
-  width: 35px;
-  height: 35px;
+  top: 42.7%;
 }
 
 .zhabrugTwo {
   position: fixed;
-  top: 42%;
-  left: 87.8%;
+  top: 45%;
+  left: 88.4%;
   transform: rotate(180deg);
 }
 
