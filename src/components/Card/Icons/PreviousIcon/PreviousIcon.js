@@ -16,6 +16,8 @@ const PreviousIcon = ({
   background,
   color,
 }) => {
+  const fadeInDelay = 4.5; // Delay for 5 seconds
+
   return (
     <div>
       <motion.div
@@ -23,7 +25,7 @@ const PreviousIcon = ({
         className={styles.PreviousIconContainer}
         initial={{ opacity: 0 }}
         animate={{ opacity: showIcons ? 1 : 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.5, delay: showIcons ? fadeInDelay : 0 }} // Delay for 5 seconds
         onClick={onClick}
       >
         <FontAwesomeIcon

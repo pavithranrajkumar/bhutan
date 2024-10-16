@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence  } from "framer-motion";
 import styles from "./PemaLinghpa.module.css";
 import CloseIcon from "../../components/Card/Icons/CloseIcon/CloseIcon";
 import NameCard from "../../components/NameCard/NameCard";
@@ -47,9 +47,7 @@ const PemaLinghpa = () => {
   const [showPelingdanceImgs, setShowPelingdanceImgs] = useState(false);
   const [enlargedImage, setEnlargedImage] = useState(null);
 
-  const handleImageClick = (imageSrc) => {
-    setEnlargedImage(imageSrc);
-  };
+
   const toggleLanguage = () => {
     setLanguage((prevLanguage) => {
       const newLanguage = prevLanguage === ENGLISH ? BHUTAN : ENGLISH;
@@ -249,71 +247,61 @@ const PemaLinghpa = () => {
     : "white";
 
   return (
-    <motion.div
-      className={styles.pemaContainer}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1.6, ease: "easeOut" }}
-    >
-      {showYearText && (
-        <motion.div
-          className={styles.pemaText}
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <YearText
-            BornYear="1450"
-            Endyear="-1521"
-            fontSize="118px"
-            marginLeft="40px"
-          />
-        </motion.div>
-      )}
+    <div className={styles.pemaContainer}>
+     <AnimatePresence>
+        {showYearText && (
+          <motion.div
+            className={styles.pemaText}
+            initial={false} // Prevent initial animation on first mount
+            exit={{ opacity: 0, x: 150 }} // Fade out on exit
+            transition={{ duration: 3 }} // Adjust the duration as needed
+          >
+            <YearText
+              BornYear="1450"
+              Endyear="-1521"
+              fontSize="118px"
+              marginLeft="40px"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-      <motion.div
+      <div
         className={styles.pemaImage}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.4 }}
         onClick={handleCardOrImageClick}
       >
         <img src={Pema} alt="Pema Lingpa" />
-      </motion.div>
+        <div className="shine"></div>
+      </div>
 
-      <motion.div
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.4 }}
+      <div
+        className={styles.NameCardContainer}
+        onClick={handleCardOrImageClick}
       >
-        <div
-          className={styles.NameCardContainer}
-          onClick={handleCardOrImageClick}
-        >
-          <NameCard
-            cardName={PEMA_LINGPA_INFORMATION[language].title}
-            width="310px"
-            height="100px"
-            fontSize={language === BHUTAN ? "1.5rem" : "20px"}
-            year={
-              showCards ||
-              selectedCard ||
-              showIntroduction ||
-              showNaringDragBookImg ||
-              showNaringDragCard ||
-              showBurningLakeBookImg ||
-              showBurningLakeCard ||
-              showMonasteriesImgCard ||
-              showPelingdanceImgs
-                ? "1450 - 1521"
-                : undefined
-            }
-            paraSize="15px"
-            paraColor={nameCardColor}
-            background={nameCardBackground}
-            color={nameCardColor}
-          />
-        </div>
-      </motion.div>
+        <NameCard
+          cardName={PEMA_LINGPA_INFORMATION[language].title}
+          width="310px"
+          height="100px"
+          fontSize={language === BHUTAN ? "1.5rem" : "20px"}
+          year={
+            showCards ||
+            selectedCard ||
+            showIntroduction ||
+            showNaringDragBookImg ||
+            showNaringDragCard ||
+            showBurningLakeBookImg ||
+            showBurningLakeCard ||
+            showMonasteriesImgCard ||
+            showPelingdanceImgs
+              ? "1450 - 1521"
+              : undefined
+          }
+          paraSize="15px"
+          paraColor={nameCardColor}
+          background={nameCardBackground}
+          color={nameCardColor}
+        />
+      </div>
 
       {showIntroduction && (
         <>
@@ -866,20 +854,20 @@ const PemaLinghpa = () => {
               <source src={video1} type="video/mp4" className={styles.videoF} />
               Your browser does not support the video tag.
             </video>
-            <div style={{ display: "flex"}}>
+            <div style={{ display: "flex" }}>
               <div className={styles.PelingDanceVideo1}>
                 <video className={styles.videoFrame2} autoPlay muted loop>
                   <source src={video1} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
-                </div>
-                <div className={styles.PelingDanceVideo2}>
-                  {" "}
-                  <video className={styles.videoFrame3} autoPlay muted loop>
-                    <source src={video1} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
+              </div>
+              <div className={styles.PelingDanceVideo2}>
+                {" "}
+                <video className={styles.videoFrame3} autoPlay muted loop>
+                  <source src={video1} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             </div>
           </div>
           <div
@@ -927,7 +915,7 @@ const PemaLinghpa = () => {
           />
         </>
       )}
-    </motion.div>
+    </div>
   );
 };
 

@@ -11,10 +11,12 @@ const NextIcon = ({
   top,
   bottom,
   right,
-  whiteImge,
+  whiteImage,
   color,
   background,
 }) => {
+  const fadeInDelay = 4.5; // Delay for 5 seconds
+
   return (
     <div>
       <motion.div
@@ -26,19 +28,19 @@ const NextIcon = ({
           background,
         }}
         className={
-          whiteImge
+          whiteImage
             ? styles.PreviousIconWhiteContainer
             : styles.PreviousIconContainer
         }
         initial={{ opacity: 0 }}
         animate={{ opacity: showIcons ? 1 : 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.5, delay: showIcons ? fadeInDelay : 0 }} // Delay for 5 seconds
         onClick={onClick}
       >
         <FontAwesomeIcon
           style={{ color }}
           icon={faChevronRight}
-          className={ styles.PreviousIcon}
+          className={styles.PreviousIcon}
         />
       </motion.div>
     </div>

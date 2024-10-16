@@ -11,11 +11,9 @@ const CloseIcon = ({
   left,
   right,
   onClick,
-  whiteImage,
   background,
-  supine,
 }) => {
-  console.log("HomeIcon rendered, showIcons:", showIcons);
+  const fadeInDelay = 4.5; // Delay for 5 seconds
 
   return (
     <motion.div
@@ -24,23 +22,18 @@ const CloseIcon = ({
         right: right,
         top: top,
         bottom: bottom,
-        // width: width,
-        // height: height,
         background,
       }}
-      className={styles.LanguageWhiteIcon }
+      className={styles.LanguageWhiteIcon}
       initial={{ opacity: 0 }}
       animate={{ opacity: showIcons ? 1 : 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.5, delay: showIcons ? fadeInDelay : 0 }} // Delay for 5 seconds
       onClick={onClick}
     >
-      <div
-        className={styles.HomeIconContainer}
-        // style={{ height: iconHeight, width: iconWidth, margin }}
-      >
+      <div className={styles.HomeIconContainer}>
         <img
           src={CloseIconWhite}
-          alt="LanguageIcon"
+          alt="CloseIcon"
         />
       </div>
     </motion.div>

@@ -34,12 +34,15 @@ const LanguageIcon = ({
     console.log("LanguageIcon clicked!");
     onClick(); // Call the toggleLanguage function
   };
+
   const iconSrc =
     language === ENGLISH
       ? LanguageWhite
       : language === BHUTAN
       ? BhutanIcon
       : LanguageColor;
+
+  const fadeInDelay = 4.5; // Delay for 5 seconds
 
   return (
     <motion.div
@@ -48,24 +51,17 @@ const LanguageIcon = ({
         right: right,
         top: top,
         bottom: bottom,
-
         background,
       }}
       className={whiteImage ? styles.LanguageWhiteIcon : styles.LanguageIcon}
       initial={{ opacity: 0 }}
       animate={{ opacity: showIcons ? 1 : 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.5, delay: showIcons ? fadeInDelay : 0 }} // Delay for 5 seconds
       onClick={handleClick}
     >
-      <div
-        className={styles.LanguageIconContainer}
-        // onClick={onClick}
-        // style={{ margin: margin }}
-      >
+      <div className={styles.LanguageIconContainer}>
         <img
-          // src={whiteImage ? LanguageWhite : supine ? Supine : LanguageColor}
           src={iconSrc}
-          // style={{ height: IconHeight, width: iconWidth }}
           alt="LanguageIcon"
         />
       </div>

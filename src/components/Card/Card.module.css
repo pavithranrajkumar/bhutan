@@ -8,6 +8,16 @@
   src: url("../../fonts/PublicSans-Regular.ttf") format("truetype"); /* Path to the font */
 }
 
+@keyframes backgroundLoop {
+  0% {
+    background-position: 0% 0%; /* Start from the left */
+  }
+  100% {
+    background-position: 100% 0%; /* Move to the right */
+  }
+}
+
+
 .detailCard {
   font-size: 0.7vw;
   background: #193145;
@@ -17,12 +27,25 @@
   justify-content: left;
   text-align: left;
   align-items: left;
-  top: 85%;
-  left: 63%;
+  left: 0;
   transform: translateX(-50%);
   display: flex;
   position: absolute;
   padding: 10px;
+  overflow: hidden;
+  transition: transform 0.5s;
+  transform-origin: left; 
+  margin: 0;
+}
+
+.line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px; /* Thickness of the line */
+ background: rgb(25, 49, 69, 2);
+ /* Set to your desired color */
+  z-index: 1;
 }
 
 .detailCard::before {
@@ -33,19 +56,16 @@
   right: 0;
   bottom: 0;
   background-image: url("/src/assests/BgImgs/CardBgImg.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.15; /* Adjust the opacity of the background here */
-  z-index: 1; /* Make sure it is behind the card content */
+  background-size: 200% 100%;
+  animation: backgroundLoop 10s linear infinite;
+  opacity: 0.2; /* Set opacity here */
+  z-index: -1; /* Place it behind the content */
 }
+
+
 
 .introduction {
   margin: 15px;
-}
-
-.cardTitleContainer {
- 
 }
 
 .CardHeader {

@@ -25,13 +25,11 @@ const NameCard = ({
 
   return (
     <motion.div
-      style={{ background: background, top, bottom, width, height }}
-      className={styles.pemaNameCard}
-      initial={{ x: -100, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 1, delay: 0.6 }}
-    >
-      {/* <img src={Namecard} alt="Pema Lingpa" className={styles.OverLayImage} /> */}
+    style={{ top, bottom, width, height }}
+    className={styles.pemaNameCard}
+    animate={{ backgroundColor: background, color: color }}
+    transition={{ duration: 0.5 }} // Adjust the duration as needed
+  >
 
       <div className={styles.pemaNameCardTitle} style={{ color: color }}>
         <div

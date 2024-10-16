@@ -1,25 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import styles from "./PemaCards.module.css";
 import { PEMA_LINGPA_INFORMATION } from "../../../../constants/Characters/PremaLingpa";
 import { BHUTAN } from "../../../../constants/languages/Language";
 
-const PemaCards = ({ isFadingOut, language, onCardClick }) => {
+const PemaCards = ({ language, onCardClick }) => {
   const fonstSize = language === BHUTAN ? "1.2rem" : "18px";
+  const [cardAnimationStart, setCardAnimationStart] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setCardAnimationStart(true);
+    }, 500); // Delay before starting animations
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div>
-      <motion.div
-        className={styles.cardsContainer}
-        initial={{ opacity: 1 }}
-        animate={{ opacity: isFadingOut ? 0 : 1 }}
-        transition={{ duration: 1 }}
-      >
+      <div className={styles.cardsContainer}>
         <motion.div
           className={styles.HistoricCard}
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
           onClick={() => onCardClick("historic")}
+          initial={{ scaleX: 0, opacity: 0 }} // Initial state for animation
+          animate={{
+            scaleX: cardAnimationStart ? 1 : 0,
+            opacity: cardAnimationStart ? 1 : 0,
+            originX: 0,
+          }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: cardAnimationStart ? 0.5 : 0 }}
         >
           <div
             className={styles.CardsContainerText}
@@ -28,12 +36,17 @@ const PemaCards = ({ isFadingOut, language, onCardClick }) => {
             {PEMA_LINGPA_INFORMATION[language].historicBackground.title}
           </div>
         </motion.div>
+
         <motion.div
           className={styles.LineageCard}
-          initial={{ x: 100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
           onClick={() => onCardClick("lineage")}
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{
+            scaleX: cardAnimationStart ? 1 : 0,
+            opacity: cardAnimationStart ? 1 : 0,
+            originX: 0,
+          }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: cardAnimationStart ? 0.8 : 0 }}
         >
           <div
             className={styles.CardsContainerText}
@@ -42,12 +55,17 @@ const PemaCards = ({ isFadingOut, language, onCardClick }) => {
             {PEMA_LINGPA_INFORMATION[language].lineage.title}
           </div>
         </motion.div>
+
         <motion.div
           className={styles.RevelationsCard}
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
           onClick={() => onCardClick("revelations")}
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{
+            scaleX: cardAnimationStart ? 1 : 0,
+            opacity: cardAnimationStart ? 1 : 0,
+            originX: 0,
+          }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: cardAnimationStart ? 1.1 : 0 }}
         >
           <div
             className={styles.CardsContainerText}
@@ -56,12 +74,17 @@ const PemaCards = ({ isFadingOut, language, onCardClick }) => {
             {PEMA_LINGPA_INFORMATION[language].revelations.title}
           </div>
         </motion.div>
+
         <motion.div
           className={styles.LegacyCard}
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
           onClick={() => onCardClick("legacy")}
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{
+            scaleX: cardAnimationStart ? 1 : 0,
+            opacity: cardAnimationStart ? 1 : 0,
+            originX: 0,
+          }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: cardAnimationStart ? 1.4 : 0 }}
         >
           <div
             className={styles.CardsContainerText}
@@ -70,7 +93,7 @@ const PemaCards = ({ isFadingOut, language, onCardClick }) => {
             {PEMA_LINGPA_INFORMATION[language].legacy.title}
           </div>
         </motion.div>
-      </motion.div>
+      </div>
     </div>
   );
 };
