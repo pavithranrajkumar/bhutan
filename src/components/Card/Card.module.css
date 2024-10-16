@@ -57,7 +57,7 @@
   bottom: 0;
   background-image: url("/src/assests/BgImgs/CardBgImg.png");
   background-size: 200% 100%;
-  animation: backgroundLoop 10s linear infinite;
+  animation: backgroundLoop 2s linear infinite;
   opacity: 0.2; /* Set opacity here */
   z-index: -1; /* Place it behind the content */
 }
@@ -74,15 +74,23 @@
 
 .CardTitle {
   font-family: "Josefin Sans";
-  border-bottom: 2px solid #001829;
+  /* border-bottom: 2px solid #001829; */
   padding-bottom: 5px;
   font-weight: bolder;
 }
 
 .CardContent {
-  margin-top: 5px;
+  /* margin-top: 5px; */
   text-align: left;
   justify-content: left;
   font-family: "Public Sans";
   font-size: 11px;
+}
+
+.borderBottom{
+  padding: 0;
+  margin: 0;
+  height: 1px;
+  border: none;
+  margin-bottom: 5px;
 }

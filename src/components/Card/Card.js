@@ -27,21 +27,24 @@ const Card = ({
 
   useEffect(() => {
     if (showIntro) {
+      setLineAnimationComplete(false);
       const timer = setTimeout(() => {
         setLineAnimationComplete(true);
       }, 500);
       return () => clearTimeout(timer);
+    } else {
+      setCardAnimationStart(false); // Reset card animation
     }
   }, [showIntro]);
 
   useEffect(() => {
-    if (lineAnimationComplete) {
+    if (lineAnimationComplete && showIntro) {
       const timer = setTimeout(() => {
         setCardAnimationStart(true);
       }, 300);
       return () => clearTimeout(timer);
     }
-  }, [lineAnimationComplete]);
+  }, [lineAnimationComplete, showIntro]);
 
   return (
     <div className={styles.cardContainer}>
@@ -61,17 +64,17 @@ const Card = ({
         }}
       />
 
-      {/* Card Expansion Animation */}
+      {/* Card Animation */}
       <motion.div
         className={styles.detailCard}
         style={{
-          background: backgroundColor,
-          color: color,
-          width: width,
+          backgroundColor,
+          color,
+          width,
           height,
           overflow: "hidden",
           position: "relative",
-          marginLeft: lineAnimationComplete ? "0%" : "-100%",
+          marginLeft: lineAnimationComplete && showIntro ? "0%" : "-100%",
           zIndex: 0,
         }}
         initial={{ scaleX: 0, opacity: 0 }}
@@ -81,6 +84,7 @@ const Card = ({
           originX: 0,
         }}
         transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
+        exit={{ scaleX: 0, opacity: 0 }} // Add exit animation
       >
         <div className={styles.introduction}>
           {/* Header Animation */}
@@ -90,6 +94,7 @@ const Card = ({
               x: cardAnimationStart ? 0 : "-100%",
               opacity: cardAnimationStart ? 1 : 0,
             }}
+            exit={{ x: "-100%", opacity: 0 }} // Exit animation
             transition={{ duration: 1.5, delay: cardAnimationStart ? 1.5 : 0 }}
           >
             <div
@@ -110,6 +115,7 @@ const Card = ({
               x: cardAnimationStart ? 0 : "-100%",
               opacity: cardAnimationStart ? 1 : 0,
             }}
+            exit={{ x: "-100%", opacity: 0 }} // Exit animation
             transition={{ duration: 1.5, delay: cardAnimationStart ? 2 : 0 }}
           >
             <div
@@ -118,25 +124,36 @@ const Card = ({
                 fontSize: titleFontSize,
                 fontWeight,
                 lineHeight: contentLineHeight,
-                borderBottom,
               }}
             >
               {title}
             </div>
           </motion.div>
 
-          {/* Content Rendering - Show one line at a time */}
+          <motion.div
+            initial={{ x: "-100%", opacity: 0 }}
+            animate={{
+              x: cardAnimationStart ? 0 : "-100%",
+              opacity: cardAnimationStart ? 1 : 0,
+            }}
+            exit={{ x: "-100%", opacity: 0 }} // Exit animation
+            transition={{ duration: 1.5, delay: cardAnimationStart ? 3.5 : 0 }}
+          >
+            <hr className={styles.borderBottom} style={{ borderBottom }} />
+          </motion.div>
+
           {contentLines.map((line, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -20 }} // Start slightly off to the left and transparent
+              initial={{ opacity: 0, x: -20 }}
               animate={{
                 opacity: cardAnimationStart ? 1 : 0,
-                x: cardAnimationStart ? 0 : -20, // Move to original position
+                x: cardAnimationStart ? 0 : -20,
               }}
+              exit={{ opacity: 0, x: -20 }} // Exit animation
               transition={{
                 duration: 0.5,
-                delay: cardAnimationStart ? 3 + index * 0.5 : 0, // Incremental delay for each line
+                delay: cardAnimationStart ? 4 + index * 0.5 : 0,
               }}
               className={styles.CardContent}
               style={{

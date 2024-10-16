@@ -117,13 +117,22 @@ const BigCard = ({
             style={{
               fontSize: titleFontSize,
               lineHeight: contentLineHeight,
-              borderBottom,
             }}
           >
             {title}
           </div>
         </motion.div>
-
+        <motion.div
+            initial={{ x: "-100%", opacity: 0 }}
+            animate={{
+              x: cardAnimationStart ? 0 : "-100%",
+              opacity: cardAnimationStart ? 1 : 0,
+            }}
+            exit={{ x: "-100%", opacity: 0 }} // Exit animation
+            transition={{ duration: 1.5, delay: cardAnimationStart ? 3.5 : 0 }}
+          >
+            <hr className={styles.borderBottom} style={{ borderBottom }} />
+          </motion.div>
         {/* Content Rendering - Show one line at a time */}
         {contentLines.map((line, index) => (
           <motion.div

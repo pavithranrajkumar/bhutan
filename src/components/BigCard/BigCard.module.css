@@ -75,7 +75,6 @@
 
 .CardTitle {
   font-family: "Josefin Sans";
-  border-bottom: 2px solid #001829;
   padding: 2px 0;
   margin: 0;
   font-size: 20px;
@@ -93,4 +92,13 @@
   margin-top: 5px;
   font-family: "Public Sans";
   font-size: 11.3px;
+}
+
+
+.borderBottom{
+  padding: 0;
+  margin: 0;
+  height: 1px;
+  border: none;
+  margin-bottom: 5px;
 }

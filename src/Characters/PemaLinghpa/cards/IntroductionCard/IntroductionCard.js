@@ -20,6 +20,7 @@ const IntroductionCard = ({ showIntro, language }) => {
             content={PEMA_LINGPA_INFORMATION[language].introduction.content}
             language={language}
             showIntro={showIntro}
+            
           />
         </>
       )}

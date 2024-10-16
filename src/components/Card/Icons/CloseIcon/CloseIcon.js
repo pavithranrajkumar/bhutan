@@ -13,7 +13,7 @@ const CloseIcon = ({
   onClick,
   background,
 }) => {
-  const fadeInDelay = 4.5; // Delay for 5 seconds
+  const fadeInDelay = 6; // Delay for 5 seconds
 
   return (
     <motion.div
