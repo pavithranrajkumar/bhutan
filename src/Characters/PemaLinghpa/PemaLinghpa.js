@@ -295,9 +295,16 @@ const PemaLinghpa = () => {
             showMonasteriesImgCard ||
             showMonasteriesCard ||
             showPelingDanceCard ||
-            showPelingdanceImgs
-              ? "1450 - 1521"
-              : undefined
+            showPelingdanceImgs ? (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 2.5 }} // Adjust the duration for a smoother or quicker effect
+              >
+                1450 - 1521
+              </motion.div>
+            ) : undefined
           }
           paraSize="15px"
           paraColor={nameCardColor}

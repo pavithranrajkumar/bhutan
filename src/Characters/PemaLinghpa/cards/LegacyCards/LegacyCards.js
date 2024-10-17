@@ -70,6 +70,8 @@ const LegacyCards = ({
               }}
               transition={{ duration: 1.5, ease: "easeOut" }}
             />
+            
+            {/* Monasteries Card */}
             <motion.div
               className={styles.MonasteriesCard}
               onClick={onMonasteriesCardClick}
@@ -86,20 +88,44 @@ const LegacyCards = ({
                 delay: cardAnimationStart ? 3.5 : 0,
               }}
             >
-              <div
+              {/* Monasteries Card Text */}
+              <motion.div
                 className={styles.MonasteriesCardTitle}
                 style={{ fontSize: headerFontSize }}
+                initial={{ x: 20, opacity: 0 }} // Start slightly off the right
+                animate={{
+                  x: cardAnimationStart ? 0 : 20, // Move to original position
+                  opacity: cardAnimationStart ? 1 : 0,
+                }}
+                exit={{ x: 20, opacity: 0 }} // Exit back to the right
+                transition={{
+                  duration: 0.5,
+                  ease: "easeOut",
+                  delay: cardAnimationStart ? 5 : 0, // Delay after card expansion
+                }}
               >
                 {PEMA_LINGPA_INFORMATION[language].monastriesAndTemples.header}
-              </div>
-              <div
+              </motion.div>
+              <motion.div
                 className={styles.MonasteriesCardContent}
                 style={{ fontSize: subHeaderFontSize }}
+                initial={{ x: 20, opacity: 0 }} // Start slightly off the right
+                animate={{
+                  x: cardAnimationStart ? 0 : 20, // Move to original position
+                  opacity: cardAnimationStart ? 1 : 0,
+                }}
+                exit={{ x: 20, opacity: 0 }} // Exit back to the right
+                transition={{
+                  duration: 0.5,
+                  ease: "easeOut",
+                  delay: cardAnimationStart ? 5.5 : 0, // Delay after card expansion
+                }}
               >
                 {PEMA_LINGPA_INFORMATION[language].monastriesAndTemples.title}
-              </div>
+              </motion.div>
             </motion.div>
 
+            {/* Peling Dance Card */}
             <motion.div
               className={styles.PelingDanceCard}
               onClick={onPelingDanceCardClick}
@@ -116,20 +142,45 @@ const LegacyCards = ({
                 delay: cardAnimationStart ? 3.5 : 0,
               }}
             >
-              <div
+              {/* Peling Dance Card Text */}
+              <motion.div
                 className={styles.PelingDanceCardTitle}
                 style={{ fontSize: headerFontSize }}
+                initial={{ x: 20, opacity: 0 }} // Start slightly off the right
+                animate={{
+                  x: cardAnimationStart ? 0 : 20, // Move to original position
+                  opacity: cardAnimationStart ? 1 : 0,
+                }}
+                exit={{ x: 20, opacity: 0 }} // Exit back to the right
+                transition={{
+                  duration: 0.5,
+                  ease: "easeOut",
+                  delay: cardAnimationStart ? 5 : 0, // Delay after card expansion
+                }}
               >
                 {PEMA_LINGPA_INFORMATION[language].pelingdance.header}
-              </div>
-              <div
+              </motion.div>
+              <motion.div
                 className={styles.PelingDanceCardContent}
                 style={{ fontSize: subHeaderFontSize }}
+                initial={{ x: 20, opacity: 0 }} // Start slightly off the right
+                animate={{
+                  x: cardAnimationStart ? 0 : 20, // Move to original position
+                  opacity: cardAnimationStart ? 1 : 0,
+                }}
+                exit={{ x: 20, opacity: 0 }} // Exit back to the right
+                transition={{
+                  duration: 0.5,
+                  ease: "easeOut",
+                  delay: cardAnimationStart ? 5.5 : 0, // Delay after card expansion
+                }}
               >
                 {PEMA_LINGPA_INFORMATION[language].pelingdance.title}
-              </div>
+              </motion.div>
             </motion.div>
           </motion.div>
+
+          {/* Images for the cards */}
           <motion.div
             className={styles.MonasteriesCardImg}
             initial={{ x: 50, opacity: 0 }} // Start slightly off the right
@@ -141,7 +192,7 @@ const LegacyCards = ({
             transition={{
               duration: 1.5,
               ease: "easeOut",
-              delay: cardAnimationStart ? 4.5 : 0,
+              delay: cardAnimationStart ? 5 : 0,
             }}
           >
             <div onClick={onMonasteriesCardClick}>
@@ -160,7 +211,7 @@ const LegacyCards = ({
             transition={{
               duration: 1.5,
               ease: "easeOut",
-              delay: cardAnimationStart ? 4.5 : 0, // Delay for NaringDrag
+              delay: cardAnimationStart ? 5: 0, // Delay for NaringDrag
             }}
           >
             <div onClick={onPelingDanceCardClick}>

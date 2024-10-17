@@ -126,7 +126,7 @@ const RevelationsCard = ({
                   lineHeight: contentLineHeight,
                 }}
               >
-                {PEMA_LINGPA_INFORMATION[language].naringDrag.header}
+                {PEMA_LINGPA_INFORMATION[language].naringDrag.title}
               </motion.div>
               <motion.div
                 className={styles.header}
@@ -146,7 +146,7 @@ const RevelationsCard = ({
                   lineHeight: contentLineHeight,
                 }}
               >
-                {PEMA_LINGPA_INFORMATION[language].naringDrag.title}
+                {PEMA_LINGPA_INFORMATION[language].naringDrag.header}
               </motion.div>
             </motion.div>
 

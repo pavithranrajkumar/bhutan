@@ -23,6 +23,7 @@ const NameCard = ({
 }) => {
   const contentLineHeight = language === BHUTAN ? "1.1" : "normal";
 
+  // Fade animation configuration for smooth appearance
   const fadeAnimation = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
@@ -33,15 +34,16 @@ const NameCard = ({
       style={{ top, bottom, width, height }}
       className={styles.pemaNameCard}
       animate={{ backgroundColor: background, color: color }}
-      transition={{ duration: 0.5 }} // Adjust the duration as needed
+      transition={{ duration: 0.5 }} // Transition for background and color
     >
       <div className={styles.pemaNameCardTitle} style={{ color: color }}>
+        {/* Card Name Animation */}
         <motion.div
           variants={fadeAnimation}
           initial="hidden"
           animate="visible"
           exit="hidden"
-          transition={{ duration: 1.5 }}
+          transition={{ duration: 1.5 }} // Animation for card name
         >
           <div
             className={styles.namedCardText}
@@ -51,12 +53,16 @@ const NameCard = ({
           </div>
         </motion.div>
 
+        {/* Second Card Name Animation */}
         <motion.div
           variants={fadeAnimation}
           initial="hidden"
           animate="visible"
           exit="hidden"
-          transition={{ duration: 2, delay: 0.1 }} // Optional delay for stagger effect
+          transition={{
+            duration: 1.5,
+            delay: 0.5, // Staggered delay for second card name
+          }}
         >
           <div
             className={styles.namedCardText}
@@ -66,12 +72,16 @@ const NameCard = ({
           </div>
         </motion.div>
 
+        {/* Sub Card Name Animation */}
         <motion.div
           variants={fadeAnimation}
           initial="hidden"
           animate="visible"
           exit="hidden"
-          transition={{ duration: 1.5, delay: 0.2 }} // Optional delay for stagger effect
+          transition={{
+            duration: 1.5,
+            delay: 1, // Further delay for sub card name
+          }}
           className={styles.subCardnameContains}
           style={{
             fontSize: subCardnameFontSize,
@@ -81,18 +91,26 @@ const NameCard = ({
         >
           {subCardname}
         </motion.div>
-
-        <motion.p
-          variants={fadeAnimation}
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-          transition={{ duration: 1.5, delay: 0.3 }} // Optional delay for stagger effect
-          style={{ color: paraColor, fontSize: paraSize, marginTop: "3px" }}
-        >
-          {year}
-        </motion.p>
       </div>
+      <motion.p
+        key="year" // Ensure this key remains to help Framer Motion track the component
+        variants={{
+          hidden: { opacity: 0 }, // Initial hidden state
+          visible: { opacity: 1 }, // Fade in
+          exit: { opacity: 0 }, // Fade out
+        }}
+        initial="hidden" // Start from hidden state
+        animate="visible" // Animate to visible state (fade in)
+        exit="exit" // On exit, fade out
+        transition={{
+          duration: 2, // Slow fade effect (adjust duration as needed)
+          ease: "easeInOut",
+        }}
+        className={styles.para}
+        style={{ color: paraColor, fontSize: paraSize, marginTop: "3px" }}
+      >
+        {year}
+      </motion.p>
     </motion.div>
   );
 };
