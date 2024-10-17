@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import styles from "./MonasteriesImg.module.css";
@@ -22,6 +22,7 @@ import MonasteriesEnlargeImg8 from "../../../../../../assests/PemaLingpa/Legacy/
 
 const MonasteriesImg = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+  const swiperRef = useRef(null); // Reference for Swiper
 
   const images = [
     { thumb: MonasteriesImg1, enlarge: MonasteriesEnlargeImg1 },
@@ -32,10 +33,13 @@ const MonasteriesImg = () => {
     { thumb: MonasteriesImg6, enlarge: MonasteriesEnlargeImg6 },
     { thumb: MonasteriesImg7, enlarge: MonasteriesEnlargeImg7 },
     { thumb: MonasteriesImg8, enlarge: MonasteriesEnlargeImg8 },
-];
+  ];
 
   const handleImageClick = (index) => {
     setSelectedImageIndex(index);
+    if (swiperRef.current) {
+      swiperRef.current.slideTo(index); // Move to the clicked image
+    }
   };
 
   const handleClose = () => {
@@ -59,10 +63,7 @@ const MonasteriesImg = () => {
         }}
       >
         {images.map((image, index) => (
-          <div
-            key={index}
-            className={styles[`MonasteriesImg${index + 1}`]}
-          >
+          <div key={index} className={styles[`MonasteriesImg${index + 1}`]}>
             <img
               src={image.thumb}
               alt={`img ${index + 1}`}
@@ -75,15 +76,13 @@ const MonasteriesImg = () => {
 
       {selectedImageIndex !== null && (
         <div className={styles.palaceenlargedImg1}>
-          {/* <button onClick={handleClose} className={styles.closeButton}>
-            &times; 
-          </button> */}
           <Swiper
             initialSlide={selectedImageIndex}
             spaceBetween={10}
             navigation
             onSlideChange={handleSlideChange} // Attach the slide change handler
             className={styles.swiperContainer}
+            onSwiper={(swiper) => (swiperRef.current = swiper)} // Store swiper instance
           >
             {images.map((image, index) => (
               <SwiperSlide key={index}>
@@ -105,12 +104,12 @@ const MonasteriesImg = () => {
                 key={index}
                 className={styles.dot}
                 style={{
-                  height: selectedImageIndex === index ? "12px" : "8px", // Increase size for current image
-                  width: selectedImageIndex === index ? "12px" : "8px", // Increase size for current image
+                  height: selectedImageIndex === index ? "12px" : "8px",
+                  width: selectedImageIndex === index ? "12px" : "8px",
                   backgroundColor:
-                    selectedImageIndex === index ? "black" : "gray", // Change color based on selection
+                    selectedImageIndex === index ? "black" : "gray",
                 }}
-                onClick={() => setSelectedImageIndex(index)} // Set the current image on click
+                onClick={() => handleImageClick(index)} // Set the current image on click
               />
             ))}
           </div>

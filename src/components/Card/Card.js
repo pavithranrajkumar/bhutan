@@ -146,28 +146,25 @@ const Card = ({
             <hr className={styles.borderBottom} style={{ borderBottom }} />
           </motion.div>
 
-          {contentLines.map((line, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{
-                opacity: cardAnimationStart ? 1 : 0,
-                x: cardAnimationStart ? 0 : -20,
-              }}
-              exit={{ opacity: 0, x: -20 }} // Exit animation (reverse)
-              transition={{
-                duration: 0.5,
-                delay: cardAnimationStart ? 4 + index * 0.5 : 0,
-              }}
-              className={styles.CardContent}
-              style={{
-                fontSize: contentFontSize,
-                lineHeight: contentLineHeight,
-              }}
-            >
-              {line}
-            </motion.div>
-          ))}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{
+              opacity: cardAnimationStart ? 1 : 0,
+              x: cardAnimationStart ? 0 : -20,
+            }}
+            exit={{ opacity: 0, x: -20 }} // Exit animation (reverse)
+            transition={{
+              duration: 0.5,
+              delay: cardAnimationStart ? 4 : 0,
+            }}
+            className={styles.CardContent}
+            style={{
+              fontSize: contentFontSize,
+              lineHeight: contentLineHeight,
+            }}
+          >
+            {content}
+          </motion.div>
         </div>
       </motion.div>
     </div>

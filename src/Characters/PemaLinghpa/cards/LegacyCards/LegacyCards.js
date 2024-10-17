@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { PEMA_LINGPA_INFORMATION } from "../../../../constants/Characters/PremaLingpa";
 import Card from "../../../../components/Card/Card";
 import styles from "./LegacyCard.module.css";
@@ -18,6 +19,25 @@ const LegacyCards = ({
   const headerFontSize = language === BHUTAN ? "1.2rem" : "12px";
   const subHeaderFontSize = language === BHUTAN ? "1.2rem" : "20px";
 
+  const [cardAnimationStart, setCardAnimationStart] = useState(false);
+  const [lineAnimationComplete, setLineAnimationComplete] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLineAnimationComplete(true);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (lineAnimationComplete) {
+      const timer = setTimeout(() => {
+        setCardAnimationStart(true);
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [lineAnimationComplete]);
+
   return (
     <div>
       {showIntro && (
@@ -34,14 +54,38 @@ const LegacyCards = ({
             language={language}
             showIntro={showIntro}
           />
-          <div>
-            <div
+          <motion.div
+            className={styles.cardsContainer}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.5 }}
+            style={{ gap: "10px" }}
+          >
+            <motion.div
+              className={styles.VerticalLine}
+              initial={{ height: 0 }}
+              animate={{
+                height: lineAnimationComplete ? "100%" : 0,
+              }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+            />
+            <motion.div
               className={styles.MonasteriesCard}
               onClick={onMonasteriesCardClick}
+              initial={{ scaleX: 0, opacity: 0 }}
+              animate={{
+                scaleX: cardAnimationStart ? 1 : 0,
+                opacity: cardAnimationStart ? 1 : 0,
+                originX: 1,
+              }}
+              exit={{ scaleX: 0, opacity: 0 }}
+              transition={{
+                duration: 1.5,
+                ease: "easeOut",
+                delay: cardAnimationStart ? 0.5 : 0,
+              }}
             >
-              <div className={styles.MonasteriesCardImg}>
-                <img src={MonasteriesCardImg} alt="MonasteriesCardImg" />
-              </div>
               <div
                 className={styles.MonasteriesCardTitle}
                 style={{ fontSize: headerFontSize }}
@@ -54,15 +98,24 @@ const LegacyCards = ({
               >
                 {PEMA_LINGPA_INFORMATION[language].monastriesAndTemples.title}
               </div>
-            </div>
-            <div
+            </motion.div>
+
+            <motion.div
               className={styles.PelingDanceCard}
               onClick={onPelingDanceCardClick}
+              initial={{ scaleX: 0, opacity: 0 }}
+              animate={{
+                scaleX: cardAnimationStart ? 1 : 0,
+                opacity: cardAnimationStart ? 1 : 0,
+                originX: 0,
+              }}
+              exit={{ scaleX: 0, opacity: 0 }}
+              transition={{
+                duration: 1.5,
+                ease: "easeOut",
+                delay: cardAnimationStart ? 0.5 : 0,
+              }}
             >
-              <div className={styles.PelingDanceCardImg}>
-                <img src={PelingDanceCardImg} alt="PelingDanceCardImg" />
-              </div>
-
               <div
                 className={styles.PelingDanceCardTitle}
                 style={{ fontSize: headerFontSize }}
@@ -75,8 +128,45 @@ const LegacyCards = ({
               >
                 {PEMA_LINGPA_INFORMATION[language].pelingdance.title}
               </div>
+            </motion.div>
+          </motion.div>
+          <motion.div
+            className={styles.MonasteriesCardImg}
+            initial={{ x: 50, opacity: 0 }} // Start slightly off the right
+            animate={{
+              x: cardAnimationStart ? 0 : 50, // Only animate when cardAnimationStart is true
+              opacity: cardAnimationStart ? 1 : 0,
+            }} // Move to original position
+            exit={{ x: 50, opacity: 0 }} // Exit back to the right
+            transition={{
+              duration: 0.5,
+              ease: "easeOut",
+              delay: cardAnimationStart ? 0.5 : 0,
+            }}
+          >
+            <div>
+              <img src={MonasteriesCardImg} alt="MonasteriesCardImg" />
             </div>
-          </div>
+          </motion.div>
+
+          <motion.div
+            className={styles.PelingDanceCardImg}
+            initial={{ x: -50, opacity: 0 }} // Start slightly off the left
+            animate={{
+              x: cardAnimationStart ? 0 : -50, // Only animate when cardAnimationStart is true
+              opacity: cardAnimationStart ? 1 : 0,
+            }} // Move to original position
+            exit={{ x: -50, opacity: 0 }} // Exit back to the left
+            transition={{
+              duration: 0.5,
+              ease: "easeOut",
+              delay: cardAnimationStart ? 0.5 : 0, // Delay for NaringDrag
+            }}
+          >
+            <div>
+              <img src={PelingDanceCardImg} alt="PelingDanceCardImg" />
+            </div>
+          </motion.div>
         </>
       )}
     </div>

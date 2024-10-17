@@ -40,14 +40,16 @@ const NaringDrag = ({ showIntro, language, onNaringDragBookImgClick }) => {
             language={language}
             showIntro={showIntro}
           />
-          <motion.div
+          <div
             className={styles.NaringDragBookImg}
             onClick={onNaringDragBookImgClick}
-            whileTap={{ scale: 0.9 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <img src={NaringDragImg} alt="NaringDragBookImg" />
-          </motion.div>
+            <div className={styles.book}>
+              <div className={styles.frontCover}>
+                <img src={NaringDragImg} alt="Naring Drag Book Cover" />
+              </div>
+            </div>
+          </div>
         </>
       )}
     </div>

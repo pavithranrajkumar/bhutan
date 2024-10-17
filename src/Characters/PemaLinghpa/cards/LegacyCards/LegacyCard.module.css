@@ -29,7 +29,7 @@
   text-align: center;
   cursor: pointer;
   position: fixed;
-  top: 91%;
+  top: 87%;
   left: 72%;
   width: 250px;
   height: 90px;
@@ -37,7 +37,7 @@
 
 .MonasteriesCardImg {
   position: fixed;
-  top: 84.5%;
+  top: 81.8%;
   left: 72%;
   width: 140px;
   height: 130px;
@@ -45,7 +45,7 @@
 
 .PelingDanceCardImg {
   position: fixed;
-  top: 95.5%;
+  top: 91.5%;
   left: 74%;
   width: 160px;
   height: 90px;
@@ -59,7 +59,7 @@
   text-align: center;
   cursor: pointer;
   position: fixed;
-  top: 95.5%;
+  top: 91.5%;
   left: 78.5%;
   width: 100px;
   height: 90px;
@@ -78,7 +78,7 @@
 }
 
 .PelingDanceCard::before,
-.MonasteriesCard::before{
+.MonasteriesCard::before {
   content: "";
   position: absolute;
   top: 0;

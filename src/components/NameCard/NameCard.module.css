@@ -26,6 +26,7 @@
   z-index: 1;
   opacity: 0.18; 
   pointer-events: none; 
+  filter: grayscale(150%);
 }
 
 .pemaNameCardTitle {

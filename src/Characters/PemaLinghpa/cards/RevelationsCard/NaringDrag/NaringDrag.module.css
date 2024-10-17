@@ -2,9 +2,47 @@
   position: fixed;
   left: 74.3%;
   top: 83%;
+  perspective: 1000px; /* Enable 3D perspective */
 }
 
 .fadeOut {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
+
+@keyframes rotateBook {
+  0% {
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+  25% {
+    transform: rotateY(15deg) rotateX(5deg);
+  }
+  50% {
+    transform: rotateY(0deg) rotateX(10deg);
+  }
+  75% {
+    transform: rotateY(-15deg) rotateX(5deg);
+  }
+  100% {
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+}
+
+.NaringDragBookImg {
+  display: inline-block;
+
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  animation: rotateBook 5s infinite ease-in-out; 
+  cursor: pointer;
+  left: 74.3%;
+  top: 83%;
+  position: fixed;
+}
+
+.NaringDragBookImg img {
+
+  object-fit: cover;
+  border-radius: 5px; 
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); 
+} 

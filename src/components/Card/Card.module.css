@@ -10,10 +10,13 @@
 
 @keyframes backgroundLoop {
   0% {
-    background-position: 0% 0%; /* Start from the left */
+    background-position: 0% 0;
+  }
+  50% {
+    background-position: 100% 0;
   }
   100% {
-    background-position: 100% 0%; /* Move to the right */
+    background-position: 0% 0;
   }
 }
 
@@ -50,9 +53,9 @@
   bottom: 0;
   background-image: url("/src/assests/BgImgs/CardBgImg.png");
   background-size: 200% 100%;
-  animation: backgroundLoop 2s linear infinite;
-  opacity: 0.2; /* Set opacity here */
-  z-index: -1; /* Place it behind the content */
+  animation: backgroundLoop 12s linear infinite;
+  opacity: 0.2;
+  z-index: -1; 
 }
 
 .introduction {

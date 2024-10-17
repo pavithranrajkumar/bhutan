@@ -271,7 +271,7 @@ const PemaLinghpa = () => {
         onClick={handleCardOrImageClick}
       >
         <img src={Pema} alt="Pema Lingpa" />
-        <div className={styles.shiningEffect}></div>
+        {/* <div className={styles.shiningEffect}></div> */}
       </div>
      
 
@@ -293,6 +293,8 @@ const PemaLinghpa = () => {
             showBurningLakeBookImg ||
             showBurningLakeCard ||
             showMonasteriesImgCard ||
+            showMonasteriesCard ||
+            showPelingDanceCard ||
             showPelingdanceImgs
               ? "1450 - 1521"
               : undefined
@@ -572,13 +574,13 @@ const PemaLinghpa = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             left="64.25%"
-            top="97%"
+            top="96.2%"
             whiteImage={true}
           />
           <HomeIcon
             showIcons={showIcons}
             left="63.6%"
-            top="93%"
+            top="92.2%"
             height="70px"
             width="80px"
             margin="25px"
@@ -624,7 +626,7 @@ const PemaLinghpa = () => {
             showIcons={showIcons}
             whiteImage={true}
             left="60.8%"
-            top="93%"
+            top="90.7%"
             onClick={handleHomeClick}
           />
           <LanguageIcon
@@ -633,7 +635,7 @@ const PemaLinghpa = () => {
             showIcons={showIcons}
             whiteImage={true}
             left="61.4%"
-            top="97%"
+            top="94.6%"
           />
           <CloseIcon
             showIcons={showIcons}
@@ -666,7 +668,7 @@ const PemaLinghpa = () => {
             showIcons={showIcons}
             whiteImage={true}
             left="60.8%"
-            top="93%"
+            top="90.7%"
             onClick={handleHomeClick}
           />
           <LanguageIcon
@@ -675,7 +677,7 @@ const PemaLinghpa = () => {
             showIcons={showIcons}
             whiteImage={true}
             left="61.4%"
-            top="97%"
+            top="94.6%"
           />
           <CloseIcon
             showIcons={showIcons}
@@ -700,13 +702,13 @@ const PemaLinghpa = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             left="64.25%"
-            top="97%"
+            top="96.3%"
             whiteImage={true}
           />
           <HomeIcon
             showIcons={showIcons}
             left="63.6%"
-            top="93%"
+            top="92.3%"
             height="70px"
             width="80px"
             margin="25px"
@@ -744,13 +746,13 @@ const PemaLinghpa = () => {
             onClick={toggleLanguage}
             showIcons={showIcons}
             left="62.35%"
-            top="97%"
+            top="96%"
             whiteImage={true}
           />
           <HomeIcon
             showIcons={showIcons}
             left="61.7%"
-            top="93%"
+            top="92%"
             height="70px"
             width="80px"
             margin="25px"
@@ -789,7 +791,7 @@ const PemaLinghpa = () => {
             showIcons={showIcons}
             whiteImage={true}
             left="60.5%"
-            top="93%"
+            top="90.7%"
             onClick={handleHomeClick}
           />
           <LanguageIcon
@@ -798,7 +800,7 @@ const PemaLinghpa = () => {
             showIcons={showIcons}
             whiteImage={true}
             left="61.2%"
-            top="97%"
+            top="94.6%"
           />
           <CloseIcon
             showIcons={showIcons}

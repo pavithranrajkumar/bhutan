@@ -13,7 +13,6 @@ const HomeIcon = ({
   left,
   right,
   onClick,
-  whiteImage,
   background,
   supine,
 }) => {
@@ -61,7 +60,7 @@ const HomeIcon = ({
 
       {/* Card Animation */}
       <motion.div
-      className={whiteImage ? styles.LanguageWhiteIcon : styles.LanguageIcon}
+      className={ styles.LanguageWhiteIcon }
       style={{
           left,
           position: "absolute",
@@ -84,7 +83,7 @@ const HomeIcon = ({
       >
          <div className={styles.HomeIconContainer}>
         <img
-          src={whiteImage ? HomeWhite : supine ? Supine : Home}
+          src={HomeWhite}
           alt="LanguageIcon"
         />
       </div>

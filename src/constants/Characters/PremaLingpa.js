@@ -3,94 +3,29 @@ export const PEMA_LINGPA_INFORMATION = {
     title: "PEMA LINGPA",
     introduction: {
       title: "INTRODUCTION",
-      content:` Pema Lingpa (c. 1450-1521), native to Bumthang, was a
-prominent religious figure of the Nyingma tradition who had a
-huge influence in Bhutan. The fourth and the only Bhutanese
-of five most important tertöns of the Himalayan world, he was
-considered the reincarnation of the 14th-century Tibetan
-scholar Longchen Rabjam. Termas unearthed by him revealed
-religious teachings and meditation instructions, which inform
-certain Buddhist practices in Bhutan even today. He is
-renowned for his display of spiritual wonders, and his
-extraordinary religious visions are depicted in dances
-throughout the country. Pema Lingpa’s spiritual lineage is still
-maintained and transmitted through the many monasteries he
-established and his three incarnation lines. His family lineage
-established various noble religious families in Bhutan,
-including Dungkar chöeje, forbearers of the present ruling
-family.`    },
+      content: `
+Pema Lingpa (c. 1450-1521), native to Bumthang, was a prominent religious figure of the Nyingma tradition who had a huge influence in Bhutan. The fourth and the only Bhutanese of five most important tertöns of the Himalayan world, he was considered the reincarnation of the 14th-century Tibetan scholar Longchen Rabjam. Termas unearthed by him revealed religious teachings and meditation instructions, which inform certain Buddhist practices in Bhutan even today. He is renowned for his display of spiritual wonders, and his extraordinary religious visions are depicted in dances throughout the country. Pema Lingpa’s spiritual lineage is still maintained and transmitted through the many monasteries he established and his three incarnation lines. His family lineage established various noble religious families in Bhutan, including Dungkar chöeje, forbearers of the present ruling family.`,
+    },
     historicBackground: {
       title: "HISTORIC BACKGROUND",
-      content: ` The tradition of hiding treasures, Terma, originated
-with Padmasambhava in the 8th century. Holy
-objects or scrolls with spiritual instructions were
-hidden in caves and cliffs, and sometimes the
-meanings of these teachings themselves were
-planted in the minds of chosen disciples. The
-location and circumstances of their discovery are
-recorded as prophecies in ancient texts attributed
-to Padmasambhava. The person who was destined
-to reveal a particular treasure was called Tertön, the
-treasure-revealer. Pema Lingpa is recognized as the
-fourth of five Tertön Kings or Sovereign Tertöns,
-who rank among one hundred major and one
-thousand minor treasure revealers.
-`    },
+      content: ` The tradition of hiding treasures, Terma, originated with Padmasambhava in the 8th century. Holy objects or scrolls with spiritual instructions were hidden in caves and cliffs, and sometimes the meanings of these teachings themselves were planted in the minds of chosen disciples. The location and circumstances of their discovery are recorded as prophecies in ancient texts attributed to Padmasambhava. The person destined to reveal a particular treasure was called a Tertön, the treasure-revealer. Pema Lingpa is recognized as the fourth of five Tertön Kings or Sovereign Tertöns, who rank among one hundred major and one thousand minor treasure revealers.
+`,
+    },
     lineage: {
       title: "LINEAGE",
-      content: `Pema Lingpa’s lineage is maintained by his
-three incarnation lines – Peling Sungtrul
-from his direct incarnation, Peling Tukse
-from his son and Gangteng Trulku from
-his grandson. Gangteng Trulku Rinpoche 
-is the authentic representative of Peling
-tradition with the Gangtey monastery in
-Phubjikha Valley serving as his seat. Pema
-Lingpa’s sons also established important
-noble families in Bhutan, namely
-Tamzhing Choeji of Bumthang and
-Dungkar Choeji of Kurtoe. His
-descendants played a major part in the
-unification of Bhutan in the 17th century.
-Jigme Namgyel, the forefather of the
-ruling Wangchuck dynasty was born into
-the family of Dungkar Choeji founded by
-Pema Lingpa’s son Kunga Wangpo.
-`    },
+      content: `Pema Lingpa’s lineage is maintained by his three incarnation lines: Peling Sungtrul from his direct incarnation, Peling Tukse from his son, and Gangteng Trulku from his grandson. Gangteng Trulku Rinpoche is the authentic representative of the Peling tradition, with Gangtey Monastery in Phubjikha Valley serving as his seat. Pema Lingpa’s sons also established important noble families in Bhutan, namely Tamzhing Choeji of Bumthang and Dungkar Choeji of Kurtoe. His descendants played a major role in the unification of Bhutan in the 17th century. Jigme Namgyel, the forefather of the ruling Wangchuck dynasty, was born into the family of Dungkar Choeji, founded by Pema Lingpa’s son, Kunga Wangpo.
+`,
+    },
     revelations: {
       title: "REVELATIONS BY PEMA LINGPA",
-      content: ` Pema Lingpa discovered treasures mainly
-around Bumthang’s valleys and regions
-north of its current borders with Tibet. He
-revealed exclusively physical terma, both
-texts and relics. In his lifetime, Pema
-Lingpa was able to reveal only 32 out of
-108 termas destined for him. The
-collection of texts discovered by him, ‘The
-Precious Collection of Profound Treasure
-Teachings of the Great Master Pema
-Lingpa’ consists of 21 volumes.
-`    },
+      content: ` Pema Lingpa discovered treasures primarily around the valleys of Bumthang and regions north of its current borders with Tibet. He exclusively revealed physical terma, including both texts and relics. During his lifetime, he was able to reveal only 32 out of the 108 termas destined for him. The collection of texts he discovered, titled "The Precious Collection of Profound Treasure Teachings of the Great Master Pema Lingpa," consists of 21 volumes.
+`,
+    },
     naringDrag: {
       title: "REVELATIONS AT",
       header: "NARING DRAG",
-      content: ` Pema Lingpa is awakened by the voice of a monk,
-who urges him to read a scroll thrust into his
-hands. The scroll instructs Pema Lingpa to gather
-five friends and go to Naring Drak on a full moon
-night to uncover his destiny. It also contained a
-key to decode the terma. He dives into the lake
-below the cliff finding a large cave with a throne
-and stacks of texts. The cave’s guardian hands
-him a scroll and asks him to leave. When Pema
-Lingpa surfaces above water, he is propelled up
-the cliff by the wind. Returning home he shares
-the text with his parents and two masters from
-Tharpaling Monastery, none could read the text.
-He then uses the key in the scroll to read the title
-of the text, ‘Crystallization of the Tantra of
-Luminous Space’. This text is considered the first
-of 32 termas revealed by Pema Lingpa.`
+      content: `
+Pema Lingpa is awakened by the voice of a monk, urging him to read a scroll thrust into his hands. The scroll instructs him to gather five friends and go to Naring Drak on a full moon night to uncover his destiny. It also contains a key to decode the terma. Following the instructions, he dives into the lake below the cliff and finds a large cave with a throne and stacks of texts. The cave's guardian hands him a scroll and asks him to leave. As Pema Lingpa surfaces from the water, he is propelled up the cliff by the wind. Returning home, he shares the text with his parents and two masters from Tharpaling Monastery, but none of them could read it. He then uses the key from the scroll to decode the title: "Crystallization of the Tantra of Luminous Space." This text is considered the first of 32 termas revealed by Pema Lingpa.`,
     },
     burningLake: {
       title: "REVELATIONS AT",
