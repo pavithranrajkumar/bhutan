@@ -4,6 +4,8 @@ import { PEMA_LINGPA_INFORMATION } from "../../../../../constants/Characters/Pre
 import burningLakeBookImg from "../../../../../assests/PemaLingpa/Revelations/BurningLake.png";
 import styles from "./BurningLake.module.css";
 import { BHUTAN } from "../../../../../constants/languages/Language";
+import { motion } from "framer-motion";
+
 
 const BurningLake = ({ showIntro, language, onBurningLakeBookImgClick }) => {
   const titleFontSize = language === BHUTAN ? "11px" : "20px";
@@ -27,12 +29,22 @@ const BurningLake = ({ showIntro, language, onBurningLakeBookImgClick }) => {
             language={language}
             showIntro={showIntro}
           />
-          <div
+           <motion.div
             className={styles.burningLakeBookImg}
             onClick={onBurningLakeBookImgClick}
+            initial={{ opacity: 0 }} // Start invisible
+            animate={{ opacity: 1 }} // Fade in
+            exit={{ opacity: 0 }} // Fade out when removed
+            transition={{ duration: 0.5, delay: 3 }} // Duration of fade effect
           >
-            <img src={burningLakeBookImg} alt="burningLakeBookImg" />
-          </div>
+            <div className={styles.book}>
+              <div className={styles.frontCover}>
+                <img src={burningLakeBookImg} alt="Naring Drag Book Cover" />
+                <div className={styles.shine} /> {/* Add shine effect here */}
+              </div>
+            </div>
+          </motion.div>
+          
         </>
       )}
     </div>

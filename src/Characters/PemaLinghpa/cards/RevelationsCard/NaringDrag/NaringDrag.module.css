@@ -5,44 +5,72 @@
   perspective: 1000px; /* Enable 3D perspective */
 }
 
+/* Fade-out effect class */
 .fadeOut {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
 
-@keyframes rotateBook {
+/* Container for the book */
+.book {
+  perspective: 1000px; /* Provides depth for the 3D effect */
+}
+
+/* Styles for the front cover of the book */
+.frontCover {
+  transform-style: preserve-3d;
+  animation: rotate 5s infinite linear; /* Infinite rotation animation */
+  position: relative; /* Required for the absolute positioning of the shine effect */
+  overflow: hidden; /* Ensure shine does not overflow the edges of the book cover */
+}
+
+/* Keyframes for the continuous 3D rotation */
+@keyframes rotate {
   0% {
-    transform: rotateY(0deg) rotateX(0deg);
+    transform: rotateY(0deg) rotateX(0deg); /* Starting point */
   }
   25% {
-    transform: rotateY(15deg) rotateX(5deg);
+    transform: rotateY(15deg) rotateX(5deg); /* Slight 3D tilt */
   }
   50% {
-    transform: rotateY(0deg) rotateX(10deg);
+    transform: rotateY(30deg) rotateX(0deg); /* Rotate more on Y-axis */
   }
   75% {
-    transform: rotateY(-15deg) rotateX(5deg);
+    transform: rotateY(15deg) rotateX(-5deg); /* Opposite 3D tilt */
   }
   100% {
-    transform: rotateY(0deg) rotateX(0deg);
+    transform: rotateY(0deg) rotateX(0deg); /* Back to original position */
   }
 }
 
-.NaringDragBookImg {
-  display: inline-block;
-
-  transform-style: preserve-3d;
-  perspective: 1000px;
-  animation: rotateBook 5s infinite ease-in-out; 
-  cursor: pointer;
-  left: 74.3%;
-  top: 83%;
-  position: fixed;
+/* Shining effect overlay */
+.shine {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%; /* Start off-screen */
+  width: 5%; /* Make it wide enough to cover the entire cover */
+  height: 90%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3)); /* Gradient for shine */
+  animation: shine 5s infinite; /* Continuous shine animation */
+  z-index: 1; /* Place above the book cover image */
 }
 
-.NaringDragBookImg img {
+/* Keyframes for the shine effect */
+@keyframes shine {
+  0% {
+    left: -100%; /* Start off-screen to the left */
+  }
+  100% {
+    left: 85%; /* Move to the right edge */
+  }
+}
 
-  object-fit: cover;
-  border-radius: 5px; 
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); 
-} 
+/* Styles for the book cover image */
+.frontCover img {
+  border-radius: 10px; /* Slight rounding for a modern look */
+  position: relative; /* Position for layering */
+  z-index: 0; /* Ensure the image is below the shine effect */
+}
+
+

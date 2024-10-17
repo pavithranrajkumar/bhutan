@@ -2,6 +2,7 @@ import React from "react";
 import { PEMA_LINGPA_INFORMATION } from "../../../../constants/Characters/PremaLingpa";
 import Card from "../../../../components/Card/Card";
 import { BHUTAN } from "../../../../constants/languages/Language";
+import { AnimatePresence } from "framer-motion"; 
 
 const IntroductionCard = ({ showIntro, language }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "30px";

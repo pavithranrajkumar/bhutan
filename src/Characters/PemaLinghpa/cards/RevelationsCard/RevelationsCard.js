@@ -220,7 +220,7 @@ const RevelationsCard = ({
             transition={{
               duration: 1.5,
               ease: "easeOut",
-              delay: cardAnimationStart ? 5.5 : 0,
+              delay: cardAnimationStart ? 5 : 0,
             }}
           >
             <img src={burningLakeBookImg} alt="burningLakeBookImg" />
@@ -238,7 +238,7 @@ const RevelationsCard = ({
             transition={{
               duration: 1.5,
               ease: "easeOut",
-              delay: cardAnimationStart ? 6 : 0,
+              delay: cardAnimationStart ? 5 : 0,
             }}
           >
             <img src={NaringDragBookImg} alt="NaringDragBookImg" />

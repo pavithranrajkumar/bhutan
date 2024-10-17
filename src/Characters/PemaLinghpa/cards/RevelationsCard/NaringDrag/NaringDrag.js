@@ -21,6 +21,8 @@ const NaringDrag = ({ showIntro, language, onNaringDragBookImgClick }) => {
     }
   }, [showIntro]);
 
+
+  
   return (
     <div>
       {showIntro && (
@@ -40,16 +42,21 @@ const NaringDrag = ({ showIntro, language, onNaringDragBookImgClick }) => {
             language={language}
             showIntro={showIntro}
           />
-          <div
+          <motion.div
             className={styles.NaringDragBookImg}
             onClick={onNaringDragBookImgClick}
+            initial={{ opacity: 0 }} // Start invisible
+            animate={{ opacity: 1 }} // Fade in
+            exit={{ opacity: 0 }} // Fade out when removed
+            transition={{ duration: 0.5, delay: 3 }} // Duration of fade effect
           >
             <div className={styles.book}>
               <div className={styles.frontCover}>
                 <img src={NaringDragImg} alt="Naring Drag Book Cover" />
+                <div className={styles.shine} /> {/* Add shine effect here */}
               </div>
             </div>
-          </div>
+          </motion.div>
         </>
       )}
     </div>

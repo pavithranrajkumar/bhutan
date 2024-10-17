@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import HTMLFlipBook from "react-pageflip";
 import styles from "./NaringDragBook.module.css";
 import coverIgm from "../../../../assests/PemaLingpa/Revelations/NaringDrag.png";
@@ -25,52 +26,75 @@ const NaringDragBook = ({ language, onBurningLakeAnimationCardClick }) => {
   }, []);
 
   return (
-    <div
-      className={`${styles.flipbookContainer} ${
-        isVisible ? styles.fadeIn : styles.fadeInHidden
-      }`}
+    <motion.div
+      initial={{ opacity: 0 }} // Start invisible
+      animate={{ opacity: 1 }} // Fade in
+      exit={{ opacity: 0 }} // Fade out when removed
+      transition={{ duration: 0.5, delay: 0.5 }} // Duration of fade effect
     >
-      <HTMLFlipBook
-        width={180}
-        height={250}
-        className={styles.flipBook}
-        maxShadowOpacity={0}
-        startPage={7}
-      >
-        <div className={styles.transparentPage}>
-          <img src={coverIgm} alt="Comic Book Cover" />
-        </div>
-        <div className={styles.page}>
-          <img src={NarinDragBookImg1} alt="Comic Book Cover" />
-        </div>
-        <div className={styles.page}>
-          <img src={NarinDragBookImg2} alt="Inner Left Page" />
-        </div>
-        <div className={styles.page}>
-          <img src={NarinDragBookImg3} alt="Inner Right Page" />
-        </div>
-        <div className={styles.page}>
-          <img src={NarinDragBookImg4} alt="Inner Left Page" />
-        </div>
-        <div className={styles.page}>
-          <img src={NarinDragBookImg5} alt="Inner Right Page" />
-        </div>
-        <div className={styles.page}>
-          <img src={NarinDragBookImg1} alt="Comic Book Cover" />
-        </div>
-      </HTMLFlipBook>
       <div
-        className={styles.revelationsCard}
-        onClick={onBurningLakeAnimationCardClick}
+        className={`${styles.flipbookContainer} ${
+          isVisible ? styles.fadeIn : styles.fadeInHidden
+        }`}
       >
-        <div className={styles.title} style={{ fontSize: fonstSize }}>
-          {PEMA_LINGPA_INFORMATION[language].burningLake.title}
-        </div>
-        <div className={styles.header} style={{ fontSize: headerFontSize }}>
-          {PEMA_LINGPA_INFORMATION[language].burningLake.header}
-        </div>
+        <HTMLFlipBook
+          width={180}
+          height={250}
+          className={styles.flipBook}
+          maxShadowOpacity={0}
+          startPage={7}
+        >
+          <div className={styles.transparentPage}>
+            <img src={coverIgm} alt="Comic Book Cover" />
+          </div>
+          <div className={styles.page}>
+            <img src={NarinDragBookImg1} alt="Comic Book Cover" />
+          </div>
+          <div className={styles.page}>
+            <img src={NarinDragBookImg2} alt="Inner Left Page" />
+          </div>
+          <div className={styles.page}>
+            <img src={NarinDragBookImg3} alt="Inner Right Page" />
+          </div>
+          <div className={styles.page}>
+            <img src={NarinDragBookImg4} alt="Inner Left Page" />
+          </div>
+          <div className={styles.page}>
+            <img src={NarinDragBookImg5} alt="Inner Right Page" />
+          </div>
+          <div className={styles.page}>
+            <img src={NarinDragBookImg1} alt="Comic Book Cover" />
+          </div>
+        </HTMLFlipBook>
+        <motion.div
+          className={styles.revelationsCard}
+          onClick={onBurningLakeAnimationCardClick}
+          initial={{ opacity: 0 }} // Start invisible
+          animate={{ opacity: 1 }} // Fade in
+          exit={{ opacity: 0 }} // Optional: Fade out when removed
+          transition={{ duration: 0.5, delay:1 }} // Duration of the card fade effect
+        >
+          <motion.div
+            className={styles.title}
+            style={{ fontSize: fonstSize }}
+            initial={{ opacity: 0 }} // Start invisible
+            animate={{ opacity: 1 }} // Fade in
+            transition={{ duration: 0.5, delay: 1.5 }} // Delay text fade in after card
+          >
+            {PEMA_LINGPA_INFORMATION[language].burningLake.title}
+          </motion.div>
+          <motion.div
+            className={styles.header}
+            style={{ fontSize: headerFontSize }}
+            initial={{ opacity: 0 }} // Start invisible
+            animate={{ opacity: 1 }} // Fade in
+            transition={{ duration: 0.5, delay: 1.8 }} // Slightly later delay for the header
+          >
+            {PEMA_LINGPA_INFORMATION[language].burningLake.header}
+          </motion.div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

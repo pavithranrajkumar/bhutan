@@ -248,6 +248,18 @@ const PemaLinghpa = () => {
   const cardNameFontSize = language === BHUTAN ? "1.5rem" : "1.25rem";
   const subCardnameFontSize = language === BHUTAN ? "1.5rem" : "1.25rem";
   const subCardnameMarginLeft = language === BHUTAN ? "10.1rem" : "12.2rem";
+  const showYear =
+    showCards ||
+    selectedCard ||
+    showIntroduction ||
+    showNaringDragBookImg ||
+    showNaringDragCard ||
+    showBurningLakeBookImg ||
+    showBurningLakeCard ||
+    showMonasteriesImgCard ||
+    showMonasteriesCard ||
+    showPelingDanceCard ||
+    showPelingdanceImgs;
 
   return (
     <div className={styles.pemaContainer}>
@@ -278,29 +290,25 @@ const PemaLinghpa = () => {
         onClick={handleCardOrImageClick}
       >
         <NameCard
-          // cardName={PEMA_LINGPA_INFORMATION[language].title}
-          cardName={PEMA_LINGPA_INFORMATION[language].nameCardtitle}
-          subCardname={PEMA_LINGPA_INFORMATION[language].nameCardtitleTwo}
+          cardName={
+            showYear
+              ? PEMA_LINGPA_INFORMATION[language].nameCardtitle
+              : PEMA_LINGPA_INFORMATION[language].nameCardtitle
+          }
+          subCardname={
+            showYear
+              ? PEMA_LINGPA_INFORMATION[language].nameCardtitleTwo
+              : PEMA_LINGPA_INFORMATION[language].nameCardtitleTwo
+          }
           width="310px"
           height="100px"
-          // fontSize={language === BHUTAN ? "1.5rem" : "20px"}
           year={
-            showCards ||
-            selectedCard ||
-            showIntroduction ||
-            showNaringDragBookImg ||
-            showNaringDragCard ||
-            showBurningLakeBookImg ||
-            showBurningLakeCard ||
-            showMonasteriesImgCard ||
-            showMonasteriesCard ||
-            showPelingDanceCard ||
-            showPelingdanceImgs ? (
+            showYear ? (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 2.5 }} // Adjust the duration for a smoother or quicker effect
+                transition={{ duration: 2.5 }}
               >
                 1450 - 1521
               </motion.div>
@@ -800,12 +808,22 @@ const PemaLinghpa = () => {
             animate={{ opacity: 1 }} // Final opacity
             transition={{ duration: 0.5, delay: 1 }} // Fade duration
           >
-            <div className={styles.SmallPeilingCardHeader}>
+            <motion.div
+              className={styles.SmallPeilingCardHeader}
+              initial={{ opacity: 0 }} // Initial opacity for header
+              animate={{ opacity: 1 }} // Final opacity for header
+              transition={{ duration: 0.5, delay: 1.5 }} // Fade duration for header
+            >
               {PEMA_LINGPA_INFORMATION[language].pelingdance.title}
-            </div>
-            <div className={styles.SmallPeilingCardTitle}>
+            </motion.div>
+            <motion.div
+              className={styles.SmallPeilingCardTitle}
+              initial={{ opacity: 0 }} // Initial opacity for title
+              animate={{ opacity: 1 }} // Final opacity for title
+              transition={{ duration: 0.5, delay: 1.7 }} // Fade duration for title
+            >
               {PEMA_LINGPA_INFORMATION[language].pelingdance.header}
-            </div>
+            </motion.div>
           </motion.div>
 
           <PreviousIcon
@@ -932,14 +950,24 @@ const PemaLinghpa = () => {
             onClick={handleOpenPeleingCard}
             initial={{ opacity: 0 }} // Initial opacity
             animate={{ opacity: 1 }} // Final opacity
-            transition={{ duration: 0.5, delay: 1 }} // Fade duration
+            transition={{ duration: 0.5, delay: 1 }} // Fade duration for the card
           >
-            <div className={styles.SmallPeilingCardHeader}>
+            <motion.div
+              className={styles.SmallPeilingCardHeader}
+              initial={{ opacity: 0 }} // Initial opacity for header
+              animate={{ opacity: 1 }} // Final opacity for header
+              transition={{ duration: 0.5, delay: 1.5 }} // Fade duration for header
+            >
               {PEMA_LINGPA_INFORMATION[language].monastriesAndTemples.title}
-            </div>
-            <div className={styles.SmallPeilingCardTitle}>
+            </motion.div>
+            <motion.div
+              className={styles.SmallPeilingCardTitle}
+              initial={{ opacity: 0 }} // Initial opacity for title
+              animate={{ opacity: 1 }} // Final opacity for title
+              transition={{ duration: 0.5, delay: 1.7 }} // Fade duration for title
+            >
               {PEMA_LINGPA_INFORMATION[language].monastriesAndTemples.header}
-            </div>
+            </motion.div>
           </motion.div>
           <LanguageIcon
             language={language}
