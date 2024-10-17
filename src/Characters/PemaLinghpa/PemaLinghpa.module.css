@@ -35,6 +35,7 @@
 }
 
 .pemaImage img {
+  
   object-fit: fill;
   width: 200px;
   height: 230px;
