@@ -6,7 +6,7 @@
   left: 64.5%;
   top: 95.5%;
   cursor: pointer;
-  z-index: 1;
+  z-index: 1; /* Ensure the LanguageIcon is below the img */
 }
 
 .LanguageIcon::before {
@@ -20,9 +20,9 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: 1;
+  z-index: 1; /* Make sure the background image is behind the content */
   opacity: 0.3;
-  pointer-events: none;
+  pointer-events: none; /* This makes the pseudo-element not respond to mouse events */
 }
 
 .LanguageWhiteIcon {
@@ -33,45 +33,20 @@
   left: 64.5%;
   top: 95.5%;
   cursor: pointer;
-  z-index: 1;
+  z-index: 2; /* Ensure this icon is above everything else */
 }
 
-.LanguageWhiteIcon::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url("/src/assests/BgImgs/IconsBgImg.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 1;
-  opacity: 0.18;
-  pointer-events: none;
+.LanguageIconContainer {
+  position: relative; /* Change to relative positioning */
+  margin: 13px;
+  cursor: pointer;
+  z-index: 3; /* Ensure this is above the LanguageIcon */
 }
 
 .LanguageIconContainer img {
   width: 25px;
   height: 25px;
   cursor: pointer;
-  z-index: 3;
-}
-
-.LanguageIconContainer {
-  margin: 13px;
-  cursor: pointer;
-  z-index: 2;
-}
-.VerticalLine {
-  position: absolute;
-  width: 2px;
-  background-color: #000; /* You can change the line color */
-  top: 0;
-  left: 50%; /* Center the line horizontally */
-}
-
-.LanguageIconContains{
-
+  position: relative; /* Ensure the image stays above the background */
+  z-index: 4; /* Make sure the image is on top */
 }

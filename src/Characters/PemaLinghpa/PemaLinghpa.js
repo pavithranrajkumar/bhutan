@@ -271,7 +271,6 @@ const PemaLinghpa = () => {
 
       <div className={styles.pemaImage} onClick={handleCardOrImageClick}>
         <img src={Pema} alt="Pema Lingpa" />
-        {/* <div className={styles.shiningEffect}></div> */}
       </div>
 
       <div

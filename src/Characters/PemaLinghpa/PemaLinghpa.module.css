@@ -43,8 +43,6 @@
   margin: 0;
   padding: 0;
   display: block;
-  transition: transform 0.3s;
-  transition: filter 0.3s ease; 
 }
 
 
