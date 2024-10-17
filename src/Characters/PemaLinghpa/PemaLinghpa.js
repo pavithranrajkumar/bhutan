@@ -270,7 +270,7 @@ const PemaLinghpa = () => {
       </AnimatePresence>
 
       <div className={styles.pemaImage} onClick={handleCardOrImageClick}>
-        <img src={Pema} alt="Pema Lingpa" />
+        <img src={Pema} alt="" />
       </div>
 
       <div
