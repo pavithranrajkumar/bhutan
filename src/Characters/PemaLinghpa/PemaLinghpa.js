@@ -271,8 +271,9 @@ const PemaLinghpa = () => {
         onClick={handleCardOrImageClick}
       >
         <img src={Pema} alt="Pema Lingpa" />
-        <div className="shine"></div>
+        <div className={styles.shiningEffect}></div>
       </div>
+     
 
       <div
         className={styles.NameCardContainer}
@@ -348,7 +349,8 @@ const PemaLinghpa = () => {
         <>
           <div>
             <PemaCards
-              isFadingOut={isFadingOut}
+              // isFadingOut={isFadingOut}
+              showIntro={true}
               language={language}
               onCardClick={handleCardClick}
             />
@@ -427,6 +429,7 @@ const PemaLinghpa = () => {
                   language={language}
                   showIntro={true}
                   showIcons={showIcons}
+                  onNextClick={handleNextIcon}
                 />
 
                 <LanguageIcon
@@ -447,7 +450,7 @@ const PemaLinghpa = () => {
                   margin="25px"
                   onClick={handleHomeClick}
                 />
-                <NextIcon
+                {/* <NextIcon
                   showIcons={showIcons}
                   left="75.5%"
                   top="82%"
@@ -457,7 +460,7 @@ const PemaLinghpa = () => {
                   background="#3A1701"
                   color="#FFD9BC"
                   onClick={handleNextIcon}
-                />
+                /> */}
                 <CloseIcon
                   showIcons={showIcons}
                   left="61.3%"

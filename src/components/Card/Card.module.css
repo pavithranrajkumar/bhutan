@@ -17,7 +17,6 @@
   }
 }
 
-
 .detailCard {
   font-size: 0.7vw;
   background: #193145;
@@ -34,18 +33,12 @@
   padding: 10px;
   overflow: hidden;
   transition: transform 0.5s;
-  transform-origin: left; 
+  transform-origin: left;
   margin: 0;
 }
 
 .line {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: 2px; /* Thickness of the line */
- background: rgb(25, 49, 69, 2);
- /* Set to your desired color */
-  z-index: 1;
+  /* background: rgb(25, 49, 69, 2); */
 }
 
 .detailCard::before {
@@ -61,8 +54,6 @@
   opacity: 0.2; /* Set opacity here */
   z-index: -1; /* Place it behind the content */
 }
-
-
 
 .introduction {
   margin: 15px;
@@ -87,7 +78,7 @@
   font-size: 11px;
 }
 
-.borderBottom{
+.borderBottom {
   padding: 0;
   margin: 0;
   height: 1px;

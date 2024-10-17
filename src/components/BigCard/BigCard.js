@@ -14,7 +14,7 @@ const BigCard = ({
   subContent,
   height,
   borderBottom,
-  language
+  language,
 }) => {
   const [lineAnimationComplete, setLineAnimationComplete] = useState(false);
   const [cardAnimationStart, setCardAnimationStart] = useState(false);
@@ -45,84 +45,84 @@ const BigCard = ({
 
   return (
     <div className={styles.cardContainer}>
-    {/* Vertical Line Animation */}
-    <motion.div
-      className={styles.line}
-      initial={{ height: 0 }}
-      animate={{ height: lineAnimationComplete ? "100%" : 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      style={{
-        position: "absolute",
-        left: "0%",
-        top: 0,
-        width: "3px",
-        background: backgroundColor,
-        zIndex: 1,
-      }}
-    />
+      {/* Vertical Line Animation */}
+      <motion.div
+        className={styles.line}
+        initial={{ height: 0 }}
+        animate={{ height: lineAnimationComplete ? "100%" : 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        style={{
+          position: "absolute",
+          left: "0%",
+          top: 0,
+          width: "3px",
+          background: backgroundColor,
+          zIndex: 1,
+        }}
+      />
 
-    {/* Card Expansion Animation */}
-    <motion.div
-      className={styles.detailCard}
-      style={{
-        background: backgroundColor,
-        color: color,
-        width: width,
-        height,
-        overflow: "hidden",
-        position: "relative",
-        marginLeft: lineAnimationComplete ? "0%" : "-100%",
-        zIndex: 0,
-      }}
-      initial={{ scaleX: 0, opacity: 0 }}
-      animate={{
-        scaleX: cardAnimationStart ? 1 : 0,
-        opacity: cardAnimationStart ? 1 : 0,
-        originX: 0,
-      }}
-      transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
-    >
-      <div className={styles.introduction}>
-        {/* Header Animation */}
-        <motion.div
-          initial={{ x: "-100%", opacity: 0 }}
-          animate={{
-            x: cardAnimationStart ? 0 : "-100%",
-            opacity: cardAnimationStart ? 1 : 0,
-          }}
-          transition={{ duration: 1.5, delay: cardAnimationStart ? 1.5 : 0 }}
-        >
-          <div
-            className={styles.CardHeader}
-            style={{
-              fontSize: headerFontSize,
-              lineHeight: contentLineHeight,
+      {/* Card Expansion Animation */}
+      <motion.div
+        className={styles.detailCard}
+        style={{
+          background: backgroundColor,
+          color: color,
+          width: width,
+          height,
+          overflow: "hidden",
+          position: "relative",
+          marginLeft: lineAnimationComplete ? "0%" : "-100%",
+          zIndex: 0,
+        }}
+        initial={{ scaleX: 0, opacity: 0 }}
+        animate={{
+          scaleX: cardAnimationStart ? 1 : 0,
+          opacity: cardAnimationStart ? 1 : 0,
+          originX: 0,
+        }}
+        transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
+      >
+        <div className={styles.introduction}>
+          {/* Header Animation */}
+          <motion.div
+            initial={{ x: "-100%", opacity: 0 }}
+            animate={{
+              x: cardAnimationStart ? 0 : "-100%",
+              opacity: cardAnimationStart ? 1 : 0,
             }}
+            transition={{ duration: 1.5, delay: cardAnimationStart ? 1.5 : 0 }}
           >
-            {header}
-          </div>
-        </motion.div>
+            <div
+              className={styles.CardHeader}
+              style={{
+                fontSize: headerFontSize,
+                lineHeight: contentLineHeight,
+              }}
+            >
+              {header}
+            </div>
+          </motion.div>
 
-        {/* Title Animation */}
-        <motion.div
-          initial={{ x: "-100%", opacity: 0 }}
-          animate={{
-            x: cardAnimationStart ? 0 : "-100%",
-            opacity: cardAnimationStart ? 1 : 0,
-          }}
-          transition={{ duration: 1.5, delay: cardAnimationStart ? 2 : 0 }}
-        >
-          <div
-            className={styles.CardTitle}
-            style={{
-              fontSize: titleFontSize,
-              lineHeight: contentLineHeight,
+          {/* Title Animation */}
+          <motion.div
+            initial={{ x: "-100%", opacity: 0 }}
+            animate={{
+              x: cardAnimationStart ? 0 : "-100%",
+              opacity: cardAnimationStart ? 1 : 0,
             }}
+            transition={{ duration: 1.5, delay: cardAnimationStart ? 2 : 0 }}
           >
-            {title}
-          </div>
-        </motion.div>
-        <motion.div
+            <div
+              className={styles.CardTitle}
+              style={{
+                fontSize: titleFontSize,
+                lineHeight: contentLineHeight,
+              }}
+            >
+              {title}
+            </div>
+          </motion.div>
+          <motion.div
             initial={{ x: "-100%", opacity: 0 }}
             animate={{
               x: cardAnimationStart ? 0 : "-100%",
@@ -133,48 +133,50 @@ const BigCard = ({
           >
             <hr className={styles.borderBottom} style={{ borderBottom }} />
           </motion.div>
-        {/* Content Rendering - Show one line at a time */}
-        {contentLines.map((line, index) => (
+          {/* Content Rendering - Show one line at a time */}
+          {contentLines.map((line, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -20 }} // Start slightly off to the left and transparent
+              animate={{
+                opacity: cardAnimationStart ? 1 : 0,
+                x: cardAnimationStart ? 0 : -20, // Move to original position
+              }}
+              transition={{
+                duration: 0.5,
+                delay: cardAnimationStart ? 4 + index * 0.5 : 0, // Incremental delay for each line
+              }}
+              className={styles.CardContent}
+              style={{
+                fontSize: contentFontSize,
+                lineHeight: contentLineHeight,
+              }}
+            >
+              {line}
+            </motion.div>
+          ))}
+
+          {/* Sub Content */}
           <motion.div
-            key={index}
-            initial={{ opacity: 0, x: -20 }} // Start slightly off to the left and transparent
+            initial={{ opacity: 0, x: -20 }}
             animate={{
               opacity: cardAnimationStart ? 1 : 0,
-              x: cardAnimationStart ? 0 : -20, // Move to original position
+              x: cardAnimationStart ? 0 : -20,
             }}
             transition={{
               duration: 0.5,
-              delay: cardAnimationStart ? 3 + index * 0.5 : 0, // Incremental delay for each line
+              delay: cardAnimationStart
+                ? 3 + content.split("\n").length * 0.5
+                : 0,
             }}
-            className={styles.CardContent}
-            style={{
-              fontSize: contentFontSize,
-              lineHeight: contentLineHeight,
-            }}
+            className={styles.CardSubContent}
+            style={{ fontSize: contentFontSize, lineHeight: contentLineHeight }}
           >
-            {line}
+            {subContent}
           </motion.div>
-        ))}
-
-         {/* Sub Content */}
-         <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{
-            opacity: cardAnimationStart ? 1 : 0,
-            x: cardAnimationStart ? 0 : -20,
-          }}
-          transition={{
-            duration: 0.5,
-            delay: cardAnimationStart ? 3 + content.split("\n").length * 0.5 : 0,
-          }}
-          className={styles.CardSubContent}
-          style={{ fontSize: contentFontSize, lineHeight: contentLineHeight }}
-        >
-          {subContent}
-        </motion.div>
-      </div>
-    </motion.div>
-  </div>
+        </div>
+      </motion.div>
+    </div>
   );
 };
 

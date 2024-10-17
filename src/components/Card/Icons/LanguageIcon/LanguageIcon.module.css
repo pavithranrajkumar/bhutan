@@ -64,12 +64,14 @@
   cursor: pointer;
   z-index: 2;
 }
-
-.line {
+.VerticalLine {
   position: absolute;
-  left: 50%;
+  width: 2px;
+  background-color: #000; /* You can change the line color */
   top: 0;
-  width: 2px; /* Thickness of the line */
-  background: rgb(25, 49, 69, 2);
-  z-index: 1;
+  left: 50%; /* Center the line horizontally */
+}
+
+.LanguageIconContains{
+
 }

@@ -33,7 +33,7 @@ const Card = ({
       }, 500);
       return () => clearTimeout(timer);
     } else {
-      setCardAnimationStart(false); // Reset card animation
+      setCardAnimationStart(false);
     }
   }, [showIntro]);
 
@@ -59,7 +59,7 @@ const Card = ({
           left: "0%",
           top: 0,
           width: "3px",
-          background: backgroundColor,
+          background: backgroundColor || "#2b455d",
           zIndex: 1,
         }}
       />
@@ -84,7 +84,11 @@ const Card = ({
           originX: 0,
         }}
         transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
-        exit={{ scaleX: 0, opacity: 0 }} // Add exit animation
+        exit={{
+          scaleX: 0,
+          opacity: 0,
+          transition: { duration: 0.5, ease: "easeIn" }, // Exit transition
+        }}
       >
         <div className={styles.introduction}>
           {/* Header Animation */}
@@ -94,7 +98,7 @@ const Card = ({
               x: cardAnimationStart ? 0 : "-100%",
               opacity: cardAnimationStart ? 1 : 0,
             }}
-            exit={{ x: "-100%", opacity: 0 }} // Exit animation
+            exit={{ x: "-100%", opacity: 0 }} // Exit animation (reverse)
             transition={{ duration: 1.5, delay: cardAnimationStart ? 1.5 : 0 }}
           >
             <div
@@ -115,7 +119,7 @@ const Card = ({
               x: cardAnimationStart ? 0 : "-100%",
               opacity: cardAnimationStart ? 1 : 0,
             }}
-            exit={{ x: "-100%", opacity: 0 }} // Exit animation
+            exit={{ x: "-100%", opacity: 0 }} // Exit animation (reverse)
             transition={{ duration: 1.5, delay: cardAnimationStart ? 2 : 0 }}
           >
             <div
@@ -136,7 +140,7 @@ const Card = ({
               x: cardAnimationStart ? 0 : "-100%",
               opacity: cardAnimationStart ? 1 : 0,
             }}
-            exit={{ x: "-100%", opacity: 0 }} // Exit animation
+            exit={{ x: "-100%", opacity: 0 }} // Exit animation (reverse)
             transition={{ duration: 1.5, delay: cardAnimationStart ? 3.5 : 0 }}
           >
             <hr className={styles.borderBottom} style={{ borderBottom }} />
@@ -150,7 +154,7 @@ const Card = ({
                 opacity: cardAnimationStart ? 1 : 0,
                 x: cardAnimationStart ? 0 : -20,
               }}
-              exit={{ opacity: 0, x: -20 }} // Exit animation
+              exit={{ opacity: 0, x: -20 }} // Exit animation (reverse)
               transition={{
                 duration: 0.5,
                 delay: cardAnimationStart ? 4 + index * 0.5 : 0,

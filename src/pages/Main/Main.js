@@ -1,7 +1,7 @@
 import React from "react";
 import "./main.css";
 import bottom from "../../assests/Bottom.png";
-// import bottomVideo from "../../assests/Videos/BgVideo.mp4";
+// import bottomVideo from "../../assests/Videos/BgVideo/TextVideo.mp4";
 import ZhabrungNgawangNamgyal from "../../Characters/ZhabrungNgawangNamgyal/ZhabrungNgawangNamgyal";
 import Tibetan from "../../Characters/Tibetan/Tibetan";
 import Guru from "../../Characters/Guru/Guru";
@@ -17,7 +17,7 @@ import MainComponent from "../MainComponent/MainComponent";
 const Main = () => {
   return (
     <div className="main-container">
-       {/* <video autoPlay loop muted className="background-video">
+       {/* <video autoPlay loop  className="background-video">
         <source src={bottomVideo} type="video/mp4" />
       </video> */}
       <div className="image-container bottom-image-container upside-down">

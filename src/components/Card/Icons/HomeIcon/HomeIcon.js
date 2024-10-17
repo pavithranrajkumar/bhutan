@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import HomeWhite from "../../../../assests/SideIcons/HomeWhite.png";
 import Home from "../../../../assests/SideIcons/HomeIcon2.png";
@@ -17,30 +17,79 @@ const HomeIcon = ({
   background,
   supine,
 }) => {
-  const fadeInDelay = 6; // Delay for 5 seconds
+  const [lineAnimationComplete, setLineAnimationComplete] = useState(false);
+  const [cardAnimationStart, setCardAnimationStart] = useState(false);
+
+  useEffect(() => {
+    if (showIcons) {
+      setLineAnimationComplete(false);
+      const timer = setTimeout(() => {
+        setLineAnimationComplete(true);
+      }, 500);
+      return () => clearTimeout(timer);
+    } else {
+      setCardAnimationStart(false); // Reset card animation
+    }
+  }, [showIcons]);
+
+  useEffect(() => {
+    if (lineAnimationComplete && showIcons) {
+      const timer = setTimeout(() => {
+        setCardAnimationStart(true);
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [lineAnimationComplete, showIcons]);
 
   return (
-    <motion.div
-      style={{
-        left: left,
-        right: right,
-        top: top,
-        bottom: bottom,
-        background,
-      }}
+    <div className={styles.cardContainer} style={{ position: 'fixed', top, left }}>
+      {/* Vertical Line Animation */}
+      <motion.div
+        className={styles.line}
+        initial={{ height: 0 }}
+        animate={{ height: lineAnimationComplete ? "100%" : 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        style={{
+          position: "absolute",
+          right: "0%",
+          top: 0,
+          width: "3px",
+          background: background,
+          zIndex: 1,
+        }}
+      />
+
+      {/* Card Animation */}
+      <motion.div
       className={whiteImage ? styles.LanguageWhiteIcon : styles.LanguageIcon}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: showIcons ? 1 : 0 }}
-      transition={{ duration: 0.5, delay: showIcons ? fadeInDelay : 0 }} // Delay for 5 seconds
-      onClick={onClick}
-    >
-      <div className={styles.HomeIconContainer}>
+      style={{
+          left,
+          position: "absolute",
+          right: "0%", // Start at the left side
+          top: 0,
+          background,
+          overflow: "hidden",
+          zIndex: 0,
+        }}
+        initial={{ scaleX: 0, opacity: 0 }}
+        animate={{
+          scaleX: cardAnimationStart ? 1 : 0,
+          opacity: cardAnimationStart ? 1 : 0,
+          originX: 1, // Ensures scaling is from the left
+        }}
+        transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+        exit={{ scaleX: 0, opacity: 0 }}
+        onClick={onClick}
+
+      >
+         <div className={styles.HomeIconContainer}>
         <img
           src={whiteImage ? HomeWhite : supine ? Supine : Home}
           alt="LanguageIcon"
         />
       </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 };
 

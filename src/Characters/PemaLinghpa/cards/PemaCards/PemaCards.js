@@ -36,117 +36,125 @@ const PemaCards = ({ language, onCardClick }) => {
   }, [lineAnimationComplete]);
 
   return (
-    <div>
-      <div className={styles.cardsContainer}>
-        {/* Historic Card */}
-        <div className={styles.cardWrapper}>
-          <motion.div
-            className={styles.VerticalLine}
-            initial={{ height: 0 }}
-            animate={{
-              height: lineAnimationComplete ? "100%" : 0,
-            }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          />
-          <motion.div
-            className={`${styles.card} ${styles.HistoricCard}`}
-            onClick={() => onCardClick("historic")}
-            initial={{ scaleX: 0, opacity: 0 }}
-            animate={{
-              scaleX: cardAnimationStart ? 1 : 0,
-              opacity: cardAnimationStart ? 1 : 0,
-              originX: 0,
-            }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: cardAnimationStart ? 0.5 : 0 }}
-          >
-            <CardsContainerText fontSize={fontSize}>
-              {PEMA_LINGPA_INFORMATION[language].historicBackground.title}
-            </CardsContainerText>
-          </motion.div>
-        </div>
-
-        {/* Lineage Card */}
-        <div className={styles.cardWrapper}>
-          <motion.div
-            className={styles.VerticalLine}
-            initial={{ height: 0 }}
-            animate={{
-              height: lineAnimationComplete ? "100%" : 0,
-            }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          />
-          <motion.div
-            className={`${styles.card} ${styles.LineageCard}`}
-            onClick={() => onCardClick("lineage")}
-            initial={{ scaleX: 0, opacity: 0 }}
-            animate={{
-              scaleX: cardAnimationStart ? 1 : 0,
-              opacity: cardAnimationStart ? 1 : 0,
-              originX: 0,
-            }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: cardAnimationStart ? 1.1 : 0 }}
-          >
-            <CardsContainerText fontSize={fontSize}>
-              {PEMA_LINGPA_INFORMATION[language].lineage.title}
-            </CardsContainerText>
-          </motion.div>
-        </div>
-
-        {/* Revelations Card */}
-        <div className={styles.cardWrapper}>
-          <motion.div
-            className={styles.VerticalLine}
-            initial={{ height: 0 }}
-            animate={{
-              height: lineAnimationComplete ? "100%" : 0,
-            }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          />
-          <motion.div
-            className={`${styles.card} ${styles.RevelationsCard}`}
-            onClick={() => onCardClick("revelations")}
-            initial={{ scaleX: 0, opacity: 0 }}
-            animate={{
-              scaleX: cardAnimationStart ? 1 : 0,
-              opacity: cardAnimationStart ? 1 : 0,
-              originX: 0,
-            }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: cardAnimationStart ? 1.7 : 0 }}
-          >
-            <CardsContainerText fontSize={fontSize}>
-              {PEMA_LINGPA_INFORMATION[language].revelations.title}
-            </CardsContainerText>
-          </motion.div>
-        </div>
-
-        {/* Legacy Card */}
-        <div className={styles.cardWrapper}>
-          <motion.div
-            className={styles.VerticalLine}
-            initial={{ height: 0 }}
-            animate={{
-              height: lineAnimationComplete ? "100%" : 0,
-            }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          />
-          <motion.div
-            className={`${styles.card} ${styles.LegacyCard}`}
-            onClick={() => onCardClick("legacy")}
-            initial={{ scaleX: 0, opacity: 0 }}
-            animate={{
-              scaleX: cardAnimationStart ? 1 : 0,
-              opacity: cardAnimationStart ? 1 : 0,
-              originX: 0,
-            }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: cardAnimationStart ? 2.3 : 0 }}
-          >
-            <CardsContainerText fontSize={fontSize}>
-              {PEMA_LINGPA_INFORMATION[language].legacy.title}
-            </CardsContainerText>
-          </motion.div>
-        </div>
+    <motion.div
+      className={styles.cardsContainer}
+      initial={{ opacity: 0, y: 20 }}  // Initial state when entering
+      animate={{ opacity: 1, y: 0 }}    // Animate into view
+      exit={{ opacity: 0, y: 20 }}      // Animate out of view
+      transition={{ duration: 0.5 }}     // Transition duration
+    >
+      {/* Historic Card */}
+      <div className={styles.cardWrapper}>
+        <motion.div
+          className={styles.VerticalLine}
+          initial={{ height: 0 }}
+          animate={{
+            height: lineAnimationComplete ? "100%" : 0,
+          }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+        />
+        <motion.div
+          className={`${styles.card} ${styles.HistoricCard}`}
+          onClick={() => onCardClick("historic")}
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{
+            scaleX: cardAnimationStart ? 1 : 0,
+            opacity: cardAnimationStart ? 1 : 0,
+            originX: 1,
+          }}
+          exit={{ scaleX: 0, opacity: 0 }} // Exit animation
+          transition={{ duration: 1.5, ease: "easeOut", delay: cardAnimationStart ? 0.5 : 0 }}
+        >
+          <CardsContainerText fontSize={fontSize}>
+            {PEMA_LINGPA_INFORMATION[language].historicBackground.title}
+          </CardsContainerText>
+        </motion.div>
       </div>
-    </div>
+
+      {/* Lineage Card */}
+      <div className={styles.cardWrapper}>
+        <motion.div
+          className={styles.VerticalLine}
+          initial={{ height: 0 }}
+          animate={{
+            height: lineAnimationComplete ? "100%" : 0,
+          }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+        />
+        <motion.div
+          className={`${styles.card} ${styles.LineageCard}`}
+          onClick={() => onCardClick("lineage")}
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{
+            scaleX: cardAnimationStart ? 1 : 0,
+            opacity: cardAnimationStart ? 1 : 0,
+            originX: 0,
+          }}
+          exit={{ scaleX: 0, opacity: 0 }} // Exit animation
+          transition={{ duration: 1.5, ease: "easeOut", delay: cardAnimationStart ? 0.5 : 0 }}
+        >
+          <CardsContainerText fontSize={fontSize}>
+            {PEMA_LINGPA_INFORMATION[language].lineage.title}
+          </CardsContainerText>
+        </motion.div>
+      </div>
+
+      {/* Revelations Card */}
+      <div className={styles.cardWrapper}>
+        <motion.div
+          className={styles.VerticalLine}
+          initial={{ height: 0 }}
+          animate={{
+            height: lineAnimationComplete ? "100%" : 0,
+          }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+        />
+        <motion.div
+          className={`${styles.card} ${styles.RevelationsCard}`}
+          onClick={() => onCardClick("revelations")}
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{
+            scaleX: cardAnimationStart ? 1 : 0,
+            opacity: cardAnimationStart ? 1 : 0,
+            originX: 1,
+          }}
+          exit={{ scaleX: 0, opacity: 0 }} // Exit animation
+          transition={{ duration: 1.5, ease: "easeOut", delay: cardAnimationStart ? 0.5 : 0 }}
+        >
+          <CardsContainerText fontSize={fontSize}>
+            {PEMA_LINGPA_INFORMATION[language].revelations.title}
+          </CardsContainerText>
+        </motion.div>
+      </div>
+
+      {/* Legacy Card */}
+      <div className={styles.cardWrapper}>
+        <motion.div
+          className={styles.VerticalLine}
+          initial={{ height: 0 }}
+          animate={{
+            height: lineAnimationComplete ? "100%" : 0,
+          }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+        />
+        <motion.div
+          className={`${styles.card} ${styles.LegacyCard}`}
+          onClick={() => onCardClick("legacy")}
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{
+            scaleX: cardAnimationStart ? 1 : 0,
+            opacity: cardAnimationStart ? 1 : 0,
+            originX: 0,
+          }}
+          exit={{ scaleX: 0, opacity: 0 }} // Exit animation
+          transition={{ duration: 1.5, ease: "easeOut", delay: cardAnimationStart ? 0.5 : 0 }}
+        >
+          <CardsContainerText fontSize={fontSize}>
+            {PEMA_LINGPA_INFORMATION[language].legacy.title}
+          </CardsContainerText>
+        </motion.div>
+      </div>
+    </motion.div>
   );
 };
 
