@@ -34,7 +34,7 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
   const handleShowCards = () => {
     setCurrentStep((prevStep) => {
       if (prevStep < 3) {
-        return prevStep + 1; 
+        return prevStep + 1;
       } else {
         onNextClick();
         return prevStep;
@@ -74,7 +74,7 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                 className={styles.Sons}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 5.5}}
+                transition={{ duration: 0.5, delay: 5.5 }}
               >
                 SONS
               </motion.div>
@@ -86,6 +86,7 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
               >
                 <hr className={styles.SonsVerticalLine} />
               </motion.div>
+
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -138,7 +139,11 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                     opacity:
                       currentStep === index || currentStep === null ? 1 : 0.5,
                   }}
-                  transition={{ duration: 0.5, delay: 7 + index * 0.2 }}
+                  transition={{
+                    opacity: { duration: 0.5, delay: 7 }, // Only apply delay for opacity
+                    duration: 0.5, // Overall duration for entrance
+                    delay: 7 + index * 0.2, // Entrance delay for the container
+                  }}
                 >
                   <div className={imgClass}>
                     <img src={src} alt={name} />
@@ -166,14 +171,14 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 0.5 }}
+                      transition={{ duration: 0.5, delay: 2 }}
                     >
                       <hr className={styles.TamshingVerticalLine} />
                     </motion.div>
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 1 }}
+                      transition={{ duration: 0.5, delay: 2.5 }}
                       className={styles.SonsTree}
                     >
                       <div className={styles.Choeje}>CHOEJE</div>
@@ -181,14 +186,14 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 1.5 }}
+                      transition={{ duration: 0.5, delay: 3.5 }}
                     >
                       <hr className={styles.TamshingVerticalLine1} />
                     </motion.div>
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 2 }}
+                      transition={{ duration: 0.5, delay: 4.5 }}
                       className={styles.Tamshing}
                     >
                       <img src={Tamshing} alt="Tamshing" />{" "}
@@ -207,14 +212,14 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 0.5 }}
+                      transition={{ duration: 0.5, delay: 2 }}
                     >
                       <hr className={styles.PrakharVerticalLine} />
                     </motion.div>
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 1 }}
+                      transition={{ duration: 0.5, delay: 3.5 }}
                       className={styles.SonsTree}
                     >
                       <div className={styles.PrakharChoeje}>CHOEJE</div>
@@ -222,14 +227,14 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 1.5 }}
+                      transition={{ duration: 0.5, delay: 4.5 }}
                     >
                       <hr className={styles.PrakharVerticalLine1} />
                     </motion.div>
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 2 }}
+                      transition={{ duration: 0.5, delay: 5.5 }}
                       className={styles.Prakhar}
                     >
                       <img src={Prakhar} alt="Prakhar" />
@@ -370,48 +375,56 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                       className={styles.TsakalingVerticalLine}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 0.5 }} // 0.5 seconds
+                      transition={{ duration: 0.5, delay: 1 }} // 0.5 seconds
                     />
                     <motion.hr
                       className={styles.TsakalingVerticalLine1}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 0.7 }} // 0.7 seconds
+                      transition={{ duration: 0.5, delay: 1.2 }} // 0.7 seconds
                     />
                     <motion.hr
                       className={styles.TsakalingHorizontalLine}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 0.9 }} // 0.9 seconds
+                      transition={{ duration: 0.5, delay: 1.4 }} // 0.9 seconds
                     />
                     <motion.hr
                       className={styles.TsakalingVerticalLine2}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 1.1 }} // 1.1 seconds
+                      transition={{ duration: 0.5, delay: 1.6 }} // 1.1 seconds
                     />
                     <motion.hr
                       className={styles.TsakalingVerticalLine3}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 1.3 }} // 1.3 seconds
+                      transition={{ duration: 0.5, delay: 1.8 }} // 1.3 seconds
                     />
                     <motion.hr
                       className={styles.TsakalingVerticalLine4}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 1.5 }} // 1.5 seconds
+                      transition={{ duration: 0.5, delay: 2 }} // 1.5 seconds
                     />
 
                     <motion.div
                       className={styles.TsakalingContainer}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 1.7 }} // 1.7 seconds
+                      transition={{ duration: 0.5, delay: 1.9 }} // 1.7 seconds
                     >
                       <div className={styles.SonsTree}>
                         <div className={styles.TsakalingChoeje}>CHOEJE</div>
                       </div>
+                    </motion.div>
+
+                    <motion.div
+                      className={styles.TsakalingContainer}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.5, delay: 1.9 }} // 1.7 seconds
+                    >
                       <div className={styles.Tsakaling}>
                         <img src={Tsakaling} alt="Tsakaling" />
                       </div>
@@ -434,7 +447,7 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                       className={styles.DrametseContainer}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 2.1 }} // 2.1 seconds
+                      transition={{ duration: 0.5, delay: 2.3 }} // 2.1 seconds
                     >
                       <div className={styles.Drametse}>
                         <img src={Drametse} alt="Drametse" />
@@ -446,7 +459,7 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                       className={styles.YagangContainer}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 2.3 }} // 2.3 seconds
+                      transition={{ duration: 0.5, delay: 2.5 }} // 2.3 seconds
                     >
                       <div className={styles.Yagang}>
                         <img src={Yagang} alt="Yagang" />
