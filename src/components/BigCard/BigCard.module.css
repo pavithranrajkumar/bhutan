@@ -12,8 +12,11 @@
   0% {
     background-position: 0% 0%; /* Start from the left */
   }
-  100% {
+  50% {
     background-position: 100% 0%; /* Move to the right */
+  }
+  100% {
+    background-position: 0% 0%; /* Move back to the left */
   }
 }
 

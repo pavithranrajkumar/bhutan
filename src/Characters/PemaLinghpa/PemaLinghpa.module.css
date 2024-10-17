@@ -325,6 +325,7 @@
   top: 95.8%;
   padding: 0.3vw;
   width: 120px;
+  height: 60px;
 }
 
 .SmallMonstriesPelingCard {
@@ -335,6 +336,7 @@
   top: 91%;
   padding: 0.3vw;
   width: 120px;
+  height: 40px;
 }
 
 .videoFrame,

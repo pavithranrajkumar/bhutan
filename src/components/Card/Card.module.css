@@ -10,45 +10,40 @@
 
 @keyframes backgroundLoop {
   0% {
-    background-position: 0% 0;
+    background-position: 0% 0%; /* Start from the left */
   }
   50% {
-    background-position: 100% 0;
+    background-position: 100% 0%; /* Move to the right */
   }
   100% {
-    background-position: 0% 0;
+    background-position: 0% 0%; /* Move back to the left */
   }
 }
+
 
 .detailCard {
   font-size: 0.7vw;
   background: #193145;
   color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  width: 530px;
+  width: 480px;
   justify-content: left;
   text-align: left;
   align-items: left;
-  left: 0;
   transform: translateX(-50%);
   display: flex;
-  position: absolute;
-  padding: 10px;
-  overflow: hidden;
-  transition: transform 0.5s;
-  transform-origin: left;
-  margin: 0;
+  padding: 13px;
 }
 
 .line {
-  position: absolute; /* Keep the position absolute for placement */
-  left: 0; /* Align with the left of the card */
-  top: 0; /* Align with the top of the card */
-  width: 3px; /* Width of the vertical line */
-  background-image: url("/src/assests/BgImgs/CardBgImg.png"); /* Set the same background image */
-  background-size: cover; /* Cover the entire line area */
-  opacity: 0.2; /* Adjust the opacity as needed */
-  z-index: 1; /* Ensure it's above the card's background */
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px; /* Thickness of the line */
+ background: rgb(25, 49, 69, 2);
+ /* Set to your desired color */
+  z-index: 1;
 }
 
 .detailCard::before {
@@ -59,36 +54,51 @@
   right: 0;
   bottom: 0;
   background-image: url("/src/assests/BgImgs/CardBgImg.png");
-  background-size: cover;
-  animation: backgroundLoop 12s linear infinite;
-  opacity: 0.2;
+  background-size: 200% 100%; /* Cover double the width for smooth animation */
+  animation: backgroundLoop 10s linear infinite; /* Background animation */
+  opacity: 0.2; /* Set opacity here */
   z-index: -1;
 }
+
 
 .introduction {
   margin: 15px;
 }
 
+.cardTitleContainer {
+  padding: 0;
+  margin: 0;
+}
+
 .CardHeader {
+  font-size: 32px;
   font-family: "Josefin Sans";
+  margin: 0;
 }
 
 .CardTitle {
   font-family: "Josefin Sans";
-  /* border-bottom: 2px solid #001829; */
-  padding-bottom: 5px;
-  font-weight: bolder;
+  padding: 2px 0;
+  margin: 0;
+  font-size: 20px;
 }
 
 .CardContent {
-  /* margin-top: 5px; */
+  margin-top: 5px;
   text-align: left;
   justify-content: left;
   font-family: "Public Sans";
-  font-size: 11px;
+  font-size: 11.3px;
 }
 
-.borderBottom {
+.CardSubContent {
+  margin-top: 5px;
+  font-family: "Public Sans";
+  font-size: 11.3px;
+}
+
+
+.borderBottom{
   padding: 0;
   margin: 0;
   height: 1px;
