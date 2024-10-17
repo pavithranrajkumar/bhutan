@@ -77,7 +77,7 @@ const HomeIcon = ({
           opacity: cardAnimationStart ? 1 : 0,
           originX: 1, // Ensures scaling is from the left
         }}
-        transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+        transition={{ duration: 1, ease: "easeOut", delay: 4 }}
         exit={{ scaleX: 0, opacity: 0 }}
         onClick={onClick}
 

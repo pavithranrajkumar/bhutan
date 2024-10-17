@@ -16,7 +16,7 @@ const PreviousIcon = ({
   background,
   color,
 }) => {
-  const fadeInDelay = 0.5; // Delay for 5 seconds
+  const fadeInDelay = 4; // Delay for 5 seconds
 
   return (
     <div>
