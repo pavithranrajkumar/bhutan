@@ -51,7 +51,7 @@ const PemaCards = ({ language, onCardClick }) => {
           animate={{
             height: lineAnimationComplete ? "100%" : 0,
           }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         />
         <motion.div
           className={`${styles.card} ${styles.HistoricCard}`}
@@ -63,7 +63,7 @@ const PemaCards = ({ language, onCardClick }) => {
             originX: 1,
           }}
           exit={{ scaleX: 0, opacity: 0 }} // Exit animation
-          transition={{ duration: 1.5, ease: "easeOut", delay: cardAnimationStart ? 0.5 : 0 }}
+          transition={{ duration: 1.5, ease: "easeOut", delay: cardAnimationStart ? 0 : 0 }}
         >
           <CardsContainerText fontSize={fontSize}>
             {PEMA_LINGPA_INFORMATION[language].historicBackground.title}
@@ -79,7 +79,7 @@ const PemaCards = ({ language, onCardClick }) => {
           animate={{
             height: lineAnimationComplete ? "100%" : 0,
           }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         />
         <motion.div
           className={`${styles.card} ${styles.LineageCard}`}
@@ -119,7 +119,7 @@ const PemaCards = ({ language, onCardClick }) => {
             originX: 1,
           }}
           exit={{ scaleX: 0, opacity: 0 }} // Exit animation
-          transition={{ duration: 1.5, ease: "easeOut", delay: cardAnimationStart ? 0.5 : 0 }}
+          transition={{ duration: 1.5, ease: "easeOut", delay: cardAnimationStart ? 1 : 0 }}
         >
           <CardsContainerText fontSize={fontSize}>
             {PEMA_LINGPA_INFORMATION[language].revelations.title}
@@ -147,7 +147,7 @@ const PemaCards = ({ language, onCardClick }) => {
             originX: 0,
           }}
           exit={{ scaleX: 0, opacity: 0 }} // Exit animation
-          transition={{ duration: 1.5, ease: "easeOut", delay: cardAnimationStart ? 0.5 : 0 }}
+          transition={{ duration: 1.5, ease: "easeOut", delay: cardAnimationStart ? 1.5 : 0 }}
         >
           <CardsContainerText fontSize={fontSize}>
             {PEMA_LINGPA_INFORMATION[language].legacy.title}

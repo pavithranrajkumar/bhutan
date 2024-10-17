@@ -27,7 +27,7 @@ const NaringDrag = ({ showIntro, language, onNaringDragBookImgClick }) => {
         <>
           <Card
             width="290px"
-            height="340px"
+            height="335px"
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="0.5px solid #001829"

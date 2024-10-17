@@ -107,3 +107,22 @@
   margin-left: 15px; /* Space between dots and count */
   font-size: 14px; /* Adjust as needed */
 }
+
+
+.SmallPeilingCard {
+  cursor: pointer;
+  position: fixed;
+  background: #c9d7ee;
+  left: 75%;
+  top: 92%;
+  padding: 0.3vw;
+  width: 120px;
+}
+
+.SmallPeilingCardHeader {
+  font-family: "Josefin Sans";
+}
+
+.SmallPeilingCardTitle {
+  font-family: "Hammersmith One";
+}

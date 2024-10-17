@@ -328,6 +328,16 @@
   width: 120px;
 }
 
+.SmallMonstriesPelingCard {
+  cursor: pointer;
+  position: fixed;
+  background: #c9d7ee;
+  left: 75%;
+  top: 91%;
+  padding: 0.3vw;
+  width: 120px;
+}
+
 .videoFrame,
 .videoFrame1,
 .videoFrame2,

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence  } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import styles from "./PemaLinghpa.module.css";
 import CloseIcon from "../../components/Card/Icons/CloseIcon/CloseIcon";
 import NameCard from "../../components/NameCard/NameCard";
@@ -46,7 +46,6 @@ const PemaLinghpa = () => {
   const [showMonasteriesImgCard, setShowMonasteriesImgCard] = useState(false);
   const [showPelingdanceImgs, setShowPelingdanceImgs] = useState(false);
   const [enlargedImage, setEnlargedImage] = useState(null);
-
 
   const toggleLanguage = () => {
     setLanguage((prevLanguage) => {
@@ -246,9 +245,13 @@ const PemaLinghpa = () => {
     ? "#2B455D"
     : "white";
 
+  const cardNameFontSize = language === BHUTAN ? "1.5rem" : "1.25rem";
+  const subCardnameFontSize = language === BHUTAN ? "1.5rem" : "1.25rem";
+  const subCardnameMarginLeft = language === BHUTAN ? "10.1rem" : "12.2rem";
+
   return (
     <div className={styles.pemaContainer}>
-     <AnimatePresence>
+      <AnimatePresence>
         {showYearText && (
           <motion.div
             className={styles.pemaText}
@@ -266,24 +269,22 @@ const PemaLinghpa = () => {
         )}
       </AnimatePresence>
 
-      <div
-        className={styles.pemaImage}
-        onClick={handleCardOrImageClick}
-      >
+      <div className={styles.pemaImage} onClick={handleCardOrImageClick}>
         <img src={Pema} alt="Pema Lingpa" />
         {/* <div className={styles.shiningEffect}></div> */}
       </div>
-     
 
       <div
         className={styles.NameCardContainer}
         onClick={handleCardOrImageClick}
       >
         <NameCard
-          cardName={PEMA_LINGPA_INFORMATION[language].title}
+          // cardName={PEMA_LINGPA_INFORMATION[language].title}
+          cardName={PEMA_LINGPA_INFORMATION[language].nameCardtitle}
+          subCardname={PEMA_LINGPA_INFORMATION[language].nameCardtitleTwo}
           width="310px"
           height="100px"
-          fontSize={language === BHUTAN ? "1.5rem" : "20px"}
+          // fontSize={language === BHUTAN ? "1.5rem" : "20px"}
           year={
             showCards ||
             selectedCard ||
@@ -303,6 +304,9 @@ const PemaLinghpa = () => {
           paraColor={nameCardColor}
           background={nameCardBackground}
           color={nameCardColor}
+          fontSize={cardNameFontSize}
+          subCardnameFontSize={subCardnameFontSize}
+          subCardnameMarginLeft={subCardnameMarginLeft}
         />
       </div>
 
@@ -778,7 +782,26 @@ const PemaLinghpa = () => {
 
       {showMonasteriesImgCard && (
         <>
-          <MonasteriesImg />
+          <MonasteriesImg
+            language={language}
+            handleOpenPeleingCard={handleOpenPeleingCard}
+          />
+
+          <motion.div
+            className={styles.SmallMonstriesPelingCard}
+            onClick={handleOpenPeleingCard}
+            initial={{ opacity: 0 }} // Initial opacity
+            animate={{ opacity: 1 }} // Final opacity
+            transition={{ duration: 0.5, delay: 1 }} // Fade duration
+          >
+            <div className={styles.SmallPeilingCardHeader}>
+              {PEMA_LINGPA_INFORMATION[language].pelingdance.title}
+            </div>
+            <div className={styles.SmallPeilingCardTitle}>
+              {PEMA_LINGPA_INFORMATION[language].pelingdance.header}
+            </div>
+          </motion.div>
+
           <PreviousIcon
             onClick={handlePreviousClick}
             showIcons={showIcons}
@@ -824,7 +847,7 @@ const PemaLinghpa = () => {
             showIcons={showIcons}
             whiteImage={true}
             left="61.8%"
-            top="91.3%"
+            top="89%"
             onClick={handleHomeClick}
           />
           <LanguageIcon
@@ -833,7 +856,7 @@ const PemaLinghpa = () => {
             showIcons={showIcons}
             whiteImage={true}
             left="62.4%"
-            top="95.2%"
+            top="92.9%"
           />
           <PreviousIcon
             onClick={handlePreviousClick}
@@ -855,29 +878,55 @@ const PemaLinghpa = () => {
       {showPelingdanceImgs && (
         <>
           <div className={styles.PelingDanceVideo}>
-            <video className={styles.videoFrame} autoPlay muted loop>
-              <source src={video1} type="video/mp4" className={styles.videoF} />
+            {/* Main Video with Fade Effect */}
+            <motion.video
+              className={styles.videoFrame}
+              autoPlay
+              muted
+              loop
+              initial={{ opacity: 0 }} // Initial opacity
+              animate={{ opacity: 1 }} // Final opacity
+              transition={{ duration: 0.5 }} // Fade duration
+            >
+              <source src={video1} type="video/mp4" />
               Your browser does not support the video tag.
-            </video>
+            </motion.video>
+
+            {/* Container for additional videos */}
             <div style={{ display: "flex" }}>
-              <div className={styles.PelingDanceVideo1}>
+              {/* First Additional Video with Fade Effect */}
+              <motion.div
+                className={styles.PelingDanceVideo1}
+                initial={{ opacity: 0 }} // Initial opacity
+                animate={{ opacity: 1 }} // Final opacity
+                transition={{ duration: 0.5, delay: 0.3 }} // Fade duration with delay
+              >
                 <video className={styles.videoFrame2} autoPlay muted loop>
                   <source src={video1} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
-              </div>
-              <div className={styles.PelingDanceVideo2}>
-                {" "}
+              </motion.div>
+
+              {/* Second Additional Video with Fade Effect */}
+              <motion.div
+                className={styles.PelingDanceVideo2}
+                initial={{ opacity: 0 }} // Initial opacity
+                animate={{ opacity: 1 }} // Final opacity
+                transition={{ duration: 0.5, delay: 0.6 }} // Fade duration with delay
+              >
                 <video className={styles.videoFrame3} autoPlay muted loop>
                   <source src={video1} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
-              </div>
+              </motion.div>
             </div>
           </div>
-          <div
+          <motion.div
             className={styles.SmallMonstriesCard}
             onClick={handleOpenPeleingCard}
+            initial={{ opacity: 0 }} // Initial opacity
+            animate={{ opacity: 1 }} // Final opacity
+            transition={{ duration: 0.5, delay: 1 }} // Fade duration
           >
             <div className={styles.SmallPeilingCardHeader}>
               {PEMA_LINGPA_INFORMATION[language].monastriesAndTemples.title}
@@ -885,19 +934,19 @@ const PemaLinghpa = () => {
             <div className={styles.SmallPeilingCardTitle}>
               {PEMA_LINGPA_INFORMATION[language].monastriesAndTemples.header}
             </div>
-          </div>
+          </motion.div>
           <LanguageIcon
             language={language}
             onClick={toggleLanguage}
             showIcons={showIcons}
             left="63.4%"
-            top="97%"
+            top="96%"
             whiteImage={true}
           />
           <HomeIcon
             showIcons={showIcons}
             left="62.8%"
-            top="93%"
+            top="92.1%"
             height="70px"
             width="80px"
             margin="25px"

@@ -55,6 +55,7 @@ const RevelationsCard = ({
             language={language}
             showIntro={showIntro}
           />
+
           <motion.div
             className={styles.cardsContainer}
             initial={{ opacity: 0, y: 20 }}
@@ -84,7 +85,7 @@ const RevelationsCard = ({
               transition={{
                 duration: 1.5,
                 ease: "easeOut",
-                delay: cardAnimationStart ? 0.5 : 0,
+                delay: cardAnimationStart ? 3.5 : 0,
               }}
             >
               <div
@@ -120,7 +121,7 @@ const RevelationsCard = ({
               transition={{
                 duration: 1.5,
                 ease: "easeOut",
-                delay: cardAnimationStart ? 0.5 : 0,
+                delay: cardAnimationStart ? 3.5 : 0,
               }}
             >
               <div
@@ -130,7 +131,7 @@ const RevelationsCard = ({
                   lineHeight: contentLineHeight,
                 }}
               >
-                {PEMA_LINGPA_INFORMATION[language].burningLake.header}
+                {PEMA_LINGPA_INFORMATION[language].burningLake.title}
               </div>
               <div
                 className={styles.burningLakeHeader}
@@ -139,7 +140,7 @@ const RevelationsCard = ({
                   lineHeight: contentLineHeight,
                 }}
               >
-                {PEMA_LINGPA_INFORMATION[language].burningLake.title}
+                {PEMA_LINGPA_INFORMATION[language].burningLake.header}
               </div>
             </motion.div>
           </motion.div>
@@ -152,9 +153,9 @@ const RevelationsCard = ({
             }} // Move to original position
             exit={{ x: 50, opacity: 0 }} // Exit back to the right
             transition={{
-              duration: 0.5,
+              duration: 1.5,
               ease: "easeOut",
-              delay: cardAnimationStart ? 0.5 : 0,
+              delay: cardAnimationStart ? 5 : 0,
             }}
           >
             <img src={burningLakeBookImg} alt="burningLakeBookImg" />
@@ -166,12 +167,12 @@ const RevelationsCard = ({
             animate={{
               x: cardAnimationStart ? 0 : -50, // Only animate when cardAnimationStart is true
               opacity: cardAnimationStart ? 1 : 0,
-            }} // Move to original position
-            exit={{ x: -50, opacity: 0 }} // Exit back to the left
+            }}
+            exit={{ x: -50, opacity: 0 }} 
             transition={{
-              duration: 0.5,
+              duration: 1.5,
               ease: "easeOut",
-              delay: cardAnimationStart ? 0.5 : 0, // Delay for NaringDrag
+              delay: cardAnimationStart ? 4.5 : 0,
             }}
           >
             <img src={NaringDragBookImg} alt="NaringDragBookImg" />

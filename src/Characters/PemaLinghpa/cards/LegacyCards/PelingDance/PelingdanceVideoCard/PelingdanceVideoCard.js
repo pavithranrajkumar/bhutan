@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Card from "../../../../../components/Card/Card";
+import { motion } from "framer-motion";
 import { PEMA_LINGPA_INFORMATION } from "../../../../../constants/Characters/PremaLingpa";
 import styles from "./PelingDanceVideoCard.module.css";
 import video1 from "../../../../../assests/PemaLingpa/Legacy/PelingVideos/PelingMaskDance.mp4";
@@ -27,24 +27,25 @@ const PelingDanceVideoCard = ({ showIntro, language }) => {
   };
 
   return (
-    <div>
-      {showIntro && (
-        <>
-          <div style={{ display: "flex" }}>
-            {videos.map((videoSrc, index) => (
-              <div
-                key={index}
-                className={styles[`pelingdanceImg${index + 1}`]}
-                onClick={() => handleVideoClick(index)}
-              >
-                <video className={styles.videoFrame} autoPlay muted loop>
-                  <source src={videoSrc} type="video/mp4" />
-                </video>
-              </div>
-            ))}
-          </div>
-        </>
-      )}
+    <div style={{ display: "flex" }}>
+      {videos.map((videoSrc, index) => (
+        <div style={{ display: "flex" }}>
+          {videos.map((videoSrc, index) => (
+            <motion.div
+              key={index}
+              className={styles[`pelingdanceImg${index + 1}`]}
+              onClick={() => handleVideoClick(index)} // Updated function call
+              initial={{ opacity: 0 }} // Initial opacity
+              animate={{ opacity: 1 }} // Final opacity
+              transition={{ duration: 0.5, delay: 3.5 }} 
+            >
+              <video className={styles.videoFrame} autoPlay muted loop>
+                <source src={videoSrc} type="video/mp4" />
+              </video>
+            </motion.div>
+          ))}
+        </div>
+      ))}
     </div>
   );
 };

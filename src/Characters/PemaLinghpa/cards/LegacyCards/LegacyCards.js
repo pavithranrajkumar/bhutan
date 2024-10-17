@@ -83,7 +83,7 @@ const LegacyCards = ({
               transition={{
                 duration: 1.5,
                 ease: "easeOut",
-                delay: cardAnimationStart ? 0.5 : 0,
+                delay: cardAnimationStart ? 3.5 : 0,
               }}
             >
               <div
@@ -113,7 +113,7 @@ const LegacyCards = ({
               transition={{
                 duration: 1.5,
                 ease: "easeOut",
-                delay: cardAnimationStart ? 0.5 : 0,
+                delay: cardAnimationStart ? 3.5 : 0,
               }}
             >
               <div
@@ -139,12 +139,12 @@ const LegacyCards = ({
             }} // Move to original position
             exit={{ x: 50, opacity: 0 }} // Exit back to the right
             transition={{
-              duration: 0.5,
+              duration: 1.5,
               ease: "easeOut",
-              delay: cardAnimationStart ? 0.5 : 0,
+              delay: cardAnimationStart ? 4.5 : 0,
             }}
           >
-            <div>
+            <div onClick={onMonasteriesCardClick}>
               <img src={MonasteriesCardImg} alt="MonasteriesCardImg" />
             </div>
           </motion.div>
@@ -158,12 +158,12 @@ const LegacyCards = ({
             }} // Move to original position
             exit={{ x: -50, opacity: 0 }} // Exit back to the left
             transition={{
-              duration: 0.5,
+              duration: 1.5,
               ease: "easeOut",
-              delay: cardAnimationStart ? 0.5 : 0, // Delay for NaringDrag
+              delay: cardAnimationStart ? 4.5 : 0, // Delay for NaringDrag
             }}
           >
-            <div>
+            <div onClick={onPelingDanceCardClick}>
               <img src={PelingDanceCardImg} alt="PelingDanceCardImg" />
             </div>
           </motion.div>

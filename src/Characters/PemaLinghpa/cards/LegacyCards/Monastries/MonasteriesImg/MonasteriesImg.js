@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import styles from "./MonasteriesImg.module.css";
+import { motion } from "framer-motion";
 
 import MonasteriesImg1 from "../../../../../../assests/PemaLingpa/Legacy/Monastries/MonastreriesImg1.png";
 import MonasteriesImg2 from "../../../../../../assests/PemaLingpa/Legacy/Monastries/MonastreriesImg2.png";
@@ -19,8 +20,9 @@ import MonasteriesEnlargeImg5 from "../../../../../../assests/PemaLingpa/Legacy/
 import MonasteriesEnlargeImg6 from "../../../../../../assests/PemaLingpa/Legacy/Monastries/EnlargeImg/MonasterisImg6.png";
 import MonasteriesEnlargeImg7 from "../../../../../../assests/PemaLingpa/Legacy/Monastries/EnlargeImg/MonasterisImg7.png";
 import MonasteriesEnlargeImg8 from "../../../../../../assests/PemaLingpa/Legacy/Monastries/EnlargeImg/MonasterisImg8.png";
+import { PEMA_LINGPA_INFORMATION } from "../../../../../../constants/Characters/PremaLingpa";
 
-const MonasteriesImg = () => {
+const MonasteriesImg = ({ language, handleOpenPeleingCard }) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const swiperRef = useRef(null); // Reference for Swiper
 
@@ -63,14 +65,20 @@ const MonasteriesImg = () => {
         }}
       >
         {images.map((image, index) => (
-          <div key={index} className={styles[`MonasteriesImg${index + 1}`]}>
+          <motion.div
+            key={index}
+            className={styles[`MonasteriesImg${index + 1}`]}
+            initial={{ opacity: 0 }} // Initial opacity
+            animate={{ opacity: 1 }} // Final opacity
+            transition={{ duration: 1.5, delay: index * 0.1 }} // Delay for staggered effect
+          >
             <img
               src={image.thumb}
-              alt={`img ${index + 1}`}
+              alt=""
               onClick={() => handleImageClick(index)}
               className={styles.thumbnail}
             />
-          </div>
+          </motion.div>
         ))}
       </div>
 
@@ -89,7 +97,7 @@ const MonasteriesImg = () => {
                 <div className={styles.DrugpaTemplesEnlargeImgs}>
                   <img
                     src={image.enlarge}
-                    alt={`Enlarged ${index + 1}`}
+                    alt=""
                     className={styles.enlargedImg}
                   />
                 </div>

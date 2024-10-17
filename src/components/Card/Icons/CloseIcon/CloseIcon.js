@@ -73,8 +73,8 @@ const CloseIcon = ({
           opacity: cardAnimationStart ? 1 : 0,
           originX: 1,
         }}
-        transition={{ duration: 0.5, ease: "easeOut", delay: 4 }}
-        exit={{ scaleX: 0, opacity: 0 }}
+        transition={{ duration: 1.5, ease: "easeOut", delay: 1 }} // Start fade immediately
+        exit={{ scaleX: 0, opacity: 0, transition: { duration: 2 } }}
       >
         <div className={styles.HomeIconContainer}>
           <img src={CloseIconWhite} alt="CloseIcon" />
@@ -83,5 +83,6 @@ const CloseIcon = ({
     </div>
   );
 };
+
 
 export default CloseIcon;

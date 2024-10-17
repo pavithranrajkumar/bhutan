@@ -75,8 +75,8 @@ const NextIcon = ({
           opacity: cardAnimationStart ? 1 : 0,
           originX: 0, // Ensures scaling is from the left
         }}
-        transition={{ duration: 1, ease: "easeOut", delay: 4 }}
-        exit={{ scaleX: 0, opacity: 0 }}
+        transition={{ duration: 1.5, ease: "easeOut", delay: 1 }} // Start fade immediately
+        exit={{ scaleX: 0, opacity: 0, transition: { duration: 2 } }}
         onClick={onClick}
 
       >

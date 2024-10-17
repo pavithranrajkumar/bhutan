@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import Card from "../../../../../components/Card/Card";
 import { PEMA_LINGPA_INFORMATION } from "../../../../../constants/Characters/PremaLingpa";
 import styles from "./PelingDance.module.css";
@@ -34,15 +35,18 @@ const PelingDance = ({ showIntro, language, onPelingVideoClick }) => {
 
           <div style={{ display: "flex" }}>
             {videos.map((videoSrc, index) => (
-              <div
+              <motion.div
                 key={index}
                 className={styles[`pelingdanceImg${index + 1}`]}
                 onClick={onPelingVideoClick}
+                initial={{ opacity: 0 }} // Initial opacity
+                animate={{ opacity: 1 }} // Final opacity
+                transition={{ duration: 0.5, delay: 3.5 }} // Staggered fade-in effect
               >
                 <video className={styles.videoFrame} autoPlay muted loop>
                   <source src={videoSrc} type="video/mp4" />
                 </video>
-              </div>
+              </motion.div>
             ))}
           </div>
         </>

@@ -34,10 +34,10 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
   const handleShowCards = () => {
     setCurrentStep((prevStep) => {
       if (prevStep < 3) {
-        return prevStep + 1; // Cycle through the steps
+        return prevStep + 1; 
       } else {
-        onNextClick(); // Notify parent to switch to revelations
-        return prevStep; // Keep current step
+        onNextClick();
+        return prevStep;
       }
     });
   };
@@ -65,7 +65,7 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                 style={{ fontSize: treeFonstSize }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
+                transition={{ duration: 0.5, delay: 5 }}
               >
                 {PEMA_LINGPA_INFORMATION[language].title}
               </motion.div>
@@ -74,7 +74,7 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                 className={styles.Sons}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 1.5 }}
+                transition={{ duration: 0.5, delay: 5.5}}
               >
                 SONS
               </motion.div>
@@ -82,14 +82,14 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
+                transition={{ duration: 0.5, delay: 6 }}
               >
                 <hr className={styles.SonsVerticalLine} />
               </motion.div>
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 1.5 }}
+                transition={{ duration: 0.5, delay: 6.5 }}
               >
                 <hr className={styles.SonsHorizontalLine} />
                 <hr className={styles.SonsHorizontalLine2} />
@@ -138,7 +138,7 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                     opacity:
                       currentStep === index || currentStep === null ? 1 : 0.5,
                   }}
-                  transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}
+                  transition={{ duration: 0.5, delay: 7 + index * 0.2 }}
                 >
                   <div className={imgClass}>
                     <img src={src} alt={name} />

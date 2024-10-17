@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from 'framer-motion';
 import Card from "../../../../../components/Card/Card";
 import { PEMA_LINGPA_INFORMATION } from "../../../../../constants/Characters/PremaLingpa";
 import monastriesAndTemplesImg from "../../../../../assests/PemaLingpa/Legacy/Monastries/MonasteriesImg.png";
@@ -28,12 +29,14 @@ const Monastries = ({ showIntro, language, onMonasteriesImgClick }) => {
             language={language}
             showIntro={showIntro}
           />
-          <div
-            className={styles.MonasteriesImg}
-            onClick={onMonasteriesImgClick}
-          >
-            <img src={monastriesAndTemplesImg} alt="monastriesAndTemplesImg" />
-          </div>
+         <div className={styles.MonasteriesImg} onClick={onMonasteriesImgClick}>
+      <motion.img
+        src={monastriesAndTemplesImg}
+        alt="monastriesAndTemplesImg"
+        initial={{ opacity: 0 }}   // Initial state
+        animate={{ opacity: 1 }}    // Animation state
+        transition={{ duration: 5.5, delay: 1 }}       />
+    </div>
         </>
       )}
     </div>
