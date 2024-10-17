@@ -18,6 +18,7 @@ const HomeIcon = ({
 }) => {
   const [lineAnimationComplete, setLineAnimationComplete] = useState(false);
   const [cardAnimationStart, setCardAnimationStart] = useState(false);
+  const [iconVisible, setIconVisible] = useState(false); 
 
   useEffect(() => {
     if (showIcons) {
@@ -28,6 +29,7 @@ const HomeIcon = ({
       return () => clearTimeout(timer);
     } else {
       setCardAnimationStart(false); // Reset card animation
+      setIconVisible(false); // Hide icon when not showing icons
     }
   }, [showIcons]);
 
@@ -35,13 +37,18 @@ const HomeIcon = ({
     if (lineAnimationComplete && showIcons) {
       const timer = setTimeout(() => {
         setCardAnimationStart(true);
+        // Delay icon visibility until the card is fully expanded
+        setIconVisible(true); // Show icon after card animation starts
       }, 300);
       return () => clearTimeout(timer);
     }
   }, [lineAnimationComplete, showIcons]);
 
   return (
-    <div className={styles.cardContainer} style={{ position: 'fixed', top, left }}>
+    <div
+      className={styles.cardContainer}
+      style={{ position: "fixed", top, left }}
+    >
       {/* Vertical Line Animation */}
       <motion.div
         className={styles.line}
@@ -60,8 +67,8 @@ const HomeIcon = ({
 
       {/* Card Animation */}
       <motion.div
-      className={ styles.LanguageWhiteIcon }
-      style={{
+        className={styles.LanguageWhiteIcon}
+        style={{
           left,
           position: "absolute",
           right: "0%", // Start at the left side
@@ -79,14 +86,15 @@ const HomeIcon = ({
         transition={{ duration: 1.5, ease: "easeOut", delay: 1 }} // Start fade immediately
         exit={{ scaleX: 0, opacity: 0, transition: { duration: 2 } }}
         onClick={onClick}
-
       >
-         <div className={styles.HomeIconContainer}>
-        <img
-          src={HomeWhite}
-          alt="LanguageIcon"
-        />
-      </div>
+        <motion.div
+          initial={{ opacity: 0 }} // Start with the icon invisible
+          animate={{ opacity: iconVisible ? 1 : 0 }} // Fade in when iconVisible is true
+          transition={{ duration: 0.5, delay: 2 }} // Fade in after card animation
+          className={styles.HomeIconContainer}
+        >
+          <img src={HomeWhite} alt="LanguageIcon" />
+        </motion.div>
       </motion.div>
     </div>
   );

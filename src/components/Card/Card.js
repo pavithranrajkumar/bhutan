@@ -18,6 +18,7 @@ const Card = ({
 }) => {
   const [lineAnimationComplete, setLineAnimationComplete] = useState(false);
   const [cardAnimationStart, setCardAnimationStart] = useState(false);
+  const [showVerticalLine, setShowVerticalLine] = useState(true); // State for vertical line visibility
   const contentLines = content.split("\n");
 
   const headerFontSize = language === BHUTAN ? "0.7vw" : "0.52083vw";
@@ -25,7 +26,6 @@ const Card = ({
   const contentFontSize = language === BHUTAN ? "0.36vw" : "0.29166667vw";
   const contentLineHeight = language === BHUTAN ? "1.2" : "";
   const headerLineHeight = language === BHUTAN ? "0.8" : "";
-
 
   useEffect(() => {
     if (showIntro) {
@@ -48,23 +48,42 @@ const Card = ({
     }
   }, [lineAnimationComplete, showIntro]);
 
+  // Use effect to hide the vertical line after the card animation starts
+  useEffect(() => {
+    if (cardAnimationStart) {
+      const timer = setTimeout(() => {
+        setShowVerticalLine(false); // Hide vertical line after the card animation starts
+      }, 800); // Adjust delay as needed for smooth transition
+      return () => clearTimeout(timer);
+    }
+  }, [cardAnimationStart]);
+
   return (
     <div className={styles.cardContainer}>
       {/* Vertical Line Animation */}
-      <motion.div
-        className={styles.line}
-        initial={{ height: 0 }}
-        animate={{ height: lineAnimationComplete ? "100%" : 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        style={{
-          position: "absolute",
-          left: "0%",
-          top: 0,
-          width: "3px",
-          background: backgroundColor || "#2b455d",
-          zIndex: 1,
-        }}
-      />
+      {showVerticalLine && (
+        <motion.div
+          className={styles.line}
+          initial={{ height: 0, opacity: 1 }} // Start with visible opacity
+          animate={{
+            height: lineAnimationComplete ? "100%" : 0,
+            opacity: lineAnimationComplete ? 1 : 0,
+          }}
+          exit={{ height: 0, opacity: 0 }} // Exit transition for height and opacity
+          transition={{
+            duration: 0.5,
+            ease: "easeOut",
+          }}
+          style={{
+            position: "absolute",
+            left: "0%",
+            top: 0,
+            width: "3px",
+            background: backgroundColor || "#2b455d",
+            zIndex: 1,
+          }}
+        />
+      )}
 
       {/* Card Animation */}
       <motion.div

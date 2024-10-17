@@ -369,50 +369,50 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                     className={styles.SangaFamilyContainer}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 1.9 }} // Increased by another 0.2 seconds
+                    transition={{ duration: 0.5, delay: 2.1 }} // Increased by another 0.2 seconds
                   >
                     <motion.hr
                       className={styles.TsakalingVerticalLine}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 1.4 }} // Increased by another 0.2 seconds
+                      transition={{ duration: 0.5, delay: 1.6 }} // Increased by another 0.2 seconds
                     />
                     <motion.hr
                       className={styles.TsakalingVerticalLine1}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 1.6 }} // Increased by another 0.2 seconds
+                      transition={{ duration: 0.5, delay: 1.8 }} // Increased by another 0.2 seconds
                     />
                     <motion.hr
                       className={styles.TsakalingHorizontalLine}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 1.8 }} // Increased by another 0.2 seconds
+                      transition={{ duration: 0.5, delay: 2.0 }} // Increased by another 0.2 seconds
                     />
                     <motion.hr
                       className={styles.TsakalingVerticalLine2}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 2.0 }} // Increased by another 0.2 seconds
+                      transition={{ duration: 0.5, delay: 2.2 }} // Increased by another 0.2 seconds
                     />
                     <motion.hr
                       className={styles.TsakalingVerticalLine3}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 2.2 }} // Increased by another 0.2 seconds
+                      transition={{ duration: 0.5, delay: 2.4 }} // Increased by another 0.2 seconds
                     />
                     <motion.hr
                       className={styles.TsakalingVerticalLine4}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 2.4 }} // Increased by another 0.2 seconds
+                      transition={{ duration: 0.5, delay: 2.6 }} // Increased by another 0.2 seconds
                     />
 
                     <motion.div
                       className={styles.TsakalingContainer}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 2.3 }} // Increased by another 0.2 seconds
+                      transition={{ duration: 0.5, delay: 2.5 }} // Increased by another 0.2 seconds
                     >
                       <div className={styles.SonsTree}>
                         <div className={styles.TsakalingChoeje}>CHOEJE</div>
@@ -423,7 +423,7 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                       className={styles.TsakalingContainer}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 2.3 }} // Increased by another 0.2 seconds
+                      transition={{ duration: 0.5, delay: 2.5 }} // Increased by another 0.2 seconds
                     >
                       <div className={styles.Tsakaling}>
                         <img src={Tsakaling} alt="Tsakaling" />
@@ -435,7 +435,7 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                       className={styles.DrophuContainer}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 2.5 }} // Increased by another 0.2 seconds
+                      transition={{ duration: 0.5, delay: 2.7 }} // Increased by another 0.2 seconds
                     >
                       <div className={styles.Drophu}>
                         <img src={Drophu} alt="Drophu" />
@@ -447,7 +447,7 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                       className={styles.DrametseContainer}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 2.7 }} // Increased by another 0.2 seconds
+                      transition={{ duration: 0.5, delay: 2.9 }} // Increased by another 0.2 seconds
                     >
                       <div className={styles.Drametse}>
                         <img src={Drametse} alt="Drametse" />
@@ -459,7 +459,7 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                       className={styles.YagangContainer}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 2.9 }} // Increased by another 0.2 seconds
+                      transition={{ duration: 0.5, delay: 3.1 }} // Increased by another 0.2 seconds
                     >
                       <div className={styles.Yagang}>
                         <img src={Yagang} alt="Yagang" />

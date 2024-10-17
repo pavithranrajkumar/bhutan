@@ -1,21 +1,25 @@
 .PreviousIconContainer {
   position: fixed;
-  background: #2b455d;
+  background: #2b455d; /* Fallback background color */
   width: 80px;
   height: 80px;
   cursor: pointer;
+  display: flex; /* Center the icon */
+  justify-content: center; /* Center the icon horizontally */
+  align-items: center; /* Center the icon vertically */
 }
 
 .PreviousIcon {
-  margin-top: 30px;
   width: 20px;
   height: 20px;
   color: white;
+  position: relative; /* Ensure the icon is positioned above the background */
+  z-index: 2; /* Make sure the icon is above the background */
 }
 
 .PreviousIconContainer::before {
   content: "";
-  position: absolute;
+  position: absolute; /* Position the background image absolutely */
   top: 0;
   left: 0;
   right: 0;
@@ -24,7 +28,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: 1;
+  z-index: 1; /* Background image stays behind the icon */
   opacity: 0.3; 
-  pointer-events: none; 
+  pointer-events: none; /* Prevent background from capturing mouse events */
 }

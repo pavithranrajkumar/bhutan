@@ -41,7 +41,14 @@
 }
 
 .line {
-  /* background: rgb(25, 49, 69, 2); */
+  position: absolute; /* Keep the position absolute for placement */
+  left: 0; /* Align with the left of the card */
+  top: 0; /* Align with the top of the card */
+  width: 3px; /* Width of the vertical line */
+  background-image: url("/src/assests/BgImgs/CardBgImg.png"); /* Set the same background image */
+  background-size: cover; /* Cover the entire line area */
+  opacity: 0.2; /* Adjust the opacity as needed */
+  z-index: 1; /* Ensure it's above the card's background */
 }
 
 .detailCard::before {
@@ -52,10 +59,10 @@
   right: 0;
   bottom: 0;
   background-image: url("/src/assests/BgImgs/CardBgImg.png");
-  background-size: 200% 100%;
+  background-size: cover;
   animation: backgroundLoop 12s linear infinite;
   opacity: 0.2;
-  z-index: -1; 
+  z-index: -1;
 }
 
 .introduction {

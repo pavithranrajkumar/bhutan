@@ -9,7 +9,8 @@
   z-index: 1; /* Ensure the LanguageIcon is below the img */
 }
 
-.LanguageIcon::before {
+.LanguageIcon::before,
+.LanguageWhiteIcon::before {
   content: "";
   position: absolute;
   top: 0;

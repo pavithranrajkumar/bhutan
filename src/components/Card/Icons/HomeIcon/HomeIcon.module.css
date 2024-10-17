@@ -1,15 +1,13 @@
 .LanguageIcon {
   position: fixed;
-  background: #2b455d;
+  background: #2b455d; /* Fallback background color */
   width: 80px;
   height: 80px;
-  /* left: 64.5%;
-  top: 95.5%; */
   cursor: pointer;
+  z-index: 1; /* Ensure this is lower than the image */
 }
 
-.LanguageIcon::before ,
-.LanguageWhiteIcon::before{
+.LanguageIcon::before {
   content: "";
   position: absolute;
   top: 0;
@@ -20,28 +18,45 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: 1;
-  opacity: 0.3; 
-  pointer-events: none; 
+  opacity: 0.3; /* Set background image opacity */
+  pointer-events: none; /* Allow clicks to pass through */
 }
 
 .LanguageWhiteIcon {
   position: fixed;
-  background: #2b455d;
+  background: #2b455d; /* Fallback background color */
   width: 80px;
   height: 80px;
-  /* left: 64.5%;
-  top: 95.5%; */
   cursor: pointer;
+  z-index: 1; /* Ensure this is lower than the image */
+}
+
+.LanguageWhiteIcon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/src/assests/BgImgs/IconsBgImg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3; /* Set background image opacity */
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+.HomeIconContainer {
+  margin: 30px;
+  cursor: pointer;
+  position: relative; /* Position relative to stack above the background */
+  z-index: 2; /* Ensure this is higher than the background */
 }
 
 .HomeIconContainer img {
   width: 20px;
   height: 20px;
   cursor: pointer;
-}
-
-.HomeIconContainer {
-  margin: 30px;
-  cursor: pointer;
+  position: relative; /* Stack the image above the background */
+  z-index: 2; /* Ensure this is higher than the background */
 }

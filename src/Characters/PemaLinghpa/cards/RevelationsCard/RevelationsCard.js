@@ -21,6 +21,8 @@ const RevelationsCard = ({
 
   const [cardAnimationStart, setCardAnimationStart] = useState(false);
   const [lineAnimationComplete, setLineAnimationComplete] = useState(false);
+  const [titleAnimationStart, setTitleAnimationStart] = useState(false);
+  const [contentAnimationStart, setContentAnimationStart] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -37,6 +39,24 @@ const RevelationsCard = ({
       return () => clearTimeout(timer);
     }
   }, [lineAnimationComplete]);
+
+  useEffect(() => {
+    if (cardAnimationStart) {
+      const timer = setTimeout(() => {
+        setTitleAnimationStart(true);
+      }, 200); // Delay for title animation
+      return () => clearTimeout(timer);
+    }
+  }, [cardAnimationStart]);
+
+  useEffect(() => {
+    if (titleAnimationStart) {
+      const timer = setTimeout(() => {
+        setContentAnimationStart(true);
+      }, 100); // Delay for content animation
+      return () => clearTimeout(timer);
+    }
+  }, [titleAnimationStart]);
 
   return (
     <div>
@@ -88,24 +108,46 @@ const RevelationsCard = ({
                 delay: cardAnimationStart ? 3.5 : 0,
               }}
             >
-              <div
+              <motion.div
                 className={styles.title}
+                initial={{ x: -50, opacity: 0 }}
+                animate={{
+                  x: titleAnimationStart ? 0 : -50,
+                  opacity: titleAnimationStart ? 1 : 0,
+                }}
+                exit={{ x: -50, opacity: 0 }}
+                transition={{
+                  duration: 0.5,
+                  ease: "easeOut",
+                  delay: cardAnimationStart ? 4 : 0,
+                }}
                 style={{
                   fontSize: headerFontSize,
                   lineHeight: contentLineHeight,
                 }}
               >
                 {PEMA_LINGPA_INFORMATION[language].naringDrag.header}
-              </div>
-              <div
+              </motion.div>
+              <motion.div
                 className={styles.header}
+                initial={{ x: -50, opacity: 0 }}
+                animate={{
+                  x: titleAnimationStart ? 0 : -50,
+                  opacity: titleAnimationStart ? 1 : 0,
+                }}
+                exit={{ x: -50, opacity: 0 }}
+                transition={{
+                  duration: 0.5,
+                  ease: "easeOut",
+                  delay: cardAnimationStart ? 4.5 : 0,
+                }}
                 style={{
                   fontSize: subHeaderFontSize,
                   lineHeight: contentLineHeight,
                 }}
               >
                 {PEMA_LINGPA_INFORMATION[language].naringDrag.title}
-              </div>
+              </motion.div>
             </motion.div>
 
             <motion.div
@@ -124,28 +166,51 @@ const RevelationsCard = ({
                 delay: cardAnimationStart ? 3.5 : 0,
               }}
             >
-              <div
+              <motion.div
                 className={styles.burningLakeTitle}
+                initial={{ x: 50, opacity: 0 }} // Start slightly off the right
+                animate={{
+                  x: titleAnimationStart ? 0 : 50, // Only animate when titleAnimationStart is true
+                  opacity: titleAnimationStart ? 1 : 0,
+                }} // Move to original position
+                exit={{ x: 50, opacity: 0 }} // Exit back to the right
+                transition={{
+                  duration: 0.5,
+                  ease: "easeOut",
+                  delay: cardAnimationStart ? 4 : 0,
+                }}
                 style={{
                   fontSize: headerFontSize,
                   lineHeight: contentLineHeight,
                 }}
               >
                 {PEMA_LINGPA_INFORMATION[language].burningLake.title}
-              </div>
-              <div
+              </motion.div>
+              <motion.div
                 className={styles.burningLakeHeader}
+                initial={{ x: 50, opacity: 0 }} // Start slightly off the right
+                animate={{
+                  x: titleAnimationStart ? 0 : 50, // Only animate when titleAnimationStart is true
+                  opacity: titleAnimationStart ? 1 : 0,
+                }} // Move to original position
+                exit={{ x: 50, opacity: 0 }} // Exit back to the right
+                transition={{
+                  duration: 0.5,
+                  ease: "easeOut",
+                  delay: cardAnimationStart ? 4.5 : 0,
+                }}
                 style={{
                   fontSize: subHeaderFontSize,
                   lineHeight: contentLineHeight,
                 }}
               >
                 {PEMA_LINGPA_INFORMATION[language].burningLake.header}
-              </div>
+              </motion.div>
             </motion.div>
           </motion.div>
           <motion.div
             className={styles.burningLakeBookImg}
+            onClick={onBurningLakeClick}
             initial={{ x: 50, opacity: 0 }} // Start slightly off the right
             animate={{
               x: cardAnimationStart ? 0 : 50, // Only animate when cardAnimationStart is true
@@ -155,7 +220,7 @@ const RevelationsCard = ({
             transition={{
               duration: 1.5,
               ease: "easeOut",
-              delay: cardAnimationStart ? 5 : 0,
+              delay: cardAnimationStart ? 5.5 : 0,
             }}
           >
             <img src={burningLakeBookImg} alt="burningLakeBookImg" />
@@ -163,16 +228,17 @@ const RevelationsCard = ({
 
           <motion.div
             className={styles.NaringDragBookImg}
+            onClick={onNaringDragClick}
             initial={{ x: -50, opacity: 0 }} // Start slightly off the left
             animate={{
               x: cardAnimationStart ? 0 : -50, // Only animate when cardAnimationStart is true
               opacity: cardAnimationStart ? 1 : 0,
-            }}
-            exit={{ x: -50, opacity: 0 }} 
+            }} // Move to original position
+            exit={{ x: -50, opacity: 0 }} // Exit back to the left
             transition={{
               duration: 1.5,
               ease: "easeOut",
-              delay: cardAnimationStart ? 4.5 : 0,
+              delay: cardAnimationStart ? 6 : 0,
             }}
           >
             <img src={NaringDragBookImg} alt="NaringDragBookImg" />

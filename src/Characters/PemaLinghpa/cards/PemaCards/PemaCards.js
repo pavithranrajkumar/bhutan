@@ -16,6 +16,7 @@ const PemaCards = ({ language, onCardClick }) => {
   const fontSize = language === BHUTAN ? "1.2rem" : "18px";
   const [cardAnimationStart, setCardAnimationStart] = useState(false);
   const [lineAnimationComplete, setLineAnimationComplete] = useState(false);
+  const [showTitles, setShowTitles] = useState(false); // New state for titles
 
   // Start the line animation
   useEffect(() => {
@@ -34,6 +35,17 @@ const PemaCards = ({ language, onCardClick }) => {
       return () => clearTimeout(timer);
     }
   }, [lineAnimationComplete]);
+
+  // Show titles after cards are expanded
+  useEffect(() => {
+    if (cardAnimationStart) {
+      const titleDelay = 300; // Delay for titles (adjust as needed)
+      const timer = setTimeout(() => {
+        setShowTitles(true);
+      }, titleDelay);
+      return () => clearTimeout(timer);
+    }
+  }, [cardAnimationStart]);
 
   return (
     <motion.div
@@ -60,14 +72,25 @@ const PemaCards = ({ language, onCardClick }) => {
           animate={{
             scaleX: cardAnimationStart ? 1 : 0,
             opacity: cardAnimationStart ? 1 : 0,
-            originX: 1,
+            originX: 1, // Change to 1 to expand from right to left
           }}
           exit={{ scaleX: 0, opacity: 0 }} // Exit animation
           transition={{ duration: 1.5, ease: "easeOut", delay: cardAnimationStart ? 0 : 0 }}
         >
-          <CardsContainerText fontSize={fontSize}>
-            {PEMA_LINGPA_INFORMATION[language].historicBackground.title}
-          </CardsContainerText>
+          {showTitles && (  // Show title based on the new state
+            <motion.div
+              initial={{ width: 0, opacity: 0 }}
+              animate={{
+                width: cardAnimationStart ? "auto" : 0,
+                opacity: cardAnimationStart ? 1 : 0,
+              }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }} // Delay title appearance
+            >
+              <CardsContainerText fontSize={fontSize}>
+                {PEMA_LINGPA_INFORMATION[language].historicBackground.title}
+              </CardsContainerText>
+            </motion.div>
+          )}
         </motion.div>
       </div>
 
@@ -93,9 +116,20 @@ const PemaCards = ({ language, onCardClick }) => {
           exit={{ scaleX: 0, opacity: 0 }} // Exit animation
           transition={{ duration: 1.5, ease: "easeOut", delay: cardAnimationStart ? 0.5 : 0 }}
         >
-          <CardsContainerText fontSize={fontSize}>
-            {PEMA_LINGPA_INFORMATION[language].lineage.title}
-          </CardsContainerText>
+          {showTitles && (  // Show title based on the new state
+            <motion.div
+              initial={{ width: 0, opacity: 0 }}
+              animate={{
+                width: cardAnimationStart ? "auto" : 0,
+                opacity: cardAnimationStart ? 1 : 0,
+              }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 1 }} // Delay title appearance
+            >
+              <CardsContainerText fontSize={fontSize}>
+                {PEMA_LINGPA_INFORMATION[language].lineage.title}
+              </CardsContainerText>
+            </motion.div>
+          )}
         </motion.div>
       </div>
 
@@ -116,14 +150,25 @@ const PemaCards = ({ language, onCardClick }) => {
           animate={{
             scaleX: cardAnimationStart ? 1 : 0,
             opacity: cardAnimationStart ? 1 : 0,
-            originX: 1,
+            originX: 1, // Change to 1 to expand from right to left
           }}
           exit={{ scaleX: 0, opacity: 0 }} // Exit animation
           transition={{ duration: 1.5, ease: "easeOut", delay: cardAnimationStart ? 1 : 0 }}
         >
-          <CardsContainerText fontSize={fontSize}>
-            {PEMA_LINGPA_INFORMATION[language].revelations.title}
-          </CardsContainerText>
+          {showTitles && (  // Show title based on the new state
+            <motion.div
+              initial={{ width: 0, opacity: 0 }}
+              animate={{
+                width: cardAnimationStart ? "auto" : 0,
+                opacity: cardAnimationStart ? 1 : 0,
+              }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 1.5 }} // Delay title appearance
+            >
+              <CardsContainerText fontSize={fontSize}>
+                {PEMA_LINGPA_INFORMATION[language].revelations.title}
+              </CardsContainerText>
+            </motion.div>
+          )}
         </motion.div>
       </div>
 
@@ -144,14 +189,25 @@ const PemaCards = ({ language, onCardClick }) => {
           animate={{
             scaleX: cardAnimationStart ? 1 : 0,
             opacity: cardAnimationStart ? 1 : 0,
-            originX: 0,
+            originX: 0, // Change to 0 to expand from left to right
           }}
           exit={{ scaleX: 0, opacity: 0 }} // Exit animation
           transition={{ duration: 1.5, ease: "easeOut", delay: cardAnimationStart ? 1.5 : 0 }}
         >
-          <CardsContainerText fontSize={fontSize}>
-            {PEMA_LINGPA_INFORMATION[language].legacy.title}
-          </CardsContainerText>
+          {showTitles && (  // Show title based on the new state
+            <motion.div
+              initial={{ width: 0, opacity: 0 }}
+              animate={{
+                width: cardAnimationStart ? "auto" : 0,
+                opacity: cardAnimationStart ? 1 : 0,
+              }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 2 }} // Delay title appearance
+            >
+              <CardsContainerText fontSize={fontSize}>
+                {PEMA_LINGPA_INFORMATION[language].legacy.title}
+              </CardsContainerText>
+            </motion.div>
+          )}
         </motion.div>
       </div>
     </motion.div>

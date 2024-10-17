@@ -17,6 +17,7 @@ const LanguageIcon = ({
 }) => {
   const [lineAnimationComplete, setLineAnimationComplete] = useState(false);
   const [cardAnimationStart, setCardAnimationStart] = useState(false);
+  const [iconVisible, setIconVisible] = useState(false); 
 
   const handleClick = () => {
     console.log("LanguageIcon clicked!");
@@ -30,26 +31,31 @@ const LanguageIcon = ({
       ? BhutanIcon
       : LanguageColor;
 
-  useEffect(() => {
-    if (showIcons) {
-      setLineAnimationComplete(false);
-      const timer = setTimeout(() => {
-        setLineAnimationComplete(true);
-      }, 500);
-      return () => clearTimeout(timer);
-    } else {
-      setCardAnimationStart(false); // Reset card animation
-    }
-  }, [showIcons]);
 
-  useEffect(() => {
-    if (lineAnimationComplete && showIcons) {
-      const timer = setTimeout(() => {
-        setCardAnimationStart(true);
-      }, 300);
-      return () => clearTimeout(timer);
-    }
-  }, [lineAnimationComplete, showIcons]);
+      useEffect(() => {
+        if (showIcons) {
+          setLineAnimationComplete(false);
+          const timer = setTimeout(() => {
+            setLineAnimationComplete(true);
+          }, 500);
+          return () => clearTimeout(timer);
+        } else {
+          setCardAnimationStart(false); // Reset card animation
+          setIconVisible(false); // Hide icon when not showing icons
+        }
+      }, [showIcons]);
+    
+      useEffect(() => {
+        if (lineAnimationComplete && showIcons) {
+          const timer = setTimeout(() => {
+            setCardAnimationStart(true);
+            // Delay icon visibility until the card is fully expanded
+            setIconVisible(true); // Show icon after card animation starts
+          }, 300);
+          return () => clearTimeout(timer);
+        }
+      }, [lineAnimationComplete, showIcons]);
+    
 
   return (
     <div className={styles.cardContainer} style={{ position: 'fixed', top, left }}>
@@ -90,9 +96,15 @@ const LanguageIcon = ({
         exit={{ scaleX: 0, opacity: 0, transition: { duration: 2 } }}
         onClick={handleClick}
       >
-        <div className={styles.LanguageIconContainer}>
+         <motion.div
+          initial={{ opacity: 0 }} // Start with the icon invisible
+          animate={{ opacity: iconVisible ? 1 : 0 }} // Fade in when iconVisible is true
+          transition={{ duration: 0.5, delay: 2 }} // Fade in after card animation
+          className={styles.LanguageIconContainer}
+        >
           <img src={iconSrc} alt="LanguageIcon" />
-        </div>
+          </motion.div>
+     
       </motion.div>
     </div>
   );

@@ -4,19 +4,10 @@ import styles from "./NextIcon.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
-const NextIcon = ({
-  showIcons,
-  onClick,
-  left,
-  top,
-  bottom,
-  right,
-  whiteImage,
-  color,
-  background,
-}) => {
+const NextIcon = ({ showIcons, onClick, left, top, background }) => {
   const [lineAnimationComplete, setLineAnimationComplete] = useState(false);
   const [cardAnimationStart, setCardAnimationStart] = useState(false);
+  const [iconVisible, setIconVisible] = useState(false);
 
   useEffect(() => {
     if (showIcons) {
@@ -27,6 +18,7 @@ const NextIcon = ({
       return () => clearTimeout(timer);
     } else {
       setCardAnimationStart(false); // Reset card animation
+      setIconVisible(false); // Hide icon when not showing icons
     }
   }, [showIcons]);
 
@@ -34,13 +26,18 @@ const NextIcon = ({
     if (lineAnimationComplete && showIcons) {
       const timer = setTimeout(() => {
         setCardAnimationStart(true);
+        // Delay icon visibility until the card is fully expanded
+        setIconVisible(true); // Show icon after card animation starts
       }, 300);
       return () => clearTimeout(timer);
     }
   }, [lineAnimationComplete, showIcons]);
 
   return (
-    <div className={styles.cardContainer} style={{ position: 'fixed', top, left }}>
+    <div
+      className={styles.cardContainer}
+      style={{ position: "fixed", top, left }}
+    >
       {/* Vertical Line Animation */}
       <motion.div
         className={styles.line}
@@ -78,13 +75,17 @@ const NextIcon = ({
         transition={{ duration: 1.5, ease: "easeOut", delay: 1 }} // Start fade immediately
         exit={{ scaleX: 0, opacity: 0, transition: { duration: 2 } }}
         onClick={onClick}
-
       >
-         <FontAwesomeIcon
-          style={{ color }}
-          icon={faChevronRight}
-          className={styles.PreviousIcon}
-        />
+        <motion.div
+          initial={{ opacity: 0 }} // Start with the icon invisible
+          animate={{ opacity: iconVisible ? 1 : 0 }} // Fade in when iconVisible is true
+          transition={{ duration: 0.5, delay: 2 }} // Fade in after card animation
+        >
+          <FontAwesomeIcon
+            icon={faChevronRight}
+            className={styles.PreviousIcon}
+          />{" "}
+        </motion.div>
       </motion.div>
     </div>
   );

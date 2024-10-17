@@ -14,6 +14,8 @@ const CloseIcon = ({
 }) => {
   const [lineAnimationComplete, setLineAnimationComplete] = useState(false);
   const [cardAnimationStart, setCardAnimationStart] = useState(false);
+  const [iconVisible, setIconVisible] = useState(false);
+
   useEffect(() => {
     if (showIcons) {
       setLineAnimationComplete(false);
@@ -23,6 +25,7 @@ const CloseIcon = ({
       return () => clearTimeout(timer);
     } else {
       setCardAnimationStart(false); // Reset card animation
+      setIconVisible(false); // Hide icon when not showing icons
     }
   }, [showIcons]);
 
@@ -30,6 +33,8 @@ const CloseIcon = ({
     if (lineAnimationComplete && showIcons) {
       const timer = setTimeout(() => {
         setCardAnimationStart(true);
+        // Delay icon visibility until the card is fully expanded
+        setIconVisible(true); // Show icon after card animation starts
       }, 300);
       return () => clearTimeout(timer);
     }
@@ -76,13 +81,17 @@ const CloseIcon = ({
         transition={{ duration: 1.5, ease: "easeOut", delay: 1 }} // Start fade immediately
         exit={{ scaleX: 0, opacity: 0, transition: { duration: 2 } }}
       >
-        <div className={styles.HomeIconContainer}>
+        <motion.div
+          initial={{ opacity: 0 }} // Start with the icon invisible
+          animate={{ opacity: iconVisible ? 1 : 0 }} // Fade in when iconVisible is true
+          transition={{ duration: 0.5, delay: 2 }} // Fade in after card animation
+          className={styles.HomeIconContainer}
+        >
           <img src={CloseIconWhite} alt="CloseIcon" />
-        </div>
+        </motion.div>
       </motion.div>
     </div>
   );
 };
-
 
 export default CloseIcon;
