@@ -3,6 +3,7 @@ import { ZHABRUNG_INFORMATION } from "../../../../constants/Characters/ZhabrungN
 import Card from "../../../../components/Card/Card";
 import styles from "./ReligiousCard.module.css";
 import { BHUTAN } from "../../../../constants/languages/Language";
+import { motion } from "framer-motion";
 
 const ReligiousCard = ({ showIntro, onSealClick, language }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "15px";
@@ -25,11 +26,18 @@ const ReligiousCard = ({ showIntro, onSealClick, language }) => {
             language={language}
             showIntro={showIntro}
           />
-          <div className={styles.sealOfZhabdrungCard} onClick={onSealClick}>
+          <motion.div
+            className={styles.sealOfZhabdrungCard}
+            onClick={onSealClick}
+            initial={{ opacity: 0 }} // Initial opacity for title
+            animate={{ opacity: 1 }} // Final opacity for title
+            transition={{ duration: 0.5, delay: 3 }} // Fade duration for title
+            exit={{ opacity: 0, transition: { duration: 2.8 } }}
+          >
             <div style={{ fontSize: cardFonstSize }}>
               {ZHABRUNG_INFORMATION[language].sealOfZhabdrung.title}
-            </div>
-          </div>
+            </div>{" "}
+          </motion.div>
         </>
       )}
     </div>

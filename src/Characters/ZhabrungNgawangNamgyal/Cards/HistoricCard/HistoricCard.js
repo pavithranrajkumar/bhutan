@@ -4,6 +4,7 @@ import BigCard from "../../../../components/BigCard/BigCard";
 import histoiric from "../../../../assests/Zhabrung/Cards/Historic/Historic.png";
 import styles from "./HistoricCard.module.css";
 import { BHUTAN } from "../../../../constants/languages/Language";
+import { motion } from "framer-motion";
 
 const HistoricCard = ({ showIntro, language }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "20px";
@@ -29,9 +30,19 @@ const HistoricCard = ({ showIntro, language }) => {
             language={language}
             showIntro={showIntro}
           />
-          <div className={styles.ZhabrungHistoryImage}>
-            <img src={histoiric} alt="history " />
+          <div
+            className={styles.ZhabrungHistoryImage}
+          >
+            <motion.img
+              src={histoiric}
+              alt=""
+              initial={{ opacity: 0 }} // Initial state
+              animate={{ opacity: 1 }} // Animation state
+              transition={{ duration: 5.5, delay: 1 }}
+              exit={{ opacity: 0, transition: { duration: 2 } }}
+            />
           </div>
+          
         </>
       )}
     </div>

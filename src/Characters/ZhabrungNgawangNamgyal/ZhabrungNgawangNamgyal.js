@@ -228,239 +228,60 @@ const ZhabrungNgawangNamgyal = () => {
         )}
       </AnimatePresence>
 
-      {showCards && (
-        <div>
-          <ZhabrungCards
-            isFadingOut={isFadingOut}
-            language={language}
-            onCardClick={handleCardClick}
-          />
-          <LanguageIcon
-            language={language}
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            background="#AA5018"
-            left="85.2%"
-            top="79.3%"
-          />
-          <CloseIcon
-            left="85.3%"
-            top="82%"
-            background="#AA5018"
-            showIcons={showIcons}
-            onClick={handleCardOrImageClick}
-          />
-        </div>
-      )}
+      <AnimatePresence>
+        {showCards && (
+          <div>
+            <ZhabrungCards
+              showCards={true}
+              language={language}
+              onCardClick={handleCardClick}
+            />
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              background="#AA5018"
+              left="85.2%"
+              top="79.3%"
+            />
+            <CloseIcon
+              left="85.3%"
+              top="82%"
+              background="#AA5018"
+              showIcons={showIcons}
+              onClick={handleCardOrImageClick}
+            />
+          </div>
+        )}
+      </AnimatePresence>
 
-      {selectedCard && (
-        <div>
-          {selectedCard === "historic" && (
-            <>
-              <div className={styles.ZhabrungHistoricCard}>
-                <HistoricCard language={language} showIntro={true} />
-                <NextIcon
-                  showIcons={showIcons}
-                  background="#8F4110"
-                  color="#FCD7C2"
-                  left="96.8%"
-                  top="87.5%"
-                  onClick={handleHistoricNextIconClick}
-                />
-                <LanguageIcon
-                  language={language}
-                  onClick={toggleLanguage}
-                  showIcons={showIcons}
-                  left="81.6%"
-                  top="84%"
-                  height="65px"
-                  background="#3A1701"
-                />
-                <HomeIcon
-                  showIcons={showIcons}
-                  left="81%"
-                  top="80%"
-                  background="#8F4110"
-                  onClick={handleHomeClick}
-                />
-                <CloseIcon
-                  showIcons={showIcons}
-                  left="81%"
-                  top="76%"
-                  background="#8F4110"
-                  onClick={handleCardOrImageClick}
-                />
-              </div>
-            </>
-          )}
-          {selectedCard === "religious" && !showSealOfZhabrung && (
-            <div className={styles.ZhabrungReligousCard}>
-              <ReligiousCard
-                language={language}
-                showIntro={true}
-                onSealClick={handleSealClick}
+      <AnimatePresence>
+        {selectedCard === "historic" && (
+          <>
+            <div className={styles.ZhabrungHistoricCard}>
+              <HistoricCard language={language} showIntro={true} />
+              <NextIcon
+                showIcons={showIcons}
+                background="#8F4110"
+                color="#FCD7C2"
+                left="96.8%"
+                top="87.5%"
+                onClick={handleHistoricNextIconClick}
               />
               <LanguageIcon
                 language={language}
                 onClick={toggleLanguage}
                 showIcons={showIcons}
-                iconWidth="25px"
-                IconHeight="25px"
-                height="50px"
-                width="55px"
-                margin="13px"
-                left="88.1%"
-                top="81%"
+                left="81.6%"
+                top="84%"
+                height="65px"
                 background="#3A1701"
               />
               <HomeIcon
                 showIcons={showIcons}
-                left="87.5%"
-                top="76.9%"
-                height="80px"
-                width="80px"
-                margin="30px"
-                background="#8F4110"
-                onClick={handleHomeClick}
-              />
-              <CloseIcon
-                showIcons={showIcons}
-                left="87.5%"
-                top="73%"
-                background="#8F4110"
-                onClick={handleCardOrImageClick}
-              />
-            </div>
-          )}
-
-          {showSealOfZhabrung && (
-            <div className={styles.SealCard}>
-              <SealCard language={language} showIntro={true} />
-              <LanguageIcon
-                language={language}
-                onClick={toggleLanguage}
-                showIcons={showIcons}
-                whiteImage={true}
-                left="81%"
-                top="83.5%"
-              />
-              <HomeIcon
-                showIcons={showIcons}
-                whiteImage={true}
-                left="80.4%"
-                top="79.5%"
-                onClick={handleHomeClick}
-              />
-              <PreviousIcon
-                onClick={handleSealPreviousClick}
-                showIcons={showIcons}
-                whiteImage={true}
-                left="80.4%"
-                top="74.5%"
-                height="100px"
-                marginTop="35px"
-              />
-              <CloseIcon
-                left="80.4%"
-                top="70.5%"
-                showIcons={showIcons}
-                onClick={handleCardOrImageClick}
-              />
-            </div>
-          )}
-
-          {selectedCard === "political" && !showTravellers && (
-            <div className={styles.PoliticalCardContains}>
-              <PoliticalCard
-                language={language}
-                showIntro={true}
-                onTravelerClick={handleTraverllerClick}
-              />
-              <LanguageIcon
-                language={language}
-                onClick={toggleLanguage}
-                showIcons={showIcons}
-                iconWidth="25px"
-                IconHeight="25px"
-                left="88.4%"
-                top="78.5%"
-                height="55px"
-              />
-              <HomeIcon
-                showIcons={showIcons}
-                background="#8F4110"
-                left="87.8%"
-                top="74.5%"
-                height="70px"
-                width="80px"
-                margin="25px"
-                onClick={handleHomeClick}
-              />
-              <CloseIcon
-                showIcons={showIcons}
-                left="87.8%"
-                top="70.5%"
-                background="#8F4110"
-                onClick={handleCardOrImageClick}
-              />
-            </div>
-          )}
-          {showTravellers && (
-            <div className={styles.TravellerCardContains}>
-              <TravellerCard language={language} showIntro={true} />
-              <LanguageIcon
-                language={language}
-                onClick={toggleLanguage}
-                showIcons={showIcons}
-                whiteImage={true}
-                left="88.2%"
-                top="81%"
-              />
-              <HomeIcon
-                showIcons={showIcons}
-                whiteImage={true}
-                left="87.5%"
-                top="77%"
-                onClick={handleHomeClick}
-              />
-              <PreviousIcon
-                onClick={handleTravellerPreviousClick}
-                showIcons={showIcons}
-                whiteImage={true}
-                left="87.5%"
-                top="72%"
-                height="100px"
-                marginTop="35px"
-              />
-              <CloseIcon
-                left="87.5%"
-                top="68%"
-                showIcons={showIcons}
-                onClick={handleCardOrImageClick}
-              />
-            </div>
-          )}
-          {selectedCard === "administration" && (
-            <div className={styles.AdministrationCardContains}>
-              <Administration language={language} showIntro={true} />
-              <LanguageIcon
-                language={language}
-                onClick={toggleLanguage}
-                showIcons={showIcons}
-                iconWidth="25px"
-                IconHeight="25px"
-                left="81.7%"
-                top="84%"
-                height="55px"
-              />
-              <HomeIcon
-                showIcons={showIcons}
-                background="#8F4110"
                 left="81%"
                 top="80%"
-                height="70px"
-                width="80px"
-                margin="25px"
+                background="#8F4110"
                 onClick={handleHomeClick}
               />
               <CloseIcon
@@ -471,72 +292,263 @@ const ZhabrungNgawangNamgyal = () => {
                 onClick={handleCardOrImageClick}
               />
             </div>
-          )}
-          {selectedCard === "secrecy" && (
-            <div className={styles.SecrecyAtDeathCardContains}>
-              <SecrecyAtDeath language={language} showIntro={true} />
-              <LanguageIcon
-                language={language}
-                onClick={toggleLanguage}
-                showIcons={showIcons}
-                left="88.5%"
-                top="80.3%"
-              />
-              <HomeIcon
-                showIcons={showIcons}
-                background="#8F4110"
-                left="87.8%"
-                top="76.3%"
-                height="70px"
-                width="80px"
-                margin="25px"
-                onClick={handleHomeClick}
-              />
-              <CloseIcon
-                showIcons={showIcons}
-                left="87.8%"
-                top="72.4%"
-                background="#8F4110"
-                onClick={handleCardOrImageClick}
-              />
-            </div>
-          )}
-          {selectedCard === "driglam" && (
-            <div className={styles.DriglamCardContains}>
-              <DriglamCard language={language} showIntro={true} />
-              <LanguageIcon
-                language={language}
-                onClick={toggleLanguage}
-                showIcons={showIcons}
-                iconWidth="20px"
-                IconHeight="20px"
-                height="40px"
-                width="40px"
-                margin="12px"
-                left="84.4%"
-                top="76.5%"
-              />
-              <HomeIcon
-                showIcons={showIcons}
-                background="#8F4110"
-                left="83.8%"
-                top="72.5%"
-                height="50px"
-                width="70px"
-                margin="15px"
-                onClick={handleHomeClick}
-              />
-              <CloseIcon
-                showIcons={showIcons}
-                left="83.8%"
-                top="68.5%"
-                background="#8F4110"
-                onClick={handleCardOrImageClick}
-              />
-            </div>
-          )}
-        </div>
-      )}
+          </>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {selectedCard === "religious" && !showSealOfZhabrung && (
+          <div className={styles.ZhabrungReligousCard}>
+            <ReligiousCard
+              language={language}
+              showIntro={true}
+              onSealClick={handleSealClick}
+            />
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              iconWidth="25px"
+              IconHeight="25px"
+              height="50px"
+              width="55px"
+              margin="13px"
+              left="88.1%"
+              top="81%"
+              background="#3A1701"
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              left="87.5%"
+              top="76.9%"
+              height="80px"
+              width="80px"
+              margin="30px"
+              background="#8F4110"
+              onClick={handleHomeClick}
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              left="87.5%"
+              top="73%"
+              background="#8F4110"
+              onClick={handleCardOrImageClick}
+            />
+          </div>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {showSealOfZhabrung && (
+          <div className={styles.SealCard}>
+            <SealCard language={language} showIntro={true} />
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              whiteImage={true}
+              left="81%"
+              top="83.5%"
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              whiteImage={true}
+              left="80.4%"
+              top="79.5%"
+              onClick={handleHomeClick}
+            />
+            <PreviousIcon
+              onClick={handleSealPreviousClick}
+              showIcons={showIcons}
+              whiteImage={true}
+              left="80.4%"
+              top="74.5%"
+              height="100px"
+              marginTop="35px"
+            />
+            <CloseIcon
+              left="80.4%"
+              top="70.5%"
+              showIcons={showIcons}
+              onClick={handleCardOrImageClick}
+            />
+          </div>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {selectedCard === "political" && !showTravellers && (
+          <div className={styles.PoliticalCardContains}>
+            <PoliticalCard
+              language={language}
+              showIntro={true}
+              onTravelerClick={handleTraverllerClick}
+            />
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              iconWidth="25px"
+              IconHeight="25px"
+              left="88.4%"
+              top="78.5%"
+              height="55px"
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              background="#8F4110"
+              left="87.8%"
+              top="74.5%"
+              height="70px"
+              width="80px"
+              margin="25px"
+              onClick={handleHomeClick}
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              left="87.8%"
+              top="70.5%"
+              background="#8F4110"
+              onClick={handleCardOrImageClick}
+            />
+          </div>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {showTravellers && (
+          <div className={styles.TravellerCardContains}>
+            <TravellerCard language={language} showIntro={true} />
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              whiteImage={true}
+              left="88.2%"
+              top="81%"
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              whiteImage={true}
+              left="87.5%"
+              top="77%"
+              onClick={handleHomeClick}
+            />
+            <PreviousIcon
+              onClick={handleTravellerPreviousClick}
+              showIcons={showIcons}
+              whiteImage={true}
+              left="87.5%"
+              top="72%"
+              height="100px"
+              marginTop="35px"
+            />
+            <CloseIcon
+              left="87.5%"
+              top="68%"
+              showIcons={showIcons}
+              onClick={handleCardOrImageClick}
+            />
+          </div>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {selectedCard === "administration" && (
+          <div className={styles.AdministrationCardContains}>
+            <Administration language={language} showIntro={true} />
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              iconWidth="25px"
+              IconHeight="25px"
+              left="81.7%"
+              top="84%"
+              height="55px"
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              background="#8F4110"
+              left="81%"
+              top="80%"
+              height="70px"
+              width="80px"
+              margin="25px"
+              onClick={handleHomeClick}
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              left="81%"
+              top="76%"
+              background="#8F4110"
+              onClick={handleCardOrImageClick}
+            />
+          </div>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {selectedCard === "secrecy" && (
+          <div className={styles.SecrecyAtDeathCardContains}>
+            <SecrecyAtDeath language={language} showIntro={true} />
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              left="88.5%"
+              top="80.3%"
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              background="#8F4110"
+              left="87.8%"
+              top="76.3%"
+              height="70px"
+              width="80px"
+              margin="25px"
+              onClick={handleHomeClick}
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              left="87.8%"
+              top="72.4%"
+              background="#8F4110"
+              onClick={handleCardOrImageClick}
+            />
+          </div>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {selectedCard === "driglam" && (
+          <div className={styles.DriglamCardContains}>
+            <DriglamCard language={language} showIntro={true} />
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              iconWidth="20px"
+              IconHeight="20px"
+              height="40px"
+              width="40px"
+              margin="12px"
+              left="84.4%"
+              top="76.5%"
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              background="#8F4110"
+              left="83.8%"
+              top="72.5%"
+              height="50px"
+              width="70px"
+              margin="15px"
+              onClick={handleHomeClick}
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              left="83.8%"
+              top="68.5%"
+              background="#8F4110"
+              onClick={handleCardOrImageClick}
+            />
+          </div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 };
