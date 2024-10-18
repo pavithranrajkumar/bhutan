@@ -346,13 +346,13 @@ const ZhabrungNgawangNamgyal = () => {
               showIcons={showIcons}
               whiteImage={true}
               left="81%"
-              top="83.5%"
+              top="82.5%"
             />
             <HomeIcon
               showIcons={showIcons}
               whiteImage={true}
               left="80.4%"
-              top="79.5%"
+              top="78.5%"
               onClick={handleHomeClick}
             />
             <PreviousIcon
@@ -421,13 +421,13 @@ const ZhabrungNgawangNamgyal = () => {
               showIcons={showIcons}
               whiteImage={true}
               left="88.2%"
-              top="81%"
+              top="80%"
             />
             <HomeIcon
               showIcons={showIcons}
               whiteImage={true}
               left="87.5%"
-              top="77%"
+              top="76%"
               onClick={handleHomeClick}
             />
             <PreviousIcon

@@ -38,7 +38,7 @@ const HistoricCard = ({ showIntro, language }) => {
               alt=""
               initial={{ opacity: 0 }} // Initial state
               animate={{ opacity: 1 }} // Animation state
-              transition={{ duration: 5.5, delay: 1 }}
+              transition={{ duration: 3, delay: 3.5 }}
               exit={{ opacity: 0, transition: { duration: 2 } }}
             />
           </div>

@@ -4,6 +4,7 @@ import styles from "./Administration.module.css";
 import Card from "../../../../components/Card/Card";
 import BhutanGovLogo from "../../../../assests/Zhabrung/Cards/Historic/BhutanGovtLogo.png";
 import { BHUTAN } from "../../../../constants/languages/Language";
+import { motion } from "framer-motion";
 
 const Administration = ({ showIntro, language }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "20px";
@@ -25,9 +26,19 @@ const Administration = ({ showIntro, language }) => {
             language={language}
             showIntro={showIntro}
           />
-          <div className={styles.BhutanGovLogo}>
-            <img src={BhutanGovLogo} alt="BhutanGovLogo" />
+            <div
+            className={styles.BhutanGovLogo}
+          >
+            <motion.img
+              src={BhutanGovLogo}
+              alt=""
+              initial={{ opacity: 0 }} // Initial state
+              animate={{ opacity: 1 }} // Animation state
+              transition={{ duration: 3, delay: 3.5 }}
+              exit={{ opacity: 0, transition: { duration: 2 } }}
+            />
           </div>
+         
         </>
       )}
     </div>

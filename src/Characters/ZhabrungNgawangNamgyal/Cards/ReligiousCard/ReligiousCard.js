@@ -31,12 +31,18 @@ const ReligiousCard = ({ showIntro, onSealClick, language }) => {
             onClick={onSealClick}
             initial={{ opacity: 0 }} // Initial opacity for title
             animate={{ opacity: 1 }} // Final opacity for title
-            transition={{ duration: 0.5, delay: 3 }} // Fade duration for title
+            transition={{ duration: 0.5, delay: 4 }} // Fade duration for title
             exit={{ opacity: 0, transition: { duration: 2.8 } }}
           >
-            <div style={{ fontSize: cardFonstSize }}>
+            <motion.div
+              style={{ fontSize: cardFonstSize }}
+              initial={{ opacity: 0 }} // Initial opacity for title
+              animate={{ opacity: 1 }} // Final opacity for title
+              transition={{ duration: 0.5, delay: 4.5 }} // Fade duration for title
+              exit={{ opacity: 0, transition: { duration: 2.8 } }}
+            >
               {ZHABRUNG_INFORMATION[language].sealOfZhabdrung.title}
-            </div>{" "}
+            </motion.div>
           </motion.div>
         </>
       )}

@@ -3,6 +3,7 @@ import BigCard from "../../../../components/BigCard/BigCard";
 import { ZHABRUNG_INFORMATION } from "../../../../constants/Characters/ZhabrungNgawangNamgyal";
 import styles from "./PoliticalCard.module.css";
 import { BHUTAN } from "../../../../constants/languages/Language";
+import { motion } from "framer-motion";
 
 const PoliticalCard = ({ showIntro, onTravelerClick, language }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "15px";
@@ -28,11 +29,26 @@ const PoliticalCard = ({ showIntro, onTravelerClick, language }) => {
             language={language}
             showIntro={showIntro}
           />
-          <div className={styles.TravellersCard} onClick={onTravelerClick}>
-            <div style={{  fontSize: headerFontSize }} className={styles.text}>
+
+          <motion.div
+            className={styles.TravellersCard}
+            onClick={onTravelerClick}
+            initial={{ opacity: 0 }} // Initial opacity for title
+            animate={{ opacity: 1 }} // Final opacity for title
+            transition={{ duration: 0.5, delay: 4 }} // Fade duration for title
+            exit={{ opacity: 0, transition: { duration: 2.8 } }}
+          >
+            <motion.div
+              className={styles.text}
+              style={{ fontSize: headerFontSize }}
+              initial={{ opacity: 0 }} // Initial opacity for title
+              animate={{ opacity: 1 }} // Final opacity for title
+              transition={{ duration: 0.5, delay: 4.5 }} // Fade duration for title
+              exit={{ opacity: 0, transition: { duration: 2.8 } }}
+            >
               {ZHABRUNG_INFORMATION[language].foreignTravellers.title}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </>
       )}
     </div>
