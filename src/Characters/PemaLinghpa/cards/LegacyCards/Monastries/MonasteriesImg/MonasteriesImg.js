@@ -72,7 +72,6 @@ const MonasteriesImg = ({ language, handleOpenPeleingCard }) => {
             animate={{ opacity: 1 }} // Final opacity
             transition={{ duration: 1.5, delay: 2 }} // Delay for staggered effect
             exit={{ opacity: 0, transition: { duration: 2 } }}
-
           >
             <img
               src={image.thumb}
@@ -85,45 +84,52 @@ const MonasteriesImg = ({ language, handleOpenPeleingCard }) => {
       </div>
 
       {selectedImageIndex !== null && (
-        <div className={styles.palaceenlargedImg1}>
-          <Swiper
-            initialSlide={selectedImageIndex}
-            spaceBetween={10}
-            navigation
-            onSlideChange={handleSlideChange} // Attach the slide change handler
-            className={styles.swiperContainer}
-            onSwiper={(swiper) => (swiperRef.current = swiper)} // Store swiper instance
-          >
-            {images.map((image, index) => (
-              <SwiperSlide key={index}>
-                <div className={styles.DrugpaTemplesEnlargeImgs}>
-                  <img
-                    src={image.enlarge}
-                    alt=""
-                    className={styles.enlargedImg}
-                  />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+        <motion.div
+          initial={{ opacity: 0 }} // Initial opacity
+          animate={{ opacity: 1 }} // Final opacity
+          transition={{ duration: 1.5  }} // Delay for staggered effect
+          exit={{ opacity: 0, transition: { duration: 2 } }}
+        >
+          <div className={styles.palaceenlargedImg1}>
+            <Swiper
+              initialSlide={selectedImageIndex}
+              spaceBetween={10}
+              navigation
+              onSlideChange={handleSlideChange} // Attach the slide change handler
+              className={styles.swiperContainer}
+              onSwiper={(swiper) => (swiperRef.current = swiper)} // Store swiper instance
+            >
+              {images.map((image, index) => (
+                <SwiperSlide key={index}>
+                  <div className={styles.DrugpaTemplesEnlargeImgs}>
+                    <img
+                      src={image.enlarge}
+                      alt=""
+                      className={styles.enlargedImg}
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
 
-          {/* Custom pagination */}
-          <div className={styles.customPagination}>
-            {images.map((_, index) => (
-              <span
-                key={index}
-                className={styles.dot}
-                style={{
-                  height: selectedImageIndex === index ? "12px" : "8px",
-                  width: selectedImageIndex === index ? "12px" : "8px",
-                  backgroundColor:
-                    selectedImageIndex === index ? "black" : "gray",
-                }}
-                onClick={() => handleImageClick(index)} // Set the current image on click
-              />
-            ))}
+            {/* Custom pagination */}
+            <div className={styles.customPagination}>
+              {images.map((_, index) => (
+                <span
+                  key={index}
+                  className={styles.dot}
+                  style={{
+                    height: selectedImageIndex === index ? "12px" : "8px",
+                    width: selectedImageIndex === index ? "12px" : "8px",
+                    backgroundColor:
+                      selectedImageIndex === index ? "black" : "gray",
+                  }}
+                  onClick={() => handleImageClick(index)} // Set the current image on click
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        </motion.div>
       )}
     </div>
   );

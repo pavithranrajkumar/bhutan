@@ -55,7 +55,7 @@
   bottom: 0;
   background-image: url("/src/assests/BgImgs/CardBgImg.png");
   background-size: 200% 100%; /* Cover double the width for smooth animation */
-  animation: backgroundLoop 10s linear infinite; /* Background animation */
+  animation: backgroundLoop 10s ease-in-out infinite; /* Background animation */
   opacity: 0.2; /* Set opacity here */
   z-index: -1;
 }

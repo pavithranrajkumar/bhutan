@@ -11,7 +11,7 @@ const YearText = ({ fontSize, BornYear, Endyear, marginLeft }) => {
     initial={{ opacity: 1, x: 0 }}   // Start fully visible and in position
     animate={{ opacity: 1, x: 0 }}    // Keep it in position
     exit={{ opacity: 0, x: 5 }}       // Fade out and move to the right
-    transition={{ duration: 3 }}     // Duration for the fade and move
+    transition={{ duration: 4 }}     // Duration for the fade and move
   >
     <div style={{ marginLeft }}>{BornYear}</div>
     <span>{Endyear}</span>

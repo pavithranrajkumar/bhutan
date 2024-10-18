@@ -63,18 +63,34 @@
 }
 
 .palaceenlargedImg1 {
+  margin: 0;
+  padding: 0;
   position: fixed;
   left: 68%;
   top: 85%;
   width: 200px;
-  height: 200px;
-  border: 10px solid white; /* This adds a white border */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for a Polaroid effect */
+  height: 220px;
+  border-left: 10px solid white; /* Left border */
+  border-right: 10px solid white; /* Right border */
+  border-top: 10px solid white; /* Top border */
+  border-bottom: 50px solid white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  z-index: 100;
+  overflow: visible;
 }
 
 .palaceenlargedImg1 img {
   width: 200px;
   height: 200px;
+  margin-top: -20px;
+  margin-left: -1px;
+  padding: 0;
+  display: block; /* Removes any inline spacing that could cause gaps */
+  border: none;
+  object-fit: cover;
+  z-index: 1;
+  position: relative;
 }
 
 .closeButton {
@@ -107,7 +123,6 @@
   margin-left: 15px; /* Space between dots and count */
   font-size: 14px; /* Adjust as needed */
 }
-
 
 .SmallPeilingCard {
   cursor: pointer;

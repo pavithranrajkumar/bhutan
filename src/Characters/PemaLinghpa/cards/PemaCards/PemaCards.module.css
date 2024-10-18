@@ -31,7 +31,7 @@
   bottom: 0;
   background-image: url("/src/assests/BgImgs/CardBgImg.png");
   background-size: 200% 100%;
-  animation: backgroundLoop 12s linear infinite;
+  animation: backgroundLoop 10s ease-in-out infinite;
   opacity: 0.2; /* Set opacity here */
   z-index: -1; /* Place it behind the content */
 }

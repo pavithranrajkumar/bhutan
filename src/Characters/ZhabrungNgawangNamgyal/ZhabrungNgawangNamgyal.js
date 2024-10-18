@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Zhabrung.module.css";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import CloseIcon from "../../components/Card/Icons/CloseIcon/CloseIcon";
 import NameCard from "../../components/NameCard/NameCard";
 import { ZHABRUNG_INFORMATION } from "../../constants/Characters/ZhabrungNgawangNamgyal";
@@ -192,39 +192,41 @@ const ZhabrungNgawangNamgyal = () => {
         </div>
       </motion.div>
 
-      {showIntroduction && (
-        <>
-          <div className={styles.IntroCard}>
-            <IntroductionCard
-              language={language}
-              showIntro={showIntroduction}
+      <AnimatePresence>
+        {showIntroduction && (
+          <>
+            <div className={styles.IntroCard}>
+              <IntroductionCard
+                language={language}
+                showIntro={showIntroduction}
+              />
+            </div>
+            <NextIcon
+              showIcons={showIcons}
+              whiteImage={true}
+              left="93.6%"
+              top="86%"
+              onClick={showZhabrungCards}
+              background="#2B455D"
             />
-          </div>
-          <NextIcon
-            showIcons={showIcons}
-            whiteImage={true}
-            left="93.6%"
-            top="86%"
-            onClick={showZhabrungCards}
-            background="#2B455D"
-          />
-          <LanguageIcon
-            language={language}
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            whiteImage={true}
-            left="80.7%"
-            top="77.5%"
-            height="65px"
-          />
-          <CloseIcon
-            left="80%"
-            top="73.5%"
-            showIcons={showIcons}
-            onClick={handleCardOrImageClick}
-          />
-        </>
-      )}
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              whiteImage={true}
+              left="80.7%"
+              top="77.5%"
+              height="65px"
+            />
+            <CloseIcon
+              left="80%"
+              top="73.5%"
+              showIcons={showIcons}
+              onClick={handleCardOrImageClick}
+            />
+          </>
+        )}
+      </AnimatePresence>
 
       {showCards && (
         <div>
@@ -412,7 +414,8 @@ const ZhabrungNgawangNamgyal = () => {
                 showIcons={showIcons}
                 whiteImage={true}
                 left="88.2%"
-                top="81%"              />
+                top="81%"
+              />
               <HomeIcon
                 showIcons={showIcons}
                 whiteImage={true}
@@ -429,7 +432,7 @@ const ZhabrungNgawangNamgyal = () => {
                 height="100px"
                 marginTop="35px"
               />
-               <CloseIcon
+              <CloseIcon
                 left="87.5%"
                 top="68%"
                 showIcons={showIcons}

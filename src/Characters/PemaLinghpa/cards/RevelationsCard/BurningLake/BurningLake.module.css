@@ -24,23 +24,23 @@
 }
 
 /* Keyframes for the continuous 3D rotation */
-@keyframes rotate {
+/* @keyframes rotate {
   0% {
-    transform: rotateY(0deg) rotateX(0deg); /* Starting point */
+    transform: rotateY(0deg) rotateX(0deg); 
   }
   25% {
-    transform: rotateY(15deg) rotateX(5deg); /* Slight 3D tilt */
+    transform: rotateY(15deg) rotateX(5deg);
   }
   50% {
-    transform: rotateY(30deg) rotateX(0deg); /* Rotate more on Y-axis */
+    transform: rotateY(30deg) rotateX(0deg); 
   }
   75% {
-    transform: rotateY(15deg) rotateX(-5deg); /* Opposite 3D tilt */
+    transform: rotateY(15deg) rotateX(-5deg); 
   }
   100% {
-    transform: rotateY(0deg) rotateX(0deg); /* Back to original position */
+    transform: rotateY(0deg) rotateX(0deg);
   }
-}
+} */
 
 /* Shining effect overlay */
 .shine {
@@ -48,7 +48,7 @@
   position: absolute;
   top: 0;
   left: -50%; /* Start off-screen */
-  width: 5%; /* Make it wide enough to cover the entire cover */
+  width: 100%; /* Make it wide enough to cover the entire cover */
   height: 90%;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3)); /* Gradient for shine */
   animation: shine 5s infinite; /* Continuous shine animation */

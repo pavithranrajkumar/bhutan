@@ -15,18 +15,18 @@ const BigCard = ({
   borderBottom,
   height,
   fontWeight,
-  subContent
+  subContent,
 }) => {
   const [lineAnimationComplete, setLineAnimationComplete] = useState(false);
   const [cardAnimationStart, setCardAnimationStart] = useState(false);
-  const [showVerticalLine, setShowVerticalLine] = useState(true); // State for vertical line visibility
+  const [showVerticalLine, setShowVerticalLine] = useState(true);
   const contentLines = content.split("\n");
 
   const headerFontSize = language === BHUTAN ? "0.7vw" : "0.52083vw";
   const titleFontSize = language === BHUTAN ? "0.7vw" : "0.52083vw";
   const contentFontSize = language === BHUTAN ? "0.36vw" : "0.29166667vw";
   const contentLineHeight = language === BHUTAN ? "1.2" : "";
-  const headerLineHeight = language === BHUTAN ? "0.8" : "";
+  const headerLineHeight = language === BHUTAN ? "0.6" : "";
 
   useEffect(() => {
     if (showIntro) {
@@ -49,28 +49,30 @@ const BigCard = ({
     }
   }, [lineAnimationComplete, showIntro]);
 
-  // Use effect to hide the vertical line after the card animation starts
   useEffect(() => {
     if (cardAnimationStart) {
       const timer = setTimeout(() => {
-        setShowVerticalLine(false); // Hide vertical line after the card animation starts
-      }, 800); // Adjust delay as needed for smooth transition
+        setShowVerticalLine(false);
+      }, 800);
       return () => clearTimeout(timer);
     }
   }, [cardAnimationStart]);
 
   return (
     <div className={styles.cardContainer}>
-      {/* Vertical Line Animation */}
       {showVerticalLine && (
         <motion.div
           className={styles.line}
-          initial={{ height: 0, opacity: 1 }} // Start with visible opacity
+          initial={{ height: 0, opacity: 1 }}
           animate={{
             height: lineAnimationComplete ? "100%" : 0,
             opacity: lineAnimationComplete ? 1 : 0,
           }}
-          exit={{ height: 0, opacity: 0 }} // Exit transition for height and opacity
+          exit={{
+            height: 0,
+            opacity: 0,
+            transition: { duration: 5, ease: "easeOut" },
+          }}
           transition={{
             duration: 0.5,
             ease: "easeOut",
@@ -86,7 +88,6 @@ const BigCard = ({
         />
       )}
 
-      {/* Card Animation */}
       <motion.div
         className={styles.detailCard}
         style={{
@@ -109,17 +110,20 @@ const BigCard = ({
         exit={{
           scaleX: 0,
           opacity: 0,
-          transition: { duration: 0.5, ease: "easeIn" }, // Exit transition
+          transition: { duration: 0.5, ease: "easeOut", delay: 1 },
         }}
       >
         <div className={styles.introduction}>
-          {/* Header Animation with Fade Effect */}
           <motion.div
-            initial={{ opacity: 0 }} // Start with hidden opacity
-            animate={{ opacity: cardAnimationStart ? 1 : 0 }} // Fade in effect
+            initial={{ opacity: 0 }}
+            animate={{ opacity: cardAnimationStart ? 1 : 0 }}
+            exit={{
+              opacity: 0,
+              transition: { duration: 0.5, ease: "easeOut" },
+            }}
             transition={{
-              duration: 1.5, // Duration of the fade-in effect
-              delay: cardAnimationStart ? 1.5 : 0, // Delayed fade-in
+              duration: 0.5,
+              delay: cardAnimationStart ? 1.5 : 0,
               ease: "easeInOut",
             }}
           >
@@ -134,13 +138,16 @@ const BigCard = ({
             </div>
           </motion.div>
 
-          {/* Title Animation with Fade Effect */}
           <motion.div
-            initial={{ opacity: 0 }} // Start with hidden opacity
-            animate={{ opacity: cardAnimationStart ? 1 : 0 }} // Fade in effect
+            initial={{ opacity: 0 }}
+            animate={{ opacity: cardAnimationStart ? 1 : 0 }}
+            exit={{
+              opacity: 0,
+              transition: { duration: 1, ease: "easeOut" },
+            }}
             transition={{
-              duration: 1.5, // Duration of the fade-in effect
-              delay: cardAnimationStart ? 1.5 : 0, // Slightly delayed fade-in for the title
+              duration: 0.5,
+              delay: cardAnimationStart ? 1.5 : 0,
               ease: "easeInOut",
             }}
           >
@@ -156,12 +163,12 @@ const BigCard = ({
             </div>
           </motion.div>
 
-          {/* Extending Line (hr tag) Animation */}
           <motion.hr
             className={styles.borderBottom}
             style={{ borderBottom }}
-            initial={{ width: 0 }} // Start with 0 width
-            animate={{ width: cardAnimationStart ? "100%" : 0 }} // Extend to full width
+            initial={{ width: 0 }}
+            animate={{ width: cardAnimationStart ? "100%" : 0 }}
+            exit={{ width: 0, transition: { duration: 0.5, ease: "easeOut" } }}
             transition={{
               duration: 1.5,
               ease: "easeOut",
@@ -169,14 +176,17 @@ const BigCard = ({
             }}
           />
 
-          {/* Content Animation */}
           <motion.div
-            initial={{ opacity: 0, x: "-3px" }} // Start from the margin (aligned with line)
+            initial={{ opacity: 0, x: "-3px" }}
             animate={{
               opacity: cardAnimationStart ? 1 : 0,
               x: cardAnimationStart ? 0 : "-3px",
             }}
-            exit={{ opacity: 0, x: "-3px" }} // Exit animation
+            exit={{
+              opacity: 0,
+              x: "-3px",
+              transition: { duration: 0, ease: "easeOut" },
+            }} // Exit animation for content
             transition={{
               duration: 0.5,
               delay: cardAnimationStart ? 3 : 0,
@@ -195,11 +205,14 @@ const BigCard = ({
               opacity: cardAnimationStart ? 1 : 0,
               x: cardAnimationStart ? 0 : -20,
             }}
+            exit={{
+              opacity: 0,
+              x: "-3px",
+              transition: { duration: 0, ease: "easeOut" },
+            }} // Exit animation for content
             transition={{
               duration: 0.5,
-              delay: cardAnimationStart
-                ? 3 + content.split("\n").length * 0.5
-                : 0,
+              delay: cardAnimationStart ? 3.2 : 0,
             }}
             className={styles.CardSubContent}
             style={{ fontSize: contentFontSize, lineHeight: contentLineHeight }}

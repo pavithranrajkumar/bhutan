@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../../../../../components/Card/Card";
 import { PEMA_LINGPA_INFORMATION } from "../../../../../constants/Characters/PremaLingpa";
 import burningLakeBookImg from "../../../../../assests/PemaLingpa/Revelations/BurningLake.png";
@@ -6,10 +6,21 @@ import styles from "./BurningLake.module.css";
 import { BHUTAN } from "../../../../../constants/languages/Language";
 import { motion } from "framer-motion";
 
-
 const BurningLake = ({ showIntro, language, onBurningLakeBookImgClick }) => {
   const titleFontSize = language === BHUTAN ? "11px" : "20px";
   const fonstSize = language === BHUTAN ? "6.5px" : "11.1px";
+  const [isVisible, setIsVisible] = useState(showIntro);
+
+  useEffect(() => {
+    if (showIntro) {
+      setIsVisible(true);
+    } else {
+      // Start fade-out animation
+      const timer = setTimeout(() => setIsVisible(false), 500); // Match the duration with CSS transition
+      return () => clearTimeout(timer); // Cleanup timer on unmount
+    }
+  }, [showIntro]);
+  
   return (
     <div>
       {showIntro && (
@@ -29,13 +40,14 @@ const BurningLake = ({ showIntro, language, onBurningLakeBookImgClick }) => {
             language={language}
             showIntro={showIntro}
           />
-           <motion.div
+
+          <motion.div
             className={styles.burningLakeBookImg}
             onClick={onBurningLakeBookImgClick}
             initial={{ opacity: 0 }} // Start invisible
             animate={{ opacity: 1 }} // Fade in
+            transition={{ duration: 0.5, delay: 3 }}
             exit={{ opacity: 0, transition: { duration: 2 } }}
-            transition={{ duration: 0.5, delay: 3 }} // Duration of fade effect
           >
             <div className={styles.book}>
               <div className={styles.frontCover}>
@@ -44,7 +56,6 @@ const BurningLake = ({ showIntro, language, onBurningLakeBookImgClick }) => {
               </div>
             </div>
           </motion.div>
-          
         </>
       )}
     </div>

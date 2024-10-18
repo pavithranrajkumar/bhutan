@@ -136,24 +136,39 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
               ].map(({ src, name, className, cardClass, imgClass }, index) => (
                 <motion.div
                   key={index}
-                  className={className}
-                  onClick={() => handleContainerClick(index)}
                   initial={{ opacity: 0 }}
                   animate={{
                     opacity:
                       currentStep === index || currentStep === null ? 1 : 0.5,
                   }}
                   transition={{
-                    opacity: { duration: 0.5, delay: 7 }, // Only apply delay for opacity
+                   opacity: { duration: 0.5, delay: 7 }, // Only apply delay for opacity
                     duration: 0.5, // Overall duration for entrance
-                    delay: 7 + index * 0.2, // Entrance delay for the container
+                    delay: 7, // Entrance delay for the container
                   }}
                   exit={{ opacity: 0, transition: { duration: 2 } }}
                 >
-                  <div className={imgClass}>
-                    <img src={src} alt={name} />
-                  </div>
-                  <div className={cardClass}>{name}</div>
+                  <motion.div
+                    key={index}
+                    className={className}
+                    onClick={() => handleContainerClick(index)}
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity:
+                        currentStep === index || currentStep === null ? 1 : 0.5,
+                    }}
+                    transition={{
+                      // opacity: { duration: 0.5, delay: 1.5 }, // Only apply delay for opacity
+                      duration: 0.5, // Overall duration for entrance
+                      delay: 1 + index * 0.2, // Entrance delay for the container
+                    }}
+                    exit={{ opacity: 0, transition: { duration: 2 } }}
+                  >
+                    <div className={imgClass}>
+                      <img src={src} alt={name} />
+                    </div>
+                    <div className={cardClass}>{name}</div>
+                  </motion.div>
                 </motion.div>
               ))}
             </div>
@@ -171,19 +186,19 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                     className={styles.TamshingContainer}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 1.5 }}
+                    transition={{ duration: 0.5, delay: 1 }}
                   >
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 2 }}
+                      transition={{ duration: 0.5, delay: 1.5 }}
                     >
                       <hr className={styles.TamshingVerticalLine} />
                     </motion.div>
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 2.5 }}
+                      transition={{ duration: 0.5, delay: 2 }}
                       className={styles.SonsTree}
                     >
                       <div className={styles.Choeje}>CHOEJE</div>
@@ -191,14 +206,14 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 3.5 }}
+                      transition={{ duration: 0.5, delay: 3 }}
                     >
                       <hr className={styles.TamshingVerticalLine1} />
                     </motion.div>
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 4.5 }}
+                      transition={{ duration: 0.5, delay: 4 }}
                       className={styles.Tamshing}
                     >
                       <img src={Tamshing} alt="Tamshing" />{" "}
@@ -266,7 +281,7 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                         className={styles.KochungChoeje}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 0.5, delay: 1.0 }} // 1.0 seconds
+                        transition={{ duration: 0.5, delay: 0.5 }} // 1.0 seconds
                       >
                         CHOEJE
                       </motion.div>
@@ -275,19 +290,19 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                       className={styles.KochungHorizontalLine}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 1.5 }} // 1.5 seconds
+                      transition={{ duration: 0.5, delay: 1 }} // 1.5 seconds
                     />
                     <motion.hr
                       className={styles.KochungVerticalLine1}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 2.0 }} // 2.0 seconds
+                      transition={{ duration: 0.5, delay: 1.5 }} // 2.0 seconds
                     />
                     <motion.div
                       className={styles.KochungContainer}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 2.5 }} // 2.5 seconds
+                      transition={{ duration: 0.5, delay: 2 }} // 2.5 seconds
                     >
                       <div className={styles.Kochung}>
                         <img src={Kochung} alt="Kochung" />
@@ -299,19 +314,19 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                       className={styles.KochungHorizontalLine2}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 3.0 }} // 3.0 seconds
+                      transition={{ duration: 0.5, delay: 2.5 }} // 3.0 seconds
                     />
                     <motion.hr
                       className={styles.KochungVerticalLine}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 3.5 }} // 3.5 seconds
+                      transition={{ duration: 0.5, delay: 3 }} // 3.5 seconds
                     />
                     <motion.div
                       className={styles.BidungContainer}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 4.0 }} // 4.0 seconds
+                      transition={{ duration: 0.5, delay: 3.5 }} // 4.0 seconds
                     >
                       <div className={styles.Bidung}>
                         <img src={Bidung} alt="Bidung" />
@@ -323,25 +338,25 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                       className={styles.KheriVerticalLine2}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 4.5 }} // 4.5 seconds
+                      transition={{ duration: 0.5, delay: 4 }} // 4.5 seconds
                     />
                     <motion.hr
                       className={styles.KheriHorizontalLine}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 5.0 }} // 5.0 seconds
+                      transition={{ duration: 0.5, delay: 4.5 }} // 5.0 seconds
                     />
                     <motion.hr
                       className={styles.KheriVerticalLine1}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 5.5 }} // 5.5 seconds
+                      transition={{ duration: 0.5, delay: 5 }} // 5.5 seconds
                     />
                     <motion.div
                       className={styles.KheriContainer}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 6.0 }} // 6.0 seconds
+                      transition={{ duration: 0.5, delay: 5.5 }} // 6.0 seconds
                     >
                       <div className={styles.Kheri}>
                         <img src={Kheri} alt="Kheri" />
@@ -352,14 +367,14 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                       className={styles.KheriVerticalLine}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 6.5 }} // 6.5 seconds
+                      transition={{ duration: 0.5, delay: 6 }} // 6.5 seconds
                     />
 
                     <motion.div
                       className={styles.DungkarContainer}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 7.0 }} // 7.0 seconds
+                      transition={{ duration: 0.5, delay: 6.5 }} // 7.0 seconds
                     >
                       <div className={styles.Dungkar}>
                         <img src={Dungkar} alt="Dungkar" />
