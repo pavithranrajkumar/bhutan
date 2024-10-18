@@ -66,6 +66,7 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 5 }}
+                exit={{ opacity: 0, transition: { duration: 2 } }}
               >
                 {PEMA_LINGPA_INFORMATION[language].title}
               </motion.div>
@@ -75,6 +76,7 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 5.5 }}
+                exit={{ opacity: 0, transition: { duration: 2 } }}
               >
                 SONS
               </motion.div>
@@ -83,6 +85,7 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 6 }}
+                exit={{ opacity: 0, transition: { duration: 2 } }}
               >
                 <hr className={styles.SonsVerticalLine} />
               </motion.div>
@@ -91,6 +94,7 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 6.5 }}
+                exit={{ opacity: 0, transition: { duration: 2 } }}
               >
                 <hr className={styles.SonsHorizontalLine} />
                 <hr className={styles.SonsHorizontalLine2} />
@@ -144,6 +148,7 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
                     duration: 0.5, // Overall duration for entrance
                     delay: 7 + index * 0.2, // Entrance delay for the container
                   }}
+                  exit={{ opacity: 0, transition: { duration: 2 } }}
                 >
                   <div className={imgClass}>
                     <img src={src} alt={name} />
@@ -158,8 +163,8 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
                 transition={{ duration: 0.5, delay: 1 }}
+                exit={{ opacity: 0, transition: { duration: 2 } }}
               >
                 {currentStep === 0 && (
                   <motion.div

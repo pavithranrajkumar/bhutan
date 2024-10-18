@@ -70,7 +70,9 @@ const MonasteriesImg = ({ language, handleOpenPeleingCard }) => {
             className={styles[`MonasteriesImg${index + 1}`]}
             initial={{ opacity: 0 }} // Initial opacity
             animate={{ opacity: 1 }} // Final opacity
-            transition={{ duration: 1.5, delay: index * 0.1 }} // Delay for staggered effect
+            transition={{ duration: 1.5, delay: 2 }} // Delay for staggered effect
+            exit={{ opacity: 0, transition: { duration: 2 } }}
+
           >
             <img
               src={image.thumb}

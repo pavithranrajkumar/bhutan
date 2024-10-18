@@ -34,7 +34,7 @@ const BurningLake = ({ showIntro, language, onBurningLakeBookImgClick }) => {
             onClick={onBurningLakeBookImgClick}
             initial={{ opacity: 0 }} // Start invisible
             animate={{ opacity: 1 }} // Fade in
-            exit={{ opacity: 0 }} // Fade out when removed
+            exit={{ opacity: 0, transition: { duration: 2 } }}
             transition={{ duration: 0.5, delay: 3 }} // Duration of fade effect
           >
             <div className={styles.book}>

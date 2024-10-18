@@ -56,6 +56,7 @@ const PemaLinghpa = () => {
   };
 
   const handleCardOrImageClick = () => {
+    console.log("Card or Image Clicked");
     if (
       showCards ||
       selectedCard ||
@@ -85,6 +86,8 @@ const PemaLinghpa = () => {
   };
 
   const resetView = () => {
+    console.log("Resetting View");
+
     setShowCards(false);
     setSelectedCard(null);
     setShowNaringDragCard(false);
@@ -107,8 +110,6 @@ const PemaLinghpa = () => {
   const handleCardClick = (cardName) => {
     setShowCards(false);
     setShowIntroduction(false);
-    setShowYearText(false);
-    setEnlargedImage(false);
     setSelectedCard(cardName);
   };
 
@@ -261,6 +262,12 @@ const PemaLinghpa = () => {
     showPelingDanceCard ||
     showPelingdanceImgs;
 
+  const fadeVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+    exit: { opacity: 0 },
+  };
+
   return (
     <div className={styles.pemaContainer}>
       <AnimatePresence>
@@ -324,153 +331,167 @@ const PemaLinghpa = () => {
         />
       </div>
 
-      {showIntroduction && (
-        <>
-          <div className={styles.IntroCard}>
-            <IntroductionCard
+      <AnimatePresence>
+        {showIntroduction && (
+          <>
+            <div className={styles.IntroCard}>
+              <IntroductionCard
+                language={language}
+                showIntro={showIntroduction}
+              />
+            </div>
+            <LanguageIcon
+              onClick={toggleLanguage}
+              whiteImage={true}
+              showIcons={showIcons}
               language={language}
-              showIntro={showIntroduction}
+              left="64.4%"
+              top="95.5%"
+              iconWidth="25px"
+              IconHeight="25px"
+              height="50px"
+              width="50px"
+              margin="12px"
             />
-          </div>
-          <LanguageIcon
-            onClick={toggleLanguage}
-            whiteImage={true}
-            showIcons={showIcons}
-            language={language}
-            left="64.4%"
-            top="95.5%"
-            iconWidth="25px"
-            IconHeight="25px"
-            height="50px"
-            width="50px"
-            margin="12px"
-          />
-          <NextIcon
-            showIcons={showIcons}
-            whiteImage={true}
-            left="75.8%"
-            top="82%"
-            height="70px"
-            width="80px"
-            margin="25px"
-            background="#2B455D"
-            onClick={handleShowCards}
-          />
-          <CloseIcon
-            showIcons={showIcons}
-            left="63.8%"
-            top="91.5%"
-            onClick={handleCardOrImageClick}
-          />
-        </>
-      )}
+            <NextIcon
+              showIcons={showIcons}
+              whiteImage={true}
+              left="76%"
+              top="82%"
+              height="70px"
+              width="80px"
+              margin="25px"
+              background="#2B455D"
+              onClick={handleShowCards}
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              left="63.8%"
+              top="91.5%"
+              onClick={handleCardOrImageClick}
+            />
+          </>
+        )}
+      </AnimatePresence>
 
-      {showCards && (
-        <>
-          <div>
-            <PemaCards
-              // isFadingOut={isFadingOut}
-              showIntro={true}
+      <AnimatePresence>
+        {showCards && (
+          <>
+            <AnimatePresence>
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                transition={{ duration: 1.5, ease: "easeOut", delay: 0.5}} // Start fade immediately
+                exit={{ scaleX: 0, opacity: 0, transition: { duration: 2 } }}
+                variants={fadeVariants}
+              >
+                <PemaCards
+                  // isFadingOut={isFadingOut}
+                  language={language}
+                  onCardClick={handleCardClick}
+                  showCards={true}
+                />
+              </motion.div>
+            </AnimatePresence>
+            <LanguageIcon
+              onClick={toggleLanguage}
+              showIcons={showIcons}
               language={language}
-              onCardClick={handleCardClick}
+              left="66.4%"
+              top="92.2%"
             />
-          </div>
-          <LanguageIcon
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            language={language}
-            left="66.4%"
-            top="92.2%"
-          />
-          <CloseIcon
-            showIcons={showIcons}
-            left="65.7%"
-            top="88.2%"
-            background="#6A1F11"
-            onClick={handleCardOrImageClick}
-          />
-        </>
-      )}
+            <CloseIcon
+              showIcons={showIcons}
+              left="65.7%"
+              top="88.2%"
+              background="#6A1F11"
+              onClick={handleCardOrImageClick}
+            />
+          </>
+        )}
+      </AnimatePresence>
 
       {selectedCard && (
         <div>
-          {selectedCard === "historic" && (
-            <>
-              <div className={styles.HistoricCard}>
-                <HistoricCard language={language} showIntro={true} />
+          <AnimatePresence>
+            {selectedCard === "historic" && (
+              <>
+                <div className={styles.HistoricCard}>
+                  <HistoricCard language={language} showIntro={true} />
 
-                <LanguageIcon
-                  onClick={toggleLanguage}
-                  showIcons={showIcons}
-                  language={language}
-                  left="64.45%"
-                  top="92.5%"
-                  iconWidth="25px"
-                  IconHeight="25px"
-                  height="48px"
-                  width="50px"
-                  margin="13px"
-                  background="#3A1701"
-                />
-                <HomeIcon
-                  showIcons={showIcons}
-                  left="63.8%"
-                  top="88.5%"
-                  background="#6A1F11"
-                  onClick={handleHomeClick}
-                />
-                <NextIcon
-                  showIcons={showIcons}
-                  whiteImage={true}
-                  left="74.5%"
-                  top="82%"
-                  height="70px"
-                  width="80px"
-                  margin="25px"
-                  background="#3A1701"
-                  color="#FFD9BC"
-                  onClick={handleNextIcon}
-                />
-                <CloseIcon
-                  showIcons={showIcons}
-                  left="63.8%"
-                  top="84.5%"
-                  background="#6A1F11"
-                  onClick={handleCardOrImageClick}
-                />
-              </div>
-            </>
-          )}
+                  <LanguageIcon
+                    onClick={toggleLanguage}
+                    showIcons={showIcons}
+                    language={language}
+                    left="64.45%"
+                    top="92.5%"
+                    iconWidth="25px"
+                    IconHeight="25px"
+                    height="48px"
+                    width="50px"
+                    margin="13px"
+                    background="#3A1701"
+                  />
+                  <HomeIcon
+                    showIcons={showIcons}
+                    left="63.8%"
+                    top="88.5%"
+                    background="#6A1F11"
+                    onClick={handleHomeClick}
+                  />
+                  <NextIcon
+                    showIcons={showIcons}
+                    whiteImage={true}
+                    left="74.8%"
+                    top="82%"
+                    height="70px"
+                    width="80px"
+                    margin="25px"
+                    background="#3A1701"
+                    color="#FFD9BC"
+                    onClick={handleNextIcon}
+                  />
+                  <CloseIcon
+                    showIcons={showIcons}
+                    left="63.8%"
+                    top="84.5%"
+                    background="#6A1F11"
+                    onClick={handleCardOrImageClick}
+                  />
+                </div>
+              </>
+            )}
+          </AnimatePresence>
+          <AnimatePresence>
+            {selectedCard === "lineage" && (
+              <>
+                <div className={styles.LineageCard}>
+                  <LineageCard
+                    language={language}
+                    showIntro={true}
+                    showIcons={showIcons}
+                    onNextClick={handleNextIcon}
+                  />
 
-          {selectedCard === "lineage" && (
-            <>
-              <div className={styles.LineageCard}>
-                <LineageCard
-                  language={language}
-                  showIntro={true}
-                  showIcons={showIcons}
-                  onNextClick={handleNextIcon}
-                />
-
-                <LanguageIcon
-                  onClick={toggleLanguage}
-                  showIcons={showIcons}
-                  language={language}
-                  left="61.9%"
-                  top="96%"
-                  background="#3A1701"
-                />
-                <HomeIcon
-                  showIcons={showIcons}
-                  left="61.3%"
-                  top="92%"
-                  background="#6A1F11"
-                  height="70px"
-                  width="80px"
-                  margin="25px"
-                  onClick={handleHomeClick}
-                />
-                {/* <NextIcon
+                  <LanguageIcon
+                    onClick={toggleLanguage}
+                    showIcons={showIcons}
+                    language={language}
+                    left="61.9%"
+                    top="96%"
+                    background="#3A1701"
+                  />
+                  <HomeIcon
+                    showIcons={showIcons}
+                    left="61.3%"
+                    top="92%"
+                    background="#6A1F11"
+                    height="70px"
+                    width="80px"
+                    margin="25px"
+                    onClick={handleHomeClick}
+                  />
+                  {/* <NextIcon
                   showIcons={showIcons}
                   left="75.5%"
                   top="82%"
@@ -481,189 +502,194 @@ const PemaLinghpa = () => {
                   color="#FFD9BC"
                   onClick={handleNextIcon}
                 /> */}
-                <CloseIcon
-                  showIcons={showIcons}
-                  left="61.3%"
-                  top="88%"
-                  background="#6A1F11"
-                  onClick={handleCardOrImageClick}
-                />
-              </div>
-            </>
-          )}
+                  <CloseIcon
+                    showIcons={showIcons}
+                    left="61.3%"
+                    top="88%"
+                    background="#6A1F11"
+                    onClick={handleCardOrImageClick}
+                  />
+                </div>
+              </>
+            )}
+          </AnimatePresence>
+          <AnimatePresence>
+            {selectedCard === "revelations" && (
+              <>
+                <div className={styles.LineageCard}>
+                  <RevelationsCard
+                    language={language}
+                    showIntro={true}
+                    onNaringDragClick={handleNaringDragClick}
+                    onBurningLakeClick={handleBurningLakeClick}
+                  />
 
-          {selectedCard === "revelations" && (
-            <>
-              <div className={styles.LineageCard}>
-                <RevelationsCard
-                  language={language}
-                  showIntro={true}
-                  onNaringDragClick={handleNaringDragClick}
-                  onBurningLakeClick={handleBurningLakeClick}
-                />
+                  <LanguageIcon
+                    language={language}
+                    onClick={toggleLanguage}
+                    showIcons={showIcons}
+                    left="61.8%"
+                    top="96%"
+                    iconWidth="25px"
+                    IconHeight="25px"
+                    height="55px"
+                    background="#3A1701"
+                  />
+                  <HomeIcon
+                    showIcons={showIcons}
+                    left="61.2%"
+                    top="92%"
+                    background="#6A1F11"
+                    height="70px"
+                    width="80px"
+                    margin="25px"
+                    onClick={handleHomeClick}
+                  />
+                  <CloseIcon
+                    showIcons={showIcons}
+                    left="61.2%"
+                    top="88%"
+                    background="#6A1F11"
+                    onClick={handleCardOrImageClick}
+                  />
+                </div>
+              </>
+            )}
+          </AnimatePresence>
+          <AnimatePresence>
+            {selectedCard === "legacy" && (
+              <>
+                <div className={styles.LineageCard}>
+                  <LegacyCards
+                    language={language}
+                    showIntro={true}
+                    onMonasteriesCardClick={handleOpenMonasteriesCard}
+                    onPelingDanceCardClick={handleOpenPelingDanceCard}
+                  />
 
-                <LanguageIcon
-                  language={language}
-                  onClick={toggleLanguage}
-                  showIcons={showIcons}
-                  left="61.8%"
-                  top="96%"
-                  iconWidth="25px"
-                  IconHeight="25px"
-                  height="55px"
-                  background="#3A1701"
-                />
-                <HomeIcon
-                  showIcons={showIcons}
-                  left="61.2%"
-                  top="92%"
-                  background="#6A1F11"
-                  height="70px"
-                  width="80px"
-                  margin="25px"
-                  onClick={handleHomeClick}
-                />
-                <CloseIcon
-                  showIcons={showIcons}
-                  left="61.2%"
-                  top="88%"
-                  background="#6A1F11"
-                  onClick={handleCardOrImageClick}
-                />
-              </div>
-            </>
-          )}
-
-          {selectedCard === "legacy" && (
-            <>
-              <div className={styles.LineageCard}>
-                <LegacyCards
-                  language={language}
-                  showIntro={true}
-                  onMonasteriesCardClick={handleOpenMonasteriesCard}
-                  onPelingDanceCardClick={handleOpenPelingDanceCard}
-                />
-
-                <LanguageIcon
-                  language={language}
-                  onClick={toggleLanguage}
-                  showIcons={showIcons}
-                  left="61.8%"
-                  top="91.5%"
-                  iconWidth="25px"
-                  IconHeight="25px"
-                  height="55px"
-                  background="#3A1701"
-                />
-                <HomeIcon
-                  showIcons={showIcons}
-                  left="61.2%"
-                  top="87.5%"
-                  background="#6A1F11"
-                  height="70px"
-                  width="80px"
-                  margin="25px"
-                  onClick={handleHomeClick}
-                />
-                <CloseIcon
-                  showIcons={showIcons}
-                  left="61.2%"
-                  top="83.5%"
-                  background="#6A1F11"
-                  onClick={handleCardOrImageClick}
-                />
-              </div>
-            </>
-          )}
+                  <LanguageIcon
+                    language={language}
+                    onClick={toggleLanguage}
+                    showIcons={showIcons}
+                    left="61.8%"
+                    top="91.5%"
+                    iconWidth="25px"
+                    IconHeight="25px"
+                    height="55px"
+                    background="#3A1701"
+                  />
+                  <HomeIcon
+                    showIcons={showIcons}
+                    left="61.2%"
+                    top="87.5%"
+                    background="#6A1F11"
+                    height="70px"
+                    width="80px"
+                    margin="25px"
+                    onClick={handleHomeClick}
+                  />
+                  <CloseIcon
+                    showIcons={showIcons}
+                    left="61.2%"
+                    top="83.5%"
+                    background="#6A1F11"
+                    onClick={handleCardOrImageClick}
+                  />
+                </div>
+              </>
+            )}
+          </AnimatePresence>
         </div>
       )}
 
-      {showNaringDragCard && (
-        <>
-          <div className={styles.NaringDragCard}>
-            <NaringDrag
+      <AnimatePresence>
+        {showNaringDragCard && (
+          <>
+            <div className={styles.NaringDragCard}>
+              <NaringDrag
+                language={language}
+                showIntro={true}
+                onNaringDragBookImgClick={handleNaringDragBookImgClick}
+              />
+            </div>
+            <LanguageIcon
               language={language}
-              showIntro={true}
-              onNaringDragBookImgClick={handleNaringDragBookImgClick}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              left="64.25%"
+              top="96.2%"
+              whiteImage={true}
             />
-          </div>
-          <LanguageIcon
-            language={language}
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            left="64.25%"
-            top="96.2%"
-            whiteImage={true}
-          />
-          <HomeIcon
-            showIcons={showIcons}
-            left="63.6%"
-            top="92.2%"
-            height="70px"
-            width="80px"
-            margin="25px"
-            onClick={handleHomeClick}
-            whiteImage={true}
-          />
-          <PreviousIcon
-            onClick={handlePreviousClick}
-            showIcons={showIcons}
-            left="63.6%"
-            top="88.2%"
-            height="100px"
-            marginTop="40px"
-          />
-          <CloseIcon
-            showIcons={showIcons}
-            left="63.6%"
-            top="84.3%"
-            onClick={handleCardOrImageClick}
-          />
-        </>
-      )}
-
-      {showNaringDragBookImg && (
-        <>
-          <div className={styles.NaringDragBook}>
-            <NaringDragBook
+            <HomeIcon
+              showIcons={showIcons}
+              left="63.6%"
+              top="92.2%"
+              height="70px"
+              width="80px"
+              margin="25px"
+              onClick={handleHomeClick}
+              whiteImage={true}
+            />
+            <PreviousIcon
+              onClick={handlePreviousClick}
+              showIcons={showIcons}
+              left="63.6%"
+              top="88.2%"
+              height="100px"
+              marginTop="40px"
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              left="63.6%"
+              top="84.3%"
+              onClick={handleCardOrImageClick}
+            />
+          </>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {showNaringDragBookImg && (
+          <>
+            <div className={styles.NaringDragBook}>
+              <NaringDragBook
+                language={language}
+                onBurningLakeAnimationCardClick={
+                  handleBurningLakeAnimationCardClick
+                }
+              />
+            </div>
+            <PreviousIcon
+              onClick={handlePreviousClick}
+              showIcons={showIcons}
+              left="60.8%"
+              top="86.8%"
+              height="130px"
+              marginTop="50px"
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              whiteImage={true}
+              left="60.8%"
+              top="90.7%"
+              onClick={handleHomeClick}
+            />
+            <LanguageIcon
               language={language}
-              onBurningLakeAnimationCardClick={
-                handleBurningLakeAnimationCardClick
-              }
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              whiteImage={true}
+              left="61.4%"
+              top="94.6%"
             />
-          </div>
-          <PreviousIcon
-            onClick={handlePreviousClick}
-            showIcons={showIcons}
-            left="60.8%"
-            top="86.8%"
-            height="130px"
-            marginTop="50px"
-          />
-          <HomeIcon
-            showIcons={showIcons}
-            whiteImage={true}
-            left="60.8%"
-            top="90.7%"
-            onClick={handleHomeClick}
-          />
-          <LanguageIcon
-            language={language}
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            whiteImage={true}
-            left="61.4%"
-            top="94.6%"
-          />
-          <CloseIcon
-            showIcons={showIcons}
-            left="60.8%"
-            top="83%"
-            onClick={handleCardOrImageClick}
-          />
-        </>
-      )}
-
+            <CloseIcon
+              showIcons={showIcons}
+              left="60.8%"
+              top="83%"
+              onClick={handleCardOrImageClick}
+            />
+          </>
+        )}
+      </AnimatePresence>
       {showBurningLakeBookImg && (
         <>
           <div className={styles.NaringDragBook}>
@@ -705,304 +731,318 @@ const PemaLinghpa = () => {
           />
         </>
       )}
-
-      {showBurningLakeCard && (
-        <>
-          <div className={styles.BurningLakeCard}>
-            <BurningLake
+      <AnimatePresence>
+        {showBurningLakeCard && (
+          <>
+            <div className={styles.BurningLakeCard}>
+              <BurningLake
+                language={language}
+                showIntro={true}
+                onBurningLakeBookImgClick={handleBurningLakeBookImgClick}
+              />
+            </div>
+            <LanguageIcon
               language={language}
-              showIntro={true}
-              onBurningLakeBookImgClick={handleBurningLakeBookImgClick}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              left="64.25%"
+              top="96.3%"
+              whiteImage={true}
             />
-          </div>
-          <LanguageIcon
-            language={language}
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            left="64.25%"
-            top="96.3%"
-            whiteImage={true}
-          />
-          <HomeIcon
-            showIcons={showIcons}
-            left="63.6%"
-            top="92.3%"
-            height="70px"
-            width="80px"
-            margin="25px"
-            onClick={handleHomeClick}
-            whiteImage={true}
-          />
-          <PreviousIcon
-            onClick={handlePreviousClick}
-            showIcons={showIcons}
-            left="63.6%"
-            top="88.2%"
-            height="100px"
-            marginTop="40px"
-          />
-          <CloseIcon
-            showIcons={showIcons}
-            left="63.6%"
-            top="84.3%"
-            onClick={handleCardOrImageClick}
-          />
-        </>
-      )}
-
-      {showMonasteriesCard && (
-        <>
-          <div className={styles.MonasteriesCard}>
-            <Monastries
+            <HomeIcon
+              showIcons={showIcons}
+              left="63.6%"
+              top="92.3%"
+              height="70px"
+              width="80px"
+              margin="25px"
+              onClick={handleHomeClick}
+              whiteImage={true}
+            />
+            <PreviousIcon
+              onClick={handlePreviousClick}
+              showIcons={showIcons}
+              left="63.6%"
+              top="88.2%"
+              height="100px"
+              marginTop="40px"
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              left="63.6%"
+              top="84.3%"
+              onClick={handleCardOrImageClick}
+            />
+          </>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {showMonasteriesCard && (
+          <>
+            <div className={styles.MonasteriesCard}>
+              <Monastries
+                language={language}
+                showIntro={true}
+                onMonasteriesImgClick={handleShowMonasteriesImgCard}
+              />
+            </div>
+            <LanguageIcon
               language={language}
-              showIntro={true}
-              onMonasteriesImgClick={handleShowMonasteriesImgCard}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              left="62.35%"
+              top="96%"
+              whiteImage={true}
             />
-          </div>
-          <LanguageIcon
-            language={language}
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            left="62.35%"
-            top="96%"
-            whiteImage={true}
-          />
-          <HomeIcon
-            showIcons={showIcons}
-            left="61.7%"
-            top="92%"
-            height="70px"
-            width="80px"
-            margin="25px"
-            onClick={handleHomeClick}
-            whiteImage={true}
-          />
-          <PreviousIcon
-            onClick={handlePreviousClick}
-            showIcons={showIcons}
-            left="61.7%"
-            top="88%"
-            height="100px"
-            marginTop="35px"
-          />
-          <CloseIcon
-            showIcons={showIcons}
-            left="61.7%"
-            top="84%"
-            onClick={handleCardOrImageClick}
-          />
-        </>
-      )}
+            <HomeIcon
+              showIcons={showIcons}
+              left="61.7%"
+              top="92%"
+              height="70px"
+              width="80px"
+              margin="25px"
+              onClick={handleHomeClick}
+              whiteImage={true}
+            />
+            <PreviousIcon
+              onClick={handlePreviousClick}
+              showIcons={showIcons}
+              left="61.7%"
+              top="88%"
+              height="100px"
+              marginTop="35px"
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              left="61.7%"
+              top="84%"
+              onClick={handleCardOrImageClick}
+            />
+          </>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {showMonasteriesImgCard && (
+          <>
+            <MonasteriesImg
+              language={language}
+              handleOpenPeleingCard={handleOpenPeleingCard}
+            />
 
-      {showMonasteriesImgCard && (
-        <>
-          <MonasteriesImg
-            language={language}
-            handleOpenPeleingCard={handleOpenPeleingCard}
-          />
-
-          <motion.div
-            className={styles.SmallMonstriesPelingCard}
-            onClick={handleOpenPeleingCard}
-            initial={{ opacity: 0 }} // Initial opacity
-            animate={{ opacity: 1 }} // Final opacity
-            transition={{ duration: 0.5, delay: 1 }} // Fade duration
-          >
             <motion.div
-              className={styles.SmallPeilingCardHeader}
-              initial={{ opacity: 0 }} // Initial opacity for header
-              animate={{ opacity: 1 }} // Final opacity for header
-              transition={{ duration: 0.5, delay: 1.5 }} // Fade duration for header
-            >
-              {PEMA_LINGPA_INFORMATION[language].pelingdance.title}
-            </motion.div>
-            <motion.div
-              className={styles.SmallPeilingCardTitle}
-              initial={{ opacity: 0 }} // Initial opacity for title
-              animate={{ opacity: 1 }} // Final opacity for title
-              transition={{ duration: 0.5, delay: 1.7 }} // Fade duration for title
-            >
-              {PEMA_LINGPA_INFORMATION[language].pelingdance.header}
-            </motion.div>
-          </motion.div>
-
-          <PreviousIcon
-            onClick={handlePreviousClick}
-            showIcons={showIcons}
-            left="60.5%"
-            top="86.8%"
-            height="130px"
-            marginTop="50px"
-          />
-          <HomeIcon
-            showIcons={showIcons}
-            whiteImage={true}
-            left="60.5%"
-            top="90.7%"
-            onClick={handleHomeClick}
-          />
-          <LanguageIcon
-            language={language}
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            whiteImage={true}
-            left="61.2%"
-            top="94.6%"
-          />
-          <CloseIcon
-            showIcons={showIcons}
-            left="60.5%"
-            top="83%"
-            onClick={handleCardOrImageClick}
-          />
-        </>
-      )}
-
-      {showPelingDanceCard && (
-        <>
-          <div className={styles.PelingDanceCard}>
-            <PelingDance
-              language={language}
-              showIntro={true}
-              onPelingVideoClick={handleOpenPelingdanceImgs}
-            />
-          </div>
-          <HomeIcon
-            showIcons={showIcons}
-            whiteImage={true}
-            left="61.8%"
-            top="89%"
-            onClick={handleHomeClick}
-          />
-          <LanguageIcon
-            language={language}
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            whiteImage={true}
-            left="62.4%"
-            top="92.9%"
-          />
-          <PreviousIcon
-            onClick={handlePreviousClick}
-            showIcons={showIcons}
-            left="61.8%"
-            top="85%"
-            height="130px"
-            marginTop="50px"
-          />
-          <CloseIcon
-            showIcons={showIcons}
-            left="61.8%"
-            top="81%"
-            onClick={handleCardOrImageClick}
-          />
-        </>
-      )}
-
-      {showPelingdanceImgs && (
-        <>
-          <div className={styles.PelingDanceVideo}>
-            {/* Main Video with Fade Effect */}
-            <motion.video
-              className={styles.videoFrame}
-              autoPlay
-              muted
-              loop
+              className={styles.SmallMonstriesPelingCard}
+              onClick={handleOpenPeleingCard}
               initial={{ opacity: 0 }} // Initial opacity
               animate={{ opacity: 1 }} // Final opacity
-              transition={{ duration: 0.5 }} // Fade duration
+              transition={{ duration: 0.5, delay: 2 }} // Fade duration
+              exit={{ opacity: 0, transition: { duration: 2.5 } }}
             >
-              <source src={video1} type="video/mp4" />
-              Your browser does not support the video tag.
-            </motion.video>
-
-            {/* Container for additional videos */}
-            <div style={{ display: "flex" }}>
-              {/* First Additional Video with Fade Effect */}
               <motion.div
-                className={styles.PelingDanceVideo1}
-                initial={{ opacity: 0 }} // Initial opacity
-                animate={{ opacity: 1 }} // Final opacity
-                transition={{ duration: 0.5, delay: 0.3 }} // Fade duration with delay
+                className={styles.SmallPeilingCardHeader}
+                initial={{ opacity: 0 }} // Initial opacity for header
+                animate={{ opacity: 1 }} // Final opacity for header
+                transition={{ duration: 0.5, delay: 1.5 }} // Fade duration for header
+                exit={{ opacity: 0, transition: { duration: 3 } }}
               >
-                <video className={styles.videoFrame2} autoPlay muted loop>
-                  <source src={video1} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                {PEMA_LINGPA_INFORMATION[language].pelingdance.title}
               </motion.div>
-
-              {/* Second Additional Video with Fade Effect */}
               <motion.div
-                className={styles.PelingDanceVideo2}
-                initial={{ opacity: 0 }} // Initial opacity
-                animate={{ opacity: 1 }} // Final opacity
-                transition={{ duration: 0.5, delay: 0.6 }} // Fade duration with delay
+                className={styles.SmallPeilingCardTitle}
+                initial={{ opacity: 0 }} // Initial opacity for title
+                animate={{ opacity: 1 }} // Final opacity for title
+                transition={{ duration: 0.5, delay: 1.7 }} // Fade duration for title
+                exit={{ opacity: 0, transition: { duration: 3.2 } }}
               >
-                <video className={styles.videoFrame3} autoPlay muted loop>
-                  <source src={video1} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                {PEMA_LINGPA_INFORMATION[language].pelingdance.header}
               </motion.div>
+            </motion.div>
+
+            <PreviousIcon
+              onClick={handlePreviousClick}
+              showIcons={showIcons}
+              left="60.5%"
+              top="86.8%"
+              height="130px"
+              marginTop="50px"
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              whiteImage={true}
+              left="60.5%"
+              top="90.7%"
+              onClick={handleHomeClick}
+            />
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              whiteImage={true}
+              left="61.2%"
+              top="94.6%"
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              left="60.5%"
+              top="83%"
+              onClick={handleCardOrImageClick}
+            />
+          </>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {showPelingDanceCard && (
+          <>
+            <div className={styles.PelingDanceCard}>
+              <PelingDance
+                language={language}
+                showIntro={true}
+                onPelingVideoClick={handleOpenPelingdanceImgs}
+              />
             </div>
-          </div>
-          <motion.div
-            className={styles.SmallMonstriesCard}
-            onClick={handleOpenPeleingCard}
-            initial={{ opacity: 0 }} // Initial opacity
-            animate={{ opacity: 1 }} // Final opacity
-            transition={{ duration: 0.5, delay: 1 }} // Fade duration for the card
-          >
+            <HomeIcon
+              showIcons={showIcons}
+              whiteImage={true}
+              left="61.8%"
+              top="89%"
+              onClick={handleHomeClick}
+            />
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              whiteImage={true}
+              left="62.4%"
+              top="92.9%"
+            />
+            <PreviousIcon
+              onClick={handlePreviousClick}
+              showIcons={showIcons}
+              left="61.8%"
+              top="85%"
+              height="130px"
+              marginTop="50px"
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              left="61.8%"
+              top="81%"
+              onClick={handleCardOrImageClick}
+            />
+          </>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {showPelingdanceImgs && (
+          <>
+            <div className={styles.PelingDanceVideo}>
+              {/* Main Video with Fade Effect */}
+              <motion.video
+                className={styles.videoFrame}
+                autoPlay
+                muted
+                loop
+                initial={{ opacity: 0 }} // Initial opacity
+                animate={{ opacity: 1 }} // Final opacity
+                transition={{ duration: 0.5, delay: 2 }} // Fade duration
+                exit={{ opacity: 0, transition: { duration: 2 } }}
+              >
+                <source src={video1} type="video/mp4" />
+                Your browser does not support the video tag.
+              </motion.video>
+
+              {/* Container for additional videos */}
+              <div style={{ display: "flex" }}>
+                {/* First Additional Video with Fade Effect */}
+                <motion.div
+                  className={styles.PelingDanceVideo1}
+                  initial={{ opacity: 0 }} // Initial opacity
+                  animate={{ opacity: 1 }} // Final opacity
+                  transition={{ duration: 0.5, delay: 2 }} // Fade duration with delay
+                  exit={{ opacity: 0, transition: { duration: 2 } }}
+                >
+                  <video className={styles.videoFrame2} autoPlay muted loop>
+                    <source src={video1} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </motion.div>
+
+                {/* Second Additional Video with Fade Effect */}
+                <motion.div
+                  className={styles.PelingDanceVideo2}
+                  initial={{ opacity: 0 }} // Initial opacity
+                  animate={{ opacity: 1 }} // Final opacity
+                  transition={{ duration: 0.5, delay: 2.2 }} // Fade duration with delay
+                  exit={{ opacity: 0, transition: { duration: 2 } }}
+                >
+                  <video className={styles.videoFrame3} autoPlay muted loop>
+                    <source src={video1} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </motion.div>
+              </div>
+            </div>
             <motion.div
-              className={styles.SmallPeilingCardHeader}
-              initial={{ opacity: 0 }} // Initial opacity for header
-              animate={{ opacity: 1 }} // Final opacity for header
-              transition={{ duration: 0.5, delay: 1.5 }} // Fade duration for header
+              className={styles.SmallMonstriesCard}
+              onClick={handleOpenPeleingCard}
+              initial={{ opacity: 0 }} // Initial opacity
+              animate={{ opacity: 1 }} // Final opacity
+              transition={{ duration: 0.5, delay: 2.5 }} // Fade duration for the card
+              exit={{ opacity: 0, transition: { duration: 2.4 } }}
             >
-              {PEMA_LINGPA_INFORMATION[language].monastriesAndTemples.title}
+              <motion.div
+                className={styles.SmallPeilingCardHeader}
+                initial={{ opacity: 0 }} // Initial opacity for header
+                animate={{ opacity: 1 }} // Final opacity for header
+                transition={{ duration: 0.5, delay: 2.8 }} // Fade duration for header
+                exit={{ opacity: 0, transition: { duration: 2.5 } }}
+              >
+                {PEMA_LINGPA_INFORMATION[language].monastriesAndTemples.title}
+              </motion.div>
+              <motion.div
+                className={styles.SmallPeilingCardTitle}
+                initial={{ opacity: 0 }} // Initial opacity for title
+                animate={{ opacity: 1 }} // Final opacity for title
+                transition={{ duration: 0.5, delay: 3 }} // Fade duration for title
+                exit={{ opacity: 0, transition: { duration: 2.8 } }}
+              >
+                {PEMA_LINGPA_INFORMATION[language].monastriesAndTemples.header}
+              </motion.div>
             </motion.div>
-            <motion.div
-              className={styles.SmallPeilingCardTitle}
-              initial={{ opacity: 0 }} // Initial opacity for title
-              animate={{ opacity: 1 }} // Final opacity for title
-              transition={{ duration: 0.5, delay: 1.7 }} // Fade duration for title
-            >
-              {PEMA_LINGPA_INFORMATION[language].monastriesAndTemples.header}
-            </motion.div>
-          </motion.div>
-          <LanguageIcon
-            language={language}
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            left="63.4%"
-            top="96%"
-            whiteImage={true}
-          />
-          <HomeIcon
-            showIcons={showIcons}
-            left="62.8%"
-            top="92.1%"
-            height="70px"
-            width="80px"
-            margin="25px"
-            onClick={handleHomeClick}
-            whiteImage={true}
-          />
-          <PreviousIcon
-            onClick={handlePreviousClick}
-            showIcons={showIcons}
-            left="62.8%"
-            top="88.2%"
-            height="100px"
-            marginTop="40px"
-          />
-          <CloseIcon
-            showIcons={showIcons}
-            left="62.8%"
-            top="84.3%"
-            onClick={handleCardOrImageClick}
-          />
-        </>
-      )}
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              left="63.4%"
+              top="96%"
+              whiteImage={true}
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              left="62.8%"
+              top="92.1%"
+              height="70px"
+              width="80px"
+              margin="25px"
+              onClick={handleHomeClick}
+              whiteImage={true}
+            />
+            <PreviousIcon
+              onClick={handlePreviousClick}
+              showIcons={showIcons}
+              left="62.8%"
+              top="88.2%"
+              height="100px"
+              marginTop="40px"
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              left="62.8%"
+              top="84.3%"
+              onClick={handleCardOrImageClick}
+            />
+          </>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

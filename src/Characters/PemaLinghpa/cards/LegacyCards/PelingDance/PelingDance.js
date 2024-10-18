@@ -42,6 +42,8 @@ const PelingDance = ({ showIntro, language, onPelingVideoClick }) => {
                 initial={{ opacity: 0 }} // Initial opacity
                 animate={{ opacity: 1 }} // Final opacity
                 transition={{ duration: 0.5, delay: 3.5 }} // Staggered fade-in effect
+                exit={{ opacity: 0, transition: { duration: 2 } }}
+
               >
                 <video className={styles.videoFrame} autoPlay muted loop>
                   <source src={videoSrc} type="video/mp4" />

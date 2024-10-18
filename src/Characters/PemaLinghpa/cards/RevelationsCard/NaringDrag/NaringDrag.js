@@ -47,8 +47,9 @@ const NaringDrag = ({ showIntro, language, onNaringDragBookImgClick }) => {
             onClick={onNaringDragBookImgClick}
             initial={{ opacity: 0 }} // Start invisible
             animate={{ opacity: 1 }} // Fade in
-            exit={{ opacity: 0 }} // Fade out when removed
-            transition={{ duration: 0.5, delay: 3 }} // Duration of fade effect
+            transition={{ duration: 0.5, delay: 3 }} 
+            exit={{ opacity: 0, transition: { duration: 2 } }}
+
           >
             <div className={styles.book}>
               <div className={styles.frontCover}>

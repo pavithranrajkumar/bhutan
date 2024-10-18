@@ -43,6 +43,7 @@ const Monastries = ({ showIntro, language, onMonasteriesImgClick }) => {
               initial={{ opacity: 0 }} // Initial state
               animate={{ opacity: 1 }} // Animation state
               transition={{ duration: 5.5, delay: 1 }}
+              exit={{ opacity: 0, transition: { duration: 2 } }}
             />
           </div>
         </>

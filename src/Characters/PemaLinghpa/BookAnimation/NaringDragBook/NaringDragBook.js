@@ -29,8 +29,9 @@ const NaringDragBook = ({ language, onBurningLakeAnimationCardClick }) => {
     <motion.div
       initial={{ opacity: 0 }} // Start invisible
       animate={{ opacity: 1 }} // Fade in
-      exit={{ opacity: 0 }} // Fade out when removed
-      transition={{ duration: 0.5, delay: 0.5 }} // Duration of fade effect
+      transition={{ duration: 0.5, delay: 1.5 }} // Duration of fade effect
+      exit={{ opacity: 0, transition: { duration: 0.5 } }}
+
     >
       <div
         className={`${styles.flipbookContainer} ${

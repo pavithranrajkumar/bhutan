@@ -58,7 +58,7 @@ const LegacyCards = ({
             className={styles.cardsContainer}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
+            exit={{ opacity: 0, transition: { duration: 2 } }}
             transition={{ duration: 0.5 }}
             style={{ gap: "10px" }}
           >
@@ -70,7 +70,7 @@ const LegacyCards = ({
               }}
               transition={{ duration: 1.5, ease: "easeOut" }}
             />
-            
+
             {/* Monasteries Card */}
             <motion.div
               className={styles.MonasteriesCard}
@@ -81,7 +81,7 @@ const LegacyCards = ({
                 opacity: cardAnimationStart ? 1 : 0,
                 originX: 1,
               }}
-              exit={{ scaleX: 0, opacity: 0 }}
+              exit={{ opacity: 0, transition: { duration: 2 } }}
               transition={{
                 duration: 1.5,
                 ease: "easeOut",
@@ -97,7 +97,7 @@ const LegacyCards = ({
                   x: cardAnimationStart ? 0 : 20, // Move to original position
                   opacity: cardAnimationStart ? 1 : 0,
                 }}
-                exit={{ x: 20, opacity: 0 }} // Exit back to the right
+                exit={{ opacity: 0, transition: { duration: 2 } }}
                 transition={{
                   duration: 0.5,
                   ease: "easeOut",
@@ -114,7 +114,7 @@ const LegacyCards = ({
                   x: cardAnimationStart ? 0 : 20, // Move to original position
                   opacity: cardAnimationStart ? 1 : 0,
                 }}
-                exit={{ x: 20, opacity: 0 }} // Exit back to the right
+                exit={{ opacity: 0, transition: { duration: 2 } }}
                 transition={{
                   duration: 0.5,
                   ease: "easeOut",
@@ -135,7 +135,7 @@ const LegacyCards = ({
                 opacity: cardAnimationStart ? 1 : 0,
                 originX: 0,
               }}
-              exit={{ scaleX: 0, opacity: 0 }}
+              exit={{ opacity: 0, transition: { duration: 2 } }}
               transition={{
                 duration: 1.5,
                 ease: "easeOut",
@@ -151,7 +151,7 @@ const LegacyCards = ({
                   x: cardAnimationStart ? 0 : 20, // Move to original position
                   opacity: cardAnimationStart ? 1 : 0,
                 }}
-                exit={{ x: 20, opacity: 0 }} // Exit back to the right
+                exit={{ opacity: 0, transition: { duration: 2 } }}
                 transition={{
                   duration: 0.5,
                   ease: "easeOut",
@@ -168,7 +168,7 @@ const LegacyCards = ({
                   x: cardAnimationStart ? 0 : 20, // Move to original position
                   opacity: cardAnimationStart ? 1 : 0,
                 }}
-                exit={{ x: 20, opacity: 0 }} // Exit back to the right
+                exit={{ opacity: 0, transition: { duration: 2 } }}
                 transition={{
                   duration: 0.5,
                   ease: "easeOut",
@@ -188,7 +188,7 @@ const LegacyCards = ({
               x: cardAnimationStart ? 0 : 50, // Only animate when cardAnimationStart is true
               opacity: cardAnimationStart ? 1 : 0,
             }} // Move to original position
-            exit={{ x: 50, opacity: 0 }} // Exit back to the right
+            exit={{ opacity: 0, transition: { duration: 2 } }}
             transition={{
               duration: 1.5,
               ease: "easeOut",
@@ -207,11 +207,11 @@ const LegacyCards = ({
               x: cardAnimationStart ? 0 : -50, // Only animate when cardAnimationStart is true
               opacity: cardAnimationStart ? 1 : 0,
             }} // Move to original position
-            exit={{ x: -50, opacity: 0 }} // Exit back to the left
+            exit={{ opacity: 0, transition: { duration: 2 } }}
             transition={{
               duration: 1.5,
               ease: "easeOut",
-              delay: cardAnimationStart ? 5: 0, // Delay for NaringDrag
+              delay: cardAnimationStart ? 5 : 0, // Delay for NaringDrag
             }}
           >
             <div onClick={onPelingDanceCardClick}>
