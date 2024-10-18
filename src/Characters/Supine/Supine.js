@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Supine.module.css";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import supine from "../../assests/Supine/SupineDemoness.png";
 import YearText from "../../components/YearText/YearText";
 import NameCard from "../../components/NameCard/NameCard";
@@ -300,438 +300,456 @@ const Supine = () => {
         </div>
       </motion.div>
 
-      {showIntroduction && (
-        <>
-          <div className={styles.SupineIntroduction}>
-            <Introduction language={language} showIntro={showIntroduction} />
-          </div>
-          <NextIcon
-            showIcons={showIcons}
-            whiteImage={true}
-            left="17.5%"
-            top="86%"
-            onClick={showSupineCards}
-            background="#2B455D"
-          />
-          <LanguageIcon
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            whiteImage={true}
-            language={language}
-            left="5.4%"
-            top="77.8%"
-            iconWidth="25px"
-            IconHeight="25px"
-            height="50px"
-            width="55px"
-            margin="13px"
-          />
-          <CloseIcon
-            showIcons={showIcons}
-            left="4.8%"
-            top="73.8%"
-            onClick={handleCardOrImageClick}
-          />
-        </>
-      )}
-
-      {showCards && (
-        <div>
-          <SupineCards
-            isFadingOut={isFadingOut}
-            language={language}
-            onCardClick={handleReligiousCardClick}
-          />
-          <LanguageIcon
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            language={language}
-            background="#3A3C25"
-            left="15.7%"
-            top="82.7%"
-          />
-          <CloseIcon
-            showIcons={showIcons}
-            left="17.3%"
-            top="81.4%"
-            background="#3A3C25"
-            onClick={handleCardOrImageClick}
-          />
-        </div>
-      )}
-
-      {showReligiousCard && (
-        <>
-          <div className={styles.ReligiousCard}>
-            <ReligiousCard
-              language={language}
-              showIntro={true}
-              onHimalayanClick={handleHimalayanClick}
-              onBhutanClick={handleBhutanClick}
-            />
-          </div>
-          <LanguageIcon
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            supine={true}
-            language={language}
-            background="#3A3C25"
-            left="5%"
-            top="83.7%"
-          />
-          <HomeIcon
-            showIcons={showIcons}
-            supine={true}
-            background="#555835"
-            left="4.4%"
-            top="79.5%"
-            onClick={handleHomeClick}
-          />
-          <CloseIcon
-            showIcons={showIcons}
-            background="#555835"
-            left="4.4%"
-            top="71.5%"
-            onClick={handleCardOrImageClick}
-          />
-             <PreviousIcon
-            onClick={handlePreviousClick}
-            showIcons={showIcons}
-            background="#555835"
-            left="4.4%"
-            top="75.5%"
-            height="80px"
-            marginTop="28px"
-          />
-        </>
-      )}
-
-      {showHimalayanCard && (
-        <>
-          <div className={styles.Puzzle}>
-            <Puzzle
-              onComplete={handlePuzzleComplete}
-              resetPuzzleCard={resetPuzzle}
-            />
-          </div>
-          <div className={styles.HimalayanCard}>
-            <HimalayanCard
-              language={language}
-              showIntro={true}
-              puzzleCompleted={puzzleCompleted}
-              resetPuzzleCard={resetPuzzle}
-            />
-          </div>
-          <LanguageIcon
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            whiteImage={true}
-            language={language}
-            left="1.2%"
-            top="91.5%"
-          />
-          <PreviousIcon
-            onClick={handlePreviousClick}
-            showIcons={showIcons}
-            left="0.5%"
-            top="87.5%"
-            height="80px"
-            marginTop="28px"
-          />
-          <CloseIcon
-            showIcons={showIcons}
-            left="0.5%"
-            top="83.5%"
-            onClick={handleCardOrImageClick}
-          />
-        </>
-      )}
-
-      {showBhutanCard && (
-        <>
-          <div className={styles.BhutanCard}>
-            <BhutanCard
-              showIntro={true}
-              language={language}
-              onJamBayClick={handleJamBayClick}
-              onKyichuClick={handleKyichuClick}
+      <AnimatePresence>
+        {showIntroduction && (
+          <>
+            <div className={styles.SupineIntroduction}>
+              <Introduction language={language} showIntro={showIntroduction} />
+            </div>
+            <NextIcon
+              showIcons={showIcons}
+              whiteImage={true}
+              left="17.5%"
+              top="86%"
+              onClick={showSupineCards}
+              background="#2B455D"
             />
             <LanguageIcon
               onClick={toggleLanguage}
               showIcons={showIcons}
               whiteImage={true}
               language={language}
+              left="5.4%"
+              top="77.8%"
               iconWidth="25px"
               IconHeight="25px"
-              height="48px"
-              width="50px"
+              height="50px"
+              width="55px"
               margin="13px"
-              left="5.4%"
-              top="84%"
             />
-            <PreviousIcon
-              onClick={handlePreviousClick}
+            <CloseIcon
               showIcons={showIcons}
-              left="4.7%"
-              top="76.1%"
-              height="80px"
-              marginTop="28px"
+              left="4.8%"
+              top="73.8%"
+              onClick={handleCardOrImageClick}
+            />
+          </>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showCards && (
+          <div>
+            <SupineCards
+              showCards={true}
+              language={language}
+              onCardClick={handleReligiousCardClick}
+            />
+            <LanguageIcon
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              language={language}
+              background="#3A3C25"
+              left="15.7%"
+              top="82.7%"
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              left="17.3%"
+              top="81.4%"
+              background="#3A3C25"
+              onClick={handleCardOrImageClick}
+            />
+          </div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showReligiousCard && (
+          <>
+            <div className={styles.ReligiousCard}>
+              <ReligiousCard
+                language={language}
+                showIntro={true}
+                onHimalayanClick={handleHimalayanClick}
+                onBhutanClick={handleBhutanClick}
+              />
+            </div>
+            <LanguageIcon
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              supine={true}
+              language={language}
+              background="#3A3C25"
+              left="5%"
+              top="83.7%"
             />
             <HomeIcon
               showIcons={showIcons}
-              whiteImage={true}
-              left="4.7%"
-              top="80%"
-              height="70px"
-              width="80px"
-              margin="25px"
+              supine={true}
+              background="#555835"
+              left="4.4%"
+              top="79.5%"
               onClick={handleHomeClick}
             />
             <CloseIcon
               showIcons={showIcons}
-              left="4.7%"
-              top="72%"
+              background="#555835"
+              left="4.4%"
+              top="71.5%"
               onClick={handleCardOrImageClick}
             />
-          </div>
-        </>
-      )}
-
-      {selectedCard === "jamBay" && (
-        <>
-          <div className={styles.JamBayCard}>
-            <JamBayCard
-              showIntro={true}
-              language={language}
-              onJamBayCardImageClick={handleJamBayImageClick}
+            <PreviousIcon
+              onClick={handlePreviousClick}
+              showIcons={showIcons}
+              background="#555835"
+              left="4.4%"
+              top="75.5%"
+              height="80px"
+              marginTop="28px"
             />
-          </div>
-          <LanguageIcon
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            supine={true}
-            language={language}
-            background="#3A3C25"
-            iconWidth="25px"
-            IconHeight="25px"
-            left="2.8%"
-            top="82%"
-            height="55px"
-          />
-          <PreviousIcon
-            onClick={handlePreviousClick}
-            showIcons={showIcons}
-            color="#D9D9D9"
-            left="2.2%"
-            top="74%"
-            height="80px"
-            background="#555835"
-            marginTop="28px"
-          />
-          <HomeIcon
-            showIcons={showIcons}
-            supine={true}
-            left="2.2%"
-            top="78%"
-            height="70px"
-            width="80px"
-            margin="25px"
-            background="#555835"
-            onClick={handleHomeClick}
-          />
-          <CloseIcon
-            showIcons={showIcons}
-            left="2.2%"
-            top="70%"
-            background="#555835"
-            onClick={handleCardOrImageClick}
-          />
-        </>
-      )}
+          </>
+        )}
+      </AnimatePresence>
 
-      {showJamBayImages && (
-        <>
-          <div className={styles.JamBayImages}>
-            <div className={`${styles.palaceImg1} ${styles.animatedImg}`}>
-              <img src={JambayImg1} alt="palaceImg1" />
+      <AnimatePresence>
+        {showHimalayanCard && (
+          <>
+            <div className={styles.Puzzle}>
+              <Puzzle
+                onComplete={handlePuzzleComplete}
+                resetPuzzleCard={resetPuzzle}
+              />
             </div>
-            <div className={`${styles.palaceImg2} ${styles.animatedImg}`}>
-              <img src={JambayImg2} alt="palaceImg2" />
+            <div className={styles.HimalayanCard}>
+              <HimalayanCard
+                language={language}
+                showIntro={true}
+                puzzleCompleted={puzzleCompleted}
+                resetPuzzleCard={resetPuzzle}
+              />
             </div>
-          </div>
-          <div
-            className={`${styles.JamBayImagesCard} ${styles.animatedCard}`}
-            onClick={handleJamBayImagesCardClick}
-          >
-            <p style={{ fontSize: kyichuFontSize }}>
-              {SUPINE_INFORMATION[language].kyichu.title}
-            </p>
-          </div>
-          <LanguageIcon
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            supine={true}
-            language={language}
-            background="#3A3C25"
-            iconWidth="25px"
-            IconHeight="25px"
-            left="7.2%"
-            top="83%"
-            height="55px"
-            className={styles.animatedIcon}
-          />
-          <PreviousIcon
-            onClick={handlePreviousClick}
-            showIcons={showIcons}
-            color="#D9D9D9"
-            left="6.6%"
-            top="75%"
-            height="80px"
-            background="#555835"
-            marginTop="28px"
-            className={styles.animatedIcon}
-          />
-          <HomeIcon
-            showIcons={showIcons}
-            supine={true}
-            left="6.6%"
-            top="79.1%"
-            height="70px"
-            width="80px"
-            margin="25px"
-            background="#555835"
-            onClick={handleHomeClick}
-            className={styles.animatedIcon}
-          />
-          <CloseIcon
-            showIcons={showIcons}
-            left="6.6%"
-            top="71%"
-            background="#555835"
-            onClick={handleCardOrImageClick}
-          />
-        </>
-      )}
-
-      {selectedCard === "kyichu" && (
-        <>
-          <div className={styles.KyichuCard}>
-            <KyichuCard
-              showIntro={true}
+            <LanguageIcon
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              whiteImage={true}
               language={language}
-              onKyichuCardImageClick={handleKyichuImageClick}
+              left="1.2%"
+              top="91.5%"
             />
-          </div>
-          <LanguageIcon
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            supine={true}
-            language={language}
-            background="#3A3C25"
-            iconWidth="25px"
-            IconHeight="25px"
-            left="2.8%"
-            top="84.5%"
-            height="55px"
-          />
-          <PreviousIcon
-            onClick={handlePreviousClick}
-            showIcons={showIcons}
-            color="#D9D9D9"
-            left="2.2%"
-            top="76.5%"
-            height="80px"
-            background="#555835"
-            marginTop="28px"
-          />
-          <HomeIcon
-            showIcons={showIcons}
-            supine={true}
-            left="2.2%"
-            top="80.5%"
-            height="70px"
-            width="80px"
-            margin="25px"
-            background="#555835"
-            onClick={handleHomeClick}
-          />
-          <CloseIcon
-            showIcons={showIcons}
-            left="2.2%"
-            top="72.6%"
-            background="#555835"
-            onClick={handleCardOrImageClick}
-          />
-        </>
-      )}
+            <PreviousIcon
+              onClick={handlePreviousClick}
+              showIcons={showIcons}
+              left="0.5%"
+              top="87.5%"
+              height="80px"
+              marginTop="28px"
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              left="0.5%"
+              top="83.5%"
+              onClick={handleCardOrImageClick}
+            />
+          </>
+        )}
+      </AnimatePresence>
 
-      {showKyichuImages && (
-        <>
-          <div className={styles.JamBayImages}>
-            <div className={`${styles.KyichuImg1} ${styles.animatedImg}`}>
-              <img src={KyichuImg1} alt="palaceImg1" />
+      <AnimatePresence>
+        {showBhutanCard && (
+          <>
+            <div className={styles.BhutanCard}>
+              <BhutanCard
+                showIntro={true}
+                language={language}
+                onJamBayClick={handleJamBayClick}
+                onKyichuClick={handleKyichuClick}
+              />
+              <LanguageIcon
+                onClick={toggleLanguage}
+                showIcons={showIcons}
+                whiteImage={true}
+                language={language}
+                iconWidth="25px"
+                IconHeight="25px"
+                height="48px"
+                width="50px"
+                margin="13px"
+                left="5.4%"
+                top="84%"
+              />
+              <PreviousIcon
+                onClick={handlePreviousClick}
+                showIcons={showIcons}
+                left="4.7%"
+                top="76.1%"
+                height="80px"
+                marginTop="28px"
+              />
+              <HomeIcon
+                showIcons={showIcons}
+                whiteImage={true}
+                left="4.7%"
+                top="80%"
+                height="70px"
+                width="80px"
+                margin="25px"
+                onClick={handleHomeClick}
+              />
+              <CloseIcon
+                showIcons={showIcons}
+                left="4.7%"
+                top="72%"
+                onClick={handleCardOrImageClick}
+              />
             </div>
-            <div className={`${styles.KyichuImg2} ${styles.animatedImg}`}>
-              <img src={KyichuImg2} alt="palaceImg2" />
+          </>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {selectedCard === "jamBay" && (
+          <>
+            <div className={styles.JamBayCard}>
+              <JamBayCard
+                showIntro={true}
+                language={language}
+                onJamBayCardImageClick={handleJamBayImageClick}
+              />
             </div>
-          </div>
-          <div
-            className={`${styles.KyichuImagesCard} ${styles.animatedCard}`}
-            onClick={handleKyichuImagesCardClick}
-          >
-            <p
-              style={{
-                fontSize: kyichuFontSize,
-              }}
+            <LanguageIcon
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              supine={true}
+              language={language}
+              background="#3A3C25"
+              iconWidth="25px"
+              IconHeight="25px"
+              left="2.8%"
+              top="82%"
+              height="55px"
+            />
+            <PreviousIcon
+              onClick={handlePreviousClick}
+              showIcons={showIcons}
+              color="#D9D9D9"
+              left="2.2%"
+              top="74%"
+              height="80px"
+              background="#555835"
+              marginTop="28px"
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              supine={true}
+              left="2.2%"
+              top="78%"
+              height="70px"
+              width="80px"
+              margin="25px"
+              background="#555835"
+              onClick={handleHomeClick}
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              left="2.2%"
+              top="70%"
+              background="#555835"
+              onClick={handleCardOrImageClick}
+            />
+          </>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showJamBayImages && (
+          <>
+            <div className={styles.JamBayImages}>
+              <div className={`${styles.palaceImg1} ${styles.animatedImg}`}>
+                <img src={JambayImg1} alt="palaceImg1" />
+              </div>
+              <div className={`${styles.palaceImg2} ${styles.animatedImg}`}>
+                <img src={JambayImg2} alt="palaceImg2" />
+              </div>
+            </div>
+            <div
+              className={`${styles.JamBayImagesCard} ${styles.animatedCard}`}
+              onClick={handleJamBayImagesCardClick}
             >
-              <p>{SUPINE_INFORMATION[language].jambay.title}</p>
-            </p>
-          </div>
-          <LanguageIcon
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            supine={true}
-            language={language}
-            background="#3A3C25"
-            iconWidth="25px"
-            IconHeight="25px"
-            left="7.2%"
-            top="83%"
-            height="55px"
-            className={styles.animatedIcon}
-          />
-          <PreviousIcon
-            onClick={handlePreviousClick}
-            showIcons={showIcons}
-            color="#D9D9D9"
-            left="6.6%"
-            top="75%"
-            height="80px"
-            background="#555835"
-            marginTop="28px"
-            className={styles.animatedIcon}
-          />
-          <HomeIcon
-            showIcons={showIcons}
-            supine={true}
-            left="6.6%"
-            top="79.1%"
-            height="70px"
-            width="80px"
-            margin="25px"
-            background="#555835"
-            onClick={handleHomeClick}
-            className={styles.animatedIcon}
-          />
-          <CloseIcon
-            showIcons={showIcons}
-            left="6.6%"
-            top="71%"
-            background="#555835"
-            onClick={handleCardOrImageClick}
-          />
-        </>
-      )}
+              <p style={{ fontSize: kyichuFontSize }}>
+                {SUPINE_INFORMATION[language].kyichu.title}
+              </p>
+            </div>
+            <LanguageIcon
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              supine={true}
+              language={language}
+              background="#3A3C25"
+              iconWidth="25px"
+              IconHeight="25px"
+              left="7.2%"
+              top="83%"
+              height="55px"
+              className={styles.animatedIcon}
+            />
+            <PreviousIcon
+              onClick={handlePreviousClick}
+              showIcons={showIcons}
+              color="#D9D9D9"
+              left="6.6%"
+              top="75%"
+              height="80px"
+              background="#555835"
+              marginTop="28px"
+              className={styles.animatedIcon}
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              supine={true}
+              left="6.6%"
+              top="79.1%"
+              height="70px"
+              width="80px"
+              margin="25px"
+              background="#555835"
+              onClick={handleHomeClick}
+              className={styles.animatedIcon}
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              left="6.6%"
+              top="71%"
+              background="#555835"
+              onClick={handleCardOrImageClick}
+            />
+          </>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {selectedCard === "kyichu" && (
+          <>
+            <div className={styles.KyichuCard}>
+              <KyichuCard
+                showIntro={true}
+                language={language}
+                onKyichuCardImageClick={handleKyichuImageClick}
+              />
+            </div>
+            <LanguageIcon
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              supine={true}
+              language={language}
+              background="#3A3C25"
+              iconWidth="25px"
+              IconHeight="25px"
+              left="2.8%"
+              top="84.5%"
+              height="55px"
+            />
+            <PreviousIcon
+              onClick={handlePreviousClick}
+              showIcons={showIcons}
+              color="#D9D9D9"
+              left="2.2%"
+              top="76.5%"
+              height="80px"
+              background="#555835"
+              marginTop="28px"
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              supine={true}
+              left="2.2%"
+              top="80.5%"
+              height="70px"
+              width="80px"
+              margin="25px"
+              background="#555835"
+              onClick={handleHomeClick}
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              left="2.2%"
+              top="72.6%"
+              background="#555835"
+              onClick={handleCardOrImageClick}
+            />
+          </>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showKyichuImages && (
+          <>
+            <div className={styles.JamBayImages}>
+              <div className={`${styles.KyichuImg1} ${styles.animatedImg}`}>
+                <img src={KyichuImg1} alt="palaceImg1" />
+              </div>
+              <div className={`${styles.KyichuImg2} ${styles.animatedImg}`}>
+                <img src={KyichuImg2} alt="palaceImg2" />
+              </div>
+            </div>
+            <div
+              className={`${styles.KyichuImagesCard} ${styles.animatedCard}`}
+              onClick={handleKyichuImagesCardClick}
+            >
+              <p
+                style={{
+                  fontSize: kyichuFontSize,
+                }}
+              >
+                <p>{SUPINE_INFORMATION[language].jambay.title}</p>
+              </p>
+            </div>
+            <LanguageIcon
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              supine={true}
+              language={language}
+              background="#3A3C25"
+              iconWidth="25px"
+              IconHeight="25px"
+              left="7.2%"
+              top="83%"
+              height="55px"
+              className={styles.animatedIcon}
+            />
+            <PreviousIcon
+              onClick={handlePreviousClick}
+              showIcons={showIcons}
+              color="#D9D9D9"
+              left="6.6%"
+              top="75%"
+              height="80px"
+              background="#555835"
+              marginTop="28px"
+              className={styles.animatedIcon}
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              supine={true}
+              left="6.6%"
+              top="79.1%"
+              height="70px"
+              width="80px"
+              margin="25px"
+              background="#555835"
+              onClick={handleHomeClick}
+              className={styles.animatedIcon}
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              left="6.6%"
+              top="71%"
+              background="#555835"
+              onClick={handleCardOrImageClick}
+            />
+          </>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 };

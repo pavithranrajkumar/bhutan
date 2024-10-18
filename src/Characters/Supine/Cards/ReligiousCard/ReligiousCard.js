@@ -35,7 +35,9 @@ const ReligiousCard = ({
             className={styles.ReligiousImg}
             initial={{ opacity: 0, scale: 0.8 }} // Initial state
             animate={{ opacity: 1, scale: 1 }} // Animate to this state
-            transition={{ duration: 1.5 }} // Transition settings
+            transition={{ duration: 1.5 , delay:3}}
+            exit={{ opacity: 0, transition: { duration: 2.8 } }}
+            // Transition settings
           >
             <div className={styles.ReligiousImg}>
               <img src={Religious} alt="religious" />
@@ -44,9 +46,10 @@ const ReligiousCard = ({
 
           <motion.div
             className={styles.ReligiousCard}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5 }}
+            initial={{ opacity: 0 }} // Initial opacity for title
+            animate={{ opacity: 1 }} // Final opacity for title
+            transition={{ duration: 0.5, delay: 4 }} // Fade duration for title
+            exit={{ opacity: 0, transition: { duration: 2.8 } }}
           >
             <div className={styles.ReligiousCard}>
               <div className={styles.HimalayanCard} onClick={onHimalayanClick}>
