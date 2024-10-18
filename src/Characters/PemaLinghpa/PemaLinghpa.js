@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, delay } from "framer-motion";
 import styles from "./PemaLinghpa.module.css";
 import CloseIcon from "../../components/Card/Icons/CloseIcon/CloseIcon";
 import NameCard from "../../components/NameCard/NameCard";
@@ -262,6 +262,24 @@ const PemaLinghpa = () => {
     showPelingDanceCard ||
     showPelingdanceImgs;
 
+
+  const textVariants = {
+    hidden: { opacity: 0, y: -20 }, // Start hidden and above
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.42, 0, 0.58, 1], // Smooth easing
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: -20, // Move up when exiting
+      transition: { duration: 0.5, ease: "easeIn" },
+    },
+  };
+
   return (
     <div className={styles.pemaContainer}>
       <AnimatePresence>
@@ -292,14 +310,26 @@ const PemaLinghpa = () => {
       >
         <NameCard
           cardName={
-            showYear
-              ? PEMA_LINGPA_INFORMATION[language].nameCardtitle
-              : PEMA_LINGPA_INFORMATION[language].nameCardtitle
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={textVariants}
+              style={{ fontSize: cardNameFontSize }}
+            >
+              {PEMA_LINGPA_INFORMATION[language].nameCardtitle}
+            </motion.div>
           }
           subCardname={
-            showYear
-              ? PEMA_LINGPA_INFORMATION[language].nameCardtitleTwo
-              : PEMA_LINGPA_INFORMATION[language].nameCardtitleTwo
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={textVariants}
+              style={{ fontSize: subCardnameFontSize }}
+            >
+              {PEMA_LINGPA_INFORMATION[language].nameCardtitleTwo}
+            </motion.div>
           }
           width="310px"
           height="100px"
@@ -429,7 +459,7 @@ const PemaLinghpa = () => {
                 height="70px"
                 width="80px"
                 margin="25px"
-                background="#3A1701"
+                background="#6A1F11"
                 color="#FFD9BC"
                 onClick={handleNextIcon}
               />

@@ -15,7 +15,7 @@ const PoliticalCard = ({ showIntro, onTravelerClick, language }) => {
         <>
           <BigCard
             width="325px"
-            height="293px"
+            height="315px"
             titleFontSize={titleFontSize}
             cardFontSize={fonstSize}
             borderBottom="1px solid #6A1F11"

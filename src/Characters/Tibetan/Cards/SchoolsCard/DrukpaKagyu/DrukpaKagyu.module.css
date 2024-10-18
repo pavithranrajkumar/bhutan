@@ -3,29 +3,6 @@
   width: 450px;
   height: 500px;
   top: 70.6%;
-  left: 49.5%;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  opacity: 0;
-  transform: translateY(20px);
+  left: 49.9%;
 }
 
-.DrukpaKagyuImgCard:hover {
-  transform: scale(1.05);
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.DrukpaKagyuImgCard.fadeIn {
-  opacity: 1;
-  transform: translateY(0);
-  animation: fadeInUp 0.5s ease forwards;
-}

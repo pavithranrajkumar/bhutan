@@ -21,11 +21,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("/src/assests/BgImgs/CardBgImg.png"); /* Background image */
+  background-image: url("/src/assests/BgImgs/BgImgDeSaturated.png"); /* Background image */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.15; /* Background image opacity */
+  opacity: 0.25; /* Background image opacity */
   z-index: 0; /* Ensure background stays behind content */
   pointer-events: none; /* Prevent interaction with the background */
 }

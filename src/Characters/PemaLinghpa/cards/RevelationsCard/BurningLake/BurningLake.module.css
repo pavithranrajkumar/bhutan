@@ -1,7 +1,8 @@
 .burningLakeBookImg {
   position: fixed;
   left: 74%;
-  top: 83.3%;  perspective: 1000px; /* Enable 3D perspective */
+  top: 83.3%;
+  perspective: 1000px; /* Enable 3D perspective */
 }
 
 /* Fade-out effect class */
@@ -42,16 +43,21 @@
   }
 } */
 
-/* Shining effect overlay */
 .shine {
   content: "";
   position: absolute;
   top: 0;
-  left: -50%; /* Start off-screen */
-  width: 100%; /* Make it wide enough to cover the entire cover */
+  left: -100%; /* Start off-screen to the left */
+  width: 8%; /* Make it wide enough to cover the entire cover */
   height: 90%;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3)); /* Gradient for shine */
-  animation: shine 5s infinite; /* Continuous shine animation */
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.3)
+  ); /* Gradient for shine */
+  animation: shine 5s linear infinite; /* Continuous shine animation */
   z-index: 1; /* Place above the book cover image */
 }
 
@@ -60,11 +66,13 @@
   0% {
     left: -100%; /* Start off-screen to the left */
   }
+  50% {
+    left: 100%; /* Move to the right edge */
+  }
   100% {
-    left: 85%; /* Move to the right edge */
+    left: -100%; /* Move back to the left */
   }
 }
-
 /* Styles for the book cover image */
 .frontCover img {
   border-radius: 10px; /* Slight rounding for a modern look */

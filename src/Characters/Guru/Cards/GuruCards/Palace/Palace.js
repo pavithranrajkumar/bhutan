@@ -4,19 +4,17 @@ import Card from "../../../../../components/Card/Card";
 import { GURU_INFORMATION } from "../../../../../constants/Characters/Guru";
 import PalaceImg from "../../../../../assests/Guru/Palace/PalaceImg.png";
 import { BHUTAN } from "../../../../../constants/languages/Language";
+import { motion } from "framer-motion"; // Import motion
 
 const Palace = ({ showIntro, onPalaceImgClick, language }) => {
-  const titleFontSize = language === BHUTAN ? "12px" : "20px";
-  const fonstSize = language === BHUTAN ? "8.5px" : "11.5px";
+
   return (
     <div>
       {showIntro && (
         <>
           <Card
-            width="300px"
-            height="223px"
-            titleFontSize={titleFontSize}
-            contentFontSize={fonstSize}
+            width="330px"
+            height="220px"
             borderBottom="0.5px solid #2B455D"
             color="#2B455D"
             backgroundColor="#C9D7EE"
@@ -26,7 +24,14 @@ const Palace = ({ showIntro, onPalaceImgClick, language }) => {
             showIntro={showIntro}
           />
           <div className={styles.PalaceImg} onClick={onPalaceImgClick}>
-            <img src={PalaceImg} alt="temple" />
+            <motion.img
+              src={PalaceImg}
+              alt="monastriesAndTemplesImg"
+              initial={{ opacity: 0 }} // Initial state
+              animate={{ opacity: 1 }} // Animation state
+              transition={{ duration: 5.5, delay: 1 }}
+              exit={{ opacity: 0, transition: { duration: 2 } }}
+            />
           </div>
         </>
       )}

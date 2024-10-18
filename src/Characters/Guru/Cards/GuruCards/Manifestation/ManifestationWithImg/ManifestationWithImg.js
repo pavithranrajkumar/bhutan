@@ -12,6 +12,7 @@ import Tshokey from "../../../../../../assests/Guru/Manifestation/EightManifesta
 import Gyalpo from "../../../../../../assests/Guru/Manifestation/EightManifestations/Manifestation=8M - Gyalpo.png";
 import Singye from "../../../../../../assests/Guru/Manifestation/EightManifestations/Manifestation=8M - Singye.png";
 import Loden from "../../../../../../assests/Guru/Manifestation/EightManifestations/Manifestation=8M - Loden.png";
+import { motion } from "framer-motion"; // Import motion
 
 const ManifestationWithImg = ({ onLakeBornClick, language }) => {
   const [selectedManifestation, setSelectedManifestation] = useState(null);
@@ -103,21 +104,26 @@ const ManifestationWithImg = ({ onLakeBornClick, language }) => {
   return (
     <div className={styles.manifestationGroupContainer}>
       <div
-        className={`${styles.manifestationGroupContainerImg} ${styles.fadeIn}`}
+        className={styles.manifestationGroupContainerImg}
+        onClick={handleImageClick}
       >
-        <img
+        <motion.img
           src={
             selectedManifestation ? selectedManifestation.img : manifestationImg
           }
-          alt=""
-          onClick={handleImageClick}
           className={styles.manifestationImg}
+          alt="monastriesAndTemplesImg"
+          initial={{ opacity: 0 }} // Initial state
+          animate={{ opacity: 1 }} // Animation state
+          transition={{ duration: 5.5, delay: 1 }}
+          exit={{ opacity: 0, transition: { duration: 2 } }}
         />
       </div>
+
       <div className={styles.manifestationFrstGroup}>
         {manifestationsData.slice(0, 4).map((manifestation, index) => (
           <WideCard
-          language={language}
+            language={language}
             key={index}
             FrstHeader={manifestation.FrstHeader}
             ScndHeader={manifestation.ScndHeader}
@@ -135,7 +141,7 @@ const ManifestationWithImg = ({ onLakeBornClick, language }) => {
       <div className={styles.manifestationScndGroup}>
         {manifestationsData.slice(4).map((manifestation, index) => (
           <WideCard
-          language={language}
+            language={language}
             key={index + 4}
             FrstHeader={manifestation.FrstHeader}
             ScndHeader={manifestation.ScndHeader}

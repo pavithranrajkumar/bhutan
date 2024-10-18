@@ -83,7 +83,7 @@ const ZhabrungCards = ({ language, onCardClick, showCards }) => {
                 opacity: cardAnimationStart ? 1 : 0,
               }}
               exit={{ scaleX: 0, opacity: 0, transition: { duration: 1 } }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 2.5 }}
             >
               <CardsContainerText fontSize={fontSize}>
               {ZHABRUNG_INFORMATION[language].driglamNamzhag.title}
@@ -125,7 +125,7 @@ const ZhabrungCards = ({ language, onCardClick, showCards }) => {
                 opacity: cardAnimationStart ? 1 : 0,
               }}
               exit={{ scaleX: 0, opacity: 0, transition: { duration: 0.5 } }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 1.5 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 2.5 }}
             >
               <CardsContainerText fontSize={fontSize}>
               {ZHABRUNG_INFORMATION[language].secrecyAtDeath.title}
@@ -167,7 +167,7 @@ const ZhabrungCards = ({ language, onCardClick, showCards }) => {
                 opacity: cardAnimationStart ? 1 : 0,
               }}
               exit={{ scaleX: 0, opacity: 0, transition: { duration: 0.5 } }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 2 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 2.5 }}
             >
               <CardsContainerText fontSize={fontSize}>
               {ZHABRUNG_INFORMATION[language].politicalInfluence.title}

@@ -43,16 +43,21 @@
   }
 } */
 
-/* Shining effect overlay */
 .shine {
   content: "";
   position: absolute;
   top: 0;
-  left: 100%; /* Start off-screen */
-  width: 100%; /* Make it wide enough to cover the entire cover */
+  left: -100%; /* Start off-screen to the left */
+  width: 8%; /* Make it wide enough to cover the entire cover */
   height: 90%;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3)); /* Gradient for shine */
-  animation: shine 3s infinite; /* Continuous shine animation */
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.3)
+  ); /* Gradient for shine */
+  animation: shine 5s linear infinite; /* Continuous shine animation */
   z-index: 1; /* Place above the book cover image */
 }
 
@@ -61,8 +66,11 @@
   0% {
     left: -100%; /* Start off-screen to the left */
   }
-  100% {
+  50% {
     left: 85%; /* Move to the right edge */
+  }
+  100% {
+    left: -100%; /* Move back to the left */
   }
 }
 
@@ -72,5 +80,3 @@
   position: relative; /* Position for layering */
   z-index: 0; /* Ensure the image is below the shine effect */
 }
-
-

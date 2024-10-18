@@ -4,6 +4,7 @@ import temple from "../../../../../../assests/Guru/Historic/Kurjetemple.png";
 import Card from "../../../../../../components/Card/Card";
 import { GURU_INFORMATION } from "../../../../../../constants/Characters/Guru";
 import { BHUTAN } from "../../../../../../constants/languages/Language";
+import { motion } from "framer-motion";
 
 const KurjeLhakhang = ({ showIntro, onKurjeTempleClick, language }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "25px";
@@ -14,7 +15,7 @@ const KurjeLhakhang = ({ showIntro, onKurjeTempleClick, language }) => {
         <>
           <Card
             width="250px"
-            height="280px"
+            height="320px"
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="0.5px solid #2B455D"
@@ -25,12 +26,15 @@ const KurjeLhakhang = ({ showIntro, onKurjeTempleClick, language }) => {
             language={language}
             showIntro={showIntro}
           />
-
-          <div
-            className={`${styles.KurjeTempleImg} ${styles.zoomIn}`}
-            onClick={onKurjeTempleClick}
-          >
-            <img src={temple} alt="temple" />
+          <div className={styles.KurjeTempleImg} onClick={onKurjeTempleClick}>
+            <motion.img
+              src={temple}
+              alt=""
+              initial={{ opacity: 0 }} // Initial state
+              animate={{ opacity: 1 }} // Animation state
+              transition={{ duration: 1.5, delay: 4.2 }}
+              exit={{ opacity: 0, transition: { duration: 2 } }}
+            />
           </div>
         </>
       )}

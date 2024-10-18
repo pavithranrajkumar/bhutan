@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Tibetan.module.css";
 import { useSwipeable } from "react-swipeable";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import tibetan from "../../assests/Tibetan/Migrants.png";
 import YearText from "../../components/YearText/YearText";
 import NameCard from "../../components/NameCard/NameCard";
@@ -224,191 +224,196 @@ const Tibetan = () => {
         </div>
       </motion.div>
 
-      {showIntroduction && (
-        <>
-          <div className={styles.TibetanIntroCard}>
-            <Introduction language={language} showIntro={showIntroduction} />
+      <AnimatePresence>
+        {showIntroduction && (
+          <>
+            <div className={styles.TibetanIntroCard}>
+              <Introduction language={language} showIntro={showIntroduction} />
+            </div>
+            <NextIcon
+              showIcons={showIcons}
+              whiteImage={true}
+              left="56%"
+              top="85.7%"
+              onClick={showTibetanCards}
+              background="#2B455D"
+            />
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              whiteImage={true}
+              left="44.3%"
+              top="77.5%"
+              height="65px"
+            />
+            <CloseIcon
+              left="43.7%"
+              top="73.5%"
+              showIcons={showIcons}
+              onClick={handleCardOrImageClick}
+            />
+          </>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {showCards && (
+          <div>
+            <TibetanCards
+              showCards={true}
+              language={language}
+              onCardClick={handleCardClick}
+            />
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              background="#523019"
+              left="49.5%"
+              top="78.5%"
+            />
+            <CloseIcon
+              left="48.8%"
+              top="81%"
+              background="#523019"
+              showIcons={showIcons}
+              onClick={handleCardOrImageClick}
+            />
           </div>
-          <NextIcon
-            showIcons={showIcons}
-            whiteImage={true}
-            left="55.8%"
-            top="85.7%"
-            onClick={showTibetanCards}
-            background="#2B455D"
-          />
-          <LanguageIcon
-            language={language}
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            whiteImage={true}
-            left="44.3%"
-            top="77.5%"
-            height="65px"
-          />
-          <CloseIcon
-            left="43.7%"
-            top="73.5%"
-            showIcons={showIcons}
-            onClick={handleCardOrImageClick}
-          />
-        </>
-      )}
+        )}
+      </AnimatePresence>
 
-      {showCards && (
-        <div>
-          <TibetanCards
-            isFadingOut={isFadingOut}
-            language={language}
-            onCardClick={handleCardClick}
-          />
-          <LanguageIcon
-            language={language}
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            background="#523019"
-            left="49.5%"
-            top="78.5%"
-          />
-          <CloseIcon
-            left="48.8%"
-            top="81%"
-            background="#523019"
-            showIcons={showIcons}
-            onClick={handleCardOrImageClick}
-          />
-        </div>
-      )}
+      <AnimatePresence>
+        {selectedCard === "arrival" && (
+          <div className={styles.ArrivalCard}>
+            <Arrival language={language} showIntro={true} />
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              iconWidth="25px"
+              IconHeight="25px"
+              left="47.2%"
+              top="79.7%"
+              height="55px"
+              background="#7D431C"
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              left="46.5%"
+              top="75.6%"
+              background="#8F4110"
+              onClick={handleHomeClick}
+            />
+            <NextIcon
+              showIcons={showIcons}
+              left="56.7%"
+              top="85.5%"
+              onClick={showSchoolsCards}
+              background="#8F4110"
+              color="#FFDFC3"
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              left="46.5%"
+              top="71.5%"
+              background="#8F4110"
+              onClick={handleCardOrImageClick}
+            />
+          </div>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {selectedCard === "schools" && (
+          <div className={styles.SchoolsCard}>
+            <SchoolsCard
+              language={language}
+              showIntro={true}
+              onPopularSchoolsClick={showPopularSchools}
+              onDrukpaKagyuClick={showDrukpaKagyu}
+            />
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              iconWidth="25px"
+              IconHeight="25px"
+              left="46.4%"
+              top="83%"
+              height="55px"
+              background="#7D431C"
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              left="45.8%"
+              top="79%"
+              background="#8F4110"
+              height="70px"
+              width="80px"
+              margin="25px"
+              onClick={handleHomeClick}
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              left="45.8%"
+              top="75%"
+              background="#8F4110"
+              onClick={handleCardOrImageClick}
+            />
+          </div>
+        )}
+      </AnimatePresence>
 
-      {selectedCard && (
-        <div>
-          {selectedCard === "arrival" && (
-            <div className={styles.ArrivalCard}>
-              <Arrival language={language} showIntro={true} />
-              <LanguageIcon
-                language={language}
-                onClick={toggleLanguage}
-                showIcons={showIcons}
-                iconWidth="25px"
-                IconHeight="25px"
-                left="47.2%"
-                top="79.7%"
-                height="55px"
-                background="#7D431C"
-              />
-              <HomeIcon
-                showIcons={showIcons}
-                left="46.5%"
-                top="75.6%"
-                background="#8F4110"
-                onClick={handleHomeClick}
-              />
-              <NextIcon
-                showIcons={showIcons}
-                left="56.7%"
-                top="85.5%"
-                onClick={showSchoolsCards}
-                background="#8F4110"
-                color="#FFDFC3"
-              />
-              <CloseIcon
-                showIcons={showIcons}
-                left="46.5%"
-                top="71.5%"
-                background="#8F4110"
-                onClick={handleCardOrImageClick}
-              />
-            </div>
-          )}
+      <AnimatePresence>
+        {showPopularSchoolsCard && (
+          <div className={styles.PopularSchoolsCard}>
+            <PopularSchoolsCard
+              language={language}
+              showIntro={true}
+              onPopularSchoolsImgClick={showPopularSchoolsImg}
+            />
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              margin="15px"
+              iconWidth="25px"
+              IconHeight="25px"
+              height="50px"
+              width="55px"
+              left="41.3%"
+              top="82%"
+              whiteImage={true}
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              left="40.7%"
+              top="78%"
+              whiteImage={true}
+              onClick={handleHomeClick}
+            />
+            <PreviousIcon
+              onClick={handlePreviousClick}
+              showIcons={showIcons}
+              left="40.7%"
+              top="74%"
+              height="80px"
+              marginTop="28px"
+            />
+            <CloseIcon
+              left="40.7%"
+              top="70%"
+              showIcons={showIcons}
+              onClick={handleCardOrImageClick}
+            />
+          </div>
+        )}
+      </AnimatePresence>
 
-          {selectedCard === "schools" && (
-            <div className={styles.SchoolsCard}>
-              <SchoolsCard
-                language={language}
-                showIntro={true}
-                onPopularSchoolsClick={showPopularSchools}
-                onDrukpaKagyuClick={showDrukpaKagyu}
-              />
-              <LanguageIcon
-                language={language}
-                onClick={toggleLanguage}
-                showIcons={showIcons}
-                iconWidth="25px"
-                IconHeight="25px"
-                left="46.4%"
-                top="84%"
-                height="55px"
-                background="#7D431C"
-              />
-              <HomeIcon
-                showIcons={showIcons}
-                left="45.8%"
-                top="80%"
-                background="#8F4110"
-                height="70px"
-                width="80px"
-                margin="25px"
-                onClick={handleHomeClick}
-              />
-              <CloseIcon
-                showIcons={showIcons}
-                left="45.8%"
-                top="76%"
-                background="#8F4110"
-                onClick={handleCardOrImageClick}
-              />
-            </div>
-          )}
-        </div>
-      )}
-
-      {showPopularSchoolsCard && (
-        <div className={styles.PopularSchoolsCard}>
-          <PopularSchoolsCard
-            language={language}
-            showIntro={true}
-            onPopularSchoolsImgClick={showPopularSchoolsImg}
-          />
-          <LanguageIcon
-            language={language}
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            margin="15px"
-            iconWidth="25px"
-            IconHeight="25px"
-            height="50px"
-            width="55px"
-            left="41.3%"
-            top="82%"
-            whiteImage={true}
-          />
-          <HomeIcon
-            showIcons={showIcons}
-            left="40.7%"
-            top="78%"
-            whiteImage={true}
-            onClick={handleHomeClick}
-          />
-          <PreviousIcon
-            onClick={handlePreviousClick}
-            showIcons={showIcons}
-            left="40.7%"
-            top="74%"
-            height="80px"
-            marginTop="28px"
-          />
-          <CloseIcon
-            left="40.7%"
-            top="70%"
-            showIcons={showIcons}
-            onClick={handleCardOrImageClick}
-          />
-        </div>
-      )}
-
-      {showPopularSchoolsImgCard && (
-        <>
-          {/* <div
+      <AnimatePresence>
+        {showPopularSchoolsImgCard && (
+          <>
+            {/* <div
             className={styles.KurjeLhakhangTemplesImgContainer}
             style={{
               position: "relative",
@@ -430,97 +435,101 @@ const Tibetan = () => {
               </div>
             ))}
           </div> */}
-          <PopularSchoolCardImgs />
-          <LanguageIcon
-            language={language}
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            margin="15px"
-            iconWidth="25px"
-            IconHeight="25px"
-            height="50px"
-            width="55px"
-            left="45.9%"
-            top="79.8%"
-            whiteImage={true}
-          />
-          <HomeIcon
-            showIcons={showIcons}
-            left="45.3%"
-            top="75.6%"
-            height="70px"
-            width="80px"
-            margin="25px"
-            whiteImage={true}
-            onClick={handleHomeClick}
-          />
-          <PreviousIcon
-            onClick={handlePreviousClick}
-            showIcons={showIcons}
-            left="45.3%"
-            top="71.5%"
-            height="80px"
-            marginTop="28px"
-          />
-          <CloseIcon
-            left="45.3%"
-            top="67.5%"
-            showIcons={showIcons}
-            onClick={handleCardOrImageClick}
-          />
-        </>
-      )}
-
-      {showDrukpaKagyuCard && (
-        <>
-          <div className={styles.DrukpaKagyuCard}>
-            <DrukpaKagyu
+            <PopularSchoolCardImgs />
+            <LanguageIcon
               language={language}
-              showIntro={true}
-              onDrugpaKagyuImgClick={showDrugpaKagyuImg}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              margin="15px"
+              iconWidth="25px"
+              IconHeight="25px"
+              height="50px"
+              width="55px"
+              left="45.9%"
+              top="79.8%"
+              whiteImage={true}
             />
-          </div>
-          <LanguageIcon
-            language={language}
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            iconWidth="25px"
-            IconHeight="25px"
-            left="42.4%"
-            top="83%"
-            height="55px"
-            whiteImage={true}
-          />
-          <HomeIcon
-            showIcons={showIcons}
-            left="41.8%"
-            top="79%"
-            height="70px"
-            width="80px"
-            margin="25px"
-            whiteImage={true}
-            onClick={handleHomeClick}
-          />
-          <PreviousIcon
-            onClick={handlePreviousClick}
-            showIcons={showIcons}
-            left="41.8%"
-            top="75%"
-            height="80px"
-            marginTop="28px"
-          />
-          <CloseIcon
-            left="41.8%"
-            top="71%"
-            showIcons={showIcons}
-            onClick={handleCardOrImageClick}
-          />
-        </>
-      )}
+            <HomeIcon
+              showIcons={showIcons}
+              left="45.3%"
+              top="75.6%"
+              height="70px"
+              width="80px"
+              margin="25px"
+              whiteImage={true}
+              onClick={handleHomeClick}
+            />
+            <PreviousIcon
+              onClick={handlePreviousClick}
+              showIcons={showIcons}
+              left="45.3%"
+              top="71.5%"
+              height="80px"
+              marginTop="28px"
+            />
+            <CloseIcon
+              left="45.3%"
+              top="67.5%"
+              showIcons={showIcons}
+              onClick={handleCardOrImageClick}
+            />
+          </>
+        )}
+      </AnimatePresence>
 
-      {showDrugpaKagyuImgCard && (
-        <>
-          {/* <div
+      <AnimatePresence>
+        {showDrukpaKagyuCard && (
+          <>
+            <div className={styles.DrukpaKagyuCard}>
+              <DrukpaKagyu
+                language={language}
+                showIntro={true}
+                onDrugpaKagyuImgClick={showDrugpaKagyuImg}
+              />
+            </div>
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              iconWidth="25px"
+              IconHeight="25px"
+              left="42.4%"
+              top="83%"
+              height="55px"
+              whiteImage={true}
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              left="41.8%"
+              top="79%"
+              height="70px"
+              width="80px"
+              margin="25px"
+              whiteImage={true}
+              onClick={handleHomeClick}
+            />
+            <PreviousIcon
+              onClick={handlePreviousClick}
+              showIcons={showIcons}
+              left="41.8%"
+              top="75%"
+              height="80px"
+              marginTop="28px"
+            />
+            <CloseIcon
+              left="41.8%"
+              top="71%"
+              showIcons={showIcons}
+              onClick={handleCardOrImageClick}
+            />
+          </>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showDrugpaKagyuImgCard && (
+          <>
+            {/* <div
             className={styles.KurjeLhakhangTemplesImgContainer}
             style={{
               position: "relative",
@@ -542,46 +551,47 @@ const Tibetan = () => {
               </div>
             ))}
           </div> */}
-          <DrukpaKagyuImgs />
-          <LanguageIcon
-            language={language}
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            margin="15px"
-            iconWidth="25px"
-            IconHeight="25px"
-            height="50px"
-            width="55px"
-            left="44.7%"
-            top="80.9%"
-            whiteImage={true}
-          />
-          <HomeIcon
-            showIcons={showIcons}
-            left="44.1%"
-            top="77%"
-            height="70px"
-            width="80px"
-            margin="25px"
-            whiteImage={true}
-            onClick={handleHomeClick}
-          />
-          <PreviousIcon
-            onClick={handlePreviousClick}
-            showIcons={showIcons}
-            left="44.1%"
-            top="73%"
-            height="80px"
-            marginTop="28px"
-          />
-           <CloseIcon
-            left="44.1%"
-            top="69%"
-            showIcons={showIcons}
-            onClick={handleCardOrImageClick}
-          />
-        </>
-      )}
+            <DrukpaKagyuImgs />
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              margin="15px"
+              iconWidth="25px"
+              IconHeight="25px"
+              height="50px"
+              width="55px"
+              left="44.7%"
+              top="80.9%"
+              whiteImage={true}
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              left="44.1%"
+              top="77%"
+              height="70px"
+              width="80px"
+              margin="25px"
+              whiteImage={true}
+              onClick={handleHomeClick}
+            />
+            <PreviousIcon
+              onClick={handlePreviousClick}
+              showIcons={showIcons}
+              left="44.1%"
+              top="73%"
+              height="80px"
+              marginTop="28px"
+            />
+            <CloseIcon
+              left="44.1%"
+              top="69%"
+              showIcons={showIcons}
+              onClick={handleCardOrImageClick}
+            />
+          </>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 };

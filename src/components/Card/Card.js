@@ -22,7 +22,7 @@ const Card = ({
   const contentLines = content.split("\n");
 
   const headerFontSize = language === BHUTAN ? "0.7vw" : "0.52083vw";
-  const titleFontSize = language === BHUTAN ? "0.7vw" : "0.52083vw";
+  const titleFontSize = language === BHUTAN ? "0.7vw" : "0.7vw";
   const contentFontSize = language === BHUTAN ? "0.36vw" : "0.29166667vw";
   const contentLineHeight = language === BHUTAN ? "1.2" : "";
   const headerLineHeight = language === BHUTAN ? "0.6" : "";

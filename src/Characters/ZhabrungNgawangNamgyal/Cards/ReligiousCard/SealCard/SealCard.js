@@ -13,24 +13,6 @@ const SealCard = ({ showIntro, language }) => {
   const contentLineHeight = language === BHUTAN ? "1" : "";
   const paraLineHeight = language === BHUTAN ? "0.5" : "";
 
-  const paragraphVariants = {
-    hidden: { opacity: 0, y: 20 }, // Start hidden and below
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6, // Smooth transition duration
-        delay: i * 0.3, // Delay based on index for staggered effect
-        ease: "easeOut", // Easing function
-      },
-    }),
-    exit: {
-      opacity: 0,
-      y: 20,
-      transition: { duration: 0.5, ease: "easeIn" },
-    },
-  };
-
   const cardVariants = {
     hidden: { height: 0, opacity: 0 }, // Start hidden with zero height
     visible: {
@@ -38,14 +20,29 @@ const SealCard = ({ showIntro, language }) => {
       opacity: 1,
       transition: {
         duration: 0.5, // Smooth expansion duration
-        when: "beforeChildren", // Animate card before children
-        staggerChildren: 0.1, // Stagger child animations
+        delay: 3, // Delay before starting the card's animation
       },
     },
     exit: {
       height: 0, // Collapse height on exit
       opacity: 0,
-      transition: { duration: 0.5 },
+      transition: { duration: 0.5, delay: 1 },
+    },
+  };
+
+  const paragraphVariants = {
+    hidden: { opacity: 0 }, // Start hidden
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 1.5, // Duration for the fade-in effect
+        ease: "easeOut", // Easing function
+        delay: 3.5
+      },
+    },
+    exit: {
+      opacity: 0,
+      transition: { duration: 0.5, ease: "easeIn" },
     },
   };
 
@@ -84,23 +81,21 @@ const SealCard = ({ showIntro, language }) => {
             animate="visible"
             exit="exit"
           >
-            <div style={{ fontSize: fonstSize, lineHeight: paraLineHeight }}>
+            <motion.div
+              style={{ fontSize: fonstSize, lineHeight: paraLineHeight }}
+              variants={paragraphVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+            >
               {Object.values(
                 ZHABRUNG_INFORMATION[language].sealOfZhabdrungStatement.content
               ).map((paragraph, index) => (
-                <motion.p
-                  key={index}
-                  variants={paragraphVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  custom={index} // Pass index for staggered animation
-                  style={{ fontSize: fonstSize }}
-                >
+                <p key={index} style={{ fontSize: fonstSize }}>
                   {paragraph}
-                </motion.p>
+                </p>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
         </>
       )}

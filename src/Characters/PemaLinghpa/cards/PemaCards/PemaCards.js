@@ -73,7 +73,7 @@ const PemaCards = ({ language, onCardClick, showCards }) => {
             originX: 1,
           }}
           transition={{ duration: 1.5, ease: "easeOut", delay: 1.5 }} // Start fade immediately
-          exit={{ scaleX: 0, opacity: 0, transition: { duration: 2 } }}
+          exit={{ scaleX: 0, opacity: 0, transition: { duration: 2.5 } }}
         >
           {showTitles && (
             <motion.div
@@ -83,7 +83,7 @@ const PemaCards = ({ language, onCardClick, showCards }) => {
                 opacity: cardAnimationStart ? 1 : 0,
               }}
               exit={{ scaleX: 0, opacity: 0, transition: { duration: 1 } }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 3 }}
             >
               <CardsContainerText fontSize={fontSize}>
                 {PEMA_LINGPA_INFORMATION[language].historicBackground.title}
@@ -125,7 +125,7 @@ const PemaCards = ({ language, onCardClick, showCards }) => {
                 opacity: cardAnimationStart ? 1 : 0,
               }}
               exit={{ scaleX: 0, opacity: 0, transition: { duration: 0.5 } }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 1.5 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 3.2}}
             >
               <CardsContainerText fontSize={fontSize}>
                 {PEMA_LINGPA_INFORMATION[language].lineage.title}
@@ -167,7 +167,7 @@ const PemaCards = ({ language, onCardClick, showCards }) => {
                 opacity: cardAnimationStart ? 1 : 0,
               }}
               exit={{ scaleX: 0, opacity: 0, transition: { duration: 0.5 } }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 2 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 3.4 }}
             >
               <CardsContainerText fontSize={fontSize}>
                 {PEMA_LINGPA_INFORMATION[language].revelations.title}
@@ -209,7 +209,7 @@ const PemaCards = ({ language, onCardClick, showCards }) => {
                 opacity: cardAnimationStart ? 1 : 0,
               }}
               exit={{ scaleX: 0, opacity: 0, transition: { duration: 0.5 } }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 2.5 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 3.6}}
             >
               <CardsContainerText fontSize={fontSize}>
                 {PEMA_LINGPA_INFORMATION[language].legacy.title}

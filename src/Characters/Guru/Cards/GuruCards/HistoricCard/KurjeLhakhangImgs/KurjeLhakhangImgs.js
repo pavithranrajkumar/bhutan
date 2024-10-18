@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import styles from "./KurjeLhakhangImgs.module.css";
+import { motion } from "framer-motion";
 
 import KurjeImg1 from "../../../../../../assests/Guru/Historic/KurjeImgs/KurjImg1.png";
 import KurjeImg2 from "../../../../../../assests/Guru/Historic/KurjeImgs/KurjImg2.png";
@@ -12,18 +13,22 @@ import KurjeEnlargeImg3 from "../../../../../../assests/Guru/Historic/KurjeImgs/
 import KurjeEnlargeImg4 from "../../../../../../assests/Guru/Historic/KurjeImgs/EnlargeImgs/KurjeLhakhangTemplesIm3.png";
 import KurjeEnlargeImg2 from "../../../../../../assests/Guru/Historic/KurjeImgs/EnlargeImgs/KurjeLhakhangTemplesImg4.png";
 
-const KurjeLhakhangImgs = () => {
+const KurjeLhakhangImgs = ({ language, handleOpenPeleingCard }) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+  const swiperRef = useRef(null); // Reference for Swiper
 
   const images = [
     { thumb: KurjeImg1, enlarge: KurjeEnlargeImg1 },
     { thumb: KurjeImg2, enlarge: KurjeEnlargeImg3 },
     { thumb: KurjeImg3, enlarge: KurjeEnlargeImg4 },
     { thumb: KurjeImg4, enlarge: KurjeEnlargeImg2 },
-];
+  ];
 
   const handleImageClick = (index) => {
     setSelectedImageIndex(index);
+    if (swiperRef.current) {
+      swiperRef.current.slideTo(index); // Move to the clicked image
+    }
   };
 
   const handleClose = () => {
@@ -47,62 +52,71 @@ const KurjeLhakhangImgs = () => {
         }}
       >
         {images.map((image, index) => (
-          <div
+          <motion.div
             key={index}
             className={styles[`KurjeLhakhangTemplesImg${index + 1}`]}
+            initial={{ opacity: 0 }} // Initial opacity
+            animate={{ opacity: 1 }} // Final opacity
+            transition={{ duration: 1.5, delay: 2 }} // Delay for staggered effect
+            exit={{ opacity: 0, transition: { duration: 2 } }}
           >
             <img
               src={image.thumb}
-              alt={`img ${index + 1}`}
+              alt=""
               onClick={() => handleImageClick(index)}
               className={styles.thumbnail}
             />
-          </div>
+          </motion.div>
         ))}
       </div>
 
       {selectedImageIndex !== null && (
-        <div className={styles.palaceenlargedImg1}>
-          <button onClick={handleClose} className={styles.closeButton}>
-            &times; {/* Close button symbol */}
-          </button>
-          <Swiper
-            initialSlide={selectedImageIndex}
-            spaceBetween={10}
-            navigation
-            onSlideChange={handleSlideChange} // Attach the slide change handler
-            className={styles.swiperContainer}
-          >
-            {images.map((image, index) => (
-              <SwiperSlide key={index}>
-                <div className={styles.DrugpaTemplesEnlargeImgs}>
-                  <img
-                    src={image.enlarge}
-                    alt={`Enlarged ${index + 1}`}
-                    className={styles.enlargedImg}
-                  />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+        <motion.div
+          initial={{ opacity: 0 }} // Initial opacity
+          animate={{ opacity: 1 }} // Final opacity
+          transition={{ duration: 1.5 }} // Delay for staggered effect
+          exit={{ opacity: 0, transition: { duration: 2 } }}
+        >
+          <div className={styles.palaceenlargedImg1}>
+            <Swiper
+              initialSlide={selectedImageIndex}
+              spaceBetween={10}
+              navigation
+              onSlideChange={handleSlideChange} // Attach the slide change handler
+              className={styles.swiperContainer}
+              onSwiper={(swiper) => (swiperRef.current = swiper)} // Store swiper instance
+            >
+              {images.map((image, index) => (
+                <SwiperSlide key={index}>
+                  <div className={styles.DrugpaTemplesEnlargeImgs}>
+                    <img
+                      src={image.enlarge}
+                      alt=""
+                      className={styles.enlargedImg}
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
 
-          {/* Custom pagination */}
-          <div className={styles.customPagination}>
-            {images.map((_, index) => (
-              <span
-                key={index}
-                className={styles.dot}
-                style={{
-                  height: selectedImageIndex === index ? "12px" : "8px", // Increase size for current image
-                  width: selectedImageIndex === index ? "12px" : "8px", // Increase size for current image
-                  backgroundColor:
-                    selectedImageIndex === index ? "black" : "gray", // Change color based on selection
-                }}
-                onClick={() => setSelectedImageIndex(index)} // Set the current image on click
-              />
-            ))}
+            {/* Custom pagination */}
+            <div className={styles.customPagination}>
+              {images.map((_, index) => (
+                <span
+                  key={index}
+                  className={styles.dot}
+                  style={{
+                    height: selectedImageIndex === index ? "12px" : "8px",
+                    width: selectedImageIndex === index ? "12px" : "8px",
+                    backgroundColor:
+                      selectedImageIndex === index ? "black" : "gray",
+                  }}
+                  onClick={() => handleImageClick(index)} // Set the current image on click
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        </motion.div>
       )}
     </div>
   );

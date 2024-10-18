@@ -495,7 +495,7 @@ const LineageCard = ({ showIntro, language, showIcons, onNextClick }) => {
         height="70px"
         width="80px"
         margin="25px"
-        background="#3A1701"
+        background="#6A1F11"
         color="#FFD9BC"
         onClick={handleShowCards}
       />

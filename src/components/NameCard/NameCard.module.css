@@ -19,14 +19,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("/src/assests/BgImgs/CardBgImg.png");
+  background-image: url("/src/assests/BgImgs/BgImgDeSaturated.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   z-index: 1;
-  opacity: 0.18;
+  opacity: 0.2;
   pointer-events: none;
-  filter: grayscale(150%);
 }
 
 .pemaNameCardTitle {

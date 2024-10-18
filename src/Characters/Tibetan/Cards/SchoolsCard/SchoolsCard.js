@@ -3,6 +3,7 @@ import Card from "../../../../components/Card/Card";
 import { TIBETAN_INFORMATION } from "../../../../constants/Characters/Tibetan";
 import styles from "./SchoolsCard.module.css";
 import { BHUTAN } from "../../../../constants/languages/Language";
+import { motion } from "framer-motion";
 
 const SchoolsCard = ({
   showIntro,
@@ -28,7 +29,7 @@ const SchoolsCard = ({
         <>
           <Card
             width="350px"
-            height="230px"
+            height="250px"
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="0.5px solid #8F4110"
@@ -40,27 +41,53 @@ const SchoolsCard = ({
             showIntro={showIntro}
           />
           <div className={styles.SchoolsTopCards}>
-            <div
-              className={`${styles.PopularCards} ${
-                animate ? styles.fadeIn : ""
-              }`}
-              onClick={onPopularSchoolsClick}
+          <motion.div
+            className={styles.PopularCards}
+            onClick={onPopularSchoolsClick}
+            initial={{ opacity: 0 }} // Initial opacity for title
+            animate={{ opacity: 1 }} // Final opacity for title
+            transition={{ duration: 0.5, delay: 4 }} // Fade duration for title
+            exit={{ opacity: 0, transition: { duration: 2.8 } }}
+          >
+            <motion.div
+              style={{
+                marginTop: "15px",
+                fontSize: headerFontSize,
+                lineHeight: contentLineHeight,
+              }}
+              initial={{ opacity: 0 }} // Initial opacity for title
+              animate={{ opacity: 1 }} // Final opacity for title
+              transition={{ duration: 0.5, delay: 4.5 }} // Fade duration for title
+              exit={{ opacity: 0, transition: { duration: 2.8 } }}
             >
-              <div style={{ marginTop: "15px", fontSize: headerFontSize, lineHeight: contentLineHeight, }}>
-                {TIBETAN_INFORMATION[language].popularSchools.title}
-              </div>
-            </div>
-            <div
-              className={`${styles.DrukpaCards} ${
-                animate ? styles.fadeIn : ""
-              }`}
-              onClick={onDrukpaKagyuClick}
+              {TIBETAN_INFORMATION[language].popularSchools.title}
+            </motion.div>
+          </motion.div>
+          <motion.div
+            className={styles.DrukpaCards}
+            onClick={onDrukpaKagyuClick}
+            initial={{ opacity: 0 }} // Initial opacity for title
+            animate={{ opacity: 1 }} // Final opacity for title
+            transition={{ duration: 0.5, delay: 4 }} // Fade duration for title
+            exit={{ opacity: 0, transition: { duration: 2.8 } }}
+          >
+            <motion.div
+               style={{
+                marginTop: "15px",
+                fontSize: headerFontSize,
+                lineHeight: contentLineHeight,
+              }}
+              initial={{ opacity: 0 }} // Initial opacity for title
+              animate={{ opacity: 1 }} // Final opacity for title
+              transition={{ duration: 0.5, delay: 4.5 }} // Fade duration for title
+              exit={{ opacity: 0, transition: { duration: 2.8 } }}
             >
-              <div style={{ marginTop: "15px", fontSize: headerFontSize, lineHeight: contentLineHeight, }}>
                 {TIBETAN_INFORMATION[language].drukpaKagyu.title}
-              </div>
-            </div>
+                </motion.div>
+          </motion.div>
           </div>
+
+        
         </>
       )}
     </div>

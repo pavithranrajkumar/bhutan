@@ -5,28 +5,4 @@
   top: 72.5%;
   left: 50.8%;
   cursor: pointer;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.PopularSchoolsImgCard.fadeIn {
-  opacity: 1;
-  transform: translateY(0);
-  animation: fadeInUp 0.5s ease forwards;
-}
-
-.PopularSchoolsImgCard:hover {
-  transform: scale(1.05);
 }

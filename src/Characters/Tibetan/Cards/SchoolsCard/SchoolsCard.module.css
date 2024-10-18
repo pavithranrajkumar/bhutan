@@ -8,15 +8,13 @@
   width: 120px;
   height: 70px;
   cursor: pointer;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  transform: translateY(20px);
   overflow: hidden; /* Prevent overflow of the background image */
 }
 
 /* Add background image to both PopularCards and DrukpaCards */
 .PopularCards::before,
 .DrukpaCards::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -31,42 +29,12 @@
   pointer-events: none; /* Prevent interaction with the background */
 }
 
-/* Ensure the text content stays on top */
-.PopularCards > * ,
-.DrukpaCards > * {
-  z-index: 1; /* Content on top of the background */
-}
 
 /* SchoolsTopCards container for both cards */
 .SchoolsTopCards {
   position: fixed;
-  left: 51.1%;
-  top: 72.5%;
+  left: 51.3%;
+  top: 71.5%;
   display: flex;
   gap: 10px;
-}
-
-/* Hover effect for scaling */
-.PopularCards:hover,
-.DrukpaCards:hover {
-  transform: scale(1.05);
-}
-
-/* Fade in animation */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.PopularCards.fadeIn,
-.DrukpaCards.fadeIn {
-  opacity: 1;
-  transform: translateY(0);
-  animation: fadeInUp 0.5s ease forwards;
 }

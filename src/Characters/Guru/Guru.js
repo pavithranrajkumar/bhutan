@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Guru.module.css";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { FaTimes, FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import guru from "../../assests/Guru/Guru Rinpoche.png";
 import YearText from "../../components/YearText/YearText";
@@ -42,14 +42,9 @@ const Guru = () => {
     isPopular: true,
   });
 
-  const fontSize =
-    language === BHUTAN
-      ? showCards || selectedCard || showIntroduction
-        ? "1.5rem"
-        : "19px"
-      : showCards || selectedCard || showIntroduction
-      ? "19px"
-      : "1.25rem";
+  const cardNameFontSize = language === BHUTAN ? "1.5rem" : "1.25rem";
+  const subCardnameFontSize = language === BHUTAN ? "1.5rem" : "0.8rem";
+  const subCardnameMarginLeft = language === BHUTAN ? "10.1rem" : "7rem";
 
   const toggleLanguage = () => {
     setLanguage((prevLanguage) => {
@@ -190,7 +185,7 @@ const Guru = () => {
     : "white";
 
   return (
-    <motion.div
+    <div
       className={styles.GuruContainer}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -235,10 +230,10 @@ const Guru = () => {
             width="200px"
             height="110px"
             subCardname={GURU_INFORMATION[language].subCardName}
-            subCardnameFontSize={language === BHUTAN ? "1.5rem" : "12px"}
-            subCardnameMarginLeft={language === BHUTAN ? "94px" : "30px"}
+            subCardnameMarginLeft={language === BHUTAN ? "94px" : "25px"}
             paraSize="15px"
-            fontSize={fontSize}
+            fontSize={cardNameFontSize}
+            subCardnameFontSize={subCardnameFontSize}
             year={
               showCards || selectedCard || showIntroduction
                 ? "900-1000"
@@ -251,335 +246,352 @@ const Guru = () => {
         </div>
       </motion.div>
 
-      {showIntroduction && (
-        <>
-          <div className={styles.GuruIntroCard}>
-            <Introduction language={language} showIntro={showIntroduction} />
+      <AnimatePresence>
+        {showIntroduction && (
+          <>
+            <div className={styles.GuruIntroCard}>
+              <Introduction language={language} showIntro={showIntroduction} />
+            </div>
+            <NextIcon
+              showIcons={showIcons}
+              whiteImage={true}
+              left="37.1%"
+              top="80%"
+              onClick={showGuruCards}
+              background="#2B455D"
+            />
+            <LanguageIcon
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              whiteImage={true}
+              language={language}
+              left="28.2%"
+              top="95.8%"
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              left="27.6%"
+              top="91.9%"
+              onClick={handleCardOrImageClick}
+            />
+          </>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showCards && (
+          <div>
+            <GuruCards
+              showCards={true}
+              language={language}
+              onCardClick={handleCardClick}
+            />
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              background="#613900"
+              left="28.9%"
+              top="88.4%"
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              left="28.3%"
+              top="84.3%"
+              background="#613900"
+              onClick={handleCardOrImageClick}
+            />
           </div>
-          <NextIcon
-            showIcons={showIcons}
-            whiteImage={true}
-            left="37.1%"
-            top="80%"
-            onClick={showGuruCards}
-            background="#2B455D"
-          />
-          <LanguageIcon
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            whiteImage={true}
-            language={language}
-            left="28.2%"
-            top="95.8%"
-          />
-          <CloseIcon
-            showIcons={showIcons}
-            left="27.6%"
-            top="91.9%"
-            onClick={handleCardOrImageClick}
-          />
-        </>
-      )}
+        )}
+      </AnimatePresence>
 
-      {showCards && (
-        <div>
-          <GuruCards
-            isFadingOut={isFadingOut}
-            language={language}
-            onCardClick={handleCardClick}
-          />
-          <LanguageIcon
-            language={language}
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            background="#613900"
-            left="28.9%"
-            top="88.4%"
-          />
-          <CloseIcon
-            showIcons={showIcons}
-            left="28.3%"
-            top="84.3%"
-            background="#613900"
-            onClick={handleCardOrImageClick}
-          />
-        </div>
-      )}
+      <AnimatePresence>
+        {selectedCard === "historic" && !showKurjeLhakhang && (
+          <div className={styles.GuruHistoricCard}>
+            <HistoricCard
+              className={styles.GuruHistoricCard}
+              language={language}
+              showIntro={true}
+              onKurjeClick={handleKurjeClick}
+            />
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              iconWidth="25px"
+              IconHeight="25px"
+              left="22.4%"
+              top="91.5%"
+              height="55px"
+              background="#613900"
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              background="#C87E12"
+              left="21.8%"
+              top="87.5%"
+              height="70px"
+              width="80px"
+              margin="25px"
+              onClick={handleHomeClick}
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              background="#C87E12"
+              left="21.8%"
+              top="83.5%"
+              onClick={handleCardOrImageClick}
+            />
+          </div>
+        )}
+      </AnimatePresence>
 
-      {selectedCard === "historic" && !showKurjeLhakhang && (
-        <div className={styles.GuruHistoricCard}>
-          <HistoricCard
-            className={styles.GuruHistoricCard}
-            language={language}
-            showIntro={true}
-            onKurjeClick={handleKurjeClick}
-          />
-          <LanguageIcon
-            language={language}
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            iconWidth="25px"
-            IconHeight="25px"
-            left="22.4%"
-            top="91.5%"
-            height="55px"
-            background="#613900"
-          />
-          <HomeIcon
-            showIcons={showIcons}
-            background="#C87E12"
-            left="21.8%"
-            top="87.5%"
-            height="70px"
-            width="80px"
-            margin="25px"
-            onClick={handleHomeClick}
-          />
-          <CloseIcon
-            showIcons={showIcons}
-            background="#C87E12"
-            left="21.8%"
-            top="83.5%"
-            onClick={handleCardOrImageClick}
-          />
-        </div>
-      )}
+      <AnimatePresence>
+        {showKurjeLhakhang && (
+          <div className={styles.GuruKurjeLhakhangCard}>
+            <KurjeLhakhang
+              language={language}
+              showIntro={true}
+              onKurjeTempleClick={handleKurjeTempleClick}
+            />
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              left="21.3%"
+              top="94.5%"
+              background="#193145"
+              whiteImage={true}
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              whiteImage={true}
+              background="#2B455D"
+              left="20.7%"
+              top="90.6%"
+              onClick={handleHomeClick}
+            />
+            <PreviousIcon
+              onClick={handlePreviousClick}
+              showIcons={showIcons}
+              left="20.7%"
+              top="86.6%"
+              height="80px"
+              marginTop="28px"
+            />
+            <CloseIcon
+              left="20.7%"
+              top="82.7%"
+              showIcons={showIcons}
+              onClick={handleCardOrImageClick}
+            />
+          </div>
+        )}
+      </AnimatePresence>
 
-      {showKurjeLhakhang && (
-        <div className={styles.GuruKurjeLhakhangCard}>
-          <KurjeLhakhang
-            language={language}
-            showIntro={true}
-            onKurjeTempleClick={handleKurjeTempleClick}
-          />
-          <LanguageIcon
-            language={language}
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            left="21.3%"
-            top="94.5%"
-            background="#193145"
-            whiteImage={true}
-          />
-          <HomeIcon
-            showIcons={showIcons}
-            whiteImage={true}
-            background="#2B455D"
-            left="20.7%"
-            top="90.6%"
-            onClick={handleHomeClick}
-          />
-          <PreviousIcon
-            onClick={handlePreviousClick}
-            showIcons={showIcons}
-            left="20.7%"
-            top="86.6%"
-            height="80px"
-            marginTop="28px"
-          />
-          <CloseIcon
-            left="20.7%"
-            top="82.7%"
-            showIcons={showIcons}
-            onClick={handleCardOrImageClick}
-          />
-        </div>
-      )}
+      <AnimatePresence>
+        {showKurjeLhakhangImgs && (
+          <>
+            <KurjeLhakhangImgs />
+            <LanguageIcon
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              whiteImage={true}
+              language={language}
+              iconWidth="30px"
+              IconHeight="25px"
+              left="25.3%"
+              top="95.5%"
+              height="55px"
+              width="60px"
+              margin="15px"
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              left="24.7%"
+              top="91.5%"
+              height="70px"
+              width="80px"
+              margin="25px"
+              whiteImage={true}
+              onClick={handleHomeClick}
+            />
+            <PreviousIcon
+              onClick={handlePreviousClick}
+              showIcons={showIcons}
+              left="24.7%"
+              top="87.5%"
+              height="80px"
+              marginTop="28px"
+            />
+            <CloseIcon
+              left="24.7%"
+              top="83.6%"
+              showIcons={showIcons}
+              onClick={handleCardOrImageClick}
+            />
+          </>
+        )}
+      </AnimatePresence>
 
-      {showKurjeLhakhangImgs && (
-        <>
-        <KurjeLhakhangImgs/>
-          <LanguageIcon
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            whiteImage={true}
-            language={language}
-            iconWidth="30px"
-            IconHeight="25px"
-            left="25.3%"
-            top="95.5%"
-            height="55px"
-            width="60px"
-            margin="15px"
-          />
-          <HomeIcon
-            showIcons={showIcons}
-            left="24.7%"
-            top="91.5%"
-            height="70px"
-            width="80px"
-            margin="25px"
-            whiteImage={true}
-            onClick={handleHomeClick}
-          />
-          <PreviousIcon
-            onClick={handlePreviousClick}
-            showIcons={showIcons}
-            left="24.7%"
-            top="87.5%"
-            height="80px"
-            marginTop="28px"
-          />
-           <CloseIcon
-            left="24.7%"
-            top="83.6%"
-            showIcons={showIcons}
-            onClick={handleCardOrImageClick}
-          />
-        </>
-      )}
+      <AnimatePresence>
+        {selectedCard === "manifestation" && !showManifestationCardWithImg && (
+          <div className={styles.GuruHistoricCard}>
+            <Manifestation
+              language={language}
+              showIntro={true}
+              onManifestationsCardClick={handleOpenManifestationWithImg}
+            />
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              iconWidth="25px"
+              IconHeight="25px"
+              left="22.4%"
+              top="91.4%"
+              height="55px"
+              background="#613900"
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              background="#C87E12"
+              left="21.8%"
+              top="87.5%"
+              height="70px"
+              width="80px"
+              margin="25px"
+              onClick={handleHomeClick}
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              background="#C87E12"
+              left="21.8%"
+              top="83.5%"
+              onClick={handleCardOrImageClick}
+            />
+          </div>
+        )}
+      </AnimatePresence>
 
-      {selectedCard === "manifestation" && !showManifestationCardWithImg && (
-        <div className={styles.GuruHistoricCard}>
-          <Manifestation
-            language={language}
-            showIntro={true}
-            onManifestationsCardClick={handleOpenManifestationWithImg}
-          />
-          <LanguageIcon
-            language={language}
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            iconWidth="25px"
-            IconHeight="25px"
-            left="22.4%"
-            top="91.4%"
-            height="55px"
-            background="#613900"
-          />
-          <HomeIcon
-            showIcons={showIcons}
-            background="#C87E12"
-            left="21.8%"
-            top="87.5%"
-            height="70px"
-            width="80px"
-            margin="25px"
-            onClick={handleHomeClick}
-          />
-          <CloseIcon
-            showIcons={showIcons}
-            background="#C87E12"
-            left="21.8%"
-            top="83.5%"
-            onClick={handleCardOrImageClick}
-          />
-        </div>
-      )}
+      <AnimatePresence>
+        {showManifestationCardWithImg && (
+          <div className={styles.ManifestationOverlay}>
+            <ManifestationWithImg language={language} />
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              margin="15px"
+              iconWidth="25px"
+              IconHeight="25px"
+              left="25.4%"
+              top="85.2%"
+              height="50px"
+              background="#613900"
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              left="24.8%"
+              top="81.1%"
+              height="70px"
+              width="80px"
+              margin="25px"
+              background="#A06611"
+              onClick={handleHomeClick}
+            />
+            <PreviousIcon
+              onClick={handlePreviousClick}
+              showIcons={showIcons}
+              left="24.8%"
+              top="77%"
+              height="80px"
+              marginTop="28px"
+              background="#A06611"
+            />
+          </div>
+        )}
+      </AnimatePresence>
 
-      {showManifestationCardWithImg && (
-        <div className={styles.ManifestationOverlay}>
-          <ManifestationWithImg language={language} />
-          <LanguageIcon
-            language={language}
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            margin="15px"
-            iconWidth="25px"
-            IconHeight="25px"
-            left="25.4%"
-            top="85.2%"
-            height="50px"
-            background="#613900"
-          />
-          <HomeIcon
-            showIcons={showIcons}
-            left="24.8%"
-            top="81.1%"
-            height="70px"
-            width="80px"
-            margin="25px"
-            background="#A06611"
-            onClick={handleHomeClick}
-          />
-          <PreviousIcon
-            onClick={handlePreviousClick}
-            showIcons={showIcons}
-            left="24.8%"
-            top="77%"
-            height="80px"
-            marginTop="28px"
-            background="#A06611"
-          />
-        </div>
-      )}
+      <AnimatePresence>
+        {selectedCard === "palace" && !showPalaceImg && (
+          <div className={styles.GuruPalaceCard}>
+            <Palace
+              language={language}
+              showIntro={true}
+              onPalaceImgClick={handleOpenPalaceImg}
+            />
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              whiteImage={true}
+              iconWidth="25px"
+              IconHeight="25px"
+              left="21.2%"
+              top="91.2%"
+              height="55px"
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              whiteImage={true}
+              left="20.6%"
+              top="87%"
+              height="70px"
+              width="80px"
+              margin="25px"
+              onClick={handleHomeClick}
+            />
+            <CloseIcon
+              showIcons={showIcons}
+              left="20.6%"
+              top="82.8%"
+              onClick={handleCardOrImageClick}
+            />
+          </div>
+        )}
+      </AnimatePresence>
 
-      {selectedCard === "palace" && !showPalaceImg && (
-        <div className={styles.GuruPalaceCard}>
-          <Palace
-            language={language}
-            showIntro={true}
-            onPalaceImgClick={handleOpenPalaceImg}
-          />
-          <LanguageIcon
-            language={language}
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            whiteImage={true}
-            iconWidth="25px"
-            IconHeight="25px"
-            left="21.9%"
-            top="91.2%"
-            height="55px"
-          />
-          <HomeIcon
-            showIcons={showIcons}
-            whiteImage={true}
-            left="21.3%"
-            top="87%"
-            height="70px"
-            width="80px"
-            margin="25px"
-            onClick={handleHomeClick}
-          />
-          <CloseIcon
-            showIcons={showIcons}
-            left="21.3%"
-            top="82.8%"
-            onClick={handleCardOrImageClick}
-          />
-        </div>
-      )}
-
-      {showPalaceImg && (
-        <>
-          <PalaceImg />
-          <LanguageIcon
-            language={language}
-            onClick={toggleLanguage}
-            showIcons={showIcons}
-            whiteImage={true}
-            left="22.9%"
-            top="93.5%"
-          />
-          <HomeIcon
-            showIcons={showIcons}
-            left="22.2%"
-            top="89.5%"
-            height="70px"
-            width="80px"
-            margin="25px"
-            whiteImage={true}
-            onClick={handleHomeClick}
-          />
-          <PreviousIcon
-            onClick={handlePreviousClick}
-            showIcons={showIcons}
-            left="22.2%"
-            top="85.5%"
-            height="80px"
-            marginTop="28px"
-          />
-           <CloseIcon
-            left="22.2%"
-            top="81.5%"
-            showIcons={showIcons}
-            onClick={handleCardOrImageClick}
-          />
-        </>
-      )}
-
-    </motion.div>
+      <AnimatePresence>
+        {showPalaceImg && (
+          <>
+            <PalaceImg />
+            <LanguageIcon
+              language={language}
+              onClick={toggleLanguage}
+              showIcons={showIcons}
+              whiteImage={true}
+              left="22.9%"
+              top="93.5%"
+            />
+            <HomeIcon
+              showIcons={showIcons}
+              left="22.2%"
+              top="89.5%"
+              height="70px"
+              width="80px"
+              margin="25px"
+              whiteImage={true}
+              onClick={handleHomeClick}
+            />
+            <PreviousIcon
+              onClick={handlePreviousClick}
+              showIcons={showIcons}
+              left="22.2%"
+              top="85.5%"
+              height="80px"
+              marginTop="28px"
+            />
+            <CloseIcon
+              left="22.2%"
+              top="81.5%"
+              showIcons={showIcons}
+              onClick={handleCardOrImageClick}
+            />
+          </>
+        )}
+      </AnimatePresence>
+    </div>
   );
 };
 

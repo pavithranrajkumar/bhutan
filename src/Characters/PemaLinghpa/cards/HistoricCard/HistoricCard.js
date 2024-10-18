@@ -24,7 +24,7 @@ const HistoricCard = ({ showIntro, language }) => {
         <>
           <Card
             width="300px"
-            height="250px"
+            height="270px"
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="0.5px solid #6A1F11"
