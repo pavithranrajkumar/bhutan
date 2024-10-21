@@ -3,21 +3,21 @@
   z-index: 10;
 }
 
-.DrugpaKagyuImg1 {
+.DrugpaKagyuImg1 img{
   position: fixed;
   left: 46%;
   top: 72%;
   width: 130px;
 }
 
-.DrugpaKagyuImg2 {
+.DrugpaKagyuImg2 img{
   position: fixed;
   left: 46%;
   top: 76.9%;
   width: 130px;
 }
 
-.DrugpaKagyuImg3 {
+.DrugpaKagyuImg3 img{
   position: fixed;
   left: 48.8%;
   top: 74%;
@@ -25,7 +25,7 @@
   height: 190px;
 }
 
-.DrugpaKagyuImg4 {
+.DrugpaKagyuImg4 img{
   object-fit: fill;
   position: fixed;
   left: 52.4%;
@@ -34,7 +34,7 @@
   height: 130px;
 }
 
-.DrugpaKagyuImg5 {
+.DrugpaKagyuImg5 img{
   object-fit: fill;
   position: fixed;
   left: 52.4%;
@@ -43,7 +43,7 @@
   height: 90px;
 }
 
-.DrugpaKagyuImg6 {
+.DrugpaKagyuImg6 img{
   object-fit: fill;
   position: fixed;
   left: 54.1%;
@@ -51,21 +51,21 @@
   width: 90px;
   height: 90px;
 }
-.DrugpaKagyuImg7 {
+.DrugpaKagyuImg7 img{
   position: fixed;
   left: 52.4%;
   top: 78%;
   width: 130px;
   height: 120px;
 }
-.DrugpaKagyuImg8 {
+.DrugpaKagyuImg8 img{
   position: fixed;
   left: 52.4%;
   top: 82.6%;
   width: 110px;
   height: 90px;
 }
-.DrugpaKagyuImg9 {
+.DrugpaKagyuImg9 img{
   position: fixed;
   left: 54.6%;
   top: 82.7%;
@@ -73,7 +73,7 @@
   height: 60px;
 }
 
-.DrugpaKagyuImg10 {
+.DrugpaKagyuImg10 img{
   position: fixed;
   left: 50.3%;
   top: 85.2%;
@@ -81,7 +81,7 @@
   height: 90px;
 }
 
-.DrugpaKagyuImg11 {
+.DrugpaKagyuImg11 img{
   position: fixed;
   left: 50.3%;
   top: 81.8%;
@@ -89,7 +89,7 @@
   height: 90px;
 }
 
-.DrugpaKagyuImg12 {
+.DrugpaKagyuImg12 img{
   position: fixed;
   left: 47.4%;
   top: 81.8%;
@@ -97,7 +97,7 @@
   height: 100px;
 }
 
-.DrugpaKagyuImg13 {
+.DrugpaKagyuImg13 img{
   position: fixed;
   left: 48.4%;
   top: 85.7%;
@@ -105,7 +105,7 @@
   height: 70px;
 }
 
-.DrugpaKagyuImg14 {
+.DrugpaKagyuImg14 img{
   position: fixed;
   left: 50.1%;
   top: 67.1%;
@@ -113,7 +113,7 @@
   height: 90px;
 }
 
-.DrugpaKagyuImg15 {
+.DrugpaKagyuImg15 img{
   position: fixed;
   left: 50.1%;
   top: 70.3%;
@@ -121,7 +121,7 @@
   height: 100px;
 }
 
-.DrugpaKagyuImg16 {
+.DrugpaKagyuImg16 img{
   position: fixed;
   left: 48.8%;
   top: 68.5%;
@@ -129,7 +129,7 @@
   height: 80px;
 }
 
-.DrugpaKagyuImg17 {
+.DrugpaKagyuImg17 img{
   position: fixed;
   left: 48.8%;
   top: 71.3%;
@@ -137,7 +137,7 @@
   height: 80px;
 }
 
-.DrugpaKagyuImg18 {
+.DrugpaKagyuImg18 img{
   position: fixed;
   left: 46.3%;
   top: 68.5%;
@@ -148,9 +148,9 @@
 .DrugpaTemplesEnlargeImg {
   z-index: 10;
   position: fixed;
-  left: 48%;
+  left: 47%;
   top: 71%;
-  width: 300px;
+  width: 310px;
   height: 290px;
   border-left: 10px solid white; /* Left border */
   border-right: 10px solid white; /* Right border */
@@ -163,10 +163,10 @@
 }
 
 .DrugpaTemplesEnlargeImg img {
-  width: 300px;
+  width: 310px;
   height: 260px;
   margin-top: -20px;
-  margin-left: -1px;
+  margin-left: -5px;
   padding: 0;
   display: block; /* Removes any inline spacing that could cause gaps */
   border: none;
@@ -188,6 +188,7 @@
   border-radius: 50%;
   margin: 0 5px;
   cursor: pointer;
+  width: 20px;
 }
 
 .imageCount {

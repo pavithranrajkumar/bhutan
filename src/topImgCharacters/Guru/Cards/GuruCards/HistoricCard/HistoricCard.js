@@ -4,11 +4,13 @@ import Card from "../../../../../components/Card/Card";
 import { GURU_INFORMATION } from "../../../../../constants/Characters/Guru";
 import temple from "../../../../../assests/Guru/Historic/GuruHistoric.png";
 import { BHUTAN } from "../../../../../constants/languages/Language";
+import { motion } from "framer-motion";
 
 const HistoricCard = ({ showIntro, onKurjeClick, language }) => {
   const titleFontSize = language === BHUTAN ? "12px" : "25px";
   const fonstSize = language === BHUTAN ? "8px" : "11px";
-  const KurjeFonstSize = language === BHUTAN ? "8.5px" : "15px";
+  const KurjeFonstSize = language === BHUTAN ? "1.3rem" : "15px";
+  const contentLineHeight = language === BHUTAN ? "1" : "";
 
   return (
     <div>
@@ -26,24 +28,41 @@ const HistoricCard = ({ showIntro, onKurjeClick, language }) => {
             language={language}
             showIntro={showIntro}
           />
-          <div
-            className={`${styles.GuruHistoricCard} ${styles.slideIn}`}
+          <motion.div
+            className={styles.GuruHistoricCard}
             onClick={onKurjeClick}
+            initial={{ opacity: 0 }} // Initial opacity for title
+            animate={{ opacity: 1 }} // Final opacity for title
+            transition={{ duration: 0.5, delay: 4 }} // Fade duration for title
+            exit={{ opacity: 0, transition: { duration: 2.8 } }}
           >
-            <div
+            <motion.div
               style={{
-                marginTop: "18px",
+                marginTop: "11px",
                 display: "flex",
                 flexDirection: "column",
                 fontSize: KurjeFonstSize,
+                lineHeight: contentLineHeight,
               }}
+              initial={{ opacity: 0 }} // Initial opacity for title
+              animate={{ opacity: 1 }} // Final opacity for title
+              transition={{ duration: 0.5, delay: 4.5 }} // Fade duration for title
+              exit={{ opacity: 0, transition: { duration: 2.8 } }}
             >
               {GURU_INFORMATION[language].kurjeCard.title}{" "}
               <span>{GURU_INFORMATION[language].kurjeCard.subTitle}</span>
-            </div>
-          </div>
-          <div className={`${styles.GuruHistoricCardImg} ${styles.fadeIn}`}>
-            <img src={temple} alt="temple" />
+            </motion.div>
+          </motion.div>
+
+          <div className={styles.GuruHistoricCardImg} onClick={onKurjeClick}>
+            <motion.img
+              src={temple}
+              alt=""
+              initial={{ opacity: 0 }} // Initial state
+              animate={{ opacity: 1 }} // Animation state
+              transition={{ duration: 1.5, delay: 4.2 }}
+              exit={{ opacity: 0, transition: { duration: 2 } }}
+            />
           </div>
         </>
       )}

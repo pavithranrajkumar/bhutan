@@ -34,7 +34,7 @@
   cursor: pointer;
 }
 
-.DrakpaGyalpo {
+.DrakpaGyalpo img{
   cursor: pointer;
   object-fit: fill;
   position: fixed;
@@ -44,7 +44,7 @@
   height: 40px;
 }
 
-.DawaGyaltshen {
+.DawaGyaltshen img{
   cursor: pointer;
   position: fixed;
   left: 72.3%;
@@ -52,7 +52,7 @@
   width: 30px;
   height: 40px;
 }
-.KuengaWangpo {
+.KuengaWangpo img{
   position: fixed;
   cursor: pointer;
   left: 73.7%;
@@ -60,7 +60,7 @@
   width: 30px;
   height: 40px;
 }
-.Sangda {
+.Sangda img{
   cursor: pointer;
   position: fixed;
   left: 75.2%;
@@ -208,7 +208,7 @@
   border: 1.5px solid #8f4110;
 }
 
-.Tamshing {
+.Tamshing img{
   object-fit: fill;
   position: fixed;
   left: 71%;
@@ -251,7 +251,7 @@
   font-size: 6px;
 }
 
-.Prakhar {
+.Prakhar img{
   object-fit: fill;
   position: fixed;
   left: 72.3%;
@@ -307,7 +307,7 @@
   border: 1.5px solid #8f4110;
 }
 
-.Kochung {
+.Kochung img{
   position: fixed;
   left: 73.04%;
   top: 93.5%;
@@ -382,7 +382,7 @@
   border: 1.5px solid #8f4110;
 }
 
-.Bidung {
+.Bidung img{
   object-fit: fill;
   position: fixed;
   left: 74.5%;
@@ -425,7 +425,7 @@
   font-size: 6px;
 }
 
-.Kheri {
+.Kheri img{
   object-fit: fill;
   position: fixed;
   left: 72.6%;
@@ -488,7 +488,7 @@
   font-size: 6px;
 }
 
-.Dungkar {
+.Dungkar img{
   object-fit: fill;
   position: fixed;
   left: 73.7%;
@@ -544,7 +544,7 @@
   border: 1.5px solid #8f4110;
 }
 
-.Tsakaling {
+.Tsakaling img{
   object-fit: fill;
   position: fixed;
   left: 71%;
@@ -627,7 +627,7 @@
   border: none;
 }
 
-.Drophu {
+.Drophu img{
   object-fit: fill;
   position: fixed;
   left: 72.3%;
@@ -650,7 +650,7 @@
   font-size: 6px;
 }
 
-.Drametse {
+.Drametse img{
   object-fit: fill;
   position: fixed;
   left: 73.8%;
@@ -673,7 +673,7 @@
   font-size: 6px;
 }
 
-.Yagang {
+.Yagang img{
   object-fit: fill;
   position: fixed;
   left: 75.3%;

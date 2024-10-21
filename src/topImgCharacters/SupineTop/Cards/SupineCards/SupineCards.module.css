@@ -1,0 +1,37 @@
+.cardsContainer {
+  position: fixed;
+  left: 13.8%;
+  top: 65%;
+}
+
+.ReligiousCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/src/assests/BgImgs/CardBgImg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+  opacity: 0.15; 
+  pointer-events: none; 
+}
+
+.ReligiousCard {
+  position: fixed;
+  background: #abb176;
+  color: #cece9b;
+  padding: 0.6vw;
+  width: 200px;
+  height: 50px;
+}
+
+.CardsContainerText {
+  font-family: "Hammersmith One";
+  font-size: 21px;
+  font-weight: 100;
+  text-align: center;
+}

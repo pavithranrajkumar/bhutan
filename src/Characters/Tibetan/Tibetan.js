@@ -20,11 +20,11 @@ import CloseIcon from "../../components/Card/Icons/CloseIcon/CloseIcon";
 import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
 import PopularSchoolCardImgs from "./Cards/SchoolsCard/PopularSchoolsCard/PopularSchoolCardImgs/PopularSchoolCardImgs";
 import DrukpaKagyuImgs from "./Cards/SchoolsCard/DrukpaKagyu/DrukpaKagyuImgCard/DrukpaKagyuImgs";
+import CharacterAnimation from "../../CharacterAnimations/AnimationRender";
 
 const Tibetan = () => {
   const [showYearText, setShowYearText] = useState(true);
   const [showCards, setShowCards] = useState(false);
-  const [isFadingOut, setIsFadingOut] = useState(false);
   const [showIntroduction, setShowIntroduction] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
   const [language, setLanguage] = useState("english");
@@ -34,8 +34,30 @@ const Tibetan = () => {
   const [showPopularSchoolsImgCard, setShowPopularSchoolsImgCard] =
     useState(false);
   const [showDrugpaKagyuImgCard, setShowDrugpaKagyuImgCard] = useState(false);
+  const [languageChanging, setLanguageChanging] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (languageChanging) {
+        setIsVisible(false);
+
+        setTimeout(() => {
+          setLanguage((prevLanguage) =>
+            prevLanguage === "english" ? "bhutan" : "english"
+          );
+          setIsVisible(true);
+        }, 500);
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [languageChanging]);
 
   const handleCardOrImageClick = () => {
+    setLanguageChanging(false);
+    setIsVisible(true);
+    setLanguage(ENGLISH);
     if (
       showCards ||
       selectedCard ||
@@ -52,9 +74,11 @@ const Tibetan = () => {
       setShowPopularSchoolsImgCard(false);
       setShowDrugpaKagyuImgCard(false);
       setShowYearText(true);
+      setLanguageChanging(true);
     } else if (showIntroduction) {
       setShowIntroduction(false);
       setShowYearText(true);
+      setLanguageChanging(true);
     } else {
       setShowYearText(false);
       setShowIntroduction(true);
@@ -72,6 +96,7 @@ const Tibetan = () => {
     setShowPopularSchoolsImgCard(false);
     setShowDrugpaKagyuImgCard(false);
     setShowYearText(true);
+    setLanguageChanging(true);
   };
 
   const toggleLanguage = () => {
@@ -85,6 +110,7 @@ const Tibetan = () => {
   const showTibetanCards = () => {
     setShowIntroduction(false);
     setShowCards(true);
+    setShowYearText(false);
   };
 
   const handleCardClick = (cardName) => {
@@ -141,7 +167,12 @@ const Tibetan = () => {
 
   const handleHomeClick = () => {
     setShowCards(true);
-    resetView();
+    setSelectedCard(null);
+    setShowIntroduction(false);
+    setShowPopularSchoolsCard(false);
+    setShowDrukpaKagyuCard(false);
+    setShowPopularSchoolsImgCard(false);
+    setShowDrugpaKagyuImgCard(false);
   };
 
   const isBlueCard =
@@ -171,58 +202,69 @@ const Tibetan = () => {
   }, [selectedCard]);
 
   return (
-    <motion.div
-      className={styles.TibetanContainer}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1.6, ease: "easeOut" }}
-    >
-      {showYearText && (
-        <motion.div
-          className={styles.TibetanText}
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <YearText BornYear="1200" Endyear="-1800" fontSize="118px" />
-        </motion.div>
-      )}
-      <motion.div
-        className={styles.tibetanImage}
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.4 }}
-        // onClick={handleCardOrImageClick}
-      >
-        <img src={tibetan} alt="Pema Lingpa" />
-      </motion.div>
-      <motion.div
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.4 }}
-      >
-        <div
-          className={styles.tibetanNameCardContainer}
-          onClick={handleCardOrImageClick}
-        >
-          <NameCard
-            cardName={TIBETAN_INFORMATION[language].nameCardTitleFirst}
-            cardNameTwo={TIBETAN_INFORMATION[language].nameCardTitleSecond}
-            width="255px"
-            height="95px"
-            paraSize="15px"
-            fontSize={language === BHUTAN ? "1.5rem" : "1.25rem"}
-            year={
-              showCards || selectedCard || showIntroduction
-                ? "1200-1800"
-                : undefined
-            }
-            paraColor={nameCardColor}
-            background={nameCardBackground}
-            color={nameCardColor}
-          />
+    <div className={styles.TibetanContainer}>
+      <AnimatePresence>
+        {showYearText && (
+          <motion.div
+            className={styles.TibetanText}
+            initial={false} // Prevent initial animation on first mount
+            exit={{ opacity: 0, x: 150 }} // Fade out on exit
+            transition={{ duration: 3 }}
+          >
+            <YearText BornYear="1200" Endyear="-1800" fontSize="118px" />
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <div className={styles.tibetanImage} onClick={handleCardOrImageClick}>
+        {/* <img src={tibetan} alt="Pema Lingpa" /> */}
+        <div  className={styles.tibetanImage}>
+        <CharacterAnimation characterName="tibetan" />
         </div>
-      </motion.div>
+      </div>
+
+      <div
+        className={styles.tibetanNameCardContainer}
+        onClick={handleCardOrImageClick}
+      >
+        <NameCard
+          cardName={
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: isVisible ? 1 : 0 }}
+              transition={{ duration: 2.5 }}
+            >
+              {TIBETAN_INFORMATION[language].nameCardTitleFirst}
+            </motion.div>
+          }
+          cardNameTwo={
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: isVisible ? 1 : 0 }}
+              transition={{ duration: 2.5 }}
+            >
+              {TIBETAN_INFORMATION[language].nameCardTitleSecond}{" "}
+            </motion.div>
+          }
+          width="255px"
+          height="95px"
+          paraSize="15px"
+          fontSize={language === BHUTAN ? "1.5rem" : "1.25rem"}
+          year={
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: isVisible ? 1 : 0 }}
+              transition={{ duration: 2.5 }}
+            >
+              {showCards || selectedCard || showIntroduction
+                ? "1200-1800"
+                : undefined}
+            </motion.div>
+          }
+          paraColor={nameCardColor}
+          background={nameCardBackground}
+          color={nameCardColor}
+        />
+      </div>
 
       <AnimatePresence>
         {showIntroduction && (
@@ -234,7 +276,7 @@ const Tibetan = () => {
               showIcons={showIcons}
               whiteImage={true}
               left="56%"
-              top="85.7%"
+              top="85%"
               onClick={showTibetanCards}
               background="#2B455D"
             />
@@ -244,12 +286,12 @@ const Tibetan = () => {
               showIcons={showIcons}
               whiteImage={true}
               left="44.3%"
-              top="77.5%"
+              top="78%"
               height="65px"
             />
             <CloseIcon
               left="43.7%"
-              top="73.5%"
+              top="74%"
               showIcons={showIcons}
               onClick={handleCardOrImageClick}
             />
@@ -270,11 +312,11 @@ const Tibetan = () => {
               showIcons={showIcons}
               background="#523019"
               left="49.5%"
-              top="78.5%"
+              top="81.5%"
             />
             <CloseIcon
               left="48.8%"
-              top="81%"
+              top="77.5%"
               background="#523019"
               showIcons={showIcons}
               onClick={handleCardOrImageClick}
@@ -592,7 +634,7 @@ const Tibetan = () => {
           </>
         )}
       </AnimatePresence>
-    </motion.div>
+    </div>
   );
 };
 

@@ -1,4 +1,4 @@
-.MonasteriesImg1 {
+.MonasteriesImg1 img{
   position: fixed;
   left: 62.3%;
   top: 85%;
@@ -6,7 +6,7 @@
   height: 180px;
 }
 
-.MonasteriesImg2 {
+.MonasteriesImg2 img{
   position: fixed;
   left: 66.3%;
   top: 84.5%;
@@ -14,7 +14,7 @@
   height: 100px;
 }
 
-.MonasteriesImg3 {
+.MonasteriesImg3 img{
   position: fixed;
   left: 68.3%;
   top: 85.5%;
@@ -22,7 +22,7 @@
   height: 80px;
 }
 
-.MonasteriesImg4 {
+.MonasteriesImg4 img{
   position: fixed;
   left: 70.1%;
   top: 83.2%;
@@ -30,7 +30,7 @@
   height: 130px;
 }
 
-.MonasteriesImg5 {
+.MonasteriesImg5 img{
   position: fixed;
   left: 72.65%;
   top: 84.5%;
@@ -38,7 +38,7 @@
   height: 150px;
 }
 
-.MonasteriesImg6 {
+.MonasteriesImg6 img{
   position: fixed;
   left: 66.4%;
   top: 88.2%;
@@ -46,7 +46,7 @@
   height: 130px;
 }
 
-.MonasteriesImg7 {
+.MonasteriesImg7 img{
   position: fixed;
   left: 69.2%;
   top: 88.2%;
@@ -54,7 +54,7 @@
   height: 160px;
 }
 
-.MonasteriesImg8 {
+.MonasteriesImg8 img{
   position: fixed;
   left: 72.6%;
   top: 90.4%;

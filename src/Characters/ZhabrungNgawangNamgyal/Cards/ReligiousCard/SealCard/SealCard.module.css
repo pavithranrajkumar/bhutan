@@ -5,7 +5,11 @@
   left: 90.8%;
   width: 250px;
   height: 250px;
-  overflow: hidden;
+}
+
+.sealImage img {
+  width: 250px;
+  height: 250px;
 }
 
 .sealOfZhabdrungStatementCard {
@@ -15,7 +19,8 @@
   width: 320px;
   height: 333px;
   left: 82.6%;
-  top: 70.4%;
+  top: 70%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
 }
 
 .sealOfZhabdrungStatementCard p {

@@ -4,8 +4,9 @@
   width: 80px;
   height: 80px;
   cursor: pointer;
-  z-index: 1; /* Ensure this is lower than the icon */
-  overflow: hidden; /* Prevent overflow of child elements */
+  z-index: 199; /* Ensure this is lower than the icon */
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
 }
 
 .PreviousIconWhiteContainer::before {
@@ -29,7 +30,8 @@
   width: 80px;
   height: 80px;
   cursor: pointer;
-  z-index: 2; /* Ensure this is above the background */
+  z-index: 199; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
 }
 
 .PreviousIconContainer::before {
@@ -45,7 +47,7 @@
   background-repeat: no-repeat;
   opacity: 0.3; /* Set background image opacity */
   pointer-events: none; /* Allow clicks to pass through */
-  z-index: 0; /* Ensure this is behind other content */
+  z-index:0; /* Ensure this is behind other content */
 }
 
 .PreviousIcon {
@@ -54,5 +56,5 @@
   width: 20px;
   height: 20px;
   color: white; /* Icon color */
-  z-index: 3; /* Ensure this is above everything */
+  z-index: 200/* Ensure this is above everything */
 }

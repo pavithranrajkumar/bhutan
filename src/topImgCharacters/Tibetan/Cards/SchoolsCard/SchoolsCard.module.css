@@ -1,5 +1,6 @@
 .PopularCards,
 .DrukpaCards {
+  position: relative; /* For positioning the background image */
   background: #c9d7ee;
   color: #001829;
   font-family: "Hammersmith One";
@@ -7,35 +8,34 @@
   width: 120px;
   height: 70px;
   cursor: pointer;
+  overflow: hidden; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
 }
 
+/* Add background image to both PopularCards and DrukpaCards */
+.PopularCards::before,
+.DrukpaCards::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/src/assests/BgImgs/CardBgImg.png"); /* Background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.15; /* Background image opacity */
+  z-index: 0; /* Ensure background stays behind content */
+  pointer-events: none; /* Prevent interaction with the background */
+}
+
+
+/* SchoolsTopCards container for both cards */
 .SchoolsTopCards {
   position: fixed;
-  left: 50.6%;
-  top: 22%;
+  left: 51.3%;
+  top: 46%;
   display: flex;
   gap: 10px;
-}
-
-.PopularCards:hover,
-.DrukpaCards:hover {
-  transform: scale(1.05);
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.PopularCards.fadeIn,
-.DrukpaCards.fadeIn {
-  opacity: 1;
-  transform: translateY(0);
-  animation: fadeInUp 0.5s ease forwards;
 }

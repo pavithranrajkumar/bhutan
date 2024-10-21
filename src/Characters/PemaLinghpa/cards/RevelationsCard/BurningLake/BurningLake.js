@@ -20,7 +20,7 @@ const BurningLake = ({ showIntro, language, onBurningLakeBookImgClick }) => {
       return () => clearTimeout(timer); // Cleanup timer on unmount
     }
   }, [showIntro]);
-  
+
   return (
     <div>
       {showIntro && (
@@ -49,11 +49,13 @@ const BurningLake = ({ showIntro, language, onBurningLakeBookImgClick }) => {
             transition={{ duration: 0.5, delay: 3 }}
             exit={{ opacity: 0, transition: { duration: 2 } }}
           >
-            <div className={styles.book}>
-              <div className={styles.frontCover}>
-                <img src={burningLakeBookImg} alt="Naring Drag Book Cover" />
-                <div className={styles.shine} /> {/* Add shine effect here */}
-              </div>
+            <div className={styles.shimmerWrapper}>
+              <img
+                src={burningLakeBookImg}
+                alt=""
+                className={styles.bookImage}
+              />
+              <div className={styles.shimmer}></div>
             </div>
           </motion.div>
         </>

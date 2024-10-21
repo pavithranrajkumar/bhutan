@@ -3,27 +3,32 @@
 }
 
 .manifestationGroupContainerImg {
+  object-fit: contain;
   position: fixed;
-  left: 27.1%;
-  top: 47.5%;
-  width: 215px;
+  left: 27%;
+  top: 60%;
+  width: 230px;
   height: 340px;
+  cursor: pointer;
 }
 
-.manifestationGroupContainerImg img {
-  object-fit: fill;
+.manifestationImg{
+  width: 230px;
+  height: 350px;
+  border: 10px solid white; 
+  border-bottom: 10px solid white;
 }
 
 .manifestationFrstGroup {
   position: fixed;
-  left: 21.6%;
-  top: 63%;
+  left: 22.3%;
+  top: 71.5%;
 }
 
 .manifestationScndGroup {
   position: fixed;
-  left: 32.7%;
-  top: 40%;
+  left: 33.6%;
+  top: 60%;
 }
 
 .fadeIn {

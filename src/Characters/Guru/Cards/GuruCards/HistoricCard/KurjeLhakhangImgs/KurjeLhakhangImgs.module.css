@@ -6,7 +6,7 @@
   position: fixed;
 }
 
-.KurjeLhakhangTemplesImg1 {
+.KurjeLhakhangTemplesImg1 img{
   position: fixed;
   left: 30.5%;
   top: 80%;
@@ -14,7 +14,7 @@
   height: 190px;
 }
 
-.KurjeLhakhangTemplesImg2 {
+.KurjeLhakhangTemplesImg2 img{
   position: fixed;
   left: 27.2%;
   top: 89.4%;
@@ -22,7 +22,7 @@
   height: 130px;
 }
 
-.KurjeLhakhangTemplesImg3 {
+.KurjeLhakhangTemplesImg3 img{
   position: fixed;
   left: 30.5%;
   top: 87.8%;
@@ -30,7 +30,7 @@
   height: 150px;
 }
 
-.KurjeLhakhangTemplesImg4 {
+.KurjeLhakhangTemplesImg4 img{
   position: fixed;
   left: 26.8%;
   top: 83%;

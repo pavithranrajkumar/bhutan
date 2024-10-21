@@ -1,8 +1,12 @@
 .KurjeTempleImg {
   position: fixed;
-  top: 79.1%;
-  left: 29.5%;
+  top: 78.5%;
+  left: 29.8%;
   width: 320px;
   height: 300px;
 }
 
+.KurjeTempleImg img{
+  width: 320px;
+  height: 300px;
+}

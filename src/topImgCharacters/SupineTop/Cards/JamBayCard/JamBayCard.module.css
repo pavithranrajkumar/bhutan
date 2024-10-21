@@ -1,0 +1,8 @@
+.JamBayCardImg img{
+  position: fixed;
+  top: 50%;
+  left: 12%;
+  width: 360px;
+  height: 250px;
+  cursor: pointer;
+}

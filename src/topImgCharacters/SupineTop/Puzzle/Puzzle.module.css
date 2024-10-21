@@ -1,0 +1,60 @@
+.puzzle-container {
+  position: fixed;
+}
+
+/* .main-image-grid {
+  position: fixed;
+} */
+
+.main {
+  position: fixed;
+  left: 20%;
+  top: 86%;
+  z-index: 500;
+}
+
+.main img {
+  width: 10px;
+  height: 10px;
+}
+
+.completed-image {
+  position: fixed;
+  left: 4.8%;
+  top: 85.5%;
+  width: 50px;
+  height: 80px;
+  z-index: 10;
+}
+
+.completed-image img {
+  width: 450px;
+  height: 280px;
+}
+
+.dropzones {
+  position: fixed;
+}
+
+.dropzone {
+  background-color: rgba(0, 255, 0, 0.3);
+  border: 2px dashed red;
+  outline: 1px solid black;
+  position: fixed;
+  z-index: 20;
+}
+
+.completed-piece {
+  position: fixed;
+}
+
+.draggable-piece {
+  z-index: 999;
+  position: fixed;
+  cursor: pointer;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.pieces-container {
+  position: fixed;
+}

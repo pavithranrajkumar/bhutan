@@ -73,7 +73,7 @@ const GuruCards = ({ language, onCardClick, showCards }) => {
             originX: 1,
           }}
           transition={{ duration: 1.5, ease: "easeOut", delay: 1.5 }} // Start fade immediately
-          exit={{ scaleX: 0, opacity: 0, transition: { duration: 2.5 } }}
+          exit={{ scaleX: 0, opacity: 0, transition: { duration: 0.5 } }}
         >
           {showTitles && (
             <motion.div

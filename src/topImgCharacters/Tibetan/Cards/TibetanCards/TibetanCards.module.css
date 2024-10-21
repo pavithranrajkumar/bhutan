@@ -22,8 +22,10 @@
   padding: 0.6vw;
   width: 150px;
   height: 40px;
-  top: 48.5%;
+  top: 65%;
   left: 51%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+
 }
 
 .SchoolsCard {
@@ -35,6 +37,50 @@
   padding: 0.7vw;
   width: 160px;
   height: 30px;
-  top: 63%;
+  top: 74%;
   left: 52.7%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+
+}
+
+.cardsContainer {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 85%;
+  left: 60%;
+}
+
+@keyframes backgroundLoop {
+  0% {
+    background-position: 0% 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
+}
+
+/* Add background image to ArrivalCard and SchoolsCard */
+.ArrivalCard::before,
+.SchoolsCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/src/assests/BgImgs/CardBgImg.png");
+  background-size: 200% 100%;
+  animation: backgroundLoop 10s ease-in-out infinite;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+/* Ensure text content stays on top */
+.ArrivalCard > *,
+.SchoolsCard > * {
+  z-index: 1; /* Content on top of the background */
 }

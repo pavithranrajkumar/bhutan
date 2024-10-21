@@ -9,7 +9,22 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+}
 
+.DriglamNamzhagTopCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/src/assests/BgImgs/IconsBgImg.png"); /* Background image */
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  opacity: 0.18; /* Adjust opacity as needed */
+  z-index: 0; /* Ensure the background stays behind the content */
 }
 
 .DriglamNamzhagTopCard p {
@@ -17,5 +32,6 @@
   color: white;
   font-family: "Public Sans";
   font-size: 13px;
+  color: #FCD7C2;
 }
 

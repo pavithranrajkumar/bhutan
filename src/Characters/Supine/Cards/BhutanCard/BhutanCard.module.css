@@ -23,7 +23,7 @@
 
 .JamBayCard::before,
 .KyichuCard::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -38,12 +38,16 @@
   pointer-events: none; /* Prevent interaction with the background */
 }
 
-.JamBayImg,
-.KyichuImg {
+.JamBayImg img ,
+.KyichuImg img{
   position: fixed;
+  z-index: 1;
+}
+
+.JamBayImg img,
+.KyichuImg img {
   width: 120px;
   height: 120px;
-  z-index: 1;
 }
 
 .JamBayCard {
@@ -55,12 +59,12 @@
   text-align: right;
 }
 
-.JamBayImg {
+.JamBayImg img{
   left: 10.5%;
   top: 75%;
 }
 
-.KyichuImg {
+.KyichuImg img{
   left: 7%;
   top: 81.5%;
 }

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Guru.module.css";
 import { AnimatePresence, motion } from "framer-motion";
-import { FaTimes, FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import guru from "../../assests/Guru/Guru Rinpoche.png";
 import YearText from "../../components/YearText/YearText";
 import NameCard from "../../components/NameCard/NameCard";
@@ -22,11 +21,11 @@ import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
 import CloseIcon from "../../components/Card/Icons/CloseIcon/CloseIcon";
 import KurjeLhakhangImgs from "./Cards/GuruCards/HistoricCard/KurjeLhakhangImgs/KurjeLhakhangImgs";
 import PalaceImg from "./Cards/GuruCards/HistoricCard/PalaceImg/PalaceImg";
+import CharacterAnimation from "../../CharacterAnimations/AnimationRender";
 
 const Guru = () => {
   const [showYearText, setShowYearText] = useState(true);
   const [showCards, setShowCards] = useState(false);
-  const [isFadingOut, setIsFadingOut] = useState(false);
   const [showIntroduction, setShowIntroduction] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
   const [language, setLanguage] = useState("english");
@@ -41,10 +40,28 @@ const Guru = () => {
     index: 0,
     isPopular: true,
   });
+  const [languageChanging, setLanguageChanging] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (languageChanging) {
+        setIsVisible(false);
+
+        setTimeout(() => {
+          setLanguage((prevLanguage) =>
+            prevLanguage === "english" ? "bhutan" : "english"
+          );
+          setIsVisible(true);
+        }, 3000);
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [languageChanging]);
 
   const cardNameFontSize = language === BHUTAN ? "1.5rem" : "1.25rem";
   const subCardnameFontSize = language === BHUTAN ? "1.5rem" : "0.8rem";
-  const subCardnameMarginLeft = language === BHUTAN ? "10.1rem" : "7rem";
 
   const toggleLanguage = () => {
     setLanguage((prevLanguage) => {
@@ -64,6 +81,7 @@ const Guru = () => {
     setShowPalaceImg(false);
     setEnlargedImage(false);
     setShowYearText(true);
+    setLanguageChanging(true);
   };
 
   const handleHomeClick = () => {
@@ -78,11 +96,15 @@ const Guru = () => {
   };
 
   const handleCardOrImageClick = () => {
+    setLanguageChanging(false);
+    setIsVisible(true);
+    setLanguage("english");
     if (showCards || selectedCard) {
       resetStates();
     } else if (showIntroduction) {
       setShowIntroduction(false);
       setShowYearText(true);
+      setLanguageChanging(true);
     } else {
       setShowYearText(false);
       setShowIntroduction(true);
@@ -185,37 +207,31 @@ const Guru = () => {
     : "white";
 
   return (
-    <div
-      className={styles.GuruContainer}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1.6, ease: "easeOut" }}
-    >
-      {showYearText && (
-        <motion.div
-          className={styles.GuruText}
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <YearText
-            BornYear="900"
-            Endyear="-1000"
-            fontSize="115px"
-            marginLeft="70px"
-          />
-        </motion.div>
-      )}
+    <div className={styles.GuruContainer}>
+      <AnimatePresence>
+        {showYearText && (
+          <motion.div
+            className={styles.GuruText}
+            initial={false} // Prevent initial animation on first mount
+            exit={{ opacity: 0, x: 150 }} // Fade out on exit
+            transition={{ duration: 3 }}
+          >
+            <YearText
+              BornYear="900"
+              Endyear="-1000"
+              fontSize="115px"
+              marginLeft="70px"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-      <motion.div
-        className={styles.GuruImage}
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.4 }}
-        onClick={handleCardOrImageClick}
-      >
-        <img src={guru} alt="Pema Lingpa" />
-      </motion.div>
+      <div className={styles.GuruImage} onClick={handleCardOrImageClick}>
+        <div className={styles.GuruImage}>
+          <CharacterAnimation characterName="rinpoche" />
+        </div>
+        {/* <img src={guru} alt="Pema Lingpa" /> */}
+      </div>
       <motion.div
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
@@ -226,10 +242,26 @@ const Guru = () => {
           onClick={handleCardOrImageClick}
         >
           <NameCard
-            cardName={GURU_INFORMATION[language].cardName}
+            cardName={
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isVisible ? 1 : 0 }}
+                transition={{ duration: 2.5 }}
+              >
+                {GURU_INFORMATION[language].cardName}
+              </motion.div>
+            }
             width="200px"
             height="110px"
-            subCardname={GURU_INFORMATION[language].subCardName}
+            subCardname={
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isVisible ? 1 : 0 }}
+                transition={{ duration: 2.5 }}
+              >
+                {GURU_INFORMATION[language].subCardName}
+              </motion.div>
+            }
             subCardnameMarginLeft={language === BHUTAN ? "94px" : "25px"}
             paraSize="15px"
             fontSize={cardNameFontSize}
@@ -255,8 +287,8 @@ const Guru = () => {
             <NextIcon
               showIcons={showIcons}
               whiteImage={true}
-              left="37.1%"
-              top="80%"
+              left="36.5%"
+              top="78%"
               onClick={showGuruCards}
               background="#2B455D"
             />
@@ -265,13 +297,13 @@ const Guru = () => {
               showIcons={showIcons}
               whiteImage={true}
               language={language}
-              left="28.2%"
-              top="95.8%"
+              left="27.3%"
+              top="96.6%"
             />
             <CloseIcon
               showIcons={showIcons}
-              left="27.6%"
-              top="91.9%"
+              left="26.6%"
+              top="92.5%"
               onClick={handleCardOrImageClick}
             />
           </>
@@ -321,7 +353,7 @@ const Guru = () => {
               iconWidth="25px"
               IconHeight="25px"
               left="22.4%"
-              top="91.5%"
+              top="87.5%"
               height="55px"
               background="#613900"
             />
@@ -329,7 +361,7 @@ const Guru = () => {
               showIcons={showIcons}
               background="#C87E12"
               left="21.8%"
-              top="87.5%"
+              top="83.5%"
               height="70px"
               width="80px"
               margin="25px"
@@ -339,7 +371,7 @@ const Guru = () => {
               showIcons={showIcons}
               background="#C87E12"
               left="21.8%"
-              top="83.5%"
+              top="79.5%"
               onClick={handleCardOrImageClick}
             />
           </div>
@@ -358,8 +390,8 @@ const Guru = () => {
               language={language}
               onClick={toggleLanguage}
               showIcons={showIcons}
-              left="21.3%"
-              top="94.5%"
+              left="21.8%"
+              top="91%"
               background="#193145"
               whiteImage={true}
             />
@@ -367,21 +399,21 @@ const Guru = () => {
               showIcons={showIcons}
               whiteImage={true}
               background="#2B455D"
-              left="20.7%"
-              top="90.6%"
+              left="21.2%"
+              top="87%"
               onClick={handleHomeClick}
             />
             <PreviousIcon
               onClick={handlePreviousClick}
               showIcons={showIcons}
-              left="20.7%"
-              top="86.6%"
+              left="21.2%"
+              top="83%"
               height="80px"
               marginTop="28px"
             />
             <CloseIcon
-              left="20.7%"
-              top="82.7%"
+              left="21.2%"
+              top="79%"
               showIcons={showIcons}
               onClick={handleCardOrImageClick}
             />
@@ -449,7 +481,7 @@ const Guru = () => {
               iconWidth="25px"
               IconHeight="25px"
               left="22.4%"
-              top="91.4%"
+              top="87.5%"
               height="55px"
               background="#613900"
             />
@@ -457,7 +489,7 @@ const Guru = () => {
               showIcons={showIcons}
               background="#C87E12"
               left="21.8%"
-              top="87.5%"
+              top="83.5%"
               height="70px"
               width="80px"
               margin="25px"
@@ -467,7 +499,7 @@ const Guru = () => {
               showIcons={showIcons}
               background="#C87E12"
               left="21.8%"
-              top="83.5%"
+              top="79.5%"
               onClick={handleCardOrImageClick}
             />
           </div>

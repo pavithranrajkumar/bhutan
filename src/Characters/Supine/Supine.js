@@ -24,6 +24,7 @@ import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
 import base from "../../assests/Supine/Base.png";
 import Puzzle from "../../pages/Puzzle/Puzzle";
 import CloseIcon from "../../components/Card/Icons/CloseIcon/CloseIcon";
+import CharacterAnimation from "../../CharacterAnimations/AnimationRender";
 
 const Supine = () => {
   const [showYearText, setShowYearText] = useState(true);
@@ -39,11 +40,30 @@ const Supine = () => {
   const [showJamBayImages, setShowJamBayImages] = useState(false);
   const [showKyichuImages, setShowKyichuImages] = useState(false);
   const [puzzleCompleted, setPuzzleCompleted] = useState(false);
+  const [languageChanging, setLanguageChanging] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
 
   const kyichuFontSize = language === BHUTAN ? "1.25rem" : "1.5625rem";
   const cardNameFontSize = language === BHUTAN ? "1.5rem" : "1.25rem";
   const subCardnameFontSize = language === BHUTAN ? "1.5rem" : "1.25rem";
   const subCardnameMarginLeft = language === BHUTAN ? "10.1rem" : "7rem";
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (languageChanging) {
+        setIsVisible(false);
+
+        setTimeout(() => {
+          setLanguage((prevLanguage) =>
+            prevLanguage === ENGLISH ? BHUTAN : ENGLISH
+          );
+          setIsVisible(true);
+        }, 3000);
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [languageChanging]);
 
   const toggleLanguage = () => {
     setLanguage((prevLanguage) => {
@@ -63,6 +83,9 @@ const Supine = () => {
   };
 
   const handleCardOrImageClick = () => {
+    setLanguageChanging(false);
+    setLanguage(ENGLISH);
+    setIsVisible(true);
     if (
       showIntroduction ||
       showCards ||
@@ -82,6 +105,10 @@ const Supine = () => {
       setShowJamBayImages(false);
       setShowKyichuImages(false);
       setShowYearText(true);
+    } else if (showIntroduction) {
+      setShowIntroduction(false);
+      setShowYearText(true);
+      setLanguageChanging(true);
     } else {
       setShowIntroduction(true);
       setShowIcons(true);
@@ -229,76 +256,100 @@ const Supine = () => {
     : "white";
 
   return (
-    <motion.div
+    <div
       className={styles.SupineContainer}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1.6, ease: "easeOut" }}
     >
-      {showYearText && !showIntroduction && (
-        <motion.div
-          className={styles.SupineText}
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <YearText
-            BornYear="800"
-            Endyear="-900"
-            fontSize="118px"
-            marginLeft="40px"
-          />
-        </motion.div>
+      <AnimatePresence>
+        {showYearText && !showIntroduction && (
+          <motion.div
+            className={styles.SupineText}
+            initial={false} // Prevent initial animation on first mount
+            exit={{ opacity: 0, x: 150 }} // Fade out on exit
+            transition={{ duration: 3 }}
+          >
+            <YearText
+              BornYear="800"
+              Endyear="-900"
+              fontSize="118px"
+              marginLeft="40px"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {showHimalayanCard ? (
+        ""
+      ) : (
+        <>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="base-image"
+          >
+            <div
+              className={styles.SupineImage}
+              onClick={handleCardOrImageClick}
+            >
+              <div className={styles.SupineImage}>
+                <CharacterAnimation characterName="supine" />
+              </div>
+            </div>
+          </motion.div>
+        </>
       )}
-      <motion.div
-        className={styles.SupineImage}
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.4 }}
+
+      <div
+        className={styles.SupineNameCardContainer}
         onClick={handleCardOrImageClick}
       >
-        {showHimalayanCard ? "" : <img src={supine} alt="Pema Lingpa" />}{" "}
-      </motion.div>
-      <motion.div
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.4 }}
-      >
-        <div
+        <motion.div
           className={styles.SupineNameCardContainer}
           onClick={handleCardOrImageClick}
         >
-          <motion.div
-            className={styles.SupineNameCardContainer}
-            onClick={handleCardOrImageClick}
-          >
-            <NameCard
-              cardName={SUPINE_INFORMATION[language].nameCardtitle}
-              subCardname={SUPINE_INFORMATION[language].nameCardtitleTwo}
-              width="270px"
-              height="100px"
-              fontSize={cardNameFontSize}
-              subCardnameFontSize={subCardnameFontSize}
-              subCardnameMarginLeft={subCardnameMarginLeft}
-              background={nameCardBackground}
-              color={nameCardColor}
-              year={
-                showCards ||
-                selectedCard ||
-                showIntroduction ||
-                showReligiousCard ||
-                showHimalayanCard ||
-                showBhutanCard
-                  ? "800-900"
-                  : undefined
-              }
-              paraColor={nameParaColor}
-              paraSize="15px"
-              language={language}
-            />
-          </motion.div>
-        </div>
-      </motion.div>
+          <NameCard
+            cardName={
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isVisible ? 1 : 0 }}
+                transition={{ duration: 2.5 }}
+              >
+                {SUPINE_INFORMATION[language].nameCardtitle}
+              </motion.div>
+            }
+            subCardname={
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isVisible ? 1 : 0 }}
+                transition={{ duration: 2.5 }}
+              >
+                {SUPINE_INFORMATION[language].nameCardtitleTwo}
+              </motion.div>
+            }
+            width="270px"
+            height="100px"
+            fontSize={cardNameFontSize}
+            subCardnameFontSize={subCardnameFontSize}
+            subCardnameMarginLeft={subCardnameMarginLeft}
+            background={nameCardBackground}
+            color={nameCardColor}
+            year={
+              showCards ||
+              selectedCard ||
+              showIntroduction ||
+              showReligiousCard ||
+              showHimalayanCard ||
+              showBhutanCard
+                ? "800-900"
+                : undefined
+            }
+            paraColor={nameParaColor}
+            paraSize="15px"
+            language={language}
+          />
+        </motion.div>
+      </div>
 
       <AnimatePresence>
         {showIntroduction && (
@@ -350,13 +401,13 @@ const Supine = () => {
               showIcons={showIcons}
               language={language}
               background="#3A3C25"
-              left="15.7%"
+              left="12.2%"
               top="82.7%"
             />
             <CloseIcon
               showIcons={showIcons}
-              left="17.3%"
-              top="81.4%"
+              left="11.6%"
+              top="78.5%"
               background="#3A3C25"
               onClick={handleCardOrImageClick}
             />
@@ -416,39 +467,51 @@ const Supine = () => {
         {showHimalayanCard && (
           <>
             <div className={styles.Puzzle}>
-              <Puzzle
-                onComplete={handlePuzzleComplete}
-                resetPuzzleCard={resetPuzzle}
-              />
+              <div>
+                <Puzzle
+                  onComplete={handlePuzzleComplete}
+                  resetPuzzleCard={resetPuzzle}
+                />
+              </div>
+              <div className={styles.HimalayanCard}>
+                <HimalayanCard
+                  language={language}
+                  showIntro={true}
+                  puzzleCompleted={puzzleCompleted}
+                  resetPuzzleCard={resetPuzzle}
+                />
+              </div>
             </div>
-            <div className={styles.HimalayanCard}>
-              <HimalayanCard
-                language={language}
-                showIntro={true}
-                puzzleCompleted={puzzleCompleted}
-                resetPuzzleCard={resetPuzzle}
-              />
-            </div>
+            <HomeIcon
+              showIcons={showIcons}
+              whiteImage={true}
+              left="0.5%"
+              top="83.5%"
+              height="70px"
+              width="80px"
+              margin="25px"
+              onClick={handleHomeClick}
+            />
             <LanguageIcon
               onClick={toggleLanguage}
               showIcons={showIcons}
               whiteImage={true}
               language={language}
-              left="1.2%"
-              top="91.5%"
+              left="1.1%"
+              top="95.5%"
             />
             <PreviousIcon
               onClick={handlePreviousClick}
               showIcons={showIcons}
               left="0.5%"
-              top="87.5%"
+              top="91.5%"
               height="80px"
               marginTop="28px"
             />
             <CloseIcon
               showIcons={showIcons}
               left="0.5%"
-              top="83.5%"
+              top="87.5%"
               onClick={handleCardOrImageClick}
             />
           </>
@@ -564,22 +627,48 @@ const Supine = () => {
       <AnimatePresence>
         {showJamBayImages && (
           <>
+            {" "}
             <div className={styles.JamBayImages}>
-              <div className={`${styles.palaceImg1} ${styles.animatedImg}`}>
-                <img src={JambayImg1} alt="palaceImg1" />
+              <div className={styles.palaceImg1}>
+                <motion.img
+                  src={JambayImg1}
+                  alt=""
+                  initial={{ opacity: 0 }} // Initial state
+                  animate={{ opacity: 1 }} // Animation state
+                  transition={{ duration: 1.5, delay: 2.5 }}
+                  exit={{ opacity: 0, transition: { duration: 2 } }}
+                />
               </div>
-              <div className={`${styles.palaceImg2} ${styles.animatedImg}`}>
-                <img src={JambayImg2} alt="palaceImg2" />
+              <div className={styles.palaceImg2}>
+                <motion.img
+                  src={JambayImg2}
+                  alt=""
+                  initial={{ opacity: 0 }} // Initial state
+                  animate={{ opacity: 1 }} // Animation state
+                  transition={{ duration: 1.5, delay: 2.8 }}
+                  exit={{ opacity: 0, transition: { duration: 2 } }}
+                />
               </div>
             </div>
-            <div
-              className={`${styles.JamBayImagesCard} ${styles.animatedCard}`}
+            <motion.div
+              className={styles.JamBayImagesCard}
               onClick={handleJamBayImagesCardClick}
+              initial={{ opacity: 0 }} // Initial opacity for title
+              animate={{ opacity: 1 }} // Final opacity for title
+              transition={{ duration: 0.5, delay: 3 }} // Fade duration for title
+              exit={{ opacity: 0, transition: { duration: 2.8 } }}
             >
-              <p style={{ fontSize: kyichuFontSize }}>
-                {SUPINE_INFORMATION[language].kyichu.title}
-              </p>
-            </div>
+              <motion.div
+                initial={{ opacity: 0 }} // Initial opacity for title
+                animate={{ opacity: 1 }} // Final opacity for title
+                transition={{ duration: 0.5, delay: 3.8 }} // Fade duration for title
+                exit={{ opacity: 0, transition: { duration: 2.8 } }}
+              >
+                <p style={{ fontSize: kyichuFontSize }}>
+                  {SUPINE_INFORMATION[language].kyichu.title}
+                </p>{" "}
+              </motion.div>
+            </motion.div>
             <LanguageIcon
               onClick={toggleLanguage}
               showIcons={showIcons}
@@ -685,25 +774,50 @@ const Supine = () => {
         {showKyichuImages && (
           <>
             <div className={styles.JamBayImages}>
-              <div className={`${styles.KyichuImg1} ${styles.animatedImg}`}>
-                <img src={KyichuImg1} alt="palaceImg1" />
+              <div className={styles.KyichuImg1}>
+                <motion.img
+                  src={KyichuImg1}
+                  alt=""
+                  initial={{ opacity: 0 }} // Initial state
+                  animate={{ opacity: 1 }} // Animation state
+                  transition={{ duration: 1.5, delay: 2.5 }}
+                  exit={{ opacity: 0, transition: { duration: 2 } }}
+                />
               </div>
-              <div className={`${styles.KyichuImg2} ${styles.animatedImg}`}>
-                <img src={KyichuImg2} alt="palaceImg2" />
+              <div className={styles.KyichuImg2}>
+                <motion.img
+                  src={KyichuImg2}
+                  alt=""
+                  initial={{ opacity: 0 }} // Initial state
+                  animate={{ opacity: 1 }} // Animation state
+                  transition={{ duration: 1.5, delay: 2.8 }}
+                  exit={{ opacity: 0, transition: { duration: 2 } }}
+                />
               </div>
             </div>
-            <div
-              className={`${styles.KyichuImagesCard} ${styles.animatedCard}`}
+            <motion.div
+              className={styles.KyichuImagesCard}
               onClick={handleKyichuImagesCardClick}
+              initial={{ opacity: 0 }} // Initial opacity for title
+              animate={{ opacity: 1 }} // Final opacity for title
+              transition={{ duration: 0.5, delay: 3 }} // Fade duration for title
+              exit={{ opacity: 0, transition: { duration: 2.8 } }}
             >
-              <p
-                style={{
-                  fontSize: kyichuFontSize,
-                }}
+              <motion.div
+                initial={{ opacity: 0 }} // Initial opacity for title
+                animate={{ opacity: 1 }} // Final opacity for title
+                transition={{ duration: 0.5, delay: 3.8 }} // Fade duration for title
+                exit={{ opacity: 0, transition: { duration: 2.8 } }}
               >
-                <p>{SUPINE_INFORMATION[language].jambay.title}</p>
-              </p>
-            </div>
+                <p
+                  style={{
+                    fontSize: kyichuFontSize,
+                  }}
+                >
+                  <p>{SUPINE_INFORMATION[language].jambay.title}</p>
+                </p>
+              </motion.div>
+            </motion.div>
             <LanguageIcon
               onClick={toggleLanguage}
               showIcons={showIcons}
@@ -750,7 +864,7 @@ const Supine = () => {
           </>
         )}
       </AnimatePresence>
-    </motion.div>
+    </div>
   );
 };
 

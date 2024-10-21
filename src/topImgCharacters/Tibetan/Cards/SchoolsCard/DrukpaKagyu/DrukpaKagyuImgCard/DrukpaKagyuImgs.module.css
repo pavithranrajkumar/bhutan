@@ -1,0 +1,207 @@
+.KurjeLhakhangTemplesImgContainer {
+  position: fixed;
+  z-index: 10;
+}
+
+.DrugpaKagyuImg1 img {
+  position: fixed;
+  left: 46%;
+  top: 46%;
+  width: 130px;
+}
+
+.DrugpaKagyuImg2 img {
+  position: fixed;
+  left: 46%;
+  top: 56%;
+  width: 130px;
+}
+
+.DrugpaKagyuImg3 img {
+  position: fixed;
+  left: 48.8%;
+  top: 51%;
+  width: 160px;
+  height: 190px;
+}
+
+.DrugpaKagyuImg4 img {
+  object-fit: fill;
+  position: fixed;
+  left: 52.4%;
+  top: 45%;
+  width: 140px;
+  height: 130px;
+}
+
+.DrugpaKagyuImg5 img {
+  object-fit: fill;
+  position: fixed;
+  left: 52.4%;
+  top: 55%;
+  width: 90px;
+  height: 90px;
+}
+
+.DrugpaKagyuImg6 img {
+  object-fit: fill;
+  position: fixed;
+  left: 54.1%;
+  top: 55%;
+  width: 90px;
+  height: 90px;
+}
+.DrugpaKagyuImg7 img {
+  position: fixed;
+  left: 52.4%;
+  top: 61%;
+  width: 130px;
+  height: 120px;
+}
+.DrugpaKagyuImg8 img {
+  position: fixed;
+  left: 52.4%;
+  top: 70%;
+  width: 110px;
+  height: 90px;
+}
+.DrugpaKagyuImg9 img {
+  position: fixed;
+  left: 54.6%;
+  top: 71%;
+  width: 80px;
+  height: 60px;
+}
+
+.DrugpaKagyuImg10 img {
+  position: fixed;
+  left: 50.3%;
+  top: 74%;
+  width: 100px;
+  height: 90px;
+}
+
+.DrugpaKagyuImg11 img {
+  position: fixed;
+  left: 50.3%;
+  top: 67%;
+  width: 100px;
+  height: 90px;
+}
+
+.DrugpaKagyuImg12 img {
+  position: fixed;
+  left: 47.4%;
+  top: 66.8%;
+  width: 130px;
+  height: 100px;
+}
+
+.DrugpaKagyuImg13 img {
+  position: fixed;
+  left: 48.4%;
+  top: 74.5%;
+  width: 90px;
+  height: 70px;
+}
+
+.DrugpaKagyuImg14 img {
+  position: fixed;
+  left: 50.1%;
+  top: 38%;
+  width: 90px;
+  height: 90px;
+}
+
+.DrugpaKagyuImg15 img {
+  position: fixed;
+  left: 50.1%;
+  top: 44%;
+  width: 110px;
+  height: 100px;
+}
+
+.DrugpaKagyuImg16 img {
+  position: fixed;
+  left: 48.8%;
+  top: 40%;
+  width: 70px;
+  height: 80px;
+}
+
+.DrugpaKagyuImg17 img {
+  position: fixed;
+  left: 48.8%;
+  top: 45.5%;
+  width: 70px;
+  height: 80px;
+}
+
+.DrugpaKagyuImg18 img {
+  position: fixed;
+  left: 46.3%;
+  top: 39%;
+  width: 120px;
+  height: 100px;
+}
+
+.DrugpaTemplesEnlargeImg {
+  z-index: 10;
+  position: fixed;
+  left: 47%;
+  top: 45%;
+  width: 310px;
+  height: 290px;
+  border-left: 10px solid white; /* Left border */
+  border-right: 10px solid white; /* Right border */
+  border-top: 10px solid white; /* Top border */
+  border-bottom: 50px solid white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  z-index: 100;
+  overflow: visible;
+}
+
+.DrugpaTemplesEnlargeImg img {
+  width: 310px;
+  height: 260px;
+  margin-top: -20px;
+  margin-left: -5px;
+  padding: 0;
+  display: block; /* Removes any inline spacing that could cause gaps */
+  border: none;
+  object-fit: cover;
+  z-index: 1;
+  position: relative;
+}
+
+.customPagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.dot {
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  width: 20px;
+}
+
+.imageCount {
+  margin-left: 15px; /* Space between dots and count */
+  font-size: 14px; /* Adjust as needed */
+}
+
+.closeButton {
+  position: absolute;
+  top: -8px; /* Adjust as needed */
+  right: -4px; /* Adjust as needed */
+  background: none;
+  border: none;
+  font-size: 30px; /* Adjust size as needed */
+  color: white; /* Change color as needed */
+  cursor: pointer;
+  z-index: 10; /* Ensure it appears above other content */
+}

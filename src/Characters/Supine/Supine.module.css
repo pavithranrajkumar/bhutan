@@ -3,17 +3,16 @@
 }
 
 .SupineImage {
-  position: fixed;
-  left: 4%;
+  left: 10%;
   top: 85.5%;
-  width: 480px;
+  width: 40px;
   height: 290px;
-  z-index: 10;
+  z-index: 1;
 }
 
 .SupineImage img {
   object-fit: fill;
-  z-index: 10;
+  z-index: 1;
 }
 
 .SupineText {
@@ -38,6 +37,7 @@
   position: fixed;
   left: 7%;
   top: 73.8%;
+  z-index: -1;
 }
 
 .ReligiousCard {
@@ -48,7 +48,7 @@
 
 .HimalayanCard {
   position: fixed;
-  left: 14%;
+  left: 13.8%;
   top: 76.8%;
 }
 
@@ -74,7 +74,7 @@
   position: fixed;
 }
 
-.palaceImg1 {
+.palaceImg1 img {
   position: fixed;
   left: 8.5%;
   top: 78.5%;
@@ -82,7 +82,7 @@
   height: 220px;
 }
 
-.palaceImg2 {
+.palaceImg2 img{
   position: fixed;
   left: 13.4%;
   top: 77%;
@@ -148,7 +148,7 @@
 .JamBayImagesCard p {
 }
 
-.KyichuImg1 {
+.KyichuImg1 img{
   position: fixed;
   left: 8.5%;
   top: 78.5%;
@@ -156,7 +156,7 @@
   height: 220px;
 }
 
-.KyichuImg2 {
+.KyichuImg2 img{
   position: fixed;
   left: 13.4%;
   top: 77%;
@@ -164,7 +164,7 @@
   height: 190px;
 }
 
-.KyichuImg3 {
+.KyichuImg3 img{
   position: fixed;
   left: 13.5%;
   top: 76.5%;
@@ -172,7 +172,7 @@
   height: 180px;
 }
 
-.KyichuImg4 {
+.KyichuImg4 img{
   position: fixed;
   left: 9.7%;
   top: 83%;
@@ -180,14 +180,20 @@
   height: 150px;
 }
 
-
-
 .Puzzle {
   position: fixed;
-  left: 4.6%;
-  top: 86%;
+  left: 4.55%;
+  top:86%;
   width: 450px;
-  height: 260px;
+  height: 250px;
+}
+
+
+.Puzzle img{
+  left: 4.5%;
+  top:86.2%;
+  width: 451px;
+  height: 253px;
   z-index: 10;
 }
 

@@ -15,7 +15,7 @@
   display: flex;
   position: fixed;
   top: 73.1%;
-  left: 13.3%;
+  left: 6.8%;
   gap: 10px;
 }
 
@@ -29,6 +29,10 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .HimalayanCard::before,
@@ -52,6 +56,9 @@
 .HimalayanCardFirstText {
   position: relative; /* Ensure text is above the background */
   z-index: 1; /* Keeps text above the background */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .HimalayanCardSecondtext {

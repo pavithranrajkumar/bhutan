@@ -1,0 +1,40 @@
+.sealOfZhabdrungCard {
+  position: fixed;
+  background: #6986a9;
+  color: #001829;
+  font-family: "Hammersmith One";
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  left: 89.7%;
+  top: 47%;
+  height: 110px;
+  width: 160px;
+  overflow: hidden; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+
+}
+
+
+/* Add background image to the card */
+.sealOfZhabdrungCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/src/assests/BgImgs/CardBgImg.png"); /* Background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.15; /* Adjust opacity as needed */
+  z-index: 0; /* Ensure background stays behind content */
+}
+
+/* Ensure text content stays on top */
+.sealOfZhabdrungCard > * {
+  z-index: 1; /* Content on top of the background */
+}

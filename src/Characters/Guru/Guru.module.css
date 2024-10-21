@@ -21,13 +21,11 @@
 }
 
 .GuruImage {
-  cursor: pointer;
-  position: fixed;
   top: 71.5%;
   left: 26.3%;
-  transform: translate(-50%, -60%);
-  z-index: 10;
-  margin: 0;
+  width: 20px;
+  height: 20px;
+  z-index: 1;
 }
 
 .GuruImage img {
@@ -45,26 +43,26 @@
 
 .GuruNameCardContainer {
   position: fixed;
-  left: 30.5%;
+  left: 29.5%;
   top: 74%;
 }
 
 .GuruIntroCard {
   position: fixed;
-  left: 29.8%;
+  left: 29%;
   top: 80%;
 }
 
 .GuruHistoricCard {
   position: fixed;
   left: 24%;
-  top: 83.3%;
+  top: 79.5%;
 }
 
 .GuruKurjeLhakhangCard {
   position: fixed;
-  left: 23%;
-  top: 82.6%;
+  left: 23.5%;
+  top: 79%;
 }
 
 .KurjeLhakhangTemplesImgs {
@@ -112,8 +110,8 @@
 
 .GuruPalaceCard {
   position: fixed;
-  left: 22.8%;
-  top: 82.7%;
+  left: 22.9%;
+  top: 82%;
 }
 
 .PalaceImgContainer {

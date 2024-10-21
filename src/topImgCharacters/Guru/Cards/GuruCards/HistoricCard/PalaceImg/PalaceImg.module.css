@@ -1,0 +1,116 @@
+.PalaceImgContainer {
+  position: fixed;
+}
+
+.palaceImg1 {
+  position: fixed;
+  left: 24%;
+  top: 60%;
+  width: 380px;
+  height: 300px;
+}
+
+.palaceImg1 img{
+  width: 380px;
+  height: 300px;
+}
+
+.palaceImg2 {
+  position: fixed;
+  left: 33.2%;
+  top: 60%;
+  width: 160px;
+  height: 150px;
+}
+
+.palaceImg2 img{
+  width: 160px;
+  height: 150px;
+}
+
+.palaceImg3 {
+  position: fixed;
+  left: 33.2%;
+  top: 71.5%;
+  width: 160px;
+  height: 170px;
+}
+
+.palaceImg3 img{
+  width: 160px;
+  height: 170px;
+}
+
+
+.palaceImg4 {
+  position: fixed;
+  left: 29.6%;
+  top: 85%;
+  width: 160px;
+  height: 140px;
+}
+
+.palaceImg4 img{
+  width: 160px;
+  height: 140px;
+}
+
+.palaceenlargedImg1 {
+  position: fixed;
+  left: 27%;
+  top: 84%;
+  width: 315px;
+  height: 270px;
+  border-left: 10px solid white; /* Left border */
+  border-right: 10px solid white; /* Right border */
+  border-top: 10px solid white; /* Top border */
+  border-bottom: 50px solid white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  z-index: 100;
+  overflow: visible;
+}
+
+.palaceenlargedImg1 img {
+  width: 320px;
+  height: 245px;
+  margin-top: -20px;
+  margin-left: -1px;
+  padding: 0;
+  display: block; /* Removes any inline spacing that could cause gaps */
+  border: none;
+  object-fit: cover;
+  z-index: 1;
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  top: -8px; /* Adjust as needed */
+  right: -4px; /* Adjust as needed */
+  background: none;
+  border: none;
+  font-size: 30px; /* Adjust size as needed */
+  color: white; /* Change color as needed */
+  cursor: pointer;
+  z-index: 10; /* Ensure it appears above other content */
+}
+
+.customPagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.dot {
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: width 0.3s, height 0.3s, background-color 0.3s;
+}
+
+.imageCount {
+  margin-left: 15px; /* Space between dots and count */
+  font-size: 14px; /* Adjust as needed */
+}

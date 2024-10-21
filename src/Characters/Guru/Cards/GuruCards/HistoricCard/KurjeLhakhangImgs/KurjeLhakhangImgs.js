@@ -57,8 +57,8 @@ const KurjeLhakhangImgs = ({ language, handleOpenPeleingCard }) => {
             className={styles[`KurjeLhakhangTemplesImg${index + 1}`]}
             initial={{ opacity: 0 }} // Initial opacity
             animate={{ opacity: 1 }} // Final opacity
-            transition={{ duration: 1.5, delay: 2 }} // Delay for staggered effect
-            exit={{ opacity: 0, transition: { duration: 2 } }}
+            transition={{ duration: 1.5, delay: 1 }} // Delay for staggered effect
+            exit={{ opacity: 0, transition: { duration: 1 } }}
           >
             <img
               src={image.thumb}
@@ -75,7 +75,7 @@ const KurjeLhakhangImgs = ({ language, handleOpenPeleingCard }) => {
           initial={{ opacity: 0 }} // Initial opacity
           animate={{ opacity: 1 }} // Final opacity
           transition={{ duration: 1.5 }} // Delay for staggered effect
-          exit={{ opacity: 0, transition: { duration: 2 } }}
+          exit={{ opacity: 0, transition: { duration: 1 } }}
         >
           <div className={styles.palaceenlargedImg1}>
             <Swiper

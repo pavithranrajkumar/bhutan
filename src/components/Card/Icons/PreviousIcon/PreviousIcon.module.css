@@ -6,7 +6,9 @@
   cursor: pointer;
   display: flex; /* Center the icon */
   justify-content: center; /* Center the icon horizontally */
-  align-items: center; /* Center the icon vertically */
+  align-items: center; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+
 }
 
 .PreviousIcon {
@@ -14,7 +16,7 @@
   height: 20px;
   color: white;
   position: relative; /* Ensure the icon is positioned above the background */
-  z-index: 2; /* Make sure the icon is above the background */
+  z-index: 200; /* Make sure the icon is above the background */
 }
 
 .PreviousIconContainer::before {
@@ -28,7 +30,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: 1; /* Background image stays behind the icon */
+  z-index: 100; /* Background image stays behind the icon */
   opacity: 0.3; 
   pointer-events: none; /* Prevent background from capturing mouse events */
 }

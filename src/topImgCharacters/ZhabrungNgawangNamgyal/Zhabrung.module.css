@@ -1,0 +1,100 @@
+@font-face {
+  font-family: "Josefin Sans"; /* You can name this whatever you want */
+  src: url("../../fonts/JosefinSans-ExtraLight.ttf") format("truetype"); /* Path to the font */
+}
+
+@font-face {
+  font-family: "Hammersmith One"; /* You can name this whatever you want */
+  src: url("../../fonts/HammersmithOne-Regular.ttf") format("truetype"); /* Path to the font */
+}
+
+.ZhabrungContainer {
+  position: fixed;
+  top: 78%;
+  left: 75%;
+  z-index: 10;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 18vw;
+}
+
+.pemaText {
+  position: fixed;
+  left: 81.9%;
+  top: 80%;
+}
+
+.ZhabrungImage {
+  top: 84.5%;
+  left: 86.5%;
+  z-index: 1;
+}
+
+.ZhabrungImage img {
+  object-fit: fill;
+  width: 200px;
+  height: 330px;
+  z-index: 10;
+}
+
+.NameCardContainer {
+  position: fixed;
+  left: 90.5%;
+  top: 81%;
+}
+
+.IntroCard {
+  position: fixed;
+  left: 82.3%;
+  top: 45.5%;
+}
+
+.ZhabrungHistoricCard {
+  position: fixed;
+  left: 89.8%;
+  top: 45.5%;
+}
+
+.ZhabrungReligousCard {
+  position: fixed;
+  left: 89.7%;
+  top: 58%;
+}
+
+.SealCard {
+  position: fixed;
+  left: 91.1%;
+  top: 60.3%;
+}
+
+.PoliticalCardContains {
+  position: fixed;
+  left: 90%;
+  top: 48%;
+}
+
+.TravellerCardContains {
+  position: fixed;
+  left: 90%;
+  top: 35%;
+}
+
+.AdministrationCardContains {
+  position: fixed;
+  left: 90%;
+  top: 48%;
+}
+
+.DriglamCardContains {
+  position: fixed;
+  left: 90%;
+  top: 55%;
+}
+
+.SecrecyAtDeathCardContains {
+  position: fixed;
+  left: 90%;
+  top: 47%;
+}

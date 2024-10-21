@@ -4,7 +4,9 @@
   width: 80px;
   height: 80px;
   cursor: pointer;
-  z-index: 1; /* Ensure this is lower than the image */
+  z-index: 100;  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+
 }
 
 .LanguageIcon::before {
@@ -28,7 +30,9 @@
   width: 80px;
   height: 80px;
   cursor: pointer;
-  z-index: 1; /* Ensure this is lower than the image */
+  z-index: 100; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+
 }
 
 .LanguageWhiteIcon::before {
@@ -50,7 +54,7 @@
   margin: 30px;
   cursor: pointer;
   position: relative; /* Position relative to stack above the background */
-  z-index: 2; /* Ensure this is higher than the background */
+  z-index: 200; /* Ensure this is higher than the background */
 }
 
 .HomeIconContainer img {
@@ -58,5 +62,5 @@
   height: 20px;
   cursor: pointer;
   position: relative; /* Stack the image above the background */
-  z-index: 2; /* Ensure this is higher than the background */
+  z-index: 200; /* Ensure this is higher than the background */
 }

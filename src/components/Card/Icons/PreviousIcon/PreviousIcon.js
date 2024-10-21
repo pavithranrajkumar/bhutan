@@ -82,7 +82,7 @@ const PreviousIcon = ({
           originX: 1, // Ensures scaling is from the left
         }}
         transition={{ duration: 1.5, ease: "easeOut", delay: 1 }} // Start fade immediately
-        exit={{ scaleX: 0, opacity: 0, transition: { duration: 2 } }}
+        exit={{ scaleX: 0, opacity: 0, transition: { duration: 1 } }}
         onClick={onClick}
       >
         <motion.div

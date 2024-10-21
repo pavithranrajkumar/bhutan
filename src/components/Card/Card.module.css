@@ -34,6 +34,7 @@
   transform: translateX(-50%);
   display: flex;
   padding: 13px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
 }
 
 .line {
@@ -55,7 +56,7 @@
   bottom: 0;
   background-image: url("/src/assests/BgImgs/CardBgImg.png");
   background-size: 200% 100%; /* Cover double the width for smooth animation */
-  animation: backgroundLoop 10s ease-in-out infinite; /* Background animation */
+  animation: backgroundLoop 30s ease-in-out infinite;
   opacity: 0.2; /* Set opacity here */
   z-index: -1;
 }

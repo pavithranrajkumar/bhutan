@@ -104,7 +104,7 @@ const LegacyCards = ({
                   delay: cardAnimationStart ? 5 : 0, // Delay after card expansion
                 }}
               >
-                {PEMA_LINGPA_INFORMATION[language].monastriesAndTemples.header}
+                {PEMA_LINGPA_INFORMATION[language].monastriesAndTemples.title}
               </motion.div>
               <motion.div
                 className={styles.MonasteriesCardContent}
@@ -121,7 +121,7 @@ const LegacyCards = ({
                   delay: cardAnimationStart ? 5.5 : 0, // Delay after card expansion
                 }}
               >
-                {PEMA_LINGPA_INFORMATION[language].monastriesAndTemples.title}
+                {PEMA_LINGPA_INFORMATION[language].monastriesAndTemples.header}
               </motion.div>
             </motion.div>
 
@@ -158,7 +158,7 @@ const LegacyCards = ({
                   delay: cardAnimationStart ? 5 : 0, // Delay after card expansion
                 }}
               >
-                {PEMA_LINGPA_INFORMATION[language].pelingdance.header}
+                {PEMA_LINGPA_INFORMATION[language].pelingdance.title}
               </motion.div>
               <motion.div
                 className={styles.PelingDanceCardContent}
@@ -175,7 +175,7 @@ const LegacyCards = ({
                   delay: cardAnimationStart ? 5.5 : 0, // Delay after card expansion
                 }}
               >
-                {PEMA_LINGPA_INFORMATION[language].pelingdance.title}
+                {PEMA_LINGPA_INFORMATION[language].pelingdance.header}
               </motion.div>
             </motion.div>
           </motion.div>

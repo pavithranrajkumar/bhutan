@@ -56,7 +56,7 @@
   position: relative;
 }
 
-.KurjeLhakhangTemplesImg1 {
+.KurjeLhakhangTemplesImg1 img{
   position: fixed;
   left: 47.3%;
   top: 72%;
@@ -65,7 +65,7 @@
   object-fit: fill;
 }
 
-.KurjeLhakhangTemplesImg2 {
+.KurjeLhakhangTemplesImg2 img{
   position: fixed;
   left: 52.1%;
   top: 68.3%;
@@ -74,7 +74,7 @@
   cursor: pointer;
 }
 
-.KurjeLhakhangTemplesImg3 {
+.KurjeLhakhangTemplesImg3 img{
   position: fixed;
   left: 52.1%;
   top: 74.3%;
@@ -83,7 +83,7 @@
   cursor: pointer;
 }
 
-.KurjeLhakhangTemplesImg4 {
+.KurjeLhakhangTemplesImg4 img{
   position: fixed;
   left: 55.5%;
   top: 71.1%;
@@ -92,7 +92,7 @@
   cursor: pointer;
 }
 
-.KurjeLhakhangTemplesImg5 {
+.KurjeLhakhangTemplesImg5 img{
   position: fixed;
   left: 55.5%;
   top: 76.5%;
@@ -101,7 +101,7 @@
   cursor: pointer;
 }
 
-.KurjeLhakhangTemplesImg6 {
+.KurjeLhakhangTemplesImg6 img{
   position: fixed;
   left: 55.49%;
   top: 81%;
@@ -110,7 +110,7 @@
   cursor: pointer;
 }
 
-.KurjeLhakhangTemplesImg7 {
+.KurjeLhakhangTemplesImg7 img{
   position: fixed;
   left: 55.5%;
   top: 84.8%;
@@ -119,7 +119,7 @@
   cursor: pointer;
 }
 
-.KurjeLhakhangTemplesImg8 {
+.KurjeLhakhangTemplesImg8 img{
   position: fixed;
   left: 52.9%;
   top: 80.2%;
@@ -128,7 +128,7 @@
   cursor: pointer;
 }
 
-.KurjeLhakhangTemplesImg9 {
+.KurjeLhakhangTemplesImg9 img{
   position: fixed;
   left: 52.9%;
   top: 84.8%;
@@ -137,7 +137,7 @@
   cursor: pointer;
 }
 
-.KurjeLhakhangTemplesImg10 {
+.KurjeLhakhangTemplesImg10 img{
   position: fixed;
   left: 50.7%;
   top: 80.2%;
@@ -146,7 +146,7 @@
   cursor: pointer;
 }
 
-.KurjeLhakhangTemplesImg11 {
+.KurjeLhakhangTemplesImg11 img{
   position: fixed;
   left: 50.7%;
   top: 83.8%;
@@ -155,7 +155,7 @@
   cursor: pointer;
 }
 
-.KurjeLhakhangTemplesImg12 {
+.KurjeLhakhangTemplesImg12 img{
   position: fixed;
   left: 49.5%;
   top: 67.2%;
@@ -164,7 +164,7 @@
   cursor: pointer;
 }
 
-.KurjeLhakhangTemplesImg13 {
+.KurjeLhakhangTemplesImg13 img{
   position: fixed;
   left: 47.6%;
   top: 80.3%;
@@ -173,7 +173,7 @@
   cursor: pointer;
 }
 
-.DrugpaKagyuImg1 {
+.DrugpaKagyuImg1 img{
   position: fixed;
   left: 46%;
   top: 72%;

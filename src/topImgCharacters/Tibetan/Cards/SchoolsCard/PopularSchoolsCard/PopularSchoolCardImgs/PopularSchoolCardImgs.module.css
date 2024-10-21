@@ -1,0 +1,223 @@
+.KurjeLhakhangTemplesImgContainer {
+  position: fixed;
+  z-index: 10;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 1; /* Make sure it's above other content */
+}
+
+.closeButton {
+  position: absolute;
+  top: -8px; /* Adjust as needed */
+  right: -4px; /* Adjust as needed */
+  background: none;
+  border: none;
+  font-size: 30px; /* Adjust size as needed */
+  color: white; /* Change color as needed */
+  cursor: pointer;
+  z-index: 10; /* Ensure it appears above other content */
+}
+
+.KurjeLhakhangTemplesEnlargeImg {
+  position: fixed;
+  left: 50%;
+  top: 40%;
+  width: 250px;
+  height: 250px;
+  border-left: 10px solid white; /* Left border */
+  border-right: 10px solid white; /* Right border */
+  border-top: 10px solid white; /* Top border */
+  border-bottom: 50px solid white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  z-index: 100;
+  overflow: visible;
+}
+
+.KurjeLhakhangTemplesEnlargeImg img {
+  width: 250px;
+  height: 210px;
+  margin-top: -20px;
+  margin-left: -1px;
+  padding: 0;
+  display: block; /* Removes any inline spacing that could cause gaps */
+  border: none;
+  object-fit: cover;
+  z-index: 1;
+  position: relative;
+}
+
+.KurjeLhakhangTemplesImg1 img {
+  position: fixed;
+  left: 47.3%;
+  top: 45%;
+  width: 205px;
+  height: 200px;
+  object-fit: fill;
+}
+
+.KurjeLhakhangTemplesImg2 img {
+  position: fixed;
+  left: 52.1%;
+  top: 38%;
+  width: 153px;
+  height: 149px;
+  cursor: pointer;
+}
+
+.KurjeLhakhangTemplesImg3 img {
+  position: fixed;
+  left: 52.1%;
+  top: 50%;
+  width: 153px;
+  height: 149px;
+  cursor: pointer;
+}
+
+.KurjeLhakhangTemplesImg4 img {
+  position: fixed;
+  left: 55.5%;
+  top: 42%;
+  width: 135px;
+  height: 140px;
+  cursor: pointer;
+}
+
+.KurjeLhakhangTemplesImg5 img {
+  position: fixed;
+  left: 55.5%;
+  top: 53%;
+  width: 110px;
+  height: 118px;
+  cursor: pointer;
+}
+
+.KurjeLhakhangTemplesImg6 img {
+  position: fixed;
+  left: 55.49%;
+  top: 62%;
+  width: 105px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.KurjeLhakhangTemplesImg7 img {
+  position: fixed;
+  left: 55.5%;
+  top: 70%;
+  width: 98px;
+  height: 90px;
+  cursor: pointer;
+}
+
+.KurjeLhakhangTemplesImg8 img {
+  position: fixed;
+  left: 52.9%;
+  top: 62%;
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+}
+
+.KurjeLhakhangTemplesImg9 img {
+  position: fixed;
+  left: 52.9%;
+  top: 71%;
+  width: 120px;
+  height: 110px;
+  cursor: pointer;
+}
+
+.KurjeLhakhangTemplesImg10 img {
+  position: fixed;
+  left: 50.7%;
+  top: 62%;
+  width: 108px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.KurjeLhakhangTemplesImg11 img {
+  position: fixed;
+  left: 50.7%;
+  top: 69%;
+  width: 108px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.KurjeLhakhangTemplesImg12 img {
+  position: fixed;
+  left: 49.5%;
+  top: 35%;
+  width: 120px;
+  height: 125px;
+  cursor: pointer;
+}
+
+.KurjeLhakhangTemplesImg13 img {
+  position: fixed;
+  left: 47.6%;
+  top: 62%;
+  width: 140px;
+  height: 130px;
+  cursor: pointer;
+}
+
+.DrugpaKagyuImg1 img {
+  position: fixed;
+  left: 46%;
+  top: 72%;
+  width: 130px;
+}
+
+.DrugpaKagyuImg2 {
+  position: fixed;
+  left: 46%;
+  top: 76.9%;
+  width: 130px;
+}
+
+.DrugpaTemplesEnlargeImg {
+  z-index: 10;
+  position: fixed;
+  left: 49.1%;
+  top: 71%;
+  width: 250px;
+  height: 250px;
+  border: 10px solid white; /* This adds a white border */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for a Polaroid effect */
+  object-fit: fill;
+}
+
+.DrugpaTemplesEnlargeImg img {
+  object-fit: fill;
+  width: 260px;
+  height: 250px;
+}
+
+.customPagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.dot {
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: width 0.3s, height 0.3s, background-color 0.3s;
+}
+
+.imageCount {
+  margin-left: 15px; /* Space between dots and count */
+  font-size: 14px; /* Adjust as needed */
+}

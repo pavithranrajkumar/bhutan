@@ -16,7 +16,7 @@
 
 .page img {
   position: fixed;
-  width: 100%;
+  width: 101%;
   height: 95%;
   object-fit: fill;
   transform: rotateY(0deg);

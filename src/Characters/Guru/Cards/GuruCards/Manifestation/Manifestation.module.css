@@ -1,6 +1,6 @@
 .ManifestationCardImg {
   position: fixed;
-  top: 91%;
+  top: 88%;
   left: 25.5%;
   height: 210px;
   width: 150px;
@@ -8,9 +8,13 @@
   z-index: 20;
 }
 
+.ManifestationCardImg img {
+  height: 210px;
+  width: 150px;
+}
+
 .WideCards {
   position: fixed;
   left: 31.5%;
   top: 79.5%;
 }
-

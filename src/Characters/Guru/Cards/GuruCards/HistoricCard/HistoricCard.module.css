@@ -39,10 +39,15 @@
 
 .GuruHistoricCardImg {
   position: fixed;
-  left: 33.7%;
+  left: 33.5%;
   top: 82%;
   height: 190px;
   width: 180px;
   z-index: 2; /* Ensure the image appears on top */
+}
+
+.GuruHistoricCardImg img{
+  height: 190px;
+  width: 180px;
 }
 

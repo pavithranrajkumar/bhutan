@@ -1,0 +1,13 @@
+.ZhabrungHistoryImage {
+  position: fixed;
+  left: 83.2%;
+  top: 44.8%;
+  width: 270px;
+  object-fit: fill;
+
+}
+
+.ZhabrungHistoryImage img{
+  width: 270px;
+  object-fit: fill;
+}

@@ -1,0 +1,283 @@
+.SupineContainer {
+  position: fixed;
+}
+
+.SupineImage {
+  left: 10%;
+  top: 85.5%;
+  width: 40px;
+  height: 20px;
+  z-index: -1;
+}
+
+.SupineImage img {
+  object-fit: fill;
+  z-index: 10;
+}
+
+.SupineText {
+  position: fixed;
+  left: 0.3%;
+  top: 73%;
+}
+
+.SupineNameCardContainer {
+  position: fixed;
+  left: 13.2%;
+  top: 78%;
+}
+
+.SupineIntroCard {
+  position: fixed;
+  left: 5%;
+  top: 40%;
+}
+
+.SupineIntroduction {
+  position: fixed;
+  left: 7%;
+  top: 44%;
+}
+
+.ReligiousCard {
+  position: fixed;
+  left: 14%;
+  top: 50%;
+}
+
+.HimalayanCard {
+  position: fixed;
+  left: 13.8%;
+  top: 54%;
+  z-index: -1;
+}
+
+.BhutanCard {
+  position: fixed;
+  left: 14%;
+  top: 48%;
+}
+
+.JamBayCard {
+  position: fixed;
+  left: 4.4%;
+  top: 35%;
+}
+
+.KyichuCard {
+  position: fixed;
+  left: 4.4%;
+  top: 35%;
+}
+
+.JamBayImages {
+  position: fixed;
+}
+
+.palaceImg1 img{
+  position: fixed;
+  left: 8.5%;
+  top: 51%;
+  width: 210px;
+  height: 220px;
+}
+
+.palaceImg2 img{
+  position: fixed;
+  left: 13.4%;
+  top: 51%;
+  width: 200px;
+  height: 190px;
+}
+
+.JamBayImagesCard,
+.KyichuImagesCard {
+  position: fixed;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 200px;
+  height: 90px;
+  display: flex;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #3c3e29;
+  font-family: "Hammersmith One";
+  overflow: hidden; /* Prevents background image overflow */
+}
+
+.JamBayImagesCard {
+  top: 68%;
+  left: 13.8%;
+  background: #e5e7d5;
+  font-size: 25px;
+}
+
+.KyichuImagesCard {
+  top: 68%;
+  left: 13.8%;
+  background: #abb176;
+  font-size: 24px;
+}
+
+/* Background Image for Both Cards */
+.JamBayImagesCard::before,
+.KyichuImagesCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/src/assests/BgImgs/CardBgImg.png"); /* Background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.25; /* Slight opacity for the background */
+  z-index: 0; /* Ensure background stays behind the content */
+  pointer-events: none; /* Prevent interaction with the background */
+}
+
+.JamBayImagesCard,
+.KyichuImagesCard > * {
+  z-index: 1; /* Ensure text stays on top of the background */
+}
+
+.JamBayImagesCard p {
+}
+
+.KyichuImg1 img{
+  position: fixed;
+  left: 8.5%;
+  top: 51%;
+  width: 210px;
+  height: 220px;
+}
+
+.KyichuImg2 img{
+  position: fixed;
+  left: 13.4%;
+  top: 51%;
+  width: 200px;
+  height: 190px;
+}
+
+.KyichuImg3 img{
+  position: fixed;
+  left: 13.5%;
+  top: 76.5%;
+  width: 130px;
+  height: 180px;
+}
+
+.KyichuImg4 img{
+  position: fixed;
+  left: 9.7%;
+  top: 83%;
+  width: 170px;
+  height: 150px;
+}
+
+.Puzzle {
+  position: fixed;
+  left: 4.6%;
+  top:73%;
+  width: 450px;
+  height: 250px;
+  
+}
+
+
+.Puzzle img{
+  left: 4.6%;
+  top:86.2%;
+  width: 451px;
+  height: 253px;
+}
+
+/* 
+.animatedImg {
+  animation: scaleUp 2s infinite alternate ease-in-out;
+}
+
+.animatedCard {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.animatedIcon {
+  animation: pulse 3s infinite ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animatedImg {
+  animation: scaleUp 2s infinite alternate ease-in-out;
+}
+
+.animatedCard {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.animatedIcon {
+  animation: pulse 3s infinite ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+} */

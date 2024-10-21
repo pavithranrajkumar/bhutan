@@ -107,16 +107,15 @@ const RevelationsCard = ({
               >
                 <motion.div
                   className={styles.title}
-                  initial={{ x: -50, opacity: 0 }}
+                  initial={{ opacity: 0 }}
                   animate={{
-                    x: titleAnimationStart ? 0 : -50,
                     opacity: titleAnimationStart ? 1 : 0,
                   }}
                   exit={{ opacity: 0, transition: { duration: 2 } }}
                   transition={{
-                    duration: 0.5,
-                    ease: "easeOut",
-                    delay: cardAnimationStart ? 4 : 0,
+                    duration: 1.5,
+                    ease: "easeInOut",
+                    delay: cardAnimationStart ? 3 : 0,
                   }}
                   style={{
                     fontSize: headerFontSize,
@@ -125,17 +124,17 @@ const RevelationsCard = ({
                 >
                   {PEMA_LINGPA_INFORMATION[language].naringDrag.title}
                 </motion.div>
+
                 <motion.div
                   className={styles.header}
-                  initial={{ x: -50, opacity: 0 }}
+                  initial={{ opacity: 0 }}
                   animate={{
-                    x: titleAnimationStart ? 0 : -50,
                     opacity: titleAnimationStart ? 1 : 0,
                   }}
                   exit={{ opacity: 0, transition: { duration: 2 } }}
                   transition={{
-                    duration: 0.5,
-                    ease: "easeOut",
+                    duration: 1.5,
+                    ease: "easeInOut",
                     delay: cardAnimationStart ? 4.5 : 0,
                   }}
                   style={{
@@ -146,6 +145,7 @@ const RevelationsCard = ({
                   {PEMA_LINGPA_INFORMATION[language].naringDrag.header}
                 </motion.div>
               </motion.div>
+
               <motion.div
                 className={styles.NaringDragBookImg}
                 onClick={onNaringDragClick}
@@ -153,7 +153,7 @@ const RevelationsCard = ({
                 animate={{
                   x: cardAnimationStart ? 0 : -50, // Only animate when cardAnimationStart is true
                   opacity: cardAnimationStart ? 1 : 0,
-                }} // Move to original position
+                }}
                 transition={{
                   duration: 1.5,
                   ease: "easeOut",
@@ -184,16 +184,15 @@ const RevelationsCard = ({
               >
                 <motion.div
                   className={styles.burningLakeTitle}
-                  initial={{ x: 50, opacity: 0 }} // Start slightly off the right
+                  initial={{ opacity: 0 }} // Start off invisible
                   animate={{
-                    x: titleAnimationStart ? 0 : 50, // Only animate when titleAnimationStart is true
                     opacity: titleAnimationStart ? 1 : 0,
-                  }} // Move to original position
+                  }}
                   exit={{ opacity: 0, transition: { duration: 2 } }}
                   transition={{
-                    duration: 0.5,
-                    ease: "easeOut",
-                    delay: cardAnimationStart ? 4 : 0,
+                    duration: 1.5,
+                    ease: "easeInOut",
+                    delay: cardAnimationStart ? 4 : 0, // Sync with card animation
                   }}
                   style={{
                     fontSize: headerFontSize,
@@ -204,16 +203,15 @@ const RevelationsCard = ({
                 </motion.div>
                 <motion.div
                   className={styles.burningLakeHeader}
-                  initial={{ x: 50, opacity: 0 }} // Start slightly off the right
+                  initial={{ opacity: 0 }} // Start off invisible
                   animate={{
-                    x: titleAnimationStart ? 0 : 50, // Only animate when titleAnimationStart is true
                     opacity: titleAnimationStart ? 1 : 0,
-                  }} // Move to original position
+                  }}
                   exit={{ opacity: 0, transition: { duration: 2 } }}
                   transition={{
-                    duration: 0.5,
-                    ease: "easeOut",
-                    delay: cardAnimationStart ? 4.5 : 0,
+                    duration: 1.5,
+                    ease: "easeInOut",
+                    delay: cardAnimationStart ? 4.5 : 0, // Sync with title animation
                   }}
                   style={{
                     fontSize: subHeaderFontSize,
@@ -230,13 +228,13 @@ const RevelationsCard = ({
                 animate={{
                   x: cardAnimationStart ? 0 : 50, // Only animate when cardAnimationStart is true
                   opacity: cardAnimationStart ? 1 : 0,
-                }} // Move to original position
-                exit={{ opacity: 0, transition: { duration: 2 } }}
+                }}
                 transition={{
                   duration: 1.5,
                   ease: "easeOut",
                   delay: cardAnimationStart ? 5 : 0,
                 }}
+                exit={{ opacity: 0, transition: { duration: 2 } }}
               >
                 <img src={burningLakeBookImg} alt="burningLakeBookImg" />
               </motion.div>

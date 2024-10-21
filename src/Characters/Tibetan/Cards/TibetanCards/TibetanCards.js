@@ -60,7 +60,7 @@ const TibetanCards = ({ language, onCardClick, showCards }) => {
           initial={{ height: 0 }}
           animate={{ height: lineAnimationComplete ? "100%" : 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          exit={{ scaleX: 0, opacity: 0, transition: { duration: 2 } }}
+          exit={{ scaleX: 0, opacity: 0, transition: { duration: 0.5 } }}
         />
         <motion.div
           className={`${styles.card} ${styles.ArrivalCard}`}
@@ -73,7 +73,7 @@ const TibetanCards = ({ language, onCardClick, showCards }) => {
             originX: 1,
           }}
           transition={{ duration: 1.5, ease: "easeOut", delay: 1.5 }} // Start fade immediately
-          exit={{ scaleX: 0, opacity: 0, transition: { duration: 2.5 } }}
+          exit={{ scaleX: 0, opacity: 0, transition: { duration: 0.5 } }}
         >
           {showTitles && (
             <motion.div
@@ -105,7 +105,7 @@ const TibetanCards = ({ language, onCardClick, showCards }) => {
         />
         <motion.div
           className={`${styles.card} ${styles.SchoolsCard}`}
-          onClick={() => onCardClick("lineage")}
+          onClick={() => onCardClick("schools")}
           initial={{ scaleX: 0, opacity: 0 }}
           animate={{
             scaleX: cardAnimationStart ? 1 : 0,

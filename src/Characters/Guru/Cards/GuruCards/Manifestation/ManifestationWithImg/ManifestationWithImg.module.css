@@ -3,29 +3,31 @@
 }
 
 .manifestationGroupContainerImg {
-  object-fit: fill;
+  object-fit: contain;
   position: fixed;
   left: 27%;
   top: 82.2%;
-  width: 200px;
+  width: 230px;
   height: 340px;
   cursor: pointer;
 }
 
-.manifestationImg {
-  object-fit: fill;
-  border: 10px solid white; /* This adds a white border */
+.manifestationImg{
+  width: 230px;
+  height: 350px;
+  border: 10px solid white; 
+  border-bottom: 10px solid white;
 }
 
 .manifestationFrstGroup {
   position: fixed;
-  left: 21.5%;
+  left: 22.3%;
   top: 87.9%;
 }
 
 .manifestationScndGroup {
   position: fixed;
-  left: 32.8%;
+  left: 33.6%;
   top: 79.5%;
 }
 

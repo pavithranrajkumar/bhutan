@@ -5,12 +5,13 @@
   font-size: 13px;
   padding: 0.2vw;
   width: 150px;
+  height: 15px;
 }
 
 .FamilyTree {
   position: fixed;
   left: 71%;
-  top: 50%;
+  top: 68%;
 }
 
 .Sons {
@@ -19,40 +20,52 @@
   padding: 0.1vw;
   font-size: 6px;
   left: 72.8%;
-  top: 55.7%;
+  top: 72%;
   width: 25px;
   background: #c76224;
   border-radius: 25px;
   border: 1.5px solid #8f4110;
 }
 
-.DrakpaGyalpo {
+.DrakpaGyalpoContainer,
+.DawaGyaltshenContainer,
+.KuengaWangpoContainer,
+.SangdaContainer {
+  cursor: pointer;
+}
+
+.DrakpaGyalpo img {
+  cursor: pointer;
   object-fit: fill;
   position: fixed;
   left: 71%;
-  top: 60%;
+  top: 75%;
   width: 30px;
   height: 40px;
 }
 
-.DawaGyaltshen {
+.DawaGyaltshen img {
+  cursor: pointer;
   position: fixed;
   left: 72.3%;
-  top: 60%;
+  top: 75%;
   width: 30px;
   height: 40px;
 }
-.KuengaWangpo {
+.KuengaWangpo img {
   position: fixed;
+  cursor: pointer;
   left: 73.7%;
-  top: 60%;
+  top: 75%;
   width: 30px;
   height: 40px;
 }
-.Sangda {
+
+.Sangda img {
+  cursor: pointer;
   position: fixed;
   left: 75.2%;
-  top: 60%;
+  top: 75%;
   width: 30px;
   height: 40px;
 }
@@ -61,7 +74,7 @@
   object-fit: fill;
   position: fixed;
   left: 70.9%;
-  top: 65.5%;
+  top: 78.6%;
   width: 30px;
   height: 15px;
   padding: 0.1vw;
@@ -75,7 +88,7 @@
   object-fit: fill;
   position: fixed;
   left: 72.2%;
-  top: 65.5%;
+  top: 78.6%;
   width: 32px;
   height: 15px;
   padding: 0.1vw;
@@ -89,7 +102,7 @@
   object-fit: fill;
   position: fixed;
   left: 73.6%;
-  top: 65.5%;
+  top: 78.6%;
   width: 30px;
   height: 15px;
   padding: 0.1vw;
@@ -103,7 +116,7 @@
   object-fit: fill;
   position: fixed;
   left: 75.1%;
-  top: 65.5%;
+  top: 78.6%;
   width: 30px;
   height: 15px;
   padding: 0.1vw;
@@ -116,7 +129,7 @@
 .SonsHorizontalLine {
   position: fixed;
   left: 73.7%;
-  top: 55.5%;
+  top: 72%;
   width: 73px;
   height: 2px;
   background: #8f4110;
@@ -126,7 +139,7 @@
 .SonsHorizontalLine2 {
   position: fixed;
   left: 71.4%;
-  top: 55.5%;
+  top: 72%;
   width: 54px;
   height: 2px;
   background: #8f4110;
@@ -136,7 +149,7 @@
 .SonsVerticalLine {
   position: fixed;
   left: 73.25%;
-  top: 53%;
+  top: 70.1%;
   width: 2px;
   height: 12.5px;
   background: #8f4110;
@@ -146,7 +159,7 @@
 .SonsVerticalLine1 {
   position: fixed;
   left: 71.37%;
-  top: 55.5%;
+  top: 72%;
   width: 1.5px;
   height: 25px;
   background: #8f4110;
@@ -156,7 +169,7 @@
 .SonsVerticalLine2 {
   position: fixed;
   left: 72.65%;
-  top: 55.5%;
+  top: 72%;
   width: 2px;
   height: 25px;
   background: #8f4110;
@@ -166,7 +179,7 @@
 .SonsVerticalLine3 {
   position: fixed;
   left: 74.08%;
-  top: 55.5%;
+  top: 72%;
   width: 2px;
   height: 25px;
   background: #8f4110;
@@ -176,7 +189,7 @@
 .SonsVerticalLine4 {
   position: fixed;
   left: 75.58%;
-  top: 55.5%;
+  top: 72%;
   width: 2px;
   height: 25px;
   background: #8f4110;
@@ -189,18 +202,18 @@
   padding: 0.05vw;
   font-size: 5px;
   left: 70.95%;
-  top: 72%;
+  top: 83%;
   width: 25px;
   background: #c76224;
   border-radius: 25px;
   border: 1.5px solid #8f4110;
 }
 
-.Tamshing {
+.Tamshing img {
   object-fit: fill;
   position: fixed;
   left: 71%;
-  top: 76.2%;
+  top: 86%;
   width: 30px;
   height: 40px;
 }
@@ -208,7 +221,7 @@
 .TamshingVerticalLine {
   position: fixed;
   left: 71.35%;
-  top: 67.4%;
+  top: 80%;
   width: 2px;
   height: 26px;
   background: #8f4110;
@@ -218,9 +231,9 @@
 .TamshingVerticalLine1 {
   position: fixed;
   left: 71.34%;
-  top: 72.5%;
+  top: 83.3%;
   width: 2px;
-  height: 22px;
+  height: 23px;
   background: #8f4110;
   border: none;
 }
@@ -229,7 +242,7 @@
   object-fit: fill;
   position: fixed;
   left: 70.9%;
-  top: 81.5%;
+  top: 89.6%;
   width: 30px;
   height: 15px;
   padding: 0.1vw;
@@ -239,11 +252,11 @@
   font-size: 6px;
 }
 
-.Prakhar {
+.Prakhar img {
   object-fit: fill;
   position: fixed;
   left: 72.3%;
-  top: 76.5%;
+  top: 85%;
   width: 30px;
   height: 40px;
 }
@@ -251,7 +264,7 @@
 .PrakharVerticalLine {
   position: fixed;
   left: 72.65%;
-  top: 67.5%;
+  top: 80%;
   width: 2px;
   height: 26px;
   background: #8f4110;
@@ -261,9 +274,9 @@
 .PrakharVerticalLine1 {
   position: fixed;
   left: 72.65%;
-  top: 72.7%;
+  top: 83.3%;
   width: 2px;
-  height: 22px;
+  height: 23px;
   background: #8f4110;
   border: none;
 }
@@ -272,7 +285,7 @@
   object-fit: fill;
   position: fixed;
   left: 72.2%;
-  top: 82%;
+  top: 88.3%;
   width: 30px;
   height: 15px;
   padding: 0.1vw;
@@ -288,17 +301,17 @@
   padding: 0.05vw;
   font-size: 5px;
   left: 72.3%;
-  top: 72.2%;
+  top: 83%;
   width: 25px;
   background: #c76224;
   border-radius: 25px;
   border: 1.5px solid #8f4110;
 }
 
-.Kochung {
+.Kochung img {
   position: fixed;
   left: 73.04%;
-  top: 76.5%;
+  top: 85.8%;
   width: 30px;
   height: 40px;
 }
@@ -306,7 +319,7 @@
 .KochungHorizontalLine {
   position: fixed;
   left: 73.45%;
-  top: 71.5%;
+  top: 82.6%;
   width: 12px;
   height: 2px;
   background: #8f4110;
@@ -316,7 +329,7 @@
 .KochungHorizontalLine2 {
   position: fixed;
   left: 74.5%;
-  top: 71.5%;
+  top: 82.6%;
   width: 14px;
   height: 2px;
   background: #8f4110;
@@ -326,7 +339,7 @@
 .KochungVerticalLine {
   position: fixed;
   left: 74.85%;
-  top: 71.5%;
+  top: 82.6%;
   width: 2px;
   height: 28px;
   background: #8f4110;
@@ -336,7 +349,7 @@
 .KochungVerticalLine1 {
   position: fixed;
   left: 73.4%;
-  top: 71.5%;
+  top: 82.6%;
   width: 2px;
   height: 28px;
   background: #8f4110;
@@ -347,7 +360,7 @@
   object-fit: fill;
   position: fixed;
   left: 72.95%;
-  top: 82%;
+  top: 89.3%;
   width: 30px;
   height: 10px;
   padding: 0.1vw;
@@ -363,18 +376,18 @@
   padding: 0.05vw;
   font-size: 5px;
   left: 73.73%;
-  top: 72%;
+  top: 83%;
   width: 25px;
   background: #c76224;
   border-radius: 25px;
   border: 1.5px solid #8f4110;
 }
 
-.Bidung {
+.Bidung img {
   object-fit: fill;
   position: fixed;
   left: 74.5%;
-  top: 76.5%;
+  top: 85.8%;
   width: 30px;
   height: 40px;
 }
@@ -403,7 +416,7 @@
   object-fit: fill;
   position: fixed;
   left: 74.42%;
-  top: 82%;
+  top: 89.3%;
   width: 30px;
   height: 10px;
   padding: 0.1vw;
@@ -413,11 +426,11 @@
   font-size: 6px;
 }
 
-.Kheri {
+.Kheri img {
   object-fit: fill;
   position: fixed;
   left: 72.6%;
-  top: 87.4%;
+  top: 92.5%;
   width: 20px;
   height: 40px;
 }
@@ -425,7 +438,7 @@
 .KheriHorizontalLine {
   position: fixed;
   left: 72.85%;
-  top: 84.4%;
+  top: 90.6%;
   width: 44.1px;
   height: 2px;
   background: #8f4110;
@@ -435,7 +448,7 @@
 .KheriVerticalLine {
   position: fixed;
   left: 73.95%;
-  top: 84.5%;
+  top: 90.6%;
   width: 2px;
   height: 10px;
   background: #8f4110;
@@ -445,7 +458,7 @@
 .KheriVerticalLine1 {
   position: fixed;
   left: 72.8%;
-  top: 84.5%;
+  top: 90.6%;
   width: 2px;
   height: 12px;
   background: #8f4110;
@@ -455,7 +468,7 @@
 .KheriVerticalLine2 {
   position: fixed;
   left: 73.4%;
-  top: 83.3%;
+  top: 90.1%;
   width: 2px;
   height: 8px;
   background: #8f4110;
@@ -466,7 +479,7 @@
   object-fit: fill;
   position: fixed;
   left: 72.35%;
-  top: 92.5%;
+  top: 96%;
   width: 30px;
   height: 10px;
   padding: 0.1vw;
@@ -476,11 +489,11 @@
   font-size: 6px;
 }
 
-.Dungkar {
+.Dungkar img {
   object-fit: fill;
   position: fixed;
   left: 73.7%;
-  top: 87.4%;
+  top: 92.5%;
   width: 20px;
   height: 40px;
 }
@@ -488,7 +501,7 @@
 .DungkarVerticalLine {
   position: fixed;
   left: 74.1%;
-  top: 67.5%;
+  top: 80%;
   width: 2px;
   height: 26px;
   background: #8f4110;
@@ -509,7 +522,7 @@
   object-fit: fill;
   position: fixed;
   left: 73.5%;
-  top: 92.5%;
+  top: 96%;
   width: 30px;
   height: 10px;
   padding: 0.1vw;
@@ -525,18 +538,18 @@
   padding: 0.05vw;
   font-size: 5px;
   left: 75.19%;
-  top: 72%;
+  top: 83%;
   width: 25px;
   background: #c76224;
   border-radius: 25px;
   border: 1.5px solid #8f4110;
 }
 
-.Tsakaling {
+.Tsakaling img {
   object-fit: fill;
   position: fixed;
   left: 71%;
-  top: 76.5%;
+  top: 86%;
   width: 20px;
   height: 50px;
 }
@@ -545,7 +558,7 @@
   object-fit: fill;
   position: fixed;
   left: 70.75%;
-  top: 83%;
+  top: 90.5%;
   width: 30px;
   height: 10px;
   padding: 0.1vw;
@@ -558,7 +571,7 @@
 .TsakalingVerticalLine {
   position: fixed;
   left: 75.55%;
-  top: 67.5%;
+  top: 80%;
   width: 2px;
   height: 25.8px;
   background: #8f4110;
@@ -568,7 +581,7 @@
 .TsakalingVerticalLine1 {
   position: fixed;
   left: 75.55%;
-  top: 72.5%;
+  top: 83%;
   width: 2px;
   height: 22px;
   background: #8f4110;
@@ -578,7 +591,7 @@
 .TsakalingVerticalLine2 {
   position: fixed;
   left: 71.24%;
-  top: 71.5%;
+  top: 83%;
   width: 2px;
   height: 28px;
   background: #8f4110;
@@ -588,7 +601,7 @@
 .TsakalingVerticalLine3 {
   position: fixed;
   left: 72.59%;
-  top: 71.5%;
+  top: 83%;
   width: 2px;
   height: 28px;
   background: #8f4110;
@@ -598,7 +611,7 @@
 .TsakalingVerticalLine4 {
   position: fixed;
   left: 74.03%;
-  top: 71.5%;
+  top:83%;
   width: 2px;
   height: 28px;
   background: #8f4110;
@@ -608,18 +621,18 @@
 .TsakalingHorizontalLine {
   position: fixed;
   left: 71.24%;
-  top: 71.5%;
+  top: 82.8%;
   width: 152px;
   height: 2px;
   background: #8f4110;
   border: none;
 }
 
-.Drophu {
+.Drophu img {
   object-fit: fill;
   position: fixed;
   left: 72.3%;
-  top: 76.5%;
+  top: 86%;
   width: 20px;
   height: 50px;
 }
@@ -628,7 +641,7 @@
   object-fit: fill;
   position: fixed;
   left: 72.1%;
-  top: 83%;
+  top: 90.5%;
   width: 30px;
   height: 10px;
   padding: 0.1vw;
@@ -638,11 +651,11 @@
   font-size: 6px;
 }
 
-.Drametse {
+.Drametse img {
   object-fit: fill;
   position: fixed;
   left: 73.8%;
-  top: 76.5%;
+  top: 86%;
   width: 20px;
   height: 50px;
 }
@@ -651,7 +664,7 @@
   object-fit: fill;
   position: fixed;
   left: 73.55%;
-  top: 83%;
+  top: 90.5%;
   width: 30px;
   height: 10px;
   padding: 0.1vw;
@@ -661,11 +674,11 @@
   font-size: 6px;
 }
 
-.Yagang {
+.Yagang img {
   object-fit: fill;
   position: fixed;
   left: 75.3%;
-  top: 76.5%;
+  top: 86%;
   width: 20px;
   height: 50px;
 }
@@ -674,7 +687,7 @@
   object-fit: fill;
   position: fixed;
   left: 75.1%;
-  top: 83%;
+  top: 90.5%;
   width: 30px;
   height: 10px;
   padding: 0.1vw;

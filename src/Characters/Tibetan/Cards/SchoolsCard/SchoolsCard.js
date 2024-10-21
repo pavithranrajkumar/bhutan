@@ -57,7 +57,7 @@ const SchoolsCard = ({
               }}
               initial={{ opacity: 0 }} // Initial opacity for title
               animate={{ opacity: 1 }} // Final opacity for title
-              transition={{ duration: 0.5, delay: 4.5 }} // Fade duration for title
+              transition={{ duration: 0.5, delay: 4.6 }} // Fade duration for title
               exit={{ opacity: 0, transition: { duration: 2.8 } }}
             >
               {TIBETAN_INFORMATION[language].popularSchools.title}
@@ -68,7 +68,7 @@ const SchoolsCard = ({
             onClick={onDrukpaKagyuClick}
             initial={{ opacity: 0 }} // Initial opacity for title
             animate={{ opacity: 1 }} // Final opacity for title
-            transition={{ duration: 0.5, delay: 4 }} // Fade duration for title
+            transition={{ duration: 0.5, delay: 4.5 }} // Fade duration for title
             exit={{ opacity: 0, transition: { duration: 2.8 } }}
           >
             <motion.div
@@ -79,7 +79,7 @@ const SchoolsCard = ({
               }}
               initial={{ opacity: 0 }} // Initial opacity for title
               animate={{ opacity: 1 }} // Final opacity for title
-              transition={{ duration: 0.5, delay: 4.5 }} // Fade duration for title
+              transition={{ duration: 0.5, delay: 4.8 }} // Fade duration for title
               exit={{ opacity: 0, transition: { duration: 2.8 } }}
             >
                 {TIBETAN_INFORMATION[language].drukpaKagyu.title}

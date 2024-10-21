@@ -272,81 +272,89 @@ const Puzzle = ({ onComplete, resetPuzzleCard }) => {
 
   return (
     // <DndProvider backend={HTML5Backend}>
-    <div className="app">
-      <div className="puzzle-container">
-        <div className="main-image-grid">
-          {isCompleted ? (
-            <>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0 }}
-                transition={{ duration: 1.5 }}
-                className="completed-image"
-              >
-                <img src={supineImg} alt="Main" />
-              </motion.div>
-            </>
-          ) : (
-            <>
-              <div className="dropzones">
-                {dropZoneSpecifications.map((dropZone) => (
-                  <DropZone
-                    key={dropZone.id}
-                    id={dropZone.id}
-                    onDrop={handleDrop}
-                    image={completed[dropZone.id]}
-                    position={{
-                      top: dropZone.top,
-                      left: dropZone.left,
-                      width: dropZone.width,
-                      height: dropZone.height,
-                    }}
-                  />
-                ))}
-              </div>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1 }} // Adjust duration as needed
-                className="base-image" // Optional: add a class for styling
-              >
-                <div className="main-image">
-                  <img src={base} alt="Main" />
+    <motion.div
+      alt=""
+      initial={{ opacity: 0 }} // Initial state
+      animate={{ opacity: 1 }} // Animation state
+      transition={{ duration: 3, delay: 0.5 }}
+      exit={{ opacity: 0, transition: { duration: 2 } }}
+    >
+      <div className="app">
+        <div className="puzzle-container">
+          <div className="main-image-grid">
+            {isCompleted ? (
+              <>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0, delay: 0.5 }}
+                  transition={{ duration:1.5 }} 
+                  className="completed-image"
+                >
+                  <img src={supineImg} alt="Main" />
+                </motion.div>
+              </>
+            ) : (
+              <>
+                <div className="dropzones">
+                  {dropZoneSpecifications.map((dropZone) => (
+                    <DropZone
+                      key={dropZone.id}
+                      id={dropZone.id}
+                      onDrop={handleDrop}
+                      image={completed[dropZone.id]}
+                      position={{
+                        top: dropZone.top,
+                        left: dropZone.left,
+                        width: dropZone.width,
+                        height: dropZone.height,
+                      }}
+                    />
+                  ))}
                 </div>
-              </motion.div>
-              <div className="pieces-container">
-                {pieces.map((piece) => {
-                  // Find the corresponding drop zone position for this piece
-                  const dropZonePosition = dropZoneSpecifications.find(
-                    (zone) => zone.id === piece.id
-                  );
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0, delay: 0.5 }}
+                  transition={{ duration: 0.5 }} 
+                  className="base-image" 
+                >
+                  <div className="main-image">
+                    <img src={base} alt="Main" />
+                  </div>
+                </motion.div>
+                <div className="pieces-container">
+                  {pieces.map((piece) => {
+                    // Find the corresponding drop zone position for this piece
+                    const dropZonePosition = dropZoneSpecifications.find(
+                      (zone) => zone.id === piece.id
+                    );
 
-                  // Check if dropZonePosition is defined
-                  if (!dropZonePosition) {
-                    return null; // Avoid rendering if no position is found
-                  }
+                    // Check if dropZonePosition is defined
+                    if (!dropZonePosition) {
+                      return null; // Avoid rendering if no position is found
+                    }
 
-                  return (
-                    !completed[piece.id] && (
-                      <DraggablePiece
-                        key={piece.id}
-                        piece={piece}
-                        dropZonePosition={{
-                          top: dropZonePosition.top, // Correct starting position
-                          left: dropZonePosition.left,
-                        }}
-                      />
-                    )
-                  );
-                })}
-              </div>
-            </>
-          )}
+                    return (
+                      !completed[piece.id] && (
+                        <DraggablePiece
+                          key={piece.id}
+                          piece={piece}
+                          dropZonePosition={{
+                            top: dropZonePosition.top, // Correct starting position
+                            left: dropZonePosition.left,
+                          }}
+                        />
+                      )
+                    );
+                  })}
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </motion.div>
     // </DndProvider>
   );
 };

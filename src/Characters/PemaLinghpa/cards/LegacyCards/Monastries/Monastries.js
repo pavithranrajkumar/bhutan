@@ -21,6 +21,7 @@ const Monastries = ({ showIntro, language, onMonasteriesImgClick }) => {
             borderBottom="0.5px solid #001829"
             backgroundColor="#C9D7EE"
             color="#001829"
+            fontWeight="900"
             title={
               PEMA_LINGPA_INFORMATION[language].monastriesAndTemples.header
             }

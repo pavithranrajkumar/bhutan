@@ -64,7 +64,7 @@
   text-align: right;
 }
 
-.NaringDragBookImg {
+.NaringDragBookImg{
   position: fixed;
   top: 83.6%;
   left: 75.3%;
@@ -72,10 +72,21 @@
   height: 130px;
 }
 
-.burningLakeBookImg {
+.NaringDragBookImg img{
+  width: 100px;
+  height: 130px;
+}
+
+.burningLakeBookImg{
   position: fixed;
   top: 90.5%;
   left: 71%;
   width: 100px;
   height: 130px;
 }
+
+.burningLakeBookImg img{
+  width: 100px;
+  height: 130px;
+}
+

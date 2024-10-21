@@ -6,3 +6,8 @@
   left: 50.8%;
   cursor: pointer;
 }
+
+.PopularSchoolsImgCard img {
+  height: 450px;
+  width: 400px;
+}

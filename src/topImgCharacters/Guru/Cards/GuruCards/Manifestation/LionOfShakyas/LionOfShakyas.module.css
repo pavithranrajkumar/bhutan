@@ -5,7 +5,7 @@
 .manifestationGroupContainerImg {
   position: fixed;
   left: 27.1%;
-  top: 52%;
+  top: 83%;
   width: 210px;
   height: 300px;
   cursor: pointer;
@@ -18,13 +18,13 @@
 .manifestationFrstGroup {
   position: fixed;
   left: 21.6%;
-  top: 69%;
+  top: 89.5%;
 }
 
 .manifestationScndGroup {
   position: fixed;
   left: 32.7%;
-  top: 40%;
+  top: 79.5%;
 }
 
 .manifestationFrstGroup > div:nth-child(2) {

@@ -1,8 +1,13 @@
 .PalaceImg {
-  position: fixed;
-  top: 38%;
-  left: 31.1%;
-  width: 270px;
-  height: 250px;
   cursor: pointer;
+  position: fixed;
+  top: 60%;
+  left: 32.4%;
+  width: 200px;
+  height: 200px;
+}
+
+.PalaceImg img{
+  width: 200px;
+  height: 200px;
 }

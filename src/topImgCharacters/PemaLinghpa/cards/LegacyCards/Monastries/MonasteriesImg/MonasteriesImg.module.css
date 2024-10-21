@@ -1,0 +1,143 @@
+.MonasteriesImg1 img{
+  position: fixed;
+  left: 62.3%;
+  top: 70%;
+  width: 180px;
+  height: 180px;
+}
+
+.MonasteriesImg2 img{
+  position: fixed;
+  left: 66.3%;
+  top: 69%;
+  width: 100px;
+  height: 100px;
+}
+
+.MonasteriesImg3 img{
+  position: fixed;
+  left: 68.3%;
+  top: 71%;
+  width: 90px;
+  height: 80px;
+}
+
+.MonasteriesImg4 img{
+  position: fixed;
+  left: 70.1%;
+  top: 66.5%;
+  width: 120px;
+  height: 130px;
+}
+
+.MonasteriesImg5 img{
+  position: fixed;
+  left: 72.65%;
+  top: 71%;
+  width: 150px;
+  height: 150px;
+}
+
+.MonasteriesImg6 img{
+  position: fixed;
+  left: 66.4%;
+  top: 76.5%;
+  width: 130px;
+  height: 130px;
+}
+
+.MonasteriesImg7 img{
+  position: fixed;
+  left: 69.2%;
+  top: 76.5%;
+  width: 155px;
+  height: 160px;
+}
+
+.MonasteriesImg8 img{
+  position: fixed;
+  left: 72.6%;
+  top: 82.5%;
+  width: 100px;
+  height: 100px;
+}
+
+.palaceenlargedImg1 {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  left: 68%;
+  top: 70%;
+  width: 200px;
+  height: 220px;
+  border-left: 10px solid white; /* Left border */
+  border-right: 10px solid white; /* Right border */
+  border-top: 10px solid white; /* Top border */
+  border-bottom: 50px solid white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  z-index: 100;
+  overflow: visible;
+}
+
+.palaceenlargedImg1 img {
+  width: 200px;
+  height: 200px;
+  margin-top: -20px;
+  margin-left: -1px;
+  padding: 0;
+  display: block; /* Removes any inline spacing that could cause gaps */
+  border: none;
+  object-fit: cover;
+  z-index: 1;
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  top: -8px; /* Adjust as needed */
+  right: -4px; /* Adjust as needed */
+  background: none;
+  border: none;
+  font-size: 30px; /* Adjust size as needed */
+  color: white; /* Change color as needed */
+  cursor: pointer;
+  z-index: 10; /* Ensure it appears above other content */
+}
+
+.customPagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.dot {
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: width 0.3s, height 0.3s, background-color 0.3s;
+}
+
+.imageCount {
+  margin-left: 15px; /* Space between dots and count */
+  font-size: 14px; /* Adjust as needed */
+}
+
+.SmallPeilingCard {
+  cursor: pointer;
+  position: fixed;
+  background: #c9d7ee;
+  left: 75%;
+  top: 70%;
+  padding: 0.3vw;
+  width: 120px;
+}
+
+.SmallPeilingCardHeader {
+  font-family: "Josefin Sans";
+}
+
+.SmallPeilingCardTitle {
+  font-family: "Hammersmith One";
+}

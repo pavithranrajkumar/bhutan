@@ -18,6 +18,7 @@
 .HistoricCard,
 .ManifestationCard,
 .PalaceCard {
+  z-index: 30;
   display: flex; /* Enable flexbox for cards */
   align-items: center; /* Center text vertically */
   justify-content: center; /* Center text horizontally */
@@ -61,7 +62,7 @@
 .HistoricCard,
 .ManifestationCard,
 .PalaceCard > * {
-  z-index: 1; /* Ensure text stays on top of the background */
+  z-index: 30; /* Ensure text stays on top of the background */
 }
 
 /* Individual card styles */

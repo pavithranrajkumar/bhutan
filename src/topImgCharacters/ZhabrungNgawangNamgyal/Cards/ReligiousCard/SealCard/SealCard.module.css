@@ -1,0 +1,50 @@
+.sealImage {
+  position: fixed;
+  object-fit: fill;
+  top: 38.6%;
+  left: 90.8%;
+  width: 250px;
+  height: 250px;
+}
+
+.sealImage img {
+  width: 250px;
+  height: 250px;
+}
+
+.sealOfZhabdrungStatementCard {
+  position: fixed;
+  background: #2b455d;
+  color: white;
+  width: 320px;
+  height: 333px;
+  left: 82.6%;
+  top: 39.5%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+}
+
+.sealOfZhabdrungStatementCard p {
+  font-family: "Hammersmith One";
+  font-size: 9px;
+}
+
+.sealOfZhabdrungStatementCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/src/assests/BgImgs/CardBgImg.png"); /* Background image */
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  opacity: 0.15; /* Adjust opacity as needed */
+  z-index: 0; /* Ensure the background stays behind the content */
+}
+
+/* Ensure text content stays on top */
+.sealOfZhabdrungStatementCard > * {
+  z-index: 1; /* Content on top of the background */
+}
+

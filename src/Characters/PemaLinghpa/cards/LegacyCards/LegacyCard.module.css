@@ -40,13 +40,23 @@
   top: 81.8%;
   left: 72%;
   width: 140px;
-  height: 130px;
+  height: 105px;
 }
 
-.PelingDanceCardImg {
+.MonasteriesCardImg img{
+  width: 140px;
+  height: 105px;
+}
+
+.PelingDanceCardImg{
   position: fixed;
   top: 91.5%;
-  left: 74%;
+  left: 73%;
+  width: 160px;
+  height: 90px;
+}
+
+.PelingDanceCardImg img{
   width: 160px;
   height: 90px;
 }
@@ -60,7 +70,7 @@
   cursor: pointer;
   position: fixed;
   top: 91.5%;
-  left: 78.5%;
+  left: 77.3%;
   width: 100px;
   height: 90px;
 }

@@ -24,6 +24,8 @@
   height: 40px;
   top: 81%;
   left: 51%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+
 }
 
 .SchoolsCard {
@@ -35,8 +37,10 @@
   padding: 0.7vw;
   width: 160px;
   height: 30px;
-  top: 85.5%;
+  top: 85.4%;
   left: 52.7%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+
 }
 
 .cardsContainer {

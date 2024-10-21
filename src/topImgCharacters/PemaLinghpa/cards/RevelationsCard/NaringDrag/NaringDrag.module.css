@@ -1,5 +1,77 @@
-.NaringDragBookImg {
+.burningLakeBookImg {
   position: fixed;
-  left: 71.5%;
-  top: 52%;
+  left: 74.5%;
+  top: 66%;
+  width: 150px; /* Width of the book */
+  height: 200px; /* Height of the book */
 }
+
+.shimmerWrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: 100%; /* Matches the width of the book image */
+  height: 100%; /* Matches the height of the book image */
+}
+
+.bookImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.shimmer {
+  position: absolute;
+  top: 0;
+  left: -50%; /* Start shimmer from the left edge */
+  width: 150%; /* Match container width */
+  height: 92%; /* Match specified height */
+  border-radius: 15px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg); /* Skew for diagonal effect */
+  animation: shimmer 4s infinite ease-in-out; /* Increased duration for full cycle */
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) skewX(-20deg); /* Start off-screen on the left */
+  }
+  50% {
+    transform: translateX(200%) skewX(-20deg); /* Move to the right edge */
+  }
+  100% {
+    transform: translateX(-100%) skewX(-20deg); /* Move back to the left edge */
+  }
+}
+
+/* .shimmer {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: -5%;
+  width: 150%; 
+  height: 100%; 
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0) 100%); 
+  animation: shimmer 2s infinite;
+  z-index: 1;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) skewX(-20deg); 
+  }
+  100% {
+    transform: translateX(55%) skewX(-20deg); 
+  }
+  from {
+    background-position-x: 200%;
+  }
+  to {
+    background-position-x: -200%;
+  }
+} */

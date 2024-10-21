@@ -21,12 +21,9 @@
 }
 
 .tibetanImage {
-  position: fixed;
   top: 83.5%;
   left: 42%;
-  transform: translate(-50%, -60%);
-  z-index: 10;
-  margin: 0;
+  z-index: -1;
 }
 
 .tibetanImage img {

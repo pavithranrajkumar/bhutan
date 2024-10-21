@@ -30,9 +30,9 @@ const WideCard = ({
       onClick={onClick}
       initial="hidden" // Initial state
       animate="visible" // Animate to final state
-      exit={{ opacity: 0, transition: { duration: 2 }, delay:1.5 }}
+      exit={{ opacity: 0, transition: { duration: 2 }, delay: 1.5 }}
       variants={cardVariants} // Animation variants
-      transition={{ duration: 1.2, ease: "easeOut", delay:3 }} // Animation duration and easing
+      transition={{ duration: 1.2, ease: "easeOut", delay: 3 }} // Animation duration and easing
     >
       <div className={styles.WideCardTextContainer}>
         <div
@@ -48,6 +48,10 @@ const WideCard = ({
           {para}
         </div>
       </div>
+      <div
+        className={styles.shimmerEffect}
+        style={{ animationDelay: `${Math.random() * 2}s` }} // Random delay for staggered effect
+      />
     </motion.div>
   );
 };

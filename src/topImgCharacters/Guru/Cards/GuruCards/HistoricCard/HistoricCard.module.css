@@ -4,45 +4,49 @@
   color: #0c263b;
   font-family: "Hammersmith One";
   font-size: 15px;
-  left: 32.8%;
-  top: 41%;
+  left: 33.5%;
+  top: 58.8%;
   height: 80px;
   width: 190px;
   cursor: pointer;
+  overflow: hidden; /* Prevents overflow from background image */
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+
+/* Add background image to the card */
+.GuruHistoricCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/src/assests/BgImgs/CardBgImg.png"); /* Background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.25; /* Slight opacity for background */
+  z-index: 0; /* Ensure background is behind content */
+  pointer-events: none; /* Prevent interaction with background */
+}
+
+/* Ensure text content stays on top */
+.GuruHistoricCard > * {
+  z-index: 1; /* Text content on top */
 }
 
 .GuruHistoricCardImg {
   position: fixed;
-  left: 33%;
-  top: 48%;
-  height: 200px;
-  width: 190px;
+  left: 33.7%;
+  top: 63%;
+  z-index: 2; /* Ensure the image appears on top */
 }
 
-.slideIn {
-  animation: slideIn 0.8s ease-out forwards;
+.GuruHistoricCardImg img{
+  height: 190px;
+  width: 180px;
 }
 
-.fadeIn {
-  animation: fadeIn 1s ease-out forwards;
-}
 
-@keyframes slideIn {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}

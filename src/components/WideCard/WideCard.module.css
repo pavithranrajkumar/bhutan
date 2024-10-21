@@ -2,7 +2,7 @@
   cursor: pointer;
   background: #ffc571;
   color: #613900;
-  width: 260px;
+  width: 200px;
   height: 25px;
   padding: 0.1vw;
   margin-bottom: 5px;
@@ -11,6 +11,7 @@
   justify-content: center; /* Center text horizontally */
   position: relative; /* For positioning the background image */
   overflow: hidden; /* Prevent overflow */
+  transition: background 0.3s ease, color 0.3s ease; /* Smooth background and text color transition */
 }
 
 /* Background image for WideCard */
@@ -28,6 +29,7 @@
   opacity: 0.25; /* Background image opacity */
   z-index: 0; /* Ensure background stays behind content */
   pointer-events: none; /* Prevent interaction with the background */
+  transition: background-color 0.3s ease; 
 }
 
 /* Ensure the text content stays on top */
@@ -44,7 +46,7 @@
 }
 
 .WideCardPara {
-  font-size: 6.5px;
+  font-size: 14px;
 }
 
 .slideIn {
@@ -64,6 +66,36 @@
 
 /* Active card style */
 .activeCard {
-  background-color: #c87e12;
-  color: #fadfb6;
+  background-color: #c87e12; /* New active background color */
+  color: #fadfb6; /* New active text color */
+  transition: background-color 1s ease, color 1s ease; /* Smooth transition for active state */
 }
+
+.shimmerEffect {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0; /* Start from the left edge of the card */
+  width: 80%; /* Cover the entire width of the card */
+  height: 100%;
+  background: linear-gradient(
+    80deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 10s infinite ease-in-out; /* Adjust animation duration for a smoother effect */
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%); /* Start off-screen to the left */
+  }
+  50% {
+    transform: translateX(100%); /* Move to the right edge */
+  }
+  100% {
+    transform: translateX(-100%); /* Move back to the left edge */
+  }
+}
+

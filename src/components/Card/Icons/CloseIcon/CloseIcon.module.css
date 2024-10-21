@@ -6,6 +6,8 @@
   /* left: 64.5%;
     top: 95.5%; */
   cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+
 }
 
 .LanguageWhiteIcon {
@@ -16,6 +18,8 @@
   /* left: 64.5%;
     top: 95.5%; */
   cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+
 }
 
 .LanguageWhiteIcon::before {
@@ -29,7 +33,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: 1;
+  z-index: 100;
   opacity: 0.3;
   pointer-events: none;
 }
@@ -39,12 +43,12 @@
   width: 20px;
   height: 20px;
   cursor: pointer;
-  z-index: 2;
+  z-index: 200;
 }
 
 .HomeIconContainer {
   margin: 30px;
   cursor: pointer;
-  z-index: 1;
+  z-index: 100;
 }
 

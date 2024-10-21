@@ -21,18 +21,36 @@ import Administration from "./Cards/Administration/Administration";
 import DriglamCard from "./Cards/DriglamCard/DriglamCard";
 import SecrecyAtDeath from "./Cards/SecrecyAtDeath/SecrecyAtDeath";
 import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
+import CharacterAnimation from "../../CharacterAnimations/AnimationRender";
 
 const ZhabrungNgawangNamgyal = () => {
   const [language, setLanguage] = useState("english");
-  const [nameCardSubtitle, setNameCardSubtitle] = useState("");
   const [showIcons, setShowIcons] = useState(false);
   const [showYearText, setShowYearText] = useState(true);
   const [showCards, setShowCards] = useState(false);
-  const [isFadingOut, setIsFadingOut] = useState(false);
   const [showIntroduction, setShowIntroduction] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
   const [showSealOfZhabrung, setShowSealOfZhabrung] = useState(false);
   const [showTravellers, setShoTravellers] = useState(false);
+  const [languageChanging, setLanguageChanging] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (languageChanging) {
+        setIsVisible(false);
+
+        setTimeout(() => {
+          setLanguage((prevLanguage) =>
+            prevLanguage === "english" ? "bhutan" : "english"
+          );
+          setIsVisible(true);
+        }, 500);
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [languageChanging]);
 
   const toggleLanguage = () => {
     setLanguage((prevLanguage) => {
@@ -48,7 +66,6 @@ const ZhabrungNgawangNamgyal = () => {
     setSelectedCard(null);
     setShowSealOfZhabrung(false);
     setShoTravellers(false);
-    setShowYearText(true);
   };
 
   const resetState = () => {
@@ -58,14 +75,20 @@ const ZhabrungNgawangNamgyal = () => {
     setShowSealOfZhabrung(false);
     setShoTravellers(false);
     setShowYearText(true);
+    setLanguageChanging(true);
   };
 
   const handleCardOrImageClick = () => {
+    setLanguageChanging(false);
+    setIsVisible(true);
+    setLanguage(ENGLISH);
     if (showCards || selectedCard) {
       resetState();
+      setShowYearText(true);
     } else if (showIntroduction) {
       setShowIntroduction(false);
       setShowYearText(true);
+      setLanguageChanging(true);
     } else {
       setShowIntroduction(true);
       setShowIcons(true);
@@ -77,6 +100,7 @@ const ZhabrungNgawangNamgyal = () => {
     setShowCards(true);
     setShowIntroduction(false);
     setSelectedCard(null);
+    setShowYearText(false);
   };
 
   const handleCardClick = (cardName) => {
@@ -124,15 +148,6 @@ const ZhabrungNgawangNamgyal = () => {
     ? "#FCD7C2"
     : "white";
 
-  const fontSize =
-    language === BHUTAN
-      ? showCards || selectedCard || showIntroduction
-        ? "1.5rem"
-        : "15px"
-      : showCards || selectedCard || showIntroduction
-      ? "15px"
-      : "15px";
-
   useEffect(() => {
     if (selectedCard) {
       setShowIntroduction(false);
@@ -140,57 +155,56 @@ const ZhabrungNgawangNamgyal = () => {
   }, [selectedCard]);
 
   return (
-    <motion.div
-      className={styles.ZhabrungContainer}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1.6, ease: "easeOut" }}
-    >
-      {showYearText && (
-        <motion.div
-          className={styles.pemaText}
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <YearText BornYear="1594" Endyear="-1651" fontSize="118px" />
-        </motion.div>
-      )}
-      <motion.div
-        className={styles.ZhabrungImage}
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.4 }}
+    <div className={styles.ZhabrungContainer}>
+      <AnimatePresence>
+        {showYearText && (
+          <motion.div
+            className={styles.pemaText}
+            initial={false} // Prevent initial animation on first mount
+            exit={{ opacity: 0, x: 150 }} // Fade out on exit
+            transition={{ duration: 3 }} // Adjust the duration as needed
+          >
+            <YearText BornYear="1594" Endyear="-1651" fontSize="118px" />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <div className={styles.ZhabrungImage} onClick={handleCardOrImageClick}>
+        {/* <img src={Zhabrung} alt="Pema Lingpa" /> */}
+        <div className={styles.ZhabrungImage}>
+          <CharacterAnimation characterName="zhabdrung" />
+        </div>
+      </div>
+
+      <div
+        className={styles.NameCardContainer}
         onClick={handleCardOrImageClick}
       >
-        <img src={Zhabrung} alt="Pema Lingpa" />
-      </motion.div>
-      <motion.div
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.4 }}
-      >
-        <div
-          className={styles.NameCardContainer}
-          onClick={handleCardOrImageClick}
-        >
-          <NameCard
-            cardName={ZHABRUNG_INFORMATION[language].title}
-            width="250px"
-            height="110px"
-            paraSize="15px"
-            fontSize={language === BHUTAN ? "1.5rem" : "20px"}
-            year={
-              showCards || selectedCard || showIntroduction
-                ? "1594-1651"
-                : undefined
-            }
-            paraColor={nameCardColor}
-            background={nameCardBackground}
-            color={nameCardColor}
-          />
-        </div>
-      </motion.div>
+        <NameCard
+          cardName={
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: isVisible ? 1 : 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5 }}
+            >
+              {ZHABRUNG_INFORMATION[language].title}
+            </motion.div>
+          }
+          width="250px"
+          height="110px"
+          paraSize="15px"
+          fontSize={language === BHUTAN ? "1.5rem" : "20px"}
+          year={
+            showCards || selectedCard || showIntroduction
+              ? "1594-1651"
+              : undefined
+          }
+          paraColor={nameCardColor}
+          background={nameCardBackground}
+          color={nameCardColor}
+        />
+      </div>
 
       <AnimatePresence>
         {showIntroduction && (
@@ -242,11 +256,11 @@ const ZhabrungNgawangNamgyal = () => {
               showIcons={showIcons}
               background="#AA5018"
               left="85.2%"
-              top="79.3%"
+              top="81.8%"
             />
             <CloseIcon
-              left="85.3%"
-              top="82%"
+              left="84.5%"
+              top="77.8%"
               background="#AA5018"
               showIcons={showIcons}
               onClick={handleCardOrImageClick}
@@ -273,21 +287,21 @@ const ZhabrungNgawangNamgyal = () => {
                 onClick={toggleLanguage}
                 showIcons={showIcons}
                 left="81.6%"
-                top="84%"
+                top="81.5%"
                 height="65px"
                 background="#3A1701"
               />
               <HomeIcon
                 showIcons={showIcons}
                 left="81%"
-                top="80%"
+                top="77.5%"
                 background="#8F4110"
                 onClick={handleHomeClick}
               />
               <CloseIcon
                 showIcons={showIcons}
                 left="81%"
-                top="76%"
+                top="73.5%"
                 background="#8F4110"
                 onClick={handleCardOrImageClick}
               />
@@ -313,7 +327,7 @@ const ZhabrungNgawangNamgyal = () => {
               width="55px"
               margin="13px"
               left="88.1%"
-              top="81%"
+              top="80.8%"
               background="#3A1701"
             />
             <HomeIcon
@@ -346,13 +360,13 @@ const ZhabrungNgawangNamgyal = () => {
               showIcons={showIcons}
               whiteImage={true}
               left="81%"
-              top="82.5%"
+              top="82%"
             />
             <HomeIcon
               showIcons={showIcons}
               whiteImage={true}
               left="80.4%"
-              top="78.5%"
+              top="78%"
               onClick={handleHomeClick}
             />
             <PreviousIcon
@@ -360,13 +374,13 @@ const ZhabrungNgawangNamgyal = () => {
               showIcons={showIcons}
               whiteImage={true}
               left="80.4%"
-              top="74.5%"
+              top="74%"
               height="100px"
               marginTop="35px"
             />
             <CloseIcon
               left="80.4%"
-              top="70.5%"
+              top="70%"
               showIcons={showIcons}
               onClick={handleCardOrImageClick}
             />
@@ -490,7 +504,7 @@ const ZhabrungNgawangNamgyal = () => {
               language={language}
               onClick={toggleLanguage}
               showIcons={showIcons}
-              left="88.5%"
+              left="88.45%"
               top="80.3%"
             />
             <HomeIcon
@@ -549,7 +563,7 @@ const ZhabrungNgawangNamgyal = () => {
           </div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </div>
   );
 };
 

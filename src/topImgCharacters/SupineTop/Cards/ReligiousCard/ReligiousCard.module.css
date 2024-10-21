@@ -1,0 +1,74 @@
+.ReligiousImg {
+  position: fixed;
+  left: 6.6%;
+  top: 51%;
+  z-index: 2;
+}
+
+.ReligiousImg img {
+  z-index: 2;
+  width: 290px;
+  height: 230px;
+}
+
+.ReligiousCard {
+  display: flex;
+  position: fixed;
+  top: 43%;
+  left: 6.8%;
+  gap: 10px;
+}
+
+.HimalayanCard,
+.BhutanCard {
+  background: #384e63;
+  color: white;
+  padding: 0.3vw;
+  width: 100px;
+  height: 52px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.HimalayanCard::before,
+.BhutanCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/src/assests/BgImgs/CardBgImg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0; /* Ensure it's behind the content */
+  opacity: 0.18; /* Set the opacity of the background only */
+  pointer-events: none;
+}
+
+.HimalayanCardSecondtext,
+.HimalayanCardFirstText {
+  position: relative; /* Ensure text is above the background */
+  z-index: 1; /* Keeps text above the background */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.HimalayanCardSecondtext {
+  font-family: "Hammersmith One";
+  font-size: 15px;
+  z-index: 4;
+}
+
+.HimalayanCardFirstText {
+  font-family: "Josefin Sans";
+  font-size: 9px;
+  z-index: 4;
+}

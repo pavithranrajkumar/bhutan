@@ -4,6 +4,7 @@ import { TIBETAN_INFORMATION } from "../../../../../constants/Characters/Tibetan
 import DrukpaImg from "../../../../../assests/Tibetan/Drukpakagyu/DrukpaKagyu.png";
 import styles from "./DrukpaKagyu.module.css";
 import { BHUTAN } from "../../../../../constants/languages/Language";
+import { motion } from "framer-motion";
 
 const DrukpaKagyu = ({ showIntro, language, onDrugpaKagyuImgClick }) => {
   const [animate, setAnimate] = useState(false);
@@ -21,6 +22,7 @@ const DrukpaKagyu = ({ showIntro, language, onDrugpaKagyuImgClick }) => {
         <>
           <Card
             width="300px"
+            height="290px"
             titleFontSize={titleFontSize}
             contentFontSize={fonstSize}
             borderBottom="1px solid #001829"
@@ -32,12 +34,17 @@ const DrukpaKagyu = ({ showIntro, language, onDrugpaKagyuImgClick }) => {
             showIntro={showIntro}
           />
           <div
-            className={`${styles.DrukpaKagyuImgCard} ${
-              animate ? styles.fadeIn : ""
-            }`}
+            className={styles.DrukpaKagyuImgCard}
             onClick={onDrugpaKagyuImgClick}
           >
-            <img src={DrukpaImg} alt="popularImg" />
+            <motion.img
+              src={DrukpaImg}
+              alt="monastriesAndTemplesImg"
+              initial={{ opacity: 0 }} // Initial state
+              animate={{ opacity: 1 }} // Animation state
+              transition={{ duration: 5.5, delay: 1 }}
+              exit={{ opacity: 0, transition: { duration: 2 } }}
+            />
           </div>
         </>
       )}

@@ -8,11 +8,13 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  left: 90%;
-  top: 73.5%;
-  height: 100px;
-  width: 150px;
+  left: 89.7%;
+  top: 73%;
+  height: 110px;
+  width: 160px;
   overflow: hidden; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+
 }
 
 

@@ -1,76 +1,40 @@
-html,
-body {
-  margin: 0;
-  height: 100vh;
-}
-
 .main-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  position: fixed;
   width: 100%;
-}
-
-.main-content {
-  padding: 160px;
+  height: 100vh;
+  background-color: #98d8d8; /* Fallback color for when video doesn't load */
+  overflow: hidden;
 }
 
 .image-container {
-  position: sticky;
-  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.upside-down {
+  transform: rotate(180deg); /* Flip the top container */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.bottom-image-container {
-  position: sticky;
-  z-index: 0;
-}
-
-.image-container img {
+.background-video {
+  position: fixed; /* Change to absolute for better control */
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
+  z-index: -1; /* Ensure video stays behind other elements */
 }
 
-.upside-down {
-  transform: rotate(180deg);
-}
-
-.main-content-Header {
-  color: white;
-  font-family: "Josefin Sans";
-  font-size: 100px;
-}
-
-.horizontal-line1 {
+.PemaLinghpa{
   position: fixed;
-  top: 40%;
-  left: 0.1%;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 5px;
-  background-color: white;
-}
-
-.horizontal-line2 {
-  top: 60%;
-  left: 0.1%;
-  position: fixed;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 5px;
-  background-color: white;
-}
-
-.background-video {
-  position: absolute; /* Position it absolutely */
-  top: 0; /* Align it to the top */
-  left: 0; /* Align it to the left */
-  width: 100%; /* Cover the full width */
-  height: 100%; /* Cover the full height */
-  object-fit: cover; /* Ensure the video covers the area without distortion */
-  z-index: -1; /* Place it behind other content */
+  top: 50%;
+  background-color: red;
 }

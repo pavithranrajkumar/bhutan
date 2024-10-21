@@ -2,80 +2,50 @@
   position: fixed;
   left: 74%;
   top: 83.3%;
-  perspective: 1000px; /* Enable 3D perspective */
+  width: 150px; /* Width of the book */
+  height: 200px; /* Height of the book */
 }
 
-/* Fade-out effect class */
-.fadeOut {
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+.shimmerWrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: 100%; /* Matches the width of the book image */
+  height: 100%; /* Matches the height of the book image */
 }
 
-/* Container for the book */
-.book {
-  perspective: 1000px; /* Provides depth for the 3D effect */
+.bookImage {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
-/* Styles for the front cover of the book */
-.frontCover {
-  transform-style: preserve-3d;
-  animation: rotate 5s infinite linear; /* Infinite rotation animation */
-  position: relative; /* Required for the absolute positioning of the shine effect */
-  overflow: hidden; /* Ensure shine does not overflow the edges of the book cover */
-}
-
-/* Keyframes for the continuous 3D rotation */
-/* @keyframes rotate {
-  0% {
-    transform: rotateY(0deg) rotateX(0deg); 
-  }
-  25% {
-    transform: rotateY(15deg) rotateX(5deg);
-  }
-  50% {
-    transform: rotateY(30deg) rotateX(0deg); 
-  }
-  75% {
-    transform: rotateY(15deg) rotateX(-5deg); 
-  }
-  100% {
-    transform: rotateY(0deg) rotateX(0deg);
-  }
-} */
-
-.shine {
-  content: "";
+.shimmer {
   position: absolute;
   top: 0;
-  left: -100%; /* Start off-screen to the left */
-  width: 8%; /* Make it wide enough to cover the entire cover */
-  height: 90%;
-  border-radius: 2px;
+  left: -50%; /* Start shimmer from the left edge */
+  width: 150%; /* Match container width */
+  height: 92%; /* Match specified height */
+  border-radius: 15px;
   background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.3),
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.3)
-  ); /* Gradient for shine */
-  animation: shine 5s linear infinite; /* Continuous shine animation */
-  z-index: 1; /* Place above the book cover image */
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg); /* Skew for diagonal effect */
+  animation: shimmer 4s infinite ease-in-out; /* Increased duration for full cycle */
 }
 
-/* Keyframes for the shine effect */
-@keyframes shine {
+@keyframes shimmer {
   0% {
-    left: -100%; /* Start off-screen to the left */
+    transform: translateX(-100%) skewX(-20deg); /* Start off-screen on the left */
   }
   50% {
-    left: 100%; /* Move to the right edge */
+    transform: translateX(200%) skewX(-20deg); /* Move to the right edge */
   }
   100% {
-    left: -100%; /* Move back to the left */
+    transform: translateX(-100%) skewX(-20deg); /* Move back to the left edge */
   }
 }
-/* Styles for the book cover image */
-.frontCover img {
-  border-radius: 10px; /* Slight rounding for a modern look */
-  position: relative; /* Position for layering */
-  z-index: 0; /* Ensure the image is below the shine effect */
-}
+

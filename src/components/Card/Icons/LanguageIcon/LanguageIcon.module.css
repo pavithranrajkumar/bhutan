@@ -6,7 +6,8 @@
   left: 64.5%;
   top: 95.5%;
   cursor: pointer;
-  z-index: 1; /* Ensure the LanguageIcon is below the img */
+  z-index: 100; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
 }
 
 .LanguageIcon::before,
@@ -21,7 +22,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: 1; /* Make sure the background image is behind the content */
+  z-index: 100; /* Make sure the background image is behind the content */
   opacity: 0.3;
   pointer-events: none; /* This makes the pseudo-element not respond to mouse events */
 }
@@ -34,14 +35,15 @@
   left: 64.5%;
   top: 95.5%;
   cursor: pointer;
-  z-index: 2; /* Ensure this icon is above everything else */
+  z-index: 200;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
 }
 
 .LanguageIconContainer {
   position: relative; /* Change to relative positioning */
   margin: 13px;
   cursor: pointer;
-  z-index: 3; /* Ensure this is above the LanguageIcon */
+  z-index: 300; /* Ensure this is above the LanguageIcon */
 }
 
 .LanguageIconContainer img {
@@ -49,5 +51,5 @@
   height: 25px;
   cursor: pointer;
   position: relative; /* Ensure the image stays above the background */
-  z-index: 4; /* Make sure the image is on top */
+  z-index: 400; /* Make sure the image is on top */
 }

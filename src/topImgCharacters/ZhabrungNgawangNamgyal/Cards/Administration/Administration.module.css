@@ -1,0 +1,13 @@
+.BhutanGovLogo {
+  object-fit: fill;
+  position: fixed;
+  left: 83%;
+  top:52%;
+  height: 270px;
+  width: 280px;
+}
+
+.BhutanGovLogo img {
+  height: 270px;
+  width: 280px;
+}

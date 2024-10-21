@@ -79,7 +79,7 @@ const CloseIcon = ({
           originX: 1,
         }}
         transition={{ duration: 1.5, ease: "easeOut", delay: 1 }} // Start fade immediately
-        exit={{ scaleX: 0, opacity: 0, transition: { duration: 2 } }}
+        exit={{ scaleX: 0, opacity: 0, transition: { duration: 1 } }}
       >
         <motion.div
           initial={{ opacity: 0 }} // Start with the icon invisible

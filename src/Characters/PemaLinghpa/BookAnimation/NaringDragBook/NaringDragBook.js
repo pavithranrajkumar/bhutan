@@ -3,11 +3,16 @@ import { motion } from "framer-motion";
 import HTMLFlipBook from "react-pageflip";
 import styles from "./NaringDragBook.module.css";
 import coverIgm from "../../../../assests/PemaLingpa/Revelations/NaringDrag.png";
-import NarinDragBookImg2 from "../../../../assests/PemaLingpa/NaringDragBook/NaringDragBook1.png";
+import NarinDragBookImg2 from "../../../../assests/BookPages/NaringDragComicBook/Comic Pg 1.png";
 import NarinDragBookImg1 from "../../../../assests/PemaLingpa/Revelations/NaringDrag.png";
-import NarinDragBookImg3 from "../../../../assests/PemaLingpa/NaringDragBook/NaringDragBook3.png";
-import NarinDragBookImg4 from "../../../../assests/PemaLingpa/NaringDragBook/NaringDragBook4.png";
-import NarinDragBookImg5 from "../../../../assests/PemaLingpa/NaringDragBook/NaringDragImg5.png";
+import NarinDragBookImg3 from "../../../../assests/BookPages/NaringDragComicBook/Comic Pg 15.png";
+import NarinDragBookImg4 from "../../../../assests/BookPages/NaringDragComicBook/Comic Pg 17.png";
+import NarinDragBookImg5 from "../../../../assests/BookPages/NaringDragComicBook/Comic Pg 16.png";
+import NarinDragBookImg6 from "../../../../assests/BookPages/NaringDragComicBook/Comic Pg 7.png";
+import NarinDragBookImg7 from "../../../../assests/BookPages/NaringDragComicBook/Comic Pg 8.png";
+import NarinDragBookImg8 from "../../../../assests/BookPages/NaringDragComicBook/Comic Pg 9.png";
+import NarinDragBookImg9 from "../../../../assests/BookPages/NaringDragComicBook/Comic Pg 11.png";
+
 import { PEMA_LINGPA_INFORMATION } from "../../../../constants/Characters/PremaLingpa";
 import { BHUTAN } from "../../../../constants/languages/Language";
 
@@ -43,7 +48,7 @@ const NaringDragBook = ({ language, onBurningLakeAnimationCardClick }) => {
           height={250}
           className={styles.flipBook}
           maxShadowOpacity={0}
-          startPage={7}
+          startPage={11}
         >
           <div className={styles.transparentPage}>
             <img src={coverIgm} alt="Comic Book Cover" />
@@ -62,6 +67,18 @@ const NaringDragBook = ({ language, onBurningLakeAnimationCardClick }) => {
           </div>
           <div className={styles.page}>
             <img src={NarinDragBookImg5} alt="Inner Right Page" />
+          </div>
+          <div className={styles.page}>
+            <img src={NarinDragBookImg6} alt="Inner Right Page" />
+          </div>
+          <div className={styles.page}>
+            <img src={NarinDragBookImg7} alt="Inner Right Page" />
+          </div>
+          <div className={styles.page}>
+            <img src={NarinDragBookImg8} alt="Inner Right Page" />
+          </div>
+          <div className={styles.page}>
+            <img src={NarinDragBookImg9} alt="Inner Right Page" />
           </div>
           <div className={styles.page}>
             <img src={NarinDragBookImg1} alt="Comic Book Cover" />

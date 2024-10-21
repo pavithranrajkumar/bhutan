@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence, delay } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import styles from "./PemaLinghpa.module.css";
 import CloseIcon from "../../components/Card/Icons/CloseIcon/CloseIcon";
 import NameCard from "../../components/NameCard/NameCard";
@@ -22,19 +22,17 @@ import PreviousIcon from "../../components/Card/Icons/PreviousIcon/PreviousIcon"
 import Monastries from "./cards/LegacyCards/Monastries/Monastries";
 import PelingDance from "./cards/LegacyCards/PelingDance/PelingDance";
 import video1 from "../../assests/PemaLingpa/Legacy/PelingVideos/PelingMaskDance.mp4";
-
 import { PEMA_LINGPA_INFORMATION } from "../../constants/Characters/PremaLingpa";
-import PelingDanceVideo from "../../assests/PemaLingpa/Legacy/PelingDanceCard.png";
 import { BHUTAN, ENGLISH } from "../../constants/languages/Language";
 import MonasteriesImg from "./cards/LegacyCards/Monastries/MonasteriesImg/MonasteriesImg";
+import CharacterAnimation from "../../CharacterAnimations/AnimationRender";
 
 const PemaLinghpa = () => {
   const [showYearText, setShowYearText] = useState(true);
   const [showCards, setShowCards] = useState(false);
-  const [isFadingOut, setIsFadingOut] = useState(false);
   const [showIntroduction, setShowIntroduction] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
-  const [language, setLanguage] = useState("english");
+  const [language, setLanguage] = useState(ENGLISH);
   const [showIcons, setShowIcons] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [showNaringDragCard, setShowNaringDragCard] = useState(false);
@@ -46,6 +44,26 @@ const PemaLinghpa = () => {
   const [showMonasteriesImgCard, setShowMonasteriesImgCard] = useState(false);
   const [showPelingdanceImgs, setShowPelingdanceImgs] = useState(false);
   const [enlargedImage, setEnlargedImage] = useState(null);
+  const [languageChanging, setLanguageChanging] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (languageChanging) {
+        setIsVisible(false); 
+
+        setTimeout(() => {
+          setLanguage((prevLanguage) =>
+            prevLanguage === "english" ? "bhutan" : "english"
+          );
+          setIsVisible(true); 
+        }, 500); 
+      }
+    }, 5000); 
+
+    return () => clearInterval(interval);
+  }, [languageChanging]);
+
 
   const toggleLanguage = () => {
     setLanguage((prevLanguage) => {
@@ -56,7 +74,9 @@ const PemaLinghpa = () => {
   };
 
   const handleCardOrImageClick = () => {
-    console.log("Card or Image Clicked");
+    setLanguageChanging(false);
+    setIsVisible(true);
+    setLanguage(ENGLISH);
     if (
       showCards ||
       selectedCard ||
@@ -76,6 +96,7 @@ const PemaLinghpa = () => {
     } else if (showIntroduction) {
       setShowIntroduction(false);
       setShowYearText(true);
+      setLanguageChanging(true);
       setIsActive(false);
     } else {
       setShowYearText(false);
@@ -86,8 +107,6 @@ const PemaLinghpa = () => {
   };
 
   const resetView = () => {
-    console.log("Resetting View");
-
     setShowCards(false);
     setSelectedCard(null);
     setShowNaringDragCard(false);
@@ -100,6 +119,7 @@ const PemaLinghpa = () => {
     setShowPelingdanceImgs(false);
     setEnlargedImage(false);
     setShowYearText(true);
+    setLanguageChanging(true);
   };
 
   const handleShowCards = () => {
@@ -135,12 +155,12 @@ const PemaLinghpa = () => {
 
   const handleBurningLakeAnimationCardClick = () => {
     setShowNaringDragBookImg(false);
-    setShowNaringDragCard(true);
+    setShowBurningLakeCard(true);
   };
 
   const handleNaringDragAnimationCardClick = () => {
     setShowBurningLakeBookImg(false);
-    setShowBurningLakeCard(true);
+    setShowNaringDragCard(true);
   };
 
   const handleOpenMonasteriesCard = () => {
@@ -248,7 +268,7 @@ const PemaLinghpa = () => {
 
   const cardNameFontSize = language === BHUTAN ? "1.5rem" : "1.25rem";
   const subCardnameFontSize = language === BHUTAN ? "1.5rem" : "1.25rem";
-  const subCardnameMarginLeft = language === BHUTAN ? "10.1rem" : "12.2rem";
+  const subCardnameMarginLeft = language === BHUTAN ? "10.1rem" : "10.3rem";
   const showYear =
     showCards ||
     selectedCard ||
@@ -262,33 +282,15 @@ const PemaLinghpa = () => {
     showPelingDanceCard ||
     showPelingdanceImgs;
 
-
-  const textVariants = {
-    hidden: { opacity: 0, y: -20 }, // Start hidden and above
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.42, 0, 0.58, 1], // Smooth easing
-      },
-    },
-    exit: {
-      opacity: 0,
-      y: -20, // Move up when exiting
-      transition: { duration: 0.5, ease: "easeIn" },
-    },
-  };
-
   return (
     <div className={styles.pemaContainer}>
       <AnimatePresence>
         {showYearText && (
           <motion.div
             className={styles.pemaText}
-            initial={false} // Prevent initial animation on first mount
-            exit={{ opacity: 0, x: 150 }} // Fade out on exit
-            transition={{ duration: 3 }} // Adjust the duration as needed
+            initial={false}
+            exit={{ opacity: 0, x: 150 }}
+            transition={{ duration: 3 }}
           >
             <YearText
               BornYear="1450"
@@ -301,7 +303,10 @@ const PemaLinghpa = () => {
       </AnimatePresence>
 
       <div className={styles.pemaImage} onClick={handleCardOrImageClick}>
-        <img src={Pema} alt="" />
+        {/* <img src={Pema} alt="" /> */}
+        <div className={styles.pemaImage}>
+          <CharacterAnimation characterName="pema" />
+        </div>
       </div>
 
       <div
@@ -311,34 +316,29 @@ const PemaLinghpa = () => {
         <NameCard
           cardName={
             <motion.div
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              variants={textVariants}
-              style={{ fontSize: cardNameFontSize }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: isVisible ? 1 : 0 }}
+              transition={{ duration: 2.5 }}
             >
               {PEMA_LINGPA_INFORMATION[language].nameCardtitle}
             </motion.div>
           }
           subCardname={
             <motion.div
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              variants={textVariants}
-              style={{ fontSize: subCardnameFontSize }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: isVisible ? 1 : 0 }}
+              transition={{ duration: 2.5 }}
             >
               {PEMA_LINGPA_INFORMATION[language].nameCardtitleTwo}
             </motion.div>
           }
-          width="310px"
+          width="280px"
           height="100px"
           year={
             showYear ? (
               <motion.div
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+                animate={{ opacity: isVisible ? 1 : 0 }}
                 transition={{ duration: 2.5 }}
               >
                 1450 - 1521
@@ -436,7 +436,7 @@ const PemaLinghpa = () => {
                 showIcons={showIcons}
                 language={language}
                 left="64.45%"
-                top="92.5%"
+                top="91.8%"
                 iconWidth="25px"
                 IconHeight="25px"
                 height="48px"
@@ -447,7 +447,7 @@ const PemaLinghpa = () => {
               <HomeIcon
                 showIcons={showIcons}
                 left="63.8%"
-                top="88.5%"
+                top="87.8%"
                 background="#6A1F11"
                 onClick={handleHomeClick}
               />
@@ -466,7 +466,7 @@ const PemaLinghpa = () => {
               <CloseIcon
                 showIcons={showIcons}
                 left="63.8%"
-                top="84.5%"
+                top="83.8%"
                 background="#6A1F11"
                 onClick={handleCardOrImageClick}
               />
@@ -474,6 +474,7 @@ const PemaLinghpa = () => {
           </>
         )}
       </AnimatePresence>
+
       <AnimatePresence>
         {selectedCard === "lineage" && (
           <>
@@ -525,6 +526,7 @@ const PemaLinghpa = () => {
           </>
         )}
       </AnimatePresence>
+
       <AnimatePresence>
         {selectedCard === "revelations" && (
           <>
@@ -568,6 +570,7 @@ const PemaLinghpa = () => {
           </>
         )}
       </AnimatePresence>
+
       <AnimatePresence>
         {selectedCard === "legacy" && (
           <>
@@ -807,13 +810,13 @@ const PemaLinghpa = () => {
               onClick={toggleLanguage}
               showIcons={showIcons}
               left="62.35%"
-              top="96%"
+              top="95.5%"
               whiteImage={true}
             />
             <HomeIcon
               showIcons={showIcons}
               left="61.7%"
-              top="92%"
+              top="91.5%"
               height="70px"
               width="80px"
               margin="25px"
@@ -824,14 +827,14 @@ const PemaLinghpa = () => {
               onClick={handlePreviousClick}
               showIcons={showIcons}
               left="61.7%"
-              top="88%"
+              top="87.5%"
               height="100px"
               marginTop="35px"
             />
             <CloseIcon
               showIcons={showIcons}
               left="61.7%"
-              top="84%"
+              top="83.5%"
               onClick={handleCardOrImageClick}
             />
           </>
@@ -1038,7 +1041,7 @@ const PemaLinghpa = () => {
             <HomeIcon
               showIcons={showIcons}
               left="62.8%"
-              top="92.1%"
+              top="92%"
               height="70px"
               width="80px"
               margin="25px"
@@ -1049,14 +1052,14 @@ const PemaLinghpa = () => {
               onClick={handlePreviousClick}
               showIcons={showIcons}
               left="62.8%"
-              top="88.2%"
+              top="88%"
               height="100px"
               marginTop="40px"
             />
             <CloseIcon
               showIcons={showIcons}
               left="62.8%"
-              top="84.3%"
+              top="84%"
               onClick={handleCardOrImageClick}
             />
           </>

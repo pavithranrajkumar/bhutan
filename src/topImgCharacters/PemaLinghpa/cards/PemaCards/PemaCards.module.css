@@ -1,14 +1,48 @@
+/* PemaCards.module.css */
 .cardsContainer {
   position: fixed;
   display: flex;
   flex-direction: column;
+  overflow: hidden; /* Prevent overflow of the background image */
+  position: relative;
+}
+
+@keyframes backgroundLoop {
+  0% {
+    background-position: 0% 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
+}
+
+.HistoricCard::before,
+.LineageCard::before,
+.LegacyCard::before,
+.RevelationsCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/src/assests/BgImgs/CardBgImg.png");
+  background-size: 200% 100%;
+  animation: backgroundLoop 10s ease-in-out infinite;
+  opacity: 0.2; 
+  z-index: -1; 
 }
 
 .CardsContainerText {
   font-family: "Hammersmith One";
   font-size: 20px;
-  font-weight: 100;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
 }
 
 .HistoricCard,
@@ -19,6 +53,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transform-origin: left; 
+
 }
 
 .HistoricCard {
@@ -27,48 +63,54 @@
   position: fixed;
   background: #cd5a33;
   color: #ffd9bc;
-  padding: 0.4vw;
   width: 180px;
-  height: 100px;
-  left: 64.5%;
-  top: 55%;
+  height: 80px;
+  left: 67.5%;
+  top: 66.8%;
+  padding: 0.15vw;
 }
 
 .LineageCard {
-  font-weight: 700;
   position: fixed;
   background: #9c3d22;
   color: #ffd9bc;
-  padding: 0.6vw;
-  top: 60%;
-  left: 70.1%;
-  height: 50px;
-  width: 125px;
+  padding: 0.2vw;
+  top: 66.8%;
+  left: 72.6%;
+  height: 55px;
+  width: 90px;
   cursor: pointer;
 }
 
 .RevelationsCard {
-  width: 250px;
-  padding: 0.3vw;
   position: fixed;
   background: #9c3d22;
   color: #ffd9bc;
   cursor: pointer;
-  left: 65.8%;
-  height: 115px;
-  width: 230px;
-  top: 74%;
+  left: 68%;
+  height: 80px;
+  width: 190px;
+  padding: 0.2vw;
+  top: 76%;
 }
 
 .LegacyCard {
   position: fixed;
-  font-weight: 700;
   background: #cd5a33;
   color: #ffd9bc;
-  padding: 0.5vw;
+  padding: 0.1vw;
   cursor: pointer;
-  top: 74%;
-  left: 72.5%;
-  width: 120px;
+  top:76%;
+  left: 73.5%;
+  width: 100px;
   height: 60px;
+}
+
+.VerticalLine {
+  width: 2px; /* Adjust width to your preference */
+  background-color: black; /* Change color if needed */
+  position: absolute; /* Position it as necessary */
+  left: 50%; /* Center it horizontally */
+  top: 0; /* Start from the top */
+  transition: height 0.5s ease-out; /* Smooth transition for height */
 }
