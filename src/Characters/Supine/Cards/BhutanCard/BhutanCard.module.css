@@ -18,7 +18,7 @@
   background: #e5e7d5;
   color: #3c3e29;
   font-family: "Hammersmith One";
-  font-size: 25px;
+  font-size: 15px;
 }
 
 .JamBayCard::before,
@@ -38,10 +38,12 @@
   pointer-events: none; /* Prevent interaction with the background */
 }
 
-.JamBayImg img ,
-.KyichuImg img{
+.JamBayImg,
+.KyichuImg {
   position: fixed;
   z-index: 1;
+  width: 120px;
+  height: 120px;
 }
 
 .JamBayImg img,
@@ -59,12 +61,12 @@
   text-align: right;
 }
 
-.JamBayImg img{
+.JamBayImg{
   left: 10.5%;
   top: 75%;
 }
 
-.KyichuImg img{
+.KyichuImg{
   left: 7%;
   top: 81.5%;
 }

@@ -25,6 +25,7 @@
   position: fixed;
   left: 13.2%;
   top: 90%;
+  z-index: -1;
 }
 
 .SupineIntroCard {
@@ -44,30 +45,37 @@
   position: fixed;
   left: 14%;
   top: 76.8%;
+  z-index: -1;
 }
 
 .HimalayanCard {
   position: fixed;
   left: 13.8%;
   top: 76.8%;
+  z-index: -1;
 }
 
 .BhutanCard {
   position: fixed;
   left: 14%;
   top: 75%;
+  z-index: -1;
 }
 
 .JamBayCard {
   position: fixed;
   left: 4.4%;
   top: 70%;
+  z-index: -1;
+
 }
 
 .KyichuCard {
   position: fixed;
   left: 4.4%;
   top: 72.5%;
+  z-index: -1;
+
 }
 
 .JamBayImages {

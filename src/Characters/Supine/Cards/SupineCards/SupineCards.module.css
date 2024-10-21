@@ -1,7 +1,7 @@
 .cardsContainer {
   position: fixed;
   left: 13.8%;
-  top: 84%;
+  top: 83%;
 }
 
 .ReligiousCard::before {

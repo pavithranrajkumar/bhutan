@@ -28,7 +28,7 @@ const styleRenderMap = {
     width: "600px",
     height: "450px",
     position: "fixed",
-    zIndex: "1",
+    zIndex: "0",
     background: "transparent",
   },
   rinpoche: {

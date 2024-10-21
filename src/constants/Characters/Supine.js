@@ -156,11 +156,11 @@ export const SUPINE_INFORMATION = {
     },
     jambayName: {
       header: "བྱམས་པ་ལྷ་ཁང་།",
-      title: "བྱམས་པ་ལྷ་ཁང་།",
+      title: "",
     },
     kyichuName: {
       header: "སྐྱིད་ཆུ་ལྷ་ཁང་།",
-      title: "སྐྱིད་ཆུ་ལྷ་ཁང་།",
+      title: "",
     },
     puzzles: {
       rightKnee: {

@@ -145,7 +145,7 @@ const BhutanCard = ({ showIntro, language, onJamBayClick, onKyichuClick }) => {
                 }}
                 exit={{ opacity: 0, transition: { duration: 2 } }}
               >
-                <img src={Jambay} alt="NaringDragBookImg" />
+                <img src={Jambay} alt="" />
               </motion.div>
             </div>
 
